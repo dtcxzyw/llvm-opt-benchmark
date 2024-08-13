@@ -2220,7 +2220,7 @@ bullet3/btStridingMeshInterface.ll 284173541
 bullet3/btSubSimplexConvexCast.ll 166489928
 bullet3/btTetrahedronShape.ll 111176569
 bullet3/btThreads.ll 79872304
-bullet3/btTriangleBuffer.ll 90667688
+bullet3/btTriangleBuffer.ll 90758472
 bullet3/btTriangleIndexVertexArray.ll 124093365
 bullet3/btTriangleIndexVertexMaterialArray.ll 114387074
 bullet3/btTriangleMesh.ll 381725565
@@ -14167,7 +14167,7 @@ linux/pata_amd.ll 139570326
 linux/pause.ll 78941649
 linux/pcc.ll 183049134
 linux/pci-acpi.ll 302323480
-linux/pci-dma.ll 77136639
+linux/pci-dma.ll 77213937
 linux/pci-driver.ll 405317146
 linux/pci-label.ll 87402307
 linux/pci-me.ll 91730516
@@ -20717,7 +20717,7 @@ openjdk/CRC32.ll 42201592
 openjdk/CUPSfuncs.ll 198100859
 openjdk/CfgFile.ll 1082107233
 openjdk/CgroupMetrics.ll 39561268
-openjdk/Class.ll 58217828
+openjdk/Class.ll 58276055
 openjdk/ClassLoader.ll 88763884
 openjdk/ClassLoaderReferenceImpl.ll 48175425
 openjdk/ClassLoadingImpl.ll 34799189
@@ -20852,7 +20852,7 @@ openjdk/OGLBufImgOps.ll 140779117
 openjdk/OGLContext.ll 165059105
 openjdk/OGLFuncs.ll 152019257
 openjdk/OGLMaskBlit.ll 45066219
-openjdk/OGLMaskFill.ll 70003724
+openjdk/OGLMaskFill.ll 70073915
 openjdk/OGLPaints.ll 130432750
 openjdk/OGLRenderQueue.ll 475828688
 openjdk/OGLRenderer.ll 149576596
@@ -25314,7 +25314,7 @@ openssl/libcrypto-shlib-p12_utl.ll 148572986
 openssl/libcrypto-shlib-p5_crpt.ll 60632275
 openssl/libcrypto-shlib-p5_crpt2.ll 86153992
 openssl/libcrypto-shlib-p5_pbe.ll 59759288
-openssl/libcrypto-shlib-p8_pkey.ll 56806944
+openssl/libcrypto-shlib-p8_pkey.ll 56863790
 openssl/libcrypto-shlib-p_legacy.ll 51793587
 openssl/libcrypto-shlib-p_lib.ll 618592560
 openssl/libcrypto-shlib-p_open.ll 46909616
@@ -35709,7 +35709,7 @@ wireshark/packet-nrppa.c.ll 1318000171
 wireshark/packet-ns-mep.c.ll 234139812
 wireshark/packet-ns-rpc.c.ll 115148862
 wireshark/packet-nsip.c.ll 275041600
-wireshark/packet-nt-tpcp.c.ll 52959828
+wireshark/packet-nt-tpcp.c.ll 53012832
 wireshark/packet-ntlmssp.c.ll 635379741
 wireshark/packet-ntp.c.ll 743710959
 wireshark/packet-nv.c.ll 66836264
