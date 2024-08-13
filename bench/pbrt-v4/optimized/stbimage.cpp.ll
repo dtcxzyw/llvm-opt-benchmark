@@ -10735,8 +10735,6 @@ _ZL19stbi__refill_bufferP13stbi__context.exit.i213: ; preds = %if.else.i.i209, %
   %67 = phi i8 [ 0, %if.then.i.i217 ], [ %.pre.i212, %if.else.i.i209 ]
   %add.ptr12.sink.i.i214 = phi ptr [ %add.ptr.i.i218, %if.then.i.i217 ], [ %add.ptr12.i.i211, %if.else.i.i209 ]
   store ptr %add.ptr12.sink.i.i214, ptr %img_buffer_end.i, align 8
-  %incdec.ptr4.i215 = getelementptr inbounds i8, ptr %s, i64 57
-  store ptr %incdec.ptr4.i215, ptr %img_buffer.i, align 8
   br label %_ZL10stbi__get8P13stbi__context.exit221
 
 _ZL10stbi__get8P13stbi__context.exit221:          ; preds = %if.then.i219, %if.end.i192, %_ZL19stbi__refill_bufferP13stbi__context.exit.i213

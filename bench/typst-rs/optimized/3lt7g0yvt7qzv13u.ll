@@ -2248,6 +2248,7 @@ _ZN4core4hash6Hasher11write_isize17h31b2ca79545bf87fE.exit13.i.i.i.i.i: ; preds 
   %200 = load i8, ptr %199, align 8, !range !461, !alias.scope !404, !noalias !409, !noundef !8
   %201 = zext nneg i8 %200 to i64
   %202 = add i64 %198, 1
+  store i64 %202, ptr %.sroa.9.0..sroa_idx, align 8, !alias.scope !462, !noalias !417
   %203 = sub i64 8, %197
   %204 = shl i64 %197, 3
   %205 = and i64 %204, 56
@@ -2844,6 +2845,7 @@ _ZN4core4hash6Hasher11write_isize17h31b2ca79545bf87fE.exit31.i.i.i.i.i: ; preds 
   %583 = add i64 %550, -7
   %584 = shl nuw nsw i64 %556, 3
   %585 = lshr i64 %554, %584
+  store i64 %585, ptr %.sroa.10.0..sroa_idx, align 8, !alias.scope !570, !noalias !483
   br label %"_ZN42_$LT$T$u20$as$u20$comemo..input..Input$GT$3key17hd9186c1c7c8a7aeaE.exit.i"
 
 586:                                              ; preds = %_ZN4core4hash6Hasher11write_isize17h31b2ca79545bf87fE.exit31.i.i.i.i.i
@@ -3202,7 +3204,6 @@ _ZN4core4hash6Hasher11write_isize17h31b2ca79545bf87fE.exit19.i.i.i.i.i: ; preds 
   %810 = load i8, ptr %809, align 8, !range !461, !alias.scope !578, !noalias !583, !noundef !8
   %811 = zext nneg i8 %810 to i64
   %812 = add i64 %808, 1
-  store i64 %812, ptr %.sroa.9.0..sroa_idx, align 8, !alias.scope !652, !noalias !591
   %813 = sub i64 8, %807
   %814 = shl i64 %807, 3
   %815 = and i64 %814, 56
@@ -3239,7 +3240,6 @@ _ZN4core4hash6Hasher11write_isize17h31b2ca79545bf87fE.exit19.i.i.i.i.i: ; preds 
   %840 = add i64 %807, -7
   %841 = shl nuw nsw i64 %813, 3
   %842 = lshr i64 %811, %841
-  store i64 %842, ptr %.sroa.10.0..sroa_idx, align 8, !alias.scope !652, !noalias !591
   br label %"_ZN42_$LT$T$u20$as$u20$comemo..input..Input$GT$3key17hd9186c1c7c8a7aeaE.exit.i"
 
 843:                                              ; preds = %_ZN4core4hash6Hasher11write_isize17h31b2ca79545bf87fE.exit19.i.i.i.i.i

@@ -131762,6 +131762,7 @@ zend_jit_check_exception.exit313:                 ; preds = %jit_EG_exception.ex
   %268 = call i32 @_ir_END(ptr noundef %0) #32
   %269 = getelementptr inbounds i8, ptr %13, i64 8
   %270 = add nuw nsw i32 %212, 1
+  store i32 %270, ptr %13, align 16
   %271 = zext nneg i32 %212 to i64
   %272 = getelementptr inbounds i32, ptr %269, i64 %271
   store i32 %268, ptr %272, align 4
@@ -131887,7 +131888,6 @@ zend_jit_check_exception.exit322:                 ; preds = %jit_EG_exception.ex
 333:                                              ; preds = %zend_jit_check_exception.exit322, %319
   %334 = call i32 @_ir_END(ptr noundef nonnull %0) #32
   %335 = or disjoint i32 %212, 2
-  store i32 %335, ptr %13, align 16
   %336 = zext nneg i32 %270 to i64
   %337 = getelementptr inbounds i32, ptr %269, i64 %336
   store i32 %334, ptr %337, align 4

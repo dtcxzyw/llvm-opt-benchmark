@@ -72697,41 +72697,39 @@ _ZL19stbi__refill_bufferP13stbi__context.exit.i92: ; preds = %238, %236
   %241 = phi i8 [ 0, %236 ], [ %.pre.i91, %238 ]
   %.sink.i.i93 = phi ptr [ %237, %236 ], [ %240, %238 ]
   store ptr %.sink.i.i93, ptr %4, align 8
-  %242 = getelementptr inbounds i8, ptr %0, i64 57
-  store ptr %242, ptr %2, align 8
   br label %_ZL10stbi__get8P13stbi__context.exit95
 
 _ZL10stbi__get8P13stbi__context.exit95:           ; preds = %210, %213, %_ZL19stbi__refill_bufferP13stbi__context.exit.i92
   %.0.i94 = phi i8 [ %212, %210 ], [ %241, %_ZL19stbi__refill_bufferP13stbi__context.exit.i92 ], [ 0, %213 ]
-  br i1 %.not, label %245, label %switch.early.test
+  br i1 %.not, label %244, label %switch.early.test
 
 switch.early.test:                                ; preds = %_ZL10stbi__get8P13stbi__context.exit95
-  %243 = add i8 %.0.i94, -8
-  %switch.and = and i8 %243, -9
+  %242 = add i8 %.0.i94, -8
+  %switch.and = and i8 %242, -9
   %switch.selectcmp = icmp eq i8 %switch.and, 0
-  %244 = zext i1 %switch.selectcmp to i32
+  %243 = zext i1 %switch.selectcmp to i32
   br label %_ZL10stbi__get8P13stbi__context.exit79.thread
 
-245:                                              ; preds = %_ZL10stbi__get8P13stbi__context.exit95
+244:                                              ; preds = %_ZL10stbi__get8P13stbi__context.exit95
   switch i8 %.0.i94, label %_ZL10stbi__get8P13stbi__context.exit79.thread [
-    i8 32, label %246
-    i8 24, label %246
-    i8 16, label %246
-    i8 15, label %246
-    i8 8, label %246
+    i8 32, label %245
+    i8 24, label %245
+    i8 16, label %245
+    i8 15, label %245
+    i8 8, label %245
   ]
 
-246:                                              ; preds = %245, %245, %245, %245, %245
+245:                                              ; preds = %244, %244, %244, %244, %244
   br label %_ZL10stbi__get8P13stbi__context.exit79.thread
 
-_ZL10stbi__get8P13stbi__context.exit79.thread:    ; preds = %138, %switch.early.test, %245, %_ZL10stbi__get8P13stbi__context.exit79, %203, %_ZL10stbi__skipP13stbi__contexti.exit84, %183, %114, %_ZL10stbi__get8P13stbi__context.exit65, %246
-  %.0 = phi i32 [ 0, %_ZL10stbi__get8P13stbi__context.exit65 ], [ 0, %114 ], [ 0, %_ZL10stbi__get8P13stbi__context.exit79 ], [ 0, %_ZL10stbi__skipP13stbi__contexti.exit84 ], [ 0, %203 ], [ 0, %245 ], [ 1, %246 ], [ 0, %183 ], [ %244, %switch.early.test ], [ 0, %138 ]
-  %247 = getelementptr inbounds i8, ptr %0, i64 208
-  %248 = load ptr, ptr %247, align 8
-  store ptr %248, ptr %2, align 8
-  %249 = getelementptr inbounds i8, ptr %0, i64 216
-  %250 = load ptr, ptr %249, align 8
-  store ptr %250, ptr %4, align 8
+_ZL10stbi__get8P13stbi__context.exit79.thread:    ; preds = %138, %switch.early.test, %244, %_ZL10stbi__get8P13stbi__context.exit79, %203, %_ZL10stbi__skipP13stbi__contexti.exit84, %183, %114, %_ZL10stbi__get8P13stbi__context.exit65, %245
+  %.0 = phi i32 [ 0, %_ZL10stbi__get8P13stbi__context.exit65 ], [ 0, %114 ], [ 0, %_ZL10stbi__get8P13stbi__context.exit79 ], [ 0, %_ZL10stbi__skipP13stbi__contexti.exit84 ], [ 0, %203 ], [ 0, %244 ], [ 1, %245 ], [ 0, %183 ], [ %243, %switch.early.test ], [ 0, %138 ]
+  %246 = getelementptr inbounds i8, ptr %0, i64 208
+  %247 = load ptr, ptr %246, align 8
+  store ptr %247, ptr %2, align 8
+  %248 = getelementptr inbounds i8, ptr %0, i64 216
+  %249 = load ptr, ptr %248, align 8
+  store ptr %249, ptr %4, align 8
   ret i32 %.0
 }
 

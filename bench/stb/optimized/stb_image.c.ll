@@ -5848,8 +5848,6 @@ stbi__refill_buffer.exit.i213:                    ; preds = %if.else.i.i209, %if
   %67 = phi i8 [ 0, %if.then.i.i217 ], [ %.pre.i212, %if.else.i.i209 ]
   %add.ptr13.sink.i.i214 = phi ptr [ %add.ptr.i.i218, %if.then.i.i217 ], [ %add.ptr13.i.i211, %if.else.i.i209 ]
   store ptr %add.ptr13.sink.i.i214, ptr %img_buffer_end.i, align 8
-  %incdec.ptr4.i215 = getelementptr inbounds i8, ptr %s, i64 57
-  store ptr %incdec.ptr4.i215, ptr %img_buffer.i, align 8
   br label %stbi__get8.exit221
 
 stbi__get8.exit221:                               ; preds = %if.then.i219, %if.end.i192, %stbi__refill_buffer.exit.i213
