@@ -414,7 +414,7 @@ abc/dsdTree.c.ll 415745295
 abc/epd.c.ll 322343381
 abc/exor.c.ll 359666286
 abc/exorBits.c.ll 163901230
-abc/exorCubes.c.ll 60045095
+abc/exorCubes.c.ll 60105246
 abc/exorLink.c.ll 261548119
 abc/exorList.c.ll 410499590
 abc/exorUtil.c.ll 93753714
@@ -13373,7 +13373,7 @@ linux/gen_stats.ll 139236781
 linux/genalloc.ll 251808769
 linux/generic-radix-tree.ll 135963313
 linux/generic.ll 348943574
-linux/generic_mpih-add1.ll 46732689
+linux/generic_mpih-add1.ll 46779469
 linux/generic_mpih-sub1.ll 46647046
 linux/genetlink.ll 547548333
 linux/genhd.ll 338231976
@@ -29338,7 +29338,7 @@ qemu/util_qemu-config.c.ll 270427288
 qemu/util_qemu-coroutine-lock.c.ll 213346782
 qemu/util_qemu-coroutine.c.ll 119110865
 qemu/util_qemu-option.c.ll 511185477
-qemu/util_qemu-print.c.ll 43285123
+qemu/util_qemu-print.c.ll 43328492
 qemu/util_qemu-sockets.c.ll 456173835
 qemu/util_qemu-thread-posix.c.ll 240731889
 qemu/util_qemu-timer.c.ll 264695153
@@ -34087,7 +34087,7 @@ wasmtime-rs/27pp1heeu8t47xv3.ll 172553290
 wasmtime-rs/27y5mf4j2qnj7fax.ll 2733893869
 wasmtime-rs/2800hku92bkgvycz.ll 51718881
 wasmtime-rs/290b50r0sv5qm11n.ll 37098605
-wasmtime-rs/29bojj0vpqrqr9bg.ll 76789779
+wasmtime-rs/29bojj0vpqrqr9bg.ll 76866723
 wasmtime-rs/29f796549tffk4du.ll 47605864
 wasmtime-rs/29iswk43scqgr9td.ll 183959156
 wasmtime-rs/29t2nnpnq6amcvpa.ll 35916209
