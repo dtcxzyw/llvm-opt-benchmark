@@ -964,7 +964,7 @@ define dso_local i32 @__irq_alloc_descs(i32 noundef %0, i32 noundef %1, i32 noun
 
 121:                                              ; preds = %.preheader, %free_desc.exit
   %indvars.iv19 = phi i64 [ %99, %.preheader ], [ %indvars.iv.next20, %free_desc.exit ]
-  %122 = trunc nuw i64 %indvars.iv19 to i32
+  %122 = trunc nuw nsw i64 %indvars.iv19 to i32
   %123 = add i32 %30, %122
   %124 = zext i32 %123 to i64
   %125 = call ptr @mtree_load(ptr noundef nonnull @sparse_irqs, i64 noundef %124) #11
@@ -995,7 +995,7 @@ free_desc.exit:                                   ; preds = %121, %130
   %133 = getelementptr inbounds i8, ptr %125, i64 272
   call void @call_rcu(ptr noundef %133, ptr noundef nonnull @delayed_free_desc) #11
   %indvars.iv.next20 = add nsw i64 %indvars.iv19, -1
-  %134 = icmp sgt i32 %122, 0
+  %134 = icmp sgt i64 %indvars.iv19, 0
   br i1 %134, label %121, label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %.preheader11, %118, %free_desc.exit, %37, %89, %17

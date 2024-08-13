@@ -4458,7 +4458,7 @@ stbtt_FlattenCurves.exit.i.i.i.i:                 ; preds = %._crit_edge11.us.i.
   br i1 %976, label %969, label %.split.loop.exit31.i.i.i.i.i.i.i
 
 .split.loop.exit.i.i.i.i.i.i.i:                   ; preds = %969
-  %977 = trunc nuw i64 %indvars.iv27.i.i.i.i.i.i.i to i32
+  %977 = trunc nuw nsw i64 %indvars.iv27.i.i.i.i.i.i.i to i32
   br label %.split.loop.exit31.i.i.i.i.i.i.i
 
 .split.loop.exit31.i.i.i.i.i.i.i:                 ; preds = %974, %.split.loop.exit.i.i.i.i.i.i.i

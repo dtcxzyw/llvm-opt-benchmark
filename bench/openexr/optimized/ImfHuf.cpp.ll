@@ -107,7 +107,7 @@ lpad1.i:                                          ; preds = %invoke.cont33.i
 for.inc.i:                                        ; preds = %if.then.i, %for.body.i
   %iM.2 = phi i32 [ %iM.1, %for.body.i ], [ %5, %if.then.i ]
   %nf.1.i = phi i32 [ %nf.0208.i, %for.body.i ], [ %inc14.i, %if.then.i ]
-  %indvars.iv.next217.i = add nuw i64 %indvars.iv216.i, 1
+  %indvars.iv.next217.i = add nuw nsw i64 %indvars.iv216.i, 1
   %exitcond.not.i16 = icmp eq i64 %indvars.iv.next217.i, 65537
   br i1 %exitcond.not.i16, label %for.end.i, label %for.body.i, !llvm.loop !7
 

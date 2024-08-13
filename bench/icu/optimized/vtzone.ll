@@ -6484,8 +6484,8 @@ while.body:                                       ; preds = %while.body.preheade
   store i16 %conv16, ptr %srcChar.addr.i12, align 2
   %call.i13 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %str, ptr noundef nonnull %srcChar.addr.i12, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i12)
-  %2 = icmp sgt i64 %indvars.iv17, 0
-  br i1 %2, label %while.body, label %while.end, !llvm.loop !28
+  %cmp12 = icmp sgt i64 %indvars.iv17, 0
+  br i1 %cmp12, label %while.body, label %while.end, !llvm.loop !28
 
 while.end:                                        ; preds = %while.body
   ret ptr %str

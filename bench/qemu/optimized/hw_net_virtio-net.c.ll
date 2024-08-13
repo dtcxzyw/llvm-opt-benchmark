@@ -1633,6 +1633,7 @@ for.body.lr.ph.i:                                 ; preds = %if.then.i
   br label %for.body.i60
 
 for.body.i60:                                     ; preds = %for.inc.i, %for.body.lr.ph.i
+  %indvars.iv45.i = phi i32 [ %indvars.iv.next46.i, %for.inc.i ], [ -1, %for.body.lr.ph.i ]
   %indvars.iv41.i = phi i64 [ %indvars.iv.next42.i, %for.inc.i ], [ 0, %for.body.lr.ph.i ]
   %cmp29.i = phi i1 [ %cmp.i63, %for.inc.i ], [ true, %for.body.lr.ph.i ]
   %peer.i61 = getelementptr %struct.NetClientState, ptr %7, i64 %indvars.iv41.i, i32 3
@@ -1668,22 +1669,24 @@ virtio_net_set_vnet_endian_one.exit.i:            ; preds = %if.else.i.i62, %if.
 
 while.cond.preheader.i:                           ; preds = %virtio_net_set_vnet_endian_one.exit.i
   %cmp331.not.i = icmp eq i64 %indvars.iv41.i, 0
-  br i1 %cmp331.not.i, label %virtio_net_set_vnet_endian.exit, label %while.body.i
+  br i1 %cmp331.not.i, label %virtio_net_set_vnet_endian.exit, label %while.body.lr.ph.i
 
-while.body.i:                                     ; preds = %while.cond.preheader.i, %virtio_net_set_vnet_endian_one.exit19.i
-  %indvars.iv = phi i64 [ %indvars.iv.next, %virtio_net_set_vnet_endian_one.exit19.i ], [ %indvars.iv41.i, %while.cond.preheader.i ]
-  %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %idxprom4.i = and i64 %indvars.iv.next, 4294967295
-  %peer6.i = getelementptr %struct.NetClientState, ptr %7, i64 %idxprom4.i, i32 3
-  %12 = load ptr, ptr %peer6.i, align 8
+while.body.lr.ph.i:                               ; preds = %while.cond.preheader.i
+  %12 = zext i32 %indvars.iv45.i to i64
+  br label %while.body.i
+
+while.body.i:                                     ; preds = %virtio_net_set_vnet_endian_one.exit19.i, %while.body.lr.ph.i
+  %indvars.iv49.i = phi i64 [ %12, %while.body.lr.ph.i ], [ %indvars.iv.next50.i, %virtio_net_set_vnet_endian_one.exit19.i ]
+  %peer6.i = getelementptr %struct.NetClientState, ptr %7, i64 %indvars.iv49.i, i32 3
+  %13 = load ptr, ptr %peer6.i, align 8
   %vdev.val.i.i8.i = load i64, ptr %8, align 8
   %and.i.i.i.i9.i = and i64 %vdev.val.i.i8.i, 4294967296
   %tobool.i.i.not.i.i10.i = icmp eq i64 %and.i.i.i.i9.i, 0
   br i1 %tobool.i.i.not.i.i10.i, label %if.then.i.i14.i, label %if.else.i11.i
 
 if.then.i.i14.i:                                  ; preds = %while.body.i
-  %13 = load i8, ptr %device_endian.i.i.i, align 8
-  switch i8 %13, label %if.else.i11.i [
+  %14 = load i8, ptr %device_endian.i.i.i, align 8
+  switch i8 %14, label %if.else.i11.i [
     i8 0, label %if.else.i.i18.i
     i8 2, label %if.then.i16.i
   ]
@@ -1693,21 +1696,23 @@ if.else.i.i18.i:                                  ; preds = %if.then.i.i14.i
   unreachable
 
 if.then.i16.i:                                    ; preds = %if.then.i.i14.i
-  %call1.i17.i = tail call i32 @qemu_set_vnet_be(ptr noundef %12, i1 noundef zeroext false) #19
+  %call1.i17.i = tail call i32 @qemu_set_vnet_be(ptr noundef %13, i1 noundef zeroext false) #19
   br label %virtio_net_set_vnet_endian_one.exit19.i
 
 if.else.i11.i:                                    ; preds = %if.then.i.i14.i, %while.body.i
-  %call3.i12.i = tail call i32 @qemu_set_vnet_le(ptr noundef %12, i1 noundef zeroext false) #19
+  %call3.i12.i = tail call i32 @qemu_set_vnet_le(ptr noundef %13, i1 noundef zeroext false) #19
   br label %virtio_net_set_vnet_endian_one.exit19.i
 
 virtio_net_set_vnet_endian_one.exit19.i:          ; preds = %if.else.i11.i, %if.then.i16.i
-  %14 = icmp sgt i64 %indvars.iv, 1
-  br i1 %14, label %while.body.i, label %virtio_net_set_vnet_endian.exit, !llvm.loop !5
+  %indvars.iv.next50.i = add nsw i64 %indvars.iv49.i, -1
+  %cmp3.i = icmp sgt i64 %indvars.iv49.i, 0
+  br i1 %cmp3.i, label %while.body.i, label %virtio_net_set_vnet_endian.exit, !llvm.loop !5
 
 for.inc.i:                                        ; preds = %virtio_net_set_vnet_endian_one.exit.i
   %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
   %cmp.i63 = icmp ult i64 %indvars.iv.next42.i, %9
   %exitcond44.not.i = icmp eq i64 %indvars.iv.next42.i, %9
+  %indvars.iv.next46.i = add nsw i32 %indvars.iv45.i, 1
   br i1 %exitcond44.not.i, label %virtio_net_set_vnet_endian.exit, label %for.body.i60, !llvm.loop !7
 
 virtio_net_set_vnet_endian.exit:                  ; preds = %for.inc.i, %virtio_net_set_vnet_endian_one.exit19.i, %if.then.i, %while.cond.preheader.i
@@ -1961,8 +1966,8 @@ if.else.i51:                                      ; preds = %if.end22.i
 virtio_net_vhost_status.exit:                     ; preds = %cond.end9.i, %land.end.i, %virtio_is_big_endian.exit.thread.i, %if.then46.i, %if.end51.i, %if.then57.i, %if.else.i51
   %max_queue_pairs = getelementptr inbounds i8, ptr %call.i, i64 8948
   %56 = load i16, ptr %max_queue_pairs, align 4
-  %cmp89.not = icmp eq i16 %56, 0
-  br i1 %cmp89.not, label %for.end, label %for.body.lr.ph
+  %cmp91.not = icmp eq i16 %56, 0
+  br i1 %cmp91.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %virtio_net_vhost_status.exit
   %vqs = getelementptr inbounds i8, ptr %call.i, i64 528
@@ -1974,15 +1979,15 @@ for.body.lr.ph:                                   ; preds = %virtio_net_vhost_st
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %indvars.iv101 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next102, %for.inc ]
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %57 = load ptr, ptr %nic.i34, align 8
-  %58 = trunc nuw nsw i64 %indvars.iv101 to i32
+  %58 = trunc nuw nsw i64 %indvars.iv to i32
   %call2 = tail call ptr @qemu_get_subqueue(ptr noundef %57, i32 noundef %58) #19
   %59 = load ptr, ptr %vqs, align 8
-  %arrayidx = getelementptr %struct.VirtIONetQueue, ptr %59, i64 %indvars.iv101
+  %arrayidx = getelementptr %struct.VirtIONetQueue, ptr %59, i64 %indvars.iv
   %60 = load i32, ptr %multiqueue.i, align 8
   %tobool = icmp eq i32 %60, 0
-  %cmp3 = icmp ne i64 %indvars.iv101, 0
+  %cmp3 = icmp ne i64 %indvars.iv, 0
   %or.cond = and i1 %cmp3, %tobool
   br i1 %or.cond, label %if.end.thread, label %if.end
 
@@ -1993,7 +1998,7 @@ if.end.thread:                                    ; preds = %for.body
 if.end:                                           ; preds = %for.body
   %61 = load i16, ptr %curr_queue_pairs, align 2
   %62 = zext i16 %61 to i64
-  %cmp6.not = icmp uge i64 %indvars.iv101, %62
+  %cmp6.not = icmp uge i64 %indvars.iv, %62
   %call.i.i52 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #19
   %tobool.not.i53 = or i1 %tobool.not.i.i, %cmp6.not
   br i1 %tobool.not.i53, label %if.end13.thread, label %land.lhs.true.i
@@ -2013,7 +2018,7 @@ virtio_net_started.exit:                          ; preds = %land.lhs.true.i
 land.end:                                         ; preds = %virtio_net_started.exit
   %66 = load i8, ptr %vhost_started, align 2
   %tobool10.not = icmp eq i8 %66, 0
-  br i1 %tobool10.not, label %if.end13, label %if.end13.thread105
+  br i1 %tobool10.not, label %if.end13, label %if.end13.thread103
 
 if.end13:                                         ; preds = %land.end
   tail call void @qemu_flush_queued_packets(ptr noundef %call2) #19
@@ -2022,11 +2027,11 @@ if.end13:                                         ; preds = %land.end
   %tobool14.not = icmp eq i32 %67, 0
   br i1 %tobool14.not, label %for.inc, label %if.then18
 
-if.end13.thread105:                               ; preds = %land.end
-  %tx_waiting106 = getelementptr inbounds i8, ptr %arrayidx, i64 32
-  %68 = load i32, ptr %tx_waiting106, align 8
-  %tobool14.not107 = icmp eq i32 %68, 0
-  br i1 %tobool14.not107, label %for.inc, label %if.else26
+if.end13.thread103:                               ; preds = %land.end
+  %tx_waiting104 = getelementptr inbounds i8, ptr %arrayidx, i64 32
+  %68 = load i32, ptr %tx_waiting104, align 8
+  %tobool14.not105 = icmp eq i32 %68, 0
+  br i1 %tobool14.not105, label %for.inc, label %if.else26
 
 if.end13.thread:                                  ; preds = %if.end.thread, %if.end, %land.lhs.true.i, %virtio_net_started.exit
   %tobool.not.i536870.ph = phi i1 [ false, %virtio_net_started.exit ], [ true, %if.end.thread ], [ true, %if.end ], [ false, %land.lhs.true.i ]
@@ -2055,9 +2060,9 @@ if.else24:                                        ; preds = %if.then18
   tail call void @qemu_bh_schedule(ptr noundef %72) #19
   br label %for.inc
 
-if.else26:                                        ; preds = %if.end13.thread105, %if.end13.thread
-  %tobool.not.i536870727681 = phi i1 [ %tobool.not.i536870.ph, %if.end13.thread ], [ false, %if.end13.thread105 ]
-  %tx_waiting7780 = phi ptr [ %tx_waiting74, %if.end13.thread ], [ %tx_waiting106, %if.end13.thread105 ]
+if.else26:                                        ; preds = %if.end13.thread103, %if.end13.thread
+  %tobool.not.i536870727681 = phi i1 [ %tobool.not.i536870.ph, %if.end13.thread ], [ false, %if.end13.thread103 ]
+  %tx_waiting7780 = phi ptr [ %tx_waiting74, %if.end13.thread ], [ %tx_waiting104, %if.end13.thread103 ]
   %tx_timer27 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %73 = load ptr, ptr %tx_timer27, align 8
   %tobool28.not = icmp eq ptr %73, null
@@ -2099,11 +2104,11 @@ if.then.i58:                                      ; preds = %if.then45
   tail call void @virtio_notify(ptr noundef nonnull %vdev, ptr noundef %79) #19
   br label %for.inc
 
-for.inc:                                          ; preds = %if.end13.thread105, %if.then.i58, %if.then45, %if.end13.thread, %if.else24, %if.then20, %land.lhs.true42, %if.end33, %if.end13
-  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
+for.inc:                                          ; preds = %if.end13.thread103, %if.then.i58, %if.then45, %if.end13.thread, %if.else24, %if.then20, %land.lhs.true42, %if.end33, %if.end13
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %80 = load i16, ptr %max_queue_pairs, align 4
   %81 = zext i16 %80 to i64
-  %cmp = icmp ult i64 %indvars.iv.next102, %81
+  %cmp = icmp ult i64 %indvars.iv.next, %81
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.inc, %virtio_net_vhost_status.exit

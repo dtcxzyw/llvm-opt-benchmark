@@ -18130,8 +18130,8 @@ entry:
   br i1 %cmp53.not, label %for.end49.thread, label %for.body.lr.ph
 
 for.end49.thread:                                 ; preds = %entry
-  %all_dropped65 = getelementptr inbounds i8, ptr %drop, i64 2
-  store i8 1, ptr %all_dropped65, align 1
+  %all_dropped70 = getelementptr inbounds i8, ptr %drop, i64 2
+  store i8 1, ptr %all_dropped70, align 1
   br label %for.end67
 
 for.body.lr.ph:                                   ; preds = %entry
@@ -18143,12 +18143,14 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc48
-  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc48 ]
+  %indvars.iv61 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next62, %for.inc48 ]
+  %indvars.iv = phi i32 [ -1, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc48 ]
   %seen_hint.055 = phi i1 [ false, %for.body.lr.ph ], [ %seen_hint.1, %for.inc48 ]
-  %arrayidx = getelementptr inbounds %"struct.CFF::parsed_cs_op_t", ptr %1, i64 %indvars.iv
+  %2 = zext i32 %indvars.iv to i64
+  %arrayidx = getelementptr inbounds %"struct.CFF::parsed_cs_op_t", ptr %1, i64 %indvars.iv61
   %op = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  %2 = load i32, ptr %op, align 8
-  switch i32 %2, label %for.inc48 [
+  %3 = load i32, ptr %op, align 8
+  switch i32 %3, label %for.inc48 [
     i32 10, label %sw.epilog
     i32 29, label %sw.bb6
     i32 21, label %for.inc48.sink.split
@@ -18164,17 +18166,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   ]
 
 sw.bb6:                                           ; preds = %for.body
-  %3 = load ptr, ptr %parsed_global_subrs, align 8
+  %4 = load ptr, ptr %parsed_global_subrs, align 8
   %subr_num9 = getelementptr inbounds i8, ptr %arrayidx, i64 14
-  %4 = load i16, ptr %subr_num9, align 2
-  %conv10 = zext i16 %4 to i32
-  %5 = trunc nuw i64 %indvars.iv to i32
-  %call11 = tail call noundef zeroext i1 @_ZN3CFF16subr_subsetter_tI21cff1_subr_subsetter_tNS_5SubrsIN2OT7IntTypeItLj2EEEEEKNS3_4cff120accelerator_subset_tENS_20cff1_cs_interp_env_tE27cff1_cs_opset_subr_subset_tLj14EE18drop_hints_in_subrERNS_15parsed_cs_str_tEjRNS_19parsed_cs_str_vec_tEjRKNS_19subr_subset_param_tERNSC_18drop_hints_param_tE(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef nonnull align 8 dereferenceable(40) %str, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %conv10, ptr noundef nonnull align 8 dereferenceable(49) %param, ptr noundef nonnull align 1 dereferenceable(4) %drop)
+  %5 = load i16, ptr %subr_num9, align 2
+  %conv10 = zext i16 %5 to i32
+  %6 = trunc nuw i64 %indvars.iv61 to i32
+  %call11 = tail call noundef zeroext i1 @_ZN3CFF16subr_subsetter_tI21cff1_subr_subsetter_tNS_5SubrsIN2OT7IntTypeItLj2EEEEEKNS3_4cff120accelerator_subset_tENS_20cff1_cs_interp_env_tE27cff1_cs_opset_subr_subset_tLj14EE18drop_hints_in_subrERNS_15parsed_cs_str_tEjRNS_19parsed_cs_str_vec_tEjRKNS_19subr_subset_param_tERNSC_18drop_hints_param_tE(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef nonnull align 8 dereferenceable(40) %str, i32 noundef %6, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef %conv10, ptr noundef nonnull align 8 dereferenceable(49) %param, ptr noundef nonnull align 1 dereferenceable(4) %drop)
   br i1 %call11, label %if.then28, label %for.inc48
 
 sw.bb14:                                          ; preds = %for.body, %for.body
-  %6 = load i8, ptr %drop, align 1
-  %tobool = trunc i8 %6 to i1
+  %7 = load i8, ptr %drop, align 1
+  %tobool = trunc i8 %7 to i1
   br i1 %tobool, label %if.then, label %sw.bb18
 
 if.then:                                          ; preds = %sw.bb14
@@ -18184,17 +18186,17 @@ if.then:                                          ; preds = %sw.bb14
 sw.bb18:                                          ; preds = %sw.bb14, %for.body, %for.body, %for.body, %for.body
   %hinting_flag.i43 = getelementptr inbounds i8, ptr %arrayidx, i64 13
   store i8 1, ptr %hinting_flag.i43, align 1
-  %7 = add nuw nsw i64 %indvars.iv, 1
-  %8 = load i32, ptr %length, align 4
-  %9 = zext i32 %8 to i64
-  %cmp.not.i = icmp ult i64 %7, %9
+  %8 = add nuw nsw i64 %indvars.iv61, 1
+  %9 = load i32, ptr %length, align 4
+  %10 = zext i32 %9 to i64
+  %cmp.not.i = icmp ult i64 %8, %10
   br i1 %cmp.not.i, label %_ZNK3CFF15parsed_cs_str_t6at_endEj.exit, label %if.then22
 
 _ZNK3CFF15parsed_cs_str_t6at_endEj.exit:          ; preds = %sw.bb18
-  %10 = load ptr, ptr %arrayZ, align 8
-  %op.i = getelementptr inbounds %"struct.CFF::parsed_cs_op_t", ptr %10, i64 %7, i32 0, i32 1
-  %11 = load i32, ptr %op.i, align 8
-  %cmp4.i = icmp eq i32 %11, 11
+  %11 = load ptr, ptr %arrayZ, align 8
+  %op.i = getelementptr inbounds %"struct.CFF::parsed_cs_op_t", ptr %11, i64 %8, i32 0, i32 1
+  %12 = load i32, ptr %op.i, align 8
+  %cmp4.i = icmp eq i32 %12, 11
   br i1 %cmp4.i, label %if.then22, label %if.then28
 
 if.then22:                                        ; preds = %sw.bb18, %_ZNK3CFF15parsed_cs_str_t6at_endEj.exit
@@ -18206,34 +18208,33 @@ sw.bb24:                                          ; preds = %for.body
   br label %for.inc48.sink.split
 
 sw.epilog:                                        ; preds = %for.body
-  %12 = load ptr, ptr %parsed_local_subrs, align 8
+  %13 = load ptr, ptr %parsed_local_subrs, align 8
   %subr_num = getelementptr inbounds i8, ptr %arrayidx, i64 14
-  %13 = load i16, ptr %subr_num, align 2
-  %conv = zext i16 %13 to i32
-  %14 = trunc nuw i64 %indvars.iv to i32
-  %call = tail call noundef zeroext i1 @_ZN3CFF16subr_subsetter_tI21cff1_subr_subsetter_tNS_5SubrsIN2OT7IntTypeItLj2EEEEEKNS3_4cff120accelerator_subset_tENS_20cff1_cs_interp_env_tE27cff1_cs_opset_subr_subset_tLj14EE18drop_hints_in_subrERNS_15parsed_cs_str_tEjRNS_19parsed_cs_str_vec_tEjRKNS_19subr_subset_param_tERNSC_18drop_hints_param_tE(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef nonnull align 8 dereferenceable(40) %str, i32 noundef %14, ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef %conv, ptr noundef nonnull align 8 dereferenceable(49) %param, ptr noundef nonnull align 1 dereferenceable(4) %drop)
+  %14 = load i16, ptr %subr_num, align 2
+  %conv = zext i16 %14 to i32
+  %15 = trunc nuw i64 %indvars.iv61 to i32
+  %call = tail call noundef zeroext i1 @_ZN3CFF16subr_subsetter_tI21cff1_subr_subsetter_tNS_5SubrsIN2OT7IntTypeItLj2EEEEEKNS3_4cff120accelerator_subset_tENS_20cff1_cs_interp_env_tE27cff1_cs_opset_subr_subset_tLj14EE18drop_hints_in_subrERNS_15parsed_cs_str_tEjRNS_19parsed_cs_str_vec_tEjRKNS_19subr_subset_param_tERNSC_18drop_hints_param_tE(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef nonnull align 8 dereferenceable(40) %str, i32 noundef %15, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef %conv, ptr noundef nonnull align 8 dereferenceable(49) %param, ptr noundef nonnull align 1 dereferenceable(4) %drop)
   br i1 %call, label %if.then28, label %for.inc48
 
 if.then28:                                        ; preds = %sw.bb6, %if.then22, %_ZNK3CFF15parsed_cs_str_t6at_endEj.exit, %sw.epilog
-  %15 = trunc nuw i64 %indvars.iv to i32
-  %i.049 = add i32 %15, -1
+  %16 = trunc nuw i64 %indvars.iv61 to i32
+  %i.049 = add i32 %16, -1
   %cmp3050 = icmp sgt i32 %i.049, -1
   br i1 %cmp3050, label %for.body31, label %for.inc48
 
 for.body31:                                       ; preds = %if.then28, %for.inc
-  %i.051 = phi i32 [ %i.0, %for.inc ], [ %i.049, %if.then28 ]
-  %idxprom32 = zext nneg i32 %i.051 to i64
-  %arrayidx33 = getelementptr inbounds %"struct.CFF::parsed_cs_op_t", ptr %1, i64 %idxprom32
+  %indvars.iv58 = phi i64 [ %indvars.iv.next59, %for.inc ], [ %2, %if.then28 ]
+  %arrayidx33 = getelementptr inbounds %"struct.CFF::parsed_cs_op_t", ptr %1, i64 %indvars.iv58
   %hinting_flag.i45 = getelementptr inbounds i8, ptr %arrayidx33, i64 13
-  %16 = load i8, ptr %hinting_flag.i45, align 1
-  %tobool.i = trunc i8 %16 to i1
+  %17 = load i8, ptr %hinting_flag.i45, align 1
+  %tobool.i = trunc i8 %17 to i1
   br i1 %tobool.i, label %for.inc48, label %if.end36
 
 if.end36:                                         ; preds = %for.body31
   store i8 1, ptr %hinting_flag.i45, align 1
   %op37 = getelementptr inbounds i8, ptr %arrayidx33, i64 8
-  %17 = load i32, ptr %op37, align 8
-  %cmp38 = icmp eq i32 %17, 15
+  %18 = load i32, ptr %op37, align 8
+  %cmp38 = icmp eq i32 %18, 15
   br i1 %cmp38, label %if.then39, label %for.inc
 
 if.then39:                                        ; preds = %if.end36
@@ -18241,8 +18242,8 @@ if.then39:                                        ; preds = %if.end36
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end36, %if.then39
-  %i.0 = add nsw i32 %i.051, -1
-  %cmp30 = icmp sgt i32 %i.051, 0
+  %indvars.iv.next59 = add nsw i64 %indvars.iv58, -1
+  %cmp30 = icmp sgt i64 %indvars.iv58, 0
   br i1 %cmp30, label %for.body31, label %for.inc48, !llvm.loop !136
 
 for.inc48.sink.split:                             ; preds = %for.body, %for.body, %for.body, %if.then, %sw.bb24
@@ -18252,8 +18253,9 @@ for.inc48.sink.split:                             ; preds = %for.body, %for.body
 
 for.inc48:                                        ; preds = %for.body31, %for.inc, %for.inc48.sink.split, %if.then28, %sw.bb6, %for.body, %sw.epilog
   %seen_hint.1 = phi i1 [ %seen_hint.055, %sw.epilog ], [ %seen_hint.055, %for.body ], [ %seen_hint.055, %sw.bb6 ], [ true, %if.then28 ], [ %seen_hint.055, %for.inc48.sink.split ], [ true, %for.inc ], [ true, %for.body31 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
+  %indvars.iv.next = add i32 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count
   br i1 %exitcond.not, label %for.end49, label %for.body, !llvm.loop !137
 
 for.end49:                                        ; preds = %for.inc48
@@ -18262,26 +18264,26 @@ for.end49:                                        ; preds = %for.inc48
   br i1 %cmp53.not, label %for.end67, label %for.body53.preheader
 
 for.body53.preheader:                             ; preds = %for.end49
-  %wide.trip.count62 = zext i32 %0 to i64
+  %wide.trip.count67 = zext i32 %0 to i64
   br label %for.body53
 
 for.cond51:                                       ; preds = %if.end60
-  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
-  %exitcond63.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count62
-  br i1 %exitcond63.not, label %for.end67, label %for.body53, !llvm.loop !138
+  %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
+  %exitcond68.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count67
+  br i1 %exitcond68.not, label %for.end67, label %for.body53, !llvm.loop !138
 
 for.body53:                                       ; preds = %for.body53.preheader, %for.cond51
-  %indvars.iv59 = phi i64 [ 0, %for.body53.preheader ], [ %indvars.iv.next60, %for.cond51 ]
-  %arrayidx56 = getelementptr inbounds %"struct.CFF::parsed_cs_op_t", ptr %1, i64 %indvars.iv59
+  %indvars.iv64 = phi i64 [ 0, %for.body53.preheader ], [ %indvars.iv.next65, %for.cond51 ]
+  %arrayidx56 = getelementptr inbounds %"struct.CFF::parsed_cs_op_t", ptr %1, i64 %indvars.iv64
   %op57 = getelementptr inbounds i8, ptr %arrayidx56, i64 8
-  %18 = load i32, ptr %op57, align 8
-  %cmp58 = icmp eq i32 %18, 11
+  %19 = load i32, ptr %op57, align 8
+  %cmp58 = icmp eq i32 %19, 11
   br i1 %cmp58, label %for.end67, label %if.end60
 
 if.end60:                                         ; preds = %for.body53
   %hinting_flag.i47 = getelementptr inbounds i8, ptr %arrayidx56, i64 13
-  %19 = load i8, ptr %hinting_flag.i47, align 1
-  %tobool.i48 = trunc i8 %19 to i1
+  %20 = load i8, ptr %hinting_flag.i47, align 1
+  %tobool.i48 = trunc i8 %20 to i1
   br i1 %tobool.i48, label %for.cond51, label %if.then62
 
 if.then62:                                        ; preds = %if.end60
@@ -18289,8 +18291,8 @@ if.then62:                                        ; preds = %if.end60
   br label %for.end67
 
 for.end67:                                        ; preds = %for.cond51, %for.body53, %for.end49.thread, %for.end49, %if.then62
-  %seen_hint.0.lcssa66 = phi i1 [ false, %for.end49.thread ], [ %seen_hint.1, %for.end49 ], [ %seen_hint.1, %if.then62 ], [ %seen_hint.1, %for.body53 ], [ %seen_hint.1, %for.cond51 ]
-  ret i1 %seen_hint.0.lcssa66
+  %seen_hint.0.lcssa71 = phi i1 [ false, %for.end49.thread ], [ %seen_hint.1, %for.end49 ], [ %seen_hint.1, %if.then62 ], [ %seen_hint.1, %for.body53 ], [ %seen_hint.1, %for.cond51 ]
+  ret i1 %seen_hint.0.lcssa71
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -91,14 +91,13 @@ for.end18:                                        ; preds = %for.body13
 while.body:                                       ; preds = %while.cond.preheader, %while.body
   %indvars.iv38 = phi i64 [ %indvars.iv.next39, %while.body ], [ %indvars.iv, %while.cond.preheader ]
   %indvars.iv.next39 = add nsw i64 %indvars.iv38, -1
-  %idxprom32 = and i64 %indvars.iv.next39, 4294967295
-  %arrayidx33 = getelementptr inbounds [3 x %struct.tx_pkt_history_st], ptr %call, i64 0, i64 %idxprom32
+  %arrayidx33 = getelementptr inbounds [3 x %struct.tx_pkt_history_st], ptr %call, i64 0, i64 %indvars.iv.next39
   %map.i25 = getelementptr inbounds i8, ptr %arrayidx33, i64 24
   %0 = load ptr, ptr %map.i25, align 8
   tail call void @OPENSSL_LH_free(ptr noundef %0) #11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx33, i8 0, i64 32, i1 false)
-  %1 = icmp sgt i64 %indvars.iv38, 1
-  br i1 %1, label %while.body, label %while.end, !llvm.loop !7
+  %cmp30 = icmp sgt i64 %indvars.iv38, 1
+  br i1 %cmp30, label %while.body, label %while.end, !llvm.loop !7
 
 while.end:                                        ; preds = %while.body, %while.cond.preheader
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str, i32 noundef 1058) #11

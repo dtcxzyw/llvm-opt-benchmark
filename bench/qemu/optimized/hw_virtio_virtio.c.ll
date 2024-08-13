@@ -9980,6 +9980,7 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
+  %indvars.iv48 = phi i32 [ -1, %entry ], [ %indvars.iv.next49, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
   %0 = load ptr, ptr %vq3, align 8
   %arrayidx.i = getelementptr %struct.VirtQueue, ptr %0, i64 %indvars.iv
@@ -10005,12 +10006,13 @@ if.end8:                                          ; preds = %if.end
 for.inc:                                          ; preds = %for.body, %if.end8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1024
+  %indvars.iv.next49 = add nsw i32 %indvars.iv48, 1
   br i1 %exitcond.not, label %for.body11, label %for.body, !llvm.loop !59
 
 for.body11:                                       ; preds = %for.inc, %for.inc21
-  %indvars.iv48 = phi i64 [ %indvars.iv.next49, %for.inc21 ], [ 0, %for.inc ]
+  %indvars.iv54 = phi i64 [ %indvars.iv.next55, %for.inc21 ], [ 0, %for.inc ]
   %3 = load ptr, ptr %vq3, align 8
-  %arrayidx15 = getelementptr %struct.VirtQueue, ptr %3, i64 %indvars.iv48
+  %arrayidx15 = getelementptr %struct.VirtQueue, ptr %3, i64 %indvars.iv54
   %4 = load i32, ptr %arrayidx15, align 8
   %tobool16.not = icmp eq i32 %4, 0
   br i1 %tobool16.not, label %for.inc21, label %if.end18
@@ -10021,29 +10023,28 @@ if.end18:                                         ; preds = %for.body11
   br label %for.inc21
 
 for.inc21:                                        ; preds = %for.body11, %if.end18
-  %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
-  %exitcond52.not = icmp eq i64 %indvars.iv.next49, 1024
-  br i1 %exitcond52.not, label %return.sink.split, label %for.body11, !llvm.loop !60
+  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
+  %exitcond57.not = icmp eq i64 %indvars.iv.next55, 1024
+  br i1 %exitcond57.not, label %return.sink.split, label %for.body11, !llvm.loop !60
 
 while.body:                                       ; preds = %while.cond.preheader, %while.cond.backedge
   %indvars.iv45 = phi i64 [ %indvars.iv.next46, %while.cond.backedge ], [ %indvars.iv, %while.cond.preheader ]
   %indvars.iv.next46 = add nsw i64 %indvars.iv45, -1
   %5 = load ptr, ptr %vq3, align 8
-  %idxprom.i28 = and i64 %indvars.iv.next46, 4294967295
-  %arrayidx.i29 = getelementptr %struct.VirtQueue, ptr %5, i64 %idxprom.i28
+  %arrayidx.i29 = getelementptr %struct.VirtQueue, ptr %5, i64 %indvars.iv.next46
   %6 = load i32, ptr %arrayidx.i29, align 8
   %tobool30.not = icmp eq i32 %6, 0
   br i1 %tobool30.not, label %while.cond.backedge, label %if.end32
 
 while.cond.backedge:                              ; preds = %while.body, %if.end32
-  %7 = icmp sgt i64 %indvars.iv45, 1
-  br i1 %7, label %while.body, label %while.end, !llvm.loop !61
+  %cmp24 = icmp sgt i64 %indvars.iv45, 1
+  br i1 %cmp24, label %while.body, label %while.end, !llvm.loop !61
 
 if.end32:                                         ; preds = %while.body
-  %indvars = trunc i64 %indvars.iv.next46 to i32
-  %host_notifier33 = getelementptr %struct.VirtQueue, ptr %5, i64 %idxprom.i28, i32 17
+  %host_notifier33 = getelementptr %struct.VirtQueue, ptr %5, i64 %indvars.iv.next46, i32 17
   tail call void @event_notifier_set_handler(ptr noundef %host_notifier33, ptr noundef null) #23
-  %call34 = tail call i32 @virtio_bus_set_host_notifier(ptr noundef %call.i26, i32 noundef %indvars, i1 noundef zeroext false) #23
+  %7 = trunc nuw nsw i64 %indvars.iv.next46 to i32
+  %call34 = tail call i32 @virtio_bus_set_host_notifier(ptr noundef %call.i26, i32 noundef %7, i1 noundef zeroext false) #23
   %cmp35 = icmp sgt i32 %call34, -1
   br i1 %cmp35, label %while.cond.backedge, label %if.else
 
@@ -10053,24 +10054,28 @@ if.else:                                          ; preds = %if.end32
 
 while.end:                                        ; preds = %while.cond.backedge
   tail call void @memory_region_transaction_commit() #23
-  br i1 %cmp2437.not, label %return, label %while.body41
+  br i1 %cmp2437.not, label %return, label %while.body41.preheader
 
-while.body41:                                     ; preds = %while.end, %while.cond38.backedge
-  %dec3941.in = phi i32 [ %dec3941, %while.cond38.backedge ], [ %2, %while.end ]
-  %dec3941 = add nsw i32 %dec3941.in, -1
-  %8 = load ptr, ptr %vq3, align 8
-  %idxprom.i31 = zext nneg i32 %dec3941 to i64
-  %arrayidx.i32 = getelementptr %struct.VirtQueue, ptr %8, i64 %idxprom.i31
-  %9 = load i32, ptr %arrayidx.i32, align 8
-  %tobool43.not = icmp eq i32 %9, 0
+while.body41.preheader:                           ; preds = %while.end
+  %8 = zext i32 %indvars.iv48 to i64
+  br label %while.body41
+
+while.body41:                                     ; preds = %while.body41.preheader, %while.cond38.backedge
+  %indvars.iv51 = phi i64 [ %8, %while.body41.preheader ], [ %indvars.iv.next52, %while.cond38.backedge ]
+  %9 = load ptr, ptr %vq3, align 8
+  %arrayidx.i32 = getelementptr %struct.VirtQueue, ptr %9, i64 %indvars.iv51
+  %10 = load i32, ptr %arrayidx.i32, align 8
+  %tobool43.not = icmp eq i32 %10, 0
   br i1 %tobool43.not, label %while.cond38.backedge, label %if.end45
 
 if.end45:                                         ; preds = %while.body41
-  tail call void @virtio_bus_cleanup_host_notifier(ptr noundef %call.i26, i32 noundef %dec3941) #23
+  %11 = trunc nuw nsw i64 %indvars.iv51 to i32
+  tail call void @virtio_bus_cleanup_host_notifier(ptr noundef %call.i26, i32 noundef %11) #23
   br label %while.cond38.backedge
 
 while.cond38.backedge:                            ; preds = %if.end45, %while.body41
-  %cmp40 = icmp sgt i32 %dec3941.in, 1
+  %indvars.iv.next52 = add nsw i64 %indvars.iv51, -1
+  %cmp40 = icmp sgt i64 %indvars.iv51, 0
   br i1 %cmp40, label %while.body41, label %return, !llvm.loop !62
 
 return.sink.split:                                ; preds = %for.inc21, %while.cond.preheader

@@ -269,7 +269,7 @@ for.body:                                         ; preds = %if.else, %for.body
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
   %indvars.iv29 = phi i64 [ %indvars.iv, %while.cond.preheader ], [ %indvars.iv.next30, %while.body ]
-  %i.127 = phi i32 [ %inc, %while.cond.preheader ], [ %4, %while.body ]
+  %i.127 = phi i32 [ %inc, %while.cond.preheader ], [ %3, %while.body ]
   %tag.addr.026 = phi i32 [ %tag, %while.cond.preheader ], [ %shr20, %while.body ]
   %2 = trunc i32 %tag.addr.026 to i8
   %conv11 = and i8 %2, 127
@@ -280,9 +280,9 @@ while.body:                                       ; preds = %while.cond.preheade
   store i8 %spec.select, ptr %arrayidx, align 1
   %shr20 = lshr i32 %tag.addr.026, 7
   %indvars.iv.next30 = add nsw i64 %indvars.iv29, -1
-  %3 = icmp sgt i64 %indvars.iv29, 0
-  %4 = trunc nuw i64 %indvars.iv29 to i32
-  br i1 %3, label %while.body, label %while.end, !llvm.loop !11
+  %cmp8 = icmp sgt i64 %indvars.iv29, 0
+  %3 = trunc nuw nsw i64 %indvars.iv29 to i32
+  br i1 %cmp8, label %while.body, label %while.end, !llvm.loop !11
 
 while.end:                                        ; preds = %while.body
   %idx.ext = zext nneg i32 %inc to i64
@@ -320,9 +320,8 @@ for.body.i:                                       ; preds = %if.else26, %for.bod
   br i1 %cmp1.not.i, label %for.end.i, label %for.body.i, !llvm.loop !12
 
 for.end.i:                                        ; preds = %for.body.i
-  %5 = trunc i32 %inc.i to i8
-  %conv3.i = or i8 %5, -128
-  %incdec.ptr4.i = getelementptr inbounds i8, ptr %p.0, i64 1
+  %4 = trunc i32 %inc.i to i8
+  %conv3.i = or i8 %4, -128
   store i8 %conv3.i, ptr %p.0, align 1
   br label %while.body.i
 
@@ -331,14 +330,14 @@ while.body.i:                                     ; preds = %while.body.i, %for.
   %length.addr.018.i = phi i32 [ %length, %for.end.i ], [ %shr8.i, %while.body.i ]
   %indvars.iv.next21.i = add nsw i64 %indvars.iv20.i, -1
   %conv7.i = trunc i32 %length.addr.018.i to i8
-  %idxprom.i = and i64 %indvars.iv.next21.i, 4294967295
-  %arrayidx.i = getelementptr inbounds i8, ptr %incdec.ptr4.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr i8, ptr %p.0, i64 %indvars.iv20.i
   store i8 %conv7.i, ptr %arrayidx.i, align 1
   %shr8.i = lshr i32 %length.addr.018.i, 8
-  %6 = icmp sgt i64 %indvars.iv20.i, 1
-  br i1 %6, label %while.body.i, label %while.end.i, !llvm.loop !13
+  %cmp5.i = icmp sgt i64 %indvars.iv20.i, 1
+  br i1 %cmp5.i, label %while.body.i, label %while.end.i, !llvm.loop !13
 
 while.end.i:                                      ; preds = %while.body.i
+  %incdec.ptr4.i = getelementptr inbounds i8, ptr %p.0, i64 1
   %idx.ext.i = zext nneg i32 %inc.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %incdec.ptr4.i, i64 %idx.ext.i
   br label %if.end27

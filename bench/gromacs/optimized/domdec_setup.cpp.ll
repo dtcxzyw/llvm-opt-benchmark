@@ -166,7 +166,7 @@ define noundef float @_Z13comm_box_fracRKN3gmx11BasicVectorIiEEfRK11gmx_ddbox_t(
 .loopexit:                                        ; preds = %44, %.lr.ph.preheader, %.lr.ph46
   %.4 = phi float [ %.143, %.lr.ph46 ], [ %53, %44 ], [ %39, %.lr.ph.preheader ]
   %54 = icmp eq i64 %indvars.iv61, 0
-  %indvars.iv.next55 = add i64 %indvars.iv54, 1
+  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   br i1 %54, label %.lr.ph46, label %.loopexit38, !llvm.loop !7
 
 .loopexit38:                                      ; preds = %30, %.loopexit, %22, %.preheader

@@ -927,7 +927,7 @@ define internal noundef range(i32 -12, 1) i32 @kyber_init_hctx(ptr noundef %0, i
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %6 = tail call noalias align 8 dereferenceable_or_null(456) ptr @kmalloc_node_trace(ptr noundef %5, i32 noundef 3264, i32 noundef %4, i64 noundef 456) #20
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %94, label %8
+  br i1 %7, label %93, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %0, i64 254
@@ -939,7 +939,7 @@ define internal noundef range(i32 -12, 1) i32 @kyber_init_hctx(ptr noundef %0, i
   %15 = getelementptr inbounds i8, ptr %6, i64 80
   store ptr %14, ptr %15, align 8
   %16 = icmp eq ptr %14, null
-  br i1 %16, label %93, label %17
+  br i1 %16, label %92, label %17
 
 17:                                               ; preds = %8
   %18 = load i16, ptr %9, align 2
@@ -975,15 +975,15 @@ define internal noundef range(i32 -12, 1) i32 @kyber_init_hctx(ptr noundef %0, i
   %35 = icmp ult i64 %32, %34
   br i1 %35, label %.preheader4, label %.loopexit5, !llvm.loop !21
 
-36:                                               ; preds = %54, %.loopexit5
-  %37 = phi i64 [ 0, %.loopexit5 ], [ %55, %54 ]
+36:                                               ; preds = %53, %.loopexit5
+  %37 = phi i64 [ 0, %.loopexit5 ], [ %54, %53 ]
   %38 = getelementptr [4 x %struct.sbitmap], ptr %20, i64 0, i64 %37
   %39 = load i16, ptr %9, align 2
   %40 = zext i16 %39 to i32
   %41 = load i32, ptr %3, align 16
   %42 = tail call i32 @sbitmap_init_node(ptr noundef %38, i32 noundef %40, i32 noundef 3, i32 noundef 3264, i32 noundef %41, i1 noundef zeroext false, i1 noundef zeroext false) #18
   %43 = icmp eq i32 %42, 0
-  br i1 %43, label %54, label %44
+  br i1 %43, label %53, label %44
 
 44:                                               ; preds = %36
   %45 = and i64 %37, 4294967295
@@ -993,91 +993,90 @@ define internal noundef range(i32 -12, 1) i32 @kyber_init_hctx(ptr noundef %0, i
 .preheader:                                       ; preds = %44, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ %37, %44 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %47 = and i64 %indvars.iv.next, 4294967295
-  %48 = getelementptr [4 x %struct.sbitmap], ptr %20, i64 0, i64 %47
-  %49 = getelementptr inbounds i8, ptr %48, i64 24
-  %50 = load ptr, ptr %49, align 8
-  tail call void @free_percpu(ptr noundef %50) #18
-  %51 = getelementptr inbounds i8, ptr %48, i64 16
-  %52 = load ptr, ptr %51, align 8
-  tail call void @kvfree(ptr noundef %52) #18
-  store ptr null, ptr %51, align 8
-  %53 = icmp sgt i64 %indvars.iv, 1
-  br i1 %53, label %.preheader, label %.loopexit, !llvm.loop !22
+  %47 = getelementptr [4 x %struct.sbitmap], ptr %20, i64 0, i64 %indvars.iv.next
+  %48 = getelementptr inbounds i8, ptr %47, i64 24
+  %49 = load ptr, ptr %48, align 8
+  tail call void @free_percpu(ptr noundef %49) #18
+  %50 = getelementptr inbounds i8, ptr %47, i64 16
+  %51 = load ptr, ptr %50, align 8
+  tail call void @kvfree(ptr noundef %51) #18
+  store ptr null, ptr %50, align 8
+  %52 = icmp sgt i64 %indvars.iv, 1
+  br i1 %52, label %.preheader, label %.loopexit, !llvm.loop !22
 
-54:                                               ; preds = %36
-  %55 = add nuw nsw i64 %37, 1
-  %56 = icmp eq i64 %55, 4
-  br i1 %56, label %57, label %36, !llvm.loop !23
+53:                                               ; preds = %36
+  %54 = add nuw nsw i64 %37, 1
+  %55 = icmp eq i64 %54, 4
+  br i1 %55, label %56, label %36, !llvm.loop !23
 
-57:                                               ; preds = %54
+56:                                               ; preds = %53
   store i32 0, ptr %6, align 8
-  %58 = getelementptr inbounds i8, ptr %6, i64 8
-  %59 = getelementptr inbounds i8, ptr %6, i64 216
-  %60 = getelementptr inbounds i8, ptr %6, i64 440
-  br label %61
+  %57 = getelementptr inbounds i8, ptr %6, i64 8
+  %58 = getelementptr inbounds i8, ptr %6, i64 216
+  %59 = getelementptr inbounds i8, ptr %6, i64 440
+  br label %60
 
-61:                                               ; preds = %61, %57
-  %62 = phi i64 [ 0, %57 ], [ %72, %61 ]
-  %63 = getelementptr [4 x %struct.list_head], ptr %58, i64 0, i64 %62
-  store volatile ptr %63, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 8
-  store volatile ptr %63, ptr %64, align 8
-  %65 = getelementptr [4 x %struct.sbq_wait], ptr %59, i64 0, i64 %62
-  store ptr null, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 8
-  store i32 0, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %65, i64 16
-  %68 = getelementptr inbounds i8, ptr %65, i64 24
-  store ptr @kyber_domain_wake, ptr %68, align 8
-  store ptr %0, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %65, i64 32
-  store volatile ptr %69, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %65, i64 40
-  store volatile ptr %69, ptr %70, align 8
-  %71 = getelementptr [4 x %struct.atomic_t], ptr %60, i64 0, i64 %62
-  store volatile i32 0, ptr %71, align 4
-  %72 = add nuw nsw i64 %62, 1
-  %73 = icmp eq i64 %72, 4
-  br i1 %73, label %74, label %61, !llvm.loop !24
+60:                                               ; preds = %60, %56
+  %61 = phi i64 [ 0, %56 ], [ %71, %60 ]
+  %62 = getelementptr [4 x %struct.list_head], ptr %57, i64 0, i64 %61
+  store volatile ptr %62, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %62, i64 8
+  store volatile ptr %62, ptr %63, align 8
+  %64 = getelementptr [4 x %struct.sbq_wait], ptr %58, i64 0, i64 %61
+  store ptr null, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %64, i64 8
+  store i32 0, ptr %65, align 8
+  %66 = getelementptr inbounds i8, ptr %64, i64 16
+  %67 = getelementptr inbounds i8, ptr %64, i64 24
+  store ptr @kyber_domain_wake, ptr %67, align 8
+  store ptr %0, ptr %66, align 8
+  %68 = getelementptr inbounds i8, ptr %64, i64 32
+  store volatile ptr %68, ptr %68, align 8
+  %69 = getelementptr inbounds i8, ptr %64, i64 40
+  store volatile ptr %68, ptr %69, align 8
+  %70 = getelementptr [4 x %struct.atomic_t], ptr %59, i64 0, i64 %61
+  store volatile i32 0, ptr %70, align 4
+  %71 = add nuw nsw i64 %61, 1
+  %72 = icmp eq i64 %71, 4
+  br i1 %72, label %73, label %60, !llvm.loop !24
 
-74:                                               ; preds = %61
-  %75 = getelementptr inbounds i8, ptr %6, i64 72
-  store i32 0, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %6, i64 76
-  store i32 0, ptr %76, align 4
-  %77 = getelementptr inbounds i8, ptr %0, i64 176
-  store ptr %6, ptr %77, align 16
-  %78 = getelementptr inbounds i8, ptr %0, i64 184
-  %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 8
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 8
-  %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %0, i64 328
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 16
-  %87 = getelementptr inbounds i8, ptr %85, i64 20
-  %88 = load i32, ptr %87, align 4
-  %89 = shl i32 75, %88
-  %90 = udiv i32 %89, 100
-  %91 = getelementptr inbounds i8, ptr %83, i64 272
-  store i32 %90, ptr %91, align 8
-  tail call void @sbitmap_queue_min_shallow_depth(ptr noundef %86, i32 noundef %90) #18
-  br label %94
-
-.loopexit:                                        ; preds = %.preheader, %44
-  %92 = load ptr, ptr %15, align 8
-  tail call void @kfree(ptr noundef %92) #18
+73:                                               ; preds = %60
+  %74 = getelementptr inbounds i8, ptr %6, i64 72
+  store i32 0, ptr %74, align 8
+  %75 = getelementptr inbounds i8, ptr %6, i64 76
+  store i32 0, ptr %75, align 4
+  %76 = getelementptr inbounds i8, ptr %0, i64 176
+  store ptr %6, ptr %76, align 16
+  %77 = getelementptr inbounds i8, ptr %0, i64 184
+  %78 = load ptr, ptr %77, align 8
+  %79 = getelementptr inbounds i8, ptr %78, i64 8
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr inbounds i8, ptr %80, i64 8
+  %82 = load ptr, ptr %81, align 8
+  %83 = getelementptr inbounds i8, ptr %0, i64 328
+  %84 = load ptr, ptr %83, align 8
+  %85 = getelementptr inbounds i8, ptr %84, i64 16
+  %86 = getelementptr inbounds i8, ptr %84, i64 20
+  %87 = load i32, ptr %86, align 4
+  %88 = shl i32 75, %87
+  %89 = udiv i32 %88, 100
+  %90 = getelementptr inbounds i8, ptr %82, i64 272
+  store i32 %89, ptr %90, align 8
+  tail call void @sbitmap_queue_min_shallow_depth(ptr noundef %85, i32 noundef %89) #18
   br label %93
 
-93:                                               ; preds = %.loopexit, %8
-  tail call void @kfree(ptr noundef nonnull %6) #18
-  br label %94
+.loopexit:                                        ; preds = %.preheader, %44
+  %91 = load ptr, ptr %15, align 8
+  tail call void @kfree(ptr noundef %91) #18
+  br label %92
 
-94:                                               ; preds = %93, %74, %2
-  %95 = phi i32 [ -12, %93 ], [ 0, %74 ], [ -12, %2 ]
-  ret i32 %95
+92:                                               ; preds = %.loopexit, %8
+  tail call void @kfree(ptr noundef nonnull %6) #18
+  br label %93
+
+93:                                               ; preds = %92, %73, %2
+  %94 = phi i32 [ -12, %92 ], [ 0, %73 ], [ -12, %2 ]
+  ret i32 %94
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

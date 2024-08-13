@@ -300,7 +300,7 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %tobool.not = icmp eq i32 %quoted, 0
-  %wide.trip.count31 = zext nneg i32 %argc to i64
+  %wide.trip.count30 = zext nneg i32 %argc to i64
   br i1 %tobool.not, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
@@ -311,8 +311,8 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %arrayidx15.us = getelementptr inbounds ptr, ptr %call, i64 %indvars.iv27
   store ptr %call13.us, ptr %arrayidx15.us, align 8
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
-  %exitcond32.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count31
-  br i1 %exitcond32.not, label %return, label %for.body.us, !llvm.loop !5
+  %exitcond31.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count30
+  br i1 %exitcond31.not, label %return, label %for.body.us, !llvm.loop !5
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end ], [ 0, %for.body.lr.ph ]
@@ -327,9 +327,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   br i1 %or.cond.i, label %unquoteCString.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body
-  br i1 %tobool.i, label %unquoteCString.exit.thread35, label %unquoteCString.exit.thread
+  br i1 %tobool.i, label %unquoteCString.exit.thread34, label %unquoteCString.exit.thread
 
-unquoteCString.exit.thread35:                     ; preds = %if.end.i
+unquoteCString.exit.thread34:                     ; preds = %if.end.i
   call void @hi_sdsfreesplitres(ptr noundef nonnull %call.i, i32 noundef %2) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %count.i)
   br label %while.cond.preheader
@@ -346,19 +346,18 @@ unquoteCString.exit:                              ; preds = %for.body
   %tobool3.not = icmp eq ptr %3, null
   br i1 %tobool3.not, label %while.cond.preheader, label %if.end
 
-while.cond.preheader:                             ; preds = %unquoteCString.exit, %unquoteCString.exit.thread35, %unquoteCString.exit.thread
+while.cond.preheader:                             ; preds = %unquoteCString.exit, %unquoteCString.exit.thread34, %unquoteCString.exit.thread
   %cmp518.not = icmp eq i64 %indvars.iv, 0
   br i1 %cmp518.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
   %indvars.iv24 = phi i64 [ %indvars.iv.next25, %while.body ], [ %indvars.iv, %while.cond.preheader ]
   %indvars.iv.next25 = add nsw i64 %indvars.iv24, -1
-  %idxprom7 = and i64 %indvars.iv.next25, 4294967295
-  %arrayidx8 = getelementptr inbounds ptr, ptr %call, i64 %idxprom7
+  %arrayidx8 = getelementptr inbounds ptr, ptr %call, i64 %indvars.iv.next25
   %4 = load ptr, ptr %arrayidx8, align 8
   call void @hi_sdsfree(ptr noundef %4) #11
-  %5 = icmp sgt i64 %indvars.iv24, 1
-  br i1 %5, label %while.body, label %while.end, !llvm.loop !7
+  %cmp5 = icmp sgt i64 %indvars.iv24, 1
+  br i1 %cmp5, label %while.body, label %while.end, !llvm.loop !7
 
 while.end:                                        ; preds = %while.body, %while.cond.preheader
   call void @hi_sds_free(ptr noundef %call) #11
@@ -368,7 +367,7 @@ if.end:                                           ; preds = %unquoteCString.exit
   %arrayidx10 = getelementptr inbounds ptr, ptr %call, i64 %indvars.iv
   store ptr %3, ptr %arrayidx10, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count31
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count30
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !5
 
 return:                                           ; preds = %if.end, %for.body.us, %entry, %while.end

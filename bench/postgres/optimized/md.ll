@@ -1977,63 +1977,62 @@ define dso_local void @mdregistersync(ptr nocapture noundef %0, i32 noundef %1) 
   %12 = getelementptr inbounds i8, ptr %0, i64 56
   %13 = getelementptr [4 x ptr], ptr %12, i64 0, i64 %5
   %14 = zext nneg i32 %.0 to i64
-  br label %15
+  %15 = sext i32 %7 to i64
+  br label %16
 
-15:                                               ; preds = %.lr.ph, %38
+16:                                               ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ %14, %.lr.ph ], [ %indvars.iv.next, %38 ]
-  %16 = load ptr, ptr %13, align 8
+  %17 = load ptr, ptr %13, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %indvars = trunc i64 %indvars.iv.next to i32
-  %17 = and i64 %indvars.iv.next, 4294967295
-  %18 = getelementptr %struct._MdfdVec, ptr %16, i64 %17
+  %18 = getelementptr %struct._MdfdVec, ptr %17, i64 %indvars.iv.next
   tail call fastcc void @register_dirty_segment(ptr noundef %0, i32 noundef %1, ptr noundef %18)
-  %19 = trunc nuw i64 %indvars.iv to i32
-  %20 = icmp slt i32 %7, %19
-  br i1 %20, label %21, label %38
+  %19 = icmp sgt i64 %indvars.iv, %15
+  br i1 %19, label %20, label %38
 
-21:                                               ; preds = %15
-  %22 = load i32, ptr %18, align 4
-  tail call void @FileClose(i32 noundef %22) #14
-  %23 = icmp eq i32 %indvars, 0
-  %24 = load i32, ptr %6, align 4
-  br i1 %23, label %25, label %29
+20:                                               ; preds = %16
+  %21 = load i32, ptr %18, align 4
+  tail call void @FileClose(i32 noundef %21) #14
+  %22 = icmp eq i64 %indvars.iv.next, 0
+  %23 = load i32, ptr %6, align 4
+  br i1 %22, label %24, label %28
 
-25:                                               ; preds = %21
-  %26 = icmp sgt i32 %24, 0
-  br i1 %26, label %27, label %_fdvec_resize.exit
+24:                                               ; preds = %20
+  %25 = icmp sgt i32 %23, 0
+  br i1 %25, label %26, label %_fdvec_resize.exit
 
-27:                                               ; preds = %25
-  %28 = load ptr, ptr %13, align 8
-  tail call void @pfree(ptr noundef %28) #14
+26:                                               ; preds = %24
+  %27 = load ptr, ptr %13, align 8
+  tail call void @pfree(ptr noundef %27) #14
   br label %_fdvec_resize.exit.sink.split
 
-29:                                               ; preds = %21
-  %30 = icmp eq i32 %24, 0
-  %31 = shl nuw nsw i64 %17, 3
-  br i1 %30, label %32, label %35
+28:                                               ; preds = %20
+  %29 = icmp eq i32 %23, 0
+  %30 = shl nuw nsw i64 %indvars.iv.next, 3
+  br i1 %29, label %31, label %34
 
-32:                                               ; preds = %29
-  %33 = load ptr, ptr @MdCxt, align 8
-  %34 = tail call ptr @MemoryContextAlloc(ptr noundef %33, i64 noundef %31) #14
+31:                                               ; preds = %28
+  %32 = load ptr, ptr @MdCxt, align 8
+  %33 = tail call ptr @MemoryContextAlloc(ptr noundef %32, i64 noundef %30) #14
   br label %_fdvec_resize.exit.sink.split
 
-35:                                               ; preds = %29
-  %36 = load ptr, ptr %13, align 8
-  %37 = tail call ptr @repalloc(ptr noundef %36, i64 noundef %31) #14
+34:                                               ; preds = %28
+  %35 = load ptr, ptr %13, align 8
+  %36 = tail call ptr @repalloc(ptr noundef %35, i64 noundef %30) #14
   br label %_fdvec_resize.exit.sink.split
 
-_fdvec_resize.exit.sink.split:                    ; preds = %35, %32, %27
-  %.sink = phi ptr [ null, %27 ], [ %34, %32 ], [ %37, %35 ]
+_fdvec_resize.exit.sink.split:                    ; preds = %34, %31, %26
+  %.sink = phi ptr [ null, %26 ], [ %33, %31 ], [ %36, %34 ]
   store ptr %.sink, ptr %13, align 8
   br label %_fdvec_resize.exit
 
-_fdvec_resize.exit:                               ; preds = %_fdvec_resize.exit.sink.split, %25
-  store i32 %indvars, ptr %6, align 4
+_fdvec_resize.exit:                               ; preds = %_fdvec_resize.exit.sink.split, %24
+  %37 = trunc nuw nsw i64 %indvars.iv.next to i32
+  store i32 %37, ptr %6, align 4
   br label %38
 
-38:                                               ; preds = %_fdvec_resize.exit, %15
-  %39 = icmp sgt i32 %19, 1
-  br i1 %39, label %15, label %._crit_edge, !llvm.loop !17
+38:                                               ; preds = %_fdvec_resize.exit, %16
+  %39 = icmp ugt i64 %indvars.iv, 1
+  br i1 %39, label %16, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %38, %.preheader
   ret void
@@ -2063,21 +2062,20 @@ define dso_local void @mdimmedsync(ptr nocapture noundef %0, i32 noundef %1) loc
   %12 = getelementptr inbounds i8, ptr %0, i64 56
   %13 = getelementptr [4 x ptr], ptr %12, i64 0, i64 %5
   %14 = zext nneg i32 %.0 to i64
-  br label %15
+  %15 = sext i32 %7 to i64
+  br label %16
 
-15:                                               ; preds = %.lr.ph, %50
+16:                                               ; preds = %.lr.ph, %50
   %indvars.iv = phi i64 [ %14, %.lr.ph ], [ %indvars.iv.next, %50 ]
-  %16 = load ptr, ptr %13, align 8
+  %17 = load ptr, ptr %13, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %indvars = trunc i64 %indvars.iv.next to i32
-  %17 = and i64 %indvars.iv.next, 4294967295
-  %18 = getelementptr %struct._MdfdVec, ptr %16, i64 %17
+  %18 = getelementptr %struct._MdfdVec, ptr %17, i64 %indvars.iv.next
   %19 = load i32, ptr %18, align 4
   %20 = tail call i32 @FileSync(i32 noundef %19, i32 noundef 167772175) #14
   %21 = icmp slt i32 %20, 0
   br i1 %21, label %22, label %30
 
-22:                                               ; preds = %15
+22:                                               ; preds = %16
   %23 = tail call i32 @data_sync_elevel(i32 noundef 21) #14
   %24 = tail call zeroext i1 @errstart(i32 noundef %23, ptr noundef null) #14
   br i1 %24, label %25, label %30
@@ -2090,54 +2088,54 @@ define dso_local void @mdimmedsync(ptr nocapture noundef %0, i32 noundef %1) loc
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1333, ptr noundef nonnull @__func__.mdimmedsync) #14
   br label %30
 
-30:                                               ; preds = %25, %22, %15
-  %31 = trunc nuw i64 %indvars.iv to i32
-  %32 = icmp slt i32 %7, %31
-  br i1 %32, label %33, label %50
+30:                                               ; preds = %25, %22, %16
+  %31 = icmp sgt i64 %indvars.iv, %15
+  br i1 %31, label %32, label %50
 
-33:                                               ; preds = %30
-  %34 = load i32, ptr %18, align 4
-  tail call void @FileClose(i32 noundef %34) #14
-  %35 = icmp eq i32 %indvars, 0
-  %36 = load i32, ptr %6, align 4
-  br i1 %35, label %37, label %41
+32:                                               ; preds = %30
+  %33 = load i32, ptr %18, align 4
+  tail call void @FileClose(i32 noundef %33) #14
+  %34 = icmp eq i64 %indvars.iv.next, 0
+  %35 = load i32, ptr %6, align 4
+  br i1 %34, label %36, label %40
 
-37:                                               ; preds = %33
-  %38 = icmp sgt i32 %36, 0
-  br i1 %38, label %39, label %_fdvec_resize.exit
+36:                                               ; preds = %32
+  %37 = icmp sgt i32 %35, 0
+  br i1 %37, label %38, label %_fdvec_resize.exit
 
-39:                                               ; preds = %37
-  %40 = load ptr, ptr %13, align 8
-  tail call void @pfree(ptr noundef %40) #14
+38:                                               ; preds = %36
+  %39 = load ptr, ptr %13, align 8
+  tail call void @pfree(ptr noundef %39) #14
   br label %_fdvec_resize.exit.sink.split
 
-41:                                               ; preds = %33
-  %42 = icmp eq i32 %36, 0
-  %43 = shl nuw nsw i64 %17, 3
-  br i1 %42, label %44, label %47
+40:                                               ; preds = %32
+  %41 = icmp eq i32 %35, 0
+  %42 = shl nuw nsw i64 %indvars.iv.next, 3
+  br i1 %41, label %43, label %46
 
-44:                                               ; preds = %41
-  %45 = load ptr, ptr @MdCxt, align 8
-  %46 = tail call ptr @MemoryContextAlloc(ptr noundef %45, i64 noundef %43) #14
+43:                                               ; preds = %40
+  %44 = load ptr, ptr @MdCxt, align 8
+  %45 = tail call ptr @MemoryContextAlloc(ptr noundef %44, i64 noundef %42) #14
   br label %_fdvec_resize.exit.sink.split
 
-47:                                               ; preds = %41
-  %48 = load ptr, ptr %13, align 8
-  %49 = tail call ptr @repalloc(ptr noundef %48, i64 noundef %43) #14
+46:                                               ; preds = %40
+  %47 = load ptr, ptr %13, align 8
+  %48 = tail call ptr @repalloc(ptr noundef %47, i64 noundef %42) #14
   br label %_fdvec_resize.exit.sink.split
 
-_fdvec_resize.exit.sink.split:                    ; preds = %47, %44, %39
-  %.sink = phi ptr [ null, %39 ], [ %46, %44 ], [ %49, %47 ]
+_fdvec_resize.exit.sink.split:                    ; preds = %46, %43, %38
+  %.sink = phi ptr [ null, %38 ], [ %45, %43 ], [ %48, %46 ]
   store ptr %.sink, ptr %13, align 8
   br label %_fdvec_resize.exit
 
-_fdvec_resize.exit:                               ; preds = %_fdvec_resize.exit.sink.split, %37
-  store i32 %indvars, ptr %6, align 4
+_fdvec_resize.exit:                               ; preds = %_fdvec_resize.exit.sink.split, %36
+  %49 = trunc nuw nsw i64 %indvars.iv.next to i32
+  store i32 %49, ptr %6, align 4
   br label %50
 
 50:                                               ; preds = %_fdvec_resize.exit, %30
-  %51 = icmp sgt i32 %31, 1
-  br i1 %51, label %15, label %._crit_edge, !llvm.loop !19
+  %51 = icmp ugt i64 %indvars.iv, 1
+  br i1 %51, label %16, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %50, %.preheader
   ret void

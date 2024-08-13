@@ -10066,8 +10066,8 @@ arraydestroy.done38:                              ; preds = %arraydestroy.body, 
 
 for.inc40:                                        ; preds = %for.body34, %arraydestroy.done38
   %indvars.iv.next28 = add nsw i64 %indvars.iv27, -1
-  %25 = icmp sgt i64 %indvars.iv27, 0
-  br i1 %25, label %for.body34, label %for.end41, !llvm.loop !23
+  %cmp33 = icmp sgt i64 %indvars.iv27, 0
+  br i1 %cmp33, label %for.body34, label %for.end41, !llvm.loop !23
 
 for.end41:                                        ; preds = %for.inc40
   %.pre30 = load ptr, ptr %fZoneStrings, align 8

@@ -11955,17 +11955,17 @@ if.end:                                           ; preds = %while.body
   %arrayidx3 = getelementptr i8, ptr %0, i64 -20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(20) %arrayidx3, i64 20, i1 false)
   %indvars.iv.next21 = add nsw i64 %indvars.iv20, -1
-  %2 = icmp sgt i64 %indvars.iv20, 1
-  br i1 %2, label %while.body, label %while.end, !llvm.loop !45
+  %cmp1 = icmp sgt i64 %indvars.iv20, 1
+  br i1 %cmp1, label %while.body, label %while.end, !llvm.loop !45
 
 while.end.split.loop.exit:                        ; preds = %while.body
-  %3 = trunc nuw i64 %indvars.iv20 to i32
+  %2 = trunc nuw nsw i64 %indvars.iv20 to i32
   br label %while.end
 
 while.end:                                        ; preds = %if.end, %while.end.split.loop.exit
-  %j.0.lcssa = phi i32 [ %3, %while.end.split.loop.exit ], [ 0, %if.end ]
-  %4 = zext i32 %j.0.lcssa to i64
-  %cmp11.not = icmp eq i64 %indvars.iv, %4
+  %j.0.lcssa = phi i32 [ %2, %while.end.split.loop.exit ], [ 0, %if.end ]
+  %3 = zext i32 %j.0.lcssa to i64
+  %cmp11.not = icmp eq i64 %indvars.iv, %3
   br i1 %cmp11.not, label %for.inc, label %if.then13
 
 if.then13:                                        ; preds = %while.end
@@ -12131,17 +12131,17 @@ if.end.i:                                         ; preds = %while.body.i
   %arrayidx3.i = getelementptr i8, ptr %0, i64 -20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(20) %arrayidx3.i, i64 20, i1 false)
   %indvars.iv.next21.i = add nsw i64 %indvars.iv20.i, -1
-  %2 = icmp sgt i64 %indvars.iv20.i, 1
-  br i1 %2, label %while.body.i, label %while.end.i, !llvm.loop !45
+  %cmp1.i = icmp sgt i64 %indvars.iv20.i, 1
+  br i1 %cmp1.i, label %while.body.i, label %while.end.i, !llvm.loop !45
 
 while.end.split.loop.exit.i:                      ; preds = %while.body.i
-  %3 = trunc nuw i64 %indvars.iv20.i to i32
+  %2 = trunc nuw nsw i64 %indvars.iv20.i to i32
   br label %while.end.i
 
 while.end.i:                                      ; preds = %if.end.i, %while.end.split.loop.exit.i
-  %j.0.lcssa.i = phi i32 [ %3, %while.end.split.loop.exit.i ], [ 0, %if.end.i ]
-  %4 = zext i32 %j.0.lcssa.i to i64
-  %cmp11.not.i = icmp eq i64 %indvars.iv.i, %4
+  %j.0.lcssa.i = phi i32 [ %2, %while.end.split.loop.exit.i ], [ 0, %if.end.i ]
+  %3 = zext i32 %j.0.lcssa.i to i64
+  %cmp11.not.i = icmp eq i64 %indvars.iv.i, %3
   br i1 %cmp11.not.i, label %for.inc.i, label %if.then13.i
 
 if.then13.i:                                      ; preds = %while.end.i
@@ -12397,17 +12397,17 @@ if.end.i.i:                                       ; preds = %while.body.i.i
   %arrayidx3.i.i = getelementptr i8, ptr %26, i64 -20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %26, ptr noundef nonnull align 4 dereferenceable(20) %arrayidx3.i.i, i64 20, i1 false)
   %indvars.iv.next21.i.i = add nsw i64 %indvars.iv20.i.i, -1
-  %28 = icmp sgt i64 %indvars.iv20.i.i, 1
-  br i1 %28, label %while.body.i.i, label %while.end.i.i, !llvm.loop !45
+  %cmp1.i.i = icmp sgt i64 %indvars.iv20.i.i, 1
+  br i1 %cmp1.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !45
 
 while.end.split.loop.exit.i.i:                    ; preds = %while.body.i.i
-  %29 = trunc nuw i64 %indvars.iv20.i.i to i32
+  %28 = trunc nuw nsw i64 %indvars.iv20.i.i to i32
   br label %while.end.i.i
 
 while.end.i.i:                                    ; preds = %if.end.i.i, %while.end.split.loop.exit.i.i
-  %j.0.lcssa.i.i = phi i32 [ %29, %while.end.split.loop.exit.i.i ], [ 0, %if.end.i.i ]
-  %30 = zext i32 %j.0.lcssa.i.i to i64
-  %cmp11.not.i.i = icmp eq i64 %indvars.iv.i.i, %30
+  %j.0.lcssa.i.i = phi i32 [ %28, %while.end.split.loop.exit.i.i ], [ 0, %if.end.i.i ]
+  %29 = zext i32 %j.0.lcssa.i.i to i64
+  %cmp11.not.i.i = icmp eq i64 %indvars.iv.i.i, %29
   br i1 %cmp11.not.i.i, label %for.inc.i.i, label %if.then13.i.i
 
 if.then13.i.i:                                    ; preds = %while.end.i.i

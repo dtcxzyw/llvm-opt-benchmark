@@ -188,8 +188,7 @@ while.cond.preheader:                             ; preds = %if.end28
 while.body:                                       ; preds = %while.cond.preheader, %if.end50
   %indvars.iv42 = phi i64 [ %indvars.iv.next43, %if.end50 ], [ %indvars.iv, %while.cond.preheader ]
   %indvars.iv.next43 = add nsw i64 %indvars.iv42, -1
-  %idxprom42 = and i64 %indvars.iv.next43, 4294967295
-  %arrayidx43 = getelementptr inbounds ptr, ptr %call14, i64 %idxprom42
+  %arrayidx43 = getelementptr inbounds ptr, ptr %call14, i64 %indvars.iv.next43
   %5 = load ptr, ptr %arrayidx43, align 8
   %cmp44.not = icmp eq ptr %5, null
   br i1 %cmp44.not, label %if.end50, label %if.then46
@@ -199,8 +198,8 @@ if.then46:                                        ; preds = %while.body
   br label %if.end50
 
 if.end50:                                         ; preds = %if.then46, %while.body
-  %6 = icmp ugt i64 %indvars.iv42, 1
-  br i1 %6, label %while.body, label %if.end.i, !llvm.loop !4
+  %cmp39 = icmp ugt i64 %indvars.iv42, 1
+  br i1 %cmp39, label %while.body, label %if.end.i, !llvm.loop !4
 
 for.inc:                                          ; preds = %if.end28, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

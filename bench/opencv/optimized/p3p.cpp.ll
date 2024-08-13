@@ -2456,74 +2456,74 @@ define hidden noundef i32 @_ZN3p3p5solveEPA3_A3_dPS0_ddddddddddddddddddddb(ptr n
   br i1 %or.cond, label %.preheader.preheader, label %.loopexit
 
 .preheader.preheader:                             ; preds = %._crit_edge
-  %wide.trip.count233 = zext nneg i32 %97 to i64
+  %wide.trip.count232 = zext nneg i32 %97 to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.critedge
   %indvars.iv226 = phi i64 [ 1, %.preheader.preheader ], [ %indvars.iv.next227, %.critedge ]
+  %.phi.trans.insert = getelementptr inbounds [4 x double], ptr %28, i64 0, i64 %indvars.iv226
+  %.pre = load double, ptr %.phi.trans.insert, align 8
   br label %185
 
 185:                                              ; preds = %.preheader, %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit
   %indvars.iv228 = phi i64 [ %indvars.iv226, %.preheader ], [ %indvars.iv.next229, %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit ]
   %indvars.iv.next229 = add nsw i64 %indvars.iv228, -1
-  %186 = and i64 %indvars.iv.next229, 4294967295
-  %187 = getelementptr inbounds [4 x double], ptr %28, i64 0, i64 %186
-  %188 = load double, ptr %187, align 8
-  %189 = getelementptr inbounds [4 x double], ptr %28, i64 0, i64 %indvars.iv228
-  %190 = load double, ptr %189, align 8
-  %191 = fcmp ogt double %188, %190
-  br i1 %191, label %192, label %.critedge
+  %186 = getelementptr inbounds [4 x double], ptr %28, i64 0, i64 %indvars.iv.next229
+  %187 = load double, ptr %186, align 8
+  %188 = fcmp ogt double %187, %.pre
+  br i1 %188, label %189, label %.critedge
 
-192:                                              ; preds = %185
-  store double %188, ptr %189, align 8
-  store double %190, ptr %187, align 8
+189:                                              ; preds = %185
+  %190 = getelementptr inbounds [4 x double], ptr %28, i64 0, i64 %indvars.iv228
+  store double %187, ptr %190, align 8
+  store double %.pre, ptr %186, align 8
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i, %192
-  %.05.i = phi i64 [ 0, %192 ], [ %199, %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i ]
-  br label %193
+.preheader.i:                                     ; preds = %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i, %189
+  %.05.i = phi i64 [ 0, %189 ], [ %197, %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i ]
+  br label %191
 
-193:                                              ; preds = %193, %.preheader.i
-  %.05.i.i = phi i64 [ %198, %193 ], [ 0, %.preheader.i ]
-  %194 = getelementptr inbounds [3 x [3 x double]], ptr %1, i64 %indvars.iv228, i64 %.05.i, i64 %.05.i.i
-  %195 = getelementptr inbounds [3 x [3 x double]], ptr %1, i64 %186, i64 %.05.i, i64 %.05.i.i
-  %196 = load double, ptr %194, align 8
-  %197 = load double, ptr %195, align 8
-  store double %197, ptr %194, align 8
-  store double %196, ptr %195, align 8
-  %198 = add nuw nsw i64 %.05.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %198, 3
-  br i1 %exitcond.not.i.i, label %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i, label %193, !llvm.loop !20
+191:                                              ; preds = %191, %.preheader.i
+  %.05.i.i = phi i64 [ %196, %191 ], [ 0, %.preheader.i ]
+  %192 = getelementptr inbounds [3 x [3 x double]], ptr %1, i64 %indvars.iv228, i64 %.05.i, i64 %.05.i.i
+  %193 = getelementptr inbounds [3 x [3 x double]], ptr %1, i64 %indvars.iv.next229, i64 %.05.i, i64 %.05.i.i
+  %194 = load double, ptr %192, align 8
+  %195 = load double, ptr %193, align 8
+  store double %195, ptr %192, align 8
+  store double %194, ptr %193, align 8
+  %196 = add nuw nsw i64 %.05.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %196, 3
+  br i1 %exitcond.not.i.i, label %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i, label %191, !llvm.loop !20
 
-_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i: ; preds = %193
-  %199 = add nuw nsw i64 %.05.i, 1
-  %exitcond.not.i = icmp eq i64 %199, 3
+_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i: ; preds = %191
+  %197 = add nuw nsw i64 %.05.i, 1
+  %exitcond.not.i = icmp eq i64 %197, 3
   br i1 %exitcond.not.i, label %_ZSt4swapIA3_dLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S2_S6_.exit, label %.preheader.i, !llvm.loop !21
 
 _ZSt4swapIA3_dLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S2_S6_.exit: ; preds = %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i, %_ZSt4swapIA3_dLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S2_S6_.exit
-  %.05.i194 = phi i64 [ %204, %_ZSt4swapIA3_dLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S2_S6_.exit ], [ 0, %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i ]
-  %200 = getelementptr inbounds [3 x double], ptr %2, i64 %indvars.iv228, i64 %.05.i194
-  %201 = getelementptr inbounds [3 x double], ptr %2, i64 %186, i64 %.05.i194
-  %202 = load double, ptr %200, align 8
-  %203 = load double, ptr %201, align 8
-  store double %203, ptr %200, align 8
-  store double %202, ptr %201, align 8
-  %204 = add nuw nsw i64 %.05.i194, 1
-  %exitcond.not.i195 = icmp eq i64 %204, 3
+  %.05.i194 = phi i64 [ %202, %_ZSt4swapIA3_dLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S2_S6_.exit ], [ 0, %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i ]
+  %198 = getelementptr inbounds [3 x double], ptr %2, i64 %indvars.iv228, i64 %.05.i194
+  %199 = getelementptr inbounds [3 x double], ptr %2, i64 %indvars.iv.next229, i64 %.05.i194
+  %200 = load double, ptr %198, align 8
+  %201 = load double, ptr %199, align 8
+  store double %201, ptr %198, align 8
+  store double %200, ptr %199, align 8
+  %202 = add nuw nsw i64 %.05.i194, 1
+  %exitcond.not.i195 = icmp eq i64 %202, 3
   br i1 %exitcond.not.i195, label %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit, label %_ZSt4swapIA3_dLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S2_S6_.exit, !llvm.loop !20
 
 _ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit: ; preds = %_ZSt4swapIA3_dLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S2_S6_.exit
-  %205 = icmp sgt i64 %indvars.iv228, 1
-  br i1 %205, label %185, label %.critedge, !llvm.loop !22
+  %203 = icmp sgt i64 %indvars.iv228, 1
+  br i1 %203, label %185, label %.critedge, !llvm.loop !22
 
 .critedge:                                        ; preds = %185, %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit
   %indvars.iv.next227 = add nuw nsw i64 %indvars.iv226, 1
-  %exitcond234.not = icmp eq i64 %indvars.iv.next227, %wide.trip.count233
-  br i1 %exitcond234.not, label %.loopexit, label %.preheader, !llvm.loop !23
+  %exitcond233.not = icmp eq i64 %indvars.iv.next227, %wide.trip.count232
+  br i1 %exitcond233.not, label %.loopexit, label %.preheader, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.critedge, %24, %._crit_edge
-  %.0193.lcssa237 = phi i32 [ %97, %._crit_edge ], [ 0, %24 ], [ %97, %.critedge ]
-  ret i32 %.0193.lcssa237
+  %.0193.lcssa236 = phi i32 [ %97, %._crit_edge ], [ 0, %24 ], [ %97, %.critedge ]
+  ret i32 %.0193.lcssa236
 }
 
 ; Function Attrs: nounwind

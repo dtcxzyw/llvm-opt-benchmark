@@ -2243,25 +2243,24 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
   %indvars.iv35 = phi i64 [ %1, %land.rhs.preheader ], [ %indvars.iv.next36, %for.body24 ]
   %indvars.iv33 = phi i64 [ %indvars.iv, %land.rhs.preheader ], [ %indvars.iv.next34, %for.body24 ]
   %indvars.iv.next34 = add nsw i64 %indvars.iv33, -1
-  %idxprom19 = and i64 %indvars.iv.next34, 4294967295
-  %arrayidx20 = getelementptr inbounds i8, ptr %s, i64 %idxprom19
+  %arrayidx20 = getelementptr inbounds i8, ptr %s, i64 %indvars.iv.next34
   %4 = load i8, ptr %arrayidx20, align 1
   %cmp22 = icmp eq i8 %4, 92
-  br i1 %cmp22, label %for.body24, label %for.end.loopexit.split.loop.exit42
+  br i1 %cmp22, label %for.body24, label %for.end.loopexit.split.loop.exit41
 
 for.body24:                                       ; preds = %land.rhs
   %indvars.iv.next36 = add nsw i64 %indvars.iv35, 1
   %arrayidx27 = getelementptr inbounds i8, ptr %call1, i64 %indvars.iv35
   store i8 92, ptr %arrayidx27, align 1
-  %5 = icmp sgt i64 %indvars.iv33, 1
-  br i1 %5, label %land.rhs, label %for.end, !llvm.loop !25
+  %cmp = icmp sgt i64 %indvars.iv33, 1
+  br i1 %cmp, label %land.rhs, label %for.end, !llvm.loop !25
 
-for.end.loopexit.split.loop.exit42:               ; preds = %land.rhs
-  %6 = trunc nsw i64 %indvars.iv35 to i32
+for.end.loopexit.split.loop.exit41:               ; preds = %land.rhs
+  %5 = trunc nsw i64 %indvars.iv35 to i32
   br label %for.end
 
-for.end:                                          ; preds = %for.body24, %for.end.loopexit.split.loop.exit42, %sw.bb16
-  %j.1.lcssa = phi i32 [ %j.0, %sw.bb16 ], [ %6, %for.end.loopexit.split.loop.exit42 ], [ %3, %for.body24 ]
+for.end:                                          ; preds = %for.body24, %for.end.loopexit.split.loop.exit41, %sw.bb16
+  %j.1.lcssa = phi i32 [ %j.0, %sw.bb16 ], [ %5, %for.end.loopexit.split.loop.exit41 ], [ %3, %for.body24 ]
   %idxprom29 = sext i32 %j.1.lcssa to i64
   %arrayidx30 = getelementptr inbounds i8, ptr %call1, i64 %idxprom29
   store i8 92, ptr %arrayidx30, align 1

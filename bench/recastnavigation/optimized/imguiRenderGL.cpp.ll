@@ -3930,7 +3930,7 @@ _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit: ; preds = %._crit_edge11
   br i1 %180, label %173, label %.split.loop.exit31.i.i.i, !llvm.loop !23
 
 .split.loop.exit.i.i.i:                           ; preds = %173
-  %181 = trunc nuw i64 %indvars.iv27.i.i.i to i32
+  %181 = trunc nuw nsw i64 %indvars.iv27.i.i.i to i32
   br label %.split.loop.exit31.i.i.i
 
 .split.loop.exit31.i.i.i:                         ; preds = %178, %.split.loop.exit.i.i.i

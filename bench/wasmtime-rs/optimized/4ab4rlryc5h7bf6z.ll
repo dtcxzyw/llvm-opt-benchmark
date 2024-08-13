@@ -4255,7 +4255,7 @@ define hidden { i32, i32 } @"_ZN17cranelift_bforest4path13Path$LT$F$GT$4next17h4
 .lr.ph.i:                                         ; preds = %71, %77
   %.038.i = phi i32 [ %.0.i, %77 ], [ %.036.i, %71 ]
   %.sroa.03.037.i = phi i64 [ %79, %77 ], [ %43, %71 ]
-  %79 = add i64 %.sroa.03.037.i, 1
+  %79 = add nuw nsw i64 %.sroa.03.037.i, 1
   %80 = icmp ult i64 %.sroa.03.037.i, 16
   br i1 %80, label %81, label %101, !prof !20
 

@@ -734,19 +734,19 @@ define internal fastcc noundef ptr @blkg_alloc(ptr noundef %0, ptr noundef %1, i
   %22 = getelementptr inbounds i8, ptr %19, i64 56
   %23 = tail call i32 @percpu_ref_init(ptr noundef %22, ptr noundef nonnull @blkg_release, i32 noundef 0, i32 noundef %2) #16
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %103
+  br i1 %24, label %25, label %102
 
 25:                                               ; preds = %21
   %26 = tail call noalias dereferenceable_or_null(120) ptr @__alloc_percpu_gfp(i64 noundef 120, i64 noundef 8, i32 noundef %2) #20
   %27 = getelementptr inbounds i8, ptr %19, i64 80
   store ptr %26, ptr %27, align 8
   %28 = icmp eq ptr %26, null
-  br i1 %28, label %102, label %29
+  br i1 %28, label %101, label %29
 
 29:                                               ; preds = %25
   %30 = load ptr, ptr %4, align 8
   %31 = tail call zeroext i1 @blk_get_queue(ptr noundef %30) #16
-  br i1 %31, label %32, label %100
+  br i1 %31, label %32, label %99
 
 32:                                               ; preds = %29
   %33 = load ptr, ptr %4, align 8
@@ -837,48 +837,47 @@ define internal fastcc noundef ptr @blkg_alloc(ptr noundef %0, ptr noundef %1, i
   %87 = icmp eq i64 %86, 6
   br i1 %87, label %.loopexit10, label %59, !llvm.loop !24
 
-.preheader:                                       ; preds = %82, %97
-  %indvars.iv = phi i64 [ %indvars.iv.next, %97 ], [ %60, %82 ]
+.preheader:                                       ; preds = %82, %96
+  %indvars.iv = phi i64 [ %indvars.iv.next, %96 ], [ %60, %82 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %88 = and i64 %indvars.iv.next, 4294967295
-  %89 = getelementptr [6 x ptr], ptr %47, i64 0, i64 %88
-  %90 = load ptr, ptr %89, align 8
-  %91 = icmp eq ptr %90, null
-  br i1 %91, label %97, label %92
+  %88 = getelementptr [6 x ptr], ptr %47, i64 0, i64 %indvars.iv.next
+  %89 = load ptr, ptr %88, align 8
+  %90 = icmp eq ptr %89, null
+  br i1 %90, label %96, label %91
 
-92:                                               ; preds = %.preheader
-  %93 = getelementptr [6 x ptr], ptr @blkcg_policy, i64 0, i64 %88
-  %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 72
-  %96 = load ptr, ptr %95, align 8
-  tail call void %96(ptr noundef nonnull %90) #16
-  br label %97
+91:                                               ; preds = %.preheader
+  %92 = getelementptr [6 x ptr], ptr @blkcg_policy, i64 0, i64 %indvars.iv.next
+  %93 = load ptr, ptr %92, align 8
+  %94 = getelementptr inbounds i8, ptr %93, i64 72
+  %95 = load ptr, ptr %94, align 8
+  tail call void %95(ptr noundef nonnull %89) #16
+  br label %96
 
-97:                                               ; preds = %92, %.preheader
-  %98 = icmp sgt i64 %indvars.iv, 1
-  br i1 %98, label %.preheader, label %.loopexit, !llvm.loop !25
+96:                                               ; preds = %91, %.preheader
+  %97 = icmp sgt i64 %indvars.iv, 1
+  br i1 %97, label %.preheader, label %.loopexit, !llvm.loop !25
 
-.loopexit:                                        ; preds = %97, %82
-  %99 = load ptr, ptr %4, align 8
-  tail call void @blk_put_queue(ptr noundef %99) #16
-  br label %100
+.loopexit:                                        ; preds = %96, %82
+  %98 = load ptr, ptr %4, align 8
+  tail call void @blk_put_queue(ptr noundef %98) #16
+  br label %99
 
-100:                                              ; preds = %.loopexit, %29
-  %101 = load ptr, ptr %27, align 8
-  tail call void @free_percpu(ptr noundef %101) #16
+99:                                               ; preds = %.loopexit, %29
+  %100 = load ptr, ptr %27, align 8
+  tail call void @free_percpu(ptr noundef %100) #16
+  br label %101
+
+101:                                              ; preds = %99, %25
+  tail call void @percpu_ref_exit(ptr noundef %22) #16
   br label %102
 
-102:                                              ; preds = %100, %25
-  tail call void @percpu_ref_exit(ptr noundef %22) #16
-  br label %103
-
-103:                                              ; preds = %102, %21
+102:                                              ; preds = %101, %21
   tail call void @kfree(ptr noundef nonnull %19) #16
   br label %.loopexit10
 
-.loopexit10:                                      ; preds = %85, %103, %14
-  %104 = phi ptr [ null, %103 ], [ null, %14 ], [ %19, %85 ]
-  ret ptr %104
+.loopexit10:                                      ; preds = %85, %102, %14
+  %103 = phi ptr [ null, %102 ], [ null, %14 ], [ %19, %85 ]
+  ret ptr %103
 }
 
 ; Function Attrs: null_pointer_is_valid

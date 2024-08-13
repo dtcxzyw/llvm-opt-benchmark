@@ -234,22 +234,23 @@ define void @pqSetResultError(ptr noundef %0, ptr noundef readonly %1, i32 nound
 ; Function Attrs: nounwind uwtable
 define internal fastcc noalias noundef ptr @dupEvents(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
-  br i1 %4, label %34, label %5
+  br i1 %4, label %31, label %5
 
 5:                                                ; preds = %3
   %6 = zext i32 %1 to i64
   %7 = mul nuw nsw i64 %6, 40
   %8 = tail call noalias ptr @malloc(i64 noundef %7) #25
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %34, label %.preheader44
+  br i1 %.not, label %31, label %.preheader44
 
 .preheader44:                                     ; preds = %5
   %9 = icmp sgt i32 %1, 0
   br i1 %9, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.preheader44, %28
-  %indvars.iv = phi i64 [ %indvars.iv.next, %28 ], [ 0, %.preheader44 ]
-  %.03747 = phi i64 [ %31, %28 ], [ %7, %.preheader44 ]
+.lr.ph:                                           ; preds = %.preheader44, %25
+  %indvars.iv54 = phi i32 [ %indvars.iv.next55, %25 ], [ -1, %.preheader44 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %.preheader44 ]
+  %.03747 = phi i64 [ %28, %25 ], [ %7, %.preheader44 ]
   %10 = getelementptr %struct.PGEvent, ptr %0, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr %struct.PGEvent, ptr %8, i64 %indvars.iv
@@ -268,46 +269,46 @@ define internal fastcc noalias noundef ptr @dupEvents(ptr noundef readonly %0, i
   %21 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %20, ptr %21, align 8
   %.not43 = icmp eq ptr %20, null
-  br i1 %.not43, label %.preheader, label %28
+  br i1 %.not43, label %.preheader, label %25
 
 .preheader:                                       ; preds = %.lr.ph
   %.not51 = icmp eq i64 %indvars.iv, 0
   br i1 %.not51, label %._crit_edge50, label %.lr.ph49.preheader
 
 .lr.ph49.preheader:                               ; preds = %.preheader
-  %22 = trunc nuw nsw i64 %indvars.iv to i32
+  %22 = zext i32 %indvars.iv54 to i64
   br label %.lr.ph49
 
 .lr.ph49:                                         ; preds = %.lr.ph49.preheader, %.lr.ph49
-  %.in = phi i32 [ %23, %.lr.ph49 ], [ %22, %.lr.ph49.preheader ]
-  %23 = add nsw i32 %.in, -1
-  %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr %struct.PGEvent, ptr %8, i64 %24, i32 1
-  %26 = load ptr, ptr %25, align 8
-  tail call void @free(ptr noundef %26) #26
-  %27 = icmp sgt i32 %.in, 1
-  br i1 %27, label %.lr.ph49, label %._crit_edge50, !llvm.loop !4
+  %indvars.iv57 = phi i64 [ %22, %.lr.ph49.preheader ], [ %indvars.iv.next58, %.lr.ph49 ]
+  %23 = getelementptr %struct.PGEvent, ptr %8, i64 %indvars.iv57, i32 1
+  %24 = load ptr, ptr %23, align 8
+  tail call void @free(ptr noundef %24) #26
+  %indvars.iv.next58 = add nsw i64 %indvars.iv57, -1
+  %.not62 = icmp eq i64 %indvars.iv57, 0
+  br i1 %.not62, label %._crit_edge50, label %.lr.ph49, !llvm.loop !4
 
 ._crit_edge50:                                    ; preds = %.lr.ph49, %.preheader
   tail call void @free(ptr noundef nonnull %8) #26
-  br label %34
+  br label %31
 
-28:                                               ; preds = %.lr.ph
-  %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #27
-  %30 = add i64 %.03747, 1
-  %31 = add i64 %30, %29
+25:                                               ; preds = %.lr.ph
+  %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #27
+  %27 = add i64 %.03747, 1
+  %28 = add i64 %27, %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
+  %indvars.iv.next55 = add nsw i32 %indvars.iv54, 1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %28, %.preheader44
-  %.037.lcssa = phi i64 [ %7, %.preheader44 ], [ %31, %28 ]
-  %32 = load i64, ptr %2, align 8
-  %33 = add i64 %32, %.037.lcssa
-  store i64 %33, ptr %2, align 8
-  br label %34
+._crit_edge:                                      ; preds = %25, %.preheader44
+  %.037.lcssa = phi i64 [ %7, %.preheader44 ], [ %28, %25 ]
+  %29 = load i64, ptr %2, align 8
+  %30 = add i64 %29, %.037.lcssa
+  store i64 %30, ptr %2, align 8
+  br label %31
 
-34:                                               ; preds = %5, %3, %._crit_edge, %._crit_edge50
+31:                                               ; preds = %5, %3, %._crit_edge, %._crit_edge50
   %.038 = phi ptr [ null, %._crit_edge50 ], [ %8, %._crit_edge ], [ null, %3 ], [ null, %5 ]
   ret ptr %.038
 }

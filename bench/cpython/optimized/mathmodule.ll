@@ -4050,8 +4050,7 @@ for.body.lr.ph:                                   ; preds = %if.end62
 
 for.cond:                                         ; preds = %Py_DECREF.exit155
   %indvars.iv.next133 = add nsw i64 %indvars.iv132, -1
-  %12 = trunc nuw i64 %indvars.iv132 to i32
-  %cmp64 = icmp sgt i32 %12, 0
+  %cmp64 = icmp sgt i64 %indvars.iv132, 0
   br i1 %cmp64, label %for.body, label %for.end, !llvm.loop !14
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
@@ -4059,21 +4058,21 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %d.0125 = phi i64 [ %shr37, %for.body.lr.ph ], [ %shr67, %for.cond ]
   %a.1123 = phi ptr [ %call58, %for.body.lr.ph ], [ %call95, %for.cond ]
   %shr67 = lshr i64 %div94, %indvars.iv132
-  %13 = add nuw i64 %d.0125, %shr67
-  %add = sub i64 %.neg, %13
+  %12 = add nuw i64 %d.0125, %shr67
+  %add = sub i64 %.neg, %12
   %call71 = tail call ptr @_PyLong_Rshift(ptr noundef nonnull %call, i64 noundef %add) #15
   %cmp72 = icmp eq ptr %call71, null
   br i1 %cmp72, label %if.then.i, label %do.body
 
 do.body:                                          ; preds = %for.body
   %call76 = tail call ptr @PyNumber_FloorDivide(ptr noundef nonnull %call71, ptr noundef nonnull %a.1123) #15
-  %14 = load i64, ptr %call71, align 8
-  %15 = and i64 %14, 2147483648
-  %cmp.i231.not = icmp eq i64 %15, 0
+  %13 = load i64, ptr %call71, align 8
+  %14 = and i64 %13, 2147483648
+  %cmp.i231.not = icmp eq i64 %14, 0
   br i1 %cmp.i231.not, label %if.end.i186, label %do.end
 
 if.end.i186:                                      ; preds = %do.body
-  %dec.i187 = add i64 %14, -1
+  %dec.i187 = add i64 %13, -1
   store i64 %dec.i187, ptr %call71, align 8
   %cmp.i188 = icmp eq i64 %dec.i187, 0
   br i1 %cmp.i188, label %if.then1.i189, label %do.end
@@ -4087,16 +4086,16 @@ do.end:                                           ; preds = %if.end.i186, %if.th
   br i1 %cmp77, label %if.then.i, label %do.body81
 
 do.body81:                                        ; preds = %do.end
-  %16 = xor i64 %d.0125, -1
-  %sub85 = add nsw i64 %shr67, %16
+  %15 = xor i64 %d.0125, -1
+  %sub85 = add nsw i64 %shr67, %15
   %call86 = tail call ptr @_PyLong_Lshift(ptr noundef nonnull %a.1123, i64 noundef %sub85) #15
-  %17 = load i64, ptr %a.1123, align 8
-  %18 = and i64 %17, 2147483648
-  %cmp.i235.not = icmp eq i64 %18, 0
+  %16 = load i64, ptr %a.1123, align 8
+  %17 = and i64 %16, 2147483648
+  %cmp.i235.not = icmp eq i64 %17, 0
   br i1 %cmp.i235.not, label %if.end.i177, label %do.end87
 
 if.end.i177:                                      ; preds = %do.body81
-  %dec.i178 = add i64 %17, -1
+  %dec.i178 = add i64 %16, -1
   store i64 %dec.i178, ptr %a.1123, align 8
   %cmp.i179 = icmp eq i64 %dec.i178, 0
   br i1 %cmp.i179, label %if.then1.i180, label %do.end87
@@ -4110,13 +4109,13 @@ do.end87:                                         ; preds = %if.end.i177, %if.th
   br i1 %cmp88, label %if.then90, label %do.body92
 
 if.then90:                                        ; preds = %do.end87
-  %19 = load i64, ptr %call76, align 8
-  %20 = and i64 %19, 2147483648
-  %cmp.i239.not = icmp eq i64 %20, 0
+  %18 = load i64, ptr %call76, align 8
+  %19 = and i64 %18, 2147483648
+  %cmp.i239.not = icmp eq i64 %19, 0
   br i1 %cmp.i239.not, label %if.end.i168, label %Py_XDECREF.exit
 
 if.end.i168:                                      ; preds = %if.then90
-  %dec.i169 = add i64 %19, -1
+  %dec.i169 = add i64 %18, -1
   store i64 %dec.i169, ptr %call76, align 8
   %cmp.i170 = icmp eq i64 %dec.i169, 0
   br i1 %cmp.i170, label %if.then1.i171, label %Py_XDECREF.exit
@@ -4127,13 +4126,13 @@ if.then1.i171:                                    ; preds = %if.end.i168
 
 do.body92:                                        ; preds = %do.end87
   %call95 = tail call ptr @PyNumber_Add(ptr noundef nonnull %call86, ptr noundef nonnull %call76) #15
-  %21 = load i64, ptr %call86, align 8
-  %22 = and i64 %21, 2147483648
-  %cmp.i243.not = icmp eq i64 %22, 0
+  %20 = load i64, ptr %call86, align 8
+  %21 = and i64 %20, 2147483648
+  %cmp.i243.not = icmp eq i64 %21, 0
   br i1 %cmp.i243.not, label %if.end.i159, label %do.end96
 
 if.end.i159:                                      ; preds = %do.body92
-  %dec.i160 = add i64 %21, -1
+  %dec.i160 = add i64 %20, -1
   store i64 %dec.i160, ptr %call86, align 8
   %cmp.i161 = icmp eq i64 %dec.i160, 0
   br i1 %cmp.i161, label %if.then1.i162, label %do.end96
@@ -4143,13 +4142,13 @@ if.then1.i162:                                    ; preds = %if.end.i159
   br label %do.end96
 
 do.end96:                                         ; preds = %if.end.i159, %if.then1.i162, %do.body92
-  %23 = load i64, ptr %call76, align 8
-  %24 = and i64 %23, 2147483648
-  %cmp.i247.not = icmp eq i64 %24, 0
+  %22 = load i64, ptr %call76, align 8
+  %23 = and i64 %22, 2147483648
+  %cmp.i247.not = icmp eq i64 %23, 0
   br i1 %cmp.i247.not, label %if.end.i150, label %Py_DECREF.exit155
 
 if.end.i150:                                      ; preds = %do.end96
-  %dec.i151 = add i64 %23, -1
+  %dec.i151 = add i64 %22, -1
   store i64 %dec.i151, ptr %call76, align 8
   %cmp.i152 = icmp eq i64 %dec.i151, 0
   br i1 %cmp.i152, label %if.then1.i153, label %Py_DECREF.exit155
@@ -4170,13 +4169,13 @@ for.end:                                          ; preds = %for.cond, %if.end62
 
 if.end105:                                        ; preds = %for.end
   %call106 = tail call i32 @PyObject_RichCompareBool(ptr noundef nonnull %call, ptr noundef nonnull %call101, i32 noundef 0) #15
-  %25 = load i64, ptr %call101, align 8
-  %26 = and i64 %25, 2147483648
-  %cmp.i251.not = icmp eq i64 %26, 0
+  %24 = load i64, ptr %call101, align 8
+  %25 = and i64 %24, 2147483648
+  %cmp.i251.not = icmp eq i64 %25, 0
   br i1 %cmp.i251.not, label %if.end.i141, label %Py_DECREF.exit146
 
 if.end.i141:                                      ; preds = %if.end105
-  %dec.i142 = add i64 %25, -1
+  %dec.i142 = add i64 %24, -1
   store i64 %dec.i142, ptr %call101, align 8
   %cmp.i143 = icmp eq i64 %dec.i142, 0
   br i1 %cmp.i143, label %if.then1.i144, label %Py_DECREF.exit146
@@ -4193,13 +4192,13 @@ Py_DECREF.exit146:                                ; preds = %if.end105, %if.then
 
 do.body113:                                       ; preds = %Py_DECREF.exit146
   %call117 = tail call ptr @PyNumber_Subtract(ptr noundef nonnull %a.1.lcssa, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3848)) #15
-  %27 = load i64, ptr %a.1.lcssa, align 8
-  %28 = and i64 %27, 2147483648
-  %cmp.i255.not = icmp eq i64 %28, 0
+  %26 = load i64, ptr %a.1.lcssa, align 8
+  %27 = and i64 %26, 2147483648
+  %cmp.i255.not = icmp eq i64 %27, 0
   br i1 %cmp.i255.not, label %if.end.i132, label %if.end119
 
 if.end.i132:                                      ; preds = %do.body113
-  %dec.i133 = add i64 %27, -1
+  %dec.i133 = add i64 %26, -1
   store i64 %dec.i133, ptr %a.1.lcssa, align 8
   %cmp.i134 = icmp eq i64 %dec.i133, 0
   br i1 %cmp.i134, label %if.then1.i135, label %if.end119
@@ -4210,13 +4209,13 @@ if.then1.i135:                                    ; preds = %if.end.i132
 
 if.end119:                                        ; preds = %Py_DECREF.exit146, %do.body113, %if.then1.i135, %if.end.i132
   %a.2 = phi ptr [ %call117, %do.body113 ], [ %call117, %if.then1.i135 ], [ %call117, %if.end.i132 ], [ %a.1.lcssa, %Py_DECREF.exit146 ]
-  %29 = load i64, ptr %call, align 8
-  %30 = and i64 %29, 2147483648
-  %cmp.i259.not = icmp eq i64 %30, 0
+  %28 = load i64, ptr %call, align 8
+  %29 = and i64 %28, 2147483648
+  %cmp.i259.not = icmp eq i64 %29, 0
   br i1 %cmp.i259.not, label %if.end.i123, label %return
 
 if.end.i123:                                      ; preds = %if.end119
-  %dec.i124 = add i64 %29, -1
+  %dec.i124 = add i64 %28, -1
   store i64 %dec.i124, ptr %call, align 8
   %cmp.i125 = icmp eq i64 %dec.i124, 0
   br i1 %cmp.i125, label %if.then1.i126, label %return
@@ -4227,13 +4226,13 @@ if.then1.i126:                                    ; preds = %if.end.i123
 
 if.then.i:                                        ; preds = %for.body, %do.end, %for.end, %Py_DECREF.exit146
   %a.1120 = phi ptr [ %a.1.lcssa, %for.end ], [ %a.1.lcssa, %Py_DECREF.exit146 ], [ %a.1123, %do.end ], [ %a.1123, %for.body ]
-  %31 = load i64, ptr %a.1120, align 8
-  %32 = and i64 %31, 2147483648
-  %cmp.i2.not.i = icmp eq i64 %32, 0
+  %30 = load i64, ptr %a.1120, align 8
+  %31 = and i64 %30, 2147483648
+  %cmp.i2.not.i = icmp eq i64 %31, 0
   br i1 %cmp.i2.not.i, label %if.end.i.i, label %Py_XDECREF.exit
 
 if.end.i.i:                                       ; preds = %if.then.i
-  %dec.i.i = add i64 %31, -1
+  %dec.i.i = add i64 %30, -1
   store i64 %dec.i.i, ptr %a.1120, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %if.then1.i.i, label %Py_XDECREF.exit
@@ -4243,13 +4242,13 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %Py_DECREF.exit155, %if.end.i168, %if.then1.i171, %if.then90, %if.end52, %land.lhs.true48, %while.end, %if.end7, %if.then2, %if.then.i, %if.end.i.i, %if.then1.i.i
-  %33 = load i64, ptr %call, align 8
-  %34 = and i64 %33, 2147483648
-  %cmp.i263.not = icmp eq i64 %34, 0
+  %32 = load i64, ptr %call, align 8
+  %33 = and i64 %32, 2147483648
+  %cmp.i263.not = icmp eq i64 %33, 0
   br i1 %cmp.i263.not, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %Py_XDECREF.exit
-  %dec.i = add i64 %33, -1
+  %dec.i = add i64 %32, -1
   store i64 %dec.i, ptr %call, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %return

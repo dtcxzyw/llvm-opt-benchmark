@@ -10762,9 +10762,8 @@ define internal fastcc noundef range(i32 -5, 1) i32 @sky2_rx_map_skb(ptr noundef
   br i1 %80, label %54, label %.loopexit3, !llvm.loop !70
 
 .preheader:                                       ; preds = %69, %.preheader
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ %55, %69 ]
-  %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %81 = and i64 %indvars.iv.next, 4294967295
+  %indvars.iv = phi i64 [ %81, %.preheader ], [ %55, %69 ]
+  %81 = add nsw i64 %indvars.iv, -1
   %82 = getelementptr [2 x i64], ptr %53, i64 0, i64 %81
   %83 = load i64, ptr %82, align 8
   %84 = load ptr, ptr %43, align 8

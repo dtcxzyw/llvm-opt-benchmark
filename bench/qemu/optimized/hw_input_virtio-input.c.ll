@@ -83,11 +83,11 @@ if.then1:                                         ; preds = %if.end
   %mul = shl nuw nsw i64 %conv, 4
   %call = tail call ptr @g_realloc(ptr noundef %3, i64 noundef %mul) #11
   store ptr %call, ptr %queue, align 8
-  %.pre47 = load i32, ptr %qindex, align 8
+  %.pre51 = load i32, ptr %qindex, align 8
   br label %if.end5
 
 if.end5:                                          ; preds = %if.end.if.end5_crit_edge, %if.then1
-  %4 = phi i32 [ %1, %if.end.if.end5_crit_edge ], [ %.pre47, %if.then1 ]
+  %4 = phi i32 [ %1, %if.end.if.end5_crit_edge ], [ %.pre51, %if.then1 ]
   %5 = phi ptr [ %.pre, %if.end.if.end5_crit_edge ], [ %call, %if.then1 ]
   %queue6 = getelementptr inbounds i8, ptr %vinput, i64 568
   %inc8 = add i32 %4, 1
@@ -116,7 +116,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   br label %for.body
 
 for.cond42.preheader:                             ; preds = %if.end36
-  %10 = icmp eq i32 %22, 0
+  %10 = icmp eq i32 %23, 0
   br i1 %10, label %for.end60, label %for.body46.lr.ph
 
 for.body46.lr.ph:                                 ; preds = %for.cond42.preheader
@@ -124,6 +124,7 @@ for.body46.lr.ph:                                 ; preds = %for.cond42.preheade
   br label %for.body46
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end36
+  %indvars.iv = phi i32 [ -1, %for.body.lr.ph ], [ %indvars.iv.next, %if.end36 ]
   %i.040 = phi i32 [ 0, %for.body.lr.ph ], [ %inc41, %if.end36 ]
   %11 = load ptr, ptr %evt, align 8
   %call25 = tail call ptr @virtqueue_pop(ptr noundef %11, i64 noundef 56) #11
@@ -133,48 +134,51 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
 while.cond.preheader:                             ; preds = %for.body
   %dec43 = add i32 %i.040, -1
   %cmp2844 = icmp sgt i32 %dec43, -1
-  br i1 %cmp2844, label %while.body, label %while.end
+  br i1 %cmp2844, label %while.body.preheader, label %while.end
 
-while.body:                                       ; preds = %while.cond.preheader, %while.body
-  %dec45 = phi i32 [ %dec, %while.body ], [ %dec43, %while.cond.preheader ]
-  %12 = load ptr, ptr %evt, align 8
-  %13 = load ptr, ptr %queue6, align 8
-  %idxprom32 = zext nneg i32 %dec45 to i64
-  %elem34 = getelementptr %struct.anon, ptr %13, i64 %idxprom32, i32 1
-  %14 = load ptr, ptr %elem34, align 8
-  tail call void @virtqueue_unpop(ptr noundef %12, ptr noundef %14, i32 noundef 0) #11
-  %dec = add nsw i32 %dec45, -1
-  %cmp28.not = icmp eq i32 %dec45, 0
+while.body.preheader:                             ; preds = %while.cond.preheader
+  %12 = zext i32 %indvars.iv to i64
+  br label %while.body
+
+while.body:                                       ; preds = %while.body.preheader, %while.body
+  %indvars.iv48 = phi i64 [ %12, %while.body.preheader ], [ %indvars.iv.next49, %while.body ]
+  %13 = load ptr, ptr %evt, align 8
+  %14 = load ptr, ptr %queue6, align 8
+  %elem34 = getelementptr %struct.anon, ptr %14, i64 %indvars.iv48, i32 1
+  %15 = load ptr, ptr %elem34, align 8
+  tail call void @virtqueue_unpop(ptr noundef %13, ptr noundef %15, i32 noundef 0) #11
+  %indvars.iv.next49 = add nsw i64 %indvars.iv48, -1
+  %cmp28.not = icmp eq i64 %indvars.iv48, 0
   br i1 %cmp28.not, label %while.end, label %while.body, !llvm.loop !5
 
 while.end:                                        ; preds = %while.body, %while.cond.preheader
   store i32 0, ptr %qindex, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
-  %15 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i = icmp ne i32 %15, 0
-  %16 = load i16, ptr @_TRACE_VIRTIO_INPUT_QUEUE_FULL_DSTATE, align 2
-  %tobool4.i.i = icmp ne i16 %16, 0
+  %16 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i = icmp ne i32 %16, 0
+  %17 = load i16, ptr @_TRACE_VIRTIO_INPUT_QUEUE_FULL_DSTATE, align 2
+  %tobool4.i.i = icmp ne i16 %17, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_virtio_input_queue_full.exit
 
 land.lhs.true5.i.i:                               ; preds = %while.end
-  %17 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i = and i32 %17, 32768
+  %18 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i = and i32 %18, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %trace_virtio_input_queue_full.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
-  %18 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i = trunc i8 %18 to i1
+  %19 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i = trunc i8 %19 to i1
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
-  %19 = load i64, ptr %_now.i.i, align 8
+  %20 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %20 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.2, i32 noundef %call10.i.i, i64 noundef %19, i64 noundef %20) #11
+  %21 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.2, i32 noundef %call10.i.i, i64 noundef %20, i64 noundef %21) #11
   br label %trace_virtio_input_queue_full.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -186,61 +190,62 @@ trace_virtio_input_queue_full.exit:               ; preds = %while.end, %land.lh
   br label %return
 
 if.end36:                                         ; preds = %for.body
-  %21 = load ptr, ptr %queue6, align 8
+  %22 = load ptr, ptr %queue6, align 8
   %idxprom38 = sext i32 %i.040 to i64
-  %elem40 = getelementptr %struct.anon, ptr %21, i64 %idxprom38, i32 1
+  %elem40 = getelementptr %struct.anon, ptr %22, i64 %idxprom38, i32 1
   store ptr %call25, ptr %elem40, align 8
   %inc41 = add nuw i32 %i.040, 1
-  %22 = load i32, ptr %qindex, align 8
-  %cmp23 = icmp ult i32 %inc41, %22
+  %23 = load i32, ptr %qindex, align 8
+  %cmp23 = icmp ult i32 %inc41, %23
+  %indvars.iv.next = add i32 %indvars.iv, 1
   br i1 %cmp23, label %for.body, label %for.cond42.preheader, !llvm.loop !7
 
 for.body46:                                       ; preds = %for.body46.lr.ph, %iov_from_buf.exit
   %i.242 = phi i32 [ 0, %for.body46.lr.ph ], [ %inc59, %iov_from_buf.exit ]
-  %23 = load ptr, ptr %queue6, align 8
+  %24 = load ptr, ptr %queue6, align 8
   %idxprom48 = sext i32 %i.242 to i64
-  %arrayidx49 = getelementptr %struct.anon, ptr %23, i64 %idxprom48
+  %arrayidx49 = getelementptr %struct.anon, ptr %24, i64 %idxprom48
   %elem50 = getelementptr inbounds i8, ptr %arrayidx49, i64 8
-  %24 = load ptr, ptr %elem50, align 8
-  %in_sg = getelementptr inbounds i8, ptr %24, i64 40
-  %25 = load ptr, ptr %in_sg, align 8
-  %in_num = getelementptr inbounds i8, ptr %24, i64 16
-  %26 = load i32, ptr %in_num, align 8
-  %tobool.not.i = icmp eq i32 %26, 0
+  %25 = load ptr, ptr %elem50, align 8
+  %in_sg = getelementptr inbounds i8, ptr %25, i64 40
+  %26 = load ptr, ptr %in_sg, align 8
+  %in_num = getelementptr inbounds i8, ptr %25, i64 16
+  %27 = load i32, ptr %in_num, align 8
+  %tobool.not.i = icmp eq i32 %27, 0
   br i1 %tobool.not.i, label %if.else.i, label %land.lhs.true2.i
 
 land.lhs.true2.i:                                 ; preds = %for.body46
-  %iov_len.i = getelementptr inbounds i8, ptr %25, i64 8
-  %27 = load i64, ptr %iov_len.i, align 8
-  %cmp5.i = icmp ugt i64 %27, 7
+  %iov_len.i = getelementptr inbounds i8, ptr %26, i64 8
+  %28 = load i64, ptr %iov_len.i, align 8
+  %cmp5.i = icmp ugt i64 %28, 7
   br i1 %cmp5.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %land.lhs.true2.i
-  %28 = load ptr, ptr %25, align 8
-  %29 = load i64, ptr %arrayidx49, align 1
-  store i64 %29, ptr %28, align 1
+  %29 = load ptr, ptr %26, align 8
+  %30 = load i64, ptr %arrayidx49, align 1
+  store i64 %30, ptr %29, align 1
   br label %iov_from_buf.exit
 
 if.else.i:                                        ; preds = %land.lhs.true2.i, %for.body46
-  %call.i = tail call i64 @iov_from_buf_full(ptr noundef %25, i32 noundef %26, i64 noundef 0, ptr noundef %arrayidx49, i64 noundef 8) #11
+  %call.i = tail call i64 @iov_from_buf_full(ptr noundef %26, i32 noundef %27, i64 noundef 0, ptr noundef %arrayidx49, i64 noundef 8) #11
   br label %iov_from_buf.exit
 
 iov_from_buf.exit:                                ; preds = %if.then.i, %if.else.i
   %retval.0.i = phi i64 [ 8, %if.then.i ], [ %call.i, %if.else.i ]
   %conv56 = trunc i64 %retval.0.i to i32
-  %30 = load ptr, ptr %evt57, align 8
-  tail call void @virtqueue_push(ptr noundef %30, ptr noundef nonnull %24, i32 noundef %conv56) #11
-  tail call void @g_free(ptr noundef nonnull %24) #11
+  %31 = load ptr, ptr %evt57, align 8
+  tail call void @virtqueue_push(ptr noundef %31, ptr noundef nonnull %25, i32 noundef %conv56) #11
+  tail call void @g_free(ptr noundef nonnull %25) #11
   %inc59 = add nuw i32 %i.242, 1
-  %31 = load i32, ptr %qindex, align 8
-  %cmp44 = icmp ult i32 %inc59, %31
+  %32 = load i32, ptr %qindex, align 8
+  %cmp44 = icmp ult i32 %inc59, %32
   br i1 %cmp44, label %for.body46, label %for.end60, !llvm.loop !8
 
 for.end60:                                        ; preds = %iov_from_buf.exit, %for.cond.preheader, %for.cond42.preheader
   %call.i37 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %vinput, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #11
   %evt62 = getelementptr inbounds i8, ptr %vinput, i64 544
-  %32 = load ptr, ptr %evt62, align 8
-  tail call void @virtio_notify(ptr noundef %call.i37, ptr noundef %32) #11
+  %33 = load ptr, ptr %evt62, align 8
+  tail call void @virtio_notify(ptr noundef %call.i37, ptr noundef %33) #11
   store i32 0, ptr %qindex, align 8
   br label %return
 

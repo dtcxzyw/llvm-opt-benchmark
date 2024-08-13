@@ -97,7 +97,7 @@ for.body.i29:                                     ; preds = %for.cond.preheader.
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ %idxprom.i26, %for.cond.preheader.i ]
   %nf.0145.i = phi i32 [ %nf.1.i, %for.inc.i ], [ 0, %for.cond.preheader.i ]
   %arrayidx2.i = getelementptr inbounds i32, ptr %add.ptr10, i64 %indvars.iv.i
-  %3 = trunc nuw i64 %indvars.iv.i to i32
+  %3 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %3, ptr %arrayidx2.i, align 4
   %arrayidx4.i = getelementptr inbounds i64, ptr %spare, i64 %indvars.iv.i
   %4 = load i64, ptr %arrayidx4.i, align 8

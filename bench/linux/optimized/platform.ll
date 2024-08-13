@@ -890,9 +890,9 @@ define dso_local i32 @platform_add_devices(ptr nocapture noundef readonly %0, i3
   %5 = zext nneg i32 %1 to i64
   br label %6
 
-6:                                                ; preds = %68, %4
-  %indvars.iv = phi i32 [ %indvars.iv.next, %68 ], [ -1, %4 ]
-  %7 = phi i64 [ %69, %68 ], [ 0, %4 ]
+6:                                                ; preds = %67, %4
+  %indvars.iv = phi i32 [ %indvars.iv.next, %67 ], [ -1, %4 ]
+  %7 = phi i64 [ %68, %67 ], [ 0, %4 ]
   %8 = getelementptr ptr, ptr %0, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 16
@@ -924,7 +924,7 @@ define dso_local i32 @platform_add_devices(ptr nocapture noundef readonly %0, i3
 23:                                               ; preds = %21, %17
   %24 = tail call i32 @platform_device_add(ptr noundef %9)
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %68, label %26
+  br i1 %25, label %67, label %26
 
 26:                                               ; preds = %23
   %27 = trunc i64 %7 to i32
@@ -998,19 +998,18 @@ define dso_local i32 @platform_add_devices(ptr nocapture noundef readonly %0, i3
 
 65:                                               ; preds = %.loopexit, %.preheader
   %indvars.iv.next17 = add nsw i64 %indvars.iv16, -1
-  %66 = trunc nuw i64 %indvars.iv16 to i32
-  %67 = icmp sgt i32 %66, 0
-  br i1 %67, label %.preheader, label %.loopexit6, !llvm.loop !29
+  %66 = icmp sgt i64 %indvars.iv16, 0
+  br i1 %66, label %.preheader, label %.loopexit6, !llvm.loop !29
 
-68:                                               ; preds = %23
-  %69 = add nuw nsw i64 %7, 1
-  %70 = icmp eq i64 %69, %5
+67:                                               ; preds = %23
+  %68 = add nuw nsw i64 %7, 1
+  %69 = icmp eq i64 %68, %5
   %indvars.iv.next = add nsw i32 %indvars.iv, 1
-  br i1 %70, label %.loopexit6, label %6, !llvm.loop !30
+  br i1 %69, label %.loopexit6, label %6, !llvm.loop !30
 
-.loopexit6:                                       ; preds = %68, %65, %26, %2
-  %71 = phi i32 [ %24, %26 ], [ 0, %2 ], [ %24, %65 ], [ 0, %68 ]
-  ret i32 %71
+.loopexit6:                                       ; preds = %67, %65, %26, %2
+  %70 = phi i32 [ %24, %26 ], [ 0, %2 ], [ %24, %65 ], [ 0, %67 ]
+  ret i32 %70
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

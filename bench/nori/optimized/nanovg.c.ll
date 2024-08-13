@@ -4203,7 +4203,7 @@ fons__tmpalloc.exit.i23:                          ; preds = %._crit_edge.i22
   br i1 %232, label %225, label %.split.loop.exit31.i.i.i, !llvm.loop !23
 
 .split.loop.exit.i.i.i:                           ; preds = %225
-  %233 = trunc nuw i64 %indvars.iv27.i.i.i to i32
+  %233 = trunc nuw nsw i64 %indvars.iv27.i.i.i to i32
   br label %.split.loop.exit31.i.i.i
 
 .split.loop.exit31.i.i.i:                         ; preds = %230, %.split.loop.exit.i.i.i

@@ -5972,7 +5972,7 @@ for.body14:                                       ; preds = %for.body14.lr.ph, %
   %vhost_get_vq_index16 = getelementptr inbounds i8, ptr %18, i64 208
   %19 = load ptr, ptr %vhost_get_vq_index16, align 8
   %20 = load i32, ptr %vq_index, align 4
-  %21 = trunc nuw i64 %indvars.iv71 to i32
+  %21 = trunc nuw nsw i64 %indvars.iv71 to i32
   %add18 = add i32 %20, %21
   %call19 = call i32 %19(ptr noundef nonnull %dev, i32 noundef %add18) #19
   %22 = load ptr, ptr %dev, align 8
@@ -6045,7 +6045,7 @@ vhost_virtqueue_set_addr.exit61:                  ; preds = %if.end6.i40, %retur
 
 for.inc30:                                        ; preds = %for.body14, %vhost_virtqueue_set_addr.exit61
   %indvars.iv.next72 = add nsw i64 %indvars.iv71, -1
-  %cmp13 = icmp sgt i32 %21, 0
+  %cmp13 = icmp sgt i64 %indvars.iv71, 0
   br i1 %cmp13, label %for.body14, label %for.end31, !llvm.loop !42
 
 for.end31:                                        ; preds = %for.inc30, %vhost_virtqueue_set_addr.exit

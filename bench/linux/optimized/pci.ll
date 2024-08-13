@@ -7317,71 +7317,67 @@ define dso_local noundef range(i32 -16, 1) i32 @pci_request_regions(ptr noundef 
   %14 = icmp eq i32 %13, 6
   br i1 %14, label %.loopexit, label %3, !llvm.loop !62
 
-15:                                               ; preds = %.preheader, %pci_release_region.exit
+15:                                               ; preds = %pci_release_region.exit, %.preheader
   %16 = phi i32 [ %17, %pci_release_region.exit ], [ %4, %.preheader ]
   %17 = add nsw i32 %16, -1
-  %18 = icmp ugt i32 %17, 5
-  br i1 %18, label %pci_release_region.exit, label %19
+  %18 = zext nneg i32 %17 to i64
+  %19 = getelementptr [11 x %struct.resource], ptr %9, i64 0, i64 %18
+  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = load i64, ptr %20, align 8
+  %22 = icmp eq i64 %21, 0
+  br i1 %22, label %pci_release_region.exit, label %23
 
-19:                                               ; preds = %15
-  %20 = zext nneg i32 %17 to i64
-  %21 = getelementptr [11 x %struct.resource], ptr %9, i64 0, i64 %20
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
-  %23 = load i64, ptr %22, align 8
-  %24 = icmp eq i64 %23, 0
-  br i1 %24, label %pci_release_region.exit, label %25
+23:                                               ; preds = %15
+  %24 = load i64, ptr %19, align 8
+  %25 = add i64 %21, 1
+  %26 = sub i64 %25, %24
+  %27 = icmp eq i64 %25, %24
+  br i1 %27, label %pci_release_region.exit, label %28
 
-25:                                               ; preds = %19
-  %26 = load i64, ptr %21, align 8
-  %27 = add i64 %23, 1
-  %28 = sub i64 %27, %26
-  %29 = icmp eq i64 %27, %26
-  br i1 %29, label %pci_release_region.exit, label %30
+28:                                               ; preds = %23
+  %29 = getelementptr inbounds i8, ptr %19, i64 24
+  %30 = load i64, ptr %29, align 8
+  %31 = and i64 %30, 256
+  %32 = icmp eq i64 %31, 0
+  br i1 %32, label %33, label %36
 
-30:                                               ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %21, i64 24
-  %32 = load i64, ptr %31, align 8
-  %33 = and i64 %32, 256
-  %34 = icmp eq i64 %33, 0
-  br i1 %34, label %35, label %38
+33:                                               ; preds = %28
+  %34 = and i64 %30, 512
+  %35 = icmp eq i64 %34, 0
+  br i1 %35, label %38, label %36
 
-35:                                               ; preds = %30
-  %36 = and i64 %32, 512
-  %37 = icmp eq i64 %36, 0
-  br i1 %37, label %40, label %38
+36:                                               ; preds = %33, %28
+  %37 = phi ptr [ @ioport_resource, %28 ], [ @iomem_resource, %33 ]
+  tail call void @__release_region(ptr noundef nonnull %37, i64 noundef %24, i64 noundef %26) #27
+  br label %38
 
-38:                                               ; preds = %35, %30
-  %39 = phi ptr [ @ioport_resource, %30 ], [ @iomem_resource, %35 ]
-  tail call void @__release_region(ptr noundef nonnull %39, i64 noundef %26, i64 noundef %28) #27
-  br label %40
+38:                                               ; preds = %36, %33
+  %39 = load i40, ptr %10, align 1
+  %40 = and i40 %39, 262144
+  %41 = icmp eq i40 %40, 0
+  br i1 %41, label %pci_release_region.exit, label %42
 
-40:                                               ; preds = %38, %35
-  %41 = load i40, ptr %10, align 1
-  %42 = and i40 %41, 262144
-  %43 = icmp eq i40 %42, 0
-  br i1 %43, label %pci_release_region.exit, label %44
+42:                                               ; preds = %38
+  %43 = tail call ptr @devres_find(ptr noundef %11, ptr noundef nonnull @pcim_release, ptr noundef null, ptr noundef null) #27
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %pci_release_region.exit, label %45
 
-44:                                               ; preds = %40
-  %45 = tail call ptr @devres_find(ptr noundef %11, ptr noundef nonnull @pcim_release, ptr noundef null, ptr noundef null) #27
-  %46 = icmp eq ptr %45, null
-  br i1 %46, label %pci_release_region.exit, label %47
-
-47:                                               ; preds = %44
-  %48 = shl nuw nsw i32 1, %17
-  %49 = xor i32 %48, -1
-  %50 = getelementptr inbounds i8, ptr %45, i64 4
-  %51 = load i32, ptr %50, align 4
-  %52 = and i32 %51, %49
-  store i32 %52, ptr %50, align 4
+45:                                               ; preds = %42
+  %46 = shl nuw nsw i32 1, %17
+  %47 = xor i32 %46, -1
+  %48 = getelementptr inbounds i8, ptr %43, i64 4
+  %49 = load i32, ptr %48, align 4
+  %50 = and i32 %49, %47
+  store i32 %50, ptr %48, align 4
   br label %pci_release_region.exit
 
-pci_release_region.exit:                          ; preds = %47, %44, %40, %25, %19, %15
-  %53 = icmp sgt i32 %16, 1
-  br i1 %53, label %15, label %.loopexit, !llvm.loop !63
+pci_release_region.exit:                          ; preds = %45, %42, %38, %23, %15
+  %51 = icmp sgt i32 %16, 1
+  br i1 %51, label %15, label %.loopexit, !llvm.loop !63
 
 .loopexit:                                        ; preds = %12, %pci_release_region.exit, %7
-  %54 = phi i32 [ -16, %7 ], [ -16, %pci_release_region.exit ], [ 0, %12 ]
-  ret i32 %54
+  %52 = phi i32 [ -16, %7 ], [ -16, %pci_release_region.exit ], [ 0, %12 ]
+  ret i32 %52
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -7409,71 +7405,67 @@ define dso_local noundef range(i32 -16, 1) i32 @pci_request_regions_exclusive(pt
   %14 = icmp eq i32 %13, 6
   br i1 %14, label %.loopexit, label %3, !llvm.loop !62
 
-15:                                               ; preds = %.preheader, %pci_release_region.exit
+15:                                               ; preds = %pci_release_region.exit, %.preheader
   %16 = phi i32 [ %17, %pci_release_region.exit ], [ %4, %.preheader ]
   %17 = add nsw i32 %16, -1
-  %18 = icmp ugt i32 %17, 5
-  br i1 %18, label %pci_release_region.exit, label %19
+  %18 = zext nneg i32 %17 to i64
+  %19 = getelementptr [11 x %struct.resource], ptr %9, i64 0, i64 %18
+  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = load i64, ptr %20, align 8
+  %22 = icmp eq i64 %21, 0
+  br i1 %22, label %pci_release_region.exit, label %23
 
-19:                                               ; preds = %15
-  %20 = zext nneg i32 %17 to i64
-  %21 = getelementptr [11 x %struct.resource], ptr %9, i64 0, i64 %20
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
-  %23 = load i64, ptr %22, align 8
-  %24 = icmp eq i64 %23, 0
-  br i1 %24, label %pci_release_region.exit, label %25
+23:                                               ; preds = %15
+  %24 = load i64, ptr %19, align 8
+  %25 = add i64 %21, 1
+  %26 = sub i64 %25, %24
+  %27 = icmp eq i64 %25, %24
+  br i1 %27, label %pci_release_region.exit, label %28
 
-25:                                               ; preds = %19
-  %26 = load i64, ptr %21, align 8
-  %27 = add i64 %23, 1
-  %28 = sub i64 %27, %26
-  %29 = icmp eq i64 %27, %26
-  br i1 %29, label %pci_release_region.exit, label %30
+28:                                               ; preds = %23
+  %29 = getelementptr inbounds i8, ptr %19, i64 24
+  %30 = load i64, ptr %29, align 8
+  %31 = and i64 %30, 256
+  %32 = icmp eq i64 %31, 0
+  br i1 %32, label %33, label %36
 
-30:                                               ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %21, i64 24
-  %32 = load i64, ptr %31, align 8
-  %33 = and i64 %32, 256
-  %34 = icmp eq i64 %33, 0
-  br i1 %34, label %35, label %38
+33:                                               ; preds = %28
+  %34 = and i64 %30, 512
+  %35 = icmp eq i64 %34, 0
+  br i1 %35, label %38, label %36
 
-35:                                               ; preds = %30
-  %36 = and i64 %32, 512
-  %37 = icmp eq i64 %36, 0
-  br i1 %37, label %40, label %38
+36:                                               ; preds = %33, %28
+  %37 = phi ptr [ @ioport_resource, %28 ], [ @iomem_resource, %33 ]
+  tail call void @__release_region(ptr noundef nonnull %37, i64 noundef %24, i64 noundef %26) #27
+  br label %38
 
-38:                                               ; preds = %35, %30
-  %39 = phi ptr [ @ioport_resource, %30 ], [ @iomem_resource, %35 ]
-  tail call void @__release_region(ptr noundef nonnull %39, i64 noundef %26, i64 noundef %28) #27
-  br label %40
+38:                                               ; preds = %36, %33
+  %39 = load i40, ptr %10, align 1
+  %40 = and i40 %39, 262144
+  %41 = icmp eq i40 %40, 0
+  br i1 %41, label %pci_release_region.exit, label %42
 
-40:                                               ; preds = %38, %35
-  %41 = load i40, ptr %10, align 1
-  %42 = and i40 %41, 262144
-  %43 = icmp eq i40 %42, 0
-  br i1 %43, label %pci_release_region.exit, label %44
+42:                                               ; preds = %38
+  %43 = tail call ptr @devres_find(ptr noundef %11, ptr noundef nonnull @pcim_release, ptr noundef null, ptr noundef null) #27
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %pci_release_region.exit, label %45
 
-44:                                               ; preds = %40
-  %45 = tail call ptr @devres_find(ptr noundef %11, ptr noundef nonnull @pcim_release, ptr noundef null, ptr noundef null) #27
-  %46 = icmp eq ptr %45, null
-  br i1 %46, label %pci_release_region.exit, label %47
-
-47:                                               ; preds = %44
-  %48 = shl nuw nsw i32 1, %17
-  %49 = xor i32 %48, -1
-  %50 = getelementptr inbounds i8, ptr %45, i64 4
-  %51 = load i32, ptr %50, align 4
-  %52 = and i32 %51, %49
-  store i32 %52, ptr %50, align 4
+45:                                               ; preds = %42
+  %46 = shl nuw nsw i32 1, %17
+  %47 = xor i32 %46, -1
+  %48 = getelementptr inbounds i8, ptr %43, i64 4
+  %49 = load i32, ptr %48, align 4
+  %50 = and i32 %49, %47
+  store i32 %50, ptr %48, align 4
   br label %pci_release_region.exit
 
-pci_release_region.exit:                          ; preds = %47, %44, %40, %25, %19, %15
-  %53 = icmp sgt i32 %16, 1
-  br i1 %53, label %15, label %.loopexit, !llvm.loop !63
+pci_release_region.exit:                          ; preds = %45, %42, %38, %23, %15
+  %51 = icmp sgt i32 %16, 1
+  br i1 %51, label %15, label %.loopexit, !llvm.loop !63
 
 .loopexit:                                        ; preds = %12, %pci_release_region.exit, %7
-  %54 = phi i32 [ -16, %7 ], [ -16, %pci_release_region.exit ], [ 0, %12 ]
-  ret i32 %54
+  %52 = phi i32 [ -16, %7 ], [ -16, %pci_release_region.exit ], [ 0, %12 ]
+  ret i32 %52
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)

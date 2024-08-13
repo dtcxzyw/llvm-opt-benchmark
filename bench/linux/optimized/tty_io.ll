@@ -4767,7 +4767,7 @@ define dso_local i32 @tty_register_driver(ptr noundef %0) #0 align 16 {
   %92 = shl i32 %91, 20
   %93 = load i32, ptr %81, align 8
   %94 = or i32 %92, %93
-  %95 = trunc nuw i64 %indvars.iv18 to i32
+  %95 = trunc nuw nsw i64 %indvars.iv18 to i32
   %96 = add i32 %94, %95
   call void @device_destroy(ptr noundef nonnull @tty_class, i32 noundef %96) #22
   %97 = load i64, ptr %32, align 8
@@ -4787,7 +4787,7 @@ define dso_local i32 @tty_register_driver(ptr noundef %0) #0 align 16 {
 
 106:                                              ; preds = %100, %90
   %indvars.iv.next19 = add nsw i64 %indvars.iv18, -1
-  %107 = icmp sgt i32 %95, 0
+  %107 = icmp sgt i64 %indvars.iv18, 0
   br i1 %107, label %90, label %.loopexit, !llvm.loop !52
 
 .loopexit:                                        ; preds = %106, %75

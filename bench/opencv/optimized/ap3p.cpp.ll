@@ -597,74 +597,74 @@ _ZN12_GLOBAL__N_118polishQuarticRootsEPKdPdi.exit: ; preds = %._crit_edge.us.i, 
   br i1 %or.cond, label %.preheader.preheader, label %.loopexit
 
 .preheader.preheader:                             ; preds = %._crit_edge
-  %wide.trip.count547 = zext nneg i32 %.1 to i64
+  %wide.trip.count546 = zext nneg i32 %.1 to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.critedge
   %indvars.iv540 = phi i64 [ 1, %.preheader.preheader ], [ %indvars.iv.next541, %.critedge ]
+  %.phi.trans.insert = getelementptr inbounds [4 x double], ptr %8, i64 0, i64 %indvars.iv540
+  %.pre = load double, ptr %.phi.trans.insert, align 8
   br label %348
 
 348:                                              ; preds = %.preheader, %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit
   %indvars.iv542 = phi i64 [ %indvars.iv540, %.preheader ], [ %indvars.iv.next543, %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit ]
   %indvars.iv.next543 = add nsw i64 %indvars.iv542, -1
-  %349 = and i64 %indvars.iv.next543, 4294967295
-  %350 = getelementptr inbounds [4 x double], ptr %8, i64 0, i64 %349
-  %351 = load double, ptr %350, align 8
-  %352 = getelementptr inbounds [4 x double], ptr %8, i64 0, i64 %indvars.iv542
-  %353 = load double, ptr %352, align 8
-  %354 = fcmp ogt double %351, %353
-  br i1 %354, label %355, label %.critedge
+  %349 = getelementptr inbounds [4 x double], ptr %8, i64 0, i64 %indvars.iv.next543
+  %350 = load double, ptr %349, align 8
+  %351 = fcmp ogt double %350, %.pre
+  br i1 %351, label %352, label %.critedge
 
-355:                                              ; preds = %348
-  store double %351, ptr %352, align 8
-  store double %353, ptr %350, align 8
+352:                                              ; preds = %348
+  %353 = getelementptr inbounds [4 x double], ptr %8, i64 0, i64 %indvars.iv542
+  store double %350, ptr %353, align 8
+  store double %.pre, ptr %349, align 8
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i, %355
-  %.05.i = phi i64 [ 0, %355 ], [ %362, %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i ]
-  br label %356
+.preheader.i:                                     ; preds = %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i, %352
+  %.05.i = phi i64 [ 0, %352 ], [ %360, %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i ]
+  br label %354
 
-356:                                              ; preds = %356, %.preheader.i
-  %.05.i.i = phi i64 [ %361, %356 ], [ 0, %.preheader.i ]
-  %357 = getelementptr inbounds [3 x [3 x double]], ptr %3, i64 %indvars.iv542, i64 %.05.i, i64 %.05.i.i
-  %358 = getelementptr inbounds [3 x [3 x double]], ptr %3, i64 %349, i64 %.05.i, i64 %.05.i.i
-  %359 = load double, ptr %357, align 8
-  %360 = load double, ptr %358, align 8
-  store double %360, ptr %357, align 8
-  store double %359, ptr %358, align 8
-  %361 = add nuw nsw i64 %.05.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %361, 3
-  br i1 %exitcond.not.i.i, label %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i, label %356, !llvm.loop !8
+354:                                              ; preds = %354, %.preheader.i
+  %.05.i.i = phi i64 [ %359, %354 ], [ 0, %.preheader.i ]
+  %355 = getelementptr inbounds [3 x [3 x double]], ptr %3, i64 %indvars.iv542, i64 %.05.i, i64 %.05.i.i
+  %356 = getelementptr inbounds [3 x [3 x double]], ptr %3, i64 %indvars.iv.next543, i64 %.05.i, i64 %.05.i.i
+  %357 = load double, ptr %355, align 8
+  %358 = load double, ptr %356, align 8
+  store double %358, ptr %355, align 8
+  store double %357, ptr %356, align 8
+  %359 = add nuw nsw i64 %.05.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %359, 3
+  br i1 %exitcond.not.i.i, label %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i, label %354, !llvm.loop !8
 
-_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i: ; preds = %356
-  %362 = add nuw nsw i64 %.05.i, 1
-  %exitcond.not.i237 = icmp eq i64 %362, 3
+_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i: ; preds = %354
+  %360 = add nuw nsw i64 %.05.i, 1
+  %exitcond.not.i237 = icmp eq i64 %360, 3
   br i1 %exitcond.not.i237, label %_ZSt4swapIA3_dLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S2_S6_.exit, label %.preheader.i, !llvm.loop !9
 
 _ZSt4swapIA3_dLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S2_S6_.exit: ; preds = %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i, %_ZSt4swapIA3_dLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S2_S6_.exit
-  %.05.i238 = phi i64 [ %367, %_ZSt4swapIA3_dLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S2_S6_.exit ], [ 0, %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i ]
-  %363 = getelementptr inbounds [3 x double], ptr %4, i64 %indvars.iv542, i64 %.05.i238
-  %364 = getelementptr inbounds [3 x double], ptr %4, i64 %349, i64 %.05.i238
-  %365 = load double, ptr %363, align 8
-  %366 = load double, ptr %364, align 8
-  store double %366, ptr %363, align 8
-  store double %365, ptr %364, align 8
-  %367 = add nuw nsw i64 %.05.i238, 1
-  %exitcond.not.i239 = icmp eq i64 %367, 3
+  %.05.i238 = phi i64 [ %365, %_ZSt4swapIA3_dLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S2_S6_.exit ], [ 0, %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i ]
+  %361 = getelementptr inbounds [3 x double], ptr %4, i64 %indvars.iv542, i64 %.05.i238
+  %362 = getelementptr inbounds [3 x double], ptr %4, i64 %indvars.iv.next543, i64 %.05.i238
+  %363 = load double, ptr %361, align 8
+  %364 = load double, ptr %362, align 8
+  store double %364, ptr %361, align 8
+  store double %363, ptr %362, align 8
+  %365 = add nuw nsw i64 %.05.i238, 1
+  %exitcond.not.i239 = icmp eq i64 %365, 3
   br i1 %exitcond.not.i239, label %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit, label %_ZSt4swapIA3_dLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S2_S6_.exit, !llvm.loop !8
 
 _ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit: ; preds = %_ZSt4swapIA3_dLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S2_S6_.exit
-  %368 = icmp sgt i64 %indvars.iv542, 1
-  br i1 %368, label %348, label %.critedge, !llvm.loop !10
+  %366 = icmp sgt i64 %indvars.iv542, 1
+  br i1 %366, label %348, label %.critedge, !llvm.loop !10
 
 .critedge:                                        ; preds = %348, %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit
   %indvars.iv.next541 = add nuw nsw i64 %indvars.iv540, 1
-  %exitcond548.not = icmp eq i64 %indvars.iv.next541, %wide.trip.count547
-  br i1 %exitcond548.not, label %.loopexit, label %.preheader, !llvm.loop !11
+  %exitcond547.not = icmp eq i64 %indvars.iv.next541, %wide.trip.count546
+  br i1 %exitcond547.not, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.critedge, %_ZN12_GLOBAL__N_118polishQuarticRootsEPKdPdi.exit, %._crit_edge
-  %.0233.lcssa551 = phi i32 [ %.1, %._crit_edge ], [ 0, %_ZN12_GLOBAL__N_118polishQuarticRootsEPKdPdi.exit ], [ %.1, %.critedge ]
-  ret i32 %.0233.lcssa551
+  %.0233.lcssa550 = phi i32 [ %.1, %._crit_edge ], [ 0, %_ZN12_GLOBAL__N_118polishQuarticRootsEPKdPdi.exit ], [ %.1, %.critedge ]
+  ret i32 %.0233.lcssa550
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

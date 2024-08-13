@@ -15151,7 +15151,7 @@ define internal fastcc void @ft_var_load_avar(ptr noundef %0) unnamed_addr #2 {
   %12 = load ptr, ptr %11, align 8
   %13 = call i32 %12(ptr noundef %0, i64 noundef 1635148146, ptr noundef %5, ptr noundef nonnull %3) #22
   %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %14, label %89
+  br i1 %.not, label %14, label %88
 
 14:                                               ; preds = %1
   %15 = call i64 @FT_Stream_Pos(ptr noundef nonnull %5) #22
@@ -15159,13 +15159,13 @@ define internal fastcc void @ft_var_load_avar(ptr noundef %0) unnamed_addr #2 {
   %17 = call i32 @FT_Stream_EnterFrame(ptr noundef nonnull %5, i64 noundef %16) #22
   store i32 %17, ptr %2, align 4
   %.not74 = icmp eq i32 %17, 0
-  br i1 %.not74, label %18, label %89
+  br i1 %.not74, label %18, label %88
 
 18:                                               ; preds = %14
   %19 = call i32 @FT_Stream_GetULong(ptr noundef nonnull %5) #22
   %20 = call i32 @FT_Stream_GetULong(ptr noundef nonnull %5) #22
   %21 = sext i32 %20 to i64
-  switch i32 %19, label %88 [
+  switch i32 %19, label %87 [
     i32 131072, label %22
     i32 65536, label %22
   ]
@@ -15176,7 +15176,7 @@ define internal fastcc void @ft_var_load_avar(ptr noundef %0) unnamed_addr #2 {
   %25 = load i32, ptr %24, align 8
   %26 = zext i32 %25 to i64
   %.not75 = icmp eq i64 %21, %26
-  br i1 %.not75, label %27, label %88
+  br i1 %.not75, label %27, label %87
 
 27:                                               ; preds = %22
   %28 = call ptr @ft_mem_alloc(ptr noundef %7, i64 noundef 64, ptr noundef nonnull %2) #22
@@ -15184,14 +15184,14 @@ define internal fastcc void @ft_var_load_avar(ptr noundef %0) unnamed_addr #2 {
   store ptr %28, ptr %29, align 8
   %30 = load i32, ptr %2, align 4
   %.not76 = icmp eq i32 %30, 0
-  br i1 %.not76, label %31, label %88
+  br i1 %.not76, label %31, label %87
 
 31:                                               ; preds = %27
   %32 = call ptr @ft_mem_qrealloc(ptr noundef %7, i64 noundef 16, i64 noundef 0, i64 noundef %21, ptr noundef null, ptr noundef nonnull %2) #22
   store ptr %32, ptr %28, align 8
   %33 = load i32, ptr %2, align 4
   %.not77 = icmp eq i32 %33, 0
-  br i1 %.not77, label %.preheader80, label %88
+  br i1 %.not77, label %.preheader80, label %87
 
 .preheader80:                                     ; preds = %31
   %34 = icmp sgt i32 %20, 0
@@ -15199,8 +15199,8 @@ define internal fastcc void @ft_var_load_avar(ptr noundef %0) unnamed_addr #2 {
 
 .lr.ph85:                                         ; preds = %.preheader80, %._crit_edge
   %indvars.iv95 = phi i64 [ %indvars.iv.next96, %._crit_edge ], [ 0, %.preheader80 ]
-  %.084 = phi i32 [ %67, %._crit_edge ], [ 0, %.preheader80 ]
-  %.07183 = phi ptr [ %68, %._crit_edge ], [ %32, %.preheader80 ]
+  %.084 = phi i32 [ %66, %._crit_edge ], [ 0, %.preheader80 ]
+  %.07183 = phi ptr [ %67, %._crit_edge ], [ %32, %.preheader80 ]
   %35 = call zeroext i16 @FT_Stream_GetUShort(ptr noundef %5) #22
   store i16 %35, ptr %.07183, align 8
   %36 = zext i16 %35 to i64
@@ -15230,89 +15230,88 @@ define internal fastcc void @ft_var_load_avar(ptr noundef %0) unnamed_addr #2 {
   %indvars.iv98 = phi i64 [ %indvars.iv.next99, %.lr.ph89 ], [ %indvars.iv95, %45 ]
   %indvars.iv.next99 = add nsw i64 %indvars.iv98, -1
   %46 = load ptr, ptr %28, align 8
-  %47 = and i64 %indvars.iv.next99, 4294967295
-  %48 = getelementptr inbounds %struct.GX_AVarSegmentRec_, ptr %46, i64 %47, i32 1
-  %49 = load ptr, ptr %48, align 8
-  call void @ft_mem_free(ptr noundef %7, ptr noundef %49) #22
-  %50 = load ptr, ptr %28, align 8
-  %51 = getelementptr inbounds %struct.GX_AVarSegmentRec_, ptr %50, i64 %47, i32 1
-  store ptr null, ptr %51, align 8
-  %52 = icmp sgt i64 %indvars.iv98, 1
-  br i1 %52, label %.lr.ph89, label %._crit_edge90, !llvm.loop !102
+  %47 = getelementptr inbounds %struct.GX_AVarSegmentRec_, ptr %46, i64 %indvars.iv.next99, i32 1
+  %48 = load ptr, ptr %47, align 8
+  call void @ft_mem_free(ptr noundef %7, ptr noundef %48) #22
+  %49 = load ptr, ptr %28, align 8
+  %50 = getelementptr inbounds %struct.GX_AVarSegmentRec_, ptr %49, i64 %indvars.iv.next99, i32 1
+  store ptr null, ptr %50, align 8
+  %51 = icmp sgt i64 %indvars.iv98, 1
+  br i1 %51, label %.lr.ph89, label %._crit_edge90, !llvm.loop !102
 
 ._crit_edge90:                                    ; preds = %.lr.ph89, %45
-  %53 = load ptr, ptr %28, align 8
-  call void @ft_mem_free(ptr noundef %7, ptr noundef %53) #22
+  %52 = load ptr, ptr %28, align 8
+  call void @ft_mem_free(ptr noundef %7, ptr noundef %52) #22
   store ptr null, ptr %28, align 8
-  br label %88
+  br label %87
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %54 = call zeroext i16 @FT_Stream_GetUShort(ptr noundef %5) #22
-  %55 = sext i16 %54 to i64
-  %56 = shl nsw i64 %55, 2
-  %57 = load ptr, ptr %42, align 8
-  %58 = getelementptr inbounds %struct.GX_AVarCorrespondenceRec_, ptr %57, i64 %indvars.iv
-  store i64 %56, ptr %58, align 8
-  %59 = call zeroext i16 @FT_Stream_GetUShort(ptr noundef %5) #22
-  %60 = sext i16 %59 to i64
-  %61 = shl nsw i64 %60, 2
-  %62 = load ptr, ptr %42, align 8
-  %63 = getelementptr inbounds %struct.GX_AVarCorrespondenceRec_, ptr %62, i64 %indvars.iv, i32 1
-  store i64 %61, ptr %63, align 8
+  %53 = call zeroext i16 @FT_Stream_GetUShort(ptr noundef %5) #22
+  %54 = sext i16 %53 to i64
+  %55 = shl nsw i64 %54, 2
+  %56 = load ptr, ptr %42, align 8
+  %57 = getelementptr inbounds %struct.GX_AVarCorrespondenceRec_, ptr %56, i64 %indvars.iv
+  store i64 %55, ptr %57, align 8
+  %58 = call zeroext i16 @FT_Stream_GetUShort(ptr noundef %5) #22
+  %59 = sext i16 %58 to i64
+  %60 = shl nsw i64 %59, 2
+  %61 = load ptr, ptr %42, align 8
+  %62 = getelementptr inbounds %struct.GX_AVarCorrespondenceRec_, ptr %61, i64 %indvars.iv, i32 1
+  store i64 %60, ptr %62, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %64 = load i16, ptr %.07183, align 8
-  %65 = zext i16 %64 to i64
-  %66 = icmp ult i64 %indvars.iv.next, %65
-  br i1 %66, label %.lr.ph, label %._crit_edge, !llvm.loop !103
+  %63 = load i16, ptr %.07183, align 8
+  %64 = zext i16 %63 to i64
+  %65 = icmp ult i64 %indvars.iv.next, %64
+  br i1 %65, label %.lr.ph, label %._crit_edge, !llvm.loop !103
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %67 = add nuw nsw i32 %.084, 1
-  %68 = getelementptr inbounds i8, ptr %.07183, i64 16
-  %exitcond.not = icmp eq i32 %67, %20
+  %66 = add nuw nsw i32 %.084, 1
+  %67 = getelementptr inbounds i8, ptr %.07183, i64 16
+  %exitcond.not = icmp eq i32 %66, %20
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   br i1 %exitcond.not, label %._crit_edge86, label %.lr.ph85, !llvm.loop !104
 
 ._crit_edge86:                                    ; preds = %._crit_edge, %.preheader80
-  %69 = icmp slt i32 %19, 131072
-  br i1 %69, label %88, label %70
+  %68 = icmp slt i32 %19, 131072
+  br i1 %68, label %87, label %69
 
-70:                                               ; preds = %._crit_edge86
-  %71 = call i32 @FT_Stream_GetULong(ptr noundef %5) #22
-  %72 = zext i32 %71 to i64
-  %73 = call i32 @FT_Stream_GetULong(ptr noundef %5) #22
-  %.not78 = icmp eq i32 %73, 0
-  br i1 %.not78, label %81, label %74
+69:                                               ; preds = %._crit_edge86
+  %70 = call i32 @FT_Stream_GetULong(ptr noundef %5) #22
+  %71 = zext i32 %70 to i64
+  %72 = call i32 @FT_Stream_GetULong(ptr noundef %5) #22
+  %.not78 = icmp eq i32 %72, 0
+  br i1 %.not78, label %80, label %73
 
-74:                                               ; preds = %70
-  %75 = zext i32 %73 to i64
-  %76 = add i64 %15, %75
-  %77 = getelementptr inbounds i8, ptr %28, i64 8
-  %78 = call i32 @tt_var_load_item_variation_store(ptr noundef %0, i64 noundef %76, ptr noundef nonnull %77)
-  store i32 %78, ptr %2, align 4
-  %79 = icmp eq i32 %78, 0
-  %80 = icmp ne i32 %71, 0
-  %or.cond3 = select i1 %79, i1 %80, i1 false
-  br i1 %or.cond3, label %82, label %88
+73:                                               ; preds = %69
+  %74 = zext i32 %72 to i64
+  %75 = add i64 %15, %74
+  %76 = getelementptr inbounds i8, ptr %28, i64 8
+  %77 = call i32 @tt_var_load_item_variation_store(ptr noundef %0, i64 noundef %75, ptr noundef nonnull %76)
+  store i32 %77, ptr %2, align 4
+  %78 = icmp eq i32 %77, 0
+  %79 = icmp ne i32 %70, 0
+  %or.cond3 = select i1 %78, i1 %79, i1 false
+  br i1 %or.cond3, label %81, label %87
 
-81:                                               ; preds = %70
-  %.old2.not = icmp eq i32 %71, 0
-  br i1 %.old2.not, label %88, label %82
+80:                                               ; preds = %69
+  %.old2.not = icmp eq i32 %70, 0
+  br i1 %.old2.not, label %87, label %81
 
-82:                                               ; preds = %74, %81
-  %83 = add i64 %15, %72
-  %84 = getelementptr inbounds i8, ptr %28, i64 40
-  %85 = getelementptr inbounds i8, ptr %28, i64 8
-  %86 = load i64, ptr %3, align 8
-  %87 = call i32 @tt_var_load_delta_set_index_mapping(ptr noundef %0, i64 noundef %83, ptr noundef nonnull %84, ptr noundef nonnull %85, i64 noundef %86)
-  store i32 %87, ptr %2, align 4
+81:                                               ; preds = %73, %80
+  %82 = add i64 %15, %71
+  %83 = getelementptr inbounds i8, ptr %28, i64 40
+  %84 = getelementptr inbounds i8, ptr %28, i64 8
+  %85 = load i64, ptr %3, align 8
+  %86 = call i32 @tt_var_load_delta_set_index_mapping(ptr noundef %0, i64 noundef %82, ptr noundef nonnull %83, ptr noundef nonnull %84, i64 noundef %85)
+  store i32 %86, ptr %2, align 4
+  br label %87
+
+87:                                               ; preds = %18, %81, %80, %73, %._crit_edge86, %31, %27, %22, %._crit_edge90
+  call void @FT_Stream_ExitFrame(ptr noundef %5) #22
   br label %88
 
-88:                                               ; preds = %18, %82, %81, %74, %._crit_edge86, %31, %27, %22, %._crit_edge90
-  call void @FT_Stream_ExitFrame(ptr noundef %5) #22
-  br label %89
-
-89:                                               ; preds = %14, %1, %88
+88:                                               ; preds = %14, %1, %87
   ret void
 }
 

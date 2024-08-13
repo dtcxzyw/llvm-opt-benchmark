@@ -4211,7 +4211,7 @@ _ZN5sim_t8get_coreEm.exit:                        ; preds = %1
   %46 = load i32, ptr %45, align 4
   %47 = tail call noundef i32 @llvm.bswap.i32(i32 %46)
   store i32 %47, ptr %45, align 4
-  %indvars.iv.next65 = add nuw i64 %indvars.iv64, 1
+  %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next65, 8
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 

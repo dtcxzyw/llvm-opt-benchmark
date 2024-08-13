@@ -33,71 +33,69 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 14:                                               ; preds = %12
   %15 = add nuw i32 %10, 1
-  %wide.trip.count281 = zext i32 %15 to i64
+  %wide.trip.count278 = zext i32 %15 to i64
   br i1 %switch.masked, label %.preheader, label %.preheader258
 
-.preheader:                                       ; preds = %14, %29
-  %indvars.iv273 = phi i64 [ %indvars.iv.next274, %29 ], [ 2, %14 ]
+.preheader:                                       ; preds = %14, %27
+  %indvars.iv272 = phi i64 [ %indvars.iv.next273, %27 ], [ 2, %14 ]
   br label %16
 
-16:                                               ; preds = %.preheader, %23
-  %indvars.iv275 = phi i64 [ %indvars.iv273, %.preheader ], [ %indvars.iv.next276, %23 ]
-  %17 = getelementptr inbounds float, ptr %7, i64 %indvars.iv275
+16:                                               ; preds = %.preheader, %22
+  %indvars.iv274 = phi i64 [ %indvars.iv272, %.preheader ], [ %indvars.iv.next275, %22 ]
+  %17 = getelementptr inbounds float, ptr %7, i64 %indvars.iv274
   %18 = load float, ptr %17, align 4
-  %indvars.iv.next276 = add nsw i64 %indvars.iv275, -1
-  %19 = and i64 %indvars.iv.next276, 4294967295
-  %20 = getelementptr inbounds float, ptr %7, i64 %19
-  %21 = load float, ptr %20, align 4
-  %22 = fcmp ogt float %18, %21
-  br i1 %22, label %23, label %29
+  %indvars.iv.next275 = add nsw i64 %indvars.iv274, -1
+  %19 = getelementptr inbounds float, ptr %7, i64 %indvars.iv.next275
+  %20 = load float, ptr %19, align 4
+  %21 = fcmp ogt float %18, %20
+  br i1 %21, label %22, label %27
 
-23:                                               ; preds = %16
-  store float %21, ptr %17, align 4
-  store float %18, ptr %20, align 4
-  %24 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv275
-  %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds i32, ptr %6, i64 %19
-  %27 = load i32, ptr %26, align 4
-  store i32 %27, ptr %24, align 4
-  store i32 %25, ptr %26, align 4
-  %28 = icmp sgt i64 %indvars.iv275, 2
-  br i1 %28, label %16, label %29, !llvm.loop !4
+22:                                               ; preds = %16
+  store float %20, ptr %17, align 4
+  store float %18, ptr %19, align 4
+  %23 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv274
+  %24 = load i32, ptr %23, align 4
+  %25 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv.next275
+  %26 = load i32, ptr %25, align 4
+  store i32 %26, ptr %23, align 4
+  store i32 %24, ptr %25, align 4
+  %.not251.not = icmp sgt i64 %indvars.iv274, 2
+  br i1 %.not251.not, label %16, label %27, !llvm.loop !4
 
-29:                                               ; preds = %23, %16
-  %indvars.iv.next274 = add nuw nsw i64 %indvars.iv273, 1
-  %exitcond282.not = icmp eq i64 %indvars.iv.next274, %wide.trip.count281
-  br i1 %exitcond282.not, label %.thread255, label %.preheader, !llvm.loop !6
+27:                                               ; preds = %22, %16
+  %indvars.iv.next273 = add nuw nsw i64 %indvars.iv272, 1
+  %exitcond279.not = icmp eq i64 %indvars.iv.next273, %wide.trip.count278
+  br i1 %exitcond279.not, label %.thread255, label %.preheader, !llvm.loop !6
 
-.preheader258:                                    ; preds = %14, %43
-  %indvars.iv = phi i64 [ %indvars.iv.next, %43 ], [ 2, %14 ]
-  br label %30
+.preheader258:                                    ; preds = %14, %39
+  %indvars.iv = phi i64 [ %indvars.iv.next, %39 ], [ 2, %14 ]
+  br label %28
 
-30:                                               ; preds = %.preheader258, %37
-  %indvars.iv268 = phi i64 [ %indvars.iv, %.preheader258 ], [ %indvars.iv.next269, %37 ]
-  %31 = getelementptr inbounds float, ptr %7, i64 %indvars.iv268
-  %32 = load float, ptr %31, align 4
+28:                                               ; preds = %.preheader258, %34
+  %indvars.iv268 = phi i64 [ %indvars.iv, %.preheader258 ], [ %indvars.iv.next269, %34 ]
+  %29 = getelementptr inbounds float, ptr %7, i64 %indvars.iv268
+  %30 = load float, ptr %29, align 4
   %indvars.iv.next269 = add nsw i64 %indvars.iv268, -1
-  %33 = and i64 %indvars.iv.next269, 4294967295
-  %34 = getelementptr inbounds float, ptr %7, i64 %33
-  %35 = load float, ptr %34, align 4
-  %36 = fcmp olt float %32, %35
-  br i1 %36, label %37, label %43
+  %31 = getelementptr inbounds float, ptr %7, i64 %indvars.iv.next269
+  %32 = load float, ptr %31, align 4
+  %33 = fcmp olt float %30, %32
+  br i1 %33, label %34, label %39
 
-37:                                               ; preds = %30
-  store float %35, ptr %31, align 4
-  store float %32, ptr %34, align 4
-  %38 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv268
-  %39 = load i32, ptr %38, align 4
-  %40 = getelementptr inbounds i32, ptr %6, i64 %33
-  %41 = load i32, ptr %40, align 4
-  store i32 %41, ptr %38, align 4
-  store i32 %39, ptr %40, align 4
-  %42 = icmp sgt i64 %indvars.iv268, 2
-  br i1 %42, label %30, label %43, !llvm.loop !7
+34:                                               ; preds = %28
+  store float %32, ptr %29, align 4
+  store float %30, ptr %31, align 4
+  %35 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv268
+  %36 = load i32, ptr %35, align 4
+  %37 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv.next269
+  %38 = load i32, ptr %37, align 4
+  store i32 %38, ptr %35, align 4
+  store i32 %36, ptr %37, align 4
+  %.not249.not = icmp sgt i64 %indvars.iv268, 2
+  br i1 %.not249.not, label %28, label %39, !llvm.loop !7
 
-43:                                               ; preds = %37, %30
+39:                                               ; preds = %34, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count281
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count278
   br i1 %exitcond.not, label %.thread255, label %.preheader258, !llvm.loop !8
 
 .thread255.sink.split:                            ; preds = %switch.hole_check, %5, %switch.lookup
@@ -105,7 +103,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   store i32 %.sink, ptr %4, align 4
   br label %.thread255
 
-.thread255:                                       ; preds = %43, %29, %.thread255.sink.split, %12
+.thread255:                                       ; preds = %39, %27, %.thread255.sink.split, %12
   ret void
 }
 

@@ -4943,10 +4943,9 @@ for.body27:                                       ; preds = %for.body27.preheade
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %indvars.iv.next61 = add nsw i64 %indvars.iv60, -1
   %cmp23 = icmp ult i64 %indvars.iv.next59, %6
-  %15 = trunc nuw i64 %indvars.iv60 to i32
-  %cmp25 = icmp sgt i32 %15, 0
-  %16 = and i1 %cmp23, %cmp25
-  br i1 %16, label %for.body27, label %for.end, !llvm.loop !61
+  %cmp25 = icmp ne i64 %indvars.iv60, 0
+  %15 = and i1 %cmp23, %cmp25
+  br i1 %15, label %for.body27, label %for.end, !llvm.loop !61
 
 for.end:                                          ; preds = %for.body27, %for.body
   %l.1.lcssa = phi i128 [ %l.049, %for.body ], [ %add38, %for.body27 ]
@@ -4965,11 +4964,11 @@ for.end:                                          ; preds = %for.body27, %for.bo
 
 for.end53.loopexit:                               ; preds = %for.end
   %extract.t57 = trunc i128 %add49 to i64
-  %17 = trunc nuw i64 %indvars.iv.next66 to i32
+  %16 = trunc nuw i64 %indvars.iv.next66 to i32
   br label %for.end53
 
 for.end53:                                        ; preds = %for.end53.loopexit, %entry
-  %k.0.lcssa = phi i32 [ 1, %entry ], [ %17, %for.end53.loopexit ]
+  %k.0.lcssa = phi i32 [ 1, %entry ], [ %16, %for.end53.loopexit ]
   %l.0.lcssa.off0 = phi i64 [ %extract.t, %entry ], [ %extract.t57, %for.end53.loopexit ]
   %idxprom55 = zext i32 %k.0.lcssa to i64
   %arrayidx56 = getelementptr inbounds i64, ptr %vla, i64 %idxprom55
@@ -4986,8 +4985,8 @@ land.rhs68:                                       ; preds = %for.end53, %for.inc
   %ii.054 = phi i32 [ %dec77, %for.inc76 ], [ %k.0.lcssa, %for.end53 ]
   %idxprom70 = zext nneg i32 %ii.054 to i64
   %arrayidx71 = getelementptr inbounds [129 x i64], ptr %dp59, i64 0, i64 %idxprom70
-  %18 = load i64, ptr %arrayidx71, align 8
-  %cmp72 = icmp eq i64 %18, 0
+  %17 = load i64, ptr %arrayidx71, align 8
+  %cmp72 = icmp eq i64 %17, 0
   br i1 %cmp72, label %for.inc76, label %for.end78.loopexit
 
 for.inc76:                                        ; preds = %land.rhs68
@@ -10045,7 +10044,7 @@ entry:
   store i64 %conv5, ptr %vla, align 16
   %shr = lshr i128 %mul4, 64
   %cmp11.not62 = icmp eq i32 %mul, 2
-  %extract.t80 = trunc nuw i128 %shr to i64
+  %extract.t79 = trunc nuw i128 %shr to i64
   br i1 %cmp11.not62, label %for.end73, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %entry
@@ -10098,8 +10097,7 @@ for.body37:                                       ; preds = %if.end, %for.body37
   %arrayidx40 = getelementptr inbounds [129 x i64], ptr %dp, i64 0, i64 %indvars.iv73
   %13 = load i64, ptr %arrayidx40, align 8
   %conv41 = zext i64 %13 to i128
-  %idxprom43 = and i64 %indvars.iv.next76, 4294967295
-  %arrayidx44 = getelementptr inbounds [129 x i64], ptr %dp, i64 0, i64 %idxprom43
+  %arrayidx44 = getelementptr inbounds [129 x i64], ptr %dp, i64 0, i64 %indvars.iv.next76
   %14 = load i64, ptr %arrayidx44, align 8
   %conv45 = zext i64 %14 to i128
   %mul46 = mul nuw i128 %conv45, %conv41
@@ -10111,10 +10109,9 @@ for.body37:                                       ; preds = %if.end, %for.body37
   %add60 = add i128 %reass.add53, %h.259
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %cmp33 = icmp ult i64 %indvars.iv.next74, %3
-  %16 = trunc nuw i64 %indvars.iv75 to i32
-  %cmp35 = icmp sgt i32 %16, 1
-  %17 = and i1 %cmp35, %cmp33
-  br i1 %17, label %for.body37, label %for.end, !llvm.loop !88
+  %cmp35 = icmp ugt i64 %indvars.iv75, 1
+  %16 = and i1 %cmp35, %cmp33
+  br i1 %16, label %for.body37, label %for.end, !llvm.loop !88
 
 for.end:                                          ; preds = %for.body37, %if.end
   %l.2.lcssa = phi i128 [ %l.1, %if.end ], [ %add56, %for.body37 ]
@@ -10131,11 +10128,11 @@ for.end:                                          ; preds = %for.body37, %if.end
   br i1 %exitcond, label %for.end73.loopexit, label %for.body, !llvm.loop !89
 
 for.end73.loopexit:                               ; preds = %for.end
-  %extract.t81 = trunc i128 %add69 to i64
+  %extract.t80 = trunc i128 %add69 to i64
   br label %for.end73
 
 for.end73:                                        ; preds = %for.end73.loopexit, %entry
-  %shr.sink.off0 = phi i64 [ %extract.t80, %entry ], [ %extract.t81, %for.end73.loopexit ]
+  %shr.sink.off0 = phi i64 [ %extract.t79, %entry ], [ %extract.t80, %for.end73.loopexit ]
   %k.0.lcssa = phi i32 [ 1, %entry ], [ %umax, %for.end73.loopexit ]
   %idxprom75 = zext i32 %k.0.lcssa to i64
   %arrayidx76 = getelementptr inbounds i64, ptr %vla, i64 %idxprom75
@@ -10152,8 +10149,8 @@ land.rhs88:                                       ; preds = %for.end73, %for.inc
   %ii.069 = phi i32 [ %dec97, %for.inc96 ], [ %k.0.lcssa, %for.end73 ]
   %idxprom90 = zext nneg i32 %ii.069 to i64
   %arrayidx91 = getelementptr inbounds [129 x i64], ptr %dp79, i64 0, i64 %idxprom90
-  %18 = load i64, ptr %arrayidx91, align 8
-  %cmp92 = icmp eq i64 %18, 0
+  %17 = load i64, ptr %arrayidx91, align 8
+  %cmp92 = icmp eq i64 %17, 0
   br i1 %cmp92, label %for.inc96, label %for.end98.loopexit
 
 for.inc96:                                        ; preds = %land.rhs88
