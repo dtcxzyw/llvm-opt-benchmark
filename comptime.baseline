@@ -7570,7 +7570,7 @@ git/fsmonitor.ll 226436243
 git/gc.ll 926789349
 git/generic.ll 79591113
 git/get-tar-commit-id.ll 56957880
-git/gettext.ll 53701261
+git/gettext.ll 53755109
 git/git-zlib.ll 146724075
 git/git.ll 552660233
 git/gpg-interface.ll 443559556
@@ -14806,7 +14806,7 @@ linux/wep.ll 98120422
 linux/win_minmax.ll 64468426
 linux/wmi.ll 267803062
 linux/wol.ll 66309906
-linux/workingset.ll 109396641
+linux/workingset.ll 109506076
 linux/workqueue.ll 1642188823
 linux/wpa.ll 374623732
 linux/write.ll 654051899
@@ -17462,7 +17462,7 @@ nuttx/lib_fscanf.c.ll 35436385
 nuttx/lib_fseeko.c.ll 39898830
 nuttx/lib_ftell.c.ll 34688463
 nuttx/lib_fwrite.c.ll 38968107
-nuttx/lib_gamma.c.ll 71500426
+nuttx/lib_gamma.c.ll 71571930
 nuttx/lib_getentropy.c.ll 43193289
 nuttx/lib_getfullpath.c.ll 40371053
 nuttx/lib_getgrbufr.c.ll 40764418
