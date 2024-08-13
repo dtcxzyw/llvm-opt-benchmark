@@ -4814,7 +4814,7 @@ coreutils-rs/rt857z4laxe63sp.ll 263945813
 coreutils-rs/ryrkjgpp8x1f83y.ll 85250902
 coreutils-rs/s1xzdqmtc4vwsgm.ll 226790810
 coreutils-rs/s6jq95vqp5ze0w5.ll 139240450
-coreutils-rs/s861y7yhp5v4rru.ll 96011069
+coreutils-rs/s861y7yhp5v4rru.ll 95914907
 coreutils-rs/sjiq39j2v2dhdb5.ll 290207590
 coreutils-rs/sq01c3r64r4q5al.ll 228284430
 coreutils-rs/sqkmqfuq83ulyka.ll 189429721
@@ -24317,7 +24317,7 @@ openssl/libapps-lib-apps.ll 922371127
 openssl/libapps-lib-apps_opt_printf.ll 35226292
 openssl/libapps-lib-apps_ui.ll 79922807
 openssl/libapps-lib-columns.ll 42115952
-openssl/libapps-lib-engine_loader.ll 70678738
+openssl/libapps-lib-engine_loader.ll 70608059
 openssl/libapps-lib-fmt.ll 34516034
 openssl/libapps-lib-http_server.ll 206385333
 openssl/libapps-lib-log.ll 46255236
