@@ -12111,7 +12111,7 @@ libquic/tls_cbc.c.ll 217490418
 libquic/tls_record.c.ll 111178142
 libquic/tool.cc.ll 160056298
 libquic/transport_common.cc.ll 111510313
-libquic/trees.c.ll 707577196
+libquic/trees.c.ll 708284982
 libquic/url_canon_etc.cc.ll 553735994
 libquic/url_canon_filesystemurl.cc.ll 169694363
 libquic/url_canon_fileurl.cc.ll 180984426
