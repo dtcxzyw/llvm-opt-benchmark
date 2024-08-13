@@ -21372,7 +21372,7 @@ openjdk/g1HeapTransition.ll 148977389
 openjdk/g1HeapVerifier.ll 3399588359
 openjdk/g1IHOPControl.ll 2618367679
 openjdk/g1InitLogger.ll 56041563
-openjdk/g1MMUTracker.ll 104814538
+openjdk/g1MMUTracker.ll 104709591
 openjdk/g1MemoryPool.ll 75338814
 openjdk/g1MonitoringSupport.ll 2714253540
 openjdk/g1MonotonicArena.ll 197476158
