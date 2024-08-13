@@ -9734,7 +9734,7 @@ hdf5/H5FDsplitter.c.ll 272127956
 hdf5/H5FDstdio.c.ll 151329634
 hdf5/H5FDtest.c.ll 38724317
 hdf5/H5FL.c.ll 362206901
-hdf5/H5FO.c.ll 72400330
+hdf5/H5FO.c.ll 72472772
 hdf5/H5FS.c.ll 206009854
 hdf5/H5FScache.c.ll 401265876
 hdf5/H5FSdbg.c.ll 62302167
@@ -26753,7 +26753,7 @@ postgres/blkreftable.ll 472433041
 postgres/blkreftable_shlib.ll 472499733
 postgres/blkreftable_srv.ll 480860095
 postgres/bloomfilter.ll 89327674
-postgres/bool.ll 116175702
+postgres/bool.ll 116292102
 postgres/bootparse.ll 207633217
 postgres/bootscanner.ll 500971474
 postgres/bootstrap.ll 215423444
@@ -28491,7 +28491,7 @@ qemu/backends_dbus-vmstate.c.ll 216517956
 qemu/backends_hostmem-file.c.ll 86467970
 qemu/backends_hostmem-memfd.c.ll 61741091
 qemu/backends_hostmem-ram.c.ll 42367694
-qemu/backends_hostmem.c.ll 145160865
+qemu/backends_hostmem.c.ll 145306034
 qemu/backends_rng-egd.c.ll 76111023
 qemu/backends_rng-random.c.ll 63588377
 qemu/backends_rng.c.ll 65313399
