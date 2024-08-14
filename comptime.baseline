@@ -5556,7 +5556,7 @@ cvc5/justify_info.cpp.ll 130619763
 cvc5/justify_stack.cpp.ll 635318619
 cvc5/justify_stats.cpp.ll 73135489
 cvc5/kind.cpp.ll 571114756
-cvc5/lambda_lift.cpp.ll 2421951899
+cvc5/lambda_lift.cpp.ll 2424374446
 cvc5/language.cpp.ll 73023984
 cvc5/lazy_proof.cpp.ll 1790297866
 cvc5/lazy_proof_chain.cpp.ll 2489106012
@@ -15131,7 +15131,7 @@ luau/AstQuery.test.cpp.ll 2403406291
 luau/AstQueryDsl.cpp.ll 197653556
 luau/AstVisitor.test.cpp.ll 814091955
 luau/Autocomplete.cpp.ll 6215645059
-luau/Autocomplete.test.cpp.ll 27154601762
+luau/Autocomplete.test.cpp.ll 27127438060
 luau/BuiltinDefinitions.cpp.ll 5299405651
 luau/BuiltinDefinitions.test.cpp.ll 509283316
 luau/BuiltinFolding.cpp.ll 321267918
