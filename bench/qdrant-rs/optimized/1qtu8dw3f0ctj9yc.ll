@@ -241,22 +241,22 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   %.not.not36 = icmp ult i64 %.0.in34, %18
   br i1 %.not.not36, label %.lr.ph, label %._crit_edge
 
-._crit_edge.loopexit:                             ; preds = %56
+._crit_edge.loopexit:                             ; preds = %55
   %.pre44.pre = load ptr, ptr %4, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
   %.pre44 = phi ptr [ %6, %3 ], [ %.pre44.pre, %._crit_edge.loopexit ]
-  %19 = phi i64 [ %1, %3 ], [ %49, %._crit_edge.loopexit ]
+  %19 = phi i64 [ %1, %3 ], [ %48, %._crit_edge.loopexit ]
   %.0.in.lcssa = phi i64 [ %.0.in34, %3 ], [ %.0.in, %._crit_edge.loopexit ]
   %.0.lcssa = phi i64 [ %.035, %3 ], [ %.0, %._crit_edge.loopexit ]
   %20 = add i64 %2, -2
   %21 = icmp eq i64 %.0.in.lcssa, %20
   br i1 %21, label %29, label %34
 
-.lr.ph:                                           ; preds = %3, %56
-  %.038 = phi i64 [ %.0, %56 ], [ %.035, %3 ]
-  %.0.in37 = phi i64 [ %.0.in, %56 ], [ %.0.in34, %3 ]
+.lr.ph:                                           ; preds = %3, %55
+  %.038 = phi i64 [ %.0, %55 ], [ %.035, %3 ]
+  %.0.in37 = phi i64 [ %.0.in, %55 ], [ %.0.in34, %3 ]
   %22 = load ptr, ptr %4, align 8, !nonnull !5, !align !45, !noundef !5
   %23 = load i64, ptr %14, align 8, !noundef !5
   %24 = getelementptr inbounds { { i32, float } }, ptr %22, i64 %.038
@@ -300,69 +300,68 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   %.pre42 = load ptr, ptr %4, align 8, !alias.scope !52
   br label %34
 
-45:                                               ; preds = %62, %34
+45:                                               ; preds = %61, %34
   ret void
 
 46:                                               ; preds = %.lr.ph
-  %47 = add nsw i8 %28, 1
-  %switch.selectcmp.i.i = icmp ult i8 %47, 2
-  %48 = zext i1 %switch.selectcmp.i.i to i64
-  %49 = add nuw i64 %.038, %48
-  %50 = load ptr, ptr %4, align 8, !nonnull !5, !align !45, !noundef !5
-  %51 = load i64, ptr %14, align 8, !noundef !5
-  %52 = icmp ult i64 %49, %51
-  call void @llvm.assume(i1 %52)
-  %53 = getelementptr inbounds { { i32, float } }, ptr %50, i64 %49
-  %54 = invoke noundef i8 @"_ZN74_$LT$common..types..ScoredPointOffset$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hc02ee03a84527b57E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %53, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %15)
-          to label %55 unwind label %.loopexit
+  %switch.selectcmp.i.i = icmp slt i8 %28, 1
+  %47 = zext i1 %switch.selectcmp.i.i to i64
+  %48 = add nuw i64 %.038, %47
+  %49 = load ptr, ptr %4, align 8, !nonnull !5, !align !45, !noundef !5
+  %50 = load i64, ptr %14, align 8, !noundef !5
+  %51 = icmp ult i64 %48, %50
+  call void @llvm.assume(i1 %51)
+  %52 = getelementptr inbounds { { i32, float } }, ptr %49, i64 %48
+  %53 = invoke noundef i8 @"_ZN74_$LT$common..types..ScoredPointOffset$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hc02ee03a84527b57E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %52, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %15)
+          to label %54 unwind label %.loopexit
 
-55:                                               ; preds = %46
-  %switch.i.i = icmp ult i8 %54, 2
-  br i1 %switch.i.i, label %62, label %56
+54:                                               ; preds = %46
+  %switch.i.i = icmp ult i8 %53, 2
+  br i1 %switch.i.i, label %61, label %55
 
-56:                                               ; preds = %55
-  %57 = load ptr, ptr %4, align 8, !nonnull !5, !align !45, !noundef !5
-  %58 = getelementptr inbounds { { i32, float } }, ptr %57, i64 %49
-  %59 = load i64, ptr %17, align 8, !noundef !5
-  %60 = getelementptr inbounds { { i32, float } }, ptr %57, i64 %59
-  %61 = load i64, ptr %58, align 4
-  store i64 %61, ptr %60, align 4
-  store i64 %49, ptr %17, align 8
-  %.0.in = shl i64 %49, 1
+55:                                               ; preds = %54
+  %56 = load ptr, ptr %4, align 8, !nonnull !5, !align !45, !noundef !5
+  %57 = getelementptr inbounds { { i32, float } }, ptr %56, i64 %48
+  %58 = load i64, ptr %17, align 8, !noundef !5
+  %59 = getelementptr inbounds { { i32, float } }, ptr %56, i64 %58
+  %60 = load i64, ptr %57, align 4
+  store i64 %60, ptr %59, align 4
+  store i64 %48, ptr %17, align 8
+  %.0.in = shl i64 %48, 1
   %.0 = or disjoint i64 %.0.in, 1
   %.not.not = icmp ult i64 %.0.in, %18
   br i1 %.not.not, label %.lr.ph, label %._crit_edge.loopexit
 
-62:                                               ; preds = %55
+61:                                               ; preds = %54
   call void @llvm.experimental.noalias.scope.decl(metadata !53)
   call void @llvm.experimental.noalias.scope.decl(metadata !56)
-  %63 = load i64, ptr %17, align 8, !alias.scope !59, !noundef !5
-  %64 = load ptr, ptr %4, align 8, !alias.scope !59, !nonnull !5, !align !45, !noundef !5
-  %65 = getelementptr inbounds { { i32, float } }, ptr %64, i64 %63
-  %66 = load i64, ptr %15, align 8, !alias.scope !59
-  store i64 %66, ptr %65, align 4, !noalias !59
+  %62 = load i64, ptr %17, align 8, !alias.scope !59, !noundef !5
+  %63 = load ptr, ptr %4, align 8, !alias.scope !59, !nonnull !5, !align !45, !noundef !5
+  %64 = getelementptr inbounds { { i32, float } }, ptr %63, i64 %62
+  %65 = load i64, ptr %15, align 8, !alias.scope !59
+  store i64 %65, ptr %64, align 4, !noalias !59
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   br label %45
 
 .loopexit:                                        ; preds = %46, %.lr.ph
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %67
+  br label %66
 
 .loopexit.split-lp:                               ; preds = %29
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %67
+  br label %66
 
-67:                                               ; preds = %.loopexit.split-lp, %.loopexit
+66:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.experimental.noalias.scope.decl(metadata !60)
   call void @llvm.experimental.noalias.scope.decl(metadata !63)
-  %68 = load i64, ptr %17, align 8, !alias.scope !66, !noundef !5
-  %69 = load ptr, ptr %4, align 8, !alias.scope !66, !nonnull !5, !align !45, !noundef !5
-  %70 = getelementptr inbounds { { i32, float } }, ptr %69, i64 %68
-  %71 = load i64, ptr %15, align 8, !alias.scope !66
-  store i64 %71, ptr %70, align 4, !noalias !66
+  %67 = load i64, ptr %17, align 8, !alias.scope !66, !noundef !5
+  %68 = load ptr, ptr %4, align 8, !alias.scope !66, !nonnull !5, !align !45, !noundef !5
+  %69 = getelementptr inbounds { { i32, float } }, ptr %68, i64 %67
+  %70 = load i64, ptr %15, align 8, !alias.scope !66
+  store i64 %70, ptr %69, align 4, !noalias !66
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -412,8 +411,8 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   %.not = icmp eq i64 %6, 0
   br i1 %.not, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$7sift_up17hd943ffa8937d9f55E.llvm.4070685214373696957.exit", label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h0bf5b1ada240c001E.llvm.4070685214373696957.exit", %36
-  %storemerge11.i = phi i64 [ %28, %36 ], [ %6, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h0bf5b1ada240c001E.llvm.4070685214373696957.exit" ]
+.lr.ph.i:                                         ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h0bf5b1ada240c001E.llvm.4070685214373696957.exit", %35
+  %storemerge11.i = phi i64 [ %28, %35 ], [ %6, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h0bf5b1ada240c001E.llvm.4070685214373696957.exit" ]
   %27 = add i64 %storemerge11.i, -1
   %28 = lshr i64 %27, 1
   %29 = load ptr, ptr %4, align 8, !noalias !70, !nonnull !5, !align !45, !noundef !5
@@ -422,49 +421,48 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   call void @llvm.assume(i1 %31)
   %32 = getelementptr inbounds { { i32, float } }, ptr %29, i64 %28
   %33 = invoke noundef i8 @"_ZN74_$LT$common..types..ScoredPointOffset$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hc02ee03a84527b57E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %32, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %24)
-          to label %34 unwind label %41, !noalias !70
+          to label %34 unwind label %40, !noalias !70
 
-._crit_edge.loopexit.i:                           ; preds = %36, %34
-  %.pre.i1 = phi i64 [ %.pre.pre.i, %34 ], [ 0, %36 ]
+._crit_edge.loopexit.i:                           ; preds = %35, %34
+  %.pre.i1 = phi i64 [ %.pre.pre.i, %34 ], [ 0, %35 ]
   %.pre13.i = load ptr, ptr %4, align 8, !alias.scope !73, !noalias !70
   br label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$7sift_up17hd943ffa8937d9f55E.llvm.4070685214373696957.exit"
 
 34:                                               ; preds = %.lr.ph.i
-  %35 = add nsw i8 %33, 1
-  %switch.selectcmp.i.i.i = icmp ult i8 %35, 2
+  %switch.selectcmp.i.i.i = icmp slt i8 %33, 1
   %.pre.pre.i = load i64, ptr %26, align 8, !noalias !70
-  br i1 %switch.selectcmp.i.i.i, label %._crit_edge.loopexit.i, label %36
+  br i1 %switch.selectcmp.i.i.i, label %._crit_edge.loopexit.i, label %35
 
-36:                                               ; preds = %34
-  %37 = load ptr, ptr %4, align 8, !noalias !70, !nonnull !5, !align !45, !noundef !5
-  %38 = getelementptr inbounds { { i32, float } }, ptr %37, i64 %28
-  %39 = getelementptr inbounds { { i32, float } }, ptr %37, i64 %.pre.pre.i
-  %40 = load i64, ptr %38, align 4, !noalias !70
-  store i64 %40, ptr %39, align 4, !noalias !70
+35:                                               ; preds = %34
+  %36 = load ptr, ptr %4, align 8, !noalias !70, !nonnull !5, !align !45, !noundef !5
+  %37 = getelementptr inbounds { { i32, float } }, ptr %36, i64 %28
+  %38 = getelementptr inbounds { { i32, float } }, ptr %36, i64 %.pre.pre.i
+  %39 = load i64, ptr %37, align 4, !noalias !70
+  store i64 %39, ptr %38, align 4, !noalias !70
   store i64 %28, ptr %26, align 8, !noalias !70
   %.not2 = icmp ult i64 %27, 2
   br i1 %.not2, label %._crit_edge.loopexit.i, label %.lr.ph.i
 
-41:                                               ; preds = %.lr.ph.i
-  %42 = landingpad { ptr, i32 }
+40:                                               ; preds = %.lr.ph.i
+  %41 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !78)
   call void @llvm.experimental.noalias.scope.decl(metadata !81)
-  %43 = load i64, ptr %26, align 8, !alias.scope !84, !noalias !70, !noundef !5
-  %44 = load ptr, ptr %4, align 8, !alias.scope !84, !noalias !70, !nonnull !5, !align !45, !noundef !5
-  %45 = getelementptr inbounds { { i32, float } }, ptr %44, i64 %43
-  %46 = load i64, ptr %24, align 8, !alias.scope !84, !noalias !70
-  store i64 %46, ptr %45, align 4, !noalias !85
-  resume { ptr, i32 } %42
+  %42 = load i64, ptr %26, align 8, !alias.scope !84, !noalias !70, !noundef !5
+  %43 = load ptr, ptr %4, align 8, !alias.scope !84, !noalias !70, !nonnull !5, !align !45, !noundef !5
+  %44 = getelementptr inbounds { { i32, float } }, ptr %43, i64 %42
+  %45 = load i64, ptr %24, align 8, !alias.scope !84, !noalias !70
+  store i64 %45, ptr %44, align 4, !noalias !85
+  resume { ptr, i32 } %41
 
 "_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$7sift_up17hd943ffa8937d9f55E.llvm.4070685214373696957.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h0bf5b1ada240c001E.llvm.4070685214373696957.exit", %._crit_edge.loopexit.i
-  %47 = phi ptr [ %.pre13.i, %._crit_edge.loopexit.i ], [ %17, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h0bf5b1ada240c001E.llvm.4070685214373696957.exit" ]
-  %48 = phi i64 [ %.pre.i1, %._crit_edge.loopexit.i ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h0bf5b1ada240c001E.llvm.4070685214373696957.exit" ]
+  %46 = phi ptr [ %.pre13.i, %._crit_edge.loopexit.i ], [ %17, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h0bf5b1ada240c001E.llvm.4070685214373696957.exit" ]
+  %47 = phi i64 [ %.pre.i1, %._crit_edge.loopexit.i ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h0bf5b1ada240c001E.llvm.4070685214373696957.exit" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !86)
   call void @llvm.experimental.noalias.scope.decl(metadata !87)
-  %49 = getelementptr inbounds { { i32, float } }, ptr %47, i64 %48
-  %50 = load i64, ptr %24, align 8, !alias.scope !73, !noalias !70
-  store i64 %50, ptr %49, align 4, !noalias !88
+  %48 = getelementptr inbounds { { i32, float } }, ptr %46, i64 %47
+  %49 = load i64, ptr %24, align 8, !alias.scope !73, !noalias !70
+  store i64 %49, ptr %48, align 4, !noalias !88
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !70
   ret void
 }
@@ -495,8 +493,8 @@ define hidden noundef i64 @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T
   %18 = icmp ugt i64 %2, %1
   br i1 %18, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %3, %32
-  %storemerge11 = phi i64 [ %20, %32 ], [ %2, %3 ]
+.lr.ph:                                           ; preds = %3, %31
+  %storemerge11 = phi i64 [ %20, %31 ], [ %2, %3 ]
   %19 = add i64 %storemerge11, -1
   %20 = lshr i64 %19, 1
   %21 = load ptr, ptr %4, align 8, !nonnull !5, !align !45, !noundef !5
@@ -505,10 +503,10 @@ define hidden noundef i64 @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T
   call void @llvm.assume(i1 %23)
   %24 = getelementptr inbounds { { i32, float } }, ptr %21, i64 %20
   %25 = invoke noundef i8 @"_ZN74_$LT$common..types..ScoredPointOffset$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hc02ee03a84527b57E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %24, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %15)
-          to label %30 unwind label %38
+          to label %30 unwind label %37
 
-._crit_edge.loopexit:                             ; preds = %30, %32
-  %.pre = phi i64 [ %.pre.pre, %30 ], [ %20, %32 ]
+._crit_edge.loopexit:                             ; preds = %30, %31
+  %.pre = phi i64 [ %.pre.pre, %30 ], [ %20, %31 ]
   %.pre13 = load ptr, ptr %4, align 8, !alias.scope !89
   br label %._crit_edge
 
@@ -524,32 +522,31 @@ define hidden noundef i64 @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T
   ret i64 %27
 
 30:                                               ; preds = %.lr.ph
-  %31 = add nsw i8 %25, 1
-  %switch.selectcmp.i.i = icmp ult i8 %31, 2
+  %switch.selectcmp.i.i = icmp slt i8 %25, 1
   %.pre.pre = load i64, ptr %17, align 8
-  br i1 %switch.selectcmp.i.i, label %._crit_edge.loopexit, label %32
+  br i1 %switch.selectcmp.i.i, label %._crit_edge.loopexit, label %31
 
-32:                                               ; preds = %30
-  %33 = load ptr, ptr %4, align 8, !nonnull !5, !align !45, !noundef !5
-  %34 = getelementptr inbounds { { i32, float } }, ptr %33, i64 %20
-  %35 = getelementptr inbounds { { i32, float } }, ptr %33, i64 %.pre.pre
-  %36 = load i64, ptr %34, align 4
-  store i64 %36, ptr %35, align 4
+31:                                               ; preds = %30
+  %32 = load ptr, ptr %4, align 8, !nonnull !5, !align !45, !noundef !5
+  %33 = getelementptr inbounds { { i32, float } }, ptr %32, i64 %20
+  %34 = getelementptr inbounds { { i32, float } }, ptr %32, i64 %.pre.pre
+  %35 = load i64, ptr %33, align 4
+  store i64 %35, ptr %34, align 4
   store i64 %20, ptr %17, align 8
-  %37 = icmp ugt i64 %20, %1
-  br i1 %37, label %.lr.ph, label %._crit_edge.loopexit
+  %36 = icmp ugt i64 %20, %1
+  br i1 %36, label %.lr.ph, label %._crit_edge.loopexit
 
-38:                                               ; preds = %.lr.ph
-  %39 = landingpad { ptr, i32 }
+37:                                               ; preds = %.lr.ph
+  %38 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !96)
   call void @llvm.experimental.noalias.scope.decl(metadata !99)
-  %40 = load i64, ptr %17, align 8, !alias.scope !102, !noundef !5
-  %41 = load ptr, ptr %4, align 8, !alias.scope !102, !nonnull !5, !align !45, !noundef !5
-  %42 = getelementptr inbounds { { i32, float } }, ptr %41, i64 %40
-  %43 = load i64, ptr %15, align 8, !alias.scope !102
-  store i64 %43, ptr %42, align 4, !noalias !102
-  resume { ptr, i32 } %39
+  %39 = load i64, ptr %17, align 8, !alias.scope !102, !noundef !5
+  %40 = load ptr, ptr %4, align 8, !alias.scope !102, !nonnull !5, !align !45, !noundef !5
+  %41 = getelementptr inbounds { { i32, float } }, ptr %40, i64 %39
+  %42 = load i64, ptr %15, align 8, !alias.scope !102
+  store i64 %42, ptr %41, align 4, !noalias !102
+  resume { ptr, i32 } %38
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
