@@ -22164,7 +22164,7 @@ openjdk/shenandoahUnload.ll 153466524
 openjdk/shenandoahUtils.ll 917221652
 openjdk/shenandoahVMOperations.ll 93328142
 openjdk/shenandoahVerifier.ll 2066366499
-openjdk/shenandoahWorkGroup.ll 78510758
+openjdk/shenandoahWorkGroup.ll 78589367
 openjdk/shenandoahWorkerPolicy.ll 42645030
 openjdk/signals_posix.ll 553275846
 openjdk/signature.ll 774996185
