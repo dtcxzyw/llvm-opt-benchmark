@@ -1581,7 +1581,7 @@ arrow/UriParse.c.ll 1470233664
 arrow/UriQuery.c.ll 379672738
 arrow/UriRecompose.c.ll 410402600
 arrow/UriResolve.c.ll 150849219
-arrow/UriShorten.c.ll 215473866
+arrow/UriShorten.c.ll 215258272
 arrow/align_util.cc.ll 2032357843
 arrow/api_aggregate.cc.ll 5686215495
 arrow/api_scalar.cc.ll 18425411889
@@ -12576,7 +12576,7 @@ lief/GenericContent.cpp.ll 6977627715
 lief/GenericType.cpp.ll 165671239
 lief/GnuHash.cpp.ll 250667211
 lief/Handler.cpp.ll 11481251880
-lief/Import.cpp.ll 93489757
+lief/Import.cpp.ll 93396267
 lief/LangCodeItem.cpp.ll 12701237804
 lief/Layout.cpp.ll 1471359421
 lief/LinkEdit.cpp.ll 12321161767
@@ -37216,7 +37216,7 @@ z3/expr_abstract.cpp.ll 603855584
 z3/expr_context_simplifier.cpp.ll 1832155672
 z3/expr_delta.cpp.ll 192183130
 z3/expr_functors.cpp.ll 184494572
-z3/expr_inverter.cpp.ll 1548681781
+z3/expr_inverter.cpp.ll 1547132865
 z3/expr_map.cpp.ll 581859625
 z3/expr_pattern_match.cpp.ll 1420996469
 z3/expr_rand.cpp.ll 965489123
