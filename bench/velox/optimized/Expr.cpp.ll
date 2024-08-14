@@ -16826,9 +16826,8 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.then4:                                         ; preds = %if.then
   %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 -8
-  %add.i.i7 = add nsw i32 %rem, 63
-  %.cmp = icmp ult i32 %add.i.i7, 64
-  %mul.i.i = select i1 %.cmp, i32 0, i32 64
+  %.cmp.inv = icmp sgt i32 %rem, 0
+  %mul.i.i = select i1 %.cmp.inv, i32 64, i32 0
   %sub12.i = sub nsw i32 %mul.i.i, %rem
   %sh_prom.i.i25.i = zext nneg i32 %sub12.i to i64
   %notmask.i.i26.i = shl nsw i64 -1, %sh_prom.i.i25.i
@@ -16852,7 +16851,7 @@ if.else.i32.i:                                    ; preds = %if.then4
 if.end14.i:                                       ; preds = %if.else.i32.i, %if.then.i37.i
   %storemerge = phi i64 [ %and4.i36.i, %if.else.i32.i ], [ %or.i40.i, %if.then.i37.i ]
   store i64 %storemerge, ptr %add.ptr.i.i, align 8
-  br i1 %.cmp, label %for.body.lr.ph.i, label %if.end8
+  br i1 %.cmp.inv, label %if.end8, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end14.i
   %.neg = sext i1 %value to i64

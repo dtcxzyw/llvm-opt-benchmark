@@ -67312,62 +67312,61 @@ define hidden void @_ZN5typst4eval3ops3leq17he3724d5a30cfc81cE(ptr noalias nocap
   %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..Value$GT$17h54cec887ca59b7d7E.llvm.12777920187102919001"(ptr noalias noundef nonnull align 8 dereferenceable(32) %2) #75
-          to label %17 unwind label %21
+          to label %16 unwind label %20
 
 7:                                                ; preds = %3
   %8 = load i8, ptr %4, align 8, !range !564, !noundef !16
   %trunc = trunc nuw i8 %8 to i1
-  br i1 %trunc, label %14, label %9
+  br i1 %trunc, label %13, label %9
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds i8, ptr %4, i64 1
   %11 = load i8, ptr %10, align 1, !range !7694, !noundef !16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 22, ptr nonnull %.sroa.8)
-  %12 = add nsw i8 %11, 1
-  %switch.selectcmp = icmp ult i8 %12, 2
-  %13 = zext i1 %switch.selectcmp to i8
+  %switch.selectcmp = icmp slt i8 %11, 1
+  %12 = zext i1 %switch.selectcmp to i8
   store i8 2, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 %13, ptr %.sroa.4.0..sroa_idx, align 1
+  store i8 %12, ptr %.sroa.4.0..sroa_idx, align 1
   br label %.invoke
 
-.invoke:                                          ; preds = %14, %9
+.invoke:                                          ; preds = %13, %9
   invoke void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..Value$GT$17h54cec887ca59b7d7E.llvm.12777920187102919001"(ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
-          to label %20 unwind label %18
+          to label %19 unwind label %17
 
-14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds i8, ptr %4, i64 8
   %.sroa.8.8..sroa_idx = getelementptr inbounds i8, ptr %.sroa.8, i64 6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %.sroa.8.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %.sroa.8.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 2 dereferenceable(16) %.sroa.8.8..sroa_idx, i64 16, i1 false)
+  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 2 dereferenceable(16) %.sroa.8.8..sroa_idx, i64 16, i1 false)
   store i8 30, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 22, ptr nonnull %.sroa.8)
   br label %.invoke
 
-17:                                               ; preds = %18, %5
-  %.pn = phi { ptr, i32 } [ %19, %18 ], [ %6, %5 ]
+16:                                               ; preds = %17, %5
+  %.pn = phi { ptr, i32 } [ %18, %17 ], [ %6, %5 ]
   invoke void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..Value$GT$17h54cec887ca59b7d7E.llvm.12777920187102919001"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #75
-          to label %23 unwind label %21
+          to label %22 unwind label %20
 
-18:                                               ; preds = %.invoke
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %.invoke
+  %18 = landingpad { ptr, i32 }
           cleanup
-  br label %17
+  br label %16
 
-20:                                               ; preds = %.invoke
+19:                                               ; preds = %.invoke
   tail call void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..Value$GT$17h54cec887ca59b7d7E.llvm.12777920187102919001"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   ret void
 
-21:                                               ; preds = %17, %5
-  %22 = landingpad { ptr, i32 }
+20:                                               ; preds = %16, %5
+  %21 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #76
   unreachable
 
-23:                                               ; preds = %17
+22:                                               ; preds = %16
   resume { ptr, i32 } %.pn
 }
 
