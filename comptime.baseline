@@ -6578,7 +6578,7 @@ diesel-rs/wnyg0aksae82ayg.ll 51357105
 diesel-rs/wrwp7s2zqowyndr.ll 325566188
 diesel-rs/wxxxqbyrprp4fxh.ll 140845140
 diesel-rs/x4zbihhk2ovmjji.ll 352194993
-diesel-rs/x6hpenos68lhw9h.ll 64144121
+diesel-rs/x6hpenos68lhw9h.ll 64079862
 diesel-rs/y22q2cuymctjjiv.ll 627414769
 diesel-rs/znyow7e3q57ii87.ll 165320016
 diesel-rs/zxmi5s736xeldsm.ll 1620588612
@@ -12276,7 +12276,7 @@ libwebp/alpha_processing_neon.c.ll 33534227
 libwebp/alpha_processing_sse2.c.ll 335907470
 libwebp/alpha_processing_sse41.c.ll 84502680
 libwebp/analysis_enc.c.ll 388826298
-libwebp/anim_decode.c.ll 194051796
+libwebp/anim_decode.c.ll 193857678
 libwebp/anim_encode.c.ll 736465929
 libwebp/backward_references_cost_enc.c.ll 594205263
 libwebp/backward_references_enc.c.ll 1026210459
@@ -22590,7 +22590,7 @@ openmpi/btl_base_error.ll 41119498
 openmpi/btl_base_frame.ll 63429005
 openmpi/btl_base_select.ll 103375923
 openmpi/btl_self.ll 170795980
-openmpi/btl_self_component.ll 69101295
+openmpi/btl_self_component.ll 69032161
 openmpi/btl_self_frag.ll 42671146
 openmpi/btl_sm_component.ll 542594453
 openmpi/btl_sm_get.ll 40153181
@@ -27265,7 +27265,7 @@ postgres/pg_backup_null.ll 57314337
 postgres/pg_backup_tar.ll 305471561
 postgres/pg_backup_utils.ll 50372259
 postgres/pg_basebackup.ll 695609277
-postgres/pg_bitutils.ll 63350383
+postgres/pg_bitutils.ll 63287020
 postgres/pg_bitutils_shlib.ll 63224267
 postgres/pg_bitutils_srv.ll 63322963
 postgres/pg_checksums.ll 207482941
@@ -34538,7 +34538,7 @@ wasmtime-rs/6z9nnc57roj09e4.ll 60576865
 wasmtime-rs/861a68b7nxljzhj.ll 114797372
 wasmtime-rs/8v3bls6klz7b7dw.ll 43587354
 wasmtime-rs/8x0eqiutc4l9hzt.ll 37325519
-wasmtime-rs/91b8l3mco4gvvoq.ll 54814988
+wasmtime-rs/91b8l3mco4gvvoq.ll 54759920
 wasmtime-rs/93h427h9qgxa6fr.ll 611412901
 wasmtime-rs/9ms3k9wtxzjgu1g.ll 403054674
 wasmtime-rs/au7l08afzonirb.ll 36285392
