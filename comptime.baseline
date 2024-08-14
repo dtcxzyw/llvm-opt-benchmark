@@ -8645,7 +8645,7 @@ gromacs/imd.cpp.ll 863257062
 gromacs/imdsocket.cpp.ll 86137157
 gromacs/index.cpp.ll 2671400818
 gromacs/indexutil.cpp.ll 1777723157
-gromacs/inffast.c.ll 167631625
+gromacs/inffast.c.ll 167799797
 gromacs/inflate.c.ll 1025382579
 gromacs/inftrees.c.ll 135065482
 gromacs/init.cpp.ll 34930348
@@ -8689,7 +8689,7 @@ gromacs/kernel_ElecEw_VdwLJEwCombGeom_F.cpp.ll 1302713336
 gromacs/kernel_ElecEw_VdwLJEwCombGeom_VF.cpp.ll 1691549510
 gromacs/kernel_ElecEw_VdwLJEwCombGeom_VgrpF.cpp.ll 1802395859
 gromacs/kernel_ElecEw_VdwLJFSw_F.cpp.ll 1170046786
-gromacs/kernel_ElecEw_VdwLJFSw_VF.cpp.ll 1531536581
+gromacs/kernel_ElecEw_VdwLJFSw_VF.cpp.ll 1533077147
 gromacs/kernel_ElecEw_VdwLJFSw_VgrpF.cpp.ll 1636257092
 gromacs/kernel_ElecEw_VdwLJPSw_F.cpp.ll 1293575301
 gromacs/kernel_ElecEw_VdwLJPSw_VF.cpp.ll 1541246180
