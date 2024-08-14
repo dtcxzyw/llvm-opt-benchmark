@@ -790,7 +790,7 @@ abc/mpmTruth.c.ll 780877581
 abc/msatClause.c.ll 164930215
 abc/msatMem.c.ll 147624578
 abc/msatOrderH.c.ll 155751282
-abc/msatQueue.c.ll 51309112
+abc/msatQueue.c.ll 51360461
 abc/msatRead.c.ll 151909200
 abc/msatSolverApi.c.ll 214226902
 abc/msatSolverCore.c.ll 85839367
@@ -4625,7 +4625,7 @@ coreutils-rs/582rwzd574sku6uw.ll 167563543
 coreutils-rs/587j0fb2c03kybfp.ll 250603095
 coreutils-rs/589i9nb25fi1aekl.ll 238393203
 coreutils-rs/589u74ammi1cn62m.ll 761497765
-coreutils-rs/58b20tq3rt06fkne.ll 173520717
+coreutils-rs/58b20tq3rt06fkne.ll 173694244
 coreutils-rs/58jaio282z1afdwu.ll 37324916
 coreutils-rs/58jxevi8xwomq5bz.ll 69768512
 coreutils-rs/58m3nw6lu0ef6kup.ll 867317726
@@ -10053,7 +10053,7 @@ hermes/ConsoleHost.cpp.ll 1409490263
 hermes/Conversions.cpp.ll 110270602
 hermes/ConvertUTF.cpp.ll 283665424
 hermes/ConvertUTFWrapper.cpp.ll 255106997
-hermes/DCE.cpp.ll 275011076
+hermes/DCE.cpp.ll 275286095
 hermes/DataView.cpp.ll 1028053860
 hermes/Date.cpp.ll 617429188
 hermes/DateUtil.cpp.ll 1314843238
@@ -17261,7 +17261,7 @@ nom-rs/2x1fe52gli88yu9j.ll 183601620
 nom-rs/35xbkifut759hcc8.ll 165253500
 nom-rs/3jpydaij29nuwx12.ll 38611378
 nom-rs/3m7zxjrhloiea6ye.ll 38828954
-nom-rs/3tis6dmtufznl8e6.ll 274373009
+nom-rs/3tis6dmtufznl8e6.ll 274647402
 nom-rs/4d37o9bk80ni8qlk.ll 81878813
 nom-rs/4g95yf0nknmrxmxq.ll 107391365
 nom-rs/4njux7708r5jievh.ll 40890055
@@ -28633,7 +28633,7 @@ qemu/fdt_ro.c.ll 444659122
 qemu/fdt_rw.c.ll 403286748
 qemu/fdt_strerror.c.ll 38448698
 qemu/fdt_sw.c.ll 330496110
-qemu/fdt_wip.c.ll 68346626
+qemu/fdt_wip.c.ll 68415098
 qemu/fpu_softfloat.c.ll 6445004782
 qemu/fsdev_9p-iov-marshal.c.ll 276487884
 qemu/fsdev_9p-marshal.c.ll 50701811
@@ -29076,7 +29076,7 @@ qemu/nbd_client-connection.c.ll 152821418
 qemu/nbd_client.c.ll 804356262
 qemu/nbd_common.c.ll 84448724
 qemu/nbd_server.c.ll 1605599536
-qemu/net_announce.c.ll 114303473
+qemu/net_announce.c.ll 114417977
 qemu/net_can_can_core.c.ll 63263881
 qemu/net_can_can_socketcan.c.ll 79960610
 qemu/net_checksum.c.ll 144086351
@@ -31027,7 +31027,7 @@ sentencepiece/generated_enum_util.cc.ll 151981866
 sentencepiece/generated_message_table_driven_lite.cc.ll 3314127755
 sentencepiece/generated_message_util.cc.ll 3677562323
 sentencepiece/implicit_weak_message.cc.ll 125711730
-sentencepiece/int128.cc.ll 200076703
+sentencepiece/int128.cc.ll 200276847
 sentencepiece/message_lite.cc.ll 567631467
 sentencepiece/model_factory.cc.ll 164383924
 sentencepiece/model_interface.cc.ll 1195624808
@@ -34132,7 +34132,7 @@ wasmtime-rs/2m43maj3yw81hik9.ll 43241581
 wasmtime-rs/2mkio291uuli263d.ll 982438281
 wasmtime-rs/2mnek43pg9fedwn1.ll 33846168
 wasmtime-rs/2mvmiig8uppske03.ll 53119400
-wasmtime-rs/2mw8cxzcp8dley0k.ll 240869460
+wasmtime-rs/2mw8cxzcp8dley0k.ll 241110408
 wasmtime-rs/2mzhr81bqzbenmxl.ll 276265259
 wasmtime-rs/2n3i9iy4shf5dn0f.ll 46047986
 wasmtime-rs/2n6nz0uffz9fliys.ll 50368961
