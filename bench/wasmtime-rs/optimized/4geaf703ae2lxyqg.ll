@@ -117,7 +117,7 @@ define void @_ZN14cranelift_isle10trie_again5build17h726d1e8f70d6a73dE(ptr nocap
 
 .thread:                                          ; preds = %78, %65, %.thread27, %38
   %.pn.pn = phi { ptr, i32 } [ %eh.lpad-body30, %.thread27 ], [ %lpad.thr_comm.split-lp, %65 ], [ %39, %38 ], [ %79, %78 ]
-  invoke void @"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..error..Error$GT$$GT$17h04433ebd8252f567E"(ptr nonnull align 8 %35) #14
+  invoke void @"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..error..Error$GT$$GT$17h04433ebd8252f567E"(ptr nonnull align 8 %35) #15
           to label %181 unwind label %82
 
 38:                                               ; preds = %40, %2
@@ -205,7 +205,7 @@ define void @_ZN14cranelift_isle10trie_again5build17h726d1e8f70d6a73dE(ptr nocap
 78:                                               ; preds = %73
   %79 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr118drop_in_place$LT$alloc..vec..Vec$LT$$LP$cranelift_isle..sema..TermId$C$cranelift_isle..trie_again..RuleSet$RP$$GT$$GT$17h17a39cd91c99c9eaE"(ptr nonnull align 8 %31) #14
+  invoke void @"_ZN4core3ptr118drop_in_place$LT$alloc..vec..Vec$LT$$LP$cranelift_isle..sema..TermId$C$cranelift_isle..trie_again..RuleSet$RP$$GT$$GT$17h17a39cd91c99c9eaE"(ptr nonnull align 8 %31) #15
           to label %.thread unwind label %82
 
 80:                                               ; preds = %73
@@ -217,7 +217,7 @@ define void @_ZN14cranelift_isle10trie_again5build17h726d1e8f70d6a73dE(ptr nocap
 82:                                               ; preds = %.thread27, %78, %.thread
   %83 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #15
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #16
   unreachable
 
 84:                                               ; preds = %69
@@ -286,7 +286,7 @@ define void @_ZN14cranelift_isle10trie_again5build17h726d1e8f70d6a73dE(ptr nocap
 
 .loopexit.split-lp53.i.i:                         ; preds = %124, %.loopexit.split-lp53.loopexit.split-lp.i.i, %.loopexit.split-lp53.loopexit.i.i, %.loopexit52.i.i
   %.pn44.i.i = phi { ptr, i32 } [ %.pn42.i.i, %124 ], [ %lpad.loopexit54.i.i, %.loopexit52.i.i ], [ %lpad.loopexit57.i.i, %.loopexit.split-lp53.loopexit.i.i ], [ %lpad.loopexit.split-lp58.i.i, %.loopexit.split-lp53.loopexit.split-lp.i.i ]
-  invoke void @"_ZN4core3ptr130drop_in_place$LT$alloc..vec..Vec$LT$$LP$cranelift_isle..trie_again..BindingId$C$cranelift_isle..trie_again..Constraint$RP$$GT$$GT$17h41b3f989fc4c9c5fE"(ptr nonnull align 8 %20) #14
+  invoke void @"_ZN4core3ptr130drop_in_place$LT$alloc..vec..Vec$LT$$LP$cranelift_isle..trie_again..BindingId$C$cranelift_isle..trie_again..Constraint$RP$$GT$$GT$17h41b3f989fc4c9c5fE"(ptr nonnull align 8 %20) #15
           to label %.thread27 unwind label %163
 
 .loopexit52.i.i:                                  ; preds = %123, %115, %107
@@ -366,7 +366,7 @@ define void @_ZN14cranelift_isle10trie_again5build17h726d1e8f70d6a73dE(ptr nocap
 
 124:                                              ; preds = %131, %125
   %.pn42.i.i = phi { ptr, i32 } [ %126, %125 ], [ %.pn.i.i, %131 ]
-  invoke void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..trie_again..BindingId$GT$$GT$17h2197a5896802d99aE"(ptr nonnull align 8 %14) #14
+  invoke void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..trie_again..BindingId$GT$$GT$17h2197a5896802d99aE"(ptr nonnull align 8 %14) #15
           to label %.loopexit.split-lp53.i.i unwind label %163
 
 125:                                              ; preds = %138, %121
@@ -384,7 +384,7 @@ define void @_ZN14cranelift_isle10trie_again5build17h726d1e8f70d6a73dE(ptr nocap
 
 131:                                              ; preds = %148, %.loopexit.split-lp.i.i, %.loopexit.i.i
   %.pn.i.i = phi { ptr, i32 } [ %149, %148 ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
-  invoke void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..trie_again..BindingId$GT$$GT$17h2197a5896802d99aE"(ptr nonnull align 8 %12) #14
+  invoke void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..trie_again..BindingId$GT$$GT$17h2197a5896802d99aE"(ptr nonnull align 8 %12) #15
           to label %124 unwind label %163
 
 .loopexit.i.i:                                    ; preds = %154, %143, %139, %134
@@ -439,7 +439,7 @@ define void @_ZN14cranelift_isle10trie_again5build17h726d1e8f70d6a73dE(ptr nocap
 148:                                              ; preds = %162, %160, %155, %146
   %149 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr206drop_in_place$LT$core..iter..adapters..zip..Zip$LT$core..slice..iter..Iter$LT$cranelift_isle..trie_again..BindingId$GT$$C$alloc..vec..into_iter..IntoIter$LT$cranelift_isle..trie_again..BindingId$GT$$GT$$GT$17haa3a90bc56dd774dE"(ptr nonnull align 8 %8) #14
+  invoke void @"_ZN4core3ptr206drop_in_place$LT$core..iter..adapters..zip..Zip$LT$core..slice..iter..Iter$LT$cranelift_isle..trie_again..BindingId$GT$$C$alloc..vec..into_iter..IntoIter$LT$cranelift_isle..trie_again..BindingId$GT$$GT$$GT$17haa3a90bc56dd774dE"(ptr nonnull align 8 %8) #15
           to label %131 unwind label %163
 
 150:                                              ; preds = %146
@@ -490,7 +490,7 @@ define void @_ZN14cranelift_isle10trie_again5build17h726d1e8f70d6a73dE(ptr nocap
 163:                                              ; preds = %148, %131, %124, %.loopexit.split-lp53.i.i
   %164 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #15
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #16
   unreachable
 
 165:                                              ; preds = %108
@@ -565,13 +565,13 @@ _ZN14cranelift_isle10trie_again14RuleSetBuilder29normalize_equivalence_classes17
 178:                                              ; preds = %176, %174
   %lpad.thr_comm.i = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$cranelift_isle..trie_again..Rule$GT$17hedc76a28840a8d2aE"(ptr nonnull align 8 %25) #14
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$cranelift_isle..trie_again..Rule$GT$17hedc76a28840a8d2aE"(ptr nonnull align 8 %25) #15
           to label %.thread27 unwind label %179
 
 179:                                              ; preds = %178
   %180 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #15
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #16
   unreachable
 
 _ZN14cranelift_isle10trie_again14RuleSetBuilder8add_rule17h01078a688448f2baE.exit: ; preds = %177, %172
@@ -584,7 +584,7 @@ _ZN14cranelift_isle10trie_again14RuleSetBuilder8add_rule17h01078a688448f2baE.exi
 
 .thread27:                                        ; preds = %178, %.loopexit.split-lp53.i.i, %.thread31
   %eh.lpad-body30 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread31 ], [ %.pn44.i.i, %.loopexit.split-lp53.i.i ], [ %lpad.thr_comm.i, %178 ]
-  invoke void @"_ZN4core3ptr138drop_in_place$LT$std..collections..hash..map..HashMap$LT$cranelift_isle..sema..TermId$C$cranelift_isle..trie_again..RuleSetBuilder$GT$$GT$17h119efa2554e47646E"(ptr nonnull align 8 %34) #14
+  invoke void @"_ZN4core3ptr138drop_in_place$LT$std..collections..hash..map..HashMap$LT$cranelift_isle..sema..TermId$C$cranelift_isle..trie_again..RuleSetBuilder$GT$$GT$17h119efa2554e47646E"(ptr nonnull align 8 %34) #15
           to label %.thread unwind label %82
 
 181:                                              ; preds = %.thread
@@ -924,7 +924,7 @@ define hidden i16 @_ZN14cranelift_isle10trie_again14RuleSetBuilder13dedup_bindin
   br i1 %13, label %16, label %15
 
 15:                                               ; preds = %9
-  invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr nonnull align 1 @anon.2025c647a50e221298676d0ea0dcd27f.0, i64 43, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.2025c647a50e221298676d0ea0dcd27f.1, ptr nonnull align 8 @anon.2025c647a50e221298676d0ea0dcd27f.13) #16
+  invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr nonnull align 1 @anon.2025c647a50e221298676d0ea0dcd27f.0, i64 43, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.2025c647a50e221298676d0ea0dcd27f.1, ptr nonnull align 8 @anon.2025c647a50e221298676d0ea0dcd27f.13) #17
           to label %.noexc unwind label %97
 
 .noexc:                                           ; preds = %15
@@ -1095,13 +1095,13 @@ default.unreachable:                              ; preds = %16
 97:                                               ; preds = %91, %2, %15, %40, %57
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr56drop_in_place$LT$cranelift_isle..trie_again..Binding$GT$17hea7416d2e2542842E"(ptr align 16 %1) #14
+  invoke void @"_ZN4core3ptr56drop_in_place$LT$cranelift_isle..trie_again..Binding$GT$17hea7416d2e2542842E"(ptr align 16 %1) #15
           to label %96 unwind label %98
 
 98:                                               ; preds = %97
   %99 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #15
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #16
   unreachable
 }
 
@@ -1351,7 +1351,7 @@ define void @"_ZN99_$LT$cranelift_isle..trie_again..RuleSetBuilder$u20$as$u20$cr
   br i1 %10, label %11, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd53ddfbe6fb1b9bfE.exit"
 
 11:                                               ; preds = %7
-  call void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr nonnull align 1 @anon.2025c647a50e221298676d0ea0dcd27f.0, i64 43, ptr nonnull align 1 %8, ptr nonnull align 8 @anon.2025c647a50e221298676d0ea0dcd27f.1, ptr nonnull align 8 @anon.2025c647a50e221298676d0ea0dcd27f.14) #16
+  call void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr nonnull align 1 @anon.2025c647a50e221298676d0ea0dcd27f.0, i64 43, ptr nonnull align 1 %8, ptr nonnull align 8 @anon.2025c647a50e221298676d0ea0dcd27f.1, ptr nonnull align 8 @anon.2025c647a50e221298676d0ea0dcd27f.14) #17
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd53ddfbe6fb1b9bfE.exit": ; preds = %7
@@ -1387,7 +1387,7 @@ define void @"_ZN99_$LT$cranelift_isle..trie_again..RuleSetBuilder$u20$as$u20$cr
 
 19:                                               ; preds = %37, %20
   %.pn = phi { ptr, i32 } [ %21, %20 ], [ %38, %37 ]
-  invoke void @"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..sema..TypeId$GT$$GT$17h8b90a939a4c377b5E"(ptr align 8 %4) #14
+  invoke void @"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..sema..TypeId$GT$$GT$17h8b90a939a4c377b5E"(ptr align 8 %4) #15
           to label %66 unwind label %47
 
 20:                                               ; preds = %46, %65, %62, %54, %49, %32, %27, %24, %8
@@ -1430,13 +1430,13 @@ define void @"_ZN99_$LT$cranelift_isle..trie_again..RuleSetBuilder$u20$as$u20$cr
           to label %40 unwind label %20
 
 36:                                               ; preds = %29
-  invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 0, i64 0, ptr nonnull align 8 @anon.2025c647a50e221298676d0ea0dcd27f.15) #16
+  invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 0, i64 0, ptr nonnull align 8 @anon.2025c647a50e221298676d0ea0dcd27f.15) #17
           to label %39 unwind label %37
 
 37:                                               ; preds = %36
   %38 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..trie_again..BindingId$GT$$GT$17h2197a5896802d99aE"(ptr nonnull align 8 %12) #14
+  invoke void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..trie_again..BindingId$GT$$GT$17h2197a5896802d99aE"(ptr nonnull align 8 %12) #15
           to label %19 unwind label %47
 
 39:                                               ; preds = %36
@@ -1452,7 +1452,7 @@ define void @"_ZN99_$LT$cranelift_isle..trie_again..RuleSetBuilder$u20$as$u20$cr
   br i1 %44, label %46, label %53
 
 46:                                               ; preds = %40
-  invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr nonnull align 1 @anon.2025c647a50e221298676d0ea0dcd27f.0, i64 43, ptr nonnull align 1 %9, ptr nonnull align 8 @anon.2025c647a50e221298676d0ea0dcd27f.1, ptr nonnull align 8 @anon.2025c647a50e221298676d0ea0dcd27f.16) #16
+  invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr nonnull align 1 @anon.2025c647a50e221298676d0ea0dcd27f.0, i64 43, ptr nonnull align 1 %9, ptr nonnull align 8 @anon.2025c647a50e221298676d0ea0dcd27f.1, ptr nonnull align 8 @anon.2025c647a50e221298676d0ea0dcd27f.16) #17
           to label %.noexc unwind label %20
 
 .noexc:                                           ; preds = %46
@@ -1461,7 +1461,7 @@ define void @"_ZN99_$LT$cranelift_isle..trie_again..RuleSetBuilder$u20$as$u20$cr
 47:                                               ; preds = %37, %19
   %48 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #15
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #16
   unreachable
 
 49:                                               ; preds = %24
@@ -1643,7 +1643,7 @@ define i16 @"_ZN96_$LT$cranelift_isle..trie_again..RuleSetBuilder$u20$as$u20$cra
   br i1 %6, label %7, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd53ddfbe6fb1b9bfE.exit"
 
 7:                                                ; preds = %3
-  call void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr nonnull align 1 @anon.2025c647a50e221298676d0ea0dcd27f.0, i64 43, ptr nonnull align 1 %4, ptr nonnull align 8 @anon.2025c647a50e221298676d0ea0dcd27f.1, ptr nonnull align 8 @anon.2025c647a50e221298676d0ea0dcd27f.17) #16
+  call void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr nonnull align 1 @anon.2025c647a50e221298676d0ea0dcd27f.0, i64 43, ptr nonnull align 1 %4, ptr nonnull align 8 @anon.2025c647a50e221298676d0ea0dcd27f.1, ptr nonnull align 8 @anon.2025c647a50e221298676d0ea0dcd27f.17) #17
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd53ddfbe6fb1b9bfE.exit": ; preds = %3
@@ -1684,7 +1684,7 @@ define i16 @"_ZN96_$LT$cranelift_isle..trie_again..RuleSetBuilder$u20$as$u20$cra
 
 10:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  invoke void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..trie_again..BindingId$GT$$GT$17h2197a5896802d99aE"(ptr nonnull align 8 %5) #14
+  invoke void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..trie_again..BindingId$GT$$GT$17h2197a5896802d99aE"(ptr nonnull align 8 %5) #15
           to label %56 unwind label %54
 
 11:                                               ; preds = %.backedge
@@ -1758,7 +1758,7 @@ default.unreachable:                              ; preds = %20
   br label %46
 
 44:                                               ; preds = %15
-  invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %17, i64 %18, ptr nonnull align 8 @anon.2025c647a50e221298676d0ea0dcd27f.18) #16
+  invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %17, i64 %18, ptr nonnull align 8 @anon.2025c647a50e221298676d0ea0dcd27f.18) #17
           to label %45 unwind label %.loopexit.split-lp
 
 45:                                               ; preds = %44
@@ -1792,7 +1792,7 @@ default.unreachable:                              ; preds = %20
 54:                                               ; preds = %10
   %55 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #15
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #16
   unreachable
 
 56:                                               ; preds = %10
@@ -1837,10 +1837,7 @@ define hidden noundef zeroext i1 @"_ZN78_$LT$cranelift_isle..trie_again..Binding
 define hidden range(i8 -1, 2) i8 @"_ZN79_$LT$cranelift_isle..trie_again..BindingId$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b9f8e2b4bdac807E"(ptr nocapture readonly align 2 %0, ptr nocapture readonly align 2 %1) unnamed_addr #5 {
   %3 = load i16, ptr %0, align 2, !noundef !3
   %4 = load i16, ptr %1, align 2, !noundef !3
-  %5 = icmp ult i16 %3, %4
-  %6 = icmp ne i16 %3, %4
-  %. = zext i1 %6 to i8
-  %.0 = select i1 %5, i8 -1, i8 %.
+  %.0 = tail call i8 @llvm.ucmp.i8.i16(i16 %3, i16 %4)
   ret i8 %.0
 }
 
@@ -2155,105 +2152,93 @@ define hidden range(i8 -1, 2) i8 @"_ZN80_$LT$cranelift_isle..trie_again..Constra
   %3 = load i8, ptr %0, align 16, !range !9, !noundef !3
   %4 = load i8, ptr %1, align 16, !range !9, !noundef !3
   switch i8 %3, label %default.unreachable48 [
-    i8 0, label %8
-    i8 1, label %10
-    i8 2, label %12
+    i8 0, label %6
+    i8 1, label %8
+    i8 2, label %10
     i8 3, label %5
   ]
 
 default.unreachable48:                            ; preds = %2
   unreachable
 
-5:                                                ; preds = %2, %12, %10, %8
-  %6 = icmp ult i8 %3, %4
-  %7 = icmp ne i8 %3, %4
-  %.42 = zext i1 %7 to i8
-  %.015 = select i1 %6, i8 -1, i8 %.42
+5:                                                ; preds = %2, %10, %8, %6
+  %.015 = tail call i8 @llvm.ucmp.i8.i8(i8 %3, i8 %4)
   br label %.thread
+
+6:                                                ; preds = %2
+  %7 = icmp eq i8 %4, 0
+  br i1 %7, label %12, label %5
 
 8:                                                ; preds = %2
-  %9 = icmp eq i8 %4, 0
-  br i1 %9, label %14, label %5
+  %9 = icmp eq i8 %4, 1
+  br i1 %9, label %33, label %5
 
 10:                                               ; preds = %2
-  %11 = icmp eq i8 %4, 1
-  br i1 %11, label %37, label %5
+  %11 = icmp eq i8 %4, 2
+  br i1 %11, label %46, label %5
 
-12:                                               ; preds = %2
-  %13 = icmp eq i8 %4, 2
-  br i1 %13, label %52, label %5
-
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = load i64, ptr %13, align 8, !noundef !3
+  %15 = getelementptr inbounds i8, ptr %1, i64 8
   %16 = load i64, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
-  %18 = load i64, ptr %17, align 8, !noundef !3
-  %19 = icmp ult i64 %16, %18
-  br i1 %19, label %.thread, label %20
+  %17 = icmp ult i64 %14, %16
+  br i1 %17, label %.thread, label %18
 
-20:                                               ; preds = %14
-  %21 = icmp eq i64 %16, %18
-  br i1 %21, label %22, label %.thread
+18:                                               ; preds = %12
+  %19 = icmp eq i64 %14, %16
+  br i1 %19, label %20, label %.thread
 
-22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+20:                                               ; preds = %18
+  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = load i64, ptr %21, align 16, !noundef !3
+  %23 = getelementptr inbounds i8, ptr %1, i64 16
   %24 = load i64, ptr %23, align 16, !noundef !3
-  %25 = getelementptr inbounds i8, ptr %1, i64 16
-  %26 = load i64, ptr %25, align 16, !noundef !3
-  %27 = icmp ult i64 %24, %26
-  br i1 %27, label %.thread, label %28
+  %25 = icmp ult i64 %22, %24
+  br i1 %25, label %.thread, label %26
 
-.thread:                                          ; preds = %37, %22, %14, %5, %52, %45, %43, %30, %28, %20
-  %.0 = phi i8 [ %.015, %5 ], [ %.013, %52 ], [ %.014, %45 ], [ 1, %43 ], [ %.018, %30 ], [ 1, %28 ], [ 1, %20 ], [ -1, %14 ], [ -1, %22 ], [ -1, %37 ]
+.thread:                                          ; preds = %33, %20, %12, %5, %46, %41, %39, %28, %26, %18
+  %.0 = phi i8 [ %.015, %5 ], [ %.013, %46 ], [ %.014, %41 ], [ 1, %39 ], [ %.018, %28 ], [ 1, %26 ], [ 1, %18 ], [ -1, %12 ], [ -1, %20 ], [ -1, %33 ]
   ret i8 %.0
 
-28:                                               ; preds = %22
-  %29 = icmp eq i64 %24, %26
-  br i1 %29, label %30, label %.thread
+26:                                               ; preds = %20
+  %27 = icmp eq i64 %22, %24
+  br i1 %27, label %28, label %.thread
 
-30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %0, i64 1
+28:                                               ; preds = %26
+  %29 = getelementptr inbounds i8, ptr %0, i64 1
+  %30 = load i8, ptr %29, align 1, !noundef !3
+  %31 = getelementptr inbounds i8, ptr %1, i64 1
   %32 = load i8, ptr %31, align 1, !noundef !3
-  %33 = getelementptr inbounds i8, ptr %1, i64 1
-  %34 = load i8, ptr %33, align 1, !noundef !3
-  %35 = icmp ult i8 %32, %34
-  %36 = icmp ne i8 %32, %34
-  %.37 = zext i1 %36 to i8
-  %.018 = select i1 %35, i8 -1, i8 %.37
+  %.018 = tail call i8 @llvm.ucmp.i8.i8(i8 %30, i8 %32)
   br label %.thread
 
-37:                                               ; preds = %10
-  %38 = getelementptr inbounds i8, ptr %0, i64 16
-  %39 = load i128, ptr %38, align 16, !noundef !3
-  %40 = getelementptr inbounds i8, ptr %1, i64 16
-  %41 = load i128, ptr %40, align 16, !noundef !3
-  %42 = icmp slt i128 %39, %41
-  br i1 %42, label %.thread, label %43
+33:                                               ; preds = %8
+  %34 = getelementptr inbounds i8, ptr %0, i64 16
+  %35 = load i128, ptr %34, align 16, !noundef !3
+  %36 = getelementptr inbounds i8, ptr %1, i64 16
+  %37 = load i128, ptr %36, align 16, !noundef !3
+  %38 = icmp slt i128 %35, %37
+  br i1 %38, label %.thread, label %39
 
-43:                                               ; preds = %37
-  %44 = icmp eq i128 %39, %41
-  br i1 %44, label %45, label %.thread
+39:                                               ; preds = %33
+  %40 = icmp eq i128 %35, %37
+  br i1 %40, label %41, label %.thread
 
-45:                                               ; preds = %43
-  %46 = getelementptr inbounds i8, ptr %0, i64 8
-  %47 = load i64, ptr %46, align 8, !noundef !3
-  %48 = getelementptr inbounds i8, ptr %1, i64 8
-  %49 = load i64, ptr %48, align 8, !noundef !3
-  %50 = icmp ult i64 %47, %49
-  %51 = icmp ne i64 %47, %49
-  %.40 = zext i1 %51 to i8
-  %.014 = select i1 %50, i8 -1, i8 %.40
+41:                                               ; preds = %39
+  %42 = getelementptr inbounds i8, ptr %0, i64 8
+  %43 = load i64, ptr %42, align 8, !noundef !3
+  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  %45 = load i64, ptr %44, align 8, !noundef !3
+  %.014 = tail call i8 @llvm.ucmp.i8.i64(i64 %43, i64 %45)
   br label %.thread
 
-52:                                               ; preds = %12
-  %53 = getelementptr inbounds i8, ptr %0, i64 8
-  %54 = load i64, ptr %53, align 8, !noundef !3
-  %55 = getelementptr inbounds i8, ptr %1, i64 8
-  %56 = load i64, ptr %55, align 8, !noundef !3
-  %57 = icmp ult i64 %54, %56
-  %58 = icmp ne i64 %54, %56
-  %.41 = zext i1 %58 to i8
-  %.013 = select i1 %57, i8 -1, i8 %.41
+46:                                               ; preds = %10
+  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  %48 = load i64, ptr %47, align 8, !noundef !3
+  %49 = getelementptr inbounds i8, ptr %1, i64 8
+  %50 = load i64, ptr %49, align 8, !noundef !3
+  %.013 = tail call i8 @llvm.ucmp.i8.i64(i64 %48, i64 %50)
   br label %.thread
 }
 
@@ -2278,7 +2263,7 @@ define internal fastcc void @"_ZN75_$LT$cranelift_isle..trie_again..Rule$u20$as$
 
 10:                                               ; preds = %18, %11
   %.pn = phi { ptr, i32 } [ %19, %18 ], [ %12, %11 ]
-  invoke void @"_ZN4core3ptr143drop_in_place$LT$std..collections..hash..map..HashMap$LT$cranelift_isle..trie_again..BindingId$C$cranelift_isle..trie_again..Constraint$GT$$GT$17h055006d09765b8b3E"(ptr nonnull align 8 %6) #14
+  invoke void @"_ZN4core3ptr143drop_in_place$LT$std..collections..hash..map..HashMap$LT$cranelift_isle..trie_again..BindingId$C$cranelift_isle..trie_again..Constraint$GT$$GT$17h055006d09765b8b3E"(ptr nonnull align 8 %6) #15
           to label %29 unwind label %27
 
 11:                                               ; preds = %13, %1
@@ -2304,7 +2289,7 @@ define internal fastcc void @"_ZN75_$LT$cranelift_isle..trie_again..Rule$u20$as$
 18:                                               ; preds = %15
   %19 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr94drop_in_place$LT$cranelift_isle..DisjointSets$LT$cranelift_isle..trie_again..BindingId$GT$$GT$17h050a48bfefadd5f2E"(ptr nonnull align 8 %5) #14
+  invoke void @"_ZN4core3ptr94drop_in_place$LT$cranelift_isle..DisjointSets$LT$cranelift_isle..trie_again..BindingId$GT$$GT$17h050a48bfefadd5f2E"(ptr nonnull align 8 %5) #15
           to label %10 unwind label %27
 
 20:                                               ; preds = %15
@@ -2330,7 +2315,7 @@ define internal fastcc void @"_ZN75_$LT$cranelift_isle..trie_again..Rule$u20$as$
 27:                                               ; preds = %18, %10
   %28 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #15
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #16
   unreachable
 
 29:                                               ; preds = %10
@@ -2370,7 +2355,7 @@ define hidden void @"_ZN85_$LT$cranelift_isle..trie_again..RuleSetBuilder$u20$as
 13:                                               ; preds = %15, %1
   %14 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..trie_again..Binding$GT$$GT$17h9579427c1c59cde6E"(ptr nonnull align 8 %3) #14
+  invoke void @"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..trie_again..Binding$GT$$GT$17h9579427c1c59cde6E"(ptr nonnull align 8 %3) #15
           to label %19 unwind label %17, !noalias !19
 
 15:                                               ; preds = %1
@@ -2380,15 +2365,15 @@ define hidden void @"_ZN85_$LT$cranelift_isle..trie_again..RuleSetBuilder$u20$as
 17:                                               ; preds = %19, %13
   %18 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #15, !noalias !19
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #16, !noalias !19
   unreachable
 
 19:                                               ; preds = %13
-  invoke void @"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..trie_again..Rule$GT$$GT$17h9351f4efa166889dE"(ptr nonnull align 8 %4) #14
+  invoke void @"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..trie_again..Rule$GT$$GT$17h9351f4efa166889dE"(ptr nonnull align 8 %4) #15
           to label %.body unwind label %17, !noalias !19
 
 .body:                                            ; preds = %19
-  invoke void @"_ZN4core3ptr88drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..trie_again..UnreachableError$GT$$GT$17h7ee8afb1a2703abfE"(ptr nonnull align 8 %5) #14
+  invoke void @"_ZN4core3ptr88drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..trie_again..UnreachableError$GT$$GT$17h7ee8afb1a2703abfE"(ptr nonnull align 8 %5) #15
           to label %28 unwind label %26
 
 20:                                               ; preds = %15
@@ -2418,11 +2403,11 @@ define hidden void @"_ZN85_$LT$cranelift_isle..trie_again..RuleSetBuilder$u20$as
 26:                                               ; preds = %28, %.body
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #15
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #16
   unreachable
 
 28:                                               ; preds = %.body
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$cranelift_isle..trie_again..Rule$GT$17hedc76a28840a8d2aE"(ptr nonnull align 8 %6) #14
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$cranelift_isle..trie_again..Rule$GT$17hedc76a28840a8d2aE"(ptr nonnull align 8 %6) #15
           to label %29 unwind label %26
 
 29:                                               ; preds = %28
@@ -2717,6 +2702,15 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ucmp.i8.i16(i16, i16) #14
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ucmp.i8.i64(i64, i64) #14
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ucmp.i8.i8(i8, i8) #14
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -2731,9 +2725,10 @@ attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: r
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #14 = { cold }
-attributes #15 = { cold noreturn nounwind }
-attributes #16 = { noreturn }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { cold }
+attributes #16 = { cold noreturn nounwind }
+attributes #17 = { noreturn }
 
 !llvm.module.flags = !{!0, !1}
 !llvm.ident = !{!2}

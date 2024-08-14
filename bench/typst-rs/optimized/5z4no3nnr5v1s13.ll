@@ -99399,45 +99399,42 @@ default.unreachable:                              ; preds = %2
 
 10:                                               ; preds = %2
   %11 = icmp eq i8 %7, 2
-  br i1 %11, label %19, label %"_ZN86_$LT$time..primitive_date_time..PrimitiveDateTime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h4453ce4f46d5ad59E.llvm.12850028421071809815.exit"
+  br i1 %11, label %17, label %"_ZN86_$LT$time..primitive_date_time..PrimitiveDateTime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h4453ce4f46d5ad59E.llvm.12850028421071809815.exit"
 
 12:                                               ; preds = %2
   %13 = icmp eq i8 %7, 0
-  br i1 %13, label %21, label %"_ZN86_$LT$time..primitive_date_time..PrimitiveDateTime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h4453ce4f46d5ad59E.llvm.12850028421071809815.exit"
+  br i1 %13, label %19, label %"_ZN86_$LT$time..primitive_date_time..PrimitiveDateTime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h4453ce4f46d5ad59E.llvm.12850028421071809815.exit"
 
 14:                                               ; preds = %8
   %15 = load i32, ptr %0, align 4, !noundef !9
   %16 = load i32, ptr %1, align 4, !noundef !9
-  %17 = icmp slt i32 %15, %16
-  %18 = icmp ne i32 %15, %16
-  %. = zext i1 %18 to i8
-  %.02 = select i1 %17, i8 -1, i8 %.
+  %.02 = tail call i8 @llvm.scmp.i8.i32(i32 %15, i32 %16)
   br label %"_ZN86_$LT$time..primitive_date_time..PrimitiveDateTime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h4453ce4f46d5ad59E.llvm.12850028421071809815.exit"
 
-"_ZN86_$LT$time..primitive_date_time..PrimitiveDateTime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h4453ce4f46d5ad59E.llvm.12850028421071809815.exit": ; preds = %27, %25, %21, %8, %10, %12, %19, %14
-  %.0 = phi i8 [ %20, %19 ], [ %.02, %14 ], [ 2, %12 ], [ 2, %10 ], [ 2, %8 ], [ %30, %27 ], [ 1, %25 ], [ -1, %21 ]
+"_ZN86_$LT$time..primitive_date_time..PrimitiveDateTime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h4453ce4f46d5ad59E.llvm.12850028421071809815.exit": ; preds = %25, %23, %19, %8, %10, %12, %17, %14
+  %.0 = phi i8 [ %18, %17 ], [ %.02, %14 ], [ 2, %12 ], [ 2, %10 ], [ 2, %8 ], [ %28, %25 ], [ 1, %23 ], [ -1, %19 ]
   ret i8 %.0
 
-19:                                               ; preds = %10
-  %20 = tail call noundef i8 @"_ZN58_$LT$time..time..Time$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hc445dffd06ead3c9E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %1), !range !16749
+17:                                               ; preds = %10
+  %18 = tail call noundef i8 @"_ZN58_$LT$time..time..Time$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hc445dffd06ead3c9E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %1), !range !16749
   br label %"_ZN86_$LT$time..primitive_date_time..PrimitiveDateTime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h4453ce4f46d5ad59E.llvm.12850028421071809815.exit"
 
-21:                                               ; preds = %12
+19:                                               ; preds = %12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20103)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20106)
-  %22 = load i32, ptr %0, align 4, !alias.scope !20103, !noalias !20106, !noundef !9
-  %23 = load i32, ptr %1, align 4, !alias.scope !20106, !noalias !20103, !noundef !9
-  %24 = icmp slt i32 %22, %23
-  br i1 %24, label %"_ZN86_$LT$time..primitive_date_time..PrimitiveDateTime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h4453ce4f46d5ad59E.llvm.12850028421071809815.exit", label %25
+  %20 = load i32, ptr %0, align 4, !alias.scope !20103, !noalias !20106, !noundef !9
+  %21 = load i32, ptr %1, align 4, !alias.scope !20106, !noalias !20103, !noundef !9
+  %22 = icmp slt i32 %20, %21
+  br i1 %22, label %"_ZN86_$LT$time..primitive_date_time..PrimitiveDateTime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h4453ce4f46d5ad59E.llvm.12850028421071809815.exit", label %23
 
-25:                                               ; preds = %21
-  %26 = icmp eq i32 %22, %23
-  br i1 %26, label %27, label %"_ZN86_$LT$time..primitive_date_time..PrimitiveDateTime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h4453ce4f46d5ad59E.llvm.12850028421071809815.exit"
+23:                                               ; preds = %19
+  %24 = icmp eq i32 %20, %21
+  br i1 %24, label %25, label %"_ZN86_$LT$time..primitive_date_time..PrimitiveDateTime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h4453ce4f46d5ad59E.llvm.12850028421071809815.exit"
 
-27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %0, i64 4
-  %29 = getelementptr inbounds i8, ptr %1, i64 4
-  %30 = tail call noundef i8 @"_ZN58_$LT$time..time..Time$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hc445dffd06ead3c9E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %28, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %29), !range !16749
+25:                                               ; preds = %23
+  %26 = getelementptr inbounds i8, ptr %0, i64 4
+  %27 = getelementptr inbounds i8, ptr %1, i64 4
+  %28 = tail call noundef i8 @"_ZN58_$LT$time..time..Time$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hc445dffd06ead3c9E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %26, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %27), !range !16749
   br label %"_ZN86_$LT$time..primitive_date_time..PrimitiveDateTime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h4453ce4f46d5ad59E.llvm.12850028421071809815.exit"
 }
 
@@ -102498,21 +102495,21 @@ define hidden noundef range(i32 0, 1114113) i32 @_ZN5typst7symbols6symbol4find17
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
-  %24 = phi i32 [ %17, %.lr.ph.lr.ph ], [ %63, %.outer ]
+  %24 = phi i32 [ %17, %.lr.ph.lr.ph ], [ %64, %.outer ]
   %.0.ph80 = phi i32 [ 1114112, %.lr.ph.lr.ph ], [ %.1, %.outer ]
   %.sroa.4.0.ph79 = phi i32 [ undef, %.lr.ph.lr.ph ], [ %.sroa.4.1, %.outer ]
   %.sroa.3.0.ph78 = phi i32 [ undef, %.lr.ph.lr.ph ], [ %.sroa.3.1, %.outer ]
   %.sroa.09.0.ph77 = phi i1 [ false, %.lr.ph.lr.ph ], [ true, %.outer ]
   br label %25
 
-.outer._crit_edge:                                ; preds = %.outer, %65, %3
-  %.0.ph.lcssa = phi i32 [ 1114112, %3 ], [ %.0.ph80, %65 ], [ %.1, %.outer ]
+.outer._crit_edge:                                ; preds = %.outer, %66, %3
+  %.0.ph.lcssa = phi i32 [ 1114112, %3 ], [ %.0.ph80, %66 ], [ %.1, %.outer ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   ret i32 %.0.ph.lcssa
 
-25:                                               ; preds = %.lr.ph, %65
-  %26 = phi i32 [ %24, %.lr.ph ], [ %66, %65 ]
+25:                                               ; preds = %.lr.ph, %66
+  %26 = phi i32 [ %24, %.lr.ph ], [ %67, %66 ]
   %27 = load ptr, ptr %14, align 8, !nonnull !9, !align !1385, !noundef !9
   %28 = load i64, ptr %19, align 8, !noundef !9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11), !noalias !20430
@@ -102593,37 +102590,37 @@ define hidden noundef range(i32 0, 1114113) i32 @_ZN5typst7symbols6symbol4find17
   %48 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17he37aecf8e8a0cd08E.llvm.12777920187102919001(ptr noalias noundef nonnull align 8 dereferenceable(72) %8, ptr noalias noundef nonnull align 1 %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8), !noalias !20438
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  br i1 %48, label %32, label %65
+  br i1 %48, label %32, label %66
 
 ._crit_edge74:                                    ; preds = %.lr.ph73, %36
-  %.021.lcssa = phi i32 [ 0, %36 ], [ %59, %.lr.ph73 ]
+  %.021.lcssa = phi i32 [ 0, %36 ], [ %60, %.lr.ph73 ]
   %.019.lcssa = phi i32 [ 0, %36 ], [ %.120, %.lr.ph73 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12)
   br i1 %.sroa.09.0.ph77, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hbbcca2f39c9e6f3fE.exit", label %"_ZN4core6option15Option$LT$T$GT$6map_or17hbbcca2f39c9e6f3fE.exit.thread"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17hbbcca2f39c9e6f3fE.exit": ; preds = %._crit_edge74
-  %.not.i.i.i = icmp eq i32 %.sroa.3.0.ph78, %.019.lcssa
-  %49 = icmp sgt i32 %.sroa.4.0.ph79, %.021.lcssa
-  %50 = icmp slt i32 %.sroa.3.0.ph78, %.019.lcssa
-  %.0.in.i.i.i = select i1 %.not.i.i.i, i1 %49, i1 %50
+  %49 = icmp eq i32 %.sroa.3.0.ph78, %.019.lcssa
+  %50 = icmp sgt i32 %.sroa.4.0.ph79, %.021.lcssa
+  %51 = icmp slt i32 %.sroa.3.0.ph78, %.019.lcssa
+  %.0.in.i.i.i = select i1 %49, i1 %50, i1 %51
   br i1 %.0.in.i.i.i, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hbbcca2f39c9e6f3fE.exit.thread", label %.outer
 
 .lr.ph73:                                         ; preds = %36, %.lr.ph73
-  %51 = phi ptr [ %61, %.lr.ph73 ], [ %41, %36 ]
-  %52 = phi { ptr, i64 } [ %60, %.lr.ph73 ], [ %40, %36 ]
+  %52 = phi ptr [ %62, %.lr.ph73 ], [ %41, %36 ]
+  %53 = phi { ptr, i64 } [ %61, %.lr.ph73 ], [ %40, %36 ]
   %.01971 = phi i32 [ %.120, %.lr.ph73 ], [ 0, %36 ]
-  %.02170 = phi i32 [ %59, %.lr.ph73 ], [ 0, %36 ]
-  %53 = extractvalue { ptr, i64 } %52, 1
+  %.02170 = phi i32 [ %60, %.lr.ph73 ], [ 0, %36 ]
+  %54 = extractvalue { ptr, i64 } %53, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  store ptr %51, ptr %6, align 8, !noalias !20449
-  store i64 %53, ptr %22, align 8, !noalias !20449
+  store ptr %52, ptr %6, align 8, !noalias !20449
+  store i64 %54, ptr %22, align 8, !noalias !20449
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5), !noalias !20449
   call void @llvm.experimental.noalias.scope.decl(metadata !20453)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4), !noalias !20456
   store i32 0, ptr %4, align 4, !noalias !20456
-  %54 = call { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.llvm.12777920187102919001(i32 noundef 46, ptr noalias noundef nonnull align 1 %4, i64 noundef 4), !noalias !20458
-  %55 = extractvalue { ptr, i64 } %54, 1
-  %56 = load <4 x i8>, ptr %4, align 4, !noalias !20456
+  %55 = call { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.llvm.12777920187102919001(i32 noundef 46, ptr noalias noundef nonnull align 1 %4, i64 noundef 4), !noalias !20458
+  %56 = extractvalue { ptr, i64 } %55, 1
+  %57 = load <4 x i8>, ptr %4, align 4, !noalias !20456
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4), !noalias !20456
   store i64 0, ptr %5, align 8, !alias.scope !20453, !noalias !20459
   store i64 %2, ptr %.sroa.0.sroa.4.0..sroa_idx.i.i34, align 8, !alias.scope !20453, !noalias !20459
@@ -102631,21 +102628,21 @@ define hidden noundef range(i32 0, 1114113) i32 @_ZN5typst7symbols6symbol4find17
   store i64 %2, ptr %.sroa.0.sroa.5.sroa.4.0..sroa.0.sroa.5.0..sroa_idx.sroa_idx.i.i36, align 8, !alias.scope !20453, !noalias !20459
   store i64 0, ptr %.sroa.0.sroa.5.sroa.5.0..sroa.0.sroa.5.0..sroa_idx.sroa_idx.i.i37, align 8, !alias.scope !20453, !noalias !20459
   store i64 %2, ptr %.sroa.0.sroa.5.sroa.6.0..sroa.0.sroa.5.0..sroa_idx.sroa_idx.i.i38, align 8, !alias.scope !20453, !noalias !20459
-  store i64 %55, ptr %.sroa.0.sroa.5.sroa.7.0..sroa.0.sroa.5.0..sroa_idx.sroa_idx.i.i39, align 8, !alias.scope !20453, !noalias !20459
-  store <4 x i8> %56, ptr %.sroa.0.sroa.5.sroa.8.0..sroa.0.sroa.5.0..sroa_idx.sroa_idx.i.i40, align 8, !alias.scope !20453, !noalias !20459
+  store i64 %56, ptr %.sroa.0.sroa.5.sroa.7.0..sroa.0.sroa.5.0..sroa_idx.sroa_idx.i.i39, align 8, !alias.scope !20453, !noalias !20459
+  store <4 x i8> %57, ptr %.sroa.0.sroa.5.sroa.8.0..sroa.0.sroa.5.0..sroa_idx.sroa_idx.i.i40, align 8, !alias.scope !20453, !noalias !20459
   store i32 46, ptr %.sroa.0.sroa.5.sroa.9.0..sroa.0.sroa.5.0..sroa_idx.sroa_idx.i.i41, align 4, !alias.scope !20453, !noalias !20459
   store i8 1, ptr %.sroa.0.sroa.6.0..sroa_idx.i.i42, align 8, !alias.scope !20453, !noalias !20459
   store i8 0, ptr %.sroa.0.sroa.7.0..sroa_idx.i.i43, align 1, !alias.scope !20453, !noalias !20459
-  %57 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17he37aecf8e8a0cd08E.llvm.12777920187102919001(ptr noalias noundef nonnull align 8 dereferenceable(72) %5, ptr noalias noundef nonnull align 1 %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6)
+  %58 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17he37aecf8e8a0cd08E.llvm.12777920187102919001(ptr noalias noundef nonnull align 8 dereferenceable(72) %5, ptr noalias noundef nonnull align 1 %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !20449
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %58 = zext i1 %57 to i32
-  %.120 = add i32 %.01971, %58
-  %59 = add i32 %.02170, 1
-  %60 = call fastcc { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hffa1e06926c55ad8E(ptr noalias noundef nonnull align 8 dereferenceable(72) %12)
-  %61 = extractvalue { ptr, i64 } %60, 0
-  %62 = icmp eq ptr %61, null
-  br i1 %62, label %._crit_edge74, label %.lr.ph73
+  %59 = zext i1 %58 to i32
+  %.120 = add i32 %.01971, %59
+  %60 = add i32 %.02170, 1
+  %61 = call fastcc { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hffa1e06926c55ad8E(ptr noalias noundef nonnull align 8 dereferenceable(72) %12)
+  %62 = extractvalue { ptr, i64 } %61, 0
+  %63 = icmp eq ptr %62, null
+  br i1 %63, label %._crit_edge74, label %.lr.ph73
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17hbbcca2f39c9e6f3fE.exit.thread": ; preds = %._crit_edge74, %"_ZN4core6option15Option$LT$T$GT$6map_or17hbbcca2f39c9e6f3fE.exit"
   br label %.outer
@@ -102657,18 +102654,18 @@ define hidden noundef range(i32 0, 1114113) i32 @_ZN5typst7symbols6symbol4find17
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
   call void @"_ZN91_$LT$typst..symbols..symbol..Variants$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe3a50f3acce53bfE"(ptr noalias nocapture noundef nonnull sret({ [4 x i32], i32, [1 x i32] }) align 8 dereferenceable(24) %14, ptr noalias noundef nonnull align 8 dereferenceable(24) %15)
-  %63 = load i32, ptr %16, align 8, !range !6334, !noundef !9
-  %64 = icmp eq i32 %63, 1114112
-  br i1 %64, label %.outer._crit_edge, label %.lr.ph
+  %64 = load i32, ptr %16, align 8, !range !6334, !noundef !9
+  %65 = icmp eq i32 %64, 1114112
+  br i1 %65, label %.outer._crit_edge, label %.lr.ph
 
-65:                                               ; preds = %43
+66:                                               ; preds = %43
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
   call void @"_ZN91_$LT$typst..symbols..symbol..Variants$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe3a50f3acce53bfE"(ptr noalias nocapture noundef nonnull sret({ [4 x i32], i32, [1 x i32] }) align 8 dereferenceable(24) %14, ptr noalias noundef nonnull align 8 dereferenceable(24) %15)
-  %66 = load i32, ptr %16, align 8, !range !6334, !noundef !9
-  %67 = icmp eq i32 %66, 1114112
-  br i1 %67, label %.outer._crit_edge, label %25
+  %67 = load i32, ptr %16, align 8, !range !6334, !noundef !9
+  %68 = icmp eq i32 %67, 1114112
+  br i1 %68, label %.outer._crit_edge, label %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite) uwtable
@@ -141919,6 +141916,9 @@ declare i64 @llvm.abs.i64(i64, i1 immarg) #58
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #58
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.scmp.i8.i32(i32, i32) #58
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

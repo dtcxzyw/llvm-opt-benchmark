@@ -2130,68 +2130,65 @@ define hidden noundef i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$
   br label %5
 
 5:                                                ; preds = %"_ZN57_$LT$hir_expand..name..Name$u20$as$u20$core..cmp..Ord$GT$3cmp17hdedcdd672fe9c0d1E.exit", %4
-  %.sroa.0.0 = phi i64 [ 0, %4 ], [ %10, %"_ZN57_$LT$hir_expand..name..Name$u20$as$u20$core..cmp..Ord$GT$3cmp17hdedcdd672fe9c0d1E.exit" ]
+  %.sroa.0.0 = phi i64 [ 0, %4 ], [ %8, %"_ZN57_$LT$hir_expand..name..Name$u20$as$u20$core..cmp..Ord$GT$3cmp17hdedcdd672fe9c0d1E.exit" ]
   %exitcond.not = icmp eq i64 %.sroa.0.0, %.0.sroa.speculated.i
-  br i1 %exitcond.not, label %6, label %9
+  br i1 %exitcond.not, label %6, label %7
 
 6:                                                ; preds = %5
-  %7 = icmp ult i64 %1, %3
-  %8 = icmp ne i64 %1, %3
-  %. = zext i1 %8 to i8
-  %.0 = select i1 %7, i8 -1, i8 %.
+  %.0 = tail call i8 @llvm.ucmp.i8.i64(i64 %1, i64 %3)
   br label %"_ZN57_$LT$hir_expand..name..Name$u20$as$u20$core..cmp..Ord$GT$3cmp17hdedcdd672fe9c0d1E.exit.thread"
 
-"_ZN57_$LT$hir_expand..name..Name$u20$as$u20$core..cmp..Ord$GT$3cmp17hdedcdd672fe9c0d1E.exit.thread": ; preds = %9, %25, %19, %"_ZN57_$LT$hir_expand..name..Name$u20$as$u20$core..cmp..Ord$GT$3cmp17hdedcdd672fe9c0d1E.exit", %6
-  %.1 = phi i8 [ %.0, %6 ], [ 1, %19 ], [ -1, %25 ], [ -1, %9 ], [ %.1.i.i, %"_ZN57_$LT$hir_expand..name..Name$u20$as$u20$core..cmp..Ord$GT$3cmp17hdedcdd672fe9c0d1E.exit" ]
+"_ZN57_$LT$hir_expand..name..Name$u20$as$u20$core..cmp..Ord$GT$3cmp17hdedcdd672fe9c0d1E.exit.thread": ; preds = %7, %23, %17, %"_ZN57_$LT$hir_expand..name..Name$u20$as$u20$core..cmp..Ord$GT$3cmp17hdedcdd672fe9c0d1E.exit", %6
+  %.1 = phi i8 [ %.0, %6 ], [ 1, %17 ], [ -1, %23 ], [ -1, %7 ], [ %.1.i.i, %"_ZN57_$LT$hir_expand..name..Name$u20$as$u20$core..cmp..Ord$GT$3cmp17hdedcdd672fe9c0d1E.exit" ]
   ret i8 %.1
 
-9:                                                ; preds = %5
-  %10 = add i64 %.sroa.0.0, 1
-  %11 = getelementptr inbounds [0 x { { i8, [23 x i8] } }], ptr %0, i64 0, i64 %.sroa.0.0
-  %12 = getelementptr inbounds [0 x { { i8, [23 x i8] } }], ptr %2, i64 0, i64 %.sroa.0.0
+7:                                                ; preds = %5
+  %8 = add i64 %.sroa.0.0, 1
+  %9 = getelementptr inbounds [0 x { { i8, [23 x i8] } }], ptr %0, i64 0, i64 %.sroa.0.0
+  %10 = getelementptr inbounds [0 x { { i8, [23 x i8] } }], ptr %2, i64 0, i64 %.sroa.0.0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !428)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !431)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !433)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !436)
-  %13 = load i8, ptr %11, align 8, !range !339, !alias.scope !438, !noalias !439, !noundef !17
+  %11 = load i8, ptr %9, align 8, !range !339, !alias.scope !438, !noalias !439, !noundef !17
+  %12 = icmp eq i8 %11, 26
+  %13 = load i8, ptr %10, align 8, !range !339, !alias.scope !439, !noalias !438, !noundef !17
   %14 = icmp eq i8 %13, 26
-  %15 = load i8, ptr %12, align 8, !range !339, !alias.scope !439, !noalias !438, !noundef !17
-  %16 = icmp eq i8 %15, 26
-  %17 = xor i1 %14, true
-  %18 = and i1 %16, %17
+  %15 = xor i1 %12, true
+  %16 = and i1 %14, %15
+  br i1 %16, label %"_ZN57_$LT$hir_expand..name..Name$u20$as$u20$core..cmp..Ord$GT$3cmp17hdedcdd672fe9c0d1E.exit.thread", label %17
+
+17:                                               ; preds = %7
+  %18 = xor i1 %12, %14
   br i1 %18, label %"_ZN57_$LT$hir_expand..name..Name$u20$as$u20$core..cmp..Ord$GT$3cmp17hdedcdd672fe9c0d1E.exit.thread", label %19
 
-19:                                               ; preds = %9
-  %20 = xor i1 %14, %16
-  br i1 %20, label %"_ZN57_$LT$hir_expand..name..Name$u20$as$u20$core..cmp..Ord$GT$3cmp17hdedcdd672fe9c0d1E.exit.thread", label %21
+19:                                               ; preds = %17
+  br i1 %12, label %23, label %20
 
-21:                                               ; preds = %19
-  br i1 %14, label %25, label %22
-
-22:                                               ; preds = %21
-  %23 = icmp ne i8 %15, 26
-  tail call void @llvm.assume(i1 %23)
-  %24 = tail call noundef i8 @"_ZN52_$LT$smol_str..SmolStr$u20$as$u20$core..cmp..Ord$GT$3cmp17h3a33b5f955e6befbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12), !range !440
+20:                                               ; preds = %19
+  %21 = icmp ne i8 %13, 26
+  tail call void @llvm.assume(i1 %21)
+  %22 = tail call noundef i8 @"_ZN52_$LT$smol_str..SmolStr$u20$as$u20$core..cmp..Ord$GT$3cmp17h3a33b5f955e6befbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10), !range !440
   br label %"_ZN57_$LT$hir_expand..name..Name$u20$as$u20$core..cmp..Ord$GT$3cmp17hdedcdd672fe9c0d1E.exit"
 
-25:                                               ; preds = %21
-  tail call void @llvm.assume(i1 %16)
-  %26 = getelementptr inbounds i8, ptr %11, i64 8
-  %27 = load i64, ptr %26, align 8, !alias.scope !438, !noalias !439, !noundef !17
-  %28 = getelementptr inbounds i8, ptr %12, i64 8
-  %29 = load i64, ptr %28, align 8, !alias.scope !439, !noalias !438, !noundef !17
-  %30 = icmp ult i64 %27, %29
-  br i1 %30, label %"_ZN57_$LT$hir_expand..name..Name$u20$as$u20$core..cmp..Ord$GT$3cmp17hdedcdd672fe9c0d1E.exit.thread", label %31
+23:                                               ; preds = %19
+  tail call void @llvm.assume(i1 %14)
+  %24 = getelementptr inbounds i8, ptr %9, i64 8
+  %25 = load i64, ptr %24, align 8, !alias.scope !438, !noalias !439, !noundef !17
+  %26 = getelementptr inbounds i8, ptr %10, i64 8
+  %27 = load i64, ptr %26, align 8, !alias.scope !439, !noalias !438, !noundef !17
+  %28 = icmp ult i64 %25, %27
+  br i1 %28, label %"_ZN57_$LT$hir_expand..name..Name$u20$as$u20$core..cmp..Ord$GT$3cmp17hdedcdd672fe9c0d1E.exit.thread", label %29
 
-31:                                               ; preds = %25
-  %32 = icmp ne i64 %27, %29
-  %.9.i.i = zext i1 %32 to i8
+29:                                               ; preds = %23
+  %30 = icmp ne i64 %25, %27
+  %.9.i.i = zext i1 %30 to i8
   br label %"_ZN57_$LT$hir_expand..name..Name$u20$as$u20$core..cmp..Ord$GT$3cmp17hdedcdd672fe9c0d1E.exit"
 
-"_ZN57_$LT$hir_expand..name..Name$u20$as$u20$core..cmp..Ord$GT$3cmp17hdedcdd672fe9c0d1E.exit": ; preds = %22, %31
-  %.1.i.i = phi i8 [ %24, %22 ], [ %.9.i.i, %31 ]
-  %33 = icmp eq i8 %.1.i.i, 0
-  br i1 %33, label %5, label %"_ZN57_$LT$hir_expand..name..Name$u20$as$u20$core..cmp..Ord$GT$3cmp17hdedcdd672fe9c0d1E.exit.thread"
+"_ZN57_$LT$hir_expand..name..Name$u20$as$u20$core..cmp..Ord$GT$3cmp17hdedcdd672fe9c0d1E.exit": ; preds = %20, %29
+  %.1.i.i = phi i8 [ %22, %20 ], [ %.9.i.i, %29 ]
+  %31 = icmp eq i8 %.1.i.i, 0
+  br i1 %31, label %5, label %"_ZN57_$LT$hir_expand..name..Name$u20$as$u20$core..cmp..Ord$GT$3cmp17hdedcdd672fe9c0d1E.exit.thread"
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -2216,10 +2213,7 @@ define hidden void @_ZN4core10intrinsics19copy_nonoverlapping17h29e1c244a033c905
 define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3cmp5impls48_$LT$impl$u20$core..cmp..Ord$u20$for$u20$i32$GT$3cmp17h03df962b21399476E.llvm.14187311439413012207"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #8 {
   %3 = load i32, ptr %0, align 4, !noundef !17
   %4 = load i32, ptr %1, align 4, !noundef !17
-  %5 = icmp slt i32 %3, %4
-  %6 = icmp ne i32 %3, %4
-  %. = zext i1 %6 to i8
-  %.0 = select i1 %5, i8 -1, i8 %.
+  %.0 = tail call i8 @llvm.scmp.i8.i32(i32 %3, i32 %4)
   ret i8 %.0
 }
 
@@ -2516,10 +2510,7 @@ define hidden noundef range(i8 -1, 2) i8 @_ZN4core3ops8function5FnMut8call_mut17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !494)
   %4 = load i32, ptr %1, align 8, !alias.scope !496, !noalias !497, !noundef !17
   %5 = load i32, ptr %2, align 8, !alias.scope !497, !noalias !496, !noundef !17
-  %6 = icmp slt i32 %4, %5
-  %7 = icmp ne i32 %4, %5
-  %..i.i = zext i1 %7 to i8
-  %.0.i.i = select i1 %6, i8 -1, i8 %..i.i
+  %.0.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i32(i32 %4, i32 %5)
   ret i8 %.0.i.i
 }
 
@@ -2907,10 +2898,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3ops8function5impls80_$LT$imp
   tail call void @llvm.experimental.noalias.scope.decl(metadata !683)
   %4 = load i32, ptr %1, align 8, !alias.scope !685, !noalias !686, !noundef !17
   %5 = load i32, ptr %2, align 8, !alias.scope !686, !noalias !685, !noundef !17
-  %6 = icmp slt i32 %4, %5
-  %7 = icmp ne i32 %4, %5
-  %..i.i.i = zext i1 %7 to i8
-  %.0.i.i.i = select i1 %6, i8 -1, i8 %..i.i.i
+  %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i32(i32 %4, i32 %5)
   ret i8 %.0.i.i.i
 }
 
@@ -5795,10 +5783,7 @@ define hidden noundef range(i8 -1, 2) i8 @_ZN4core4iter6traits8iterator8Iterator
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1600)
   %3 = load i32, ptr %0, align 8, !alias.scope !1597, !noalias !1600, !noundef !17
   %4 = load i32, ptr %1, align 8, !alias.scope !1600, !noalias !1597, !noundef !17
-  %5 = icmp slt i32 %3, %4
-  %6 = icmp ne i32 %3, %4
-  %..i = zext i1 %6 to i8
-  %.0.i = select i1 %5, i8 -1, i8 %..i
+  %.0.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i32(i32 %3, i32 %4)
   ret i8 %.0.i
 }
 
@@ -27688,7 +27673,13 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #61
 declare void @llvm.experimental.noalias.scope.decl(metadata) #62
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ucmp.i8.i64(i64, i64) #60
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #60
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.scmp.i8.i32(i32, i32) #60
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #63

@@ -11079,10 +11079,10 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds { i32, { i32, { i32, i32 }, { i32, i32 } } }, ptr %0, i64 %7
   %.val23.i = load i32, ptr %9, align 4, !alias.scope !1636, !noalias !1641, !noundef !29
-  %.not.i.not.i.not.i = icmp ult i32 %4, %.val23.i
+  %switch.selectcmp.i.not.i.not.i = icmp ult i32 %4, %.val23.i
   %10 = add nuw i64 %7, 1
-  %.022.i = select i1 %.not.i.not.i.not.i, i64 %.01925.i, i64 %10
-  %.021.i = select i1 %.not.i.not.i.not.i, i64 %7, i64 %.02024.i
+  %.022.i = select i1 %switch.selectcmp.i.not.i.not.i, i64 %.01925.i, i64 %10
+  %.021.i = select i1 %switch.selectcmp.i.not.i.not.i, i64 %7, i64 %.02024.i
   %11 = sub i64 %.021.i, %.022.i
   %12 = icmp ult i64 %.022.i, %.021.i
   br i1 %12, label %5, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h3f7793539a22dd44E.llvm.4530540673358086267.exit"
@@ -11114,10 +11114,10 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds { i32, { i32, { i32, i32 }, { i32, i32 } } }, ptr %0, i64 %7
   %.val23.i = load i32, ptr %9, align 4, !alias.scope !1642, !noalias !1647, !noundef !29
-  %.not.i.not.i.not.i = icmp ult i32 %4, %.val23.i
+  %switch.selectcmp.i.not.i.not.i = icmp ult i32 %4, %.val23.i
   %10 = add nuw i64 %7, 1
-  %.022.i = select i1 %.not.i.not.i.not.i, i64 %.01925.i, i64 %10
-  %.021.i = select i1 %.not.i.not.i.not.i, i64 %7, i64 %.02024.i
+  %.022.i = select i1 %switch.selectcmp.i.not.i.not.i, i64 %.01925.i, i64 %10
+  %.021.i = select i1 %switch.selectcmp.i.not.i.not.i, i64 %7, i64 %.02024.i
   %11 = sub i64 %.021.i, %.022.i
   %12 = icmp ult i64 %.022.i, %.021.i
   br i1 %12, label %5, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h780bddfce8d7e69bE.llvm.4530540673358086267.exit"
@@ -11149,10 +11149,10 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds { i32, { i32, { i32, i32 }, { i32, i32 } } }, ptr %0, i64 %7
   %.val23.i = load i32, ptr %9, align 4, !alias.scope !1648, !noalias !1653, !noundef !29
-  %.not.i.not.i.not.i = icmp ult i32 %4, %.val23.i
+  %switch.selectcmp.i.not.i.not.i = icmp ult i32 %4, %.val23.i
   %10 = add nuw i64 %7, 1
-  %.022.i = select i1 %.not.i.not.i.not.i, i64 %.01925.i, i64 %10
-  %.021.i = select i1 %.not.i.not.i.not.i, i64 %7, i64 %.02024.i
+  %.022.i = select i1 %switch.selectcmp.i.not.i.not.i, i64 %.01925.i, i64 %10
+  %.021.i = select i1 %switch.selectcmp.i.not.i.not.i, i64 %7, i64 %.02024.i
   %11 = sub i64 %.021.i, %.022.i
   %12 = icmp ult i64 %.022.i, %.021.i
   br i1 %12, label %5, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hc97418222a105517E.llvm.4530540673358086267.exit"
@@ -11191,10 +11191,10 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16bina
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds { i32, { i32, { i32, i32 }, { i32, i32 } } }, ptr %0, i64 %9
   %.val23 = load i32, ptr %11, align 4, !noundef !29
-  %.not.i.not.i.not = icmp ult i32 %4, %.val23
+  %switch.selectcmp.i.not.i.not = icmp ult i32 %4, %.val23
   %12 = add nuw i64 %9, 1
-  %.022 = select i1 %.not.i.not.i.not, i64 %.01925, i64 %12
-  %.021 = select i1 %.not.i.not.i.not, i64 %9, i64 %.02024
+  %.022 = select i1 %switch.selectcmp.i.not.i.not, i64 %.01925, i64 %12
+  %.021 = select i1 %switch.selectcmp.i.not.i.not, i64 %9, i64 %.02024
   %13 = sub i64 %.021, %.022
   %14 = icmp ult i64 %.022, %.021
   br i1 %14, label %7, label %._crit_edge
@@ -11227,10 +11227,10 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16bina
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds { i32, { i32, { i32, i32 }, { i32, i32 } } }, ptr %0, i64 %9
   %.val23 = load i32, ptr %11, align 4, !noundef !29
-  %.not.i.not.i.not = icmp ult i32 %4, %.val23
+  %switch.selectcmp.i.not.i.not = icmp ult i32 %4, %.val23
   %12 = add nuw i64 %9, 1
-  %.022 = select i1 %.not.i.not.i.not, i64 %.01925, i64 %12
-  %.021 = select i1 %.not.i.not.i.not, i64 %9, i64 %.02024
+  %.022 = select i1 %switch.selectcmp.i.not.i.not, i64 %.01925, i64 %12
+  %.021 = select i1 %switch.selectcmp.i.not.i.not, i64 %9, i64 %.02024
   %13 = sub i64 %.021, %.022
   %14 = icmp ult i64 %.022, %.021
   br i1 %14, label %7, label %._crit_edge
@@ -11263,10 +11263,10 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16bina
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds { i32, { i32, { i32, i32 }, { i32, i32 } } }, ptr %0, i64 %9
   %.val23 = load i32, ptr %11, align 4, !noundef !29
-  %.not.i.not.i.not = icmp ult i32 %4, %.val23
+  %switch.selectcmp.i.not.i.not = icmp ult i32 %4, %.val23
   %12 = add nuw i64 %9, 1
-  %.022 = select i1 %.not.i.not.i.not, i64 %.01925, i64 %12
-  %.021 = select i1 %.not.i.not.i.not, i64 %9, i64 %.02024
+  %.022 = select i1 %switch.selectcmp.i.not.i.not, i64 %.01925, i64 %12
+  %.021 = select i1 %switch.selectcmp.i.not.i.not, i64 %9, i64 %.02024
   %13 = sub i64 %.021, %.022
   %14 = icmp ult i64 %.022, %.021
   br i1 %14, label %7, label %._crit_edge

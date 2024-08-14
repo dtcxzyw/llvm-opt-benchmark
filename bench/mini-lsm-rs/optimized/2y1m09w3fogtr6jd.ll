@@ -142,8 +142,8 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN102_$LT$core.
   tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
   %34 = load i64, ptr %33, align 8, !alias.scope !55, !noalias !56, !noundef !4
   %35 = load i64, ptr %6, align 8, !alias.scope !53, !noalias !64, !noundef !4
-  %.not.i.i.not.i.i.i.i = icmp ugt i64 %34, %35
-  br i1 %.not.i.i.not.i.i.i.i, label %7, label %36
+  %switch.selectcmp.i.i.not.i.i.i.i = icmp ugt i64 %34, %35
+  br i1 %switch.selectcmp.i.i.not.i.i.i.i, label %7, label %36
 
 36:                                               ; preds = %26
   %37 = getelementptr inbounds i8, ptr %32, i64 -72
@@ -305,8 +305,8 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !143)
   %36 = load i64, ptr %35, align 8, !alias.scope !145, !noalias !146, !noundef !4
   %37 = load i64, ptr %8, align 8, !alias.scope !143, !noalias !154, !noundef !4
-  %.not.i.i.not.i.i.i.i.i = icmp ugt i64 %36, %37
-  br i1 %.not.i.i.not.i.i.i.i.i, label %9, label %39
+  %switch.selectcmp.i.i.not.i.i.i.i.i = icmp ugt i64 %36, %37
+  br i1 %switch.selectcmp.i.i.not.i.i.i.i.i, label %9, label %39
 
 38:                                               ; preds = %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.i.i.i.i", %9
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !155, !noalias !158
@@ -651,8 +651,8 @@ define hidden { ptr, ptr } @"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !286)
   %34 = load i64, ptr %33, align 8, !alias.scope !288, !noalias !289, !noundef !4
   %35 = load i64, ptr %6, align 8, !alias.scope !286, !noalias !297, !noundef !4
-  %.not.i.i.not.i.i.i = icmp ugt i64 %34, %35
-  br i1 %.not.i.i.not.i.i.i, label %7, label %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread.split.loop.exit.i.i"
+  %switch.selectcmp.i.i.not.i.i.i = icmp ugt i64 %34, %35
+  br i1 %switch.selectcmp.i.i.not.i.i.i, label %7, label %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread.split.loop.exit.i.i"
 
 "_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread.split.loop.exit.i.i": ; preds = %26
   %36 = getelementptr inbounds i8, ptr %32, i64 -72
@@ -1937,8 +1937,8 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator4find17hc09253
   tail call void @llvm.experimental.noalias.scope.decl(metadata !589)
   %34 = load i64, ptr %33, align 8, !alias.scope !591, !noalias !592, !noundef !4
   %35 = load i64, ptr %6, align 8, !alias.scope !589, !noalias !600, !noundef !4
-  %.not.i.i.not.i.i = icmp ugt i64 %34, %35
-  br i1 %.not.i.i.not.i.i, label %7, label %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread.split.loop.exit.i"
+  %switch.selectcmp.i.i.not.i.i = icmp ugt i64 %34, %35
+  br i1 %switch.selectcmp.i.i.not.i.i, label %7, label %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread.split.loop.exit.i"
 
 "_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98011b3aa2512f81E.exit.thread.split.loop.exit.i": ; preds = %26
   %36 = getelementptr inbounds i8, ptr %32, i64 -72

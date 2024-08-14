@@ -49,7 +49,7 @@ define internal void @opal_graph_vertex_destruct(ptr nocapture noundef %0) #1 {
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8
-  tail call void %6(ptr noundef %9) #12
+  tail call void %6(ptr noundef %9) #13
   br label %10
 
 10:                                               ; preds = %7, %1
@@ -81,14 +81,14 @@ define internal void @opal_graph_edge_destruct(ptr nocapture noundef writeonly %
 ; Function Attrs: nounwind uwtable
 define internal void @opal_graph_construct(ptr nocapture noundef writeonly %0) #1 {
   %2 = load i64, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 56), align 8
-  %3 = tail call noalias ptr @malloc(i64 noundef %2) #13
+  %3 = tail call noalias ptr @malloc(i64 noundef %2) #14
   %4 = load i32, ptr @opal_class_init_epoch, align 4
   %5 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %4, %5
   br i1 %.not.i, label %7, label %6
 
 6:                                                ; preds = %1
-  tail call void @opal_class_initialize(ptr noundef nonnull @opal_list_t_class) #12
+  tail call void @opal_class_initialize(ptr noundef nonnull @opal_list_t_class) #13
   br label %7
 
 7:                                                ; preds = %6, %1
@@ -107,7 +107,7 @@ define internal void @opal_graph_construct(ptr nocapture noundef writeonly %0) #
 .lr.ph.i.i:                                       ; preds = %8, %.lr.ph.i.i
   %12 = phi ptr [ %14, %.lr.ph.i.i ], [ %11, %8 ]
   %.07.i.i = phi ptr [ %13, %.lr.ph.i.i ], [ %10, %8 ]
-  tail call void %12(ptr noundef nonnull %3) #12
+  tail call void %12(ptr noundef nonnull %3) #13
   %13 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not.i.i = icmp eq ptr %14, null
@@ -187,14 +187,14 @@ opal_thread_add_fetch_32.exit:                    ; preds = %25, %28
 .lr.ph.i:                                         ; preds = %33, %.lr.ph.i
   %38 = phi ptr [ %40, %.lr.ph.i ], [ %37, %33 ]
   %.07.i = phi ptr [ %39, %.lr.ph.i ], [ %36, %33 ]
-  tail call void %38(ptr noundef nonnull %15) #12
+  tail call void %38(ptr noundef nonnull %15) #13
   %39 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %40 = load ptr, ptr %39, align 8
   %.not.i = icmp eq ptr %40, null
   br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %33
-  tail call void @free(ptr noundef %15) #12
+  tail call void @free(ptr noundef %15) #13
   br label %41
 
 41:                                               ; preds = %opal_thread_add_fetch_32.exit, %opal_obj_run_destructors.exit
@@ -240,7 +240,7 @@ opal_thread_add_fetch_32.exit16:                  ; preds = %50, %53
 .lr.ph.i18:                                       ; preds = %58, %.lr.ph.i18
   %64 = phi ptr [ %66, %.lr.ph.i18 ], [ %63, %58 ]
   %.07.i19 = phi ptr [ %65, %.lr.ph.i18 ], [ %62, %58 ]
-  tail call void %64(ptr noundef nonnull %59) #12
+  tail call void %64(ptr noundef nonnull %59) #13
   %65 = getelementptr inbounds i8, ptr %.07.i19, i64 8
   %66 = load ptr, ptr %65, align 8
   %.not.i20 = icmp eq ptr %66, null
@@ -252,7 +252,7 @@ opal_obj_run_destructors.exit21.loopexit:         ; preds = %.lr.ph.i18
 
 opal_obj_run_destructors.exit21:                  ; preds = %opal_obj_run_destructors.exit21.loopexit, %58
   %67 = phi ptr [ %.pre, %opal_obj_run_destructors.exit21.loopexit ], [ %59, %58 ]
-  tail call void @free(ptr noundef %67) #12
+  tail call void @free(ptr noundef %67) #13
   store ptr null, ptr %2, align 8
   br label %68
 
@@ -269,14 +269,14 @@ define internal void @opal_adjacency_list_construct(ptr nocapture noundef writeo
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr null, ptr %2, align 8
   %3 = load i64, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 56), align 8
-  %4 = tail call noalias ptr @malloc(i64 noundef %3) #13
+  %4 = tail call noalias ptr @malloc(i64 noundef %3) #14
   %5 = load i32, ptr @opal_class_init_epoch, align 4
   %6 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %5, %6
   br i1 %.not.i, label %8, label %7
 
 7:                                                ; preds = %1
-  tail call void @opal_class_initialize(ptr noundef nonnull @opal_list_t_class) #12
+  tail call void @opal_class_initialize(ptr noundef nonnull @opal_list_t_class) #13
   br label %8
 
 8:                                                ; preds = %7, %1
@@ -295,7 +295,7 @@ define internal void @opal_adjacency_list_construct(ptr nocapture noundef writeo
 .lr.ph.i.i:                                       ; preds = %9, %.lr.ph.i.i
   %13 = phi ptr [ %15, %.lr.ph.i.i ], [ %12, %9 ]
   %.07.i.i = phi ptr [ %14, %.lr.ph.i.i ], [ %11, %9 ]
-  tail call void %13(ptr noundef nonnull %4) #12
+  tail call void %13(ptr noundef nonnull %4) #13
   %14 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not.i.i = icmp eq ptr %15, null
@@ -373,14 +373,14 @@ opal_thread_add_fetch_32.exit:                    ; preds = %26, %29
 .lr.ph.i:                                         ; preds = %34, %.lr.ph.i
   %39 = phi ptr [ %41, %.lr.ph.i ], [ %38, %34 ]
   %.07.i = phi ptr [ %40, %.lr.ph.i ], [ %37, %34 ]
-  tail call void %39(ptr noundef nonnull %16) #12
+  tail call void %39(ptr noundef nonnull %16) #13
   %40 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %41 = load ptr, ptr %40, align 8
   %.not.i = icmp eq ptr %41, null
   br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %34
-  tail call void @free(ptr noundef %16) #12
+  tail call void @free(ptr noundef %16) #13
   br label %42
 
 42:                                               ; preds = %opal_thread_add_fetch_32.exit, %opal_obj_run_destructors.exit
@@ -426,7 +426,7 @@ opal_thread_add_fetch_32.exit15:                  ; preds = %51, %54
 .lr.ph.i17:                                       ; preds = %59, %.lr.ph.i17
   %65 = phi ptr [ %67, %.lr.ph.i17 ], [ %64, %59 ]
   %.07.i18 = phi ptr [ %66, %.lr.ph.i17 ], [ %63, %59 ]
-  tail call void %65(ptr noundef nonnull %60) #12
+  tail call void %65(ptr noundef nonnull %60) #13
   %66 = getelementptr inbounds i8, ptr %.07.i18, i64 8
   %67 = load ptr, ptr %66, align 8
   %.not.i19 = icmp eq ptr %67, null
@@ -438,7 +438,7 @@ opal_obj_run_destructors.exit20.loopexit:         ; preds = %.lr.ph.i17
 
 opal_obj_run_destructors.exit20:                  ; preds = %opal_obj_run_destructors.exit20.loopexit, %59
   %68 = phi ptr [ %.pre, %opal_obj_run_destructors.exit20.loopexit ], [ %60, %59 ]
-  tail call void @free(ptr noundef %68) #12
+  tail call void @free(ptr noundef %68) #13
   store ptr null, ptr %3, align 8
   br label %69
 
@@ -471,14 +471,14 @@ define void @opal_graph_add_vertex(ptr noundef %0, ptr noundef %1) local_unnamed
 
 ._crit_edge:                                      ; preds = %7, %2
   %12 = load i64, ptr getelementptr inbounds (i8, ptr @opal_adjacency_list_t_class, i64 56), align 8
-  %13 = tail call noalias ptr @malloc(i64 noundef %12) #13
+  %13 = tail call noalias ptr @malloc(i64 noundef %12) #14
   %14 = load i32, ptr @opal_class_init_epoch, align 4
   %15 = load i32, ptr getelementptr inbounds (i8, ptr @opal_adjacency_list_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %14, %15
   br i1 %.not.i, label %17, label %16
 
 16:                                               ; preds = %._crit_edge
-  tail call void @opal_class_initialize(ptr noundef nonnull @opal_adjacency_list_t_class) #12
+  tail call void @opal_class_initialize(ptr noundef nonnull @opal_adjacency_list_t_class) #13
   br label %17
 
 17:                                               ; preds = %16, %._crit_edge
@@ -497,7 +497,7 @@ define void @opal_graph_add_vertex(ptr noundef %0, ptr noundef %1) local_unnamed
 .lr.ph.i.i:                                       ; preds = %18, %.lr.ph.i.i
   %22 = phi ptr [ %24, %.lr.ph.i.i ], [ %21, %18 ]
   %.07.i.i = phi ptr [ %23, %.lr.ph.i.i ], [ %20, %18 ]
-  tail call void %22(ptr noundef nonnull %13) #12
+  tail call void %22(ptr noundef nonnull %13) #13
   %23 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %24 = load ptr, ptr %23, align 8
   %.not.i.i = icmp eq ptr %24, null
@@ -688,14 +688,14 @@ opal_thread_add_fetch_32.exit:                    ; preds = %22, %25
 .lr.ph.i:                                         ; preds = %30, %.lr.ph.i
   %35 = phi ptr [ %37, %.lr.ph.i ], [ %34, %30 ]
   %.07.i = phi ptr [ %36, %.lr.ph.i ], [ %33, %30 ]
-  tail call void %35(ptr noundef nonnull %4) #12
+  tail call void %35(ptr noundef nonnull %4) #13
   %36 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %37 = load ptr, ptr %36, align 8
   %.not.i = icmp eq ptr %37, null
   br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %30
-  tail call void @free(ptr noundef %4) #12
+  tail call void @free(ptr noundef %4) #13
   br label %38
 
 38:                                               ; preds = %opal_thread_add_fetch_32.exit, %opal_obj_run_destructors.exit
@@ -780,14 +780,14 @@ opal_thread_add_fetch_32.exit.i:                  ; preds = %73, %70
 .lr.ph.i.i:                                       ; preds = %78, %.lr.ph.i.i
   %83 = phi ptr [ %85, %.lr.ph.i.i ], [ %82, %78 ]
   %.07.i.i = phi ptr [ %84, %.lr.ph.i.i ], [ %81, %78 ]
-  tail call void %83(ptr noundef nonnull %.01824.i) #12
+  tail call void %83(ptr noundef nonnull %.01824.i) #13
   %84 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %85 = load ptr, ptr %84, align 8
   %.not.i.i = icmp eq ptr %85, null
   br i1 %.not.i.i, label %opal_obj_run_destructors.exit.i, label %.lr.ph.i.i, !llvm.loop !6
 
 opal_obj_run_destructors.exit.i:                  ; preds = %.lr.ph.i.i, %78
-  tail call void @free(ptr noundef %.01824.i) #12
+  tail call void @free(ptr noundef %.01824.i) #13
   br label %86
 
 86:                                               ; preds = %opal_obj_run_destructors.exit.i, %opal_thread_add_fetch_32.exit.i, %.lr.ph.i15
@@ -844,14 +844,14 @@ opal_thread_add_fetch_32.exit19:                  ; preds = %95, %98
 .lr.ph.i21:                                       ; preds = %103, %.lr.ph.i21
   %108 = phi ptr [ %110, %.lr.ph.i21 ], [ %107, %103 ]
   %.07.i22 = phi ptr [ %109, %.lr.ph.i21 ], [ %106, %103 ]
-  tail call void %108(ptr noundef nonnull %1) #12
+  tail call void %108(ptr noundef nonnull %1) #13
   %109 = getelementptr inbounds i8, ptr %.07.i22, i64 8
   %110 = load ptr, ptr %109, align 8
   %.not.i23 = icmp eq ptr %110, null
   br i1 %.not.i23, label %opal_obj_run_destructors.exit25, label %.lr.ph.i21, !llvm.loop !6
 
 opal_obj_run_destructors.exit25:                  ; preds = %.lr.ph.i21, %103
-  tail call void @free(ptr noundef %1) #12
+  tail call void @free(ptr noundef %1) #13
   br label %111
 
 111:                                              ; preds = %opal_thread_add_fetch_32.exit19, %opal_obj_run_destructors.exit25
@@ -953,7 +953,7 @@ define ptr @opal_graph_find_vertex(ptr nocapture noundef readonly %0, ptr nounde
 12:                                               ; preds = %.lr.ph
   %13 = getelementptr inbounds i8, ptr %9, i64 56
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 %11(ptr noundef %14, ptr noundef %1) #12
+  %15 = tail call i32 %11(ptr noundef %14, ptr noundef %1) #13
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %._crit_edge
 
@@ -999,7 +999,7 @@ define i32 @opal_graph_get_graph_vertices(ptr nocapture noundef readonly %0, ptr
   %.011 = phi ptr [ %.0, %.lr.ph ], [ %.09, %6 ]
   %11 = getelementptr inbounds i8, ptr %.011, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call i32 @opal_pointer_array_add(ptr noundef %1, ptr noundef %12) #12
+  %13 = tail call i32 @opal_pointer_array_add(ptr noundef %1, ptr noundef %12) #13
   %14 = getelementptr inbounds i8, ptr %.011, i64 16
   %.0 = load volatile ptr, ptr %14, align 8
   %15 = load ptr, ptr %7, align 8
@@ -1057,7 +1057,7 @@ define i32 @opal_graph_get_adjacent_vertices(ptr noundef readnone %0, ptr nocapt
   store i32 %24, ptr %.8..8..8..sroa_idx, align 8
   %25 = load i64, ptr %17, align 8
   %26 = add i64 %25, 1
-  %27 = tail call i32 @opal_value_array_set_size(ptr noundef nonnull %2, i64 noundef %26) #12
+  %27 = tail call i32 @opal_value_array_set_size(ptr noundef nonnull %2, i64 noundef %26) #13
   %.not12.i.i = icmp eq i32 %27, 0
   br i1 %.not12.i.i, label %28, label %opal_value_array_append_item.exit
 
@@ -1097,14 +1097,14 @@ define i32 @opal_graph_spf(ptr noundef %0, ptr noundef %1, ptr noundef readonly 
 
 9:                                                ; preds = %6
   %10 = load i64, ptr getelementptr inbounds (i8, ptr @opal_value_array_t_class, i64 56), align 8
-  %11 = tail call noalias ptr @malloc(i64 noundef %10) #13
+  %11 = tail call noalias ptr @malloc(i64 noundef %10) #14
   %12 = load i32, ptr @opal_class_init_epoch, align 4
   %13 = load i32, ptr getelementptr inbounds (i8, ptr @opal_value_array_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %12, %13
   br i1 %.not.i, label %15, label %14
 
 14:                                               ; preds = %9
-  tail call void @opal_class_initialize(ptr noundef nonnull @opal_value_array_t_class) #12
+  tail call void @opal_class_initialize(ptr noundef nonnull @opal_value_array_t_class) #13
   br label %15
 
 15:                                               ; preds = %14, %9
@@ -1120,7 +1120,7 @@ define i32 @opal_graph_spf(ptr noundef %0, ptr noundef %1, ptr noundef readonly 
 .lr.ph.i.i:                                       ; preds = %15, %.lr.ph.i.i
   %19 = phi ptr [ %21, %.lr.ph.i.i ], [ %18, %15 ]
   %.07.i.i = phi ptr [ %20, %.lr.ph.i.i ], [ %17, %15 ]
-  tail call void %19(ptr noundef nonnull %11) #12
+  tail call void %19(ptr noundef nonnull %11) #13
   %20 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %21 = load ptr, ptr %20, align 8
   %.not.i.i = icmp eq ptr %21, null
@@ -1136,7 +1136,7 @@ opal_obj_new.exit.loopexit:                       ; preds = %.lr.ph.i.i
   %24 = getelementptr inbounds i8, ptr %11, i64 32
   store i64 0, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %11, i64 16
-  %26 = tail call dereferenceable_or_null(16) ptr @realloc(ptr noundef %.pre, i64 noundef 16) #14
+  %26 = tail call dereferenceable_or_null(16) ptr @realloc(ptr noundef %.pre, i64 noundef 16) #15
   store ptr %26, ptr %25, align 8
   %27 = load i64, ptr %23, align 8
   %28 = icmp ult i64 %27, 50
@@ -1145,7 +1145,7 @@ opal_obj_new.exit.loopexit:                       ; preds = %.lr.ph.i.i
 29:                                               ; preds = %opal_obj_new.exit.loopexit
   %30 = load i64, ptr %22, align 8
   %31 = mul i64 %30, 50
-  %32 = tail call ptr @realloc(ptr noundef %26, i64 noundef %31) #14
+  %32 = tail call ptr @realloc(ptr noundef %26, i64 noundef %31) #15
   store ptr %32, ptr %25, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %35
@@ -1180,7 +1180,7 @@ opal_value_array_reserve.exit:                    ; preds = %opal_obj_new.exit.l
 
 39:                                               ; preds = %.lr.ph
   %40 = add nuw nsw i64 %indvars.iv, 1
-  %41 = tail call i32 @opal_value_array_set_size(ptr noundef nonnull %11, i64 noundef %40) #12
+  %41 = tail call i32 @opal_value_array_set_size(ptr noundef nonnull %11, i64 noundef %40) #13
   %.not8.i = icmp eq i32 %41, 0
   tail call void @llvm.assume(i1 %.not8.i)
   br label %opal_value_array_get_item.exit
@@ -1235,14 +1235,14 @@ opal_thread_add_fetch_32.exit:                    ; preds = %55, %58
 .lr.ph.i:                                         ; preds = %63, %.lr.ph.i
   %68 = phi ptr [ %70, %.lr.ph.i ], [ %67, %63 ]
   %.07.i = phi ptr [ %69, %.lr.ph.i ], [ %66, %63 ]
-  tail call void %68(ptr noundef nonnull %11) #12
+  tail call void %68(ptr noundef nonnull %11) #13
   %69 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %70 = load ptr, ptr %69, align 8
   %.not.i31 = icmp eq ptr %70, null
   br i1 %.not.i31, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %63
-  tail call void @free(ptr noundef %11) #12
+  tail call void @free(ptr noundef %11) #13
   br label %71
 
 71:                                               ; preds = %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.exit, %6, %3
@@ -1262,7 +1262,7 @@ define i32 @opal_graph_dijkstra(ptr noundef readonly %0, ptr noundef readonly %1
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
   %10 = shl nsw i64 %9, 4
-  %11 = tail call noalias ptr @malloc(i64 noundef %10) #13
+  %11 = tail call noalias ptr @malloc(i64 noundef %10) #14
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 32
@@ -1272,7 +1272,7 @@ define i32 @opal_graph_dijkstra(ptr noundef readonly %0, ptr noundef readonly %1
   br i1 %.not5659, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %6
-  tail call void @qsort(ptr noundef %11, i64 noundef 0, i64 noundef 16, ptr noundef nonnull @compare_vertex_distance) #12
+  tail call void @qsort(ptr noundef %11, i64 noundef 0, i64 noundef 16, ptr noundef nonnull @compare_vertex_distance) #13
   br label %.preheader
 
 .lr.ph:                                           ; preds = %6, %.lr.ph
@@ -1295,7 +1295,7 @@ define i32 @opal_graph_dijkstra(ptr noundef readonly %0, ptr noundef readonly %1
 ._crit_edge:                                      ; preds = %.lr.ph
   %23 = trunc nuw i64 %indvars.iv.next to i32
   %24 = and i64 %indvars.iv.next, 4294967295
-  tail call void @qsort(ptr noundef nonnull %11, i64 noundef %24, i64 noundef 16, ptr noundef nonnull @compare_vertex_distance) #12
+  tail call void @qsort(ptr noundef nonnull %11, i64 noundef %24, i64 noundef 16, ptr noundef nonnull @compare_vertex_distance) #13
   %25 = icmp sgt i32 %23, 0
   br i1 %25, label %.lr.ph69.preheader, label %.preheader
 
@@ -1325,7 +1325,7 @@ define i32 @opal_graph_dijkstra(ptr noundef readonly %0, ptr noundef readonly %1
   br i1 %33, label %.lr.ph64, label %._crit_edge65.thread
 
 ._crit_edge65.thread:                             ; preds = %.lr.ph69
-  tail call void @qsort(ptr noundef nonnull %32, i64 noundef %indvars.iv.next84, i64 noundef 16, ptr noundef nonnull @compare_vertex_distance) #12
+  tail call void @qsort(ptr noundef nonnull %32, i64 noundef %indvars.iv.next84, i64 noundef 16, ptr noundef nonnull @compare_vertex_distance) #13
   br label %.preheader
 
 .lr.ph64:                                         ; preds = %.lr.ph69
@@ -1400,7 +1400,7 @@ opal_graph_adjacent.exit:                         ; preds = %58, %37, %41, %44, 
   br i1 %exitcond.not, label %._crit_edge65, label %37, !llvm.loop !20
 
 ._crit_edge65:                                    ; preds = %66
-  tail call void @qsort(ptr noundef nonnull %32, i64 noundef %indvars.iv.next84, i64 noundef 16, ptr noundef nonnull @compare_vertex_distance) #12
+  tail call void @qsort(ptr noundef nonnull %32, i64 noundef %indvars.iv.next84, i64 noundef 16, ptr noundef nonnull @compare_vertex_distance) #13
   %indvars.iv.next82 = add nsw i64 %indvars.iv81, -1
   br i1 %33, label %.lr.ph69, label %.preheader, !llvm.loop !21
 
@@ -1409,7 +1409,7 @@ opal_graph_adjacent.exit:                         ; preds = %58, %37, %41, %44, 
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %68 = load i64, ptr %29, align 8
   %69 = add i64 %68, 1
-  %70 = tail call i32 @opal_value_array_set_size(ptr noundef nonnull %2, i64 noundef %69) #12
+  %70 = tail call i32 @opal_value_array_set_size(ptr noundef nonnull %2, i64 noundef %69) #13
   %.not12.i.i = icmp eq i32 %70, 0
   br i1 %.not12.i.i, label %71, label %opal_value_array_append_item.exit
 
@@ -1427,7 +1427,7 @@ opal_value_array_append_item.exit:                ; preds = %67, %71
   br i1 %exitcond91.not, label %._crit_edge72, label %67, !llvm.loop !22
 
 ._crit_edge72:                                    ; preds = %opal_value_array_append_item.exit, %.preheader
-  tail call void @free(ptr noundef %11) #12
+  tail call void @free(ptr noundef %11) #13
   br label %77
 
 77:                                               ; preds = %3, %._crit_edge72
@@ -1447,24 +1447,21 @@ define internal range(i32 -1, 2) i32 @compare_vertex_distance(ptr nocapture noun
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
-  %7 = icmp ugt i32 %4, %6
-  %8 = icmp ne i32 %4, %6
-  %. = sext i1 %8 to i32
-  %.0 = select i1 %7, i32 1, i32 %.
+  %.0 = tail call i32 @llvm.ucmp.i32.i32(i32 %4, i32 %6)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define void @opal_graph_duplicate(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   %3 = load i64, ptr getelementptr inbounds (i8, ptr @opal_graph_t_class, i64 56), align 8
-  %4 = tail call noalias ptr @malloc(i64 noundef %3) #13
+  %4 = tail call noalias ptr @malloc(i64 noundef %3) #14
   %5 = load i32, ptr @opal_class_init_epoch, align 4
   %6 = load i32, ptr getelementptr inbounds (i8, ptr @opal_graph_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %5, %6
   br i1 %.not.i, label %8, label %7
 
 7:                                                ; preds = %2
-  tail call void @opal_class_initialize(ptr noundef nonnull @opal_graph_t_class) #12
+  tail call void @opal_class_initialize(ptr noundef nonnull @opal_graph_t_class) #13
   br label %8
 
 8:                                                ; preds = %7, %2
@@ -1483,7 +1480,7 @@ define void @opal_graph_duplicate(ptr nocapture noundef %0, ptr nocapture nounde
 .lr.ph.i.i:                                       ; preds = %9, %.lr.ph.i.i
   %13 = phi ptr [ %15, %.lr.ph.i.i ], [ %12, %9 ]
   %.07.i.i = phi ptr [ %14, %.lr.ph.i.i ], [ %11, %9 ]
-  tail call void %13(ptr noundef nonnull %4) #12
+  tail call void %13(ptr noundef nonnull %4) #13
   %14 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not.i.i = icmp eq ptr %15, null
@@ -1502,14 +1499,14 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %8, %9
 .lr.ph:                                           ; preds = %opal_obj_new.exit, %59
   %.071 = phi ptr [ %.0, %59 ], [ %.069, %opal_obj_new.exit ]
   %20 = load i64, ptr getelementptr inbounds (i8, ptr @opal_graph_vertex_t_class, i64 56), align 8
-  %21 = tail call noalias ptr @malloc(i64 noundef %20) #13
+  %21 = tail call noalias ptr @malloc(i64 noundef %20) #14
   %22 = load i32, ptr @opal_class_init_epoch, align 4
   %23 = load i32, ptr getelementptr inbounds (i8, ptr @opal_graph_vertex_t_class, i64 32), align 8
   %.not.i54 = icmp eq i32 %22, %23
   br i1 %.not.i54, label %25, label %24
 
 24:                                               ; preds = %.lr.ph
-  tail call void @opal_class_initialize(ptr noundef nonnull @opal_graph_vertex_t_class) #12
+  tail call void @opal_class_initialize(ptr noundef nonnull @opal_graph_vertex_t_class) #13
   br label %25
 
 25:                                               ; preds = %24, %.lr.ph
@@ -1528,7 +1525,7 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %8, %9
 .lr.ph.i.i57:                                     ; preds = %26, %.lr.ph.i.i57
   %30 = phi ptr [ %32, %.lr.ph.i.i57 ], [ %29, %26 ]
   %.07.i.i58 = phi ptr [ %31, %.lr.ph.i.i57 ], [ %28, %26 ]
-  tail call void %30(ptr noundef nonnull %21) #12
+  tail call void %30(ptr noundef nonnull %21) #13
   %31 = getelementptr inbounds i8, ptr %.07.i.i58, i64 8
   %32 = load ptr, ptr %31, align 8
   %.not.i.i59 = icmp eq ptr %32, null
@@ -1548,7 +1545,7 @@ opal_obj_new.exit60:                              ; preds = %.lr.ph.i.i57, %25, 
   br i1 %.not52, label %47, label %40
 
 40:                                               ; preds = %opal_obj_new.exit60
-  %41 = tail call ptr %39() #12
+  %41 = tail call ptr %39() #13
   %42 = getelementptr inbounds i8, ptr %21, i64 56
   store ptr %41, ptr %42, align 8
   %43 = load ptr, ptr %33, align 8
@@ -1570,7 +1567,7 @@ opal_obj_new.exit60:                              ; preds = %.lr.ph.i.i57, %25, 
   %52 = getelementptr inbounds i8, ptr %21, i64 56
   %53 = getelementptr inbounds i8, ptr %48, i64 56
   %54 = load ptr, ptr %53, align 8
-  tail call void %50(ptr noundef nonnull %52, ptr noundef %54) #12
+  tail call void %50(ptr noundef nonnull %52, ptr noundef %54) #13
   %55 = load ptr, ptr %33, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 72
   %57 = load ptr, ptr %56, align 8
@@ -1628,14 +1625,14 @@ opal_obj_new.exit60:                              ; preds = %.lr.ph.i.i57, %25, 
 .lr.ph76:                                         ; preds = %.lr.ph82, %opal_graph_add_edge.exit
   %.04674 = phi ptr [ %.046, %opal_graph_add_edge.exit ], [ %.04672, %.lr.ph82 ]
   %85 = load i64, ptr getelementptr inbounds (i8, ptr @opal_graph_edge_t_class, i64 56), align 8
-  %86 = tail call noalias ptr @malloc(i64 noundef %85) #13
+  %86 = tail call noalias ptr @malloc(i64 noundef %85) #14
   %87 = load i32, ptr @opal_class_init_epoch, align 4
   %88 = load i32, ptr getelementptr inbounds (i8, ptr @opal_graph_edge_t_class, i64 32), align 8
   %.not.i61 = icmp eq i32 %87, %88
   br i1 %.not.i61, label %90, label %89
 
 89:                                               ; preds = %.lr.ph76
-  tail call void @opal_class_initialize(ptr noundef nonnull @opal_graph_edge_t_class) #12
+  tail call void @opal_class_initialize(ptr noundef nonnull @opal_graph_edge_t_class) #13
   br label %90
 
 90:                                               ; preds = %89, %.lr.ph76
@@ -1654,7 +1651,7 @@ opal_obj_new.exit60:                              ; preds = %.lr.ph.i.i57, %25, 
 .lr.ph.i.i64:                                     ; preds = %91, %.lr.ph.i.i64
   %95 = phi ptr [ %97, %.lr.ph.i.i64 ], [ %94, %91 ]
   %.07.i.i65 = phi ptr [ %96, %.lr.ph.i.i64 ], [ %93, %91 ]
-  tail call void %95(ptr noundef nonnull %86) #12
+  tail call void %95(ptr noundef nonnull %86) #13
   %96 = getelementptr inbounds i8, ptr %.07.i.i65, i64 8
   %97 = load ptr, ptr %96, align 8
   %.not.i.i66 = icmp eq ptr %97, null
@@ -1760,8 +1757,8 @@ opal_graph_add_edge.exit:                         ; preds = %opal_obj_new.exit67
 
 ; Function Attrs: nounwind uwtable
 define void @opal_graph_print(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  tail call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.4) #12
-  tail call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.5) #12
+  tail call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.4) #13
+  tail call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.5) #13
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 32
@@ -1782,12 +1779,12 @@ define void @opal_graph_print(ptr nocapture noundef readonly %0) local_unnamed_a
 10:                                               ; preds = %.lr.ph39
   %11 = getelementptr inbounds i8, ptr %7, i64 56
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call ptr %9(ptr noundef %12) #12
+  %13 = tail call ptr %9(ptr noundef %12) #13
   br label %14
 
 14:                                               ; preds = %.lr.ph39, %10
   %.023 = phi ptr [ %13, %10 ], [ @.str.6, %.lr.ph39 ]
-  tail call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.7, ptr noundef %.023) #12
+  tail call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.7, ptr noundef %.023) #13
   %15 = getelementptr inbounds i8, ptr %.02537, i64 48
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 32
@@ -1808,17 +1805,17 @@ define void @opal_graph_print(ptr nocapture noundef readonly %0) local_unnamed_a
 .thread:                                          ; preds = %.lr.ph
   %23 = getelementptr inbounds i8, ptr %.02434, i64 56
   %24 = load i32, ptr %23, align 8
-  tail call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.8, ptr noundef %.023, i32 noundef %24, ptr noundef nonnull @.str.6) #12
+  tail call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.8, ptr noundef %.023, i32 noundef %24, ptr noundef nonnull @.str.6) #13
   br label %31
 
 25:                                               ; preds = %.lr.ph
   %26 = getelementptr inbounds i8, ptr %20, i64 56
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call ptr %22(ptr noundef %27) #12
+  %28 = tail call ptr %22(ptr noundef %27) #13
   %29 = getelementptr inbounds i8, ptr %.02434, i64 56
   %30 = load i32, ptr %29, align 8
-  tail call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.8, ptr noundef %.023, i32 noundef %30, ptr noundef %28) #12
-  tail call void @free(ptr noundef %28) #12
+  tail call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.8, ptr noundef %.023, i32 noundef %30, ptr noundef %28) #13
+  tail call void @free(ptr noundef %28) #13
   br label %31
 
 31:                                               ; preds = %.thread, %25
@@ -1833,7 +1830,7 @@ define void @opal_graph_print(ptr nocapture noundef readonly %0) local_unnamed_a
   br i1 %.not28.not, label %36, label %35
 
 35:                                               ; preds = %._crit_edge
-  tail call void @free(ptr noundef %.023) #12
+  tail call void @free(ptr noundef %.023) #13
   br label %36
 
 36:                                               ; preds = %._crit_edge, %35
@@ -1863,8 +1860,11 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #11
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #11
+declare void @llvm.assume(i1 noundef) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1877,10 +1877,11 @@ attributes #7 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #12 = { nounwind }
-attributes #13 = { nounwind allocsize(0) }
-attributes #14 = { nounwind allocsize(1) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #13 = { nounwind }
+attributes #14 = { nounwind allocsize(0) }
+attributes #15 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

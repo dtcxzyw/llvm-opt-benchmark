@@ -34,12 +34,12 @@ define noundef range(i64 1, 0) i64 @_ZN9html5ever9serialize7tagname17h7b0bd583a5
     i64 17179869186, label %6
   ]
 
-6:                                                ; preds = %15, %1, %1, %1
+6:                                                ; preds = %13, %1, %1, %1
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8, !range !5, !noundef !4
   %9 = and i64 %8, 3
   %10 = icmp eq i64 %9, 0
-  br i1 %10, label %21, label %25
+  br i1 %10, label %19, label %23
 
 .critedge:                                        ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -47,16 +47,13 @@ define noundef range(i64 1, 0) i64 @_ZN9html5ever9serialize7tagname17h7b0bd583a5
   %11 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17had86ed48f0b2ede2E monotonic, align 8
   %12 = icmp ult i64 %11, 6
   tail call void @llvm.assume(i1 %12)
-  %13 = icmp ugt i64 %11, 2
-  %14 = icmp ne i64 %11, 2
-  %..i14 = zext i1 %14 to i8
-  %.0.i15 = select i1 %13, i8 -1, i8 %..i14
-  switch i8 %.0.i15, label %15 [
+  %.0.i14 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 2, i64 %11)
+  switch i8 %.0.i14, label %13 [
     i8 -1, label %.critedge11
     i8 0, label %.critedge11
   ]
 
-15:                                               ; preds = %.critedge, %.critedge11
+13:                                               ; preds = %.critedge, %.critedge11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %6
 
@@ -64,29 +61,29 @@ define noundef range(i64 1, 0) i64 @_ZN9html5ever9serialize7tagname17h7b0bd583a5
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store ptr %4, ptr %2, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h412fae17cf47cc1bE", ptr %16, align 8
+  %14 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h412fae17cf47cc1bE", ptr %14, align 8
   store ptr @anon.28dd728cb7565027754588209dbab502.15, ptr %3, align 8, !alias.scope !6, !noalias !9
-  %17 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 1, ptr %17, align 8, !alias.scope !6, !noalias !9
-  %18 = getelementptr inbounds i8, ptr %3, i64 32
-  store ptr null, ptr %18, align 8, !alias.scope !6, !noalias !9
-  %19 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr %2, ptr %19, align 8, !alias.scope !6, !noalias !9
-  %20 = getelementptr inbounds i8, ptr %3, i64 24
-  store i64 1, ptr %20, align 8, !alias.scope !6, !noalias !9
+  %15 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 1, ptr %15, align 8, !alias.scope !6, !noalias !9
+  %16 = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr null, ptr %16, align 8, !alias.scope !6, !noalias !9
+  %17 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr %2, ptr %17, align 8, !alias.scope !6, !noalias !9
+  %18 = getelementptr inbounds i8, ptr %3, i64 24
+  store i64 1, ptr %18, align 8, !alias.scope !6, !noalias !9
   call void @_ZN3log13__private_api8log_impl17h0fe6cde48349b67dE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, i64 noundef 2, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.28dd728cb7565027754588209dbab502.18, i32 noundef 70, ptr noalias noundef readonly align 8 null, i64 undef)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  br label %15
+  br label %13
 
-21:                                               ; preds = %6
-  %22 = inttoptr i64 %8 to ptr
-  %23 = getelementptr inbounds i8, ptr %22, i64 16
-  %24 = atomicrmw add ptr %23, i64 1 seq_cst, align 8
-  br label %25
+19:                                               ; preds = %6
+  %20 = inttoptr i64 %8 to ptr
+  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  %22 = atomicrmw add ptr %21, i64 1 seq_cst, align 8
+  br label %23
 
-25:                                               ; preds = %6, %21
+23:                                               ; preds = %6, %19
   ret i64 %8
 }
 
@@ -105,10 +102,14 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ucmp.i8.i64(i64, i64) #4
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}

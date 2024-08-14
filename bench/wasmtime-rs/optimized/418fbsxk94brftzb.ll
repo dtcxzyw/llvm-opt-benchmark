@@ -1983,10 +1983,7 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN78_$LT$cranelift_isle..serialize..B
 define hidden range(i8 -1, 2) i8 @"_ZN74_$LT$cranelift_isle..serialize..BindingState$u20$as$u20$core..cmp..Ord$GT$3cmp17hd281b433fef93bf3E"(ptr nocapture readonly align 1 %0, ptr nocapture readonly align 1 %1) unnamed_addr #1 {
   %3 = load i8, ptr %0, align 1, !range !17, !noundef !3
   %4 = load i8, ptr %1, align 1, !range !17, !noundef !3
-  %5 = icmp ult i8 %3, %4
-  %6 = icmp ne i8 %3, %4
-  %. = zext i1 %6 to i8
-  %.0 = select i1 %5, i8 -1, i8 %.
+  %.0 = tail call i8 @llvm.ucmp.i8.i8(i8 %3, i8 %4)
   ret i8 %.0
 }
 
@@ -2006,10 +2003,7 @@ define hidden range(i8 -1, 2) i8 @"_ZN74_$LT$cranelift_isle..serialize..Score$u2
   %10 = load i8, ptr %9, align 8, !range !17, !noundef !3
   %11 = getelementptr inbounds i8, ptr %1, i64 8
   %12 = load i8, ptr %11, align 8, !range !17, !noundef !3
-  %13 = icmp ult i8 %10, %12
-  %14 = icmp ne i8 %10, %12
-  %.13 = zext i1 %14 to i8
-  %.07 = select i1 %13, i8 -1, i8 %.13
+  %.07 = tail call i8 @llvm.ucmp.i8.i8(i8 %10, i8 %12)
   br label %.thread
 
 .thread:                                          ; preds = %2, %8, %6
@@ -2133,100 +2127,85 @@ define hidden range(i8 -1, 2) i8 @"_ZN78_$LT$cranelift_isle..serialize..Candidat
 
 6:                                                ; preds = %2
   %7 = icmp eq i64 %3, %4
-  br i1 %7, label %8, label %"_ZN83_$LT$cranelift_isle..serialize..HasControlFlow$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha1cc9627cdacb78fE.exit"
+  br i1 %7, label %"_ZN74_$LT$cranelift_isle..serialize..Score$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hc5598a647a156acdE.exit", label %"_ZN83_$LT$cranelift_isle..serialize..HasControlFlow$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha1cc9627cdacb78fE.exit"
 
-8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
-  %10 = load i8, ptr %9, align 8, !range !17, !noundef !3
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
-  %12 = load i8, ptr %11, align 8, !range !17, !noundef !3
-  %13 = icmp ult i8 %10, %12
-  br i1 %13, label %"_ZN83_$LT$cranelift_isle..serialize..HasControlFlow$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha1cc9627cdacb78fE.exit", label %"_ZN74_$LT$cranelift_isle..serialize..Score$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hc5598a647a156acdE.exit"
+"_ZN74_$LT$cranelift_isle..serialize..Score$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hc5598a647a156acdE.exit": ; preds = %6
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = load i8, ptr %8, align 8, !range !17, !noundef !3
+  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = load i8, ptr %10, align 8, !range !17, !noundef !3
+  %.07.i = tail call i8 @llvm.ucmp.i8.i8(i8 %9, i8 %11)
+  %12 = icmp eq i8 %9, %11
+  br i1 %12, label %13, label %"_ZN83_$LT$cranelift_isle..serialize..HasControlFlow$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha1cc9627cdacb78fE.exit"
 
-"_ZN74_$LT$cranelift_isle..serialize..Score$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hc5598a647a156acdE.exit": ; preds = %8
-  %.not = icmp eq i8 %10, %12
-  br i1 %.not, label %14, label %"_ZN83_$LT$cranelift_isle..serialize..HasControlFlow$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha1cc9627cdacb78fE.exit"
-
-"_ZN83_$LT$cranelift_isle..serialize..HasControlFlow$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha1cc9627cdacb78fE.exit": ; preds = %8, %2, %6, %50, %43, %41, %35, %32, %25, %"_ZN74_$LT$cranelift_isle..serialize..Score$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hc5598a647a156acdE.exit"
-  %.0 = phi i8 [ 1, %"_ZN74_$LT$cranelift_isle..serialize..Score$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hc5598a647a156acdE.exit" ], [ %.09.i, %50 ], [ %.011.i, %32 ], [ %.010.i, %43 ], [ 1, %41 ], [ %.012.i, %25 ], [ -1, %35 ], [ -1, %2 ], [ 1, %6 ], [ -1, %8 ]
+"_ZN83_$LT$cranelift_isle..serialize..HasControlFlow$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha1cc9627cdacb78fE.exit": ; preds = %2, %6, %43, %38, %36, %30, %29, %24, %"_ZN74_$LT$cranelift_isle..serialize..Score$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hc5598a647a156acdE.exit"
+  %.0 = phi i8 [ %.07.i, %"_ZN74_$LT$cranelift_isle..serialize..Score$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hc5598a647a156acdE.exit" ], [ %.09.i, %43 ], [ %.011.i, %29 ], [ %.010.i, %38 ], [ 1, %36 ], [ %.012.i, %24 ], [ -1, %30 ], [ -1, %2 ], [ 1, %6 ]
   ret i8 %.0
 
-14:                                               ; preds = %"_ZN74_$LT$cranelift_isle..serialize..Score$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hc5598a647a156acdE.exit"
-  %15 = getelementptr inbounds i8, ptr %1, i64 16
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+13:                                               ; preds = %"_ZN74_$LT$cranelift_isle..serialize..Score$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hc5598a647a156acdE.exit"
+  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = load i16, ptr %14, align 8, !range !45, !noundef !3
   %17 = load i16, ptr %15, align 8, !range !45, !noundef !3
-  %18 = load i16, ptr %16, align 8, !range !45, !noundef !3
-  switch i16 %17, label %default.unreachable [
-    i16 0, label %19
-    i16 1, label %21
-    i16 2, label %23
+  switch i16 %16, label %default.unreachable [
+    i16 0, label %18
+    i16 1, label %20
+    i16 2, label %22
   ]
 
-default.unreachable:                              ; preds = %14
+default.unreachable:                              ; preds = %13
   unreachable
 
-19:                                               ; preds = %14
-  %20 = icmp eq i16 %18, 0
-  br i1 %20, label %25, label %32
+18:                                               ; preds = %13
+  %19 = icmp eq i16 %17, 0
+  br i1 %19, label %24, label %29
 
-21:                                               ; preds = %14
-  %22 = icmp eq i16 %18, 1
-  br i1 %22, label %35, label %32
+20:                                               ; preds = %13
+  %21 = icmp eq i16 %17, 1
+  br i1 %21, label %30, label %29
 
-23:                                               ; preds = %14
-  %24 = icmp eq i16 %18, 2
-  br i1 %24, label %50, label %32
+22:                                               ; preds = %13
+  %23 = icmp eq i16 %17, 2
+  br i1 %23, label %43, label %29
 
-25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %1, i64 18
-  %27 = load i16, ptr %26, align 2, !noundef !3
-  %28 = getelementptr inbounds i8, ptr %0, i64 18
-  %29 = load i16, ptr %28, align 2, !noundef !3
-  %30 = icmp ult i16 %27, %29
-  %31 = icmp ne i16 %27, %29
-  %..i = zext i1 %31 to i8
-  %.012.i = select i1 %30, i8 -1, i8 %..i
+24:                                               ; preds = %18
+  %25 = getelementptr inbounds i8, ptr %1, i64 18
+  %26 = load i16, ptr %25, align 2, !noundef !3
+  %27 = getelementptr inbounds i8, ptr %0, i64 18
+  %28 = load i16, ptr %27, align 2, !noundef !3
+  %.012.i = tail call i8 @llvm.ucmp.i8.i16(i16 %26, i16 %28)
   br label %"_ZN83_$LT$cranelift_isle..serialize..HasControlFlow$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha1cc9627cdacb78fE.exit"
 
-32:                                               ; preds = %23, %21, %19
-  %33 = icmp ult i16 %17, %18
-  %34 = icmp ne i16 %17, %18
-  %.28.i = zext i1 %34 to i8
-  %.011.i = select i1 %33, i8 -1, i8 %.28.i
+29:                                               ; preds = %22, %20, %18
+  %.011.i = tail call i8 @llvm.ucmp.i8.i16(i16 %16, i16 %17)
   br label %"_ZN83_$LT$cranelift_isle..serialize..HasControlFlow$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha1cc9627cdacb78fE.exit"
 
-35:                                               ; preds = %21
-  %36 = getelementptr inbounds i8, ptr %1, i64 18
-  %37 = load i16, ptr %36, align 2, !noundef !3
-  %38 = getelementptr inbounds i8, ptr %0, i64 18
-  %39 = load i16, ptr %38, align 2, !noundef !3
-  %40 = icmp ult i16 %37, %39
-  br i1 %40, label %"_ZN83_$LT$cranelift_isle..serialize..HasControlFlow$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha1cc9627cdacb78fE.exit", label %41
+30:                                               ; preds = %20
+  %31 = getelementptr inbounds i8, ptr %1, i64 18
+  %32 = load i16, ptr %31, align 2, !noundef !3
+  %33 = getelementptr inbounds i8, ptr %0, i64 18
+  %34 = load i16, ptr %33, align 2, !noundef !3
+  %35 = icmp ult i16 %32, %34
+  br i1 %35, label %"_ZN83_$LT$cranelift_isle..serialize..HasControlFlow$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha1cc9627cdacb78fE.exit", label %36
 
-41:                                               ; preds = %35
-  %42 = icmp eq i16 %37, %39
-  br i1 %42, label %43, label %"_ZN83_$LT$cranelift_isle..serialize..HasControlFlow$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha1cc9627cdacb78fE.exit"
+36:                                               ; preds = %30
+  %37 = icmp eq i16 %32, %34
+  br i1 %37, label %38, label %"_ZN83_$LT$cranelift_isle..serialize..HasControlFlow$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha1cc9627cdacb78fE.exit"
 
-43:                                               ; preds = %41
-  %44 = getelementptr inbounds i8, ptr %1, i64 20
-  %45 = load i16, ptr %44, align 4, !noundef !3
-  %46 = getelementptr inbounds i8, ptr %0, i64 20
-  %47 = load i16, ptr %46, align 4, !noundef !3
-  %48 = icmp ult i16 %45, %47
-  %49 = icmp ne i16 %45, %47
-  %.26.i = zext i1 %49 to i8
-  %.010.i = select i1 %48, i8 -1, i8 %.26.i
+38:                                               ; preds = %36
+  %39 = getelementptr inbounds i8, ptr %1, i64 20
+  %40 = load i16, ptr %39, align 4, !noundef !3
+  %41 = getelementptr inbounds i8, ptr %0, i64 20
+  %42 = load i16, ptr %41, align 4, !noundef !3
+  %.010.i = tail call i8 @llvm.ucmp.i8.i16(i16 %40, i16 %42)
   br label %"_ZN83_$LT$cranelift_isle..serialize..HasControlFlow$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha1cc9627cdacb78fE.exit"
 
-50:                                               ; preds = %23
-  %51 = getelementptr inbounds i8, ptr %1, i64 18
-  %52 = load i16, ptr %51, align 2, !noundef !3
-  %53 = getelementptr inbounds i8, ptr %0, i64 18
-  %54 = load i16, ptr %53, align 2, !noundef !3
-  %55 = icmp ult i16 %52, %54
-  %56 = icmp ne i16 %52, %54
-  %.27.i = zext i1 %56 to i8
-  %.09.i = select i1 %55, i8 -1, i8 %.27.i
+43:                                               ; preds = %22
+  %44 = getelementptr inbounds i8, ptr %1, i64 18
+  %45 = load i16, ptr %44, align 2, !noundef !3
+  %46 = getelementptr inbounds i8, ptr %0, i64 18
+  %47 = load i16, ptr %46, align 2, !noundef !3
+  %.09.i = tail call i8 @llvm.ucmp.i8.i16(i16 %45, i16 %47)
   br label %"_ZN83_$LT$cranelift_isle..serialize..HasControlFlow$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha1cc9627cdacb78fE.exit"
 }
 
@@ -2498,6 +2477,12 @@ declare i16 @llvm.umin.i16(i16, i16) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umax.i16(i16, i16) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ucmp.i8.i8(i8, i8) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ucmp.i8.i16(i16, i16) #11
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

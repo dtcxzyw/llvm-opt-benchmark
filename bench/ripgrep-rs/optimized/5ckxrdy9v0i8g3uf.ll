@@ -169,8 +169,8 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN4core4cell4on
 
 ; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: write) uwtable
 define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hd17c312c0b354147E.llvm.6679066857390535418"(ptr noalias nocapture noundef nonnull readonly align 8 %0, i64 noundef %1, ptr noalias nocapture noundef nonnull readnone align 1 %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %.not29 = icmp eq i64 %1, 0
-  br i1 %.not29, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %.val4.i = load ptr, ptr %3, align 8, !nonnull !5, !align !29, !noundef !5
@@ -178,16 +178,16 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16bina
   %.val5.i = load i64, ptr %5, align 8, !noundef !5
   br label %7
 
-._crit_edge:                                      ; preds = %19, %4
-  %.019.lcssa = phi i64 [ 0, %4 ], [ %.022, %19 ]
+._crit_edge:                                      ; preds = %20, %4
+  %.019.lcssa = phi i64 [ 0, %4 ], [ %.022, %20 ]
   %6 = icmp ule i64 %.019.lcssa, %1
   tail call void @llvm.assume(i1 %6)
   br label %.loopexit
 
-7:                                                ; preds = %.lr.ph, %19
-  %.028 = phi i64 [ %1, %.lr.ph ], [ %23, %19 ]
-  %.01927 = phi i64 [ 0, %.lr.ph ], [ %.022, %19 ]
-  %.02026 = phi i64 [ %1, %.lr.ph ], [ %.021, %19 ]
+7:                                                ; preds = %.lr.ph, %20
+  %.028 = phi i64 [ %1, %.lr.ph ], [ %24, %20 ]
+  %.01927 = phi i64 [ 0, %.lr.ph ], [ %.022, %20 ]
+  %.02026 = phi i64 [ %1, %.lr.ph ], [ %.021, %20 ]
   %8 = lshr i64 %.028, 1
   %9 = add i64 %8, %.01927
   %10 = icmp ult i64 %9, %1
@@ -202,33 +202,33 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16bina
   %15 = sext i32 %14 to i64
   %16 = icmp eq i32 %14, 0
   %spec.store.select.i.i.i.i = select i1 %16, i64 %13, i64 %15
-  %.not = icmp eq i64 %spec.store.select.i.i.i.i, 0
-  br i1 %.not, label %.loopexit, label %19
+  %17 = icmp eq i64 %spec.store.select.i.i.i.i, 0
+  br i1 %17, label %.loopexit, label %20
 
 .loopexit:                                        ; preds = %7, %._crit_edge
   %.sroa.3.0 = phi i64 [ %.019.lcssa, %._crit_edge ], [ %9, %7 ]
   %.sroa.0.0 = phi i64 [ 1, %._crit_edge ], [ 0, %7 ]
-  %17 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %18 = insertvalue { i64, i64 } %17, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %18
+  %18 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %19 = insertvalue { i64, i64 } %18, i64 %.sroa.3.0, 1
+  ret { i64, i64 } %19
 
-19:                                               ; preds = %7
-  %20 = icmp sgt i64 %spec.store.select.i.i.i.i, 0
-  %.021 = select i1 %20, i64 %9, i64 %.02026
-  %21 = add nuw i64 %9, 1
+20:                                               ; preds = %7
+  %21 = icmp sgt i64 %spec.store.select.i.i.i.i, 0
+  %.021 = select i1 %21, i64 %9, i64 %.02026
   %22 = icmp slt i64 %spec.store.select.i.i.i.i, 0
-  %.022 = select i1 %22, i64 %21, i64 %.01927
-  %23 = sub i64 %.021, %.022
-  %24 = icmp ult i64 %.022, %.021
-  br i1 %24, label %7, label %._crit_edge
+  %23 = add nuw i64 %9, 1
+  %.022 = select i1 %22, i64 %23, i64 %.01927
+  %24 = sub i64 %.021, %.022
+  %25 = icmp ult i64 %.022, %.021
+  br i1 %25, label %7, label %._crit_edge
 }
 
 ; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
 define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h946d5981ec162034E.llvm.6679066857390535418"(ptr noalias nocapture noundef nonnull readonly align 8 %0, i64 noundef %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
-  %.not29.i = icmp eq i64 %1, 0
-  br i1 %.not29.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not.i = icmp eq i64 %1, 0
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
   %.val4.i.i = load ptr, ptr %2, align 8, !alias.scope !53, !noalias !50, !nonnull !5, !align !29, !noundef !5
@@ -236,16 +236,16 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20bina
   %.val5.i.i = load i64, ptr %4, align 8, !alias.scope !53, !noalias !50, !noundef !5
   br label %6
 
-._crit_edge.i:                                    ; preds = %16, %3
-  %.019.lcssa.i = phi i64 [ 0, %3 ], [ %.022.i, %16 ]
+._crit_edge.i:                                    ; preds = %17, %3
+  %.019.lcssa.i = phi i64 [ 0, %3 ], [ %.022.i, %17 ]
   %5 = icmp ule i64 %.019.lcssa.i, %1
   tail call void @llvm.assume(i1 %5)
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hd17c312c0b354147E.llvm.6679066857390535418.exit"
 
-6:                                                ; preds = %16, %.lr.ph.i
-  %.028.i = phi i64 [ %1, %.lr.ph.i ], [ %20, %16 ]
-  %.01927.i = phi i64 [ 0, %.lr.ph.i ], [ %.022.i, %16 ]
-  %.02026.i = phi i64 [ %1, %.lr.ph.i ], [ %.021.i, %16 ]
+6:                                                ; preds = %17, %.lr.ph.i
+  %.028.i = phi i64 [ %1, %.lr.ph.i ], [ %21, %17 ]
+  %.01927.i = phi i64 [ 0, %.lr.ph.i ], [ %.022.i, %17 ]
+  %.02026.i = phi i64 [ %1, %.lr.ph.i ], [ %.021.i, %17 ]
   %7 = lshr i64 %.028.i, 1
   %8 = add i64 %7, %.01927.i
   %9 = icmp ult i64 %8, %1
@@ -260,25 +260,25 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20bina
   %14 = sext i32 %13 to i64
   %15 = icmp eq i32 %13, 0
   %spec.store.select.i.i.i.i.i = select i1 %15, i64 %12, i64 %14
-  %.not.i = icmp eq i64 %spec.store.select.i.i.i.i.i, 0
-  br i1 %.not.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hd17c312c0b354147E.llvm.6679066857390535418.exit", label %16
+  %16 = icmp eq i64 %spec.store.select.i.i.i.i.i, 0
+  br i1 %16, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hd17c312c0b354147E.llvm.6679066857390535418.exit", label %17
 
-16:                                               ; preds = %6
-  %17 = icmp sgt i64 %spec.store.select.i.i.i.i.i, 0
-  %.021.i = select i1 %17, i64 %8, i64 %.02026.i
-  %18 = add nuw i64 %8, 1
+17:                                               ; preds = %6
+  %18 = icmp sgt i64 %spec.store.select.i.i.i.i.i, 0
+  %.021.i = select i1 %18, i64 %8, i64 %.02026.i
   %19 = icmp slt i64 %spec.store.select.i.i.i.i.i, 0
-  %.022.i = select i1 %19, i64 %18, i64 %.01927.i
-  %20 = sub i64 %.021.i, %.022.i
-  %21 = icmp ult i64 %.022.i, %.021.i
-  br i1 %21, label %6, label %._crit_edge.i
+  %20 = add nuw i64 %8, 1
+  %.022.i = select i1 %19, i64 %20, i64 %.01927.i
+  %21 = sub i64 %.021.i, %.022.i
+  %22 = icmp ult i64 %.022.i, %.021.i
+  br i1 %22, label %6, label %._crit_edge.i
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hd17c312c0b354147E.llvm.6679066857390535418.exit": ; preds = %6, %._crit_edge.i
   %.sroa.3.0.i = phi i64 [ %.019.lcssa.i, %._crit_edge.i ], [ %8, %6 ]
   %.sroa.0.0.i = phi i64 [ 1, %._crit_edge.i ], [ 0, %6 ]
-  %22 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
-  %23 = insertvalue { i64, i64 } %22, i64 %.sroa.3.0.i, 1
-  ret { i64, i64 } %23
+  %23 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
+  %24 = insertvalue { i64, i64 } %23, i64 %.sroa.3.0.i, 1
+  ret { i64, i64 } %24
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -320,10 +320,10 @@ define hidden { ptr, i64 } @_ZN12grep_printer17hyperlink_aliases4find17h74de6dce
   tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
   br label %3
 
-3:                                                ; preds = %13, %2
-  %.028.i.i = phi i64 [ 10, %2 ], [ %17, %13 ]
-  %.01927.i.i = phi i64 [ 0, %2 ], [ %.022.i.i, %13 ]
-  %.02026.i.i = phi i64 [ 10, %2 ], [ %.021.i.i, %13 ]
+3:                                                ; preds = %14, %2
+  %.028.i.i = phi i64 [ 10, %2 ], [ %18, %14 ]
+  %.01927.i.i = phi i64 [ 0, %2 ], [ %.022.i.i, %14 ]
+  %.02026.i.i = phi i64 [ 10, %2 ], [ %.021.i.i, %14 ]
   %4 = lshr i64 %.028.i.i, 1
   %5 = add i64 %4, %.01927.i.i
   %6 = icmp ult i64 %5, 10
@@ -338,37 +338,37 @@ define hidden { ptr, i64 } @_ZN12grep_printer17hyperlink_aliases4find17h74de6dce
   %11 = sext i32 %10 to i64
   %12 = icmp eq i32 %10, 0
   %spec.store.select.i.i.i.i.i.i = select i1 %12, i64 %9, i64 %11
-  %.not.i.i = icmp eq i64 %spec.store.select.i.i.i.i.i.i, 0
-  br i1 %.not.i.i, label %"_ZN12grep_printer17hyperlink_aliases4find28_$u7b$$u7b$closure$u7d$$u7d$17h797a182f808414daE.llvm.6679066857390535418.exit.i", label %13
+  %13 = icmp eq i64 %spec.store.select.i.i.i.i.i.i, 0
+  br i1 %13, label %"_ZN12grep_printer17hyperlink_aliases4find28_$u7b$$u7b$closure$u7d$$u7d$17h797a182f808414daE.llvm.6679066857390535418.exit.i", label %14
 
-13:                                               ; preds = %3
-  %14 = icmp sgt i64 %spec.store.select.i.i.i.i.i.i, 0
-  %.021.i.i = select i1 %14, i64 %5, i64 %.02026.i.i
-  %15 = add nuw nsw i64 %5, 1
+14:                                               ; preds = %3
+  %15 = icmp sgt i64 %spec.store.select.i.i.i.i.i.i, 0
+  %.021.i.i = select i1 %15, i64 %5, i64 %.02026.i.i
   %16 = icmp slt i64 %spec.store.select.i.i.i.i.i.i, 0
-  %.022.i.i = select i1 %16, i64 %15, i64 %.01927.i.i
-  %17 = sub i64 %.021.i.i, %.022.i.i
-  %18 = icmp ult i64 %.022.i.i, %.021.i.i
-  br i1 %18, label %3, label %23
+  %17 = add nuw nsw i64 %5, 1
+  %.022.i.i = select i1 %16, i64 %17, i64 %.01927.i.i
+  %18 = sub i64 %.021.i.i, %.022.i.i
+  %19 = icmp ult i64 %.022.i.i, %.021.i.i
+  br i1 %19, label %3, label %24
 
 "_ZN12grep_printer17hyperlink_aliases4find28_$u7b$$u7b$closure$u7d$$u7d$17h797a182f808414daE.llvm.6679066857390535418.exit.i": ; preds = %3
-  %19 = getelementptr inbounds [0 x { { ptr, i64 }, { ptr, i64 } }], ptr @anon.0923cb38b7fdc9785e1561170331db22.28.llvm.6679066857390535418, i64 0, i64 %5, i32 1
-  %20 = load ptr, ptr %19, align 8, !noalias !82, !nonnull !5, !align !29, !noundef !5
-  %21 = getelementptr inbounds i8, ptr %19, i64 8
-  %22 = load i64, ptr %21, align 8, !noalias !82, !noundef !5
+  %20 = getelementptr inbounds [0 x { { ptr, i64 }, { ptr, i64 } }], ptr @anon.0923cb38b7fdc9785e1561170331db22.28.llvm.6679066857390535418, i64 0, i64 %5, i32 1
+  %21 = load ptr, ptr %20, align 8, !noalias !82, !nonnull !5, !align !29, !noundef !5
+  %22 = getelementptr inbounds i8, ptr %20, i64 8
+  %23 = load i64, ptr %22, align 8, !noalias !82, !noundef !5
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6a87aff857aa28b1E.llvm.6679066857390535418.exit"
 
-23:                                               ; preds = %13
-  %24 = icmp ult i64 %.022.i.i, 11
-  tail call void @llvm.assume(i1 %24)
+24:                                               ; preds = %14
+  %25 = icmp ult i64 %.022.i.i, 11
+  tail call void @llvm.assume(i1 %25)
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6a87aff857aa28b1E.llvm.6679066857390535418.exit"
 
-"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6a87aff857aa28b1E.llvm.6679066857390535418.exit": ; preds = %"_ZN12grep_printer17hyperlink_aliases4find28_$u7b$$u7b$closure$u7d$$u7d$17h797a182f808414daE.llvm.6679066857390535418.exit.i", %23
-  %.sroa.01.0 = phi ptr [ %20, %"_ZN12grep_printer17hyperlink_aliases4find28_$u7b$$u7b$closure$u7d$$u7d$17h797a182f808414daE.llvm.6679066857390535418.exit.i" ], [ null, %23 ]
-  %.sroa.5.0 = phi i64 [ %22, %"_ZN12grep_printer17hyperlink_aliases4find28_$u7b$$u7b$closure$u7d$$u7d$17h797a182f808414daE.llvm.6679066857390535418.exit.i" ], [ %.022.i.i, %23 ]
-  %25 = insertvalue { ptr, i64 } poison, ptr %.sroa.01.0, 0
-  %26 = insertvalue { ptr, i64 } %25, i64 %.sroa.5.0, 1
-  ret { ptr, i64 } %26
+"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6a87aff857aa28b1E.llvm.6679066857390535418.exit": ; preds = %"_ZN12grep_printer17hyperlink_aliases4find28_$u7b$$u7b$closure$u7d$$u7d$17h797a182f808414daE.llvm.6679066857390535418.exit.i", %24
+  %.sroa.01.0 = phi ptr [ %21, %"_ZN12grep_printer17hyperlink_aliases4find28_$u7b$$u7b$closure$u7d$$u7d$17h797a182f808414daE.llvm.6679066857390535418.exit.i" ], [ null, %24 ]
+  %.sroa.5.0 = phi i64 [ %23, %"_ZN12grep_printer17hyperlink_aliases4find28_$u7b$$u7b$closure$u7d$$u7d$17h797a182f808414daE.llvm.6679066857390535418.exit.i" ], [ %.022.i.i, %24 ]
+  %26 = insertvalue { ptr, i64 } poison, ptr %.sroa.01.0, 0
+  %27 = insertvalue { ptr, i64 } %26, i64 %.sroa.5.0, 1
+  ret { ptr, i64 } %27
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

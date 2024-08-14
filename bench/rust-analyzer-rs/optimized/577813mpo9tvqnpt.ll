@@ -20177,128 +20177,124 @@ define hidden void @_ZN5rowan11syntax_text10SyntaxText5slice17h59c6447eb7f7d6b3E
   %11 = getelementptr inbounds i8, ptr %1, i64 8
   %12 = load i32, ptr %11, align 8, !noundef !8
   %13 = getelementptr inbounds i8, ptr %1, i64 12
-  %14 = icmp ult i32 %2, %3
-  %15 = icmp ne i32 %2, %3
-  %. = zext i1 %15 to i8
-  %.030 = select i1 %14, i8 -1, i8 %.
-  switch i8 %.030, label %19 [
+  %.030 = tail call i8 @llvm.ucmp.i8.i32(i32 %2, i32 %3)
+  switch i8 %.030, label %18 [
     i8 -1, label %.critedge
     i8 0, label %.critedge
   ]
 
 .critedge:                                        ; preds = %4, %4
-  %16 = add i32 %12, %2
-  %17 = add i32 %12, %3
-  %18 = icmp ult i32 %16, %17
-  %.029 = select i1 %18, i8 -1, i8 %.
-  switch i8 %.029, label %20 [
+  %14 = icmp ne i32 %2, %3
+  %. = zext i1 %14 to i8
+  %15 = add i32 %12, %2
+  %16 = add i32 %12, %3
+  %17 = icmp ult i32 %15, %16
+  %.029 = select i1 %17, i8 -1, i8 %.
+  switch i8 %.029, label %19 [
     i8 -1, label %.critedge39
     i8 0, label %.critedge39
   ]
 
-19:                                               ; preds = %4
+18:                                               ; preds = %4
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.d0ab522f289baf4cd42b9be0acdbaeb6.166, i64 noundef 30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d0ab522f289baf4cd42b9be0acdbaeb6.168) #23
   unreachable
 
 .critedge39:                                      ; preds = %.critedge, %.critedge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %.not = icmp ugt i32 %16, %17
-  br i1 %.not, label %31, label %32
+  %.not = icmp ugt i32 %15, %16
+  br i1 %.not, label %30, label %31
 
-20:                                               ; preds = %.critedge
+19:                                               ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   store i32 1, ptr %8, align 4
-  %21 = getelementptr inbounds i8, ptr %8, i64 4
-  store i32 %2, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 1, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %8, i64 12
-  store i32 %3, ptr %23, align 4
+  %20 = getelementptr inbounds i8, ptr %8, i64 4
+  store i32 %2, ptr %20, align 4
+  %21 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 1, ptr %21, align 4
+  %22 = getelementptr inbounds i8, ptr %8, i64 12
+  store i32 %3, ptr %22, align 4
   store ptr %11, ptr %9, align 8
-  %24 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr @"_ZN64_$LT$text_size..range..TextRange$u20$as$u20$core..fmt..Debug$GT$3fmt17heb0fef75ad8800b4E", ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr %8, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %9, i64 24
-  store ptr @"_ZN50_$LT$$LP$U$C$T$RP$$u20$as$u20$core..fmt..Debug$GT$3fmt17hce0e44e1f5ea43edE", ptr %26, align 8
+  %23 = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr @"_ZN64_$LT$text_size..range..TextRange$u20$as$u20$core..fmt..Debug$GT$3fmt17heb0fef75ad8800b4E", ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %9, i64 16
+  store ptr %8, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %9, i64 24
+  store ptr @"_ZN50_$LT$$LP$U$C$T$RP$$u20$as$u20$core..fmt..Debug$GT$3fmt17hce0e44e1f5ea43edE", ptr %25, align 8
   store ptr @anon.d0ab522f289baf4cd42b9be0acdbaeb6.171, ptr %10, align 8, !alias.scope !1744, !noalias !1747
-  %27 = getelementptr inbounds i8, ptr %10, i64 8
-  store i64 2, ptr %27, align 8, !alias.scope !1744, !noalias !1747
-  %28 = getelementptr inbounds i8, ptr %10, i64 32
-  store ptr null, ptr %28, align 8, !alias.scope !1744, !noalias !1747
-  %29 = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr %9, ptr %29, align 8, !alias.scope !1744, !noalias !1747
-  %30 = getelementptr inbounds i8, ptr %10, i64 24
-  store i64 2, ptr %30, align 8, !alias.scope !1744, !noalias !1747
+  %26 = getelementptr inbounds i8, ptr %10, i64 8
+  store i64 2, ptr %26, align 8, !alias.scope !1744, !noalias !1747
+  %27 = getelementptr inbounds i8, ptr %10, i64 32
+  store ptr null, ptr %27, align 8, !alias.scope !1744, !noalias !1747
+  %28 = getelementptr inbounds i8, ptr %10, i64 16
+  store ptr %9, ptr %28, align 8, !alias.scope !1744, !noalias !1747
+  %29 = getelementptr inbounds i8, ptr %10, i64 24
+  store i64 2, ptr %29, align 8, !alias.scope !1744, !noalias !1747
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d0ab522f289baf4cd42b9be0acdbaeb6.172) #23
   unreachable
 
-31:                                               ; preds = %.critedge39
+30:                                               ; preds = %.critedge39
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.d0ab522f289baf4cd42b9be0acdbaeb6.173, i64 noundef 38, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d0ab522f289baf4cd42b9be0acdbaeb6.175) #23
   unreachable
 
-32:                                               ; preds = %.critedge39
-  store i32 %16, ptr %7, align 4
-  %33 = getelementptr inbounds i8, ptr %7, i64 4
-  store i32 %17, ptr %33, align 4
-  %34 = icmp ult i32 %12, %16
-  %35 = icmp ne i32 %2, 0
-  %..i = zext i1 %35 to i8
-  %.012.i = select i1 %34, i8 -1, i8 %..i
+31:                                               ; preds = %.critedge39
+  store i32 %15, ptr %7, align 4
+  %32 = getelementptr inbounds i8, ptr %7, i64 4
+  store i32 %16, ptr %32, align 4
+  %.012.i = tail call i8 @llvm.ucmp.i8.i32(i32 %12, i32 %15)
   switch i8 %.012.i, label %_ZN9text_size5range9TextRange14contains_range17h647aeeafda0cedbfE.exit.thread [
     i8 -1, label %_ZN9text_size5range9TextRange14contains_range17h647aeeafda0cedbfE.exit
     i8 0, label %_ZN9text_size5range9TextRange14contains_range17h647aeeafda0cedbfE.exit
   ]
 
-_ZN9text_size5range9TextRange14contains_range17h647aeeafda0cedbfE.exit: ; preds = %32, %32
-  %36 = load i32, ptr %13, align 4, !noundef !8
-  %.not.i.not = icmp ugt i32 %17, %36
-  br i1 %.not.i.not, label %_ZN9text_size5range9TextRange14contains_range17h647aeeafda0cedbfE.exit.thread, label %44
+_ZN9text_size5range9TextRange14contains_range17h647aeeafda0cedbfE.exit: ; preds = %31, %31
+  %33 = load i32, ptr %13, align 4, !noundef !8
+  %switch.selectcmp.i.not = icmp ugt i32 %16, %33
+  br i1 %switch.selectcmp.i.not, label %_ZN9text_size5range9TextRange14contains_range17h647aeeafda0cedbfE.exit.thread, label %41
 
-_ZN9text_size5range9TextRange14contains_range17h647aeeafda0cedbfE.exit.thread: ; preds = %32, %_ZN9text_size5range9TextRange14contains_range17h647aeeafda0cedbfE.exit
+_ZN9text_size5range9TextRange14contains_range17h647aeeafda0cedbfE.exit.thread: ; preds = %31, %_ZN9text_size5range9TextRange14contains_range17h647aeeafda0cedbfE.exit
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   store ptr %11, ptr %5, align 8
-  %37 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr @"_ZN64_$LT$text_size..range..TextRange$u20$as$u20$core..fmt..Debug$GT$3fmt17heb0fef75ad8800b4E", ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr %7, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr @"_ZN64_$LT$text_size..range..TextRange$u20$as$u20$core..fmt..Debug$GT$3fmt17heb0fef75ad8800b4E", ptr %39, align 8
+  %34 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr @"_ZN64_$LT$text_size..range..TextRange$u20$as$u20$core..fmt..Debug$GT$3fmt17heb0fef75ad8800b4E", ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr %7, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %5, i64 24
+  store ptr @"_ZN64_$LT$text_size..range..TextRange$u20$as$u20$core..fmt..Debug$GT$3fmt17heb0fef75ad8800b4E", ptr %36, align 8
   store ptr @anon.d0ab522f289baf4cd42b9be0acdbaeb6.171, ptr %6, align 8, !alias.scope !1750, !noalias !1753
-  %40 = getelementptr inbounds i8, ptr %6, i64 8
+  %37 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 2, ptr %37, align 8, !alias.scope !1750, !noalias !1753
+  %38 = getelementptr inbounds i8, ptr %6, i64 32
+  store ptr null, ptr %38, align 8, !alias.scope !1750, !noalias !1753
+  %39 = getelementptr inbounds i8, ptr %6, i64 16
+  store ptr %5, ptr %39, align 8, !alias.scope !1750, !noalias !1753
+  %40 = getelementptr inbounds i8, ptr %6, i64 24
   store i64 2, ptr %40, align 8, !alias.scope !1750, !noalias !1753
-  %41 = getelementptr inbounds i8, ptr %6, i64 32
-  store ptr null, ptr %41, align 8, !alias.scope !1750, !noalias !1753
-  %42 = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr %5, ptr %42, align 8, !alias.scope !1750, !noalias !1753
-  %43 = getelementptr inbounds i8, ptr %6, i64 24
-  store i64 2, ptr %43, align 8, !alias.scope !1750, !noalias !1753
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d0ab522f289baf4cd42b9be0acdbaeb6.176) #23
   unreachable
 
-44:                                               ; preds = %_ZN9text_size5range9TextRange14contains_range17h647aeeafda0cedbfE.exit
-  %45 = load ptr, ptr %1, align 8, !nonnull !8, !noundef !8
-  %46 = getelementptr inbounds i8, ptr %45, i64 48
-  %47 = load i32, ptr %46, align 4, !noundef !8
-  %48 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %47, i32 1)
-  %49 = extractvalue { i32, i1 } %48, 1
-  br i1 %49, label %50, label %_ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.exit
+41:                                               ; preds = %_ZN9text_size5range9TextRange14contains_range17h647aeeafda0cedbfE.exit
+  %42 = load ptr, ptr %1, align 8, !nonnull !8, !noundef !8
+  %43 = getelementptr inbounds i8, ptr %42, i64 48
+  %44 = load i32, ptr %43, align 4, !noundef !8
+  %45 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %44, i32 1)
+  %46 = extractvalue { i32, i1 } %45, 1
+  br i1 %46, label %47, label %_ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.exit
 
-50:                                               ; preds = %44
+47:                                               ; preds = %41
   tail call void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #23
   unreachable
 
-_ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.exit: ; preds = %44
-  %51 = extractvalue { i32, i1 } %48, 0
-  store i32 %51, ptr %46, align 4
-  store ptr %45, ptr %0, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %16, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 12
-  store i32 %17, ptr %53, align 4
+_ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.exit: ; preds = %41
+  %48 = extractvalue { i32, i1 } %45, 0
+  store i32 %48, ptr %43, align 4
+  store ptr %42, ptr %0, align 8
+  %49 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %15, ptr %49, align 8
+  %50 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 %16, ptr %50, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret void
 }
@@ -20366,8 +20362,8 @@ _ZN9text_size5range9TextRange14contains_range17h647aeeafda0cedbfE.exit: ; preds 
   %27 = getelementptr inbounds i8, ptr %6, i64 4
   store i32 %13, ptr %27, align 4
   %28 = load i32, ptr %12, align 4, !noundef !8
-  %.not.i.not = icmp ugt i32 %13, %28
-  br i1 %.not.i.not, label %29, label %37
+  %switch.selectcmp.i.not = icmp ugt i32 %13, %28
+  br i1 %switch.selectcmp.i.not, label %29, label %37
 
 29:                                               ; preds = %_ZN9text_size5range9TextRange14contains_range17h647aeeafda0cedbfE.exit
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
@@ -28185,6 +28181,9 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #22
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ucmp.i8.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #20

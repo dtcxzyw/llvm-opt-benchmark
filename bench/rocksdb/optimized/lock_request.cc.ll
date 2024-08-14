@@ -689,13 +689,13 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %4, i64 %idxprom.i.i.i
   %5 = load ptr, ptr %arrayidx.i.i.i, align 8
   %6 = load i64, ptr %5, align 8
-  %cmp.i.i.i.i = icmp ult i64 %6, %call2
+  %cmp7.i.i.i = icmp ult i64 %6, %call2
   %add8.i.i.i = add nuw i32 %div16.i.i.i, 1
-  %cmp1.i.not.i.i.i = icmp eq i64 %6, %call2
-  %div16.best_zero.0.i.i.i = select i1 %cmp1.i.not.i.i.i, i32 %div16.i.i.i, i32 %best_zero.020.i.i.i
-  %limit.1.i.i.i = select i1 %cmp.i.i.i.i, i32 %limit.018.i.i.i, i32 %div16.i.i.i
-  %best_zero.1.i.i.i = select i1 %cmp.i.i.i.i, i32 %best_zero.020.i.i.i, i32 %div16.best_zero.0.i.i.i
-  %min.1.i.i.i = select i1 %cmp.i.i.i.i, i32 %add8.i.i.i, i32 %min.021.i.i.i
+  %cmp9.not.i.i.i = icmp eq i64 %6, %call2
+  %div16.best_zero.0.i.i.i = select i1 %cmp9.not.i.i.i, i32 %div16.i.i.i, i32 %best_zero.020.i.i.i
+  %limit.1.i.i.i = select i1 %cmp7.i.i.i, i32 %limit.018.i.i.i, i32 %div16.i.i.i
+  %best_zero.1.i.i.i = select i1 %cmp7.i.i.i, i32 %best_zero.020.i.i.i, i32 %div16.best_zero.0.i.i.i
+  %min.1.i.i.i = select i1 %cmp7.i.i.i, i32 %add8.i.i.i, i32 %min.021.i.i.i
   %cmp.not.i.i.i = icmp eq i32 %min.1.i.i.i, %limit.1.i.i.i
   br i1 %cmp.not.i.i.i, label %while.end.i.i.i, label %while.body.i.i.i, !llvm.loop !4
 
@@ -807,17 +807,17 @@ while.body.i.i:                                   ; preds = %if.end12.i.i, %whil
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %4, i64 %idxprom.i.i
   %6 = load ptr, ptr %arrayidx.i.i, align 8
   %7 = load i64, ptr %6, align 8
-  %cmp.i.i.i = icmp ult i64 %7, %5
-  br i1 %cmp.i.i.i, label %if.then.i.i, label %if.else.i.i
+  %cmp7.i.i = icmp ult i64 %7, %5
+  br i1 %cmp7.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %while.body.i.i
   %add8.i.i = add nuw i32 %div16.i.i, 1
   br label %if.end12.i.i
 
 if.else.i.i:                                      ; preds = %while.body.i.i
-  %cmp1.i.not.i.i = icmp eq i64 %7, %5
-  %best_pos.0.div16.i.i = select i1 %cmp1.i.not.i.i, i32 %best_pos.019.i.i, i32 %div16.i.i
-  %div16.best_zero.0.i.i = select i1 %cmp1.i.not.i.i, i32 %div16.i.i, i32 %best_zero.020.i.i
+  %cmp9.not.i.i = icmp eq i64 %7, %5
+  %best_pos.0.div16.i.i = select i1 %cmp9.not.i.i, i32 %best_pos.019.i.i, i32 %div16.i.i
+  %div16.best_zero.0.i.i = select i1 %cmp9.not.i.i, i32 %div16.i.i, i32 %best_zero.020.i.i
   br label %if.end12.i.i
 
 if.end12.i.i:                                     ; preds = %if.else.i.i, %if.then.i.i
@@ -1185,17 +1185,17 @@ while.body.i.i:                                   ; preds = %if.end12.i.i, %whil
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %4, i64 %idxprom.i.i
   %6 = load ptr, ptr %arrayidx.i.i, align 8
   %7 = load i64, ptr %6, align 8
-  %cmp.i.i.i = icmp ult i64 %7, %5
-  br i1 %cmp.i.i.i, label %if.then.i.i, label %if.else.i.i
+  %cmp7.i.i = icmp ult i64 %7, %5
+  br i1 %cmp7.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %while.body.i.i
   %add8.i.i = add nuw i32 %div16.i.i, 1
   br label %if.end12.i.i
 
 if.else.i.i:                                      ; preds = %while.body.i.i
-  %cmp1.i.not.i.i = icmp eq i64 %7, %5
-  %best_pos.0.div16.i.i = select i1 %cmp1.i.not.i.i, i32 %best_pos.019.i.i, i32 %div16.i.i
-  %div16.best_zero.0.i.i = select i1 %cmp1.i.not.i.i, i32 %div16.i.i, i32 %best_zero.020.i.i
+  %cmp9.not.i.i = icmp eq i64 %7, %5
+  %best_pos.0.div16.i.i = select i1 %cmp9.not.i.i, i32 %best_pos.019.i.i, i32 %div16.i.i
+  %div16.best_zero.0.i.i = select i1 %cmp9.not.i.i, i32 %div16.i.i, i32 %best_zero.020.i.i
   br label %if.end12.i.i
 
 if.end12.i.i:                                     ; preds = %if.else.i.i, %if.then.i.i
@@ -1286,17 +1286,17 @@ while.body.i.i:                                   ; preds = %if.end12.i.i, %whil
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %4, i64 %idxprom.i.i
   %6 = load ptr, ptr %arrayidx.i.i, align 8
   %7 = load i64, ptr %6, align 8
-  %cmp.i.i.i = icmp ult i64 %7, %5
-  br i1 %cmp.i.i.i, label %if.then.i.i, label %if.else.i.i
+  %cmp7.i.i = icmp ult i64 %7, %5
+  br i1 %cmp7.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %while.body.i.i
   %add8.i.i = add nuw i32 %div16.i.i, 1
   br label %if.end12.i.i
 
 if.else.i.i:                                      ; preds = %while.body.i.i
-  %cmp1.i.not.i.i = icmp eq i64 %7, %5
-  %best_pos.0.div16.i.i = select i1 %cmp1.i.not.i.i, i32 %best_pos.019.i.i, i32 %div16.i.i
-  %div16.best_zero.0.i.i = select i1 %cmp1.i.not.i.i, i32 %div16.i.i, i32 %best_zero.020.i.i
+  %cmp9.not.i.i = icmp eq i64 %7, %5
+  %best_pos.0.div16.i.i = select i1 %cmp9.not.i.i, i32 %best_pos.019.i.i, i32 %div16.i.i
+  %div16.best_zero.0.i.i = select i1 %cmp9.not.i.i, i32 %div16.i.i, i32 %best_zero.020.i.i
   br label %if.end12.i.i
 
 if.end12.i.i:                                     ; preds = %if.else.i.i, %if.then.i.i
@@ -1336,37 +1336,37 @@ _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE24find_internal_zero_arrayImTnPFiRKS2_R
 if.else.i:                                        ; preds = %entry
   %call2.i = call noundef i32 @_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE18find_internal_zeroImTnPFiRKS2_RKT_EXadL_ZNS1_13find_by_txnidES6_RKmEEEEiRKNS_12omt_internal17subtree_templatedILb0EEES9_PS2_Pj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(4) %d.i.i, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %request, ptr noundef nonnull %idx)
   %.pre = load ptr, ptr %m_info, align 8
-  %.pre9 = load i32, ptr %idx, align 4
+  %.pre8 = load i32, ptr %idx, align 4
   br label %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE9find_zeroImTnPFiRKS2_RKT_EXadL_ZNS1_13find_by_txnidES6_RKmEEEEiS9_PS2_Pj.exit
 
 _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE9find_zeroImTnPFiRKS2_RKT_EXadL_ZNS1_13find_by_txnidES6_RKmEEEEiS9_PS2_Pj.exit: ; preds = %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE24find_internal_zero_arrayImTnPFiRKS2_RKT_EXadL_ZNS1_13find_by_txnidES6_RKmEEEEiS9_PS2_Pj.exit.i, %if.else.i
-  %9 = phi i32 [ %storemerge15.i.i, %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE24find_internal_zero_arrayImTnPFiRKS2_RKT_EXadL_ZNS1_13find_by_txnidES6_RKmEEEEiS9_PS2_Pj.exit.i ], [ %.pre9, %if.else.i ]
+  %9 = phi i32 [ %storemerge15.i.i, %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE24find_internal_zero_arrayImTnPFiRKS2_RKT_EXadL_ZNS1_13find_by_txnidES6_RKmEEEEiS9_PS2_Pj.exit.i ], [ %.pre8, %if.else.i ]
   %10 = phi ptr [ %0, %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE24find_internal_zero_arrayImTnPFiRKS2_RKT_EXadL_ZNS1_13find_by_txnidES6_RKmEEEEiS9_PS2_Pj.exit.i ], [ %.pre, %if.else.i ]
   %call4 = call noundef i32 @_ZN4toku3omtIPNS_12lock_requestES2_Lb0EE9delete_atEj(ptr noundef nonnull align 8 dereferenceable(24) %10, i32 noundef %9)
   %11 = load ptr, ptr %m_info, align 8
   %12 = load i8, ptr %11, align 8
   %tobool.i1 = trunc i8 %12 to i1
-  br i1 %tobool.i1, label %if.then.i6, label %if.else.i2
+  br i1 %tobool.i1, label %if.then.i5, label %if.else.i2
 
-if.then.i6:                                       ; preds = %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE9find_zeroImTnPFiRKS2_RKT_EXadL_ZNS1_13find_by_txnidES6_RKmEEEEiS9_PS2_Pj.exit
+if.then.i5:                                       ; preds = %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE9find_zeroImTnPFiRKS2_RKT_EXadL_ZNS1_13find_by_txnidES6_RKmEEEEiS9_PS2_Pj.exit
   %num_values.i = getelementptr inbounds i8, ptr %11, i64 12
   br label %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE4sizeEv.exit
 
 if.else.i2:                                       ; preds = %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE9find_zeroImTnPFiRKS2_RKT_EXadL_ZNS1_13find_by_txnidES6_RKmEEEEiS9_PS2_Pj.exit
   %d2.i = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load i32, ptr %d2.i, align 4
-  %cmp.i.i.i3 = icmp eq i32 %13, -1
-  br i1 %cmp.i.i.i3, label %if.then, label %if.else.i.i4
+  %cmp.i.i.i = icmp eq i32 %13, -1
+  br i1 %cmp.i.i.i, label %if.then, label %if.else.i.i3
 
-if.else.i.i4:                                     ; preds = %if.else.i2
+if.else.i.i3:                                     ; preds = %if.else.i2
   %nodes.i.i = getelementptr inbounds i8, ptr %11, i64 16
   %14 = load ptr, ptr %nodes.i.i, align 8
-  %idxprom.i.i5 = zext i32 %13 to i64
-  %weight.i.i = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %14, i64 %idxprom.i.i5, i32 1
+  %idxprom.i.i4 = zext i32 %13 to i64
+  %weight.i.i = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %14, i64 %idxprom.i.i4, i32 1
   br label %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE4sizeEv.exit
 
-_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE4sizeEv.exit: ; preds = %if.then.i6, %if.else.i.i4
-  %retval.0.i.in = phi ptr [ %num_values.i, %if.then.i6 ], [ %weight.i.i, %if.else.i.i4 ]
+_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE4sizeEv.exit: ; preds = %if.then.i5, %if.else.i.i3
+  %retval.0.i.in = phi ptr [ %num_values.i, %if.then.i5 ], [ %weight.i.i, %if.else.i.i3 ]
   %retval.0.i = load i32, ptr %retval.0.i.in, align 4
   %cmp8 = icmp eq i32 %retval.0.i, 0
   br i1 %cmp8, label %if.then, label %if.end
@@ -2817,10 +2817,7 @@ entry:
   %0 = load ptr, ptr %request, align 8
   %1 = load i64, ptr %0, align 8
   %2 = load i64, ptr %txnid, align 8
-  %cmp = icmp ult i64 %1, %2
-  %cmp1 = icmp ne i64 %1, %2
-  %. = zext i1 %cmp1 to i32
-  %retval.0 = select i1 %cmp, i32 -1, i32 %.
+  %retval.0 = tail call i32 @llvm.ucmp.i32.i64(i64 %1, i64 %2)
   ret i32 %retval.0
 }
 
@@ -3005,13 +3002,13 @@ while.body.i.i.i.i.i.i:                           ; preds = %while.body.i.i.i.i.
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %4, i64 %idxprom.i.i.i.i.i.i
   %5 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
   %6 = load i64, ptr %5, align 8
-  %cmp.i.i.i.i.i.i.i = icmp ult i64 %6, %__args.val
+  %cmp7.i.i.i.i.i.i = icmp ult i64 %6, %__args.val
   %add8.i.i.i.i.i.i = add nuw i32 %div16.i.i.i.i.i.i, 1
-  %cmp1.i.not.i.i.i.i.i.i = icmp eq i64 %6, %__args.val
-  %div16.best_zero.0.i.i.i.i.i.i = select i1 %cmp1.i.not.i.i.i.i.i.i, i32 %div16.i.i.i.i.i.i, i32 %best_zero.020.i.i.i.i.i.i
-  %limit.1.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, i32 %limit.018.i.i.i.i.i.i, i32 %div16.i.i.i.i.i.i
-  %best_zero.1.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, i32 %best_zero.020.i.i.i.i.i.i, i32 %div16.best_zero.0.i.i.i.i.i.i
-  %min.1.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, i32 %add8.i.i.i.i.i.i, i32 %min.021.i.i.i.i.i.i
+  %cmp9.not.i.i.i.i.i.i = icmp eq i64 %6, %__args.val
+  %div16.best_zero.0.i.i.i.i.i.i = select i1 %cmp9.not.i.i.i.i.i.i, i32 %div16.i.i.i.i.i.i, i32 %best_zero.020.i.i.i.i.i.i
+  %limit.1.i.i.i.i.i.i = select i1 %cmp7.i.i.i.i.i.i, i32 %limit.018.i.i.i.i.i.i, i32 %div16.i.i.i.i.i.i
+  %best_zero.1.i.i.i.i.i.i = select i1 %cmp7.i.i.i.i.i.i, i32 %best_zero.020.i.i.i.i.i.i, i32 %div16.best_zero.0.i.i.i.i.i.i
+  %min.1.i.i.i.i.i.i = select i1 %cmp7.i.i.i.i.i.i, i32 %add8.i.i.i.i.i.i, i32 %min.021.i.i.i.i.i.i
   %cmp.not.i.i.i.i.i.i = icmp eq i32 %min.1.i.i.i.i.i.i, %limit.1.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i, label %while.end.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, !llvm.loop !4
 
@@ -3261,8 +3258,8 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 define linkonce_odr noundef i32 @_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE18find_internal_zeroImTnPFiRKS2_RKT_EXadL_ZNS1_13find_by_txnidES6_RKmEEEEiRKNS_12omt_internal17subtree_templatedILb0EEES9_PS2_Pj(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 4 dereferenceable(4) %st, ptr noundef nonnull align 8 dereferenceable(8) %extra, ptr noundef %value, ptr noundef %idxp) local_unnamed_addr #0 comdat align 2 {
 entry:
   %0 = load i32, ptr %st, align 4
-  %cmp.i34 = icmp eq i32 %0, -1
-  br i1 %cmp.i34, label %if.then, label %if.end.lr.ph
+  %cmp.i33 = icmp eq i32 %0, -1
+  br i1 %cmp.i33, label %if.then, label %if.end.lr.ph
 
 if.end.lr.ph:                                     ; preds = %entry
   %nodes = getelementptr inbounds i8, ptr %this, i64 16
@@ -3280,8 +3277,8 @@ if.end:                                           ; preds = %if.end.lr.ph, %if.t
   %arrayidx = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %1, i64 %idxprom
   %4 = load ptr, ptr %arrayidx, align 8
   %5 = load i64, ptr %4, align 8
-  %cmp.i22 = icmp ult i64 %5, %2
-  br i1 %cmp.i22, label %if.then5, label %if.else
+  %cmp = icmp ult i64 %5, %2
+  br i1 %cmp, label %if.then5, label %if.else
 
 if.then5:                                         ; preds = %if.end
   %right = getelementptr inbounds i8, ptr %arrayidx, i64 16
@@ -3300,16 +3297,16 @@ if.else.i:                                        ; preds = %if.then5
   br label %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit
 
 _ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit: ; preds = %if.then5, %if.else.i
-  %retval.0.i23 = phi i32 [ %9, %if.else.i ], [ 1, %if.then5 ]
+  %retval.0.i22 = phi i32 [ %9, %if.else.i ], [ 1, %if.then5 ]
   %10 = load i32, ptr %idxp, align 4
-  %add8 = add i32 %10, %retval.0.i23
+  %add8 = add i32 %10, %retval.0.i22
   store i32 %add8, ptr %idxp, align 4
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %cmp1.i.not = icmp eq i64 %5, %2
+  %cmp9.not = icmp eq i64 %5, %2
   %left15 = getelementptr inbounds i8, ptr %arrayidx, i64 12
-  br i1 %cmp1.i.not, label %if.else13, label %if.then10
+  br i1 %cmp9.not, label %if.else13, label %if.then10
 
 if.then10:                                        ; preds = %if.else
   %11 = load i32, ptr %left15, align 4
@@ -3323,29 +3320,29 @@ if.else13:                                        ; preds = %if.else
 
 if.then18:                                        ; preds = %if.else13
   %12 = load i32, ptr %left15, align 4
-  %cmp.i.i24 = icmp eq i32 %12, -1
-  br i1 %cmp.i.i24, label %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit30, label %if.else.i25
+  %cmp.i.i23 = icmp eq i32 %12, -1
+  br i1 %cmp.i.i23, label %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit29, label %if.else.i24
 
-if.else.i25:                                      ; preds = %if.then18
+if.else.i24:                                      ; preds = %if.then18
   %13 = load ptr, ptr %nodes, align 8
-  %idxprom.i27 = zext i32 %12 to i64
-  %weight.i28 = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %13, i64 %idxprom.i27, i32 1
-  %14 = load i32, ptr %weight.i28, align 8
-  br label %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit30
+  %idxprom.i26 = zext i32 %12 to i64
+  %weight.i27 = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %13, i64 %idxprom.i26, i32 1
+  %14 = load i32, ptr %weight.i27, align 8
+  br label %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit29
 
-_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit30: ; preds = %if.then18, %if.else.i25
-  %retval.0.i29 = phi i32 [ %14, %if.else.i25 ], [ 0, %if.then18 ]
-  store i32 %retval.0.i29, ptr %idxp, align 4
+_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit29: ; preds = %if.then18, %if.else.i24
+  %retval.0.i28 = phi i32 [ %14, %if.else.i24 ], [ 0, %if.then18 ]
+  store i32 %retval.0.i28, ptr %idxp, align 4
   %cmp21.not = icmp eq ptr %value, null
   br i1 %cmp21.not, label %return, label %if.then22
 
-if.then22:                                        ; preds = %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit30
+if.then22:                                        ; preds = %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit29
   %15 = load ptr, ptr %arrayidx, align 8
   store ptr %15, ptr %value, align 8
   br label %return
 
-return:                                           ; preds = %if.else13, %if.then22, %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit30, %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit, %if.then
-  %retval.0 = phi i32 [ -30989, %if.then ], [ %call6, %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit ], [ %call16, %if.else13 ], [ 0, %if.then22 ], [ 0, %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit30 ]
+return:                                           ; preds = %if.else13, %if.then22, %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit29, %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit, %if.then
+  %retval.0 = phi i32 [ -30989, %if.then ], [ %call6, %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit ], [ %call16, %if.else13 ], [ 0, %if.then22 ], [ 0, %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit29 ]
   ret i32 %retval.0
 }
 
@@ -4230,6 +4227,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #15

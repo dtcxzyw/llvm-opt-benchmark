@@ -3138,10 +3138,7 @@ define hidden void @_ZN4core10intrinsics19copy_nonoverlapping17h49472f72df25f395
 define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$usize$GT$3cmp17hb7e6f726db05469aE.llvm.11057974413330164255"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #18 {
   %3 = load i64, ptr %0, align 8, !noundef !12
   %4 = load i64, ptr %1, align 8, !noundef !12
-  %5 = icmp ult i64 %3, %4
-  %6 = icmp ne i64 %3, %4
-  %. = zext i1 %6 to i8
-  %.0 = select i1 %5, i8 -1, i8 %.
+  %.0 = tail call i8 @llvm.ucmp.i8.i64(i64 %3, i64 %4)
   ret i8 %.0
 }
 
@@ -5896,10 +5893,7 @@ define hidden noundef range(i8 -1, 2) i8 @_ZN4core3ops8function6FnOnce9call_once
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1276)
   %3 = load i64, ptr %0, align 8, !alias.scope !1273, !noalias !1276, !noundef !12
   %4 = load i64, ptr %1, align 8, !alias.scope !1276, !noalias !1273, !noundef !12
-  %5 = icmp ult i64 %3, %4
-  %6 = icmp ne i64 %3, %4
-  %..i = zext i1 %6 to i8
-  %.0.i = select i1 %5, i8 -1, i8 %..i
+  %.0.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %3, i64 %4)
   ret i8 %.0.i
 }
 
@@ -94453,10 +94447,7 @@ define noundef range(i8 -1, 2) i8 @"_ZN61_$LT$typst..util..pico..PicoStr$u20$as$
   %11 = sext i32 %10 to i64
   %12 = icmp eq i32 %10, 0
   %spec.store.select.i = select i1 %12, i64 %9, i64 %11
-  %13 = icmp slt i64 %spec.store.select.i, 0
-  %14 = icmp ne i64 %spec.store.select.i, 0
-  %.8.i = zext i1 %14 to i8
-  %.0.i = select i1 %13, i8 -1, i8 %.8.i
+  %.0.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i, i64 0)
   ret i8 %.0.i
 }
 
@@ -94474,10 +94465,7 @@ define noundef range(i8 -1, 2) i8 @"_ZN68_$LT$typst..util..pico..PicoStr$u20$as$
   %11 = sext i32 %10 to i64
   %12 = icmp eq i32 %10, 0
   %spec.store.select.i.i = select i1 %12, i64 %9, i64 %11
-  %13 = icmp slt i64 %spec.store.select.i.i, 0
-  %14 = icmp ne i64 %spec.store.select.i.i, 0
-  %.8.i.i = zext i1 %14 to i8
-  %.0.i.i = select i1 %13, i8 -1, i8 %.8.i.i
+  %.0.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i, i64 0)
   ret i8 %.0.i.i
 }
 
@@ -101462,18 +101450,18 @@ _ZN5typst13introspection12introspector12Introspector5index17h8370692f95504cfdE.l
   %.not.i.i = icmp eq i64 %2, 0
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-._crit_edge.i.i:                                  ; preds = %36, %_ZN5typst13introspection12introspector12Introspector5index17h8370692f95504cfdE.llvm.11057974413330164255.exit
-  %.019.lcssa.i.i = phi i64 [ 0, %_ZN5typst13introspection12introspector12Introspector5index17h8370692f95504cfdE.llvm.11057974413330164255.exit ], [ %.022.i.i, %36 ]
+._crit_edge.i.i:                                  ; preds = %37, %_ZN5typst13introspection12introspector12Introspector5index17h8370692f95504cfdE.llvm.11057974413330164255.exit
+  %.019.lcssa.i.i = phi i64 [ 0, %_ZN5typst13introspection12introspector12Introspector5index17h8370692f95504cfdE.llvm.11057974413330164255.exit ], [ %.022.i.i, %37 ]
   %19 = icmp ule i64 %.019.lcssa.i.i, %2
   call void @llvm.assume(i1 %19)
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17hdab66f17ac4423a5E.exit"
 
-.lr.ph.i.i:                                       ; preds = %_ZN5typst13introspection12introspector12Introspector5index17h8370692f95504cfdE.llvm.11057974413330164255.exit, %36
-  %.032.i.i = phi i64 [ %39, %36 ], [ %2, %_ZN5typst13introspection12introspector12Introspector5index17h8370692f95504cfdE.llvm.11057974413330164255.exit ]
-  %.01931.i.i = phi i64 [ %.022.i.i, %36 ], [ 0, %_ZN5typst13introspection12introspector12Introspector5index17h8370692f95504cfdE.llvm.11057974413330164255.exit ]
-  %.02030.i.i = phi i64 [ %.021.i.i, %36 ], [ %2, %_ZN5typst13introspection12introspector12Introspector5index17h8370692f95504cfdE.llvm.11057974413330164255.exit ]
-  %20 = lshr i64 %.032.i.i, 1
-  %21 = add i64 %20, %.01931.i.i
+.lr.ph.i.i:                                       ; preds = %_ZN5typst13introspection12introspector12Introspector5index17h8370692f95504cfdE.llvm.11057974413330164255.exit, %37
+  %.031.i.i = phi i64 [ %41, %37 ], [ %2, %_ZN5typst13introspection12introspector12Introspector5index17h8370692f95504cfdE.llvm.11057974413330164255.exit ]
+  %.01930.i.i = phi i64 [ %.022.i.i, %37 ], [ 0, %_ZN5typst13introspection12introspector12Introspector5index17h8370692f95504cfdE.llvm.11057974413330164255.exit ]
+  %.02029.i.i = phi i64 [ %.021.i.i, %37 ], [ %2, %_ZN5typst13introspection12introspector12Introspector5index17h8370692f95504cfdE.llvm.11057974413330164255.exit ]
+  %20 = lshr i64 %.031.i.i, 1
+  %21 = add i64 %20, %.01930.i.i
   %22 = icmp ult i64 %21, %2
   call void @llvm.assume(i1 %22)
   %23 = getelementptr inbounds { { { { ptr, ptr } }, {}, {} }, i64 }, ptr %1, i64 %21
@@ -101505,25 +101493,25 @@ _ZN5typst13introspection12introspector12Introspector5index17h8370692f95504cfdE.l
   %35 = extractvalue { i64, i64 } %33, 1
   %.0.i.i.i.i.i = select i1 %switch1.i.i.i.i.i, i64 -1, i64 %35
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !24522
-  %.not26.i.i = icmp eq i64 %.0.i.i.i.i.i, %.0.i
-  br i1 %.not26.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17hdab66f17ac4423a5E.exit", label %36
+  %36 = icmp eq i64 %.0.i.i.i.i.i, %.0.i
+  br i1 %36, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17hdab66f17ac4423a5E.exit", label %37
 
-36:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h92a51d66bf2dc474E.exit.i.i"
-  %.not.not.i.i = icmp ult i64 %.0.i.i.i.i.i, %.0.i
-  %37 = icmp ugt i64 %.0.i.i.i.i.i, %.0.i
-  %.021.i.i = select i1 %37, i64 %21, i64 %.02030.i.i
-  %38 = add nuw i64 %21, 1
-  %.022.i.i = select i1 %.not.not.i.i, i64 %38, i64 %.01931.i.i
-  %39 = sub i64 %.021.i.i, %.022.i.i
-  %40 = icmp ult i64 %.022.i.i, %.021.i.i
-  br i1 %40, label %.lr.ph.i.i, label %._crit_edge.i.i
+37:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h92a51d66bf2dc474E.exit.i.i"
+  %38 = icmp ugt i64 %.0.i.i.i.i.i, %.0.i
+  %.021.i.i = select i1 %38, i64 %21, i64 %.02029.i.i
+  %39 = icmp ult i64 %.0.i.i.i.i.i, %.0.i
+  %40 = add nuw i64 %21, 1
+  %.022.i.i = select i1 %39, i64 %40, i64 %.01930.i.i
+  %41 = sub i64 %.021.i.i, %.022.i.i
+  %42 = icmp ult i64 %.022.i.i, %.021.i.i
+  br i1 %42, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17hdab66f17ac4423a5E.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h92a51d66bf2dc474E.exit.i.i", %._crit_edge.i.i
   %.sroa.3.0.i.i = phi i64 [ %.019.lcssa.i.i, %._crit_edge.i.i ], [ %21, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h92a51d66bf2dc474E.exit.i.i" ]
   %.sroa.0.0.i.i = phi i64 [ 1, %._crit_edge.i.i ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h92a51d66bf2dc474E.exit.i.i" ]
-  %41 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i.i, 0
-  %42 = insertvalue { i64, i64 } %41, i64 %.sroa.3.0.i.i, 1
-  ret { i64, i64 } %42
+  %43 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i.i, 0
+  %44 = insertvalue { i64, i64 } %43, i64 %.sroa.3.0.i.i, 1
+  ret { i64, i64 } %44
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -173463,6 +173451,12 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #77
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #78
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ucmp.i8.i64(i64, i64) #76
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.scmp.i8.i64(i64, i64) #76
 
 attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

@@ -1502,7 +1502,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL15compare_entriesPKvS0_(ptr noc
 7:                                                ; preds = %2
   %8 = icmp slt i32 %4, %6
   %9 = select i1 %8, i32 -1, i32 1
-  br label %29
+  br label %26
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1519,19 +1519,16 @@ define internal noundef range(i32 -1, 2) i32 @_ZL15compare_entriesPKvS0_(ptr noc
 19:                                               ; preds = %10
   %20 = icmp ult i32 %15, %18
   %21 = select i1 %20, i32 -1, i32 1
-  br label %29
+  br label %26
 
 22:                                               ; preds = %10
   %23 = load i32, ptr %0, align 8
   %24 = load i32, ptr %1, align 8
-  %25 = icmp ult i32 %23, %24
-  %26 = icmp ne i32 %23, %24
-  %27 = zext i1 %26 to i32
-  %28 = select i1 %25, i32 -1, i32 %27
-  br label %29
+  %25 = tail call i32 @llvm.ucmp.i32.i32(i32 %23, i32 %24)
+  br label %26
 
-29:                                               ; preds = %22, %19, %7
-  %.0 = phi i32 [ %9, %7 ], [ %21, %19 ], [ %28, %22 ]
+26:                                               ; preds = %22, %19, %7
+  %.0 = phi i32 [ %9, %7 ], [ %21, %19 ], [ %25, %22 ]
   ret i32 %.0
 }
 
@@ -2876,11 +2873,8 @@ define linkonce_odr hidden noundef i32 @_ZN2OT11TableRecord3cmpEPKvS2_(ptr nound
   %.sroa.0.0.copyload.i = load i32, ptr %1, align 1
   %3 = tail call i32 @llvm.bswap.i32(i32 %.sroa.0.0.copyload)
   %4 = tail call i32 @llvm.bswap.i32(i32 %.sroa.0.0.copyload.i)
-  %5 = icmp ult i32 %4, %3
-  %6 = icmp ne i32 %.sroa.0.0.copyload.i, %.sroa.0.0.copyload
-  %.neg.i = sext i1 %6 to i32
-  %.neg1.i = select i1 %5, i32 1, i32 %.neg.i
-  ret i32 %.neg1.i
+  %5 = tail call noundef i32 @llvm.ucmp.i32.i32(i32 %3, i32 %4)
+  ret i32 %5
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4752,6 +4746,9 @@ declare i32 @llvm.bswap.i32(i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #16

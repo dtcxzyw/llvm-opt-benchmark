@@ -94450,10 +94450,10 @@ _ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit37: ; preds = %83, %92, %_ZN4http3
 
 106:                                              ; preds = %104, %_ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit37
   %storemerge = phi ptr [ %76, %104 ], [ %.sroa.0.0.i34, %_ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit37 ]
-  %.sink42 = phi i64 [ %105, %104 ], [ %.sroa.3.0.i33, %_ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit37 ]
+  %.sink41 = phi i64 [ %105, %104 ], [ %.sroa.3.0.i33, %_ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit37 ]
   store ptr %storemerge, ptr %6, align 8
   %107 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 %.sink42, ptr %107, align 8
+  store i64 %.sink41, ptr %107, align 8
   store ptr %7, ptr %8, align 8
   %.sroa.415.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hd216a6df6bfff114E", ptr %.sroa.415.0..sroa_idx, align 8
@@ -94494,8 +94494,8 @@ _ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit37: ; preds = %83, %92, %_ZN4http3
   store i16 500, ptr %.sroa.4.0..sroa_idx, align 2
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %115, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(116) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(116) %.sroa.5, i64 116, i1 false)
-  %.sroa.544.0..sroa_idx = getelementptr inbounds i8, ptr %115, i64 120
-  store ptr @anon.3c3b56e5edcc756f701afb43044d2d8e.395, ptr %.sroa.544.0..sroa_idx, align 8
+  %.sroa.543.0..sroa_idx = getelementptr inbounds i8, ptr %115, i64 120
+  store ptr @anon.3c3b56e5edcc756f701afb43044d2d8e.395, ptr %.sroa.543.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %115, i64 128
   store i64 96, ptr %.sroa.6.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 116, ptr nonnull %.sroa.5)
@@ -94728,10 +94728,10 @@ _ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit37: ; preds = %84, %93, %_ZN4http3
 
 107:                                              ; preds = %105, %_ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit37
   %storemerge = phi ptr [ %77, %105 ], [ %.sroa.0.0.i34, %_ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit37 ]
-  %.sink42 = phi i64 [ %106, %105 ], [ %.sroa.3.0.i33, %_ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit37 ]
+  %.sink41 = phi i64 [ %106, %105 ], [ %.sroa.3.0.i33, %_ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit37 ]
   store ptr %storemerge, ptr %6, align 8
   %108 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 %.sink42, ptr %108, align 8
+  store i64 %.sink41, ptr %108, align 8
   store ptr %7, ptr %8, align 8
   %.sroa.415.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hd216a6df6bfff114E", ptr %.sroa.415.0..sroa_idx, align 8
@@ -94772,8 +94772,8 @@ _ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit37: ; preds = %84, %93, %_ZN4http3
   store i16 500, ptr %.sroa.4.0..sroa_idx, align 2
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %116, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(116) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(116) %.sroa.5, i64 116, i1 false)
-  %.sroa.544.0..sroa_idx = getelementptr inbounds i8, ptr %116, i64 120
-  store ptr @anon.3c3b56e5edcc756f701afb43044d2d8e.395, ptr %.sroa.544.0..sroa_idx, align 8
+  %.sroa.543.0..sroa_idx = getelementptr inbounds i8, ptr %116, i64 120
+  store ptr @anon.3c3b56e5edcc756f701afb43044d2d8e.395, ptr %.sroa.543.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %116, i64 128
   store i64 96, ptr %.sroa.6.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 116, ptr nonnull %.sroa.5)
@@ -95006,10 +95006,10 @@ _ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit37: ; preds = %84, %93, %_ZN4http3
 
 107:                                              ; preds = %105, %_ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit37
   %storemerge = phi ptr [ %77, %105 ], [ %.sroa.0.0.i34, %_ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit37 ]
-  %.sink42 = phi i64 [ %106, %105 ], [ %.sroa.3.0.i33, %_ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit37 ]
+  %.sink41 = phi i64 [ %106, %105 ], [ %.sroa.3.0.i33, %_ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit37 ]
   store ptr %storemerge, ptr %6, align 8
   %108 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 %.sink42, ptr %108, align 8
+  store i64 %.sink41, ptr %108, align 8
   store ptr %7, ptr %8, align 8
   %.sroa.415.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hd216a6df6bfff114E", ptr %.sroa.415.0..sroa_idx, align 8
@@ -95050,8 +95050,8 @@ _ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit37: ; preds = %84, %93, %_ZN4http3
   store i16 500, ptr %.sroa.4.0..sroa_idx, align 2
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %116, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(116) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(116) %.sroa.5, i64 116, i1 false)
-  %.sroa.544.0..sroa_idx = getelementptr inbounds i8, ptr %116, i64 120
-  store ptr @anon.3c3b56e5edcc756f701afb43044d2d8e.395, ptr %.sroa.544.0..sroa_idx, align 8
+  %.sroa.543.0..sroa_idx = getelementptr inbounds i8, ptr %116, i64 120
+  store ptr @anon.3c3b56e5edcc756f701afb43044d2d8e.395, ptr %.sroa.543.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %116, i64 128
   store i64 96, ptr %.sroa.6.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 116, ptr nonnull %.sroa.5)
@@ -108879,16 +108879,16 @@ _ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i.i.i.i: ; preds =
 
 187:                                              ; preds = %181
   invoke void @_ZN5alloc5alloc18handle_alloc_error17hc735483c05842e7cE(i64 noundef 8, i64 noundef 136) #40
-          to label %.noexc22.i.i.i unwind label %188, !noalias !20087
+          to label %.noexc21.i.i.i unwind label %188, !noalias !20087
 
-.noexc22.i.i.i:                                   ; preds = %187
+.noexc21.i.i.i:                                   ; preds = %187
   unreachable
 
 188:                                              ; preds = %187
   %189 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr93drop_in_place$LT$actix_web..error..internal..InternalError$LT$serde..de..value..Error$GT$$GT$17hedf0e7aa48cf5d78E"(ptr noalias noundef nonnull align 8 dereferenceable(136) %15) #43
-          to label %.thread38.i.i.i unwind label %190, !noalias !20087
+          to label %.thread37.i.i.i unwind label %190, !noalias !20087
 
 190:                                              ; preds = %188
   %191 = landingpad { ptr, i32 }
@@ -108911,14 +108911,14 @@ _ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i.i.i.i: ; preds =
 197:                                              ; preds = %167
   %198 = atomicrmw sub ptr %165, i64 1 release, align 8, !noalias !20097
   %199 = icmp eq i64 %198, 1
-  br i1 %199, label %200, label %"_ZN4core3ptr259drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$actix_web..error..PathError$C$$RF$actix_web..request..HttpRequest$RP$$GT$$u2b$Output$u20$$u3d$$u20$actix_web..error..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hed200d5c0764dd7fE.exit25.i.i.i"
+  br i1 %199, label %200, label %"_ZN4core3ptr259drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$actix_web..error..PathError$C$$RF$actix_web..request..HttpRequest$RP$$GT$$u2b$Output$u20$$u3d$$u20$actix_web..error..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hed200d5c0764dd7fE.exit24.i.i.i"
 
 200:                                              ; preds = %197
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h4479b4c3d5530cb4E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %16)
-          to label %"_ZN4core3ptr259drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$actix_web..error..PathError$C$$RF$actix_web..request..HttpRequest$RP$$GT$$u2b$Output$u20$$u3d$$u20$actix_web..error..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hed200d5c0764dd7fE.exit25.i.i.i" unwind label %.loopexit.split-lp52.loopexit.split-lp
+          to label %"_ZN4core3ptr259drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$actix_web..error..PathError$C$$RF$actix_web..request..HttpRequest$RP$$GT$$u2b$Output$u20$$u3d$$u20$actix_web..error..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hed200d5c0764dd7fE.exit24.i.i.i" unwind label %.loopexit.split-lp52.loopexit.split-lp
 
-"_ZN4core3ptr259drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$actix_web..error..PathError$C$$RF$actix_web..request..HttpRequest$RP$$GT$$u2b$Output$u20$$u3d$$u20$actix_web..error..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hed200d5c0764dd7fE.exit25.i.i.i": ; preds = %200, %197
+"_ZN4core3ptr259drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$actix_web..error..PathError$C$$RF$actix_web..request..HttpRequest$RP$$GT$$u2b$Output$u20$$u3d$$u20$actix_web..error..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hed200d5c0764dd7fE.exit24.i.i.i": ; preds = %200, %197
   %201 = extractvalue { ptr, ptr } %180, 1
   %202 = extractvalue { ptr, ptr } %180, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16), !noalias !20076
@@ -108935,24 +108935,24 @@ _ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i.i.i.i: ; preds =
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %15), !noalias !20076
   br label %"_ZN89_$LT$actix_web..types..path..Path$LT$T$GT$$u20$as$u20$actix_web..extract..FromRequest$GT$12from_request28_$u7b$$u7b$closure$u7d$$u7d$17h733f75ddd3679f5bE.exit.i.i"
 
-.thread38.i.i.i:                                  ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0315fd2d83659e8fE.llvm.4616129397091597767.exit.i.i.i.i.i.i", %208, %188
-  %.pn37.i.i.i = phi { ptr, i32 } [ %189, %188 ], [ %lpad.thr_comm.i.i.i, %208 ], [ %lpad.thr_comm.i.i.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0315fd2d83659e8fE.llvm.4616129397091597767.exit.i.i.i.i.i.i" ]
+.thread37.i.i.i:                                  ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0315fd2d83659e8fE.llvm.4616129397091597767.exit.i.i.i.i.i.i", %208, %188
+  %.pn36.i.i.i = phi { ptr, i32 } [ %189, %188 ], [ %lpad.thr_comm.i.i.i, %208 ], [ %lpad.thr_comm.i.i.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0315fd2d83659e8fE.llvm.4616129397091597767.exit.i.i.i.i.i.i" ]
   %206 = getelementptr inbounds i8, ptr %20, i64 8
   %207 = load ptr, ptr %206, align 8, !alias.scope !20073, !noalias !20078, !noundef !4
-  %.not18.i.i.i = icmp eq ptr %207, null
-  br i1 %.not18.i.i.i, label %.body, label %210
+  %.not.i.i.i = icmp eq ptr %207, null
+  br i1 %.not.i.i.i, label %.body, label %210
 
 208:                                              ; preds = %155, %153
   %lpad.thr_comm.i.i.i = landingpad { ptr, i32 }
           cleanup
   %209 = icmp eq i64 %114, 0
-  br i1 %209, label %.thread38.i.i.i, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0315fd2d83659e8fE.llvm.4616129397091597767.exit.i.i.i.i.i.i"
+  br i1 %209, label %.thread37.i.i.i, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0315fd2d83659e8fE.llvm.4616129397091597767.exit.i.i.i.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0315fd2d83659e8fE.llvm.4616129397091597767.exit.i.i.i.i.i.i": ; preds = %208
   call void @__rust_dealloc(ptr noundef nonnull %112, i64 noundef %114, i64 noundef 1) #42, !noalias !20103
-  br label %.thread38.i.i.i
+  br label %.thread37.i.i.i
 
-210:                                              ; preds = %.thread38.i.i.i
+210:                                              ; preds = %.thread37.i.i.i
   %211 = atomicrmw sub ptr %207, i64 1 release, align 8, !noalias !20110
   %212 = icmp eq i64 %211, 1
   br i1 %212, label %213, label %.body
@@ -108962,9 +108962,9 @@ _ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i.i.i.i: ; preds =
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h4479b4c3d5530cb4E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %206)
           to label %.body unwind label %203, !noalias !20102
 
-"_ZN89_$LT$actix_web..types..path..Path$LT$T$GT$$u20$as$u20$actix_web..extract..FromRequest$GT$12from_request28_$u7b$$u7b$closure$u7d$$u7d$17h733f75ddd3679f5bE.exit.i.i": ; preds = %205, %"_ZN4core3ptr259drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$actix_web..error..PathError$C$$RF$actix_web..request..HttpRequest$RP$$GT$$u2b$Output$u20$$u3d$$u20$actix_web..error..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hed200d5c0764dd7fE.exit25.i.i.i"
-  %.sroa.3.0.i.i.i = phi ptr [ @anon.3c3b56e5edcc756f701afb43044d2d8e.416, %205 ], [ %201, %"_ZN4core3ptr259drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$actix_web..error..PathError$C$$RF$actix_web..request..HttpRequest$RP$$GT$$u2b$Output$u20$$u3d$$u20$actix_web..error..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hed200d5c0764dd7fE.exit25.i.i.i" ]
-  %.sroa.0.0.i.i.i = phi ptr [ %185, %205 ], [ %202, %"_ZN4core3ptr259drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$actix_web..error..PathError$C$$RF$actix_web..request..HttpRequest$RP$$GT$$u2b$Output$u20$$u3d$$u20$actix_web..error..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hed200d5c0764dd7fE.exit25.i.i.i" ]
+"_ZN89_$LT$actix_web..types..path..Path$LT$T$GT$$u20$as$u20$actix_web..extract..FromRequest$GT$12from_request28_$u7b$$u7b$closure$u7d$$u7d$17h733f75ddd3679f5bE.exit.i.i": ; preds = %205, %"_ZN4core3ptr259drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$actix_web..error..PathError$C$$RF$actix_web..request..HttpRequest$RP$$GT$$u2b$Output$u20$$u3d$$u20$actix_web..error..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hed200d5c0764dd7fE.exit24.i.i.i"
+  %.sroa.3.0.i.i.i = phi ptr [ @anon.3c3b56e5edcc756f701afb43044d2d8e.416, %205 ], [ %201, %"_ZN4core3ptr259drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$actix_web..error..PathError$C$$RF$actix_web..request..HttpRequest$RP$$GT$$u2b$Output$u20$$u3d$$u20$actix_web..error..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hed200d5c0764dd7fE.exit24.i.i.i" ]
+  %.sroa.0.0.i.i.i = phi ptr [ %185, %205 ], [ %202, %"_ZN4core3ptr259drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$actix_web..error..PathError$C$$RF$actix_web..request..HttpRequest$RP$$GT$$u2b$Output$u20$$u3d$$u20$actix_web..error..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hed200d5c0764dd7fE.exit24.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20), !noalias !20071
   br label %222
 
@@ -108990,8 +108990,8 @@ _ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i.i.i.i: ; preds =
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #41, !noalias !20057
   unreachable
 
-.body:                                            ; preds = %.loopexit51, %.loopexit.split-lp52.loopexit.split-lp, %.loopexit.split-lp52.loopexit, %219, %216, %214, %213, %210, %.thread38.i.i.i, %196, %192, %.body17
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body17 ], [ %.pn37.i.i.i, %.thread38.i.i.i ], [ %.pn37.i.i.i, %213 ], [ %.pn37.i.i.i, %210 ], [ %193, %196 ], [ %193, %192 ], [ %lpad.thr_comm.split-lp.i, %219 ], [ %lpad.thr_comm.split-lp.i, %214 ], [ %lpad.thr_comm.split-lp.i, %216 ], [ %lpad.loopexit53, %.loopexit51 ], [ %lpad.loopexit56, %.loopexit.split-lp52.loopexit ], [ %lpad.loopexit.split-lp57, %.loopexit.split-lp52.loopexit.split-lp ]
+.body:                                            ; preds = %.loopexit51, %.loopexit.split-lp52.loopexit.split-lp, %.loopexit.split-lp52.loopexit, %219, %216, %214, %213, %210, %.thread37.i.i.i, %196, %192, %.body17
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body17 ], [ %.pn36.i.i.i, %.thread37.i.i.i ], [ %.pn36.i.i.i, %213 ], [ %.pn36.i.i.i, %210 ], [ %193, %196 ], [ %193, %192 ], [ %lpad.thr_comm.split-lp.i, %219 ], [ %lpad.thr_comm.split-lp.i, %214 ], [ %lpad.thr_comm.split-lp.i, %216 ], [ %lpad.loopexit53, %.loopexit51 ], [ %lpad.loopexit56, %.loopexit.split-lp52.loopexit ], [ %lpad.loopexit.split-lp57, %.loopexit.split-lp52.loopexit.split-lp ]
   invoke fastcc void @"_ZN4core3ptr317drop_in_place$LT$actix_web..extract..tuple_from_req..ExtractFuture$LT$actix_utils..future..ready..Ready$LT$core..result..Result$LT$actix_web..data..Data$LT$meilisearch..search_queue..SearchQueue$GT$$C$actix_web..error..error..Error$GT$$GT$$C$actix_web..data..Data$LT$meilisearch..search_queue..SearchQueue$GT$$GT$$GT$17h017608158c4b95b7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %32) #43
           to label %39 unwind label %405
 
@@ -109490,10 +109490,10 @@ _ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit43.i: ; preds = %_ZN4http3uri4path
 
 388:                                              ; preds = %386, %_ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit43.i
   %storemerge.i = phi ptr [ %359, %386 ], [ %.sroa.0.0.i40.i, %_ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit43.i ]
-  %.sink5.i = phi i64 [ %387, %386 ], [ %.sroa.3.0.i39.i, %_ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit43.i ]
+  %.sink4.i = phi i64 [ %387, %386 ], [ %.sroa.3.0.i39.i, %_ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit43.i ]
   store ptr %storemerge.i, ptr %6, align 8, !noalias !20168
   %389 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 %.sink5.i, ptr %389, align 8, !noalias !20168
+  store i64 %.sink4.i, ptr %389, align 8, !noalias !20168
   store ptr %7, ptr %8, align 8, !noalias !20168
   %.sroa.418.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hd216a6df6bfff114E", ptr %.sroa.418.0..sroa_idx.i, align 8, !noalias !20168
@@ -109559,7 +109559,7 @@ _ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit43.i: ; preds = %_ZN4http3uri4path
           to label %290 unwind label %405
 
 "_ZN82_$LT$actix_web..data..Data$LT$T$GT$$u20$as$u20$actix_web..extract..FromRequest$GT$12from_request17h14bf670c5524860dE.exit": ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hda203f50ec6f7e61E.exit.i", %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1fcc4dc63e914582E.exit.i"
-  %.sink4.i = phi i64 [ 1, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hda203f50ec6f7e61E.exit.i" ], [ 0, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1fcc4dc63e914582E.exit.i" ]
+  %.sink3.i = phi i64 [ 1, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hda203f50ec6f7e61E.exit.i" ], [ 0, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1fcc4dc63e914582E.exit.i" ]
   %.sink.i = phi ptr [ %397, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hda203f50ec6f7e61E.exit.i" ], [ %.val.i, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1fcc4dc63e914582E.exit.i" ]
   %anon.3c3b56e5edcc756f701afb43044d2d8e.397.sink.i = phi ptr [ @anon.3c3b56e5edcc756f701afb43044d2d8e.397, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hda203f50ec6f7e61E.exit.i" ], [ %.val32.i, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1fcc4dc63e914582E.exit.i" ]
   %400 = getelementptr inbounds i8, ptr %0, i64 80
@@ -109572,7 +109572,7 @@ _ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit43.i: ; preds = %_ZN4http3uri4path
   %403 = getelementptr inbounds i8, ptr %0, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %403, ptr noundef nonnull align 8 dereferenceable(24) %28, i64 24, i1 false)
   %404 = getelementptr inbounds i8, ptr %0, i64 208
-  store i64 %.sink4.i, ptr %404, align 8
+  store i64 %.sink3.i, ptr %404, align 8
   %.sroa.444.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 216
   store ptr %.sink.i, ptr %.sroa.444.0..sroa_idx, align 8
   %.sroa.545.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 224

@@ -13,23 +13,20 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   %4 = load ptr, ptr %3, align 8, !alias.scope !16, !noalias !17, !nonnull !4, !align !18, !noundef !4
   %5 = load i32, ptr %4, align 4, !noalias !19, !noundef !4
   %6 = load i32, ptr %1, align 4, !alias.scope !17, !noalias !16, !noundef !4
-  %7 = icmp ult i32 %5, %6
-  %8 = icmp ne i32 %5, %6
-  %..i.i = zext i1 %8 to i8
-  %.08.i.i = select i1 %7, i8 -1, i8 %..i.i
-  switch i8 %.08.i.i, label %9 [
+  %.08.i.i = tail call i8 @llvm.ucmp.i8.i32(i32 %5, i32 %6)
+  switch i8 %.08.i.i, label %7 [
     i8 -1, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h2ceb6e9df9121e61E.llvm.4272966154850254059.exit"
     i8 0, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h2ceb6e9df9121e61E.llvm.4272966154850254059.exit"
   ]
 
-9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %1, i64 4
-  %11 = load i32, ptr %10, align 4, !alias.scope !17, !noalias !16, !noundef !4
-  %.not.i.i = icmp ugt i32 %11, %5
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %9 = load i32, ptr %8, align 4, !alias.scope !17, !noalias !16, !noundef !4
+  %switch.selectcmp.i.i = icmp ugt i32 %9, %5
   br label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h2ceb6e9df9121e61E.llvm.4272966154850254059.exit"
 
-"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h2ceb6e9df9121e61E.llvm.4272966154850254059.exit": ; preds = %2, %2, %9
-  %.0.i.i = phi i1 [ false, %2 ], [ false, %2 ], [ %.not.i.i, %9 ]
+"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h2ceb6e9df9121e61E.llvm.4272966154850254059.exit": ; preds = %2, %2, %7
+  %.0.i.i = phi i1 [ false, %2 ], [ false, %2 ], [ %switch.selectcmp.i.i, %7 ]
   ret i1 %.0.i.i
 }
 
@@ -40,23 +37,20 @@ define hidden noundef zeroext i1 @"_ZN4core4iter6traits8iterator8Iterator3all5ch
   %3 = load ptr, ptr %0, align 8, !alias.scope !20, !noalias !23, !nonnull !4, !align !18, !noundef !4
   %4 = load i32, ptr %3, align 4, !noalias !25, !noundef !4
   %5 = load i32, ptr %1, align 4, !alias.scope !23, !noalias !20, !noundef !4
-  %6 = icmp ult i32 %4, %5
-  %7 = icmp ne i32 %4, %5
-  %..i = zext i1 %7 to i8
-  %.08.i = select i1 %6, i8 -1, i8 %..i
-  switch i8 %.08.i, label %8 [
+  %.08.i = tail call i8 @llvm.ucmp.i8.i32(i32 %4, i32 %5)
+  switch i8 %.08.i, label %6 [
     i8 -1, label %"_ZN10line_index9LineIndex12try_line_col28_$u7b$$u7b$closure$u7d$$u7d$17hb561609238ba9622E.llvm.4272966154850254059.exit"
     i8 0, label %"_ZN10line_index9LineIndex12try_line_col28_$u7b$$u7b$closure$u7d$$u7d$17hb561609238ba9622E.llvm.4272966154850254059.exit"
   ]
 
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 4
-  %10 = load i32, ptr %9, align 4, !alias.scope !23, !noalias !20, !noundef !4
-  %.not.i = icmp ugt i32 %10, %4
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = load i32, ptr %7, align 4, !alias.scope !23, !noalias !20, !noundef !4
+  %switch.selectcmp.i = icmp ugt i32 %8, %4
   br label %"_ZN10line_index9LineIndex12try_line_col28_$u7b$$u7b$closure$u7d$$u7d$17hb561609238ba9622E.llvm.4272966154850254059.exit"
 
-"_ZN10line_index9LineIndex12try_line_col28_$u7b$$u7b$closure$u7d$$u7d$17hb561609238ba9622E.llvm.4272966154850254059.exit": ; preds = %2, %2, %8
-  %.0.i = phi i1 [ false, %2 ], [ false, %2 ], [ %.not.i, %8 ]
+"_ZN10line_index9LineIndex12try_line_col28_$u7b$$u7b$closure$u7d$$u7d$17hb561609238ba9622E.llvm.4272966154850254059.exit": ; preds = %2, %2, %6
+  %.0.i = phi i1 [ false, %2 ], [ false, %2 ], [ %switch.selectcmp.i, %6 ]
   ret i1 %.0.i
 }
 
@@ -65,33 +59,34 @@ define hidden noundef zeroext i1 @"_ZN10line_index9LineIndex12try_line_col28_$u7
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !18, !noundef !4
   %4 = load i32, ptr %3, align 4, !noundef !4
   %5 = load i32, ptr %1, align 4, !noundef !4
-  %6 = icmp ult i32 %4, %5
-  %7 = icmp ne i32 %4, %5
-  %. = zext i1 %7 to i8
-  %.08 = select i1 %6, i8 -1, i8 %.
-  switch i8 %.08, label %8 [
+  %.08 = tail call i8 @llvm.ucmp.i8.i32(i32 %4, i32 %5)
+  switch i8 %.08, label %6 [
     i8 -1, label %.critedge
     i8 0, label %.critedge
   ]
 
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 4
-  %10 = load i32, ptr %9, align 4, !noundef !4
-  %.not = icmp ule i32 %10, %4
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = load i32, ptr %7, align 4, !noundef !4
+  %switch.selectcmp = icmp ule i32 %8, %4
   br label %.critedge
 
-.critedge:                                        ; preds = %8, %2, %2
-  %.0 = phi i1 [ true, %2 ], [ true, %2 ], [ %.not, %8 ]
+.critedge:                                        ; preds = %6, %2, %2
+  %.0 = phi i1 [ true, %2 ], [ true, %2 ], [ %switch.selectcmp, %6 ]
   ret i1 %.0
 }
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ucmp.i8.i32(i32, i32) #3
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #3
+declare void @llvm.experimental.noalias.scope.decl(metadata) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #3 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}

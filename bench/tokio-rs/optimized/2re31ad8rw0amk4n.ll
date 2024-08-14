@@ -1083,11 +1083,11 @@ define internal fastcc noundef align 8 dereferenceable_or_null(32) ptr @_ZN10tok
   %17 = getelementptr inbounds i8, ptr %3, i64 16
   br label %18
 
-.loopexit:                                        ; preds = %26, %30, %87, %69, %73, %"_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$tokio_test..io..Action$GT$$GT$17hf541638d5b305adfE.exit", %76, %1
-  %.0 = phi ptr [ null, %1 ], [ %24, %76 ], [ %24, %26 ], [ %24, %30 ], [ %24, %87 ], [ %24, %69 ], [ %24, %73 ], [ null, %"_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$tokio_test..io..Action$GT$$GT$17hf541638d5b305adfE.exit" ]
+.loopexit:                                        ; preds = %26, %30, %89, %69, %"_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$tokio_test..io..Action$GT$$GT$17hf541638d5b305adfE.exit", %77, %1
+  %.0 = phi ptr [ null, %1 ], [ %24, %77 ], [ %24, %26 ], [ %24, %30 ], [ %24, %89 ], [ %24, %69 ], [ null, %"_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$tokio_test..io..Action$GT$$GT$17hf541638d5b305adfE.exit" ]
   ret ptr %.0
 
-default.unreachable31:                            ; preds = %18
+default.unreachable30:                            ; preds = %18
   unreachable
 
 18:                                               ; preds = %.lr.ph, %"_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$tokio_test..io..Action$GT$$GT$17hf541638d5b305adfE.exit"
@@ -1100,12 +1100,12 @@ default.unreachable31:                            ; preds = %18
   %23 = load ptr, ptr %9, align 8, !nonnull !5, !noundef !5
   %24 = getelementptr inbounds { i64, [3 x i64] }, ptr %23, i64 %.0.i.i
   %25 = load i64, ptr %24, align 8, !range !124, !noundef !5
-  switch i64 %25, label %default.unreachable31 [
+  switch i64 %25, label %default.unreachable30 [
     i64 0, label %26
     i64 1, label %30
     i64 2, label %34
-    i64 3, label %87
-    i64 4, label %87
+    i64 3, label %89
+    i64 4, label %89
   ]
 
 26:                                               ; preds = %18
@@ -1123,9 +1123,9 @@ default.unreachable31:                            ; preds = %18
 34:                                               ; preds = %18
   %35 = load i32, ptr %11, align 8, !range !125, !noundef !5
   %.not9 = icmp eq i32 %35, 1000000000
-  br i1 %.not9, label %76, label %69
+  br i1 %.not9, label %77, label %69
 
-"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17hd77fecdb69134e28E.exit": ; preds = %87, %30, %26, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit"
+"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17hd77fecdb69134e28E.exit": ; preds = %89, %30, %26, %88
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.experimental.noalias.scope.decl(metadata !126)
   %36 = add i64 %20, 1
@@ -1227,39 +1227,37 @@ default.unreachable31:                            ; preds = %18
   %70 = load i64, ptr %10, align 8, !noundef !5
   %71 = call { i64, i32 } @_ZN5tokio4time7instant7Instant3now17h415dd92ef415a1a0E()
   %.fca.0.extract = extractvalue { i64, i32 } %71, 0
-  %72 = icmp slt i64 %.fca.0.extract, %70
-  br i1 %72, label %.loopexit, label %73
-
-73:                                               ; preds = %69
   %.fca.1.extract = extractvalue { i64, i32 } %71, 1
-  %74 = icmp eq i64 %.fca.0.extract, %70
-  %75 = icmp ult i32 %.fca.1.extract, %35
-  %or.cond = select i1 %74, i1 %75, i1 false
-  br i1 %or.cond, label %.loopexit, label %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit"
+  %72 = icmp slt i64 %.fca.0.extract, %70
+  %73 = icmp eq i64 %.fca.0.extract, %70
+  %74 = icmp ult i32 %.fca.1.extract, %35
+  %75 = select i1 %73, i1 %74, i1 false
+  %76 = select i1 %72, i1 true, i1 %75
+  br i1 %76, label %.loopexit, label %88
 
-76:                                               ; preds = %34
-  %77 = call { i64, i32 } @_ZN5tokio4time7instant7Instant3now17h415dd92ef415a1a0E()
-  %78 = extractvalue { i64, i32 } %77, 0
-  %79 = extractvalue { i64, i32 } %77, 1
-  %80 = getelementptr inbounds i8, ptr %24, i64 8
-  %81 = load i64, ptr %80, align 8, !noundef !5
-  %82 = getelementptr inbounds i8, ptr %24, i64 16
-  %83 = load i32, ptr %82, align 8, !range !170, !noundef !5
-  %84 = call { i64, i32 } @"_ZN99_$LT$tokio..time..instant..Instant$u20$as$u20$core..ops..arith..Add$LT$core..time..Duration$GT$$GT$3add17hbc02956d172a8ff4E"(i64 noundef %78, i32 noundef %79, i64 noundef %81, i32 noundef %83)
-  %85 = extractvalue { i64, i32 } %84, 0
-  %86 = extractvalue { i64, i32 } %84, 1
-  store i64 %85, ptr %10, align 8
-  store i32 %86, ptr %11, align 8
+77:                                               ; preds = %34
+  %78 = call { i64, i32 } @_ZN5tokio4time7instant7Instant3now17h415dd92ef415a1a0E()
+  %79 = extractvalue { i64, i32 } %78, 0
+  %80 = extractvalue { i64, i32 } %78, 1
+  %81 = getelementptr inbounds i8, ptr %24, i64 8
+  %82 = load i64, ptr %81, align 8, !noundef !5
+  %83 = getelementptr inbounds i8, ptr %24, i64 16
+  %84 = load i32, ptr %83, align 8, !range !170, !noundef !5
+  %85 = call { i64, i32 } @"_ZN99_$LT$tokio..time..instant..Instant$u20$as$u20$core..ops..arith..Add$LT$core..time..Duration$GT$$GT$3add17hbc02956d172a8ff4E"(i64 noundef %79, i32 noundef %80, i64 noundef %82, i32 noundef %84)
+  %86 = extractvalue { i64, i32 } %85, 0
+  %87 = extractvalue { i64, i32 } %85, 1
+  store i64 %86, ptr %10, align 8
+  store i32 %87, ptr %11, align 8
   br label %.loopexit
 
-"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit": ; preds = %73
+88:                                               ; preds = %69
   store i32 1000000000, ptr %11, align 8
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17hd77fecdb69134e28E.exit"
 
-87:                                               ; preds = %18, %18
+89:                                               ; preds = %18, %18
   %.08 = getelementptr inbounds i8, ptr %24, i64 8
-  %88 = load ptr, ptr %.08, align 8, !noundef !5
-  %.not = icmp eq ptr %88, null
+  %90 = load ptr, ptr %.08, align 8, !noundef !5
+  %.not = icmp eq ptr %90, null
   br i1 %.not, label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17hd77fecdb69134e28E.exit", label %.loopexit
 }
 

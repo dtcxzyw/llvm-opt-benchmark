@@ -549,8 +549,9 @@ define { i32, i32 } @_ZN9text_edit8TextEdit15apply_to_offset17ha87deef8c32a5b56E
   %10 = load i32, ptr %9, align 8, !noundef !16
   %11 = getelementptr inbounds i8, ptr %.sroa.0.02429, i64 28
   %12 = load i32, ptr %11, align 4, !noundef !16
-  %.not = icmp ult i32 %10, %1
-  br i1 %.not, label %13, label %.critedge
+  %.017 = tail call i8 @llvm.ucmp.i8.i32(i32 %10, i32 %1)
+  %switch = icmp ult i8 %.017, 2
+  br i1 %switch, label %.critedge, label %13
 
 13:                                               ; preds = %.lr.ph
   %14 = icmp ugt i32 %12, %1
@@ -774,20 +775,17 @@ define noundef zeroext i1 @_ZN9text_edit15TextEditBuilder18invalidates_offset17h
   %9 = getelementptr inbounds i8, ptr %8, i64 32
   %10 = getelementptr i8, ptr %8, i64 24
   %.val3.i = load i32, ptr %10, align 8, !noalias !163, !noundef !16
-  %11 = icmp ult i32 %.val3.i, %1
-  %12 = icmp ne i32 %.val3.i, %1
-  %..i.i.i = zext i1 %12 to i8
-  %.012.i.i.i = select i1 %11, i8 -1, i8 %..i.i.i
+  %.012.i.i.i = tail call i8 @llvm.ucmp.i8.i32(i32 %.val3.i, i32 %1)
   switch i8 %.012.i.i.i, label %"_ZN9text_edit15TextEditBuilder18invalidates_offset28_$u7b$$u7b$closure$u7d$$u7d$17h464324c6b98eb7c5E.exit.backedge.i" [
     i8 -1, label %.critedge.i.i.i
     i8 0, label %.critedge.i.i.i
   ]
 
 .critedge.i.i.i:                                  ; preds = %.lr.ph.i, %.lr.ph.i
-  %13 = getelementptr i8, ptr %8, i64 28
-  %.val4.i = load i32, ptr %13, align 4, !noalias !163, !noundef !16
-  %.not.i.i.not.i = icmp ult i32 %.val4.i, %1
-  br i1 %.not.i.i.not.i, label %"_ZN9text_edit15TextEditBuilder18invalidates_offset28_$u7b$$u7b$closure$u7d$$u7d$17h464324c6b98eb7c5E.exit.backedge.i", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h33eadc90f87f7daaE.exit"
+  %11 = getelementptr i8, ptr %8, i64 28
+  %.val4.i = load i32, ptr %11, align 4, !noalias !163, !noundef !16
+  %switch.selectcmp.i.i.not.i = icmp ult i32 %.val4.i, %1
+  br i1 %switch.selectcmp.i.i.not.i, label %"_ZN9text_edit15TextEditBuilder18invalidates_offset28_$u7b$$u7b$closure$u7d$$u7d$17h464324c6b98eb7c5E.exit.backedge.i", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h33eadc90f87f7daaE.exit"
 
 "_ZN9text_edit15TextEditBuilder18invalidates_offset28_$u7b$$u7b$closure$u7d$$u7d$17h464324c6b98eb7c5E.exit.backedge.i": ; preds = %.critedge.i.i.i, %.lr.ph.i
   %.not18.i = icmp eq ptr %9, %7
@@ -949,6 +947,9 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ucmp.i8.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #17

@@ -7425,61 +7425,54 @@ define internal fastcc noundef zeroext i1 @_ZN14wasmtime_cache6worker18is_fs_loc
   call void @_ZN3std4time10SystemTime14duration_since17hd659a21af66cb1aeE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14, i64 noundef %43, i32 noundef %.pre)
   %48 = load i64, ptr %15, align 8, !range !98, !noundef !5
   %trunc = trunc nuw i64 %48 to i1
-  br i1 %trunc, label %58, label %49
+  br i1 %trunc, label %56, label %49
 
 49:                                               ; preds = %42
   %50 = getelementptr inbounds i8, ptr %15, i64 8
   %51 = load i64, ptr %50, align 8, !noundef !5
-  %52 = icmp ult i64 %51, %2
-  br i1 %52, label %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit", label %53
+  %52 = getelementptr inbounds i8, ptr %15, i64 16
+  %53 = load i32, ptr %52, align 8, !range !1738, !noundef !5
+  %54 = icmp uge i64 %51, %2
+  %55 = icmp ne i64 %51, %2
+  %.05.i = call i8 @llvm.ucmp.i8.i32(i32 %53, i32 %3)
+  %switch375657 = icmp ult i8 %.05.i, 2
+  %switch3756 = select i1 %55, i1 true, i1 %switch375657
+  %switch37 = select i1 %54, i1 %switch3756, i1 false
+  br label %65
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %15, i64 16
-  %55 = load i32, ptr %54, align 8, !range !1738, !noundef !5
-  %56 = icmp ne i64 %51, %2
-  %57 = icmp uge i32 %55, %3
-  %spec.select = or i1 %56, %57
-  br label %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit"
-
-58:                                               ; preds = %42
+56:                                               ; preds = %42
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
-  %59 = getelementptr inbounds i8, ptr %15, i64 8
-  %60 = load i64, ptr %59, align 8, !noundef !5
-  %61 = getelementptr inbounds i8, ptr %15, i64 16
-  %62 = load i32, ptr %61, align 8, !range !1738, !noundef !5
-  store i64 %60, ptr %13, align 8
-  %63 = getelementptr inbounds i8, ptr %13, i64 8
-  store i32 %62, ptr %63, align 8
-  %64 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
-  %65 = icmp ult i64 %64, 6
-  call void @llvm.assume(i1 %65)
-  %66 = icmp ugt i64 %64, 4
-  br i1 %66, label %74, label %67
+  %57 = getelementptr inbounds i8, ptr %15, i64 8
+  %58 = load i64, ptr %57, align 8, !noundef !5
+  %59 = getelementptr inbounds i8, ptr %15, i64 16
+  %60 = load i32, ptr %59, align 8, !range !1738, !noundef !5
+  store i64 %58, ptr %13, align 8
+  %61 = getelementptr inbounds i8, ptr %13, i64 8
+  store i32 %60, ptr %61, align 8
+  %62 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
+  %63 = icmp ult i64 %62, 6
+  call void @llvm.assume(i1 %63)
+  %64 = icmp ugt i64 %62, 4
+  br i1 %64, label %74, label %66
 
-"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit": ; preds = %53, %49, %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit50"
-  %.1 = phi i1 [ %.0.i47, %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit50" ], [ false, %49 ], [ %spec.select, %53 ]
+65:                                               ; preds = %66, %49
+  %.1 = phi i1 [ %73, %66 ], [ %switch37, %49 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   br label %83
 
-67:                                               ; preds = %58, %74
-  %68 = phi i64 [ %60, %58 ], [ %.pre58, %74 ]
-  %69 = icmp ult i64 %68, %4
-  br i1 %69, label %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit50", label %70
-
-70:                                               ; preds = %67
-  %71 = load i32, ptr %63, align 8, !range !1738, !noundef !5
-  %72 = icmp ne i64 %68, %4
-  %73 = icmp ugt i32 %71, %5
-  %spec.select57 = or i1 %72, %73
-  br label %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit50"
-
-"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit50": ; preds = %70, %67
-  %.0.i47 = phi i1 [ false, %67 ], [ %spec.select57, %70 ]
+66:                                               ; preds = %56, %74
+  %67 = phi i32 [ %60, %56 ], [ %.pre59, %74 ]
+  %68 = phi i64 [ %58, %56 ], [ %.pre58, %74 ]
+  %69 = icmp uge i64 %68, %4
+  %70 = icmp ne i64 %68, %4
+  %71 = icmp ugt i32 %67, %5
+  %72 = or i1 %70, %71
+  %73 = and i1 %69, %72
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  br label %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit"
+  br label %65
 
-74:                                               ; preds = %58
+74:                                               ; preds = %56
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
@@ -7507,14 +7500,15 @@ define internal fastcc noundef zeroext i1 @_ZN14wasmtime_cache6worker18is_fs_loc
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   %.pre58 = load i64, ptr %13, align 8
-  br label %67
+  %.pre59 = load i32, ptr %61, align 8, !range !1738
+  br label %66
 
-83:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h05d631ddd5430c10E.exit", %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit"
-  %.2 = phi i1 [ true, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h05d631ddd5430c10E.exit" ], [ %.1, %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit" ]
+83:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h05d631ddd5430c10E.exit", %65
+  %.2 = phi i1 [ true, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h05d631ddd5430c10E.exit" ], [ %.1, %65 ]
   ret i1 %.2
 
 84:                                               ; preds = %91, %105
-  %85 = phi ptr [ %92, %91 ], [ %.pre59, %105 ]
+  %85 = phi ptr [ %92, %91 ], [ %.pre60, %105 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1745)
   call void @llvm.experimental.noalias.scope.decl(metadata !1748)
   call void @llvm.experimental.noalias.scope.decl(metadata !1751)
@@ -7581,7 +7575,7 @@ define internal fastcc noundef zeroext i1 @_ZN14wasmtime_cache6worker18is_fs_loc
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
-  %.pre59 = load ptr, ptr %19, align 8, !alias.scope !1754
+  %.pre60 = load ptr, ptr %19, align 8, !alias.scope !1754
   br label %84
 
 106:                                              ; preds = %89
@@ -7956,6 +7950,9 @@ declare i32 @llvm.smin.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ucmp.i8.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
