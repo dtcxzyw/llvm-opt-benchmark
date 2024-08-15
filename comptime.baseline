@@ -17248,7 +17248,7 @@ node/thread-common.ll 38828587
 node/thread.ll 195819653
 node/threadpool.ll 144475378
 node/timer.ll 209492312
-node/tty.ll 93220839
+node/tty.ll 93314138
 node/udp.ll 378514842
 node/uv-common.ll 385444039
 node/version.ll 34313828
