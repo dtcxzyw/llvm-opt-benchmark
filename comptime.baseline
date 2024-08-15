@@ -902,7 +902,7 @@ abc/satInterB.c.ll 512789544
 abc/satInterP.c.ll 564963099
 abc/satMem.c.ll 181450126
 abc/satProof.c.ll 352335756
-abc/satSolver.c.ll 2244528897
+abc/satSolver.c.ll 2246782261
 abc/satSolver2.c.ll 1812662949
 abc/satSolver2i.c.ll 289630509
 abc/satSolver3.c.ll 2173065174
@@ -5181,7 +5181,7 @@ csmith/DefaultOutputMgr.cpp.ll 224837253
 csmith/DefaultProgramGenerator.cpp.ll 57625476
 csmith/DefaultRndNumGenerator.cpp.ll 89467075
 csmith/DepthSpec.cpp.ll 249843746
-csmith/Effect.cpp.ll 689007003
+csmith/Effect.cpp.ll 689699007
 csmith/Expression.cpp.ll 160250634
 csmith/ExpressionAssign.cpp.ll 216766473
 csmith/ExpressionComma.cpp.ll 351489010
@@ -6828,7 +6828,7 @@ eastl/BenchmarkAlgorithm.cpp.ll 7806023988
 eastl/BenchmarkBitset.cpp.ll 1001739680
 eastl/BenchmarkDeque.cpp.ll 3702754093
 eastl/BenchmarkHash.cpp.ll 3070685060
-eastl/BenchmarkHeap.cpp.ll 1116532666
+eastl/BenchmarkHeap.cpp.ll 1117661802
 eastl/BenchmarkList.cpp.ll 1004171779
 eastl/BenchmarkMap.cpp.ll 1356913327
 eastl/BenchmarkSet.cpp.ll 947395608
