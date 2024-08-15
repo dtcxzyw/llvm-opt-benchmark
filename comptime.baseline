@@ -4477,7 +4477,7 @@ coreutils-rs/4f3jlvkyrv359w1l.ll 165376943
 coreutils-rs/4fgwum4i6ouktif1.ll 473586946
 coreutils-rs/4fjhfxyp4t1txpvb.ll 429799917
 coreutils-rs/4fnljkc9nlotrx6v.ll 750596525
-coreutils-rs/4gs2z359bfnc1tys.ll 630229298
+coreutils-rs/4gs2z359bfnc1tys.ll 630860107
 coreutils-rs/4gtarqjpgutqut4f.ll 104872124
 coreutils-rs/4h7ixciyp17lrydn.ll 792893179
 coreutils-rs/4h7z3ghynwnbx7iw.ll 765191539
@@ -5462,7 +5462,7 @@ cvc5/enum_value_manager.cpp.ll 1127177021
 cvc5/env.cpp.ll 596652402
 cvc5/env_obj.cpp.ll 62546149
 cvc5/eq_proof.cpp.ll 6119968242
-cvc5/eqc_info.cpp.ll 620735875
+cvc5/eqc_info.cpp.ll 621359353
 cvc5/equality_engine.cpp.ll 9106262565
 cvc5/equality_engine_iterator.cpp.ll 119617719
 cvc5/equality_query.cpp.ll 1634601032
@@ -6332,7 +6332,7 @@ diesel-rs/1h5ssk6l01034x01.ll 538795232
 diesel-rs/1hskzwx2vflsavf7.ll 95920418
 diesel-rs/1huc92ny4pazp0ae.ll 192337914
 diesel-rs/1hwven6eovlu4ao9.ll 669031834
-diesel-rs/1jz126bddzidz5zd.ll 434782747
+diesel-rs/1jz126bddzidz5zd.ll 434347875
 diesel-rs/1k9itxwmy6phzvjw.ll 874782019
 diesel-rs/1ksci6wsu20op9cc.ll 238456747
 diesel-rs/1kyzuzxhcccv0umo.ll 391641966
@@ -6362,7 +6362,7 @@ diesel-rs/21lv25hlpi4vcq3d.ll 567540529
 diesel-rs/221gzbx6n2968mg0.ll 693033077
 diesel-rs/222o81ueeblxtfo9.ll 603465807
 diesel-rs/239ledb76gvs5awv.ll 678191137
-diesel-rs/23kokisxi5pskw1l.ll 598173952
+diesel-rs/23kokisxi5pskw1l.ll 597575533
 diesel-rs/24idv9j1r56qvsu.ll 1062333832
 diesel-rs/25bamdju2ppnlgrj.ll 50516785
 diesel-rs/25qlp606r8bbub5t.ll 848459742
@@ -7801,7 +7801,7 @@ git/xutils.ll 393437811
 glog/cleanup_immediately_unittest.cc.ll 808559544
 glog/cleanup_with_absolute_prefix_unittest.cc.ll 813160320
 glog/cleanup_with_relative_prefix_unittest.cc.ll 808699357
-glog/demangle_unittest.cc.ll 676349361
+glog/demangle_unittest.cc.ll 675671328
 glog/flags.cc.ll 215447050
 glog/logging.cc.ll 7318485979
 glog/logging_unittest.cc.ll 5515655900
@@ -11111,7 +11111,7 @@ imgui/imgui_draw.cpp.ll 8404366987
 imgui/imgui_tables.cpp.ll 2615852187
 imgui/imgui_widgets.cpp.ll 6645716814
 influxdb-rs/137os9m7mkg6454u.ll 863465586
-influxdb-rs/168qliixz1k1vi84.ll 1185088135
+influxdb-rs/168qliixz1k1vi84.ll 1183902062
 influxdb-rs/17ptp6pnu4b90vr6.ll 4189418949
 influxdb-rs/1boq4c9zu6q3b6q6.ll 198157584
 influxdb-rs/1eq02exapnq3t1zu.ll 80454120
@@ -21734,7 +21734,7 @@ openjdk/jvmtiEnvBase.ll 2843635306
 openjdk/jvmtiEnvThreadState.ll 332136039
 openjdk/jvmtiEventController.ll 749329942
 openjdk/jvmtiExport.ll 3821740460
-openjdk/jvmtiExtensions.ll 379045286
+openjdk/jvmtiExtensions.ll 378666060
 openjdk/jvmtiGetLoadedClasses.ll 764645497
 openjdk/jvmtiImpl.ll 1724278083
 openjdk/jvmtiManageCapabilities.ll 242062737
@@ -31574,7 +31574,7 @@ spike/amomin_d.ll 807881847
 spike/amomin_h.ll 1095245587
 spike/amomin_w.ll 1098565782
 spike/amominu_b.ll 1078289899
-spike/amominu_d.ll 806274536
+spike/amominu_d.ll 805468101
 spike/amominu_h.ll 1096273360
 spike/amominu_w.ll 1098369282
 spike/amoor_b.ll 1073536951
