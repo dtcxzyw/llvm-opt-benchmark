@@ -6521,7 +6521,7 @@ diesel-rs/549690numjx82e94.ll 35317178
 diesel-rs/54iicqfixrdtkyvi.ll 729368294
 diesel-rs/55ov5kkl6xywhioq.ll 421918111
 diesel-rs/58sgd4aj90o02349.ll 172869612
-diesel-rs/59y9s5io22rzfie1.ll 355546456
+diesel-rs/59y9s5io22rzfie1.ll 355902031
 diesel-rs/5adr4b1vt9d36mr4.ll 1438080881
 diesel-rs/5ae9g3v8s5vb9wv8.ll 147027533
 diesel-rs/5ced59ru0k2b91x9.ll 1999079114
@@ -9065,7 +9065,7 @@ gromacs/slar1vx.cpp.ll 194563754
 gromacs/slarf.cpp.ll 42414524
 gromacs/slarfb.cpp.ll 278294509
 gromacs/slarfg.cpp.ll 51801770
-gromacs/slarft.cpp.ll 110663183
+gromacs/slarft.cpp.ll 110773947
 gromacs/slarnv.cpp.ll 68719684
 gromacs/slarrbx.cpp.ll 198759214
 gromacs/slarrex.cpp.ll 339140633
@@ -24333,7 +24333,7 @@ openssl/libcommon-lib-ciphercommon_gcm.ll 213911615
 openssl/libcommon-lib-ciphercommon_gcm_hw.ll 47559065
 openssl/libcommon-lib-der_dsa_key.ll 36652689
 openssl/libcommon-lib-der_dsa_sig.ll 39270355
-openssl/libcommon-lib-der_ec_key.ll 36618161
+openssl/libcommon-lib-der_ec_key.ll 36654850
 openssl/libcommon-lib-der_ec_sig.ll 39302277
 openssl/libcommon-lib-der_ecx_key.ll 43896698
 openssl/libcommon-lib-der_rsa_key.ll 62184515
@@ -24502,7 +24502,7 @@ openssl/libcrypto-lib-cpt_err.ll 36634928
 openssl/libcrypto-lib-cpuid.ll 72325492
 openssl/libcrypto-lib-crmf_asn.ll 138180843
 openssl/libcrypto-lib-crmf_err.ll 36146200
-openssl/libcrypto-lib-crmf_lib.ll 259303385
+openssl/libcrypto-lib-crmf_lib.ll 259562885
 openssl/libcrypto-lib-crmf_pbm.ll 76159685
 openssl/libcrypto-lib-cryptlib.ll 37368717
 openssl/libcrypto-lib-ct_b64.ll 65023368
