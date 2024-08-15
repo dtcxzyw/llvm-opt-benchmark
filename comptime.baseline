@@ -21688,7 +21688,7 @@ openjdk/jmemmgr.ll 314069205
 openjdk/jmemnobs.ll 43295611
 openjdk/jni.ll 6942712200
 openjdk/jniCheck.ll 3959886780
-openjdk/jniFastGetField.ll 42380604
+openjdk/jniFastGetField.ll 42423045
 openjdk/jniFastGetField_x86_64.ll 184570701
 openjdk/jniHandles.ll 1289702357
 openjdk/jniPeriodicChecker.ll 44242847
@@ -23024,7 +23024,7 @@ openmpi/libmpi_c_profile_la-dist_graph_neighbors_count.ll 73415547
 openmpi/libmpi_c_profile_la-errhandler_c2f.ll 35864965
 openmpi/libmpi_c_profile_la-errhandler_f2c.ll 49793882
 openmpi/libmpi_c_profile_la-errhandler_free.ll 42980884
-openmpi/libmpi_c_profile_la-errhandler_get.ll 40061678
+openmpi/libmpi_c_profile_la-errhandler_get.ll 40101887
 openmpi/libmpi_c_profile_la-errhandler_set.ll 40061539
 openmpi/libmpi_c_profile_la-error_class.ll 74214479
 openmpi/libmpi_c_profile_la-error_string.ll 73509523
@@ -26615,7 +26615,7 @@ php/zend_execute_API.ll 893352116
 php/zend_extensions.ll 192808226
 php/zend_fibers.ll 296162948
 php/zend_file_cache.ll 2319555694
-php/zend_float.ll 35785763
+php/zend_float.ll 35821649
 php/zend_func_info.ll 158815214
 php/zend_gc.ll 1640045693
 php/zend_gdb.ll 54754148
