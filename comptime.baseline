@@ -1396,7 +1396,7 @@ actix-rs/2ex2ahap5ca1v02i.ll 40899910
 actix-rs/2f4ardqpkkrvo3qj.ll 2687531938
 actix-rs/2j9n5bpcdzc77os3.ll 35813407
 actix-rs/2k9u0pd7vxncwqdc.ll 34608371
-actix-rs/2kg4yng9pnepnxcz.ll 41320364
+actix-rs/2kg4yng9pnepnxcz.ll 41361725
 actix-rs/2l30jm4ifpuaqlut.ll 40040340
 actix-rs/2l54a10og4z99516.ll 2455289187
 actix-rs/2lnack56lfnd1s8n.ll 202599162
@@ -11722,7 +11722,7 @@ libquic/a_utf8.c.ll 120728849
 libquic/a_verify.c.ll 44299867
 libquic/activity_tracker.cc.ll 515053841
 libquic/add.c.ll 141788086
-libquic/address_family.cc.ll 37256210
+libquic/address_family.cc.ll 37293610
 libquic/adler32.c.ll 191625860
 libquic/aead.c.ll 65439849
 libquic/aead_base_decrypter.cc.ll 87578026
@@ -13849,7 +13849,7 @@ linux/kfifo.ll 203035291
 linux/klist.ll 110852264
 linux/kmod.ll 60194562
 linux/kmsg.ll 47924460
-linux/knc.ll 94823855
+linux/knc.ll 94918842
 linux/kobject.ll 248521905
 linux/kobject_uevent.ll 173129087
 linux/kprobes.ll 684416955
@@ -25250,7 +25250,7 @@ openssl/libcrypto-shlib-http_client.ll 496603071
 openssl/libcrypto-shlib-http_err.ll 36585355
 openssl/libcrypto-shlib-http_lib.ll 144821946
 openssl/libcrypto-shlib-i_cbc.ll 359844490
-openssl/libcrypto-shlib-info.ll 44302073
+openssl/libcrypto-shlib-info.ll 44346382
 openssl/libcrypto-shlib-init.ll 120024658
 openssl/libcrypto-shlib-initthread.ll 142264031
 openssl/libcrypto-shlib-internal.ll 58679737
@@ -34156,7 +34156,7 @@ wasmtime-rs/2rxishkjui70pb7b.ll 308519082
 wasmtime-rs/2rz3i5err6tlfn2f.ll 40792196
 wasmtime-rs/2sezxgtt8voyf4xi.ll 102888526
 wasmtime-rs/2sf3ranrrf5pn6ms.ll 522052343
-wasmtime-rs/2szc25qan7k79byh.ll 40534092
+wasmtime-rs/2szc25qan7k79byh.ll 40574695
 wasmtime-rs/2ta8crc4qgl9bp8t.ll 14163665721
 wasmtime-rs/2tdzc7hgano6927f.ll 39629038
 wasmtime-rs/2th1p5oj8cs6go3s.ll 54887915
