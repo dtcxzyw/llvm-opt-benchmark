@@ -52,7 +52,7 @@ abc/abcHieCec.c.ll 475269264
 abc/abcHieGia.c.ll 651246542
 abc/abcHieNew.c.ll 1491538965
 abc/abcIf.c.ll 820035508
-abc/abcIfMux.c.ll 127004867
+abc/abcIfMux.c.ll 127136798
 abc/abcIfif.c.ll 266648955
 abc/abcIvy.c.ll 771616705
 abc/abcLatch.c.ll 595557783
@@ -2725,7 +2725,7 @@ clamav/Bra86.c.ll 77730875
 clamav/BraIA64.c.ll 77630818
 clamav/Delta.c.ll 85273989
 clamav/Lzma2Dec.c.ll 149126608
-clamav/LzmaDec.c.ll 887850445
+clamav/LzmaDec.c.ll 888751972
 clamav/Ppmd7.c.ll 416791344
 clamav/Ppmd7Dec.c.ll 129938783
 clamav/Xz.c.ll 57652087
@@ -12393,7 +12393,7 @@ libwebp/upsampling_mips_dsp_r2.c.ll 34121684
 libwebp/upsampling_msa.c.ll 33558769
 libwebp/upsampling_neon.c.ll 33559017
 libwebp/upsampling_sse2.c.ll 920462687
-libwebp/upsampling_sse41.c.ll 304759569
+libwebp/upsampling_sse41.c.ll 305066085
 libwebp/utils.c.ll 59307633
 libwebp/vp8_dec.c.ll 542567394
 libwebp/vp8l_dec.c.ll 1013068052
@@ -14862,7 +14862,7 @@ linux/yenta_socket.ll 495046581
 linux/zhaoxin.ll 59320204
 linux/zstd_common.ll 50942220
 linux/zstd_decompress.ll 638402856
-linux/zstd_decompress_block.ll 2833865351
+linux/zstd_decompress_block.ll 2836745141
 llama.cpp/common.cpp.ll 8338915333
 llama.cpp/console.cpp.ll 289570360
 llama.cpp/ggml-alloc.c.ll 383221721
@@ -15994,7 +15994,7 @@ minetest/profilergraph.cpp.ll 499869112
 minetest/proxy_sound_manager.cpp.ll 401656172
 minetest/quicktune.cpp.ll 231433280
 minetest/raycast.cpp.ll 140027555
-minetest/reflowscan.cpp.ll 297699944
+minetest/reflowscan.cpp.ll 297997839
 minetest/remoteplayer.cpp.ll 372113438
 minetest/renderingengine.cpp.ll 759657910
 minetest/rollback.cpp.ll 2009444490
@@ -19906,7 +19906,7 @@ opencv/msm_epfl.cpp.ll 616890311
 opencv/msm_middlebury.cpp.ll 524605580
 opencv/multiTracker.cpp.ll 1830415688
 opencv/multiTracker_alt.cpp.ll 456244586
-opencv/multiTracker_dataset.cpp.ll 665992920
+opencv/multiTracker_dataset.cpp.ll 666661264
 opencv/multi_cameras_calibration.cpp.ll 308959229
 opencv/multicalib.cpp.ll 2806962210
 opencv/multitracker.cpp.ll 774219896
@@ -27646,7 +27646,7 @@ postgres/tsrank.ll 562910254
 postgres/tstoreReceiver.ll 84105510
 postgres/tsvector.ll 315251917
 postgres/tsvector_op.ll 1091419808
-postgres/tsvector_parser.ll 201434864
+postgres/tsvector_parser.ll 201637163
 postgres/tupconvert.ll 81193380
 postgres/tupdesc.ll 287946842
 postgres/tuplesort.ll 1347178194
@@ -35446,7 +35446,7 @@ wireshark/packet-iax2.c.ll 784179601
 wireshark/packet-icap.c.ll 95188778
 wireshark/packet-icep.c.ll 211990005
 wireshark/packet-icmp.c.ll 494629556
-wireshark/packet-icmpv6.c.ll 1082501777
+wireshark/packet-icmpv6.c.ll 1083587849
 wireshark/packet-icq.c.ll 347553399
 wireshark/packet-id3v2.c.ll 162946900
 wireshark/packet-idn.c.ll 801783675
@@ -37787,7 +37787,7 @@ zstd/zstd_compress_literals.c.ll 108465253
 zstd/zstd_compress_sequences.c.ll 446481072
 zstd/zstd_compress_superblock.c.ll 477536290
 zstd/zstd_decompress.c.ll 1092421049
-zstd/zstd_decompress_block.c.ll 4818033005
+zstd/zstd_decompress_block.c.ll 4822858254
 zstd/zstd_double_fast.c.ll 4298845866
 zstd/zstd_fast.c.ll 3954986686
 zstd/zstd_lazy.c.ll 14895050307
