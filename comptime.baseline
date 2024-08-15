@@ -8772,7 +8772,7 @@ gromacs/listed_forces_gpu_impl.cpp.ll 602429340
 gromacs/listed_internal.cpp.ll 36186263
 gromacs/lmmin.cpp.ll 1046410291
 gromacs/localatomset.cpp.ll 49391062
-gromacs/localatomsetdata.cpp.ll 281820117
+gromacs/localatomsetdata.cpp.ll 282101942
 gromacs/localatomsetmanager.cpp.ll 408988748
 gromacs/localtopology.cpp.ll 1851269258
 gromacs/localtopologychecker.cpp.ll 896227559
@@ -25439,7 +25439,7 @@ openssl/libcrypto-shlib-tasn_prn.ll 184135073
 openssl/libcrypto-shlib-tasn_typ.ll 126606261
 openssl/libcrypto-shlib-tasn_utl.ll 95128512
 openssl/libcrypto-shlib-thread_posix.ll 71994500
-openssl/libcrypto-shlib-threads_pthread.ll 56219835
+openssl/libcrypto-shlib-threads_pthread.ll 56276092
 openssl/libcrypto-shlib-ts_asn1.ll 102706074
 openssl/libcrypto-shlib-ts_conf.ll 150109554
 openssl/libcrypto-shlib-ts_err.ll 37059183
