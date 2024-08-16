@@ -2367,7 +2367,7 @@ casadi/cs_lusol.c.ll 41937877
 casadi/cs_maxtrans.c.ll 159920129
 casadi/cs_multiply.c.ll 107180055
 casadi/cs_norm.c.ll 49309850
-casadi/cs_permute.c.ll 126195953
+casadi/cs_permute.c.ll 126322235
 casadi/cs_pinv.c.ll 41437088
 casadi/cs_post.c.ll 54412049
 casadi/cs_print.c.ll 116568105
@@ -2465,7 +2465,7 @@ casadi/kinsol_bbdpre.c.ll 133804459
 casadi/kinsol_dense.c.ll 60822132
 casadi/kinsol_direct.c.ll 102296620
 casadi/kinsol_interface.cpp.ll 2052971160
-casadi/kinsol_interface_meta.cpp.ll 161407675
+casadi/kinsol_interface_meta.cpp.ll 161569294
 casadi/kinsol_io.c.ll 134765636
 casadi/kinsol_spbcgs.c.ll 74177013
 casadi/kinsol_spgmr.c.ll 74942889
@@ -3630,7 +3630,7 @@ cmake/fld_info.c.ll 45862420
 cmake/fld_just.c.ll 39575807
 cmake/fld_link.c.ll 50904521
 cmake/fld_max.c.ll 44255832
-cmake/fld_move.c.ll 38436421
+cmake/fld_move.c.ll 38475031
 cmake/fld_newftyp.c.ll 45619401
 cmake/fld_opts.c.ll 42196400
 cmake/fld_page.c.ll 40034890
@@ -8370,7 +8370,7 @@ gromacs/dlamrg.cpp.ll 59183509
 gromacs/dlange.cpp.ll 90479265
 gromacs/dlanst.cpp.ll 59200940
 gromacs/dlansy.cpp.ll 123618323
-gromacs/dlapy2.cpp.ll 38918783
+gromacs/dlapy2.cpp.ll 38957740
 gromacs/dlar1vx.cpp.ll 196273951
 gromacs/dlarf.cpp.ll 42793119
 gromacs/dlarfb.cpp.ll 278280989
@@ -9234,7 +9234,7 @@ gromacs/vsite.cpp.ll 5321072744
 gromacs/vsite_parm.cpp.ll 3112508345
 gromacs/wall.cpp.ll 530797931
 gromacs/wallcycle.cpp.ll 656403916
-gromacs/walltime_accounting.cpp.ll 63637738
+gromacs/walltime_accounting.cpp.ll 63701443
 gromacs/warninp.cpp.ll 137989863
 gromacs/warnmalloc.c.ll 38924980
 gromacs/wholemoleculetransform.cpp.ll 650363155
@@ -12009,7 +12009,7 @@ libquic/rand_util.cc.ll 56672189
 libquic/rand_util_posix.cc.ll 71936784
 libquic/random.c.ll 96850171
 libquic/reduce.c.ll 37818813
-libquic/refcount_lock.c.ll 38809027
+libquic/refcount_lock.c.ll 38847841
 libquic/refcount_test.c.ll 42612872
 libquic/reliable_quic_stream.cc.ll 293081093
 libquic/ripemd.c.ll 994465419
@@ -17523,7 +17523,7 @@ nuttx/lib_memset.c.ll 38866363
 nuttx/lib_memsistream.c.ll 47105378
 nuttx/lib_memsostream.c.ll 49836180
 nuttx/lib_mknod.c.ll 42242989
-nuttx/lib_mktemp.c.ll 84069301
+nuttx/lib_mktemp.c.ll 84153395
 nuttx/lib_mutex.c.ll 96596677
 nuttx/lib_nanosleep.c.ll 35961640
 nuttx/lib_nftw.c.ll 92022273
@@ -17612,7 +17612,7 @@ nuttx/lib_vasprintf.c.ll 39590011
 nuttx/lib_wcrtomb.c.ll 48078382
 nuttx/lib_wcschr.c.ll 39582667
 nuttx/lib_wcscmp.c.ll 38566278
-nuttx/lib_wcscpy.c.ll 36633318
+nuttx/lib_wcscpy.c.ll 36670079
 nuttx/lib_wcslcat.c.ll 48825923
 nuttx/lib_wcslcpy.c.ll 45250547
 nuttx/lib_wcslen.c.ll 37358978
@@ -17637,7 +17637,7 @@ nuttx/mempool_procfs.c.ll 59939183
 nuttx/mm_free.c.ll 59507638
 nuttx/mm_heapmember.c.ll 35927833
 nuttx/mm_malloc.c.ll 63350833
-nuttx/mm_malloc_size.c.ll 36095437
+nuttx/mm_malloc_size.c.ll 36131596
 nuttx/mm_map.c.ll 71952046
 nuttx/mm_memalign.c.ll 61280670
 nuttx/mm_memdump.c.ll 41180169
@@ -17669,7 +17669,7 @@ nuttx/pthread_attr_getschedpolicy.c.ll 36300318
 nuttx/pthread_attr_getstack.c.ll 37038079
 nuttx/pthread_attr_getstackaddr.c.ll 36104639
 nuttx/pthread_attr_getstacksize.c.ll 35584202
-nuttx/pthread_attr_init.c.ll 35938657
+nuttx/pthread_attr_init.c.ll 35974608
 nuttx/pthread_attr_setdetachstate.c.ll 36392470
 nuttx/pthread_attr_setinheritsched.c.ll 36458488
 nuttx/pthread_attr_setschedparam.c.ll 36174699
@@ -23996,7 +23996,7 @@ openmpi/sharedfp_lockedfile_seek.ll 52406388
 openmpi/sharedfp_lockedfile_write.ll 76257239
 openmpi/sharedfp_sm.ll 77887903
 openmpi/sharedfp_sm_file_open.ll 86825692
-openmpi/sharedfp_sm_get_position.ll 36412285
+openmpi/sharedfp_sm_get_position.ll 36448717
 openmpi/sharedfp_sm_iread.ll 77420338
 openmpi/sharedfp_sm_iwrite.ll 77423135
 openmpi/sharedfp_sm_read.ll 75158300
@@ -25374,7 +25374,7 @@ openssl/libcrypto-shlib-rmd_one.ll 36785238
 openssl/libcrypto-shlib-rsa_ameth.ll 255223498
 openssl/libcrypto-shlib-rsa_asn1.ll 63106395
 openssl/libcrypto-shlib-rsa_backend.ll 207322873
-openssl/libcrypto-shlib-rsa_chk.ll 120188530
+openssl/libcrypto-shlib-rsa_chk.ll 120308739
 openssl/libcrypto-shlib-rsa_crpt.ll 71283430
 openssl/libcrypto-shlib-rsa_depr.ll 45877596
 openssl/libcrypto-shlib-rsa_err.ll 39461951
@@ -25819,7 +25819,7 @@ openssl/libtestutil-lib-output.ll 38652931
 openssl/libtestutil-lib-provider.ll 140449552
 openssl/libtestutil-lib-random.ll 49261606
 openssl/libtestutil-lib-stanza.ll 107540043
-openssl/libtestutil-lib-test_options.ll 34427361
+openssl/libtestutil-lib-test_options.ll 34461803
 openssl/libtestutil-lib-tests.ll 311701338
 openssl/libtestutil-lib-testutil_init.ll 33624447
 openssl/list_test-bin-list_test.ll 209141520
@@ -31099,7 +31099,7 @@ slurm/acct_gather_filesystem_lustre.ll 145215885
 slurm/acct_gather_interconnect.ll 131507757
 slurm/acct_gather_interconnect_sysfs.ll 92623905
 slurm/acct_gather_profile.ll 214737312
-slurm/acct_gather_profile_influxdb.ll 165236927
+slurm/acct_gather_profile_influxdb.ll 165402229
 slurm/acct_policy.ll 1913270131
 slurm/affinity.ll 113020468
 slurm/agent.ll 170995702
@@ -34498,7 +34498,7 @@ wasmtime-rs/56b2fu2ruajub7gj.ll 38073353
 wasmtime-rs/56emwj92cmh3jexk.ll 46542182
 wasmtime-rs/56jhkfe934mvpht6.ll 112293925
 wasmtime-rs/57sumks403nd0wy1.ll 63345984
-wasmtime-rs/585z5jm33edhvy7g.ll 38146950
+wasmtime-rs/585z5jm33edhvy7g.ll 38185143
 wasmtime-rs/59apva3e2aabn5yb.ll 51029276
 wasmtime-rs/59hzcfr0skgox5dl.ll 34287967
 wasmtime-rs/59ibd2hl72nblwc1.ll 37304786
@@ -34730,7 +34730,7 @@ wireshark/crc8-tvb.c.ll 47923564
 wireshark/crc8.c.ll 53897163
 wireshark/credentials_dialog.cpp.ll 317802823
 wireshark/credentials_model.cpp.ll 358163785
-wireshark/csids.c.ll 73594235
+wireshark/csids.c.ll 73667851
 wireshark/curve25519.c.ll 58378525
 wireshark/daintree-sna.c.ll 74634307
 wireshark/data_printer.cpp.ll 501552261
@@ -35112,7 +35112,7 @@ wireshark/packet-btmesh-provisioning.c.ll 121082964
 wireshark/packet-btmesh-proxy.c.ll 155183610
 wireshark/packet-btmesh.c.ll 1976243409
 wireshark/packet-btrfcomm.c.ll 292877893
-wireshark/packet-btsap.c.ll 245255728
+wireshark/packet-btsap.c.ll 245500997
 wireshark/packet-btsdp.c.ll 1563223671
 wireshark/packet-btsmp.c.ll 91282472
 wireshark/packet-busmirroring.c.ll 128023506
