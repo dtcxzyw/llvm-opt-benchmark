@@ -8475,7 +8475,7 @@ gromacs/energyterm.cpp.ll 381338979
 gromacs/enxio.cpp.ll 979833261
 gromacs/errhandler.cpp.ll 58951158
 gromacs/errorcodes.cpp.ll 36856129
-gromacs/errorformat.cpp.ll 61096900
+gromacs/errorformat.cpp.ll 61158050
 gromacs/espio.cpp.ll 479508546
 gromacs/evaluate.cpp.ll 824706952
 gromacs/event.cpp.ll 39606200
