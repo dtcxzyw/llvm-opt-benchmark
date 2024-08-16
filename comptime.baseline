@@ -21240,7 +21240,7 @@ openjdk/debugInfo.ll 1207759968
 openjdk/debugInfoRec.ll 460958096
 openjdk/debugInit.ll 599495566
 openjdk/debugLoop.ll 95859332
-openjdk/debug_trace.ll 35661135
+openjdk/debug_trace.ll 35698646
 openjdk/decoder.ll 103155199
 openjdk/decoder_elf.ll 77005794
 openjdk/decoder_linux.ll 50001556
@@ -22823,7 +22823,7 @@ openmpi/ess_hnp_module.ll 139286866
 openmpi/ess_slurm_component.ll 39388596
 openmpi/ess_slurm_module.ll 60081803
 openmpi/ethtool.ll 41523250
-openmpi/event.ll 137431878
+openmpi/event.ll 137570721
 openmpi/fbtl_base_file_select.ll 102063368
 openmpi/fbtl_base_find_available.ll 69405268
 openmpi/fbtl_posix.ll 96601206
@@ -23266,7 +23266,7 @@ openmpi/libmpi_c_profile_la-session_set_info.ll 47729264
 openmpi/libmpi_c_profile_la-ssend.ll 101031212
 openmpi/libmpi_c_profile_la-ssend_init.ll 88791416
 openmpi/libmpi_c_profile_la-start.ll 67757635
-openmpi/libmpi_c_profile_la-startall.ll 64783199
+openmpi/libmpi_c_profile_la-startall.ll 64851751
 openmpi/libmpi_c_profile_la-status_c2f.ll 46662892
 openmpi/libmpi_c_profile_la-status_c2f08.ll 48415460
 openmpi/libmpi_c_profile_la-status_f082c.ll 49819064
@@ -24581,7 +24581,7 @@ openssl/libcrypto-lib-ec_asn1.ll 327621718
 openssl/libcrypto-lib-ec_backend.ll 258950045
 openssl/libcrypto-lib-ec_check.ll 53401274
 openssl/libcrypto-lib-ec_ctrl.ll 85863751
-openssl/libcrypto-lib-ec_deprecated.ll 44990026
+openssl/libcrypto-lib-ec_deprecated.ll 45040646
 openssl/libcrypto-lib-ec_err.ll 39101396
 openssl/libcrypto-lib-ec_key.ll 257631836
 openssl/libcrypto-lib-ec_lib.ll 463825856
@@ -25171,7 +25171,7 @@ openssl/libcrypto-shlib-ec_asn1.ll 327852917
 openssl/libcrypto-shlib-ec_backend.ll 258950376
 openssl/libcrypto-shlib-ec_check.ll 53401713
 openssl/libcrypto-shlib-ec_ctrl.ll 85895545
-openssl/libcrypto-shlib-ec_deprecated.ll 44990416
+openssl/libcrypto-shlib-ec_deprecated.ll 45041031
 openssl/libcrypto-shlib-ec_err.ll 39101688
 openssl/libcrypto-shlib-ec_key.ll 257819211
 openssl/libcrypto-shlib-ec_lib.ll 463439873
@@ -26654,7 +26654,7 @@ php/zend_ssa.ll 1726479951
 php/zend_stream.ll 204380594
 php/zend_string.ll 585952275
 php/zend_strtod.ll 1397090966
-php/zend_system_id.ll 56012428
+php/zend_system_id.ll 56068604
 php/zend_virtual_cwd.ll 1054233865
 php/zend_vm_opcodes.ll 59087083
 php/zend_weakrefs.ll 332036717
@@ -34765,7 +34765,7 @@ wireshark/dot11decrypt_gcmp.c.ll 56617680
 wireshark/dot11decrypt_tkip.c.ll 174470375
 wireshark/dot11decrypt_util.c.ll 110129133
 wireshark/dot11decrypt_wep.c.ll 66983391
-wireshark/dpa400.c.ll 95235040
+wireshark/dpa400.c.ll 95336393
 wireshark/drag_drop_toolbar.cpp.ll 477525413
 wireshark/drag_label.cpp.ll 51085069
 wireshark/drange.c.ll 148212114
