@@ -121234,8 +121234,9 @@ for.cond87.preheader:                             ; preds = %_ZN7testing15Assert
   br label %if.else157
 
 if.else56:                                        ; preds = %entry, %_ZN7testing15AssertionResultD2Ev.exit370
-  %storemerge2310.neg = phi i64 [ -9223372036854775808, %entry ], [ %inc.neg, %_ZN7testing15AssertionResultD2Ev.exit370 ]
-  %rem.i.i2305 = urem i64 %storemerge2310.neg, 1000000000
+  %storemerge2310 = phi i64 [ -9223372036854775808, %entry ], [ %inc, %_ZN7testing15AssertionResultD2Ev.exit370 ]
+  %storemerge.nonneg = sub i64 0, %storemerge2310
+  %rem.i.i2305 = urem i64 %storemerge.nonneg, 1000000000
   %cmp.i.i.i.not = icmp eq i64 %rem.i.i2305, 0
   %rem.i.i2305.neg = sub nsw i64 0, %rem.i.i2305
   %rem.tr.i.i = trunc nsw i64 %rem.i.i2305.neg to i32
@@ -121352,7 +121353,6 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit370:         ; preds = %if.end81, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i369
   store ptr null, ptr %message_.i.i351, align 8
   %12 = load i64, ptr %i, align 8
-  %inc.neg = xor i64 %12, -1
   %inc = add nsw i64 %12, 1
   store i64 %inc, ptr %i, align 8
   %cmp = icmp slt i64 %12, -9223372036854675809
@@ -121625,8 +121625,9 @@ for.cond402.preheader:                            ; preds = %_ZN7testing15Assert
   br label %if.else472
 
 if.else367:                                       ; preds = %for.cond297.preheader, %_ZN7testing15AssertionResultD2Ev.exit717
-  %storemerge1282313.neg = phi i64 [ -9223372036854775808, %for.cond297.preheader ], [ %inc397.neg, %_ZN7testing15AssertionResultD2Ev.exit717 ]
-  %rem.i.i6042306 = urem i64 %storemerge1282313.neg, 1000000
+  %storemerge1282313 = phi i64 [ -9223372036854775808, %for.cond297.preheader ], [ %inc397, %_ZN7testing15AssertionResultD2Ev.exit717 ]
+  %storemerge128.nonneg = sub i64 0, %storemerge1282313
+  %rem.i.i6042306 = urem i64 %storemerge128.nonneg, 1000000
   %cmp.i.i.i605.not = icmp eq i64 %rem.i.i6042306, 0
   %div4.i.i = mul nsw i64 %rem.i.i6042306, -4000
   %39 = trunc i64 %div4.i.i to i32
@@ -121742,7 +121743,6 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit717:         ; preds = %if.end392, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i716
   store ptr null, ptr %message_.i.i698, align 8
   %51 = load i64, ptr %i296, align 8
-  %inc397.neg = xor i64 %51, -1
   %inc397 = add nsw i64 %51, 1
   store i64 %inc397, ptr %i296, align 8
   %cmp298 = icmp slt i64 %51, -9223372036854675809
@@ -122015,15 +122015,16 @@ for.cond717.preheader:                            ; preds = %_ZN7testing15Assert
   br label %if.else787
 
 if.else682:                                       ; preds = %for.cond612.preheader, %_ZN7testing15AssertionResultD2Ev.exit1064
-  %storemerge1312316.neg = phi i64 [ -9223372036854775808, %for.cond612.preheader ], [ %inc712.neg, %_ZN7testing15AssertionResultD2Ev.exit1064 ]
-  %rem.i.i9512309 = urem i64 %storemerge1312316.neg, 1000
+  %storemerge1312316 = phi i64 [ -9223372036854775808, %for.cond612.preheader ], [ %inc712, %_ZN7testing15AssertionResultD2Ev.exit1064 ]
+  %storemerge131.nonneg2308 = sub i64 0, %storemerge1312316
+  %rem.i.i9512309 = urem i64 %storemerge131.nonneg2308, 1000
   %cmp.i.i.i952.not = icmp eq i64 %rem.i.i9512309, 0
   %mul2.i.i = mul nsw i64 %rem.i.i9512309, -4000000
   %78 = trunc i64 %mul2.i.i to i32
   %conv.i.i.i.i953 = add i32 %78, -294967296
   %conv.i.pn.i.i.i956 = select i1 %cmp.i.i.i952.not, i32 0, i32 %conv.i.i.i.i953
   %ticks.lobit.i.i.i954 = ashr i64 %mul2.i.i, 63
-  %div.i.i9502307 = udiv i64 %storemerge1312316.neg, 1000
+  %div.i.i9502307 = udiv i64 %storemerge131.nonneg2308, 1000
   %sub.pn.i.i.i955 = sub nsw i64 %ticks.lobit.i.i.i954, %div.i.i9502307
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %lhs.i1037)
   store i64 %sub.pn.i.i.i955, ptr %lhs.i1037, align 8
@@ -122133,7 +122134,6 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit1064:        ; preds = %if.end707, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i1063
   store ptr null, ptr %message_.i.i1045, align 8
   %90 = load i64, ptr %i611, align 8
-  %inc712.neg = xor i64 %90, -1
   %inc712 = add nsw i64 %90, 1
   store i64 %inc712, ptr %i611, align 8
   %cmp613 = icmp slt i64 %90, -9223372036854675809

@@ -19201,7 +19201,7 @@ invoke.cont.i:                                    ; preds = %if.then
 
 common.resume:                                    ; preds = %lpad.i.i.i, %lpad.i.i.i.i16, %lpad.i.i.i.i, %lpad.i10, %lpad.i
   %exception.i.i.i.sink = phi ptr [ %exception.i.i.i, %lpad.i.i.i ], [ %exception.i.i.i.i15, %lpad.i.i.i.i16 ], [ %exception.i.i.i.i, %lpad.i.i.i.i ], [ %exception.i9, %lpad.i10 ], [ %exception.i, %lpad.i ]
-  %common.resume.op = phi { ptr, i32 } [ %24, %lpad.i.i.i ], [ %16, %lpad.i.i.i.i16 ], [ %9, %lpad.i.i.i.i ], [ %3, %lpad.i10 ], [ %2, %lpad.i ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %lpad.i.i.i ], [ %17, %lpad.i.i.i.i16 ], [ %9, %lpad.i.i.i.i ], [ %3, %lpad.i10 ], [ %2, %lpad.i ]
   tail call void @__cxa_free_exception(ptr %exception.i.i.i.sink) #26
   resume { ptr, i32 } %common.resume.op
 
@@ -19259,7 +19259,7 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN3fmt3v106detail6bigint15subtract_bigitsEijRj.exit
   %indvars.iv = phi i64 [ %7, %for.body.lr.ph ], [ %indvars.iv.next, %_ZN3fmt3v106detail6bigint15subtract_bigitsEijRj.exit ]
   %j.039 = phi i64 [ 0, %for.body.lr.ph ], [ %inc12, %_ZN3fmt3v106detail6bigint15subtract_bigitsEijRj.exit ]
-  %borrow.038.neg = phi i64 [ 0, %for.body.lr.ph ], [ %shr.i.neg, %_ZN3fmt3v106detail6bigint15subtract_bigitsEijRj.exit ]
+  %borrow.038 = phi i64 [ 0, %for.body.lr.ph ], [ %shr.i, %_ZN3fmt3v106detail6bigint15subtract_bigitsEijRj.exit ]
   br i1 %cmp.i.i.i, label %_ZN3fmt3v106detail6bigint15subtract_bigitsEijRj.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body
@@ -19285,26 +19285,26 @@ _ZN3fmt3v106detail6bigint15subtract_bigitsEijRj.exit: ; preds = %for.body
   %13 = load i32, ptr %arrayidx.i.i.i, align 4
   %conv.i = zext i32 %13 to i64
   %conv2.i = zext i32 %11 to i64
-  %.neg = sub nsw i64 %borrow.038.neg, %conv2.i
-  %sub4.i = add nsw i64 %.neg, %conv.i
+  %14 = add nuw nsw i64 %borrow.038, %conv2.i
+  %sub4.i = sub nsw i64 %conv.i, %14
   %conv5.i = trunc i64 %sub4.i to i32
   store i32 %conv5.i, ptr %arrayidx.i.i.i, align 4
-  %shr.i.neg = ashr i64 %sub4.i, 63
+  %shr.i = lshr i64 %sub4.i, 63
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %inc12 = add nuw i64 %j.039, 1
   %cmp9.not = icmp eq i64 %inc12, %4
   br i1 %cmp9.not, label %while.cond.preheader, label %for.body, !llvm.loop !232
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
-  %borrow.143.neg = phi i64 [ %shr.i25.neg, %while.body ], [ -1, %while.body.lr.ph ]
-  %14 = load ptr, ptr %ptr_.i.i.i18, align 8
-  %arrayidx.i.i.i20 = getelementptr inbounds i32, ptr %14, i64 %idxprom.i.i.i19
-  %15 = load i32, ptr %arrayidx.i.i.i20, align 4
-  %conv.i21 = zext i32 %15 to i64
-  %sub4.i23 = add nsw i64 %borrow.143.neg, %conv.i21
+  %borrow.143 = phi i64 [ %shr.i25, %while.body ], [ 1, %while.body.lr.ph ]
+  %15 = load ptr, ptr %ptr_.i.i.i18, align 8
+  %arrayidx.i.i.i20 = getelementptr inbounds i32, ptr %15, i64 %idxprom.i.i.i19
+  %16 = load i32, ptr %arrayidx.i.i.i20, align 4
+  %conv.i21 = zext i32 %16 to i64
+  %sub4.i23 = sub nsw i64 %conv.i21, %borrow.143
   %conv5.i24 = trunc i64 %sub4.i23 to i32
   store i32 %conv5.i24, ptr %arrayidx.i.i.i20, align 4
-  %shr.i25.neg = ashr i64 %sub4.i23, 63
+  %shr.i25 = lshr i64 %sub4.i23, 63
   %cmp13.not = icmp sgt i64 %sub4.i23, -1
   br i1 %cmp13.not, label %while.end, label %while.body, !llvm.loop !233
 
@@ -19318,34 +19318,34 @@ invoke.cont.i.i.i.i17:                            ; preds = %if.then.i.i.i14
   unreachable
 
 lpad.i.i.i.i16:                                   ; preds = %if.then.i.i.i14
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 while.end:                                        ; preds = %while.body, %if.end5, %while.cond.preheader
   %size_.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %17 = load i64, ptr %size_.i.i, align 8
+  %18 = load i64, ptr %size_.i.i, align 8
   %ptr_.i.i.i28 = getelementptr inbounds i8, ptr %this, i64 8
-  %18 = load ptr, ptr %ptr_.i.i.i28, align 8
-  %19 = and i64 %17, 4294967295
+  %19 = load ptr, ptr %ptr_.i.i.i28, align 8
+  %20 = and i64 %18, 4294967295
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %_ZN3fmt3v106detail6bigintixEi.exit.i, %while.end
-  %indvars.iv.i = phi i64 [ %21, %_ZN3fmt3v106detail6bigintixEi.exit.i ], [ %19, %while.end ]
-  %20 = trunc nuw i64 %indvars.iv.i to i32
-  %cmp.i = icmp sgt i32 %20, 1
+  %indvars.iv.i = phi i64 [ %22, %_ZN3fmt3v106detail6bigintixEi.exit.i ], [ %20, %while.end ]
+  %21 = trunc nuw i64 %indvars.iv.i to i32
+  %cmp.i = icmp sgt i32 %21, 1
   br i1 %cmp.i, label %_ZN3fmt3v106detail6bigintixEi.exit.i, label %while.end.i
 
 _ZN3fmt3v106detail6bigintixEi.exit.i:             ; preds = %while.cond.i
-  %21 = add nsw i64 %indvars.iv.i, -1
-  %arrayidx.i.i.i29 = getelementptr inbounds i32, ptr %18, i64 %21
-  %22 = load i32, ptr %arrayidx.i.i.i29, align 4
-  %cmp3.i = icmp eq i32 %22, 0
+  %22 = add nsw i64 %indvars.iv.i, -1
+  %arrayidx.i.i.i29 = getelementptr inbounds i32, ptr %19, i64 %22
+  %23 = load i32, ptr %arrayidx.i.i.i29, align 4
+  %cmp3.i = icmp eq i32 %23, 0
   br i1 %cmp3.i, label %while.cond.i, label %_ZN3fmt3v106detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit.i, !llvm.loop !109
 
 while.end.i:                                      ; preds = %while.cond.i
-  %23 = and i64 %17, 2147483648
-  %cmp.i.i = icmp eq i64 %23, 0
+  %24 = and i64 %18, 2147483648
+  %cmp.i.i = icmp eq i64 %24, 0
   br i1 %cmp.i.i, label %_ZN3fmt3v106detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %while.end.i
@@ -19358,27 +19358,27 @@ invoke.cont.i.i.i:                                ; preds = %if.then.i.i
   unreachable
 
 lpad.i.i.i:                                       ; preds = %if.then.i.i
-  %24 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN3fmt3v106detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit.i: ; preds = %_ZN3fmt3v106detail6bigintixEi.exit.i, %while.end.i
   %conv6.i = and i64 %indvars.iv.i, 4294967295
   %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %25 = load i64, ptr %capacity_.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp ult i64 %25, %conv6.i
+  %26 = load i64, ptr %capacity_.i.i.i.i, align 8
+  %cmp.i.i.i.i = icmp ult i64 %26, %conv6.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN3fmt3v106detail6bigint20remove_leading_zerosEv.exit
 
 if.then.i.i.i.i:                                  ; preds = %_ZN3fmt3v106detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit.i
   %vtable.i.i.i.i = load ptr, ptr %this, align 8
-  %26 = load ptr, ptr %vtable.i.i.i.i, align 8
-  tail call void %26(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %conv6.i)
+  %27 = load ptr, ptr %vtable.i.i.i.i, align 8
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %conv6.i)
   %.pre.i.i.i = load i64, ptr %capacity_.i.i.i.i, align 8
   br label %_ZN3fmt3v106detail6bigint20remove_leading_zerosEv.exit
 
 _ZN3fmt3v106detail6bigint20remove_leading_zerosEv.exit: ; preds = %_ZN3fmt3v106detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit.i, %if.then.i.i.i.i
-  %27 = phi i64 [ %25, %_ZN3fmt3v106detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit.i ], [ %.pre.i.i.i, %if.then.i.i.i.i ]
-  %.count.i.i.i = tail call i64 @llvm.umin.i64(i64 %27, i64 %conv6.i)
+  %28 = phi i64 [ %26, %_ZN3fmt3v106detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit.i ], [ %.pre.i.i.i, %if.then.i.i.i.i ]
+  %.count.i.i.i = tail call i64 @llvm.umin.i64(i64 %28, i64 %conv6.i)
   store i64 %.count.i.i.i, ptr %size_.i.i, align 8
   ret void
 }

@@ -20648,12 +20648,12 @@ _ZN7xgboost6common4SpanIaLm18446744073709551615EEC2EPam.exit: ; preds = %_ZNSt6v
 74:                                               ; preds = %.lr.ph, %179
   %75 = phi i32 [ %46, %.lr.ph ], [ %183, %179 ]
   %76 = phi i32 [ %31, %.lr.ph ], [ %182, %179 ]
-  %storemerge93.neg = phi i32 [ 0, %.lr.ph ], [ %.neg, %179 ]
+  %storemerge93 = phi i32 [ 0, %.lr.ph ], [ %181, %179 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   store ptr null, ptr %18, align 8, !alias.scope !494
   %77 = load i32, ptr %7, align 4, !noalias !497
-  %78 = add i32 %76, %storemerge93.neg
+  %78 = sub i32 %76, %storemerge93
   %79 = add i32 %78, %77
   %80 = srem i32 %79, %76
   %81 = sext i32 %80 to i64
@@ -20981,7 +20981,6 @@ _ZN7xgboost10collective6ResultD2Ev.exit59:        ; preds = %_ZNKSt8functionIFvN
 
 179:                                              ; preds = %_ZN7xgboost10collective6ResultD2Ev.exit59
   %180 = load i32, ptr %12, align 4
-  %.neg = xor i32 %180, -1
   %181 = add nsw i32 %180, 1
   store i32 %181, ptr %12, align 4
   %182 = load i32, ptr %8, align 4
@@ -26409,12 +26408,12 @@ _ZN7xgboost6common4SpanIaLm18446744073709551615EEC2EPam.exit: ; preds = %_ZNSt6v
 74:                                               ; preds = %.lr.ph, %179
   %75 = phi i32 [ %46, %.lr.ph ], [ %183, %179 ]
   %76 = phi i32 [ %31, %.lr.ph ], [ %182, %179 ]
-  %storemerge93.neg = phi i32 [ 0, %.lr.ph ], [ %.neg, %179 ]
+  %storemerge93 = phi i32 [ 0, %.lr.ph ], [ %181, %179 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   store ptr null, ptr %18, align 8, !alias.scope !635
   %77 = load i32, ptr %7, align 4, !noalias !638
-  %78 = add i32 %76, %storemerge93.neg
+  %78 = sub i32 %76, %storemerge93
   %79 = add i32 %78, %77
   %80 = srem i32 %79, %76
   %81 = sext i32 %80 to i64
@@ -26742,7 +26741,6 @@ _ZN7xgboost10collective6ResultD2Ev.exit59:        ; preds = %_ZNKSt8functionIFvN
 
 179:                                              ; preds = %_ZN7xgboost10collective6ResultD2Ev.exit59
   %180 = load i32, ptr %12, align 4
-  %.neg = xor i32 %180, -1
   %181 = add nsw i32 %180, 1
   store i32 %181, ptr %12, align 4
   %182 = load i32, ptr %8, align 4

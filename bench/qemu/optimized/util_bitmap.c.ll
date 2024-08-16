@@ -312,8 +312,8 @@ entry:
   br i1 %or.cond, label %while.cond.preheader, label %if.else
 
 while.cond.preheader:                             ; preds = %entry
-  %and = and i64 %start, 63
-  %shl = shl nsw i64 -1, %and
+  %1 = and i64 %start, 63
+  %shl = shl nsw i64 -1, %1
   %conv.neg = or i64 %start, -64
   %div14 = lshr i64 %start, 6
   %add.ptr = getelementptr i64, ptr %map, i64 %div14
@@ -329,8 +329,8 @@ while.body:                                       ; preds = %while.cond.preheade
   %sub519 = phi i64 [ %sub5, %while.body ], [ %sub515, %while.cond.preheader ]
   %mask_to_set.018 = phi i64 [ -1, %while.body ], [ %shl, %while.cond.preheader ]
   %p.017 = phi ptr [ %incdec.ptr, %while.body ], [ %add.ptr, %while.cond.preheader ]
-  %1 = load i64, ptr %p.017, align 8
-  %or = or i64 %1, %mask_to_set.018
+  %2 = load i64, ptr %p.017, align 8
+  %or = or i64 %2, %mask_to_set.018
   store i64 %or, ptr %p.017, align 8
   %incdec.ptr = getelementptr i8, ptr %p.017, i64 8
   %sub5 = add nsw i64 %sub519, -64
@@ -349,8 +349,8 @@ if.then10:                                        ; preds = %while.end
   %and12 = and i64 %sub11, 63
   %shr = lshr i64 -1, %and12
   %and13 = and i64 %mask_to_set.0.lcssa, %shr
-  %2 = load i64, ptr %p.0.lcssa, align 8
-  %or14 = or i64 %2, %and13
+  %3 = load i64, ptr %p.0.lcssa, align 8
+  %or14 = or i64 %3, %and13
   store i64 %or14, ptr %p.0.lcssa, align 8
   br label %if.end15
 
@@ -443,8 +443,8 @@ entry:
   br i1 %or.cond, label %while.cond.preheader, label %if.else
 
 while.cond.preheader:                             ; preds = %entry
-  %and = and i64 %start, 63
-  %shl = shl nsw i64 -1, %and
+  %1 = and i64 %start, 63
+  %shl = shl nsw i64 -1, %1
   %conv.neg = or i64 %start, -64
   %div14 = lshr i64 %start, 6
   %add.ptr = getelementptr i64, ptr %map, i64 %div14
@@ -453,7 +453,7 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %cmp616, label %while.body.preheader, label %while.end
 
 while.body.preheader:                             ; preds = %while.cond.preheader
-  %1 = xor i64 %shl, -1
+  %2 = xor i64 %shl, -1
   br label %while.body
 
 if.else:                                          ; preds = %entry
@@ -462,10 +462,10 @@ if.else:                                          ; preds = %entry
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
   %sub519 = phi i64 [ %sub5, %while.body ], [ %sub515, %while.body.preheader ]
-  %mask_to_clear.018 = phi i64 [ 0, %while.body ], [ %1, %while.body.preheader ]
+  %mask_to_clear.018 = phi i64 [ 0, %while.body ], [ %2, %while.body.preheader ]
   %p.017 = phi ptr [ %incdec.ptr, %while.body ], [ %add.ptr, %while.body.preheader ]
-  %2 = load i64, ptr %p.017, align 8
-  %and8 = and i64 %2, %mask_to_clear.018
+  %3 = load i64, ptr %p.017, align 8
+  %and8 = and i64 %3, %mask_to_clear.018
   store i64 %and8, ptr %p.017, align 8
   %incdec.ptr = getelementptr i8, ptr %p.017, i64 8
   %sub5 = add nsw i64 %sub519, -64
@@ -485,8 +485,8 @@ if.then11:                                        ; preds = %while.end
   %shr = lshr i64 -1, %and13
   %and14 = and i64 %mask_to_clear.0.lcssa, %shr
   %not15 = xor i64 %and14, -1
-  %3 = load i64, ptr %p.0.lcssa, align 8
-  %and16 = and i64 %3, %not15
+  %4 = load i64, ptr %p.0.lcssa, align 8
+  %and16 = and i64 %4, %not15
   store i64 %and16, ptr %p.0.lcssa, align 8
   br label %if.end17
 

@@ -241,8 +241,7 @@ if.end32.i:                                       ; preds = %if.then27.i, %lor.l
 
 while.body.i:                                     ; preds = %if.end32.i, %if.end46.i
   %A.075.i = phi ptr [ %B.073.i, %if.end46.i ], [ %call.i, %if.end32.i ]
-  %sign.074.neg.i = phi i32 [ %sign.074.i, %if.end46.i ], [ 1, %if.end32.i ]
-  %sign.074.i = phi i32 [ %sign.074.neg.i, %if.end46.i ], [ -1, %if.end32.i ]
+  %sign.074.i = phi i32 [ %sub.i, %if.end46.i ], [ -1, %if.end32.i ]
   %B.073.i = phi ptr [ %M.070.i, %if.end46.i ], [ %call1.i, %if.end32.i ]
   %X.072.i = phi ptr [ %A.075.i, %if.end46.i ], [ %call2.i, %if.end32.i ]
   %Y.071.i = phi ptr [ %X.072.i, %if.end46.i ], [ %call5.i, %if.end32.i ]
@@ -263,46 +262,47 @@ if.end42.i:                                       ; preds = %if.end38.i
   br i1 %tobool44.not.i, label %err.i, label %if.end46.i
 
 if.end46.i:                                       ; preds = %if.end42.i
+  %sub.i = sub nsw i32 0, %sign.074.i
   %call33.i = call i32 @BN_is_zero(ptr noundef %M.070.i) #3
   %tobool34.not.i = icmp eq i32 %call33.i, 0
   br i1 %tobool34.not.i, label %while.body.i, label %while.end.i, !llvm.loop !9
 
 while.end.i:                                      ; preds = %if.end46.i
-  %3 = icmp slt i32 %sign.074.neg.i, 0
+  %3 = icmp sgt i32 %sign.074.i, 0
   br i1 %3, label %if.then48.i, label %if.end53.i
 
 if.then48.i:                                      ; preds = %while.end.i, %if.end32.i
-  %A.0.lcssa87.i = phi ptr [ %B.073.i, %while.end.i ], [ %call.i, %if.end32.i ]
-  %Y.0.lcssa85.i = phi ptr [ %X.072.i, %while.end.i ], [ %call5.i, %if.end32.i ]
-  %call49.i = call i32 @BN_sub(ptr noundef %Y.0.lcssa85.i, ptr noundef %n, ptr noundef %Y.0.lcssa85.i) #3
+  %A.0.lcssa86.i = phi ptr [ %B.073.i, %while.end.i ], [ %call.i, %if.end32.i ]
+  %Y.0.lcssa84.i = phi ptr [ %X.072.i, %while.end.i ], [ %call5.i, %if.end32.i ]
+  %call49.i = call i32 @BN_sub(ptr noundef %Y.0.lcssa84.i, ptr noundef %n, ptr noundef %Y.0.lcssa84.i) #3
   %tobool50.not.i = icmp eq i32 %call49.i, 0
   br i1 %tobool50.not.i, label %err.i, label %if.end53.i
 
 if.end53.i:                                       ; preds = %if.then48.i, %while.end.i
-  %A.0.lcssa86.i = phi ptr [ %A.0.lcssa87.i, %if.then48.i ], [ %B.073.i, %while.end.i ]
-  %Y.0.lcssa84.i = phi ptr [ %Y.0.lcssa85.i, %if.then48.i ], [ %X.072.i, %while.end.i ]
-  %call54.i = call i32 @BN_is_one(ptr noundef %A.0.lcssa86.i) #3
+  %A.0.lcssa85.i = phi ptr [ %A.0.lcssa86.i, %if.then48.i ], [ %B.073.i, %while.end.i ]
+  %Y.0.lcssa83.i = phi ptr [ %Y.0.lcssa84.i, %if.then48.i ], [ %X.072.i, %while.end.i ]
+  %call54.i = call i32 @BN_is_one(ptr noundef %A.0.lcssa85.i) #3
   %tobool55.not.i = icmp eq i32 %call54.i, 0
   br i1 %tobool55.not.i, label %if.else72.i, label %if.then56.i
 
 if.then56.i:                                      ; preds = %if.end53.i
-  %neg57.i = getelementptr inbounds i8, ptr %Y.0.lcssa84.i, i64 16
+  %neg57.i = getelementptr inbounds i8, ptr %Y.0.lcssa83.i, i64 16
   %4 = load i32, ptr %neg57.i, align 8
   %tobool58.not.i = icmp eq i32 %4, 0
   br i1 %tobool58.not.i, label %land.lhs.true.i, label %if.else66.i
 
 land.lhs.true.i:                                  ; preds = %if.then56.i
-  %call59.i = call i32 @BN_ucmp(ptr noundef nonnull %Y.0.lcssa84.i, ptr noundef %n) #3
+  %call59.i = call i32 @BN_ucmp(ptr noundef nonnull %Y.0.lcssa83.i, ptr noundef %n) #3
   %cmp60.i = icmp slt i32 %call59.i, 0
   br i1 %cmp60.i, label %if.then61.i, label %if.else66.i
 
 if.then61.i:                                      ; preds = %land.lhs.true.i
-  %call62.i = call ptr @BN_copy(ptr noundef nonnull %R.157.i, ptr noundef nonnull %Y.0.lcssa84.i) #3
+  %call62.i = call ptr @BN_copy(ptr noundef nonnull %R.157.i, ptr noundef nonnull %Y.0.lcssa83.i) #3
   %tobool63.not.i = icmp eq ptr %call62.i, null
   br i1 %tobool63.not.i, label %err.i, label %BN_mod_inverse_no_branch.exit
 
 if.else66.i:                                      ; preds = %land.lhs.true.i, %if.then56.i
-  %call67.i = call i32 @BN_nnmod(ptr noundef nonnull %R.157.i, ptr noundef nonnull %Y.0.lcssa84.i, ptr noundef %n, ptr noundef %ctx) #3
+  %call67.i = call i32 @BN_nnmod(ptr noundef nonnull %R.157.i, ptr noundef nonnull %Y.0.lcssa83.i, ptr noundef %n, ptr noundef %ctx) #3
   %tobool68.not.i = icmp eq i32 %call67.i, 0
   br i1 %tobool68.not.i, label %err.i, label %BN_mod_inverse_no_branch.exit
 
@@ -317,8 +317,8 @@ err.i:                                            ; preds = %if.end42.i, %if.end
   br i1 %cmp76.i, label %if.then77.i, label %BN_mod_inverse_no_branch.exit
 
 if.then77.i:                                      ; preds = %err.i, %if.end10.i
-  %R.090.i = phi ptr [ %R.0.i, %err.i ], [ null, %if.end10.i ]
-  call void @BN_free(ptr noundef %R.090.i) #3
+  %R.089.i = phi ptr [ %R.0.i, %err.i ], [ null, %if.end10.i ]
+  call void @BN_free(ptr noundef %R.089.i) #3
   br label %BN_mod_inverse_no_branch.exit
 
 BN_mod_inverse_no_branch.exit:                    ; preds = %if.then61.i, %if.else66.i, %err.i, %if.then77.i
@@ -509,8 +509,7 @@ while.body125.lr.ph:                              ; preds = %if.else120
   br label %while.body125
 
 while.body125:                                    ; preds = %while.body125.lr.ph, %if.end238
-  %sign.1184.neg = phi i32 [ 1, %while.body125.lr.ph ], [ %sign.1184, %if.end238 ]
-  %sign.1184 = phi i32 [ -1, %while.body125.lr.ph ], [ %sign.1184.neg, %if.end238 ]
+  %sign.1184 = phi i32 [ -1, %while.body125.lr.ph ], [ %sub, %if.end238 ]
   %A.1183 = phi ptr [ %call4, %while.body125.lr.ph ], [ %B.0182, %if.end238 ]
   %B.0182 = phi ptr [ %call5, %while.body125.lr.ph ], [ %M.0181, %if.end238 ]
   %M.0181 = phi ptr [ %call8, %while.body125.lr.ph ], [ %Y.1180, %if.end238 ]
@@ -651,12 +650,13 @@ if.end233:                                        ; preds = %if.then210, %if.els
   br i1 %tobool235.not, label %err, label %if.end238
 
 if.end238:                                        ; preds = %if.end233, %if.then194
+  %sub = sub nsw i32 0, %sign.1184
   %call122 = tail call i32 @BN_is_zero(ptr noundef %M.0181) #3
   %tobool123.not = icmp eq i32 %call122, 0
   br i1 %tobool123.not, label %while.body125, label %if.end240, !llvm.loop !12
 
 if.end240:                                        ; preds = %if.end238
-  %9 = icmp slt i32 %sign.1184.neg, 0
+  %9 = icmp sgt i32 %sign.1184, 0
   br i1 %9, label %if.then242, label %if.end247
 
 if.then242:                                       ; preds = %if.end118, %if.else120, %while.cond.preheader, %if.end240
@@ -705,8 +705,8 @@ err:                                              ; preds = %if.end113, %if.else
   br i1 %cmp271, label %if.then272, label %if.end273
 
 if.then272:                                       ; preds = %if.end17, %err
-  %R.0203 = phi ptr [ %R.0, %err ], [ null, %if.end17 ]
-  tail call void @BN_free(ptr noundef %R.0203) #3
+  %R.0202 = phi ptr [ %R.0, %err ], [ null, %if.end17 ]
+  tail call void @BN_free(ptr noundef %R.0202) #3
   br label %if.end273
 
 if.end273:                                        ; preds = %if.then256, %if.else261, %if.then272, %err

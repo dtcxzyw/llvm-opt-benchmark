@@ -1057,12 +1057,12 @@ define hidden void @_ZN5zxing6qrcode15BitMatrixParser13readCodewordsERNS_12Error
 
 73:                                               ; preds = %112, %.lr.ph.split.us124
   %74 = phi i1 [ true, %.lr.ph.split.us124 ], [ false, %112 ]
-  %.085.us110.neg = phi i32 [ 0, %.lr.ph.split.us124 ], [ -1, %112 ]
+  %.085.us110 = phi i32 [ 0, %.lr.ph.split.us124 ], [ 1, %112 ]
   %.25084.us111 = phi i32 [ %.14988.us104, %.lr.ph.split.us124 ], [ %.3.us119, %112 ]
   %.25383.us112 = phi i8 [ %.15287.us105, %.lr.ph.split.us124 ], [ %.4.us118, %112 ]
   %.25782.us113 = phi i32 [ %.15686.us106, %.lr.ph.split.us124 ], [ %.358.us117, %112 ]
   %75 = load ptr, ptr %5, align 8
-  %76 = add i32 %.085.us110.neg, %spec.select.us
+  %76 = sub nuw nsw i32 %spec.select.us, %.085.us110
   %77 = getelementptr inbounds i8, ptr %75, i64 12
   %78 = load i32, ptr %77, align 4
   %79 = mul nsw i32 %78, %.04589.us103
@@ -1138,12 +1138,12 @@ define hidden void @_ZN5zxing6qrcode15BitMatrixParser13readCodewordsERNS_12Error
 
 119:                                              ; preds = %158, %.lr.ph.split.us.us
   %120 = phi i1 [ true, %.lr.ph.split.us.us ], [ false, %158 ]
-  %.085.us.us.neg = phi i32 [ 0, %.lr.ph.split.us.us ], [ -1, %158 ]
+  %.085.us.us = phi i32 [ 0, %.lr.ph.split.us.us ], [ 1, %158 ]
   %.25084.us.us = phi i32 [ %.14988.us.us, %.lr.ph.split.us.us ], [ %.3.us.us, %158 ]
   %.25383.us.us = phi i8 [ %.15287.us.us, %.lr.ph.split.us.us ], [ %.4.us.us, %158 ]
   %.25782.us.us = phi i32 [ %.15686.us.us, %.lr.ph.split.us.us ], [ %.358.us.us, %158 ]
   %121 = load ptr, ptr %5, align 8
-  %122 = add i32 %.085.us.us.neg, %spec.select.us
+  %122 = sub nuw nsw i32 %spec.select.us, %.085.us.us
   %123 = getelementptr inbounds i8, ptr %121, i64 12
   %124 = load i32, ptr %123, align 4
   %125 = mul nsw i32 %124, %116

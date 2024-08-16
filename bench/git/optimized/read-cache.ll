@@ -656,7 +656,7 @@ while.cond.backedge.us.i.i.i:                     ; preds = %if.end15.us.i.i.i, 
 while.body.lr.ph.i.i.i:                           ; preds = %while.body.lr.ph.lr.ph.i.i.i, %remove_index_entry_at.exit.i.i.i
   %33 = phi i32 [ %47, %remove_index_entry_at.exit.i.i.i ], [ %25, %while.body.lr.ph.lr.ph.i.i.i ]
   %pos.addr.0.ph25.i.i.i = phi i32 [ %42, %remove_index_entry_at.exit.i.i.i ], [ %sub2758.i, %while.body.lr.ph.lr.ph.i.i.i ]
-  %retval1.0.ph24.i.i.neg.i = phi i32 [ 1, %remove_index_entry_at.exit.i.i.i ], [ 0, %while.body.lr.ph.lr.ph.i.i.i ]
+  %retval1.0.ph24.i.i.i = phi i32 [ -1, %remove_index_entry_at.exit.i.i.i ], [ 0, %while.body.lr.ph.lr.ph.i.i.i ]
   %34 = load ptr, ptr %istate, align 8
   %35 = zext i32 %pos.addr.0.ph25.i.i.i to i64
   %36 = zext i32 %33 to i64
@@ -735,7 +735,7 @@ remove_index_entry_at.exit.i.i.i:                 ; preds = %if.then.i.i.i.i.i, 
 
 has_file_name.exit.i.i:                           ; preds = %remove_index_entry_at.exit.i.i.i, %while.cond.backedge.i.i.i, %if.end.i.i.i, %while.body.i.i.i, %while.cond.backedge.us.i.i.i, %if.end15.us.i.i.i, %if.end.us.i.i.i, %while.body.us.i.i.i, %if.end.i.i
   %48 = phi i32 [ %25, %if.end.i.i ], [ %25, %while.body.us.i.i.i ], [ %25, %if.end.us.i.i.i ], [ %25, %if.end15.us.i.i.i ], [ %25, %while.cond.backedge.us.i.i.i ], [ %33, %while.body.i.i.i ], [ %33, %if.end.i.i.i ], [ %33, %while.cond.backedge.i.i.i ], [ %47, %remove_index_entry_at.exit.i.i.i ]
-  %retval1.1.i.i.neg.i = phi i32 [ 0, %if.end.i.i ], [ 0, %while.cond.backedge.us.i.i.i ], [ 1, %if.end15.us.i.i.i ], [ 0, %if.end.us.i.i.i ], [ 0, %while.body.us.i.i.i ], [ %retval1.0.ph24.i.i.neg.i, %while.body.i.i.i ], [ %retval1.0.ph24.i.i.neg.i, %if.end.i.i.i ], [ %retval1.0.ph24.i.i.neg.i, %while.cond.backedge.i.i.i ], [ 1, %remove_index_entry_at.exit.i.i.i ]
+  %retval1.1.i.i.i = phi i32 [ 0, %if.end.i.i ], [ 0, %while.cond.backedge.us.i.i.i ], [ -1, %if.end15.us.i.i.i ], [ 0, %if.end.us.i.i.i ], [ 0, %while.body.us.i.i.i ], [ %retval1.0.ph24.i.i.i, %while.body.i.i.i ], [ %retval1.0.ph24.i.i.i, %if.end.i.i.i ], [ %retval1.0.ph24.i.i.i, %while.cond.backedge.i.i.i ], [ -1, %remove_index_entry_at.exit.i.i.i ]
   %49 = load i32, ptr %ce_flags.i.i, align 8
   %and.i.i.i = lshr i32 %49, 12
   %shr.i.i.i = and i32 %and.i.i.i, 3
@@ -914,7 +914,8 @@ if.end80.i.i.i:                                   ; preds = %lor.lhs.false74.i.i
 
 check_file_directory_conflict.exit.i:             ; preds = %if.then29.i.i.i, %if.end20.i.i.i, %if.end80.i.i.i, %if.then7.i.i.i
   %retval.0.i.i.i = phi i32 [ 0, %if.then7.i.i.i ], [ %retval1.0.ph.i.i.i, %if.end80.i.i.i ], [ %retval1.0.ph.i.i.i, %if.end20.i.i.i ], [ %retval1.0.ph.i.i.i, %if.then29.i.i.i ]
-  %tobool72.not.i = icmp eq i32 %retval.0.i.i.i, %retval1.1.i.i.neg.i
+  %add.i.i = sub nsw i32 0, %retval1.1.i.i.i
+  %tobool72.not.i = icmp eq i32 %retval.0.i.i.i, %add.i.i
   br i1 %tobool72.not.i, label %add_index_entry_with_check.exit, label %if.then73.i
 
 if.then73.i:                                      ; preds = %check_file_directory_conflict.exit.i

@@ -59,143 +59,144 @@ define i64 @Extra_TruthCanonNPN3(i64 noundef %0, i32 noundef %1, ptr nocapture n
 
 .preheader.lr.ph.us.us:                           ; preds = %.preheader.lr.ph.us.us.preheader, %._crit_edge49.split.us.us.us
   %11 = phi i1 [ true, %.preheader.lr.ph.us.us.preheader ], [ false, %._crit_edge49.split.us.us.us ]
-  %indvars.iv70.neg = phi i64 [ 0, %.preheader.lr.ph.us.us.preheader ], [ -1, %._crit_edge49.split.us.us.us ]
+  %indvars.iv70 = phi i64 [ 0, %.preheader.lr.ph.us.us.preheader ], [ 1, %._crit_edge49.split.us.us.us ]
   %.03551.us.us = phi i64 [ -1, %.preheader.lr.ph.us.us.preheader ], [ %spec.select.us.us.us, %._crit_edge49.split.us.us.us ]
-  %12 = xor i64 %indvars.iv70.neg, %0
+  %12 = sub nsw i64 0, %indvars.iv70
+  %13 = xor i64 %12, %0
   br label %.preheader.us.us.us
 
 .preheader.us.us.us:                              ; preds = %._crit_edge.us.us.us, %.preheader.lr.ph.us.us
   %indvars.iv65 = phi i64 [ %indvars.iv.next66, %._crit_edge.us.us.us ], [ 0, %.preheader.lr.ph.us.us ]
   %.147.us.us.us = phi i64 [ %spec.select.us.us.us, %._crit_edge.us.us.us ], [ %.03551.us.us, %.preheader.lr.ph.us.us ]
-  %.03646.us.us.us = phi i64 [ %78, %._crit_edge.us.us.us ], [ %12, %.preheader.lr.ph.us.us ]
-  br label %13
+  %.03646.us.us.us = phi i64 [ %79, %._crit_edge.us.us.us ], [ %13, %.preheader.lr.ph.us.us ]
+  br label %14
 
-13:                                               ; preds = %Vec_WrdPushUnique.exit.us.us.us, %.preheader.us.us.us
+14:                                               ; preds = %Vec_WrdPushUnique.exit.us.us.us, %.preheader.us.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %Vec_WrdPushUnique.exit.us.us.us ], [ 0, %.preheader.us.us.us ]
   %.243.us.us.us = phi i64 [ %spec.select.us.us.us, %Vec_WrdPushUnique.exit.us.us.us ], [ %.147.us.us.us, %.preheader.us.us.us ]
-  %.13742.us.us.us = phi i64 [ %60, %Vec_WrdPushUnique.exit.us.us.us ], [ %.03646.us.us.us, %.preheader.us.us.us ]
+  %.13742.us.us.us = phi i64 [ %61, %Vec_WrdPushUnique.exit.us.us.us ], [ %.03646.us.us.us, %.preheader.us.us.us ]
   %spec.select.us.us.us = tail call i64 @llvm.umin.i64(i64 %.243.us.us.us, i64 %.13742.us.us.us)
-  %14 = load i32, ptr %7, align 4
-  %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %.lr.ph.i.us.us.us, label %._crit_edge.i.us.us.us
+  %15 = load i32, ptr %7, align 4
+  %16 = icmp sgt i32 %15, 0
+  br i1 %16, label %.lr.ph.i.us.us.us, label %._crit_edge.i.us.us.us
 
-.lr.ph.i.us.us.us:                                ; preds = %13
-  %16 = load ptr, ptr %9, align 8
-  %wide.trip.count.i.us.us.us = zext nneg i32 %14 to i64
-  br label %17
+.lr.ph.i.us.us.us:                                ; preds = %14
+  %17 = load ptr, ptr %9, align 8
+  %wide.trip.count.i.us.us.us = zext nneg i32 %15 to i64
+  br label %18
 
-17:                                               ; preds = %21, %.lr.ph.i.us.us.us
-  %indvars.iv.i.us.us.us = phi i64 [ 0, %.lr.ph.i.us.us.us ], [ %indvars.iv.next.i.us.us.us, %21 ]
-  %18 = getelementptr inbounds i64, ptr %16, i64 %indvars.iv.i.us.us.us
-  %19 = load i64, ptr %18, align 8
-  %20 = icmp eq i64 %19, %.13742.us.us.us
-  br i1 %20, label %Vec_WrdPushUnique.exit.us.us.us, label %21
+18:                                               ; preds = %22, %.lr.ph.i.us.us.us
+  %indvars.iv.i.us.us.us = phi i64 [ 0, %.lr.ph.i.us.us.us ], [ %indvars.iv.next.i.us.us.us, %22 ]
+  %19 = getelementptr inbounds i64, ptr %17, i64 %indvars.iv.i.us.us.us
+  %20 = load i64, ptr %19, align 8
+  %21 = icmp eq i64 %20, %.13742.us.us.us
+  br i1 %21, label %Vec_WrdPushUnique.exit.us.us.us, label %22
 
-21:                                               ; preds = %17
+22:                                               ; preds = %18
   %indvars.iv.next.i.us.us.us = add nuw nsw i64 %indvars.iv.i.us.us.us, 1
   %exitcond.not.i.us.us.us = icmp eq i64 %indvars.iv.next.i.us.us.us, %wide.trip.count.i.us.us.us
-  br i1 %exitcond.not.i.us.us.us, label %._crit_edge.i.us.us.us, label %17, !llvm.loop !4
+  br i1 %exitcond.not.i.us.us.us, label %._crit_edge.i.us.us.us, label %18, !llvm.loop !4
 
-._crit_edge.i.us.us.us:                           ; preds = %21, %13
-  %22 = load i32, ptr %2, align 8
-  %23 = icmp eq i32 %14, %22
-  br i1 %23, label %24, label %.Vec_WrdGrow.exit10_crit_edge.i.i.us.us.us
+._crit_edge.i.us.us.us:                           ; preds = %22, %14
+  %23 = load i32, ptr %2, align 8
+  %24 = icmp eq i32 %15, %23
+  br i1 %24, label %25, label %.Vec_WrdGrow.exit10_crit_edge.i.i.us.us.us
 
 .Vec_WrdGrow.exit10_crit_edge.i.i.us.us.us:       ; preds = %._crit_edge.i.us.us.us
   %.pre.i.i.us.us.us = load ptr, ptr %9, align 8
   br label %Vec_WrdPush.exit.i.us.us.us
 
-24:                                               ; preds = %._crit_edge.i.us.us.us
-  %25 = icmp slt i32 %14, 16
-  br i1 %25, label %37, label %26
+25:                                               ; preds = %._crit_edge.i.us.us.us
+  %26 = icmp slt i32 %15, 16
+  br i1 %26, label %38, label %27
 
-26:                                               ; preds = %24
-  %27 = shl nuw nsw i32 %14, 1
-  %28 = load ptr, ptr %9, align 8
-  %.not9.i9.i.i.us.us.us = icmp eq ptr %28, null
-  %29 = zext nneg i32 %27 to i64
-  %30 = shl nuw nsw i64 %29, 3
-  br i1 %.not9.i9.i.i.us.us.us, label %33, label %31
+27:                                               ; preds = %25
+  %28 = shl nuw nsw i32 %15, 1
+  %29 = load ptr, ptr %9, align 8
+  %.not9.i9.i.i.us.us.us = icmp eq ptr %29, null
+  %30 = zext nneg i32 %28 to i64
+  %31 = shl nuw nsw i64 %30, 3
+  br i1 %.not9.i9.i.i.us.us.us, label %34, label %32
 
-31:                                               ; preds = %26
-  %32 = tail call ptr @realloc(ptr noundef nonnull %28, i64 noundef %30) #12
-  br label %35
+32:                                               ; preds = %27
+  %33 = tail call ptr @realloc(ptr noundef nonnull %29, i64 noundef %31) #12
+  br label %36
 
-33:                                               ; preds = %26
-  %34 = tail call noalias ptr @malloc(i64 noundef %30) #13
-  br label %35
+34:                                               ; preds = %27
+  %35 = tail call noalias ptr @malloc(i64 noundef %31) #13
+  br label %36
 
-35:                                               ; preds = %33, %31
-  %36 = phi ptr [ %32, %31 ], [ %34, %33 ]
-  store ptr %36, ptr %9, align 8
-  store i32 %27, ptr %2, align 8
+36:                                               ; preds = %34, %32
+  %37 = phi ptr [ %33, %32 ], [ %35, %34 ]
+  store ptr %37, ptr %9, align 8
+  store i32 %28, ptr %2, align 8
   br label %Vec_WrdPush.exit.i.us.us.us
 
-37:                                               ; preds = %24
-  %38 = load ptr, ptr %9, align 8
-  %.not9.i.i.i.us.us.us = icmp eq ptr %38, null
-  br i1 %.not9.i.i.i.us.us.us, label %41, label %39
+38:                                               ; preds = %25
+  %39 = load ptr, ptr %9, align 8
+  %.not9.i.i.i.us.us.us = icmp eq ptr %39, null
+  br i1 %.not9.i.i.i.us.us.us, label %42, label %40
 
-39:                                               ; preds = %37
-  %40 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %38, i64 noundef 128) #12
+40:                                               ; preds = %38
+  %41 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %39, i64 noundef 128) #12
   br label %Vec_WrdGrow.exit.i.i.us.us.us
 
-41:                                               ; preds = %37
-  %42 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #13
+42:                                               ; preds = %38
+  %43 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #13
   br label %Vec_WrdGrow.exit.i.i.us.us.us
 
-Vec_WrdGrow.exit.i.i.us.us.us:                    ; preds = %41, %39
-  %43 = phi ptr [ %40, %39 ], [ %42, %41 ]
-  store ptr %43, ptr %9, align 8
+Vec_WrdGrow.exit.i.i.us.us.us:                    ; preds = %42, %40
+  %44 = phi ptr [ %41, %40 ], [ %43, %42 ]
+  store ptr %44, ptr %9, align 8
   store i32 16, ptr %2, align 8
   br label %Vec_WrdPush.exit.i.us.us.us
 
-Vec_WrdPush.exit.i.us.us.us:                      ; preds = %Vec_WrdGrow.exit.i.i.us.us.us, %35, %.Vec_WrdGrow.exit10_crit_edge.i.i.us.us.us
-  %44 = phi ptr [ %.pre.i.i.us.us.us, %.Vec_WrdGrow.exit10_crit_edge.i.i.us.us.us ], [ %36, %35 ], [ %43, %Vec_WrdGrow.exit.i.i.us.us.us ]
-  %45 = load i32, ptr %7, align 4
-  %46 = add nsw i32 %45, 1
-  store i32 %46, ptr %7, align 4
-  %47 = sext i32 %45 to i64
-  %48 = getelementptr inbounds i64, ptr %44, i64 %47
-  store i64 %.13742.us.us.us, ptr %48, align 8
+Vec_WrdPush.exit.i.us.us.us:                      ; preds = %Vec_WrdGrow.exit.i.i.us.us.us, %36, %.Vec_WrdGrow.exit10_crit_edge.i.i.us.us.us
+  %45 = phi ptr [ %.pre.i.i.us.us.us, %.Vec_WrdGrow.exit10_crit_edge.i.i.us.us.us ], [ %37, %36 ], [ %44, %Vec_WrdGrow.exit.i.i.us.us.us ]
+  %46 = load i32, ptr %7, align 4
+  %47 = add nsw i32 %46, 1
+  store i32 %47, ptr %7, align 4
+  %48 = sext i32 %46 to i64
+  %49 = getelementptr inbounds i64, ptr %45, i64 %48
+  store i64 %.13742.us.us.us, ptr %49, align 8
   br label %Vec_WrdPushUnique.exit.us.us.us
 
-Vec_WrdPushUnique.exit.us.us.us:                  ; preds = %17, %Vec_WrdPush.exit.i.us.us.us
-  %49 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv
-  %50 = load i32, ptr %49, align 4
-  %51 = shl nuw i32 1, %50
-  %52 = zext i32 %51 to i64
-  %53 = shl i64 %.13742.us.us.us, %52
-  %54 = sext i32 %50 to i64
-  %55 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %54
-  %56 = load i64, ptr %55, align 8
-  %57 = and i64 %53, %56
-  %58 = and i64 %56, %.13742.us.us.us
-  %59 = lshr i64 %58, %52
-  %60 = or i64 %57, %59
+Vec_WrdPushUnique.exit.us.us.us:                  ; preds = %18, %Vec_WrdPush.exit.i.us.us.us
+  %50 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv
+  %51 = load i32, ptr %50, align 4
+  %52 = shl nuw i32 1, %51
+  %53 = zext i32 %52 to i64
+  %54 = shl i64 %.13742.us.us.us, %53
+  %55 = sext i32 %51 to i64
+  %56 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %55
+  %57 = load i64, ptr %56, align 8
+  %58 = and i64 %54, %57
+  %59 = and i64 %57, %.13742.us.us.us
+  %60 = lshr i64 %59, %53
+  %61 = or i64 %58, %60
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us.us.us, label %13, !llvm.loop !6
+  br i1 %exitcond.not, label %._crit_edge.us.us.us, label %14, !llvm.loop !6
 
 ._crit_edge.us.us.us:                             ; preds = %Vec_WrdPushUnique.exit.us.us.us
-  %61 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv65
-  %62 = load i32, ptr %61, align 4
-  %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %63
-  %65 = load i64, ptr %64, align 8
-  %66 = and i64 %65, %60
-  %67 = getelementptr inbounds i8, ptr %64, i64 8
-  %68 = load i64, ptr %67, align 8
-  %69 = and i64 %68, %60
-  %70 = shl nuw i32 1, %62
-  %71 = zext i32 %70 to i64
-  %72 = shl i64 %69, %71
-  %73 = or i64 %72, %66
-  %74 = getelementptr inbounds i8, ptr %64, i64 16
-  %75 = load i64, ptr %74, align 8
-  %76 = and i64 %75, %60
-  %77 = lshr i64 %76, %71
-  %78 = or i64 %73, %77
+  %62 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv65
+  %63 = load i32, ptr %62, align 4
+  %64 = sext i32 %63 to i64
+  %65 = getelementptr inbounds [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %64
+  %66 = load i64, ptr %65, align 8
+  %67 = and i64 %66, %61
+  %68 = getelementptr inbounds i8, ptr %65, i64 8
+  %69 = load i64, ptr %68, align 8
+  %70 = and i64 %69, %61
+  %71 = shl nuw i32 1, %63
+  %72 = zext i32 %71 to i64
+  %73 = shl i64 %70, %72
+  %74 = or i64 %73, %67
+  %75 = getelementptr inbounds i8, ptr %65, i64 16
+  %76 = load i64, ptr %75, align 8
+  %77 = and i64 %76, %61
+  %78 = lshr i64 %77, %72
+  %79 = or i64 %74, %78
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count68
   br i1 %exitcond69.not, label %._crit_edge49.split.us.us.us, label %.preheader.us.us.us, !llvm.loop !7
@@ -205,23 +206,23 @@ Vec_WrdPushUnique.exit.us.us.us:                  ; preds = %17, %Vec_WrdPush.ex
 
 .split59.us:                                      ; preds = %3
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %79, label %.split59.us.thread
+  br i1 %.not, label %80, label %.split59.us.thread
 
 .split59.us.thread:                               ; preds = %._crit_edge49.split.us.us.us, %.split59.us
   %.us-phi6083 = phi i64 [ -1, %.split59.us ], [ %spec.select.us.us.us, %._crit_edge49.split.us.us.us ]
   tail call void @free(ptr noundef nonnull %5) #11
-  br label %79
+  br label %80
 
-79:                                               ; preds = %.split59.us, %.split59.us.thread
+80:                                               ; preds = %.split59.us, %.split59.us.thread
   %.us-phi6084 = phi i64 [ -1, %.split59.us ], [ %.us-phi6083, %.split59.us.thread ]
   %.not40 = icmp eq ptr %6, null
-  br i1 %.not40, label %81, label %80
+  br i1 %.not40, label %82, label %81
 
-80:                                               ; preds = %79
+81:                                               ; preds = %80
   tail call void @free(ptr noundef nonnull %6) #11
-  br label %81
+  br label %82
 
-81:                                               ; preds = %79, %80
+82:                                               ; preds = %80, %81
   ret i64 %.us-phi6084
 }
 
