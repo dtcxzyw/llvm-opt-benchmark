@@ -1282,7 +1282,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @_ZL18yy_get_next_bufferv() u
   %57 = shl nuw nsw i32 %44, 1
   %.nonneg = sub i32 0, %44
   %58 = lshr i32 %.nonneg, 3
-  %59 = sub i32 %44, %58
+  %59 = sub nsw i32 %44, %58
   %storemerge42 = select i1 %56, i32 %59, i32 %57
   store i32 %storemerge42, ptr %55, align 8
   %60 = add nsw i32 %storemerge42, 2

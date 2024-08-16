@@ -421,7 +421,7 @@ if.end:                                           ; preds = %for.body.lr.ph.spli
   %14 = load i32, ptr %count, align 4
   %call5 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEEixERS3_(ptr noundef nonnull align 8 dereferenceable(48) %sample_counts_, ptr noundef nonnull align 4 dereferenceable(4) %min)
   %15 = load i32, ptr %call5, align 4
-  %add6 = sub i32 %15, %14
+  %add6 = sub nsw i32 %15, %14
   store i32 %add6, ptr %call5, align 4
   %vtable7 = load ptr, ptr %iter, align 8
   %vfn8 = getelementptr inbounds i8, ptr %vtable7, i64 24

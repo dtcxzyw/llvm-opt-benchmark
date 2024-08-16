@@ -960,7 +960,7 @@ opal_thread_add_fetch_32.exit.i:                  ; preds = %59
 
 opal_thread_add_fetch_32.exit.i.thread:           ; preds = %59
   %64 = load volatile i32, ptr %4, align 8
-  %65 = sub i32 %64, %60
+  %65 = sub nsw i32 %64, %60
   store volatile i32 %65, ptr %4, align 8
   %66 = load volatile i32, ptr %4, align 8
   br label %wait_sync_update.exit

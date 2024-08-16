@@ -3296,7 +3296,7 @@ _ZN5eastl9DequeBaseIiNS_9allocatorELj64EE14DoFreeSubarrayEPi.exit.i: ; preds = %
   br i1 %cmp.i55, label %while.body.i, label %if.end, !llvm.loop !66
 
 if.else:                                          ; preds = %if.then
-  %add.i.i62 = sub i64 %sub.ptr.div5.i.i, %add11.i
+  %add.i.i62 = sub nsw i64 %sub.ptr.div5.i.i, %add11.i
   %cmp.i.i63 = icmp ult i64 %add.i.i62, 64
   br i1 %cmp.i.i63, label %if.then.i.i80, label %if.else.i.i64
 
@@ -4051,7 +4051,7 @@ if.else58:                                        ; preds = %if.else21
   %sub.ptr.rhs.cast.i.i289 = ptrtoint ptr %66 to i64
   %sub.ptr.sub.i.i290 = sub i64 %sub.ptr.lhs.cast.i.i288, %sub.ptr.rhs.cast.i.i289
   %sub.ptr.div.i.i291 = ashr exact i64 %sub.ptr.sub.i.i290, 2
-  %add.i.i292 = sub i64 %sub.ptr.div.i.i291, %sub61
+  %add.i.i292 = sub nsw i64 %sub.ptr.div.i.i291, %sub61
   %cmp.i.i293 = icmp ult i64 %add.i.i292, 64
   br i1 %cmp.i.i293, label %if.then.i.i310, label %if.else.i.i294
 
@@ -4481,7 +4481,7 @@ if.end26:                                         ; preds = %for.body, %if.end, 
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
-  %add.i.i = sub i64 %sub.ptr.div.i.i, %nAdditionalCapacity
+  %add.i.i = sub nsw i64 %sub.ptr.div.i.i, %nAdditionalCapacity
   %cmp.i.i = icmp ult i64 %add.i.i, 64
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 

@@ -518,7 +518,7 @@ _ZN13ThreadService23decrement_thread_countsEP10JavaThreadb.exit: ; preds = %35, 
   %40 = getelementptr inbounds i8, ptr %39, i64 40
   %41 = load ptr, ptr %40, align 8
   %42 = load i64, ptr %41, align 8
-  %43 = add i64 %42, -1
+  %43 = add nsw i64 %42, -1
   store i64 %43, ptr %41, align 8
   br i1 %1, label %_ZL16is_hidden_threadP10JavaThread.exit.thread.sink.split, label %_ZL16is_hidden_threadP10JavaThread.exit.thread
 
@@ -533,7 +533,7 @@ _ZL16is_hidden_threadP10JavaThread.exit.thread.sink.split: ; preds = %_ZN13Threa
   %47 = getelementptr inbounds i8, ptr %46, i64 40
   %48 = load ptr, ptr %47, align 8
   %49 = load i64, ptr %48, align 8
-  %50 = add i64 %49, -1
+  %50 = add nsw i64 %49, -1
   store i64 %50, ptr %48, align 8
   br label %_ZL16is_hidden_threadP10JavaThread.exit.thread
 

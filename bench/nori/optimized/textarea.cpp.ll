@@ -994,7 +994,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7nanogui8TextArea5BlockESt6vectorI
   %.pre243 = ptrtoint ptr %.pre to i64
   %.pre245 = sub i64 %.pre242, %.pre243
   %.pre247 = ashr exact i64 %.pre245, 6
-  %43 = sub i32 %27, %24
+  %43 = sub nsw i32 %27, %24
   %44 = icmp sgt i64 %.pre247, 0
   br i1 %44, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7nanogui8TextArea5BlockESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i53, label %"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPN7nanogui8TextArea5BlockESt6vectorIS4_SaIS4_EEEEiZNS3_4drawEP10NVGcontextE3$_1ET_SD_SD_RKT0_T1_.exit"
 

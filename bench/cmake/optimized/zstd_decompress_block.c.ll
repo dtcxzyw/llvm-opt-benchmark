@@ -1564,7 +1564,7 @@ BIT_reloadDStreamFast.exit.i.i:                   ; preds = %132
   %145 = trunc i64 %.idx.i to i32
   %.0.i2325.i = select i1 %144, i32 %145, i32 %140
   %146 = zext i32 %.0.i2325.i to i64
-  %.ptr2595.add2599.i = sub i64 %.idx.i, %146
+  %.ptr2595.add2599.i = sub nsw i64 %.idx.i, %146
   %.ptr2602.i = getelementptr inbounds i8, ptr %3, i64 %.ptr2595.add2599.i
   store ptr %.ptr2602.i, ptr %133, align 8
   %147 = shl i32 %.0.i2325.i, 3
@@ -1634,7 +1634,7 @@ BIT_reloadDStreamFast.exit.i2328.i:               ; preds = %167
   %180 = trunc i64 %.idx2598.i to i32
   %.0.i2333.i = select i1 %179, i32 %180, i32 %175
   %181 = zext i32 %.0.i2333.i to i64
-  %.ptr2600.add2604.i = sub i64 %.idx2598.i, %181
+  %.ptr2600.add2604.i = sub nsw i64 %.idx2598.i, %181
   %.ptr2607.i = getelementptr inbounds i8, ptr %3, i64 %.ptr2600.add2604.i
   store ptr %.ptr2607.i, ptr %168, align 8
   %182 = shl i32 %.0.i2333.i, 3
@@ -1713,7 +1713,7 @@ ZSTD_initFseState.exit2343.i:                     ; preds = %209
   %216 = trunc i64 %.idx2603.i to i32
   %.0.i2342.i = select i1 %215, i32 %216, i32 %211
   %217 = zext i32 %.0.i2342.i to i64
-  %.ptr2605.add2615.i = sub i64 %.idx2603.i, %217
+  %.ptr2605.add2615.i = sub nsw i64 %.idx2603.i, %217
   %.ptr2624.i = getelementptr inbounds i8, ptr %3, i64 %.ptr2605.add2615.i
   store ptr %.ptr2624.i, ptr %205, align 8
   %218 = shl i32 %.0.i2342.i, 3
@@ -1802,7 +1802,7 @@ BIT_reloadDStreamFast.exit.i:                     ; preds = %232
   %250 = trunc i64 %.idx2608.i to i32
   %.01871.i = select i1 %249, i32 %250, i32 %245
   %251 = zext i32 %.01871.i to i64
-  %.add2614.i = sub i64 %.idx2608.i, %251
+  %.add2614.i = sub nsw i64 %.idx2608.i, %251
   %.ptr2622.i = getelementptr inbounds i8, ptr %3, i64 %.add2614.i
   store ptr %.ptr2622.i, ptr %205, align 8
   %252 = shl i32 %.01871.i, 3
@@ -2001,7 +2001,7 @@ BIT_reloadDStreamFast.exit2353.i:                 ; preds = %366
   %378 = trunc i64 %.idx2610.i to i32
   %.01898.i = select i1 %377, i32 %378, i32 %373
   %379 = zext i32 %.01898.i to i64
-  %.add2611.i = sub i64 %.idx2610.i, %379
+  %.add2611.i = sub nsw i64 %.idx2610.i, %379
   %.ptr2619.i = getelementptr inbounds i8, ptr %3, i64 %.add2611.i
   store ptr %.ptr2619.i, ptr %205, align 8, !noalias !18
   %380 = shl i32 %.01898.i, 3
@@ -4514,7 +4514,7 @@ BIT_reloadDStreamFast.exit.i.i:                   ; preds = %120
   %133 = trunc i64 %.idx.i to i32
   %.0.i1908.i = select i1 %132, i32 %133, i32 %128
   %134 = zext i32 %.0.i1908.i to i64
-  %.ptr2102.add2106.i = sub i64 %.idx.i, %134
+  %.ptr2102.add2106.i = sub nsw i64 %.idx.i, %134
   %.ptr2109.i = getelementptr inbounds i8, ptr %3, i64 %.ptr2102.add2106.i
   store ptr %.ptr2109.i, ptr %121, align 8
   %135 = shl i32 %.0.i1908.i, 3
@@ -4584,7 +4584,7 @@ BIT_reloadDStreamFast.exit.i1911.i:               ; preds = %155
   %168 = trunc i64 %.idx2105.i to i32
   %.0.i1916.i = select i1 %167, i32 %168, i32 %163
   %169 = zext i32 %.0.i1916.i to i64
-  %.ptr2107.add2111.i = sub i64 %.idx2105.i, %169
+  %.ptr2107.add2111.i = sub nsw i64 %.idx2105.i, %169
   %.ptr2114.i = getelementptr inbounds i8, ptr %3, i64 %.ptr2107.add2111.i
   store ptr %.ptr2114.i, ptr %156, align 8
   %170 = shl i32 %.0.i1916.i, 3
@@ -4654,7 +4654,7 @@ BIT_reloadDStreamFast.exit.i1920.i:               ; preds = %190
   %203 = trunc i64 %.idx2110.i to i32
   %.0.i1925.i = select i1 %202, i32 %203, i32 %198
   %204 = zext i32 %.0.i1925.i to i64
-  %.ptr2112.add2116.i = sub i64 %.idx2110.i, %204
+  %.ptr2112.add2116.i = sub nsw i64 %.idx2110.i, %204
   %.ptr2119.i = getelementptr inbounds i8, ptr %3, i64 %.ptr2112.add2116.i
   store ptr %.ptr2119.i, ptr %191, align 8
   %205 = shl i32 %.0.i1925.i, 3
@@ -6838,7 +6838,7 @@ BIT_reloadDStreamFast.exit.i.i:                   ; preds = %129
   %142 = trunc i64 %.idx.i to i32
   %.0.i676.i = select i1 %141, i32 %142, i32 %137
   %143 = zext i32 %.0.i676.i to i64
-  %.ptr.add750.i = sub i64 %.idx.i, %143
+  %.ptr.add750.i = sub nsw i64 %.idx.i, %143
   %.ptr753.i = getelementptr inbounds i8, ptr %3, i64 %.ptr.add750.i
   store ptr %.ptr753.i, ptr %130, align 8
   %144 = shl i32 %.0.i676.i, 3
@@ -6908,7 +6908,7 @@ BIT_reloadDStreamFast.exit.i679.i:                ; preds = %164
   %177 = trunc i64 %.idx749.i to i32
   %.0.i684.i = select i1 %176, i32 %177, i32 %172
   %178 = zext i32 %.0.i684.i to i64
-  %.ptr751.add755.i = sub i64 %.idx749.i, %178
+  %.ptr751.add755.i = sub nsw i64 %.idx749.i, %178
   %.ptr757.i = getelementptr inbounds i8, ptr %3, i64 %.ptr751.add755.i
   store ptr %.ptr757.i, ptr %165, align 8
   %179 = shl i32 %.0.i684.i, 3

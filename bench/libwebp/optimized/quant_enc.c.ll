@@ -1279,7 +1279,7 @@ PickBestIntra16.exit:                             ; preds = %147, %167, %173, %1
 
 242:                                              ; preds = %239
   %243 = load ptr, ptr %218, align 8, !alias.scope !36, !noalias !30
-  %244 = sub i32 %233, %232
+  %244 = sub nsw i32 %233, %232
   %245 = sext i32 %244 to i64
   %246 = getelementptr inbounds i8, ptr %243, i64 %245
   br label %GetCostModeI4.exit.i
@@ -2084,7 +2084,7 @@ IsFlatSource16.exit.thread.i:                     ; preds = %653, %651, %649, %6
 
 692:                                              ; preds = %689
   %693 = load ptr, ptr %666, align 8, !alias.scope !117, !noalias !110
-  %694 = sub i32 %683, %682
+  %694 = sub nsw i32 %683, %682
   %695 = sext i32 %694 to i64
   %696 = getelementptr inbounds i8, ptr %693, i64 %695
   br label %GetCostModeI4.exit.i72

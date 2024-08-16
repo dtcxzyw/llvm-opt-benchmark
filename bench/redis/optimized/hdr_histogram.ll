@@ -1579,7 +1579,7 @@ if.end.i.i.i:                                     ; preds = %entry
   %sub8.i.i.i = sub nsw i32 0, %1
   %spec.select.i.i.i = select i1 %cmp5.not.i.i.i, i32 0, i32 %sub8.i.i.i
   %adjustment.0.i.i.i = select i1 %cmp2.i.i.i, i32 %1, i32 %spec.select.i.i.i
-  %add.i.i.i = sub i32 %adjustment.0.i.i.i, %0
+  %add.i.i.i = sub nsw i32 %adjustment.0.i.i.i, %0
   %2 = sext i32 %add.i.i.i to i64
   br label %hdr_count_at_index.exit
 
@@ -1996,7 +1996,7 @@ if.end.i.i.i:                                     ; preds = %if.end.i18
   %sub8.i.i.i = sub nsw i32 0, %iter.val.val.i
   %spec.select.i.i.i = select i1 %cmp5.not.i.i.i, i32 0, i32 %sub8.i.i.i
   %adjustment.0.i.i.i = select i1 %cmp2.i.i.i, i32 %iter.val.val.i, i32 %spec.select.i.i.i
-  %add.i.i.i19 = sub i32 %adjustment.0.i.i.i, %2
+  %add.i.i.i19 = sub nsw i32 %adjustment.0.i.i.i, %2
   %3 = sext i32 %add.i.i.i19 to i64
   br label %while.body.lr.ph.i
 
@@ -2921,7 +2921,7 @@ if.end.i.i.i:                                     ; preds = %if.end.i33
   %sub8.i.i.i = sub nsw i32 0, %iter.val.val.i
   %spec.select.i.i.i = select i1 %cmp5.not.i.i.i, i32 0, i32 %sub8.i.i.i
   %adjustment.0.i.i.i = select i1 %cmp2.i.i.i, i32 %iter.val.val.i, i32 %spec.select.i.i.i
-  %add.i.i.i34 = sub i32 %adjustment.0.i.i.i, %8
+  %add.i.i.i34 = sub nsw i32 %adjustment.0.i.i.i, %8
   %9 = sext i32 %add.i.i.i34 to i64
   br label %while.body.lr.ph.i
 

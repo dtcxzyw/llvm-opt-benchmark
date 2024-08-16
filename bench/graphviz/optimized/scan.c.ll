@@ -2091,7 +2091,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i175, %1059
   %1127 = shl nuw nsw i32 %1114, 1
   %.nonneg.i = sub i32 0, %1114
   %1128 = lshr i32 %.nonneg.i, 3
-  %1129 = sub i32 %1114, %1128
+  %1129 = sub nsw i32 %1114, %1128
   %storemerge43.i = select i1 %1126, i32 %1129, i32 %1127
   store i32 %storemerge43.i, ptr %1125, align 8
   %1130 = add nsw i32 %storemerge43.i, 2

@@ -1502,7 +1502,7 @@ bsdf_is_edge.exit.thread50:                       ; preds = %17, %85, %68, %53, 
   %tr.sh.diff.i = trunc i64 %sh.diff.i to i32
   %221 = and i32 %tr.sh.diff.i, -2
   %222 = call i32 @FT_SqrtFixed(i32 noundef %221) #11
-  %223 = sub i32 %222, %213
+  %223 = sub nsw i32 %222, %213
   br label %224
 
 224:                                              ; preds = %211, %202, %187, %174

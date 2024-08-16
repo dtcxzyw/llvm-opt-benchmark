@@ -165,7 +165,7 @@ if.then20.i:                                      ; preds = %if.end18.i
 if.else23.i:                                      ; preds = %if.end18.i
   %freed25.i = getelementptr inbounds i8, ptr %stat, i64 8
   %11 = load i64, ptr %freed25.i, align 8
-  %add26.i = sub i64 %11, %amount
+  %add26.i = sub nsw i64 %11, %amount
   store i64 %add26.i, ptr %freed25.i, align 8
   br label %mi_stat_update.exit
 
@@ -190,7 +190,7 @@ if.end.i:                                         ; preds = %entry
 if.then1.i:                                       ; preds = %if.end.i
   %1 = atomicrmw add ptr %current2.i, i64 %sub monotonic, align 8
   %peak.i = getelementptr inbounds i8, ptr %stat, i64 16
-  %add.i = sub i64 %1, %amount
+  %add.i = sub nsw i64 %1, %amount
   %2 = load atomic i64, ptr %peak.i monotonic, align 8
   br label %while.cond.i.i
 
@@ -220,7 +220,7 @@ if.else.i:                                        ; preds = %mi_atomic_maxi64_re
 
 if.else9.i:                                       ; preds = %if.end.i
   %8 = load i64, ptr %current2.i, align 8
-  %add11.i = sub i64 %8, %amount
+  %add11.i = sub nsw i64 %8, %amount
   store i64 %add11.i, ptr %current2.i, align 8
   %peak13.i = getelementptr inbounds i8, ptr %stat, i64 16
   %9 = load i64, ptr %peak13.i, align 8
@@ -237,14 +237,14 @@ if.end18.i:                                       ; preds = %if.then15.i, %if.el
 
 if.then20.i:                                      ; preds = %if.end18.i
   %10 = load i64, ptr %stat, align 8
-  %add22.i = sub i64 %10, %amount
+  %add22.i = sub nsw i64 %10, %amount
   store i64 %add22.i, ptr %stat, align 8
   br label %mi_stat_update.exit
 
 if.else23.i:                                      ; preds = %if.end18.i
   %freed25.i = getelementptr inbounds i8, ptr %stat, i64 8
   %11 = load i64, ptr %freed25.i, align 8
-  %add26.i = add i64 %11, %amount
+  %add26.i = add nsw i64 %11, %amount
   store i64 %add26.i, ptr %freed25.i, align 8
   br label %mi_stat_update.exit
 

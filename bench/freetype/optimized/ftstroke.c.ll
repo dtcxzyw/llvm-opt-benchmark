@@ -2433,7 +2433,7 @@ define internal fastcc i32 @ft_stroker_cap(ptr nocapture noundef %0, i64 noundef
   %storemerge = phi i64 [ %28, %24 ], [ %31, %29 ]
   store i64 %.sink, ptr %3, align 8
   store i64 %storemerge, ptr %16, align 8
-  %33 = sub i64 %.sink, %17
+  %33 = sub nsw i64 %.sink, %17
   store i64 %33, ptr %4, align 8
   %34 = add nsw i64 %storemerge, %18
   store i64 %34, ptr %19, align 8

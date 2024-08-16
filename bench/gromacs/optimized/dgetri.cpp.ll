@@ -265,7 +265,7 @@ define void @dgetri_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %109 = getelementptr inbounds double, ptr %19, i64 %108
   %gep188 = getelementptr double, ptr %invariant.gep, i64 %.pre-phi240
   call void @dtrsm_(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5, ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef nonnull %14, ptr noundef nonnull %109, ptr noundef nonnull %11, ptr noundef %gep188, ptr noundef nonnull %2)
-  %110 = sub i32 %.1189, %.0147173
+  %110 = sub nsw i32 %.1189, %.0147173
   %111 = icmp sgt i32 %110, 0
   br i1 %111, label %.lr.ph191, label %.loopexit, !llvm.loop !9
 

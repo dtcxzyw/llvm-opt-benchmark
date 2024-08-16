@@ -3687,7 +3687,7 @@ if.end27:                                         ; preds = %if.then22, %if.else
   %33 = phi ptr [ %.pre245, %if.then22 ], [ %20, %if.else19 ]
   %34 = phi ptr [ %.pre244, %if.then22 ], [ %6, %if.else19 ]
   %35 = load ptr, ptr %_M_last4.i.i114, align 8, !noalias !251
-  %add.i.i.i = sub i64 %sub.ptr.div.i.i.i.pre-phi, %add12.i
+  %add.i.i.i = sub nsw i64 %sub.ptr.div.i.i.i.pre-phi, %add12.i
   %cmp.i.i.i179 = icmp sgt i64 %add.i.i.i, -1
   br i1 %cmp.i.i.i179, label %land.lhs.true.i.i.i, label %_ZStmiRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit.thread267
 

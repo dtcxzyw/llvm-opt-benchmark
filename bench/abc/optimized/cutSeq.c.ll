@@ -386,7 +386,7 @@ Abc_Clock.exit176:                                ; preds = %Cut_ListFinish.exit
   %174 = phi i32 [ 0, %.lr.ph.i181 ], [ %180, %173 ]
   %175 = getelementptr inbounds [0 x i32], ptr %170, i64 0, i64 %indvars.iv.i182
   %176 = load i32, ptr %175, align 4
-  %177 = sub i32 %176, %6
+  %177 = sub nsw i32 %176, %6
   store i32 %177, ptr %175, align 4
   %178 = srem i32 %177, 31
   %179 = shl nuw nsw i32 1, %178
@@ -429,7 +429,7 @@ Cut_NodeShiftCutLeaves.exit186:                   ; preds = %181, %166
   %191 = phi i32 [ 0, %.lr.ph.i191 ], [ %197, %190 ]
   %192 = getelementptr inbounds [0 x i32], ptr %187, i64 0, i64 %indvars.iv.i192
   %193 = load i32, ptr %192, align 4
-  %194 = sub i32 %193, %6
+  %194 = sub nsw i32 %193, %6
   store i32 %194, ptr %192, align 4
   %195 = srem i32 %194, 31
   %196 = shl nuw nsw i32 1, %195
@@ -475,7 +475,7 @@ Cut_NodeShiftCutLeaves.exit186:                   ; preds = %181, %166
   %209 = phi i32 [ 0, %.lr.ph.i201 ], [ %215, %208 ]
   %210 = getelementptr inbounds [0 x i32], ptr %205, i64 0, i64 %indvars.iv.i202
   %211 = load i32, ptr %210, align 4
-  %212 = sub i32 %211, %7
+  %212 = sub nsw i32 %211, %7
   store i32 %212, ptr %210, align 4
   %213 = srem i32 %212, 31
   %214 = shl nuw nsw i32 1, %213
@@ -518,7 +518,7 @@ Cut_NodeShiftCutLeaves.exit206:                   ; preds = %216, %201
   %226 = phi i32 [ 0, %.lr.ph.i211 ], [ %232, %225 ]
   %227 = getelementptr inbounds [0 x i32], ptr %222, i64 0, i64 %indvars.iv.i212
   %228 = load i32, ptr %227, align 4
-  %229 = sub i32 %228, %7
+  %229 = sub nsw i32 %228, %7
   store i32 %229, ptr %227, align 4
   %230 = srem i32 %229, 31
   %231 = shl nuw nsw i32 1, %230

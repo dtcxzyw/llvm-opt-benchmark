@@ -1532,7 +1532,7 @@ jq_yy_create_buffer.exit:                         ; preds = %51
   %899 = shl nuw nsw i32 %886, 1
   %.nonneg.i = sub i32 0, %886
   %900 = lshr i32 %.nonneg.i, 3
-  %901 = sub i32 %886, %900
+  %901 = sub nsw i32 %886, %900
   %storemerge148.i = select i1 %898, i32 %901, i32 %899
   store i32 %storemerge148.i, ptr %897, align 8
   %902 = add nsw i32 %storemerge148.i, 2

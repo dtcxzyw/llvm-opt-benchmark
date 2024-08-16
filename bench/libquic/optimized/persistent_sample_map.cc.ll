@@ -704,7 +704,7 @@ if.end:                                           ; preds = %for.body.lr.ph.spli
   %16 = load i32, ptr %count, align 4
   %call5 = call noundef ptr @_ZN4base19PersistentSampleMap29GetOrCreateSampleCountStorageEi(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %15)
   %17 = load i32, ptr %call5, align 4
-  %add6 = sub i32 %17, %16
+  %add6 = sub nsw i32 %17, %16
   store i32 %add6, ptr %call5, align 4
   %vtable7 = load ptr, ptr %iter, align 8
   %vfn8 = getelementptr inbounds i8, ptr %vtable7, i64 24

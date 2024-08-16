@@ -834,7 +834,7 @@ _ZNSt12_Vector_baseIN5faiss12_GLOBAL__N_18SegmentSESaIS2_EEC2EmRKS3_.exit.thread
   %40 = lshr i32 %39, 1
   %41 = load i32, ptr %7, align 4
   %42 = and i32 %38, 1
-  %43 = sub i32 %41, %42
+  %43 = sub nsw i32 %41, %42
   store i32 %43, ptr %11, align 4
   %44 = lshr i32 %38, 1
   store i32 %44, ptr %12, align 4

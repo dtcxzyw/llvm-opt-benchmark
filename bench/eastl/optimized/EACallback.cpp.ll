@@ -1229,7 +1229,7 @@ if.then39:                                        ; preds = %if.else
   %reass.add = shl i32 %conv, 1
   %sub.i = add i32 %reass.add, -1
   %call.i = call noundef i32 @_ZN2EA4StdC24RandomLinearCongruential19RandomUint32UniformEj(ptr noundef nonnull align 4 dereferenceable(4) %mRandom, i32 noundef %sub.i)
-  %add.i = sub i32 %call.i, %conv
+  %add.i = sub nsw i32 %call.i, %conv
   %29 = load i64, ptr %mNextCallbackEvent, align 8
   %conv44 = sext i32 %add.i to i64
   %add45 = add nsw i64 %29, %conv44
@@ -1550,7 +1550,7 @@ if.then31:                                        ; preds = %sw.epilog
   %reass.add = shl i32 %conv, 1
   %sub.i = add i32 %reass.add, -1
   %call.i32 = tail call noundef i32 @_ZN2EA4StdC24RandomLinearCongruential19RandomUint32UniformEj(ptr noundef nonnull align 4 dereferenceable(4) %mRandom, i32 noundef %sub.i)
-  %add.i = sub i32 %call.i32, %conv
+  %add.i = sub nsw i32 %call.i32, %conv
   %cmp38 = icmp sgt i32 %add.i, 0
   br i1 %cmp38, label %if.then39, label %if.end42
 

@@ -11405,7 +11405,7 @@ _ZN8V3PreLex12curFilelinepEv.exit529:             ; preds = %6904, %6911
   %7028 = shl nuw nsw i32 %7015, 1
   %.nonneg.i = sub i32 0, %7015
   %7029 = lshr i32 %.nonneg.i, 3
-  %7030 = sub i32 %7015, %7029
+  %7030 = sub nsw i32 %7015, %7029
   %storemerge42.i = select i1 %7027, i32 %7030, i32 %7028
   store i32 %storemerge42.i, ptr %7026, align 8
   %7031 = add nsw i32 %storemerge42.i, 2

@@ -3000,7 +3000,7 @@ define i32 @cli_recursion_stack_get_type(ptr nocapture noundef readonly %0, i32 
   %14 = getelementptr inbounds %struct.recursion_level_tag, ptr %11, i64 %13, i32 5
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 1
-  %spec.select.i = sub i32 %.219.i, %16
+  %spec.select.i = sub nsw i32 %.219.i, %16
   %17 = add nsw i32 %.020.i, -1
   %18 = icmp sgt i32 %.020.i, %spec.select.i
   %19 = icmp ugt i32 %.020.i, 1
@@ -3056,7 +3056,7 @@ define i64 @cli_recursion_stack_get_size(ptr nocapture noundef readonly %0, i32 
   %14 = getelementptr inbounds %struct.recursion_level_tag, ptr %11, i64 %13, i32 5
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 1
-  %spec.select.i = sub i32 %.219.i, %16
+  %spec.select.i = sub nsw i32 %.219.i, %16
   %17 = add nsw i32 %.020.i, -1
   %18 = icmp sgt i32 %.020.i, %spec.select.i
   %19 = icmp ugt i32 %.020.i, 1

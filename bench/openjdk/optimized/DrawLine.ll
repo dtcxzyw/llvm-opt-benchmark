@@ -416,7 +416,7 @@ define hidden zeroext range(i8 0, 2) i8 @LineUtils_SetupBresenham(i32 noundef %0
 
 241:                                              ; preds = %237, %236
   %.pn.i = phi i32 [ %240, %237 ], [ 0, %236 ]
-  %.0274.i = sub i32 %.pn.i, %.0277.in.i
+  %.0274.i = sub nsw i32 %.pn.i, %.0277.in.i
   %.not346.i = icmp eq i32 %.0304.lcssa.i, %.0283.i
   br i1 %.not346.i, label %247, label %242
 
@@ -681,7 +681,7 @@ define hidden zeroext range(i8 0, 2) i8 @LineUtils_SetupBresenham(i32 noundef %0
 
 374:                                              ; preds = %370, %369
   %.pn = phi i32 [ %373, %370 ], [ 0, %369 ]
-  %.0236 = sub i32 %.pn, %.0239.in
+  %.0236 = sub nsw i32 %.pn, %.0239.in
   %.not292 = icmp eq i32 %.0246.lcssa, %0
   br i1 %.not292, label %380, label %375
 

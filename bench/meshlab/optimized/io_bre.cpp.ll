@@ -3881,7 +3881,7 @@ _ZN3vcg3tri2io10VertexGrid8SetValueEiiNS_6Point3IfEEaaah.exit: ; preds = %_ZN10Q
   %126 = add nuw nsw i32 %.0237788, 1
   %127 = mul i32 %126, 20
   %128 = uitofp nneg i32 %.0237788 to float
-  %129 = sub i32 %.0237788, %3
+  %129 = sub nsw i32 %.0237788, %3
   %130 = sitofp i32 %129 to float
   %131 = add nsw i32 %126, %3
   %132 = sitofp i32 %131 to float
@@ -5804,7 +5804,7 @@ _ZN3vcg3tri2io10VertexGrid7QualityEii.exit604:    ; preds = %_ZN10QByteArray4dat
   %1163 = getelementptr inbounds i8, ptr %794, i64 16
   store ptr %987, ptr %1163, align 8
   %1164 = getelementptr inbounds i8, ptr %803, i64 96
-  %1165 = sub i32 %.0238781, %3
+  %1165 = sub nsw i32 %.0238781, %3
   %1166 = load i32, ptr %1, align 8
   %1167 = icmp sge i32 %1166, %1165
   %1168 = load i32, ptr %17, align 4

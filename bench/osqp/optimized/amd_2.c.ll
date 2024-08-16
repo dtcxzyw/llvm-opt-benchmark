@@ -794,8 +794,8 @@ clear_flag.exit1003:                              ; preds = %233, %.loopexit1037
   %320 = getelementptr inbounds i64, ptr %6, i64 %264
   %321 = load i64, ptr %320, align 8
   %322 = add nsw i64 %321, %.68361154
-  %323 = sub i64 %.08931153, %321
-  %324 = sub i64 %.38981152, %321
+  %323 = sub nsw i64 %.08931153, %321
+  %324 = sub nsw i64 %.38981152, %321
   store i64 0, ptr %320, align 8
   store i64 -1, ptr %267, align 8
   br label %348

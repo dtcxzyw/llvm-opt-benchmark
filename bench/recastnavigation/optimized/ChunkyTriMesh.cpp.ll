@@ -464,7 +464,7 @@ _Z16checkOverlapRectPKfS0_S0_S0_.exit:            ; preds = %31
   br label %54
 
 52:                                               ; preds = %46
-  %53 = sub i32 %.032, %48
+  %53 = sub nsw i32 %.032, %48
   br label %54
 
 54:                                               ; preds = %52, %50
@@ -589,7 +589,7 @@ _ZL19checkOverlapSegmentPKfS0_S0_S0_.exit:        ; preds = %50
   br label %65
 
 63:                                               ; preds = %58
-  %64 = sub i32 %.035, %60
+  %64 = sub nsw i32 %.035, %60
   br label %65
 
 65:                                               ; preds = %63, %.thread43

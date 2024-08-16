@@ -274,7 +274,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit28.i232:          ; preds = %90
   br i1 %.not49.not.i233, label %89, label %96
 
 .loopexit302:                                     ; preds = %89, %87
-  %spec.select209273 = sub i32 %.1181, %82
+  %spec.select209273 = sub nsw i32 %.1181, %82
   br label %83, !llvm.loop !9
 
 96:                                               ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit28.i232
@@ -345,7 +345,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i246:            ; preds = %111
   br i1 %.not50.not.i247, label %110, label %117
 
 .loopexit:                                        ; preds = %110, %107
-  %spec.select210284 = sub i32 %.1175, %102
+  %spec.select210284 = sub nsw i32 %.1175, %102
   br label %103, !llvm.loop !10
 
 117:                                              ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit.i246

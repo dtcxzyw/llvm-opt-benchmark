@@ -5158,7 +5158,7 @@ invoke.cont121:                                   ; preds = %if.end119
 invoke.cont124:                                   ; preds = %invoke.cont121
   call void @_ZN6icu_7518CharStringByteSinkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %s) #17
   %46 = load i32, ptr %len.i84, align 8
-  %add = sub i32 %46, %43
+  %add = sub nsw i32 %46, %43
   %cmp126 = icmp sgt i32 %add, 0
   br i1 %cmp126, label %if.then127, label %if.end131
 

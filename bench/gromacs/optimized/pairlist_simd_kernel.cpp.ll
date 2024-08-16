@@ -436,7 +436,7 @@ define void @_ZN5Nbnxm22makeClusterListSimd4xMERKNS_4GridEP16NbnxnPairlistCpuiii
   %175 = and i8 %.3.i, 1
   %176 = xor i8 %175, 1
   %177 = zext nneg i8 %176 to i32
-  %spec.select190.i = sub i32 %.0171256.i, %177
+  %spec.select190.i = sub nsw i32 %.0171256.i, %177
   %178 = trunc nuw i8 %.3.i to i1
   %179 = icmp sle i32 %spec.select190.i, %spec.select299305.i
   %.not188.i = select i1 %178, i1 true, i1 %179
@@ -856,7 +856,7 @@ define void @_ZN5Nbnxm23makeClusterListSimd2xMMERKNS_4GridEP16NbnxnPairlistCpuii
   %142 = and i8 %.3.i, 1
   %143 = xor i8 %142, 1
   %144 = zext nneg i8 %143 to i32
-  %spec.select192.i = sub i32 %.0171256.i, %144
+  %spec.select192.i = sub nsw i32 %.0171256.i, %144
   %145 = trunc nuw i8 %.3.i to i1
   %146 = icmp sle i32 %spec.select192.i, %spec.select287293.i
   %.not188.i = select i1 %145, i1 true, i1 %146

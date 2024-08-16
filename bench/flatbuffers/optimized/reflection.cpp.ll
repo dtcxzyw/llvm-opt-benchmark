@@ -7098,7 +7098,7 @@ if.end83.sink.split:                              ; preds = %if.then3, %if.then.
   %.sink = phi i32 [ %109, %if.then.i269 ], [ %4, %if.then3 ]
   %delta_.i270 = getelementptr inbounds i8, ptr %this, i64 16
   %110 = load i32, ptr %delta_.i270, align 8
-  %add.i271 = sub i32 %.sink, %110
+  %add.i271 = sub nsw i32 %.sink, %110
   store i32 %add.i271, ptr %table, align 4
   %111 = load ptr, ptr %buf_.i, align 8
   %112 = load ptr, ptr %111, align 8

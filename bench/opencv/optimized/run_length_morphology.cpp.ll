@@ -1461,7 +1461,7 @@ define void @_ZN2cv8ximgproc2rl5erodeERKNS_11_InputArrayERKNS_12_OutputArrayES4_
   %.sroa.03.09.i = phi ptr [ %27, %.lr.ph.i ], [ %16, %14 ]
   %19 = getelementptr inbounds i8, ptr %.sroa.03.09.i, i64 8
   %20 = load i32, ptr %19, align 4
-  %21 = sub i32 %20, %.sroa.3.0.extract.trunc
+  %21 = sub nsw i32 %20, %.sroa.3.0.extract.trunc
   store i32 %21, ptr %19, align 4
   %22 = load i32, ptr %.sroa.03.09.i, align 4
   %23 = sub i32 %22, %15
@@ -3353,7 +3353,7 @@ define void @_ZN2cv8ximgproc2rl6dilateERKNS_11_InputArrayERKNS_12_OutputArrayES4
   %.sroa.03.09.i = phi ptr [ %26, %.lr.ph.i ], [ %15, %13 ]
   %18 = getelementptr inbounds i8, ptr %.sroa.03.09.i, i64 8
   %19 = load i32, ptr %18, align 4
-  %20 = sub i32 %19, %.sroa.3.0.extract.trunc
+  %20 = sub nsw i32 %19, %.sroa.3.0.extract.trunc
   store i32 %20, ptr %18, align 4
   %21 = load i32, ptr %.sroa.03.09.i, align 4
   %22 = sub i32 %21, %14
@@ -4134,7 +4134,7 @@ define void @_ZN2cv8ximgproc2rl12morphologyExERKNS_11_InputArrayERKNS_12_OutputA
   %.sroa.03.09.i = phi ptr [ %41, %.lr.ph.i ], [ %30, %28 ]
   %33 = getelementptr inbounds i8, ptr %.sroa.03.09.i, i64 8
   %34 = load i32, ptr %33, align 4
-  %35 = sub i32 %34, %.sroa.3.0.extract.trunc
+  %35 = sub nsw i32 %34, %.sroa.3.0.extract.trunc
   store i32 %35, ptr %33, align 4
   %36 = load i32, ptr %.sroa.03.09.i, align 4
   %37 = sub i32 %36, %29

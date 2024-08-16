@@ -3896,10 +3896,10 @@ _ZN5ZXing14RegressionLineD2Ev.exit:               ; preds = %42, %44
   %78 = load i32, ptr %56, align 8
   %79 = load i32, ptr %57, align 4
   %80 = load i32, ptr %55, align 8
-  %81 = sub i32 %80, %78
+  %81 = sub nsw i32 %80, %78
   store i32 %81, ptr %55, align 8
   %82 = load i32, ptr %61, align 4
-  %83 = sub i32 %82, %79
+  %83 = sub nsw i32 %82, %79
   store i32 %83, ptr %61, align 4
   br label %_ZN5ZXing15BitMatrixCursorINS_6PointTIiEEE4stepEi.exit
 

@@ -2740,7 +2740,7 @@ define internal noundef i32 @_ZL20sort_dep_value_arg_1PN12Dependencies8DepValueE
 .lr.ph.i:
   %2 = load i32, ptr %0, align 4
   %3 = load i32, ptr %1, align 4
-  %4 = sub i32 %3, %2
+  %4 = sub nsw i32 %3, %2
   ret i32 %4
 }
 
@@ -2761,7 +2761,7 @@ define internal noundef i32 @_ZL20sort_dep_value_arg_2PN12Dependencies8DepValueE
   br i1 %or.cond, label %_ZL14sort_dep_valuePN12Dependencies8DepValueES1_i.exit, label %.lr.ph.i, !llvm.loop !17
 
 _ZL14sort_dep_valuePN12Dependencies8DepValueES1_i.exit: ; preds = %.lr.ph.i
-  %7 = sub i32 %6, %4
+  %7 = sub nsw i32 %6, %4
   ret i32 %7
 }
 
@@ -2782,7 +2782,7 @@ define internal noundef i32 @_ZL20sort_dep_value_arg_3PN12Dependencies8DepValueE
   br i1 %or.cond, label %_ZL14sort_dep_valuePN12Dependencies8DepValueES1_i.exit, label %.lr.ph.i, !llvm.loop !17
 
 _ZL14sort_dep_valuePN12Dependencies8DepValueES1_i.exit: ; preds = %.lr.ph.i
-  %7 = sub i32 %6, %4
+  %7 = sub nsw i32 %6, %4
   ret i32 %7
 }
 

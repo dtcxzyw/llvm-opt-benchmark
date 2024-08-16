@@ -2292,7 +2292,7 @@ if.end.i:                                         ; preds = %if.then97, %if.end1
   %adjust.0388 = phi i32 [ %sub105, %if.end107 ], [ %sub, %if.then97 ]
   %19 = phi i32 [ %.pr, %if.end107 ], [ %16, %if.then97 ]
   %sub111390 = sub nsw i32 0, %adjust.0388
-  %add.i = sub i32 %19, %adjust.0388
+  %add.i = sub nsw i32 %19, %adjust.0388
   %cmp1.i = icmp slt i32 %add.i, 2
   br i1 %cmp1.i, label %if.then2.i, label %if.end5.i
 

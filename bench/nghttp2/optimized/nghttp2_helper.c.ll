@@ -166,7 +166,7 @@ if.end:                                           ; preds = %if.then
 
 if.end8:                                          ; preds = %if.end
   %sub4 = sub nsw i32 0, %sub
-  %add = sub i32 %2, %sub
+  %add = sub nsw i32 %2, %sub
   store i32 %add, ptr %local_window_size_ptr, align 4
   %3 = load i32, ptr %recv_reduction_ptr, align 4
   %.sub4 = tail call i32 @llvm.smin.i32(i32 %3, i32 %sub4)

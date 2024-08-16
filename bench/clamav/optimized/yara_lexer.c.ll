@@ -1521,7 +1521,7 @@ yypop_buffer_state.exit:                          ; preds = %296, %293, %274
   %739 = shl nuw nsw i32 %726, 1
   %.nonneg.i = sub i32 0, %726
   %740 = lshr i32 %.nonneg.i, 3
-  %741 = sub i32 %726, %740
+  %741 = sub nsw i32 %726, %740
   %storemerge146.i = select i1 %738, i32 %741, i32 %739
   store i32 %storemerge146.i, ptr %737, align 8
   %742 = add nsw i32 %storemerge146.i, 2

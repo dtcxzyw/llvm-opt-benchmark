@@ -5522,7 +5522,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo14SymetricCensusILi2EEclERKNS_5Ra
   %49 = add nsw i32 %.05167, %.05078
   %50 = mul nsw i32 %43, %49
   %invariant.op = add i32 %50, %28
-  %51 = sub i32 %.05078, %.05167
+  %51 = sub nsw i32 %.05078, %.05167
   %52 = mul nsw i32 %51, %38
   %53 = add i32 %52, %28
   %54 = icmp eq i32 %.05167, 0
@@ -5980,7 +5980,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo14SymetricCensusILi1EEclERKNS_5Ra
   %49 = add nsw i32 %.05167, %.05078
   %50 = mul nsw i32 %43, %49
   %invariant.op = add i32 %50, %28
-  %51 = sub i32 %.05078, %.05167
+  %51 = sub nsw i32 %.05078, %.05167
   %52 = mul nsw i32 %51, %38
   %53 = add i32 %52, %28
   %54 = icmp eq i32 %.05167, 0

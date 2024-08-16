@@ -1883,7 +1883,7 @@ _choose_best_bblock.exit:                         ; preds = %859, %.critedge78.i
   %930 = and i8 %.0530.lcssa, 1
   %931 = xor i8 %930, 1
   %932 = zext nneg i8 %931 to i32
-  %spec.select520 = sub i32 %.6715, %932
+  %spec.select520 = sub nsw i32 %.6715, %932
   %933 = icmp eq i32 %.9387712, %.10388.lcssa
   br i1 %933, label %.loopexit553, label %.preheader552
 

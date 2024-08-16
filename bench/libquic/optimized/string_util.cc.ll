@@ -1507,7 +1507,7 @@ for.end:                                          ; preds = %for.inc, %for.inc.u
   %6 = xor i8 %5, 1
   %7 = zext nneg i8 %6 to i32
   %spec.select = select i1 %tobool28, i32 %7, i32 0
-  %chars_written.3 = sub i32 %chars_written.0.lcssa, %spec.select
+  %chars_written.3 = sub nsw i32 %chars_written.0.lcssa, %spec.select
   %conv34 = sext i32 %chars_written.3 to i64
   invoke void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %conv34)
           to label %nrvo.skipdtor unwind label %lpad.loopexit.split-lp
@@ -1694,7 +1694,7 @@ for.end:                                          ; preds = %for.inc, %for.inc.u
   %6 = xor i8 %5, 1
   %7 = zext nneg i8 %6 to i32
   %spec.select = select i1 %tobool28, i32 %7, i32 0
-  %chars_written.3 = sub i32 %chars_written.0.lcssa, %spec.select
+  %chars_written.3 = sub nsw i32 %chars_written.0.lcssa, %spec.select
   %conv34 = sext i32 %chars_written.3 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %conv34)
           to label %nrvo.skipdtor unwind label %lpad.loopexit.split-lp

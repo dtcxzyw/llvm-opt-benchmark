@@ -1087,7 +1087,7 @@ _Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %49
   %366 = shl nuw nsw i32 %353, 1
   %.nonneg.i = sub i32 0, %353
   %367 = lshr i32 %.nonneg.i, 3
-  %368 = sub i32 %353, %367
+  %368 = sub nsw i32 %353, %367
   %storemerge109.i = select i1 %365, i32 %368, i32 %366
   store i32 %storemerge109.i, ptr %364, align 8
   %369 = add nsw i32 %storemerge109.i, 2

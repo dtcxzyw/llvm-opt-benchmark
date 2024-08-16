@@ -2543,7 +2543,7 @@ if.then3.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
 
 if.end4.i.i.i.i.i:                                ; preds = %if.then3.i.i.i.i.i, %if.end.i.i.i.i.i
   %14 = phi i64 [ %.pre.i.i.i.i.i, %if.then3.i.i.i.i.i ], [ %2, %if.end.i.i.i.i.i ]
-  %add.i.i.i.i.i = sub i64 %14, %6
+  %add.i.i.i.i.i = sub nsw i64 %14, %6
   store i64 %add.i.i.i.i.i, ptr %announced_window_delta_.i.i.i.i, align 8, !noalias !59
   %cmp5.i.i.i.i.i = icmp sgt i64 %add.i.i.i.i.i, 0
   br i1 %cmp5.i.i.i.i.i, label %if.then6.i.i.i.i.i, label %_ZN9grpc_core6chttp220TransportFlowControl21IncomingUpdateContext26UpdateAnnouncedWindowDeltaEPll.exit.i.i.i.i

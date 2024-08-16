@@ -684,7 +684,7 @@ if.else101.us.us:                                 ; preds = %_Z43b3TestQuantized
   br i1 %cmp.i113.us.us, label %if.then103.us.us, label %if.else105.us.us
 
 if.else105.us.us:                                 ; preds = %_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit112.thread.us.us, %if.else101.us.us
-  %add107.us.us = sub i32 %curIndex.0160.us.us, %rootNode.sroa.7.0.copyload.us.us
+  %add107.us.us = sub nsw i32 %curIndex.0160.us.us, %rootNode.sroa.7.0.copyload.us.us
   br label %if.end109.us.us
 
 if.then103.us.us:                                 ; preds = %_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit112.thread.us.us, %if.else101.us.us
@@ -810,7 +810,7 @@ if.then103:                                       ; preds = %_Z43b3TestQuantized
   br label %if.end109
 
 if.else105:                                       ; preds = %_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit112.thread, %if.else101
-  %add107 = sub i32 %curIndex.0160, %rootNode.sroa.7.0.copyload
+  %add107 = sub nsw i32 %curIndex.0160, %rootNode.sroa.7.0.copyload
   br label %if.end109
 
 if.end109:                                        ; preds = %if.then103, %if.else105, %if.end99
@@ -8479,7 +8479,7 @@ if.then222:                                       ; preds = %if.end220
   %m_escapeIndexOrTriangleIndex.i801 = getelementptr inbounds %struct.b3QuantizedBvhNode, ptr %219, i64 %idxprom.i799, i32 0, i32 2
   %223 = load i32, ptr %m_escapeIndexOrTriangleIndex.i801, align 4
   %add234 = add nsw i32 %node.sroa.0.0.copyload, 2
-  %add243 = sub i32 %add224, %223
+  %add243 = sub nsw i32 %add224, %223
   %cmp.i8021715 = icmp slt i32 %223, 0
   %cond = select i1 %cmp.i8021715, i32 %add243, i32 %add234
   br i1 %cmp.i797, label %if.then245, label %if.else
@@ -8490,7 +8490,7 @@ if.then245:                                       ; preds = %if.then222
   %m_escapeIndexOrTriangleIndex.i810 = getelementptr inbounds %struct.b3QuantizedBvhNode, ptr %219, i64 %idxprom.i808, i32 0, i32 2
   %224 = load i32, ptr %m_escapeIndexOrTriangleIndex.i810, align 4
   %add258 = add nsw i32 %node.sroa.12.0.copyload, 2
-  %add268 = sub i32 %add247, %224
+  %add268 = sub nsw i32 %add247, %224
   %cmp.i8111716 = icmp slt i32 %224, 0
   %cond270 = select i1 %cmp.i8111716, i32 %add268, i32 %add258
   %retval.sroa.2.0.insert.ext.i = zext i32 %add247 to i64
@@ -8541,7 +8541,7 @@ if.then324:                                       ; preds = %if.else322
   %m_escapeIndexOrTriangleIndex.i858 = getelementptr inbounds %struct.b3QuantizedBvhNode, ptr %219, i64 %idxprom.i856, i32 0, i32 2
   %227 = load i32, ptr %m_escapeIndexOrTriangleIndex.i858, align 4
   %add340 = add nsw i32 %node.sroa.12.0.copyload, 2
-  %add350 = sub i32 %add327, %227
+  %add350 = sub nsw i32 %add327, %227
   %cmp.i8591717 = icmp slt i32 %227, 0
   %cond352 = select i1 %cmp.i8591717, i32 %add350, i32 %add340
   %retval.sroa.2.0.insert.ext.i865 = zext i32 %add327 to i64

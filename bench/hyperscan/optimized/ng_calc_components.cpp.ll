@@ -9177,7 +9177,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
   %12 = phi ptr [ %.pre4.i, %if.then.i ], [ %9, %if.then ]
   %13 = phi ptr [ %.pre.i, %if.then.i ], [ %5, %if.then ]
   %sub.i.i.i = sub nsw i64 0, %__n
-  %add.i.i.i.i = sub i64 %sub.ptr.div.i.i.i.pre-phi.i, %__n
+  %add.i.i.i.i = sub nsw i64 %sub.ptr.div.i.i.i.pre-phi.i, %__n
   %cmp.i.i.i.i = icmp sgt i64 %add.i.i.i.i, -1
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %cond.false.i.i.i.i
 
@@ -9397,7 +9397,7 @@ invoke.cont22:                                    ; preds = %invoke.cont
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %36 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 4
-  %add.i.i.i = sub i64 %sub.ptr.div.i.i.i, %__n
+  %add.i.i.i = sub nsw i64 %sub.ptr.div.i.i.i, %__n
   %cmp.i.i.i = icmp sgt i64 %add.i.i.i, -1
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %cond.false.i.i.i
 
@@ -9796,7 +9796,7 @@ _ZNSt5dequeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderE
   %sub.ptr.lhs.cast.i.i.i313 = ptrtoint ptr %72 to i64
   %sub.ptr.sub.i.i.i315 = sub i64 %sub.ptr.lhs.cast.i.i.i313, %sub.ptr.rhs.cast.i.i.i275.pre-phi
   %sub.ptr.div.i.i.i316 = ashr exact i64 %sub.ptr.sub.i.i.i315, 4
-  %add.i.i.i317 = sub i64 %sub.ptr.div.i.i.i316, %sub53
+  %add.i.i.i317 = sub nsw i64 %sub.ptr.div.i.i.i316, %sub53
   %cmp.i.i.i318 = icmp sgt i64 %add.i.i.i317, -1
   br i1 %cmp.i.i.i318, label %land.lhs.true.i.i.i329, label %cond.false.i.i.i319
 
@@ -9849,7 +9849,7 @@ if.then58:                                        ; preds = %_ZStmiRKSt15_Deque_
   %sub.ptr.rhs.cast.i.i.i344 = ptrtoint ptr %76 to i64
   %sub.ptr.sub.i.i.i345 = sub i64 %sub.ptr.lhs.cast.i.i.i343, %sub.ptr.rhs.cast.i.i.i344
   %sub.ptr.div.i.i.i346 = ashr exact i64 %sub.ptr.sub.i.i.i345, 4
-  %add.i.i.i347 = sub i64 %sub.ptr.div.i.i.i346, %__n
+  %add.i.i.i347 = sub nsw i64 %sub.ptr.div.i.i.i346, %__n
   %cmp.i.i.i348 = icmp sgt i64 %add.i.i.i347, -1
   br i1 %cmp.i.i.i348, label %land.lhs.true.i.i.i359, label %cond.false.i.i.i349
 
@@ -13927,7 +13927,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
   %_M_node5.i.i.i11 = getelementptr inbounds i8, ptr %this, i64 40
   %12 = load ptr, ptr %_M_node5.i.i.i11, align 8, !noalias !793
   %sub.i.i.i = sub nsw i64 0, %add12.i.i.i.i
-  %add.i.i.i.i12 = sub i64 %sub.ptr.div.i.i.i.pre-phi.i, %add12.i.i.i.i
+  %add.i.i.i.i12 = sub nsw i64 %sub.ptr.div.i.i.i.pre-phi.i, %add12.i.i.i.i
   %cmp.i.i.i.i = icmp sgt i64 %add.i.i.i.i12, -1
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %cond.false.i.i.i.i
 
@@ -14294,7 +14294,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
   %12 = phi ptr [ %.pre4.i, %if.then.i ], [ %9, %if.then ]
   %13 = phi ptr [ %.pre.i, %if.then.i ], [ %5, %if.then ]
   %sub.i.i.i = sub nsw i64 0, %__n
-  %add.i.i.i.i = sub i64 %sub.ptr.div.i.i.i.pre-phi.i, %__n
+  %add.i.i.i.i = sub nsw i64 %sub.ptr.div.i.i.i.pre-phi.i, %__n
   %cmp.i.i.i.i = icmp sgt i64 %add.i.i.i.i, -1
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %cond.false.i.i.i.i
 
@@ -14528,7 +14528,7 @@ invoke.cont22:                                    ; preds = %invoke.cont
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %43 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
-  %add.i.i.i = sub i64 %sub.ptr.div.i.i.i, %__n
+  %add.i.i.i = sub nsw i64 %sub.ptr.div.i.i.i, %__n
   %cmp.i.i.i = icmp sgt i64 %add.i.i.i, -1
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %cond.false.i.i.i
 
@@ -14892,7 +14892,7 @@ _ZNSt5dequeISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EESaIS5_EE27_M_r
   %sub.ptr.lhs.cast.i.i.i337 = ptrtoint ptr %87 to i64
   %sub.ptr.sub.i.i.i339 = sub i64 %sub.ptr.lhs.cast.i.i.i337, %sub.ptr.rhs.cast.i.i.i299.pre-phi
   %sub.ptr.div.i.i.i340 = ashr exact i64 %sub.ptr.sub.i.i.i339, 3
-  %add.i.i.i341 = sub i64 %sub.ptr.div.i.i.i340, %sub53
+  %add.i.i.i341 = sub nsw i64 %sub.ptr.div.i.i.i340, %sub53
   %cmp.i.i.i342 = icmp sgt i64 %add.i.i.i341, -1
   br i1 %cmp.i.i.i342, label %land.lhs.true.i.i.i353, label %cond.false.i.i.i343
 
@@ -14945,7 +14945,7 @@ if.then58:                                        ; preds = %_ZStmiRKSt15_Deque_
   %sub.ptr.rhs.cast.i.i.i368 = ptrtoint ptr %91 to i64
   %sub.ptr.sub.i.i.i369 = sub i64 %sub.ptr.lhs.cast.i.i.i367, %sub.ptr.rhs.cast.i.i.i368
   %sub.ptr.div.i.i.i370 = ashr exact i64 %sub.ptr.sub.i.i.i369, 3
-  %add.i.i.i371 = sub i64 %sub.ptr.div.i.i.i370, %__n
+  %add.i.i.i371 = sub nsw i64 %sub.ptr.div.i.i.i370, %__n
   %cmp.i.i.i372 = icmp sgt i64 %add.i.i.i371, -1
   br i1 %cmp.i.i.i372, label %land.lhs.true.i.i.i383, label %cond.false.i.i.i373
 
@@ -16133,7 +16133,7 @@ _ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_del
 _ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.i: ; preds = %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.loopexit.i, %if.end.i
   %sub.ptr.div.i.i.pre-phi.i = phi i64 [ %.pre20.i, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.loopexit.i ], [ %sub.ptr.div4.i, %if.end.i ]
   %13 = phi ptr [ %agg.tmp.sroa.4.0, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.loopexit.i ], [ %8, %if.end.i ]
-  %add.i.i.i = sub i64 %sub.ptr.div.i.i.pre-phi.i, %.sroa.speculated.i
+  %add.i.i.i = sub nsw i64 %sub.ptr.div.i.i.pre-phi.i, %.sroa.speculated.i
   %cmp.i.i.i = icmp sgt i64 %add.i.i.i, -1
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %cond.false.i.i.i
 
@@ -16262,7 +16262,7 @@ _ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_del
 _ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.i45: ; preds = %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.loopexit.i81, %if.end.i38
   %sub.ptr.div.i.i.pre-phi.i46 = phi i64 [ %.pre20.i87, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.loopexit.i81 ], [ %sub.ptr.div4.i36, %if.end.i38 ]
   %30 = phi ptr [ %agg.tmp7.sroa.4.0, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.loopexit.i81 ], [ %25, %if.end.i38 ]
-  %add.i.i.i47 = sub i64 %sub.ptr.div.i.i.pre-phi.i46, %.sroa.speculated.i41
+  %add.i.i.i47 = sub nsw i64 %sub.ptr.div.i.i.pre-phi.i46, %.sroa.speculated.i41
   %cmp.i.i.i48 = icmp sgt i64 %add.i.i.i47, -1
   br i1 %cmp.i.i.i48, label %land.lhs.true.i.i.i62, label %cond.false.i.i.i49
 
@@ -16391,7 +16391,7 @@ _ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_del
 _ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.i131: ; preds = %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.loopexit.i167, %if.end.i124
   %sub.ptr.div.i.i.pre-phi.i132 = phi i64 [ %.pre20.i173, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.loopexit.i167 ], [ %sub.ptr.div4.i122, %if.end.i124 ]
   %45 = phi ptr [ %agg.tmp9.sroa.4.0, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.loopexit.i167 ], [ %40, %if.end.i124 ]
-  %add.i.i.i133 = sub i64 %sub.ptr.div.i.i.pre-phi.i132, %.sroa.speculated.i127
+  %add.i.i.i133 = sub nsw i64 %sub.ptr.div.i.i.pre-phi.i132, %.sroa.speculated.i127
   %cmp.i.i.i134 = icmp sgt i64 %add.i.i.i133, -1
   br i1 %cmp.i.i.i134, label %land.lhs.true.i.i.i148, label %cond.false.i.i.i135
 
@@ -16512,7 +16512,7 @@ _ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_del
 _ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.i217: ; preds = %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.loopexit.i253, %if.end.i210
   %sub.ptr.div.i.i.pre-phi.i218 = phi i64 [ %.pre20.i259, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.loopexit.i253 ], [ %sub.ptr.div4.i208, %if.end.i210 ]
   %59 = phi ptr [ %agg.tmp12.sroa.4.0, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.loopexit.i253 ], [ %54, %if.end.i210 ]
-  %add.i.i.i219 = sub i64 %sub.ptr.div.i.i.pre-phi.i218, %.sroa.speculated.i213
+  %add.i.i.i219 = sub nsw i64 %sub.ptr.div.i.i.pre-phi.i218, %.sroa.speculated.i213
   %cmp.i.i.i220 = icmp sgt i64 %add.i.i.i219, -1
   br i1 %cmp.i.i.i220, label %land.lhs.true.i.i.i234, label %cond.false.i.i.i221
 

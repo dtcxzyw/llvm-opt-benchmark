@@ -4485,7 +4485,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeIP4NodeSaIS1_EE13_M_insert_auxIN9
   %90 = phi ptr [ %.pre6.i, %85 ], [ %80, %78 ]
   %91 = phi ptr [ %.pre.i, %85 ], [ %52, %78 ]
   %92 = sub nsw i64 0, %4
-  %93 = sub i64 %.pre-phi13.i, %4
+  %93 = sub nsw i64 %.pre-phi13.i, %4
   %94 = icmp sgt i64 %93, -1
   br i1 %94, label %95, label %101
 
@@ -4693,7 +4693,7 @@ _ZStplRKSt15_Deque_iteratorIP4NodeRS1_PS1_El.exit43: ; preds = %146, %152
   %189 = ptrtoint ptr %185 to i64
   %190 = sub i64 %188, %189
   %191 = ashr exact i64 %190, 3
-  %192 = sub i64 %191, %4
+  %192 = sub nsw i64 %191, %4
   %193 = icmp sgt i64 %192, -1
   br i1 %193, label %194, label %200
 
@@ -5086,7 +5086,7 @@ _ZNSt5dequeIP4NodeSaIS1_EE27_M_reserve_elements_at_backEm.exit: ; preds = %360, 
   %376 = ptrtoint ptr %355 to i64
   %377 = sub i64 %376, %.pre-phi
   %378 = ashr exact i64 %377, 3
-  %379 = sub i64 %378, %374
+  %379 = sub nsw i64 %378, %374
   %380 = icmp sgt i64 %379, -1
   br i1 %380, label %381, label %387
 
@@ -5139,7 +5139,7 @@ _ZStmiRKSt15_Deque_iteratorIP4NodeRS1_PS1_El.exit69: ; preds = %383, %389
   %405 = ptrtoint ptr %400 to i64
   %406 = sub i64 %404, %405
   %407 = ashr exact i64 %406, 3
-  %408 = sub i64 %407, %4
+  %408 = sub nsw i64 %407, %4
   %409 = icmp sgt i64 %408, -1
   br i1 %409, label %410, label %416
 

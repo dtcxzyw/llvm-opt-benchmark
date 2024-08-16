@@ -18885,7 +18885,7 @@ if.else46:                                        ; preds = %if.else15
   %sub.ptr.rhs.cast.i.i279 = ptrtoint ptr %61 to i64
   %sub.ptr.sub.i.i280 = sub i64 %sub.ptr.lhs.cast.i.i278, %sub.ptr.rhs.cast.i.i279
   %sub.ptr.div.i.i281 = ashr exact i64 %sub.ptr.sub.i.i280, 6
-  %add.i.i282 = sub i64 %sub.ptr.div.i.i281, %sub49
+  %add.i.i282 = sub nsw i64 %sub.ptr.div.i.i281, %sub49
   %cmp.i.i283 = icmp ult i64 %add.i.i282, 4
   br i1 %cmp.i.i283, label %if.then.i.i300, label %if.else.i.i284
 
@@ -19311,7 +19311,7 @@ if.end26:                                         ; preds = %for.body, %if.end, 
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 6
-  %add.i.i = sub i64 %sub.ptr.div.i.i, %nAdditionalCapacity
+  %add.i.i = sub nsw i64 %sub.ptr.div.i.i, %nAdditionalCapacity
   %cmp.i.i = icmp ult i64 %add.i.i, 4
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 

@@ -2505,7 +2505,7 @@ _ZL12yy_pop_statePv.exit:                         ; preds = %.loopexit623
   %883 = shl nuw nsw i32 %870, 1
   %.nonneg.i = sub i32 0, %870
   %884 = lshr i32 %.nonneg.i, 3
-  %885 = sub i32 %870, %884
+  %885 = sub nsw i32 %870, %884
   %storemerge148.i = select i1 %882, i32 %885, i32 %883
   store i32 %storemerge148.i, ptr %881, align 8
   %886 = add nsw i32 %storemerge148.i, 2

@@ -1806,12 +1806,12 @@ define internal fastcc noundef i32 @_ZN5ZXing5AztecL21SampleOrientationBitsERKNS
   %13 = mul nsw i32 %.sroa.452.0.extract.trunc, %2
   %.sroa.2.0.insert.ext.i = zext i32 %13 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
-  %14 = sub i32 %13, %.sroa.452.0.extract.trunc
+  %14 = sub nsw i32 %13, %.sroa.452.0.extract.trunc
   %.sroa.2.0.insert.ext.i25 = zext i32 %14 to i64
   %.sroa.2.0.insert.shift.i26 = shl nuw i64 %.sroa.2.0.insert.ext.i25, 32
   %.sroa.0.0.insert.ext.i27 = zext i32 %12 to i64
   %.sroa.0.0.insert.insert.i28 = or disjoint i64 %.sroa.2.0.insert.shift.i26, %.sroa.0.0.insert.ext.i27
-  %15 = sub i32 %12, %.sroa.049.0.extract.trunc
+  %15 = sub nsw i32 %12, %.sroa.049.0.extract.trunc
   %.sroa.0.0.insert.ext.i31 = zext i32 %15 to i64
   %.sroa.0.0.insert.insert.i32 = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i31
   %.not23 = icmp eq i32 %.sroa.049.0.extract.trunc, %.sroa.452.0.extract.trunc

@@ -115,7 +115,7 @@ if.else36:                                        ; preds = %if.then15
   %rem43 = urem i32 %add37.neg, %v2
   %tobool44.not = icmp eq i32 %rem43, 0
   %cond45 = select i1 %tobool44.not, i32 -1, i32 -2
-  %add46 = sub nuw i32 %cond45, %div39
+  %add46 = sub nuw nsw i32 %cond45, %div39
   br label %return
 
 if.else47:                                        ; preds = %if.end

@@ -2144,7 +2144,7 @@ cond.false.i403:                                  ; preds = %if.end48.i
   br i1 %tobool.i1529.not, label %if.end.i407, label %rvermicelliDoubleExec.exit
 
 if.end.i407:                                      ; preds = %cond.false.i403
-  %add.ptr58.i.add = sub nuw i64 %sub44.i, %rem.i397
+  %add.ptr58.i.add = sub nuw nsw i64 %sub44.i, %rem.i397
   %cmp.i410.not = icmp sgt i64 %add.ptr58.i.add, 0
   br i1 %cmp.i410.not, label %for.cond.i1793.preheader, label %if.then10.i
 
@@ -2252,7 +2252,7 @@ cond.true.i451:                                   ; preds = %if.end76.i
   br i1 %tobool.i1380.not, label %if.end.i444, label %rvermicelliDoubleExec.exit454
 
 if.end.i444:                                      ; preds = %cond.true.i451
-  %add.ptr87.i.add = sub nuw i64 %sub72.i, %rem.i427
+  %add.ptr87.i.add = sub nuw nsw i64 %sub72.i, %rem.i427
   %cmp.i447.not = icmp sgt i64 %add.ptr87.i.add, 0
   br i1 %cmp.i447.not, label %for.cond.i1596.preheader, label %if.then10.i449
 

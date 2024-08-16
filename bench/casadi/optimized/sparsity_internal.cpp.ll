@@ -4892,8 +4892,8 @@ _ZN6casadi16SparsityInternal6wclearExxPxx.exit617: ; preds = %318
   %396 = getelementptr inbounds i64, ptr %.sroa.0852.010021009103410541087111614531540, i64 %354
   %397 = load i64, ptr %396, align 8
   %398 = add nsw i64 %397, %.31347
-  %399 = sub i64 %.04461348, %397
-  %400 = sub i64 %.34261350, %397
+  %399 = sub nsw i64 %.04461348, %397
+  %400 = sub nsw i64 %.34261350, %397
   store i64 0, ptr %396, align 8
   store i64 -1, ptr %357, align 8
   br label %416

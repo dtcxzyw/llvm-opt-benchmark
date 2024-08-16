@@ -96592,7 +96592,7 @@ _ZN4CGAL4MpzfD2Ev.exit62:                         ; preds = %264, %266
   %278 = load i32, ptr %42, align 4
   %279 = add nsw i32 %278, %273
   %280 = load i32, ptr %68, align 4
-  %281 = sub i32 %280, %267
+  %281 = sub nsw i32 %280, %267
   %.not.i.i.i64 = icmp eq i32 %279, %281
   br i1 %.not.i.i.i64, label %284, label %282
 
@@ -97287,7 +97287,7 @@ _ZN4CGAL4MpzfD2Ev.exit117:                        ; preds = %566, %568
   %580 = load i32, ptr %42, align 4
   %581 = add nsw i32 %580, %575
   %582 = load i32, ptr %68, align 4
-  %583 = sub i32 %582, %569
+  %583 = sub nsw i32 %582, %569
   %.not.i.i.i130 = icmp eq i32 %581, %583
   br i1 %.not.i.i.i130, label %586, label %584
 
@@ -97987,7 +97987,7 @@ _ZN4CGAL4MpzfD2Ev.exit197:                        ; preds = %867, %869
   %881 = load i32, ptr %42, align 4
   %882 = add nsw i32 %881, %876
   %883 = load i32, ptr %68, align 4
-  %884 = sub i32 %883, %870
+  %884 = sub nsw i32 %883, %870
   %.not.i.i.i210 = icmp eq i32 %882, %884
   br i1 %.not.i.i.i210, label %887, label %885
 
@@ -98618,7 +98618,7 @@ _ZN4CGAL4MpzfD2Ev.exit269:                        ; preds = %1144, %1146
   %1158 = load i32, ptr %42, align 4
   %1159 = add nsw i32 %1158, %1153
   %1160 = load i32, ptr %68, align 4
-  %1161 = sub i32 %1160, %1147
+  %1161 = sub nsw i32 %1160, %1147
   %.not.i.i.i282 = icmp eq i32 %1159, %1161
   br i1 %.not.i.i.i282, label %1164, label %1162
 
@@ -99810,7 +99810,7 @@ _ZN4CGAL4MpzfD2Ev.exit393:                        ; preds = %1648, %1646
   %1669 = load i32, ptr %46, align 4
   %1670 = add nsw i32 %1669, %1664
   %1671 = load i32, ptr %68, align 4
-  %1672 = sub i32 %1671, %1658
+  %1672 = sub nsw i32 %1671, %1658
   %.not.i.i.i.i = icmp eq i32 %1670, %1672
   br i1 %.not.i.i.i.i, label %1675, label %1673
 
@@ -105196,7 +105196,7 @@ _ZN4CGALplERKNS_4MpzfES2_.exit130:                ; preds = %_ZN4CGALplERKNS_4Mp
   %142 = load i32, ptr %141, align 4
   %143 = add nsw i32 %142, %136
   %144 = load i32, ptr %39, align 4
-  %145 = sub i32 %144, %129
+  %145 = sub nsw i32 %144, %129
   %.not.i.i.i = icmp eq i32 %143, %145
   br i1 %.not.i.i.i, label %148, label %146
 
@@ -117735,7 +117735,7 @@ _ZNK4CGAL7Point_3INS_16Simple_cartesianINS_4MpzfEEEEixEi.exit115: ; preds = %79,
   %98 = add nsw i32 %97, %91
   %99 = getelementptr inbounds i8, ptr %.0.i.i114, i64 84
   %100 = load i32, ptr %99, align 4
-  %101 = sub i32 %100, %84
+  %101 = sub nsw i32 %100, %84
   %.not.i.i.i.i = icmp eq i32 %98, %101
   br i1 %.not.i.i.i.i, label %104, label %102
 
@@ -117879,7 +117879,7 @@ _ZNK4CGAL7Point_3INS_16Simple_cartesianINS_4MpzfEEEEixEi.exit119: ; preds = %_ZN
   %164 = add nsw i32 %163, %157
   %165 = getelementptr inbounds i8, ptr %.0.i.i118, i64 84
   %166 = load i32, ptr %165, align 4
-  %167 = sub i32 %166, %150
+  %167 = sub nsw i32 %166, %150
   %.not.i.i.i.i132 = icmp eq i32 %164, %167
   br i1 %.not.i.i.i.i132, label %170, label %168
 
@@ -118333,7 +118333,7 @@ _ZNK4CGAL7Point_3INS_16Simple_cartesianINS_4MpzfEEEEixEi.exit156: ; preds = %353
   %365 = add nsw i32 %350, %360
   %366 = getelementptr inbounds i8, ptr %.0.i.i155, i64 84
   %367 = load i32, ptr %366, align 4
-  %368 = sub i32 %367, %355
+  %368 = sub nsw i32 %367, %355
   %.not.i.i.i = icmp eq i32 %365, %368
   br i1 %.not.i.i.i, label %371, label %369
 
@@ -118521,7 +118521,7 @@ _ZNK4CGAL7Point_3INS_16Simple_cartesianINS_4MpzfEEEEixEi.exit171: ; preds = %_ZN
   %443 = add nsw i32 %442, %436
   %444 = getelementptr inbounds i8, ptr %.0.i.i170, i64 84
   %445 = load i32, ptr %444, align 4
-  %446 = sub i32 %445, %429
+  %446 = sub nsw i32 %445, %429
   %.not.i.i.i.i184 = icmp eq i32 %443, %446
   br i1 %.not.i.i.i.i184, label %449, label %447
 
@@ -118975,7 +118975,7 @@ _ZNK4CGAL7Point_3INS_16Simple_cartesianINS_4MpzfEEEEixEi.exit243: ; preds = %632
   %644 = add nsw i32 %629, %639
   %645 = getelementptr inbounds i8, ptr %.0.i.i242, i64 84
   %646 = load i32, ptr %645, align 4
-  %647 = sub i32 %646, %634
+  %647 = sub nsw i32 %646, %634
   %.not.i.i.i256 = icmp eq i32 %644, %647
   br i1 %.not.i.i.i256, label %650, label %648
 
@@ -119473,7 +119473,7 @@ _ZNK4CGAL7Point_3INS_16Simple_cartesianINS_4MpzfEEEEixEi.exit327: ; preds = %845
   %857 = add nsw i32 %842, %852
   %858 = getelementptr inbounds i8, ptr %.0.i.i326, i64 84
   %859 = load i32, ptr %858, align 4
-  %860 = sub i32 %859, %847
+  %860 = sub nsw i32 %859, %847
   %.not.i.i.i340 = icmp eq i32 %857, %860
   br i1 %.not.i.i.i340, label %863, label %861
 
@@ -119661,7 +119661,7 @@ _ZNK4CGAL7Point_3INS_16Simple_cartesianINS_4MpzfEEEEixEi.exit366: ; preds = %_ZN
   %935 = add nsw i32 %934, %928
   %936 = getelementptr inbounds i8, ptr %.0.i.i365, i64 84
   %937 = load i32, ptr %936, align 4
-  %938 = sub i32 %937, %921
+  %938 = sub nsw i32 %937, %921
   %.not.i.i.i.i379 = icmp eq i32 %935, %938
   br i1 %.not.i.i.i.i379, label %941, label %939
 
@@ -120115,7 +120115,7 @@ _ZNK4CGAL7Point_3INS_16Simple_cartesianINS_4MpzfEEEEixEi.exit438: ; preds = %112
   %1136 = add nsw i32 %1121, %1131
   %1137 = getelementptr inbounds i8, ptr %.0.i.i437, i64 84
   %1138 = load i32, ptr %1137, align 4
-  %1139 = sub i32 %1138, %1126
+  %1139 = sub nsw i32 %1138, %1126
   %.not.i.i.i451 = icmp eq i32 %1136, %1139
   br i1 %.not.i.i.i451, label %1142, label %1140
 
@@ -120303,7 +120303,7 @@ _ZNK4CGAL7Point_3INS_16Simple_cartesianINS_4MpzfEEEEixEi.exit477: ; preds = %_ZN
   %1214 = add nsw i32 %1213, %1207
   %1215 = getelementptr inbounds i8, ptr %.0.i.i476, i64 84
   %1216 = load i32, ptr %1215, align 4
-  %1217 = sub i32 %1216, %1200
+  %1217 = sub nsw i32 %1216, %1200
   %.not.i.i.i.i490 = icmp eq i32 %1214, %1217
   br i1 %.not.i.i.i.i490, label %1220, label %1218
 
@@ -120757,7 +120757,7 @@ _ZNK4CGAL7Point_3INS_16Simple_cartesianINS_4MpzfEEEEixEi.exit549: ; preds = %140
   %1415 = add nsw i32 %1400, %1410
   %1416 = getelementptr inbounds i8, ptr %.0.i.i548, i64 84
   %1417 = load i32, ptr %1416, align 4
-  %1418 = sub i32 %1417, %1405
+  %1418 = sub nsw i32 %1417, %1405
   %.not.i.i.i562 = icmp eq i32 %1415, %1418
   br i1 %.not.i.i.i562, label %1421, label %1419
 
@@ -121255,7 +121255,7 @@ _ZNK4CGAL7Point_3INS_16Simple_cartesianINS_4MpzfEEEEixEi.exit633: ; preds = %161
   %1628 = add nsw i32 %1613, %1623
   %1629 = getelementptr inbounds i8, ptr %.0.i.i632, i64 84
   %1630 = load i32, ptr %1629, align 4
-  %1631 = sub i32 %1630, %1618
+  %1631 = sub nsw i32 %1630, %1618
   %.not.i.i.i646 = icmp eq i32 %1628, %1631
   br i1 %.not.i.i.i646, label %1634, label %1632
 
@@ -168036,7 +168036,7 @@ _ZN4CGAL5wmultINS_16Simple_cartesianINS_4MpzfEEEEENT_2RTEPS4_RKS5_S8_.exit70.thr
   %223 = load i32, ptr %184, align 4
   %224 = add nsw i32 %223, %218
   %225 = load i32, ptr %208, align 4
-  %226 = sub i32 %225, %.pre211
+  %226 = sub nsw i32 %225, %.pre211
   %.not.i.i.i = icmp eq i32 %224, %226
   br i1 %.not.i.i.i, label %229, label %227
 
@@ -199939,7 +199939,7 @@ _ZN4CGAL4MpzfC2Ed.exit:                           ; preds = %106, %137, %140
   %155 = add nsw i32 %142, %150
   %156 = getelementptr inbounds i8, ptr %0, i64 84
   %157 = load i32, ptr %156, align 4
-  %158 = sub i32 %157, %145
+  %158 = sub nsw i32 %157, %145
   %.not.i.i.i = icmp eq i32 %155, %158
   br i1 %.not.i.i.i, label %161, label %159
 
@@ -200359,7 +200359,7 @@ _ZN4CGAL4MpzfC2Ed.exit299:                        ; preds = %346, %343, %312
   %361 = add nsw i32 %348, %356
   %362 = getelementptr inbounds i8, ptr %1, i64 84
   %363 = load i32, ptr %362, align 4
-  %364 = sub i32 %363, %351
+  %364 = sub nsw i32 %363, %351
   %.not.i.i.i312 = icmp eq i32 %361, %364
   br i1 %.not.i.i.i312, label %367, label %365
 
@@ -200779,7 +200779,7 @@ _ZN4CGAL4MpzfC2Ed.exit359:                        ; preds = %552, %549, %518
   %567 = add nsw i32 %554, %562
   %568 = getelementptr inbounds i8, ptr %2, i64 84
   %569 = load i32, ptr %568, align 4
-  %570 = sub i32 %569, %557
+  %570 = sub nsw i32 %569, %557
   %.not.i.i.i372 = icmp eq i32 %567, %570
   br i1 %.not.i.i.i372, label %573, label %571
 
@@ -201199,7 +201199,7 @@ _ZN4CGAL4MpzfC2Ed.exit419:                        ; preds = %753, %750, %719
   %768 = add nsw i32 %755, %763
   %769 = getelementptr inbounds i8, ptr %3, i64 84
   %770 = load i32, ptr %769, align 4
-  %771 = sub i32 %770, %758
+  %771 = sub nsw i32 %770, %758
   %.not.i.i.i432 = icmp eq i32 %768, %771
   br i1 %.not.i.i.i432, label %774, label %772
 
@@ -201619,7 +201619,7 @@ _ZN4CGAL4MpzfC2Ed.exit479:                        ; preds = %959, %956, %925
   %974 = add nsw i32 %961, %969
   %975 = getelementptr inbounds i8, ptr %4, i64 84
   %976 = load i32, ptr %975, align 4
-  %977 = sub i32 %976, %964
+  %977 = sub nsw i32 %976, %964
   %.not.i.i.i492 = icmp eq i32 %974, %977
   br i1 %.not.i.i.i492, label %980, label %978
 
@@ -202039,7 +202039,7 @@ _ZN4CGAL4MpzfC2Ed.exit539:                        ; preds = %1165, %1162, %1131
   %1180 = add nsw i32 %1167, %1175
   %1181 = getelementptr inbounds i8, ptr %5, i64 84
   %1182 = load i32, ptr %1181, align 4
-  %1183 = sub i32 %1182, %1170
+  %1183 = sub nsw i32 %1182, %1170
   %.not.i.i.i552 = icmp eq i32 %1180, %1183
   br i1 %.not.i.i.i552, label %1186, label %1184
 
@@ -202716,7 +202716,7 @@ _ZN4CGAL4MpzfD2Ev.exit625:                        ; preds = %1432, %1434
   %1466 = add nsw i32 %1465, %1459
   %1467 = getelementptr inbounds i8, ptr %3, i64 84
   %1468 = load i32, ptr %1467, align 4
-  %1469 = sub i32 %1468, %1453
+  %1469 = sub nsw i32 %1468, %1453
   %.not.i.i.i674 = icmp eq i32 %1466, %1469
   br i1 %.not.i.i.i674, label %1472, label %1470
 
@@ -204372,7 +204372,7 @@ _ZN4CGALeqERKNS_4MpzfES2_.exit.thread:            ; preds = %_ZN4CGAL4MpzfD2Ev.e
   %2154 = add nsw i32 %2153, %2147
   %2155 = getelementptr inbounds i8, ptr %4, i64 84
   %2156 = load i32, ptr %2155, align 4
-  %2157 = sub i32 %2156, %2140
+  %2157 = sub nsw i32 %2156, %2140
   %.not.i.i.i843 = icmp eq i32 %2154, %2157
   br i1 %.not.i.i.i843, label %2160, label %2158
 
@@ -206288,7 +206288,7 @@ _ZN4CGALeqERKNS_4MpzfES2_.exit1011.thread:        ; preds = %_ZN4CGAL4MpzfD2Ev.e
   %2952 = add nsw i32 %2951, %2945
   %2953 = getelementptr inbounds i8, ptr %5, i64 84
   %2954 = load i32, ptr %2953, align 4
-  %2955 = sub i32 %2954, %2938
+  %2955 = sub nsw i32 %2954, %2938
   %.not.i.i.i1065 = icmp eq i32 %2952, %2955
   br i1 %.not.i.i.i1065, label %2958, label %2956
 
@@ -208794,7 +208794,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK4CGAL13Intersections8internal40Do_in
   %19 = add nsw i32 %18, %12
   %20 = getelementptr inbounds i8, ptr %2, i64 84
   %21 = load i32, ptr %20, align 4
-  %22 = sub i32 %21, %5
+  %22 = sub nsw i32 %21, %5
   %.not.i.i.i = icmp eq i32 %19, %22
   br i1 %.not.i.i.i, label %25, label %23
 
@@ -208928,7 +208928,7 @@ define linkonce_odr void @_ZNK4CGAL3MaxINS_4MpzfESt4lessIS1_EEclERKS1_S6_(ptr de
   %20 = add nsw i32 %19, %13
   %21 = getelementptr inbounds i8, ptr %2, i64 84
   %22 = load i32, ptr %21, align 4
-  %23 = sub i32 %22, %6
+  %23 = sub nsw i32 %22, %6
   %.not.i.i.i.i = icmp eq i32 %20, %23
   br i1 %.not.i.i.i.i, label %26, label %24
 

@@ -14347,8 +14347,8 @@ _ZN5Eigen8internalL9cs_wclearIiEET_S2_S2_PS2_S2_.exit520: ; preds = %331
   %419 = getelementptr inbounds i32, ptr %116, i64 %371
   %420 = load i32, ptr %419, align 4
   %421 = add nsw i32 %420, %.3733866
-  %422 = sub i32 %.0398869, %420
-  %423 = sub i32 %.3407868, %420
+  %422 = sub nsw i32 %.0398869, %420
+  %423 = sub nsw i32 %.3407868, %420
   store i32 0, ptr %419, align 4
   store i32 -1, ptr %374, align 4
   br label %442

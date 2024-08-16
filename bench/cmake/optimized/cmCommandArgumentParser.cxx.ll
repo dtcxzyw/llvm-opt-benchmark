@@ -321,7 +321,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z25cmCommandArgument_yyparsePv(pt
   %.sroa.0.0 = phi ptr [ %.sroa.0.0.copyload, %56 ], [ %135, %134 ], [ %133, %132 ], [ %131, %126 ], [ null, %125 ], [ %124, %122 ], [ %121, %120 ], [ %119, %116 ], [ %115, %111 ], [ %110, %104 ], [ %103, %97 ], [ %96, %95 ], [ %94, %93 ], [ %92, %91 ], [ %90, %89 ], [ %88, %87 ], [ %86, %85 ], [ %84, %83 ], [ %82, %81 ], [ %80, %75 ], [ null, %74 ], [ %73, %68 ], [ %67, %66 ], [ null, %63 ]
   %137 = sub nsw i64 0, %60
   %138 = getelementptr inbounds %"struct.cmCommandArgumentParserHelper::ParserType", ptr %.0164276, i64 %137
-  %.0173.add = sub i64 %.0173.idx274, %60
+  %.0173.add = sub nsw i64 %.0173.idx274, %60
   %.ptr196 = getelementptr inbounds i8, ptr %3, i64 %.0173.add
   %139 = getelementptr inbounds i8, ptr %138, i64 8
   store ptr %.sroa.0.0, ptr %139, align 8

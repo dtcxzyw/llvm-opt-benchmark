@@ -359,7 +359,7 @@ define internal void @forward_DCT(ptr nocapture noundef readonly %0, ptr nocaptu
   br i1 %72, label %74, label %80
 
 74:                                               ; preds = %67
-  %75 = sub i32 %73, %71
+  %75 = sub nsw i32 %73, %71
   %.not67 = icmp slt i32 %75, %69
   br i1 %.not67, label %78, label %76
 

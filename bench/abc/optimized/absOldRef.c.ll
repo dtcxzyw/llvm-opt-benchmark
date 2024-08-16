@@ -818,7 +818,7 @@ Abc_Clock.exit110:                                ; preds = %60, %66
   %82 = getelementptr inbounds i32, ptr %.073.val, i64 %indvars.iv
   %.val80 = load i32, ptr %80, align 4
   %83 = load i32, ptr %82, align 4
-  %84 = sub i32 %83, %.val80
+  %84 = sub nsw i32 %83, %.val80
   store i32 %84, ptr %82, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.073.val87 = load i32, ptr %48, align 4

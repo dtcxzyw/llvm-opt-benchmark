@@ -876,8 +876,8 @@ cs_wclear.exit820:                                ; preds = %294
   %382 = getelementptr inbounds i32, ptr %92, i64 %334
   %383 = load i32, ptr %382, align 4
   %384 = add nsw i32 %383, %.3687946
-  %385 = sub i32 %.0725943, %383
-  %386 = sub i32 %.3708944, %383
+  %385 = sub nsw i32 %.0725943, %383
+  %386 = sub nsw i32 %.3708944, %383
   store i32 0, ptr %382, align 4
   store i32 -1, ptr %337, align 4
   br label %405

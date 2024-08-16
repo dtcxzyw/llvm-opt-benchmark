@@ -4499,7 +4499,7 @@ thread-pre-split.thread:                          ; preds = %101, %thread-pre-sp
 
 _ZN12PhaseChaitin12choose_colorER3LRGi.exit:      ; preds = %109, %123
   %.0.i70 = phi i32 [ %110, %109 ], [ %129, %123 ]
-  %130 = sub i32 %.0.i70, %.056
+  %130 = sub nsw i32 %.0.i70, %.056
   %.not82 = icmp eq i32 %130, -1
   %or.cond = and i1 %30, %.not82
   br i1 %or.cond, label %131, label %133
@@ -4580,7 +4580,7 @@ _ZN12PhaseChaitin12choose_colorER3LRGi.exit.thread: ; preds = %117
 
 .lr.ph:                                           ; preds = %150, %_ZN3LRG6InsertEi.exit72
   %.091 = phi i32 [ %175, %_ZN3LRG6InsertEi.exit72 ], [ 1, %150 ]
-  %159 = sub i32 %130, %.091
+  %159 = sub nsw i32 %130, %.091
   %160 = lshr i32 %159, 6
   %161 = load i32, ptr %31, align 4
   %162 = icmp ugt i32 %160, %161

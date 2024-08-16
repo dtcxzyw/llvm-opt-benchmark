@@ -48157,7 +48157,7 @@ while.end58.i24:                                  ; preds = %_ZN8facebook5velox1
   br label %if.end16
 
 if.end16:                                         ; preds = %while.end58.i24, %_ZN8facebook5velox15UDFOutputString6resizeEm.exit.i22, %if.end13
-  %add18 = sub i32 %pos.03, %call6
+  %add18 = sub nsw i32 %pos.03, %call6
   br label %while.cond.backedge
 
 while.end:                                        ; preds = %while.cond.backedge

@@ -183,7 +183,7 @@ define void @dsytrd_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   br i1 %.not170.not, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph179
-  %94 = sub i32 %.0161177, %61
+  %94 = sub nsw i32 %.0161177, %61
   %.not.not200 = icmp sgt i32 %94, %67
   br i1 %.not.not200, label %.lr.ph179, label %._crit_edge180, !llvm.loop !6
 

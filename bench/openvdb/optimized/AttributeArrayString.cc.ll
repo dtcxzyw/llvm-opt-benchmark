@@ -6124,7 +6124,7 @@ _ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES2_ET1_T0_S4_S3_.exit.loopexit.i: 
 _ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES2_ET1_T0_S4_S3_.exit.i: ; preds = %_ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES2_ET1_T0_S4_S3_.exit.loopexit.i, %if.end.i
   %sub.ptr.div.i.i.pre-phi.i = phi i64 [ %.pre20.i, %_ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES2_ET1_T0_S4_S3_.exit.loopexit.i ], [ %sub.ptr.div4.i, %if.end.i ]
   %12 = phi ptr [ %agg.tmp.sroa.4.0, %_ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES2_ET1_T0_S4_S3_.exit.loopexit.i ], [ %8, %if.end.i ]
-  %add.i.i.i = sub i64 %sub.ptr.div.i.i.pre-phi.i, %.sroa.speculated.i
+  %add.i.i.i = sub nsw i64 %sub.ptr.div.i.i.pre-phi.i, %.sroa.speculated.i
   %cmp.i.i.i = icmp sgt i64 %add.i.i.i, -1
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %cond.false.i.i.i
 
@@ -6244,7 +6244,7 @@ _ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES2_ET1_T0_S4_S3_.exit.loopexit.i78
 _ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES2_ET1_T0_S4_S3_.exit.i45: ; preds = %_ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES2_ET1_T0_S4_S3_.exit.loopexit.i78, %if.end.i38
   %sub.ptr.div.i.i.pre-phi.i46 = phi i64 [ %.pre20.i84, %_ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES2_ET1_T0_S4_S3_.exit.loopexit.i78 ], [ %sub.ptr.div4.i36, %if.end.i38 ]
   %28 = phi ptr [ %agg.tmp7.sroa.4.0, %_ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES2_ET1_T0_S4_S3_.exit.loopexit.i78 ], [ %24, %if.end.i38 ]
-  %add.i.i.i47 = sub i64 %sub.ptr.div.i.i.pre-phi.i46, %.sroa.speculated.i41
+  %add.i.i.i47 = sub nsw i64 %sub.ptr.div.i.i.pre-phi.i46, %.sroa.speculated.i41
   %cmp.i.i.i48 = icmp sgt i64 %add.i.i.i47, -1
   br i1 %cmp.i.i.i48, label %land.lhs.true.i.i.i62, label %cond.false.i.i.i49
 
@@ -6364,7 +6364,7 @@ _ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES2_ET1_T0_S4_S3_.exit.loopexit.i16
 _ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES2_ET1_T0_S4_S3_.exit.i128: ; preds = %_ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES2_ET1_T0_S4_S3_.exit.loopexit.i161, %if.end.i121
   %sub.ptr.div.i.i.pre-phi.i129 = phi i64 [ %.pre20.i167, %_ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES2_ET1_T0_S4_S3_.exit.loopexit.i161 ], [ %sub.ptr.div4.i119, %if.end.i121 ]
   %42 = phi ptr [ %agg.tmp9.sroa.4.0, %_ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES2_ET1_T0_S4_S3_.exit.loopexit.i161 ], [ %38, %if.end.i121 ]
-  %add.i.i.i130 = sub i64 %sub.ptr.div.i.i.pre-phi.i129, %.sroa.speculated.i124
+  %add.i.i.i130 = sub nsw i64 %sub.ptr.div.i.i.pre-phi.i129, %.sroa.speculated.i124
   %cmp.i.i.i131 = icmp sgt i64 %add.i.i.i130, -1
   br i1 %cmp.i.i.i131, label %land.lhs.true.i.i.i145, label %cond.false.i.i.i132
 
@@ -6476,7 +6476,7 @@ _ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES2_ET1_T0_S4_S3_.exit.loopexit.i24
 _ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES2_ET1_T0_S4_S3_.exit.i211: ; preds = %_ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES2_ET1_T0_S4_S3_.exit.loopexit.i244, %if.end.i204
   %sub.ptr.div.i.i.pre-phi.i212 = phi i64 [ %.pre20.i250, %_ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES2_ET1_T0_S4_S3_.exit.loopexit.i244 ], [ %sub.ptr.div4.i202, %if.end.i204 ]
   %55 = phi ptr [ %agg.tmp12.sroa.4.0, %_ZSt23__copy_move_backward_a1ILb1EPSt4pairIjjES2_ET1_T0_S4_S3_.exit.loopexit.i244 ], [ %51, %if.end.i204 ]
-  %add.i.i.i213 = sub i64 %sub.ptr.div.i.i.pre-phi.i212, %.sroa.speculated.i207
+  %add.i.i.i213 = sub nsw i64 %sub.ptr.div.i.i.pre-phi.i212, %.sroa.speculated.i207
   %cmp.i.i.i214 = icmp sgt i64 %add.i.i.i213, -1
   br i1 %cmp.i.i.i214, label %land.lhs.true.i.i.i228, label %cond.false.i.i.i215
 

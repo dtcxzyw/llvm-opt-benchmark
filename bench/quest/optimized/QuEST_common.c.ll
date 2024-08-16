@@ -3143,7 +3143,7 @@ shiftSubregIndices.exit:                          ; preds = %._crit_edge.i
   %indvars.iv.next.i61 = add nsw i64 %indvars.iv.i59, 1
   %42 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.i59
   %43 = load i32, ptr %42, align 4
-  %44 = sub i32 %43, %8
+  %44 = sub nsw i32 %43, %8
   store i32 %44, ptr %42, align 4
   %45 = add nuw nsw i32 %.012.i60, 1
   %exitcond77.not = icmp eq i32 %45, %39

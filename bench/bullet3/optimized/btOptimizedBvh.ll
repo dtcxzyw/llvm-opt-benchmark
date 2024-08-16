@@ -899,12 +899,11 @@ if.else82:                                        ; preds = %for.body
   %m_escapeIndexOrTriangleIndex.i183 = getelementptr inbounds i8, ptr %arrayidx.i182, i64 12
   %60 = load i32, ptr %m_escapeIndexOrTriangleIndex.i183, align 4
   %arrayidx.i187 = getelementptr i8, ptr %arrayidx.i182, i64 16
-  %61 = trunc nsw i64 %indvars.iv231 to i32
-  %add92 = sub i32 %61, %60
-  %idxprom.i190 = sext i32 %add92 to i64
-  %arrayidx.i191 = getelementptr inbounds %struct.btQuantizedBvhNode, ptr %2, i64 %idxprom.i190
-  %cmp.i184237 = icmp slt i32 %60, 0
-  %cond = select i1 %cmp.i184237, ptr %arrayidx.i191, ptr %arrayidx.i187
+  %61 = sext i32 %60 to i64
+  %62 = sub nsw i64 %indvars.iv231, %61
+  %arrayidx.i191 = getelementptr inbounds %struct.btQuantizedBvhNode, ptr %2, i64 %62
+  %cmp.i184238 = icmp slt i32 %60, 0
+  %cond = select i1 %cmp.i184238, ptr %arrayidx.i191, ptr %arrayidx.i187
   %m_quantizedAabbMax121 = getelementptr inbounds i8, ptr %arrayidx.i182, i64 6
   %m_quantizedAabbMax124 = getelementptr inbounds i8, ptr %arrayidx.i, i64 6
   %m_quantizedAabbMax131 = getelementptr inbounds i8, ptr %cond, i64 6
@@ -913,20 +912,20 @@ if.else82:                                        ; preds = %for.body
 for.body97:                                       ; preds = %if.else82, %for.body97
   %indvars.iv = phi i64 [ 0, %if.else82 ], [ %indvars.iv.next, %for.body97 ]
   %arrayidx100 = getelementptr inbounds [3 x i16], ptr %arrayidx.i182, i64 0, i64 %indvars.iv
-  %62 = load i16, ptr %arrayidx100, align 2
+  %63 = load i16, ptr %arrayidx100, align 2
   %arrayidx103 = getelementptr inbounds [3 x i16], ptr %arrayidx.i, i64 0, i64 %indvars.iv
-  store i16 %62, ptr %arrayidx103, align 2
+  store i16 %63, ptr %arrayidx103, align 2
   %arrayidx110 = getelementptr inbounds [3 x i16], ptr %cond, i64 0, i64 %indvars.iv
-  %63 = load i16, ptr %arrayidx110, align 2
-  %spec.store.select = call i16 @llvm.umin.i16(i16 %62, i16 %63)
+  %64 = load i16, ptr %arrayidx110, align 2
+  %spec.store.select = call i16 @llvm.umin.i16(i16 %63, i16 %64)
   store i16 %spec.store.select, ptr %arrayidx103, align 2
   %arrayidx123 = getelementptr inbounds [3 x i16], ptr %m_quantizedAabbMax121, i64 0, i64 %indvars.iv
-  %64 = load i16, ptr %arrayidx123, align 2
+  %65 = load i16, ptr %arrayidx123, align 2
   %arrayidx126 = getelementptr inbounds [3 x i16], ptr %m_quantizedAabbMax124, i64 0, i64 %indvars.iv
-  store i16 %64, ptr %arrayidx126, align 2
+  store i16 %65, ptr %arrayidx126, align 2
   %arrayidx133 = getelementptr inbounds [3 x i16], ptr %m_quantizedAabbMax131, i64 0, i64 %indvars.iv
-  %65 = load i16, ptr %arrayidx133, align 2
-  %spec.store.select62 = call i16 @llvm.umax.i16(i16 %64, i16 %65)
+  %66 = load i16, ptr %arrayidx133, align 2
+  %spec.store.select62 = call i16 @llvm.umax.i16(i16 %65, i16 %66)
   store i16 %spec.store.select62, ptr %arrayidx126, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -945,8 +944,8 @@ for.end149:                                       ; preds = %for.inc147
 if.then151:                                       ; preds = %for.end149
   %vtable152 = load ptr, ptr %meshInterface, align 8
   %vfn153 = getelementptr inbounds i8, ptr %vtable152, i64 48
-  %66 = load ptr, ptr %vfn153, align 8
-  call void %66(ptr noundef nonnull align 8 dereferenceable(24) %meshInterface, i32 noundef %curNodeSubPart.2)
+  %67 = load ptr, ptr %vfn153, align 8
+  call void %67(ptr noundef nonnull align 8 dereferenceable(24) %meshInterface, i32 noundef %curNodeSubPart.2)
   br label %if.end154
 
 if.end154:                                        ; preds = %entry, %if.then151, %for.end149

@@ -1448,7 +1448,7 @@ _ZN2cv4Mat_IfE6createEii.exit:                    ; preds = %2
 
 _ZN2cv4Mat_IfE6createEii.exit9:                   ; preds = %_ZN2cv4Mat_IfE6createEii.exit
   %11 = and i32 %.sroa.0.0.extract.trunc, 1
-  %spec.select = sub i32 %7, %11
+  %spec.select = sub nsw i32 %7, %11
   %12 = getelementptr inbounds i8, ptr %0, i64 204
   store i32 %7, ptr %12, align 4
   %13 = getelementptr inbounds i8, ptr %0, i64 200

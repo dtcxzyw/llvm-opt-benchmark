@@ -553,7 +553,7 @@ _ZL15yy_reduce_printPaPN18cmExprParserHelper10ParserTypeEiPv.exit.thread._crit_e
   %.pre-phi = phi i64 [ %.pre391, %_ZL15yy_reduce_printPaPN18cmExprParserHelper10ParserTypeEiPv.exit.thread._crit_edge ], [ %230, %223 ]
   %236 = sub nsw i64 0, %105
   %237 = getelementptr inbounds %"struct.cmExprParserHelper::ParserType", ptr %.0192, i64 %236
-  %.0198.add = sub i64 %.0198.idx, %105
+  %.0198.add = sub nsw i64 %.0198.idx, %105
   %.ptr223 = getelementptr inbounds i8, ptr %3, i64 %.0198.add
   %238 = getelementptr inbounds i8, ptr %237, i64 8
   store i64 %.sroa.0293.0, ptr %238, align 8

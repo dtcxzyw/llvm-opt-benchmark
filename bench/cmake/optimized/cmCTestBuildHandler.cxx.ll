@@ -8717,7 +8717,7 @@ _ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplac
 
 287:                                              ; preds = %_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRPKcEEERS5_DpOT_.exit
   %288 = sub nsw i64 0, %285
-  %289 = sub i64 %276, %285
+  %289 = sub nsw i64 %276, %285
   %290 = icmp sgt i64 %289, -1
   br i1 %290, label %291, label %297
 
@@ -15534,7 +15534,7 @@ _ZStplRKSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   store ptr %186, ptr %188, align 8, !alias.scope !331
   %189 = getelementptr inbounds i8, ptr %15, i64 24
   store ptr %183, ptr %189, align 8, !alias.scope !331
-  %190 = sub i64 %.pre-phi79, %84
+  %190 = sub nsw i64 %.pre-phi79, %84
   %191 = icmp sgt i64 %190, -1
   br i1 %191, label %192, label %198
 
@@ -15799,7 +15799,7 @@ _ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 _ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i: ; preds = %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.loopexit.i, %34
   %.pre-phi27.i = phi i64 [ %.pre26.i, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.loopexit.i ], [ %29, %34 ]
   %43 = phi ptr [ %.sroa.4101.0, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.loopexit.i ], [ %25, %34 ]
-  %44 = sub i64 %.pre-phi27.i, %.sroa.speculated.i
+  %44 = sub nsw i64 %.pre-phi27.i, %.sroa.speculated.i
   %45 = icmp sgt i64 %44, -1
   br i1 %45, label %46, label %52
 
@@ -15914,7 +15914,7 @@ _ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 _ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i16: ; preds = %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.loopexit.i24, %85
   %.pre-phi27.i17 = phi i64 [ %.pre26.i30, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.loopexit.i24 ], [ %80, %85 ]
   %94 = phi ptr [ %.sroa.495.0, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.loopexit.i24 ], [ %76, %85 ]
-  %95 = sub i64 %.pre-phi27.i17, %.sroa.speculated.i15
+  %95 = sub nsw i64 %.pre-phi27.i17, %.sroa.speculated.i15
   %96 = icmp sgt i64 %95, -1
   br i1 %96, label %97, label %103
 
@@ -16029,7 +16029,7 @@ _ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 _ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i43: ; preds = %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.loopexit.i51, %138
   %.pre-phi27.i44 = phi i64 [ %.pre26.i57, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.loopexit.i51 ], [ %133, %138 ]
   %147 = phi ptr [ %.sroa.489.0, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.loopexit.i51 ], [ %129, %138 ]
-  %148 = sub i64 %.pre-phi27.i44, %.sroa.speculated.i42
+  %148 = sub nsw i64 %.pre-phi27.i44, %.sroa.speculated.i42
   %149 = icmp sgt i64 %148, -1
   br i1 %149, label %150, label %156
 
@@ -16136,7 +16136,7 @@ _ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 _ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i70: ; preds = %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.loopexit.i78, %193
   %.pre-phi27.i71 = phi i64 [ %.pre26.i84, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.loopexit.i78 ], [ %188, %193 ]
   %202 = phi ptr [ %.sroa.4.0, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.loopexit.i78 ], [ %184, %193 ]
-  %203 = sub i64 %.pre-phi27.i71, %.sroa.speculated.i69
+  %203 = sub nsw i64 %.pre-phi27.i71, %.sroa.speculated.i69
   %204 = icmp sgt i64 %203, -1
   br i1 %204, label %205, label %211
 

@@ -2160,7 +2160,7 @@ _ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit.i:     ; preds = %.sink.split.i.i, %8
   br label %_ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit341.i
 
 _ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit341.i:  ; preds = %.sink.split.i338.i, %915, %899
-  %925 = sub i32 %.pre476.i, %903
+  %925 = sub nsw i32 %.pre476.i, %903
   store i32 %925, ptr %908, align 4
   %926 = getelementptr inbounds i32, ptr %898, i64 %900
   %927 = load i32, ptr %926, align 4

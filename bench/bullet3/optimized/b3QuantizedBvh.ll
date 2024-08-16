@@ -1959,7 +1959,7 @@ if.else.i:                                        ; preds = %if.end.i
   %sub.i.i = sub nsw i32 0, %29
   %idx.ext.i = zext nneg i32 %sub.i.i to i64
   %add.ptr.i = getelementptr inbounds %struct.b3QuantizedBvhNode, ptr %rootNode.024.i, i64 %idx.ext.i
-  %add.i = sub i32 %curIndex.026.i, %29
+  %add.i = sub nsw i32 %curIndex.026.i, %29
   br label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.else.i, %if.then10.i
@@ -2202,7 +2202,7 @@ if.else:                                          ; preds = %if.end
   %sub.i = sub nsw i32 0, %13
   %idx.ext = zext nneg i32 %sub.i to i64
   %add.ptr = getelementptr inbounds %struct.b3QuantizedBvhNode, ptr %rootNode.024, i64 %idx.ext
-  %add = sub i32 %curIndex.026, %13
+  %add = sub nsw i32 %curIndex.026, %13
   br label %if.end13
 
 if.end13:                                         ; preds = %if.else, %if.then10
@@ -2352,7 +2352,7 @@ if.else.i:                                        ; preds = %if.end.i
   %sub.i.i = sub nsw i32 0, %29
   %idx.ext.i = zext nneg i32 %sub.i.i to i64
   %add.ptr.i = getelementptr inbounds %struct.b3QuantizedBvhNode, ptr %rootNode.024.i, i64 %idx.ext.i
-  %add.i = sub i32 %curIndex.026.i, %29
+  %add.i = sub nsw i32 %curIndex.026.i, %29
   br label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.else.i, %if.then10.i
@@ -3193,7 +3193,7 @@ if.else:                                          ; preds = %if.end90
   %sub.i154 = sub nsw i32 0, %69
   %idx.ext = sext i32 %sub.i154 to i64
   %add.ptr = getelementptr inbounds %struct.b3QuantizedBvhNode, ptr %rootNode.0213, i64 %idx.ext
-  %add = sub i32 %curIndex.0215, %69
+  %add = sub nsw i32 %curIndex.0215, %69
   br label %if.end96
 
 if.end96:                                         ; preds = %if.else, %if.then93

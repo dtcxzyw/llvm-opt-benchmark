@@ -6553,7 +6553,7 @@ _ZL11icell_set_xiRKN3gmx11BasicVectorIfEEiPKf25ClusterDistanceKernelTypeP20Nbnxn
   %954 = and i8 %.5.i.i.i, 1
   %955 = xor i8 %954, 1
   %956 = zext nneg i8 %955 to i32
-  %spec.select112.i.i.i = sub i32 %.095157.i.i.i, %956
+  %spec.select112.i.i.i = sub nsw i32 %.095157.i.i.i, %956
   %957 = trunc nuw i8 %.5.i.i.i to i1
   %958 = icmp sle i32 %spec.select112.i.i.i, %spec.select186192.i.i.i
   %.not106.i.i.i = select i1 %957, i1 true, i1 %958

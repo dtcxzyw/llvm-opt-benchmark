@@ -329,7 +329,7 @@ if.end.i.i.i:                                     ; preds = %lor.lhs.false.i.i.i
   %cmp26.i.i.i = icmp ule i64 %rest.addr.0.lcssa.i.i.i, %sub25.i.i.i
   %23 = and i1 %cmp22.not.i.i.i, %cmp26.i.i.i
   %24 = load i32, ptr %mk.i, align 4
-  %add15.i85 = sub i32 %dec.i.i, %24
+  %add15.i85 = sub nsw i32 %dec.i.i, %24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ten_mk.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %mk.i)
   br i1 %23, label %if.then, label %if.end
@@ -724,14 +724,14 @@ _ZN6icu_7517double_conversionL13Grisu3CountedEdiNS0_6VectorIcEEPiS3_.exit.thread
 _ZN6icu_7517double_conversionL13Grisu3CountedEdiNS0_6VectorIcEEPiS3_.exit.thread90: ; preds = %return.sink.split.i.i, %for.end.i.i.i, %land.lhs.true.i.i.i, %for.end.i61.i.i
   %kappa.5.i.ph = phi i32 [ %dec51.i.i, %for.end.i61.i.i ], [ %kappa.3.i57, %land.lhs.true.i.i.i ], [ %kappa.3.i57, %for.end.i.i.i ], [ %add.i64.i.i, %return.sink.split.i.i ]
   %55 = load i32, ptr %mk.i8, align 4
-  %add9.i93 = sub i32 %kappa.5.i.ph, %55
+  %add9.i93 = sub nsw i32 %kappa.5.i.ph, %55
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ten_mk.i7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %mk.i8)
   br label %if.then
 
 _ZN6icu_7517double_conversionL13Grisu3CountedEdiNS0_6VectorIcEEPiS3_.exit: ; preds = %land.lhs.true.i80.i.i
   %56 = load i32, ptr %mk.i8, align 4
-  %add9.i = sub i32 %dec51.i.i, %56
+  %add9.i = sub nsw i32 %dec51.i.i, %56
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ten_mk.i7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %mk.i8)
   br i1 %cmp8.not.i83.i.i, label %if.end, label %if.then
@@ -753,7 +753,7 @@ sw.epilog:                                        ; preds = %while.end.i75.i.i, 
   %cmp26.i91.i.i = icmp ule i64 %rest.addr.0.lcssa.i76.i.i, %sub25.i90.i.i
   %57 = and i1 %cmp22.not.i89.i.i, %cmp26.i91.i.i
   %58 = load i32, ptr %mk.i, align 4
-  %add15.i = sub i32 %dec55.i.i, %58
+  %add15.i = sub nsw i32 %dec55.i.i, %58
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ten_mk.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %mk.i)
   br i1 %57, label %if.then, label %if.end

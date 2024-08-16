@@ -157,7 +157,7 @@ define dso_local range(i32 -524, 1) i32 @nghttp2_adjust_local_window_size(ptr no
 
 16:                                               ; preds = %12
   %17 = sub nsw i32 0, %9
-  %18 = sub i32 %13, %9
+  %18 = sub nsw i32 %13, %9
   store i32 %18, ptr %0, align 4
   %19 = load i32, ptr %2, align 4
   %. = tail call i32 @llvm.smin.i32(i32 %19, i32 %17)

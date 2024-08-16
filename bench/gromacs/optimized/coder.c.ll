@@ -575,7 +575,7 @@ define ptr @Ptngc_pack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds i32, ptr %1, i64 %43
   %45 = load i32, ptr %44, align 4
-  %46 = sub i32 %45, %.0141.lcssa
+  %46 = sub nsw i32 %45, %.0141.lcssa
   %indvars.iv.next272 = add nsw i64 %indvars.iv271, 1
   %47 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv271
   store i32 %46, ptr %47, align 4

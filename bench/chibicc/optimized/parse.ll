@@ -1993,7 +1993,7 @@ sw.bb27:                                          ; preds = %if.end
   %lhs28 = getelementptr inbounds i8, ptr %node.tr277, i64 32
   %13 = load ptr, ptr %lhs28, align 16
   %call.i104 = tail call fastcc i64 @eval2(ptr noundef %13, ptr noundef null)
-  %accumulator.ret.tr143 = sub i64 %accumulator.tr.ph283, %call.i104
+  %accumulator.ret.tr143 = sub nsw i64 %accumulator.tr.ph283, %call.i104
   br label %common.ret682
 
 sw.bb31:                                          ; preds = %if.end

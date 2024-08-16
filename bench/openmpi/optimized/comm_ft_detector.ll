@@ -621,7 +621,7 @@ define noundef i32 @ompi_comm_failure_detector_finalize() local_unnamed_addr #0 
 
 22:                                               ; preds = %15
   %23 = load volatile i32, ptr @fd_thread_active, align 4
-  %24 = sub i32 %23, %16
+  %24 = sub nsw i32 %23, %16
   store volatile i32 %24, ptr @fd_thread_active, align 4
   %25 = load volatile i32, ptr @fd_thread_active, align 4
   br label %opal_thread_add_fetch_32.exit

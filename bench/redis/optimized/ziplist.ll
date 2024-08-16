@@ -2114,7 +2114,7 @@ land.rhs:                                         ; preds = %do.end50, %do.end10
 
 while.body:                                       ; preds = %land.rhs
   %idx.ext54 = zext i32 %prevlen.162 to i64
-  %p.0.add = sub i64 %p.0.idx61, %idx.ext54
+  %p.0.add = sub nsw i64 %p.0.idx61, %idx.ext54
   %add.ptr55.ptr = getelementptr inbounds i8, ptr %zl, i64 %p.0.add
   %cmp57 = icmp sgt i64 %p.0.add, 9
   %cmp62 = icmp ult ptr %add.ptr55.ptr, %add.ptr165154

@@ -2449,7 +2449,7 @@ define ptr @Abc_NtkFlattenHierarchyGia(ptr noundef %0, ptr noundef writeonly %1,
 
 15:                                               ; preds = %3
   %16 = tail call i32 @Gia_ManFlattenLogicPrepare(ptr noundef nonnull %0)
-  %17 = sub i32 %16, %12
+  %17 = sub nsw i32 %16, %12
   br label %.critedge
 
 18:                                               ; preds = %3

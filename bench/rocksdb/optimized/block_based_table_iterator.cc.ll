@@ -4630,7 +4630,7 @@ if.then99:                                        ; preds = %while.end
   %add12.i.i = add i64 %add.i.i61, %mul.i.i
   %sub = add i64 %add12.i.i, %sub.ptr.div11.i.i
   %sub.i.i.i = sub nsw i64 0, %sub
-  %add.i.i.i.i = sub i64 %sub.ptr.div6.i.i, %sub
+  %add.i.i.i.i = sub nsw i64 %sub.ptr.div6.i.i, %sub
   %cmp.i.i.i.i = icmp sgt i64 %add.i.i.i.i, -1
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %cond.false.i.i.i.i
 

@@ -19927,7 +19927,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN11V3LexerBase18yy_get_next_buff
   %75 = shl nuw nsw i32 %62, 1
   %.nonneg = sub i32 0, %62
   %76 = lshr i32 %.nonneg, 3
-  %77 = sub i32 %62, %76
+  %77 = sub nsw i32 %62, %76
   %storemerge41 = select i1 %74, i32 %77, i32 %75
   store i32 %storemerge41, ptr %73, align 8
   %78 = add nsw i32 %storemerge41, 2

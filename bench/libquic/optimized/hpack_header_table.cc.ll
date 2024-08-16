@@ -1368,7 +1368,7 @@ _ZNK3net16HpackHeaderTable21EvictionCountForEntryEN4base16BasicStringPieceINSt7_
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 120
-  %add.i.i.i = sub i64 %sub.ptr.div.i.i.i, %retval.0.i
+  %add.i.i.i = sub nsw i64 %sub.ptr.div.i.i.i, %retval.0.i
   %cmp.i.i.i = icmp sgt i64 %add.i.i.i, -1
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %cond.false.i.i.i
 

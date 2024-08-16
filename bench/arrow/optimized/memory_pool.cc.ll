@@ -1295,7 +1295,7 @@ entry:
   %stats_.i = getelementptr inbounds i8, ptr %0, i64 8
   %sub.i = sub nsw i64 0, %size
   %3 = atomicrmw add ptr %stats_.i, i64 %sub.i seq_cst, align 8
-  %add.i.i = sub i64 %3, %size
+  %add.i.i = sub nsw i64 %3, %size
   %cmp.i.i = icmp slt i64 %size, 0
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %_ZN5arrow15ProxyMemoryPool19ProxyMemoryPoolImpl4FreeEPhll.exit
 
@@ -4217,7 +4217,7 @@ _ZN5arrow12_GLOBAL__N_114DebugAllocatorINS0_15SystemAllocatorEE17DeallocateAlign
   %stats_ = getelementptr inbounds i8, ptr %this, i64 8
   %sub = sub nsw i64 0, %size
   %0 = atomicrmw add ptr %stats_, i64 %sub seq_cst, align 8
-  %add.i = sub i64 %0, %size
+  %add.i = sub nsw i64 %0, %size
   %cmp.i = icmp slt i64 %size, 0
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN5arrow8internal15MemoryPoolStats20UpdateAllocatedBytesElb.exit
 
@@ -5675,7 +5675,7 @@ _ZN5arrow12_GLOBAL__N_115SystemAllocator17DeallocateAlignedEPhll.exit: ; preds =
   %stats_ = getelementptr inbounds i8, ptr %this, i64 8
   %sub = sub nsw i64 0, %size
   %0 = atomicrmw add ptr %stats_, i64 %sub seq_cst, align 8
-  %add.i = sub i64 %0, %size
+  %add.i = sub nsw i64 %0, %size
   %cmp.i2 = icmp slt i64 %size, 0
   br i1 %cmp.i2, label %land.lhs.true.i, label %_ZN5arrow8internal15MemoryPoolStats20UpdateAllocatedBytesElb.exit
 
@@ -6114,7 +6114,7 @@ _ZN5arrow12_GLOBAL__N_114DebugAllocatorINS_11memory_pool8internal17JemallocAlloc
   %stats_ = getelementptr inbounds i8, ptr %this, i64 8
   %sub = sub nsw i64 0, %size
   %0 = atomicrmw add ptr %stats_, i64 %sub seq_cst, align 8
-  %add.i2 = sub i64 %0, %size
+  %add.i2 = sub nsw i64 %0, %size
   %cmp.i = icmp slt i64 %size, 0
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN5arrow8internal15MemoryPoolStats20UpdateAllocatedBytesElb.exit
 
@@ -6839,7 +6839,7 @@ entry:
   %stats_ = getelementptr inbounds i8, ptr %this, i64 8
   %sub = sub nsw i64 0, %size
   %0 = atomicrmw add ptr %stats_, i64 %sub seq_cst, align 8
-  %add.i = sub i64 %0, %size
+  %add.i = sub nsw i64 %0, %size
   %cmp.i = icmp slt i64 %size, 0
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN5arrow8internal15MemoryPoolStats20UpdateAllocatedBytesElb.exit
 

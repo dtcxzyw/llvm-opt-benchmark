@@ -455,7 +455,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
 180:                                              ; preds = %54, %178, %176, %174, %172, %170, %168, %163, %158, %153, %148, %143, %138, %133, %128, %124, %102, %100, %96, %92, %81, %73, %68, %63, %61
   %181 = sub nsw i64 0, %58
   %182 = getelementptr inbounds %struct.cmFortran_yystype, ptr %.0225351, i64 %181
-  %.0219.add = sub i64 %.0219.idx352, %58
+  %.0219.add = sub nsw i64 %.0219.idx352, %58
   %.ptr250 = getelementptr inbounds i8, ptr %3, i64 %.0219.add
   %183 = getelementptr inbounds i8, ptr %182, i64 8
   store ptr %.sroa.0.0.copyload, ptr %183, align 8

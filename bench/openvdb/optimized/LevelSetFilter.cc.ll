@@ -38589,7 +38589,7 @@ entry:
   %mHalfWidth = getelementptr inbounds i8, ptr %this, i64 140
   %0 = load i32, ptr %mHalfWidth, align 4
   %1 = load i32, ptr %ijk, align 4
-  %add.i.i = sub i32 %1, %0
+  %add.i.i = sub nsw i32 %1, %0
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %ijk, i64 4
   %2 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %arrayidx.i.i1.i.i = getelementptr inbounds i8, ptr %ijk, i64 8
@@ -46386,7 +46386,7 @@ entry:
   %mHalfWidth = getelementptr inbounds i8, ptr %this, i64 140
   %0 = load i32, ptr %mHalfWidth, align 4
   %1 = load i32, ptr %ijk, align 4
-  %add.i.i = sub i32 %1, %0
+  %add.i.i = sub nsw i32 %1, %0
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %ijk, i64 4
   %2 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %arrayidx.i.i1.i.i = getelementptr inbounds i8, ptr %ijk, i64 8

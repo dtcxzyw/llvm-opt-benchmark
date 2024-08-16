@@ -1361,7 +1361,7 @@ _ZN5ZXing6QRCode14GetDataMaskBitEiiib.exit.i:     ; preds = %529, %525, %521, %5
   %.155.lcssa.i = phi i32 [ %.05485.i, %471 ], [ %.357.i, %545 ]
   %.150.lcssa.i = phi i32 [ %.04988.i, %471 ], [ %546, %545 ]
   %551 = sub nsw i32 0, %.05386.i
-  %552 = sub i32 %.150.lcssa.i, %.05386.i
+  %552 = sub nsw i32 %.150.lcssa.i, %.05386.i
   %553 = add nsw i32 %spec.select.i, -2
   %554 = icmp sgt i32 %spec.select.i, 2
   br i1 %554, label %471, label %._crit_edge.i54, !llvm.loop !26

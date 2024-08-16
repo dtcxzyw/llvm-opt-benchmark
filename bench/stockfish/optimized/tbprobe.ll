@@ -3759,7 +3759,7 @@ _ZN9Stockfish12_GLOBAL__N_118dtz_before_zeroingENS_10Tablebases8WDLScoreE.exit65
   %isnotnull.i67 = icmp ne i32 %822, 0
   %isnotnull.zext.i68 = zext i1 %isnotnull.i67 to i32
   %824 = or i32 %.lobit.neg.i66, %isnotnull.zext.i68
-  %825 = sub i32 %824, %.pn
+  %825 = sub nsw i32 %824, %.pn
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %805, %.fold.split.i64, %807, %823, %.critedge

@@ -4515,7 +4515,7 @@ define linkonce_odr void @_ZNSt5dequeIPhSaIS0_EE19_M_range_insert_auxISt15_Deque
   %64 = getelementptr inbounds i8, ptr %0, i64 40
   %65 = load ptr, ptr %64, align 8, !noalias !83
   %66 = sub nsw i64 0, %44
-  %67 = sub i64 %.pre-phi13.i, %44
+  %67 = sub nsw i64 %.pre-phi13.i, %44
   %68 = icmp sgt i64 %67, -1
   br i1 %68, label %69, label %75
 
@@ -4947,7 +4947,7 @@ define linkonce_odr void @_ZNSt5dequeIPhSaIS0_EE13_M_insert_auxISt15_Deque_itera
   %110 = phi ptr [ %.pre6.i, %105 ], [ %100, %98 ]
   %111 = phi ptr [ %.pre.i, %105 ], [ %72, %98 ]
   %112 = sub nsw i64 0, %4
-  %113 = sub i64 %.pre-phi13.i, %4
+  %113 = sub nsw i64 %.pre-phi13.i, %4
   %114 = icmp sgt i64 %113, -1
   br i1 %114, label %115, label %121
 
@@ -5169,7 +5169,7 @@ _ZStplRKSt15_Deque_iteratorIPhRS0_PS0_El.exit29:  ; preds = %166, %172
   %223 = ptrtoint ptr %219 to i64
   %224 = sub i64 %222, %223
   %225 = ashr exact i64 %224, 3
-  %226 = sub i64 %225, %4
+  %226 = sub nsw i64 %225, %4
   %227 = icmp sgt i64 %226, -1
   br i1 %227, label %228, label %234
 
@@ -5473,7 +5473,7 @@ _ZNSt5dequeIPhSaIS0_EE27_M_reserve_elements_at_backEm.exit: ; preds = %350, %356
   %366 = ptrtoint ptr %345 to i64
   %367 = sub i64 %366, %.pre-phi
   %368 = ashr exact i64 %367, 3
-  %369 = sub i64 %368, %364
+  %369 = sub nsw i64 %368, %364
   %370 = icmp sgt i64 %369, -1
   br i1 %370, label %371, label %377
 
@@ -5526,7 +5526,7 @@ _ZStmiRKSt15_Deque_iteratorIPhRS0_PS0_El.exit36:  ; preds = %373, %379
   %395 = ptrtoint ptr %390 to i64
   %396 = sub i64 %394, %395
   %397 = ashr exact i64 %396, 3
-  %398 = sub i64 %397, %4
+  %398 = sub nsw i64 %397, %4
   %399 = icmp sgt i64 %398, -1
   br i1 %399, label %400, label %406
 

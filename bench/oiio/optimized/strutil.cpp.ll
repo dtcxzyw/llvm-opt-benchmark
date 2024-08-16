@@ -1798,7 +1798,7 @@ if.then441:                                       ; preds = %if.end439
 
 if.else448:                                       ; preds = %if.end439
   %cond454 = call i32 @llvm.smin.i32(i32 %pr.5.lcssa, i32 %storemerge694.lcssa802)
-  %add455 = sub i32 %cond454, %91
+  %add455 = sub nsw i32 %cond454, %91
   br label %dofloatfromg
 
 sw.bb457:                                         ; preds = %sw.epilog, %sw.epilog

@@ -3919,7 +3919,7 @@ _ZSt23__copy_move_backward_a1ILb1EPN7rocksdb14ThreadPoolImpl4Impl6BGItemES4_ET1_
   %sub.ptr.div.i.i.pre-phi = phi i64 [ %.pre20, %_ZSt23__copy_move_backward_a1ILb1EPN7rocksdb14ThreadPoolImpl4Impl6BGItemES4_ET1_T0_S6_S5_.exit.loopexit ], [ %sub.ptr.div4, %if.end ]
   %17 = phi ptr [ %.pre15, %_ZSt23__copy_move_backward_a1ILb1EPN7rocksdb14ThreadPoolImpl4Impl6BGItemES4_ET1_T0_S6_S5_.exit.loopexit ], [ %0, %if.end ]
   %18 = phi ptr [ %.pre14, %_ZSt23__copy_move_backward_a1ILb1EPN7rocksdb14ThreadPoolImpl4Impl6BGItemES4_ET1_T0_S6_S5_.exit.loopexit ], [ %1, %if.end ]
-  %add.i.i = sub i64 %sub.ptr.div.i.i.pre-phi, %.sroa.speculated
+  %add.i.i = sub nsw i64 %sub.ptr.div.i.i.pre-phi, %.sroa.speculated
   %cmp.i.i = icmp sgt i64 %add.i.i, -1
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %cond.false.i.i
 

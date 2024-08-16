@@ -1068,7 +1068,7 @@ if.then485:                                       ; preds = %if.end482
 
 if.else493:                                       ; preds = %if.end482
   %cond500 = call i32 @llvm.smin.i32(i32 %pr.5.lcssa, i32 %storemerge690.lcssa798)
-  %add501 = sub i32 %cond500, %91
+  %add501 = sub nsw i32 %cond500, %91
   br label %dofloatfromg
 
 sw.bb503:                                         ; preds = %sw.epilog, %sw.epilog

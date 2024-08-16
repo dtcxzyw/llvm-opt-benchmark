@@ -1586,7 +1586,7 @@ if.else:                                          ; preds = %if.end
   %29 = load ptr, ptr %m_data.i.i, align 8
   %m_escapeIndexOrDataIndex.i.i.i60 = getelementptr inbounds %struct.BT_QUANTIZED_BVH_NODE, ptr %29, i64 %idxprom.i.i, i32 2
   %30 = load i32, ptr %m_escapeIndexOrDataIndex.i.i.i60, align 4
-  %add = sub i32 %curIndex.071, %30
+  %add = sub nsw i32 %curIndex.071, %30
   br label %if.end16
 
 if.end16:                                         ; preds = %if.else, %if.then14
@@ -1773,7 +1773,7 @@ if.else:                                          ; preds = %if.end
   %28 = load ptr, ptr %m_data.i.i.i, align 8
   %m_escapeIndexOrDataIndex.i.i.i20 = getelementptr inbounds %struct.BT_QUANTIZED_BVH_NODE, ptr %28, i64 %idxprom.i.i.i, i32 2
   %29 = load i32, ptr %m_escapeIndexOrDataIndex.i.i.i20, align 4
-  %add = sub i32 %curIndex.022, %29
+  %add = sub nsw i32 %curIndex.022, %29
   br label %if.end11
 
 if.end11:                                         ; preds = %if.else, %if.then9
@@ -2205,7 +2205,7 @@ if.else:                                          ; preds = %if.then2
   %m_escapeIndexOrDataIndex.i.i.i85 = getelementptr inbounds %struct.BT_QUANTIZED_BVH_NODE, ptr %15, i64 %idxprom.i.i.i84, i32 2
   %16 = load i32, ptr %m_escapeIndexOrDataIndex.i.i.i85, align 4
   %add3.i.i = add nsw i32 %node1.tr141, 2
-  %add9.i.i = sub i32 %add.i.i, %16
+  %add9.i.i = sub nsw i32 %add.i.i, %16
   %cmp.i8.i.i = icmp slt i32 %16, 0
   %retval.0.i.i = select i1 %cmp.i8.i.i, i32 %add9.i.i, i32 %add3.i.i
   %call = tail call noundef zeroext i1 @_Z25_quantized_node_collisionPK21btGImpactQuantizedBvhS1_RK26BT_BOX_BOX_TRANSFORM_CACHEiib(ptr noundef nonnull %boxset0, ptr noundef nonnull %boxset1, ptr noundef nonnull align 4 dereferenceable(112) %trans_cache_1to0, i32 noundef %node0.tr.ph143, i32 noundef %retval.0.i.i, i1 noundef zeroext false)
@@ -2222,7 +2222,7 @@ if.then12:                                        ; preds = %if.else10
   %m_escapeIndexOrDataIndex.i.i.i94 = getelementptr inbounds %struct.BT_QUANTIZED_BVH_NODE, ptr %17, i64 %idxprom.i.i.i93, i32 2
   %18 = load i32, ptr %m_escapeIndexOrDataIndex.i.i.i94, align 4
   %add3.i.i95 = add nsw i32 %node0.tr.ph143, 2
-  %add9.i.i96 = sub i32 %add.i.i90, %18
+  %add9.i.i96 = sub nsw i32 %add.i.i90, %18
   %cmp.i8.i.i97 = icmp slt i32 %18, 0
   %retval.0.i.i98 = select i1 %cmp.i8.i.i97, i32 %add9.i.i96, i32 %add3.i.i95
   br label %tailrecurse.outer.backedge
@@ -2241,7 +2241,7 @@ if.else15:                                        ; preds = %if.else10
   %m_escapeIndexOrDataIndex.i.i.i105 = getelementptr inbounds %struct.BT_QUANTIZED_BVH_NODE, ptr %19, i64 %idxprom.i.i.i104, i32 2
   %20 = load i32, ptr %m_escapeIndexOrDataIndex.i.i.i105, align 4
   %add3.i.i106 = add nsw i32 %node1.tr141, 2
-  %add9.i.i107 = sub i32 %add.i.i100, %20
+  %add9.i.i107 = sub nsw i32 %add.i.i100, %20
   %cmp.i8.i.i108 = icmp slt i32 %20, 0
   %retval.0.i.i109 = select i1 %cmp.i8.i.i108, i32 %add9.i.i107, i32 %add3.i.i106
   tail call fastcc void @_ZL41_find_quantized_collision_pairs_recursivePK21btGImpactQuantizedBvhS1_P9btPairSetRK26BT_BOX_BOX_TRANSFORM_CACHEiib(ptr noundef nonnull %boxset0, ptr noundef nonnull %boxset1, ptr noundef %collision_pairs, ptr noundef nonnull align 4 dereferenceable(112) %trans_cache_1to0, i32 noundef %add.i.i90, i32 noundef %retval.0.i.i109, i1 noundef zeroext false)
@@ -2250,20 +2250,20 @@ if.else15:                                        ; preds = %if.else10
   %m_escapeIndexOrDataIndex.i.i.i113 = getelementptr inbounds %struct.BT_QUANTIZED_BVH_NODE, ptr %21, i64 %idxprom.i.i.i112, i32 2
   %22 = load i32, ptr %m_escapeIndexOrDataIndex.i.i.i113, align 4
   %add3.i.i114 = add nsw i32 %node0.tr.ph143, 2
-  %add9.i.i115 = sub i32 %add.i.i90, %22
+  %add9.i.i115 = sub nsw i32 %add.i.i90, %22
   %cmp.i8.i.i116 = icmp slt i32 %22, 0
   %retval.0.i.i117 = select i1 %cmp.i8.i.i116, i32 %add9.i.i115, i32 %add3.i.i114
   tail call fastcc void @_ZL41_find_quantized_collision_pairs_recursivePK21btGImpactQuantizedBvhS1_P9btPairSetRK26BT_BOX_BOX_TRANSFORM_CACHEiib(ptr noundef nonnull %boxset0, ptr noundef nonnull %boxset1, ptr noundef %collision_pairs, ptr noundef nonnull align 4 dereferenceable(112) %trans_cache_1to0, i32 noundef %retval.0.i.i117, i32 noundef %add.i.i100, i1 noundef zeroext false)
   %23 = load ptr, ptr %m_data.i.i.i, align 8
   %m_escapeIndexOrDataIndex.i.i.i122 = getelementptr inbounds %struct.BT_QUANTIZED_BVH_NODE, ptr %23, i64 %idxprom.i.i.i112, i32 2
   %24 = load i32, ptr %m_escapeIndexOrDataIndex.i.i.i122, align 4
-  %add9.i.i124 = sub i32 %add.i.i90, %24
+  %add9.i.i124 = sub nsw i32 %add.i.i90, %24
   %cmp.i8.i.i125 = icmp slt i32 %24, 0
   %retval.0.i.i126 = select i1 %cmp.i8.i.i125, i32 %add9.i.i124, i32 %add3.i.i114
   %25 = load ptr, ptr %m_data.i.i.i71, align 8
   %m_escapeIndexOrDataIndex.i.i.i130 = getelementptr inbounds %struct.BT_QUANTIZED_BVH_NODE, ptr %25, i64 %idxprom.i.i.i104, i32 2
   %26 = load i32, ptr %m_escapeIndexOrDataIndex.i.i.i130, align 4
-  %add9.i.i132 = sub i32 %add.i.i100, %26
+  %add9.i.i132 = sub nsw i32 %add.i.i100, %26
   %cmp.i8.i.i133 = icmp slt i32 %26, 0
   %retval.0.i.i134 = select i1 %cmp.i8.i.i133, i32 %add9.i.i132, i32 %add3.i.i106
   br label %tailrecurse.outer.backedge

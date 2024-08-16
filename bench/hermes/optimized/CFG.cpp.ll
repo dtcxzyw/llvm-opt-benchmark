@@ -14103,7 +14103,7 @@ for.body.i.i.i.i.preheader.i.i:                   ; preds = %if.end.i.i.thread16
 for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i, %for.body.i.i.i.i.preheader.i.i
   %agg.tmp.sroa.2.0.i.i.i.i.i = phi i32 [ %add.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %call.i.i.i.i, %for.body.i.i.i.i.preheader.i.i ]
   %__cur.07.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %add.ptr.i.i.i, %for.body.i.i.i.i.preheader.i.i ]
-  %add.i.i.i.i.i.i.i.i.i.i = add i32 %agg.tmp.sroa.2.0.i.i.i.i.i, -1
+  %add.i.i.i.i.i.i.i.i.i.i = add nsw i32 %agg.tmp.sroa.2.0.i.i.i.i.i, -1
   %call.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZNK6hermes14TerminatorInst12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(132) %call.i.i2.i, i32 noundef %add.i.i.i.i.i.i.i.i.i.i) #13
   store ptr %call.i.i.i.i.i.i.i.i, ptr %__cur.07.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i, i64 8

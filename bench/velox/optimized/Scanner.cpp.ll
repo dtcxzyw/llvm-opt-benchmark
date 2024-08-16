@@ -1393,7 +1393,7 @@ if.then51:                                        ; preds = %while.body
   %mul = shl nuw nsw i32 %23, 1
   %.nonneg = sub i32 0, %23
   %div2830 = lshr i32 %.nonneg, 3
-  %add57 = sub i32 %23, %div2830
+  %add57 = sub nsw i32 %23, %div2830
   %storemerge23 = select i1 %cmp53, i32 %add57, i32 %mul
   store i32 %storemerge23, ptr %yy_buf_size52, align 8
   %add64 = add nsw i32 %storemerge23, 2

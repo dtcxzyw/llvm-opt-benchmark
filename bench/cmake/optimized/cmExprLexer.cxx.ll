@@ -897,7 +897,7 @@ _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %.lr.ph.i167, %322
   %395 = shl nuw nsw i32 %382, 1
   %.nonneg.i = sub i32 0, %382
   %396 = lshr i32 %.nonneg.i, 3
-  %397 = sub i32 %382, %396
+  %397 = sub nsw i32 %382, %396
   %storemerge109.i = select i1 %394, i32 %397, i32 %395
   store i32 %storemerge109.i, ptr %393, align 8
   %398 = add nsw i32 %storemerge109.i, 2

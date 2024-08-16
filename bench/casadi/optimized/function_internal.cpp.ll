@@ -25379,7 +25379,7 @@ _ZNSt6vectorIxSaIxEE9push_backERKx.exit:          ; preds = %_ZNSt6vectorIxSaIxE
           to label %.preheader744 unwind label %.loopexit.split-lp735.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .preheader744:                                    ; preds = %558
-  %560 = sub i64 %.01861012, %.11791013
+  %560 = sub nsw i64 %.01861012, %.11791013
   br label %561
 
 561:                                              ; preds = %.preheader744, %._crit_edge1001
@@ -29897,7 +29897,7 @@ _ZNSt6vectorIxSaIxEE9push_backERKx.exit493:       ; preds = %_ZNSt6vectorIxSaIxE
           to label %.preheader858 unwind label %.loopexit.split-lp850.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .preheader858:                                    ; preds = %833
-  %835 = sub i64 %.02121019, %.12171018
+  %835 = sub nsw i64 %.02121019, %.12171018
   br label %836
 
 836:                                              ; preds = %.preheader858, %._crit_edge1007

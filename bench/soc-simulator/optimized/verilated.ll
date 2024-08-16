@@ -10909,7 +10909,7 @@ _ZN9Verilated14threadContextpEv.exit:             ; preds = %6, %_ZN9Verilated12
   %.0.i = select i1 %28, i32 %32, i32 %27
   %33 = getelementptr inbounds i8, ptr %25, i64 80
   %34 = load i32, ptr %33, align 8
-  %35 = sub i32 %34, %.0.i
+  %35 = sub nsw i32 %34, %.0.i
   %36 = add nsw i32 %35, %3
   %37 = icmp slt i32 %36, 0
   %38 = sub nsw i32 0, %36
@@ -11424,7 +11424,7 @@ _ZN9Verilated14threadContextpEv.exit:             ; preds = %6, %_ZN9Verilated12
   %.0.i = select i1 %36, i32 %40, i32 %35
   %41 = getelementptr inbounds i8, ptr %33, i64 80
   %42 = load i32, ptr %41, align 8
-  %43 = sub i32 %42, %.0.i
+  %43 = sub nsw i32 %42, %.0.i
   %44 = add nsw i32 %43, %3
   %45 = trunc i64 %2 to i32
   store i32 %45, ptr %9, align 4

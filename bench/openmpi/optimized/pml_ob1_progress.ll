@@ -982,7 +982,7 @@ get_request_from_send_pending.exit._crit_edge:    ; preds = %add_request_to_send
 
 442:                                              ; preds = %435
   %443 = load volatile i32, ptr @mca_pml_ob1_progress_needed, align 4
-  %444 = sub i32 %443, %.026.lcssa
+  %444 = sub nsw i32 %443, %.026.lcssa
   store volatile i32 %444, ptr @mca_pml_ob1_progress_needed, align 4
   %445 = load volatile i32, ptr @mca_pml_ob1_progress_needed, align 4
   br label %opal_thread_add_fetch_32.exit

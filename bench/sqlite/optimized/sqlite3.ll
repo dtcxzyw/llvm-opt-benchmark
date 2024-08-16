@@ -109519,7 +109519,7 @@ define internal fastcc range(i32 0, 2) i32 @sqlite3SubInt64(ptr nocapture nounde
   br i1 %21, label %sqlite3AddInt64.exit, label %22
 
 22:                                               ; preds = %18, %16, %11
-  %23 = sub i64 %4, %1
+  %23 = sub nsw i64 %4, %1
   br label %sqlite3AddInt64.exit.sink.split
 
 sqlite3AddInt64.exit.sink.split:                  ; preds = %7, %22

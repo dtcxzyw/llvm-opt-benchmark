@@ -4246,13 +4246,13 @@ _ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext
   %587 = load i32, ptr %586, align 8
   %588 = getelementptr inbounds i8, ptr %0, i64 656
   %589 = load i32, ptr %588, align 8
-  %590 = sub i32 %589, %587
+  %590 = sub nsw i32 %589, %587
   %591 = sitofp i32 %590 to double
   %592 = getelementptr inbounds i8, ptr %0, i64 500
   %593 = load i32, ptr %592, align 4
   %594 = getelementptr inbounds i8, ptr %0, i64 660
   %595 = load i32, ptr %594, align 4
-  %596 = sub i32 %595, %593
+  %596 = sub nsw i32 %595, %593
   %597 = sitofp i32 %596 to double
   call void @_ZN8Paintbox15movePixmapDeltaEdd(ptr noundef nonnull align 8 dereferenceable(844) %585, double noundef %591, double noundef %597)
   br label %598

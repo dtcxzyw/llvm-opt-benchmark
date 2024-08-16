@@ -763,7 +763,7 @@ yy_get_next_buffer.exit.thread.backedge:          ; preds = %243, %yy_get_next_b
   %275 = shl nuw nsw i32 %262, 1
   %.nonneg.i = sub i32 0, %262
   %276 = lshr i32 %.nonneg.i, 3
-  %277 = sub i32 %262, %276
+  %277 = sub nsw i32 %262, %276
   %storemerge42.i = select i1 %274, i32 %277, i32 %275
   store i32 %storemerge42.i, ptr %273, align 8
   %278 = add nsw i32 %storemerge42.i, 2

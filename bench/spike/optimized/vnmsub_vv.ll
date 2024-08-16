@@ -409,7 +409,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %188 = load i32, ptr %187, align 4
   %189 = load i32, ptr %184, align 4
   %190 = mul nsw i32 %189, %186
-  %191 = sub i32 %188, %190
+  %191 = sub nsw i32 %188, %190
   store i32 %191, ptr %184, align 4
   br label %201
 
@@ -421,7 +421,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %197 = load i64, ptr %196, align 8
   %198 = load i64, ptr %193, align 8
   %199 = mul nsw i64 %198, %195
-  %200 = sub i64 %197, %199
+  %200 = sub nsw i64 %197, %199
   store i64 %200, ptr %193, align 8
   br label %201
 
@@ -804,7 +804,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %188 = load i32, ptr %187, align 4
   %189 = load i32, ptr %184, align 4
   %190 = mul nsw i32 %189, %186
-  %191 = sub i32 %188, %190
+  %191 = sub nsw i32 %188, %190
   store i32 %191, ptr %184, align 4
   br label %201
 
@@ -816,7 +816,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %197 = load i64, ptr %196, align 8
   %198 = load i64, ptr %193, align 8
   %199 = mul nsw i64 %198, %195
-  %200 = sub i64 %197, %199
+  %200 = sub nsw i64 %197, %199
   store i64 %200, ptr %193, align 8
   br label %201
 
@@ -1166,7 +1166,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %188 = load i32, ptr %187, align 4
   %189 = load i32, ptr %184, align 4
   %190 = mul nsw i32 %189, %186
-  %191 = sub i32 %188, %190
+  %191 = sub nsw i32 %188, %190
   store i32 %191, ptr %184, align 4
   br label %201
 
@@ -1178,7 +1178,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %197 = load i64, ptr %196, align 8
   %198 = load i64, ptr %193, align 8
   %199 = mul nsw i64 %198, %195
-  %200 = sub i64 %197, %199
+  %200 = sub nsw i64 %197, %199
   store i64 %200, ptr %193, align 8
   br label %201
 
@@ -1530,7 +1530,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %188 = load i32, ptr %187, align 4
   %189 = load i32, ptr %184, align 4
   %190 = mul nsw i32 %189, %186
-  %191 = sub i32 %188, %190
+  %191 = sub nsw i32 %188, %190
   store i32 %191, ptr %184, align 4
   br label %201
 
@@ -1542,7 +1542,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %197 = load i64, ptr %196, align 8
   %198 = load i64, ptr %193, align 8
   %199 = mul nsw i64 %198, %195
-  %200 = sub i64 %197, %199
+  %200 = sub nsw i64 %197, %199
   store i64 %200, ptr %193, align 8
   br label %201
 
@@ -1892,7 +1892,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %188 = load i32, ptr %187, align 4
   %189 = load i32, ptr %184, align 4
   %190 = mul nsw i32 %189, %186
-  %191 = sub i32 %188, %190
+  %191 = sub nsw i32 %188, %190
   store i32 %191, ptr %184, align 4
   br label %201
 
@@ -1904,7 +1904,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %197 = load i64, ptr %196, align 8
   %198 = load i64, ptr %193, align 8
   %199 = mul nsw i64 %198, %195
-  %200 = sub i64 %197, %199
+  %200 = sub nsw i64 %197, %199
   store i64 %200, ptr %193, align 8
   br label %201
 
@@ -2256,7 +2256,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %188 = load i32, ptr %187, align 4
   %189 = load i32, ptr %184, align 4
   %190 = mul nsw i32 %189, %186
-  %191 = sub i32 %188, %190
+  %191 = sub nsw i32 %188, %190
   store i32 %191, ptr %184, align 4
   br label %201
 
@@ -2268,7 +2268,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %197 = load i64, ptr %196, align 8
   %198 = load i64, ptr %193, align 8
   %199 = mul nsw i64 %198, %195
-  %200 = sub i64 %197, %199
+  %200 = sub nsw i64 %197, %199
   store i64 %200, ptr %193, align 8
   br label %201
 
@@ -2618,7 +2618,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %188 = load i32, ptr %187, align 4
   %189 = load i32, ptr %184, align 4
   %190 = mul nsw i32 %189, %186
-  %191 = sub i32 %188, %190
+  %191 = sub nsw i32 %188, %190
   store i32 %191, ptr %184, align 4
   br label %201
 
@@ -2630,7 +2630,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %197 = load i64, ptr %196, align 8
   %198 = load i64, ptr %193, align 8
   %199 = mul nsw i64 %198, %195
-  %200 = sub i64 %197, %199
+  %200 = sub nsw i64 %197, %199
   store i64 %200, ptr %193, align 8
   br label %201
 
@@ -2982,7 +2982,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %188 = load i32, ptr %187, align 4
   %189 = load i32, ptr %184, align 4
   %190 = mul nsw i32 %189, %186
-  %191 = sub i32 %188, %190
+  %191 = sub nsw i32 %188, %190
   store i32 %191, ptr %184, align 4
   br label %201
 
@@ -2994,7 +2994,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %197 = load i64, ptr %196, align 8
   %198 = load i64, ptr %193, align 8
   %199 = mul nsw i64 %198, %195
-  %200 = sub i64 %197, %199
+  %200 = sub nsw i64 %197, %199
   store i64 %200, ptr %193, align 8
   br label %201
 

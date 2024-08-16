@@ -1934,7 +1934,7 @@ _ZN8GraphKit11set_controlEP4Node.exit:            ; preds = %_ZN4Node7del_outEPS
   %84 = sext i8 %83 to i32
   %85 = getelementptr inbounds i8, ptr %0, i64 80
   %86 = load i32, ptr %85, align 8
-  %87 = sub i32 %86, %84
+  %87 = sub nsw i32 %86, %84
   store i32 %87, ptr %85, align 8
   %88 = call noundef ptr @_ZN8GraphKit13uncommon_trapEiP7ciKlassPKcbb(ptr noundef nonnull align 8 dereferenceable(84) %0, i32 noundef -179, ptr noundef null, ptr noundef nonnull @.str.6, i1 noundef zeroext false, i1 noundef zeroext false) #15
   br label %90
@@ -2214,7 +2214,7 @@ _ZN8GraphKit11set_controlEP4Node.exit:            ; preds = %_ZN4Node7del_outEPS
   %84 = sext i8 %83 to i32
   %85 = getelementptr inbounds i8, ptr %0, i64 80
   %86 = load i32, ptr %85, align 8
-  %87 = sub i32 %86, %84
+  %87 = sub nsw i32 %86, %84
   store i32 %87, ptr %85, align 8
   %88 = call noundef ptr @_ZN8GraphKit13uncommon_trapEiP7ciKlassPKcbb(ptr noundef nonnull align 8 dereferenceable(84) %0, i32 noundef -179, ptr noundef null, ptr noundef nonnull @.str.7, i1 noundef zeroext false, i1 noundef zeroext false) #15
   br label %90
@@ -2364,7 +2364,7 @@ define hidden void @_ZN5Parse19jump_if_always_forkEib(ptr noundef nonnull align 
   %10 = sext i8 %9 to i32
   %11 = getelementptr inbounds i8, ptr %0, i64 80
   %12 = load i32, ptr %11, align 8
-  %13 = sub i32 %12, %10
+  %13 = sub nsw i32 %12, %10
   store i32 %13, ptr %11, align 8
   %14 = tail call noundef ptr @_ZN8GraphKit13uncommon_trapEiP7ciKlassPKcbb(ptr noundef nonnull align 8 dereferenceable(84) %0, i32 noundef -179, ptr noundef null, ptr noundef nonnull @.str.7, i1 noundef zeroext false, i1 noundef zeroext false) #15
   br label %16
@@ -3051,7 +3051,7 @@ define hidden void @_ZN5Parse18jump_switch_rangesEP4NodeP11SwitchRangeS3_i(ptr n
   %73 = sext i8 %72 to i32
   %74 = getelementptr inbounds i8, ptr %0, i64 80
   %75 = load i32, ptr %74, align 8
-  %76 = sub i32 %75, %73
+  %76 = sub nsw i32 %75, %73
   store i32 %76, ptr %74, align 8
   %77 = tail call noundef ptr @_ZN8GraphKit13uncommon_trapEiP7ciKlassPKcbb(ptr noundef nonnull align 8 dereferenceable(84) %0, i32 noundef -179, ptr noundef null, ptr noundef nonnull @.str.7, i1 noundef zeroext false, i1 noundef zeroext false) #15
   br label %_ZN5Parse19jump_if_always_forkEib.exit
@@ -3829,7 +3829,7 @@ _ZN8GraphKit11set_controlEP4Node.exit136:         ; preds = %150, %474, %463, %_
   %503 = sext i8 %502 to i32
   %504 = getelementptr inbounds i8, ptr %0, i64 80
   %505 = load i32, ptr %504, align 8
-  %506 = sub i32 %505, %503
+  %506 = sub nsw i32 %505, %503
   store i32 %506, ptr %504, align 8
   %507 = call noundef ptr @_ZN8GraphKit13uncommon_trapEiP7ciKlassPKcbb(ptr noundef nonnull align 8 dereferenceable(84) %0, i32 noundef -179, ptr noundef null, ptr noundef nonnull @.str.7, i1 noundef zeroext false, i1 noundef zeroext false) #15
   br label %_ZN5Parse19jump_if_always_forkEib.exit
@@ -5754,7 +5754,7 @@ _ZN8GraphKit11set_controlEP4Node.exit:            ; preds = %_ZN4Node7del_outEPS
   %395 = load i8, ptr %394, align 1
   %396 = sext i8 %395 to i32
   %397 = load i32, ptr %298, align 8
-  %398 = sub i32 %397, %396
+  %398 = sub nsw i32 %397, %396
   store i32 %398, ptr %298, align 8
   %399 = call noundef ptr @_ZN8GraphKit13uncommon_trapEiP7ciKlassPKcbb(ptr noundef nonnull align 8 dereferenceable(84) %0, i32 noundef -179, ptr noundef null, ptr noundef nonnull @.str.7, i1 noundef zeroext false, i1 noundef zeroext false) #15
   br label %_ZN5Parse19jump_if_always_forkEib.exit
@@ -6968,7 +6968,7 @@ _ZNK16ciBytecodeStream8get_destEv.exit:           ; preds = %3, %11
   %41 = sext i8 %40 to i32
   %42 = getelementptr inbounds i8, ptr %0, i64 80
   %43 = load i32, ptr %42, align 8
-  %44 = sub i32 %43, %41
+  %44 = sub nsw i32 %43, %41
   store i32 %44, ptr %42, align 8
   %45 = tail call noundef ptr @_ZN8GraphKit13uncommon_trapEiP7ciKlassPKcbb(ptr noundef nonnull align 8 dereferenceable(84) %0, i32 noundef -99, ptr noundef null, ptr noundef nonnull @.str.18, i1 noundef zeroext false, i1 noundef zeroext false) #15
   %46 = getelementptr inbounds i8, ptr %0, i64 16
@@ -7509,7 +7509,7 @@ _ZNK5Parse5Block11is_SEL_headEv.exit.i:           ; preds = %24, %.preheader.i.i
   %35 = sext i8 %34 to i32
   %36 = getelementptr inbounds i8, ptr %0, i64 80
   %37 = load i32, ptr %36, align 8
-  %38 = sub i32 %37, %35
+  %38 = sub nsw i32 %37, %35
   store i32 %38, ptr %36, align 8
   tail call void @_ZN8GraphKit20add_parse_predicatesEi(ptr noundef nonnull align 8 dereferenceable(84) %0, i32 noundef 0) #15
   %39 = load i32, ptr %36, align 8
@@ -7563,7 +7563,7 @@ _ZNK5Parse34path_is_suitable_for_uncommon_trapEf.exit: ; preds = %45
   %74 = sext i8 %73 to i32
   %75 = getelementptr inbounds i8, ptr %0, i64 80
   %76 = load i32, ptr %75, align 8
-  %77 = sub i32 %76, %74
+  %77 = sub nsw i32 %76, %74
   store i32 %77, ptr %75, align 8
   %78 = select i1 %68, ptr @.str.6, ptr @.str.7
   %79 = tail call noundef ptr @_ZN8GraphKit13uncommon_trapEiP7ciKlassPKcbb(ptr noundef nonnull align 8 dereferenceable(84) %0, i32 noundef -179, ptr noundef null, ptr noundef nonnull %78, i1 noundef zeroext false, i1 noundef zeroext false) #15
@@ -7733,7 +7733,7 @@ _ZNK5Parse5Block11is_SEL_headEv.exit.i43:         ; preds = %174, %.preheader.i.
   %185 = sext i8 %184 to i32
   %186 = getelementptr inbounds i8, ptr %0, i64 80
   %187 = load i32, ptr %186, align 8
-  %188 = sub i32 %187, %185
+  %188 = sub nsw i32 %187, %185
   store i32 %188, ptr %186, align 8
   tail call void @_ZN8GraphKit20add_parse_predicatesEi(ptr noundef nonnull align 8 dereferenceable(84) %0, i32 noundef 0) #15
   %189 = load i32, ptr %186, align 8
@@ -7795,7 +7795,7 @@ _ZNK5Parse5Block11is_SEL_headEv.exit.i50:         ; preds = %206, %.preheader.i.
   %217 = sext i8 %216 to i32
   %218 = getelementptr inbounds i8, ptr %0, i64 80
   %219 = load i32, ptr %218, align 8
-  %220 = sub i32 %219, %217
+  %220 = sub nsw i32 %219, %217
   store i32 %220, ptr %218, align 8
   tail call void @_ZN8GraphKit20add_parse_predicatesEi(ptr noundef nonnull align 8 dereferenceable(84) %0, i32 noundef 0) #15
   %221 = load i32, ptr %218, align 8
@@ -7861,7 +7861,7 @@ _ZNK16ciBytecodeStream8get_destEv.exit:           ; preds = %3, %11
   %42 = sext i8 %41 to i32
   %43 = getelementptr inbounds i8, ptr %0, i64 80
   %44 = load i32, ptr %43, align 8
-  %45 = sub i32 %44, %42
+  %45 = sub nsw i32 %44, %42
   store i32 %45, ptr %43, align 8
   %46 = tail call noundef ptr @_ZN8GraphKit13uncommon_trapEiP7ciKlassPKcbb(ptr noundef nonnull align 8 dereferenceable(84) %0, i32 noundef -99, ptr noundef null, ptr noundef nonnull @.str.18, i1 noundef zeroext false, i1 noundef zeroext false) #15
   %47 = getelementptr inbounds i8, ptr %0, i64 16
@@ -8373,7 +8373,7 @@ _ZNK5Parse5Block11is_SEL_headEv.exit:             ; preds = %16, %.preheader.i.i
   %27 = sext i8 %26 to i32
   %28 = getelementptr inbounds i8, ptr %0, i64 80
   %29 = load i32, ptr %28, align 8
-  %30 = sub i32 %29, %27
+  %30 = sub nsw i32 %29, %27
   store i32 %30, ptr %28, align 8
   tail call void @_ZN8GraphKit20add_parse_predicatesEi(ptr noundef nonnull align 8 dereferenceable(84) %0, i32 noundef 0) #15
   %31 = load i32, ptr %28, align 8

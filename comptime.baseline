@@ -1063,7 +1063,7 @@ abseil-cpp/city_test.cc.ll 226543300
 abseil-cpp/civil_time.cc.ll 755001435
 abseil-cpp/civil_time_test.cc.ll 8986309637
 abseil-cpp/cleanup_test.cc.ll 4913432561
-abseil-cpp/clock.cc.ll 97672884
+abseil-cpp/clock.cc.ll 97539934
 abseil-cpp/clock_test.cc.ll 468986521
 abseil-cpp/commandlineflag_test.cc.ll 1172926601
 abseil-cpp/common_policy_traits_test.cc.ll 3212376815
@@ -1655,7 +1655,7 @@ arrow/encode_internal_avx2.cc.ll 317119562
 arrow/exec.cc.ll 5359488660
 arrow/expression.cc.ll 13224423657
 arrow/extension_type.cc.ll 1277665543
-arrow/fast-dtoa.cc.ll 558681944
+arrow/fast-dtoa.cc.ll 557637761
 arrow/feather.cc.ll 5338743555
 arrow/file.cc.ll 2558186566
 arrow/fixed-dtoa.cc.ll 310482057
@@ -2884,7 +2884,7 @@ clamav/ooxml.c.ll 141037584
 clamav/openioc.c.ll 164229095
 clamav/options.cpp.ll 41395239
 clamav/optparser.c.ll 452561653
-clamav/others.c.ll 459895272
+clamav/others.c.ll 459081456
 clamav/others_common.c.ll 365137974
 clamav/output.c.ll 210009926
 clamav/packlibs.c.ll 283737256
@@ -2990,7 +2990,7 @@ clamav/yara_compiler.c.ll 65761742
 clamav/yara_exec.c.ll 340438248
 clamav/yara_grammar.c.ll 573549826
 clamav/yara_hash.c.ll 99021933
-clamav/yara_lexer.c.ll 587085441
+clamav/yara_lexer.c.ll 586461820
 clamav/yara_parser.c.ll 154624161
 clamav/yc.c.ll 129538413
 clap-rs/12lunjyzw3envsrt.ll 1113282431
@@ -3379,7 +3379,7 @@ cmake/cmFortranParser.cxx.ll 247241218
 cmake/cmFortranParserImpl.cxx.ll 779098457
 cmake/cmFunctionBlocker.cxx.ll 291630227
 cmake/cmFunctionCommand.cxx.ll 1205893771
-cmake/cmGccDepfileLexer.cxx.ll 473681858
+cmake/cmGccDepfileLexer.cxx.ll 473115310
 cmake/cmGccDepfileLexerHelper.cxx.ll 584110575
 cmake/cmGeneratedFileStream.cxx.ll 170618969
 cmake/cmGeneratorExpression.cxx.ll 1322898162
@@ -3681,7 +3681,7 @@ cmake/http_chunks.c.ll 121496053
 cmake/http_ntlm.c.ll 73433103
 cmake/http_proxy.c.ll 116613492
 cmake/huf_compress.c.ll 1097333611
-cmake/huf_decompress.c.ll 2625235847
+cmake/huf_decompress.c.ll 2621229754
 cmake/huffman.c.ll 171895499
 cmake/ia64.c.ll 75613191
 cmake/idn.c.ll 63269703
@@ -3727,7 +3727,7 @@ cmake/nghttp2_callbacks.c.ll 56727898
 cmake/nghttp2_frame.c.ll 292024665
 cmake/nghttp2_hd.c.ll 926677672
 cmake/nghttp2_hd_huffman.c.ll 92237075
-cmake/nghttp2_helper.c.ll 111731393
+cmake/nghttp2_helper.c.ll 111532547
 cmake/nghttp2_http.c.ll 534039989
 cmake/nghttp2_map.c.ll 149522049
 cmake/nghttp2_npn.c.ll 51945306
@@ -3834,7 +3834,7 @@ cmake/zstd_compress_literals.c.ll 106489511
 cmake/zstd_compress_sequences.c.ll 326241743
 cmake/zstd_compress_superblock.c.ll 468236126
 cmake/zstd_decompress.c.ll 905235674
-cmake/zstd_decompress_block.c.ll 2998820513
+cmake/zstd_decompress_block.c.ll 2994785227
 cmake/zstd_double_fast.c.ll 4222171971
 cmake/zstd_fast.c.ll 3880133338
 cmake/zstd_lazy.c.ll 14499028965
@@ -4877,7 +4877,7 @@ cpython/_collectionsmodule.ll 939871956
 cpython/_contextvarsmodule.ll 40119059
 cpython/_csv.ll 649509696
 cpython/_ctypes.ll 1667032075
-cpython/_ctypes_test.ll 241165686
+cpython/_ctypes_test.ll 240920982
 cpython/_curses_panel.ll 229727423
 cpython/_cursesmodule.ll 1854834827
 cpython/_datetimemodule.ll 2646930860
@@ -4973,7 +4973,7 @@ cpython/datetime.ll 184347607
 cpython/descrobject.ll 605850974
 cpython/dict.ll 174624348
 cpython/dictobject.ll 2825482808
-cpython/difradix2.ll 242492292
+cpython/difradix2.ll 242127129
 cpython/docstring.ll 40697129
 cpython/dtoa.ll 1531907956
 cpython/dynload_shlib.ll 57006728
@@ -5881,7 +5881,7 @@ cvc5/theory_model.cpp.ll 4512070425
 cvc5/theory_model_builder.cpp.ll 6766381907
 cvc5/theory_options.cpp.ll 102445881
 cvc5/theory_preprocess.cpp.ll 345428043
-cvc5/theory_preprocessor.cpp.ll 3093300588
+cvc5/theory_preprocessor.cpp.ll 3089648806
 cvc5/theory_preregistrar.cpp.ll 350285796
 cvc5/theory_proof_step_buffer.cpp.ll 1667696739
 cvc5/theory_proxy.cpp.ll 1502682305
@@ -6586,7 +6586,7 @@ double_conversion/bignum-dtoa.cc.ll 170070955
 double_conversion/bignum.cc.ll 654464286
 double_conversion/cached-powers.cc.ll 45587373
 double_conversion/double-to-string.cc.ll 227181171
-double_conversion/fast-dtoa.cc.ll 558062813
+double_conversion/fast-dtoa.cc.ll 557358121
 double_conversion/fixed-dtoa.cc.ll 310198882
 double_conversion/string-to-double.cc.ll 1365086361
 double_conversion/strtod.cc.ll 416900622
@@ -6836,7 +6836,7 @@ eastl/BenchmarkSort.cpp.ll 14078686880
 eastl/BenchmarkString.cpp.ll 3080652660
 eastl/BenchmarkTupleVector.cpp.ll 3732703889
 eastl/BenchmarkVector.cpp.ll 1938433656
-eastl/EACallback.cpp.ll 273122509
+eastl/EACallback.cpp.ll 272840076
 eastl/EADateTime.cpp.ll 1146278798
 eastl/EAFixedPoint.cpp.ll 54430926
 eastl/EAGlobal.cpp.ll 116953602
@@ -7460,7 +7460,7 @@ freetype/psaux.c.ll 4208818281
 freetype/pshinter.c.ll 1586742804
 freetype/psnames.c.ll 213093819
 freetype/raster.c.ll 780864991
-freetype/sdf.c.ll 1997885891
+freetype/sdf.c.ll 2000028753
 freetype/sfnt.c.ll 5728891177
 freetype/smooth.c.ll 600006251
 freetype/svg.c.ll 87991346
@@ -7969,7 +7969,7 @@ graphviz/geom.c.ll 84194056
 graphviz/geometry.c.ll 52164190
 graphviz/gml2gv.c.ll 163309518
 graphviz/gmlparse.c.ll 765909821
-graphviz/gmlscan.c.ll 502026450
+graphviz/gmlscan.c.ll 501418263
 graphviz/gprstate.c.ll 68295035
 graphviz/grammar.c.ll 385033970
 graphviz/graph.c.ll 113873101
@@ -8349,7 +8349,7 @@ gromacs/dger.cpp.ll 75877288
 gromacs/dgesdd.cpp.ll 150440930
 gromacs/dgetf2.cpp.ll 62160531
 gromacs/dgetrf.cpp.ll 72563072
-gromacs/dgetri.cpp.ll 122042118
+gromacs/dgetri.cpp.ll 121746193
 gromacs/dgetrs.cpp.ll 42155826
 gromacs/dict.c.ll 50917692
 gromacs/directoryenumerator.cpp.ll 727358140
@@ -8451,7 +8451,7 @@ gromacs/dsymv.cpp.ll 161745758
 gromacs/dsyr2.cpp.ll 132332013
 gromacs/dsyr2k.cpp.ll 280968449
 gromacs/dsytd2.cpp.ll 80110343
-gromacs/dsytrd.cpp.ll 103296259
+gromacs/dsytrd.cpp.ll 103008902
 gromacs/dtrmm.cpp.ll 423737057
 gromacs/dtrmv.cpp.ll 190173318
 gromacs/dtrsm.cpp.ll 427727212
@@ -8878,7 +8878,7 @@ gromacs/p2p_send_recv.cpp.ll 69040625
 gromacs/p2p_wait.cpp.ll 187183766
 gromacs/pairdist.cpp.ll 1334917125
 gromacs/pairlist.cpp.ll 7973750788
-gromacs/pairlist_simd_kernel.cpp.ll 581950717
+gromacs/pairlist_simd_kernel.cpp.ll 580026490
 gromacs/pairlist_tuning.cpp.ll 519175156
 gromacs/pairlistparams.cpp.ll 44622668
 gromacs/pairlistset.cpp.ll 299815009
@@ -9030,7 +9030,7 @@ gromacs/sger.cpp.ll 74775964
 gromacs/sgesdd.cpp.ll 152142737
 gromacs/sgetf2.cpp.ll 61824489
 gromacs/sgetrf.cpp.ll 72508084
-gromacs/sgetri.cpp.ll 121950430
+gromacs/sgetri.cpp.ll 121680605
 gromacs/sgetrs.cpp.ll 42141786
 gromacs/shake.cpp.ll 967267617
 gromacs/shellcompletions.cpp.ll 318751300
@@ -9144,7 +9144,7 @@ gromacs/ssymv.cpp.ll 161766297
 gromacs/ssyr2.cpp.ll 127540737
 gromacs/ssyr2k.cpp.ll 277944196
 gromacs/ssytd2.cpp.ll 79787118
-gromacs/ssytrd.cpp.ll 103338279
+gromacs/ssytrd.cpp.ll 103050875
 gromacs/stat.cpp.ll 268866568
 gromacs/state.cpp.ll 2264181774
 gromacs/state_propagator_data_gpu_impl.cpp.ll 105239190
@@ -10571,7 +10571,7 @@ hyperscan/rose_build_program.cpp.ll 4336232644
 hyperscan/rose_build_role_aliasing.cpp.ll 6723024642
 hyperscan/rose_build_width.cpp.ll 334591173
 hyperscan/rose_in_util.cpp.ll 1366770478
-hyperscan/runtime.c.ll 1080168105
+hyperscan/runtime.c.ll 1078946875
 hyperscan/scratch.c.ll 137046428
 hyperscan/scratch_in_use.cpp.ll 680701753
 hyperscan/scratch_op.cpp.ll 1540265604
@@ -10688,7 +10688,7 @@ icu/double-conversion-bignum-dtoa.ll 170324819
 icu/double-conversion-bignum.ll 654799319
 icu/double-conversion-cached-powers.ll 45676811
 icu/double-conversion-double-to-string.ll 49707996
-icu/double-conversion-fast-dtoa.ll 557744786
+icu/double-conversion-fast-dtoa.ll 556805941
 icu/double-conversion-string-to-double.ll 1344475685
 icu/double-conversion-strtod.ll 417253765
 icu/dtfmtsym.ll 2580471099
@@ -11979,7 +11979,7 @@ libquic/quic_crypto_stream.cc.ll 85871582
 libquic/quic_data_writer.cc.ll 96832527
 libquic/quic_flow_controller.cc.ll 129654762
 libquic/quic_framer.cc.ll 2193542630
-libquic/quic_header_list.cc.ll 1236478718
+libquic/quic_header_list.cc.ll 1234558099
 libquic/quic_headers_stream.cc.ll 503178090
 libquic/quic_multipath_sent_packet_manager.cc.ll 394829370
 libquic/quic_packet_creator.cc.ll 840701870
@@ -15733,7 +15733,7 @@ mimalloc/prim.c.ll 133570238
 mimalloc/random.c.ll 188290820
 mimalloc/segment-map.c.ll 99708143
 mimalloc/segment.c.ll 875048615
-mimalloc/stats.c.ll 295537414
+mimalloc/stats.c.ll 295221719
 minetest/CAnimatedMeshSceneNode.cpp.ll 1121579961
 minetest/CAttributes.cpp.ll 330238842
 minetest/CB3DMeshFileLoader.cpp.ll 1226155324
@@ -16717,7 +16717,7 @@ nghttp2/nghttp2_callbacks.c.ll 57258876
 nghttp2/nghttp2_frame.c.ll 322286242
 nghttp2/nghttp2_hd.c.ll 956264729
 nghttp2/nghttp2_hd_huffman.c.ll 92818539
-nghttp2/nghttp2_helper.c.ll 114226319
+nghttp2/nghttp2_helper.c.ll 114070229
 nghttp2/nghttp2_http.c.ll 319260301
 nghttp2/nghttp2_map.c.ll 144993945
 nghttp2/nghttp2_option.c.ll 62170151
@@ -16881,7 +16881,7 @@ nix/installable-derived-path.ll 3258436078
 nix/installable-flake.ll 6550698237
 nix/installable-value.ll 3035767983
 nix/installables.ll 15156699213
-nix/json-to-value.ll 6500850432
+nix/json-to-value.ll 6494125730
 nix/json-utils.ll 5459550058
 nix/json.ll 1123448244
 nix/keys.ll 392609844
@@ -17001,7 +17001,7 @@ nix/worker.ll 6825591561
 nix/xml-writer.ll 805644586
 nlohmann_json/unit-algorithms.cpp.ll 6488462513
 nlohmann_json/unit-allocator.cpp.ll 3141024674
-nlohmann_json/unit-alt-string.cpp.ll 5739689914
+nlohmann_json/unit-alt-string.cpp.ll 5732409687
 nlohmann_json/unit-assert_macro.cpp.ll 1325222759
 nlohmann_json/unit-binary_formats.cpp.ll 6460853197
 nlohmann_json/unit-bjdata.cpp.ll 30003376552
@@ -18646,7 +18646,7 @@ openblas/dorgl2.c.ll 73420267
 openblas/dorgql.c.ll 120022674
 openblas/dorgr2.c.ll 84284256
 openblas/dorgtsqr.c.ll 60770878
-openblas/dorgtsqr_row.c.ll 94166154
+openblas/dorgtsqr_row.c.ll 93929051
 openblas/dorm22.c.ll 123918534
 openblas/dormql.c.ll 112259515
 openblas/dormrq.c.ll 112564333
@@ -19497,7 +19497,7 @@ opencv/fast_score.cpp.ll 174150227
 opencv/fast_window_binarizer.cpp.ll 448510199
 opencv/fback.cpp.ll 132676649
 opencv/fbs_filter.cpp.ll 42262834
-opencv/feature.cpp.ll 1956473762
+opencv/feature.cpp.ll 1954447251
 opencv/feature2d.cpp.ll 446674003
 opencv/featureColorName.cpp.ll 10254847078
 opencv/feature_evaluator.cpp.ll 155266815
@@ -20369,7 +20369,7 @@ opencv/sr_general100.cpp.ll 508623871
 opencv/ssd_detector.cpp.ll 222357812
 opencv/stabilizer.cpp.ll 1684519673
 opencv/stackblur.cpp.ll 1698721273
-opencv/stardetector.cpp.ll 2299237204
+opencv/stardetector.cpp.ll 2305603736
 opencv/stat.dispatch.cpp.ll 61388272
 opencv/stat_c.cpp.ll 158919813
 opencv/staticSaliency.cpp.ll 127906304
@@ -20739,7 +20739,7 @@ openjdk/DirectAudioDeviceProvider.ll 49420324
 openjdk/Disposer.ll 41991790
 openjdk/Double.ll 35097510
 openjdk/DrawGlyphList.ll 319001922
-openjdk/DrawLine.ll 311602752
+openjdk/DrawLine.ll 311076757
 openjdk/DrawParallelogram.ll 208087888
 openjdk/DrawPath.ll 87114671
 openjdk/DrawPolygons.ll 171453864
@@ -22011,7 +22011,7 @@ openjdk/pngrutil.ll 962187309
 openjdk/pngset.ll 387175061
 openjdk/pngtrans.ll 189412090
 openjdk/portconfig.ll 42695938
-openjdk/postaloc.ll 1117933312
+openjdk/postaloc.ll 1120185355
 openjdk/predicates.ll 429276459
 openjdk/preserveException.ll 86976247
 openjdk/preservedMarks.ll 227381400
@@ -22098,7 +22098,7 @@ openjdk/serialVMOperations.ll 53908827
 openjdk/serviceThread.ll 247036379
 openjdk/sharedRuntime.ll 2532361050
 openjdk/sharedRuntimeTrans.ll 293498518
-openjdk/sharedRuntimeTrig.ll 456927407
+openjdk/sharedRuntimeTrig.ll 456419701
 openjdk/sharedRuntime_x86.ll 76626298
 openjdk/sharedRuntime_x86_64.ll 2542226895
 openjdk/shenandoahAdaptiveHeuristics.ll 274146870
@@ -29399,7 +29399,7 @@ raylib/rcore.c.ll 9413400568
 raylib/rmodels.c.ll 19705162211
 raylib/rshapes.c.ll 742651025
 raylib/rtext.c.ll 5765211931
-raylib/rtextures.c.ll 12752441780
+raylib/rtextures.c.ll 12739574356
 raylib/utils.c.ll 112940832
 rayon-rs/1iwq8xgzg0rclqne.ll 654740088
 rayon-rs/1j5m2t9gtbur4l2z.ll 474279763
@@ -29447,7 +29447,7 @@ re2/tostring.cc.ll 416178248
 readerwriterqueue/bench.cpp.ll 1846075583
 readerwriterqueue/simplethread.cpp.ll 96143818
 recastnavigation/Bench_rcVector.cpp.ll 634321380
-recastnavigation/ChunkyTriMesh.cpp.ll 162599592
+recastnavigation/ChunkyTriMesh.cpp.ll 162351836
 recastnavigation/ConvexVolumeTool.cpp.ll 183354092
 recastnavigation/CrowdTool.cpp.ll 517126049
 recastnavigation/DebugDraw.cpp.ll 329350675
@@ -29723,7 +29723,7 @@ redis/tsd.ll 170084318
 redis/tsd.sym.ll 170081380
 redis/unix.ll 75973816
 redis/util.ll 605633734
-redis/ziplist.ll 639056118
+redis/ziplist.ll 638391322
 redis/zipmap.ll 227370891
 redis/zmalloc.ll 146100805
 regex-rs/10eccrragw6uslmk.ll 3636872565
@@ -32728,8 +32728,8 @@ spike/vnclip_wx.ll 1478846843
 spike/vnclipu_wi.ll 1419972993
 spike/vnclipu_wv.ll 1455433583
 spike/vnclipu_wx.ll 1461982366
-spike/vnmsac_vv.ll 775495000
-spike/vnmsac_vx.ll 797151706
+spike/vnmsac_vv.ll 774078000
+spike/vnmsac_vx.ll 796339510
 spike/vnmsub_vv.ll 774490946
 spike/vnmsub_vx.ll 797549827
 spike/vnsra_wi.ll 976546107
@@ -32907,7 +32907,7 @@ stat-rs/rkxxfn3f5mhspne.ll 464576885
 stat-rs/u5boppws0o3vklz.ll 581615715
 stb/stb_c_lexer.c.ll 207440220
 stb/stb_connected_components.c.ll 550611723
-stb/stb_divide.c.ll 77077343
+stb/stb_divide.c.ll 76830521
 stb/stb_ds.c.ll 433319981
 stb/stb_dxt.c.ll 413514579
 stb/stb_easy_font.c.ll 124281002
@@ -33771,7 +33771,7 @@ verilator/V3Order.cpp.ll 232162548
 verilator/V3OrderGraphBuilder.cpp.ll 1123216040
 verilator/V3OrderMoveGraph.cpp.ll 961521697
 verilator/V3OrderParallel.cpp.ll 6012324527
-verilator/V3OrderProcessDomains.cpp.ll 2219842864
+verilator/V3OrderProcessDomains.cpp.ll 2217560334
 verilator/V3OrderSerial.cpp.ll 821076838
 verilator/V3Os.cpp.ll 290697952
 verilator/V3Param.cpp.ll 6352808985
@@ -37793,12 +37793,12 @@ zstd/zstd_fast.c.ll 3954986686
 zstd/zstd_lazy.c.ll 14895050307
 zstd/zstd_ldm.c.ll 655542613
 zstd/zstd_opt.c.ll 2569950013
-zstd/zstd_v01.c.ll 2972392353
-zstd/zstd_v02.c.ll 2905350495
-zstd/zstd_v03.c.ll 2374085466
-zstd/zstd_v04.c.ll 2459392784
-zstd/zstd_v05.c.ll 1969606588
-zstd/zstd_v06.c.ll 2107104141
+zstd/zstd_v01.c.ll 2963509731
+zstd/zstd_v02.c.ll 2900238502
+zstd/zstd_v03.c.ll 2366777682
+zstd/zstd_v04.c.ll 2454382585
+zstd/zstd_v05.c.ll 1967052394
+zstd/zstd_v06.c.ll 2102344349
 zstd/zstd_v07.c.ll 2276793592
 zstd/zstdmt_compress.c.ll 839789024
 zxing/AZDecoder.cpp.ll 1341582145
@@ -37901,6 +37901,6 @@ zxing/TextDecoder.cpp.ll 116326439
 zxing/TextEncoder.cpp.ll 45838938
 zxing/TextUtfEncoding.cpp.ll 40244284
 zxing/Utf.cpp.ll 198382187
-zxing/WhiteRectDetector.cpp.ll 283035905
+zxing/WhiteRectDetector.cpp.ll 282565617
 zxing/ZXBigInteger.cpp.ll 853299080
 zxing/zueci.c.ll 1593128047

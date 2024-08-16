@@ -180,7 +180,7 @@ define void @dorgtsqr_row_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %121 = sext i32 %120 to i64
   %122 = getelementptr inbounds double, ptr %21, i64 %121
   call void @dlarfb_gett_(ptr noundef nonnull @.str.2, ptr noundef nonnull %16, ptr noundef nonnull %14, ptr noundef nonnull %17, ptr noundef %115, ptr noundef nonnull %7, ptr noundef %119, ptr noundef nonnull %5, ptr noundef %122, ptr noundef nonnull %5, ptr noundef %8, ptr noundef nonnull %17) #5
-  %123 = sub i32 %107, %56
+  %123 = sub nsw i32 %107, %56
   %124 = icmp sgt i32 %123, 0
   %125 = icmp slt i32 %123, 2
   %126 = select i1 %98, i1 %124, i1 %125

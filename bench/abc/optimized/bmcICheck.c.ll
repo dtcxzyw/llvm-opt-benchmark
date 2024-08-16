@@ -866,7 +866,7 @@ sat_solver_add_buffer.exit287:                    ; preds = %.lr.ph384, %357
   br i1 %417, label %418, label %420
 
 418:                                              ; preds = %413
-  %419 = sub i32 %416, %.0.lcssa
+  %419 = sub nsw i32 %416, %.0.lcssa
   store i32 %419, ptr %415, align 4
   %.pre.i307 = load i32, ptr %90, align 8
   br label %420

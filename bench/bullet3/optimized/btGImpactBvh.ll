@@ -1031,7 +1031,7 @@ if.then9:                                         ; preds = %_ZN20btAlignedObjec
   br label %if.end11
 
 if.else:                                          ; preds = %if.end
-  %add = sub i32 %curIndex.040, %8
+  %add = sub nsw i32 %curIndex.040, %8
   br label %if.end11
 
 if.end11:                                         ; preds = %if.else, %if.then9
@@ -1165,7 +1165,7 @@ if.else:                                          ; preds = %if.end
   %14 = load ptr, ptr %m_data.i.i.i, align 8
   %m_escapeIndexOrDataIndex.i.i.i20 = getelementptr inbounds %class.GIM_BVH_TREE_NODE, ptr %14, i64 %idxprom.i.i.i, i32 1
   %15 = load i32, ptr %m_escapeIndexOrDataIndex.i.i.i20, align 4
-  %add = sub i32 %curIndex.022, %15
+  %add = sub nsw i32 %curIndex.022, %15
   br label %if.end11
 
 if.end11:                                         ; preds = %if.else, %if.then9
@@ -1600,7 +1600,7 @@ if.else:                                          ; preds = %if.then2
   %m_escapeIndexOrDataIndex.i.i.i87 = getelementptr inbounds %class.GIM_BVH_TREE_NODE, ptr %17, i64 %idxprom.i.i.i86, i32 1
   %18 = load i32, ptr %m_escapeIndexOrDataIndex.i.i.i87, align 4
   %add3.i.i = add nsw i32 %node1, 2
-  %add9.i.i = sub i32 %add.i.i, %18
+  %add9.i.i = sub nsw i32 %add.i.i, %18
   %cmp.i8.i.i = icmp slt i32 %18, 0
   %retval.0.i.i = select i1 %cmp.i8.i.i, i32 %add9.i.i, i32 %add3.i.i
   call fastcc void @_ZL31_find_collision_pairs_recursiveP12btGImpactBvhS0_P9btPairSetRK26BT_BOX_BOX_TRANSFORM_CACHEiib(ptr noundef nonnull %boxset0, ptr noundef nonnull %boxset1, ptr noundef %collision_pairs, ptr noundef nonnull align 4 dereferenceable(112) %trans_cache_1to0, i32 noundef %node0, i32 noundef %retval.0.i.i, i1 noundef zeroext false)
@@ -1617,7 +1617,7 @@ if.then12:                                        ; preds = %if.else10
   %m_escapeIndexOrDataIndex.i.i.i96 = getelementptr inbounds %class.GIM_BVH_TREE_NODE, ptr %19, i64 %idxprom.i.i.i95, i32 1
   %20 = load i32, ptr %m_escapeIndexOrDataIndex.i.i.i96, align 4
   %add3.i.i97 = add nsw i32 %node0, 2
-  %add9.i.i98 = sub i32 %add.i.i92, %20
+  %add9.i.i98 = sub nsw i32 %add.i.i92, %20
   %cmp.i8.i.i99 = icmp slt i32 %20, 0
   %retval.0.i.i100 = select i1 %cmp.i8.i.i99, i32 %add9.i.i98, i32 %add3.i.i97
   call fastcc void @_ZL31_find_collision_pairs_recursiveP12btGImpactBvhS0_P9btPairSetRK26BT_BOX_BOX_TRANSFORM_CACHEiib(ptr noundef nonnull %boxset0, ptr noundef nonnull %boxset1, ptr noundef %collision_pairs, ptr noundef nonnull align 4 dereferenceable(112) %trans_cache_1to0, i32 noundef %retval.0.i.i100, i32 noundef %node1, i1 noundef zeroext false)
@@ -1631,7 +1631,7 @@ if.else15:                                        ; preds = %if.else10
   %m_escapeIndexOrDataIndex.i.i.i107 = getelementptr inbounds %class.GIM_BVH_TREE_NODE, ptr %21, i64 %idxprom.i.i.i106, i32 1
   %22 = load i32, ptr %m_escapeIndexOrDataIndex.i.i.i107, align 4
   %add3.i.i108 = add nsw i32 %node1, 2
-  %add9.i.i109 = sub i32 %add.i.i102, %22
+  %add9.i.i109 = sub nsw i32 %add.i.i102, %22
   %cmp.i8.i.i110 = icmp slt i32 %22, 0
   %retval.0.i.i111 = select i1 %cmp.i8.i.i110, i32 %add9.i.i109, i32 %add3.i.i108
   call fastcc void @_ZL31_find_collision_pairs_recursiveP12btGImpactBvhS0_P9btPairSetRK26BT_BOX_BOX_TRANSFORM_CACHEiib(ptr noundef nonnull %boxset0, ptr noundef nonnull %boxset1, ptr noundef %collision_pairs, ptr noundef nonnull align 4 dereferenceable(112) %trans_cache_1to0, i32 noundef %add.i.i92, i32 noundef %retval.0.i.i111, i1 noundef zeroext false)
@@ -1640,20 +1640,20 @@ if.else15:                                        ; preds = %if.else10
   %m_escapeIndexOrDataIndex.i.i.i115 = getelementptr inbounds %class.GIM_BVH_TREE_NODE, ptr %23, i64 %idxprom.i.i.i114, i32 1
   %24 = load i32, ptr %m_escapeIndexOrDataIndex.i.i.i115, align 4
   %add3.i.i116 = add nsw i32 %node0, 2
-  %add9.i.i117 = sub i32 %add.i.i92, %24
+  %add9.i.i117 = sub nsw i32 %add.i.i92, %24
   %cmp.i8.i.i118 = icmp slt i32 %24, 0
   %retval.0.i.i119 = select i1 %cmp.i8.i.i118, i32 %add9.i.i117, i32 %add3.i.i116
   call fastcc void @_ZL31_find_collision_pairs_recursiveP12btGImpactBvhS0_P9btPairSetRK26BT_BOX_BOX_TRANSFORM_CACHEiib(ptr noundef nonnull %boxset0, ptr noundef nonnull %boxset1, ptr noundef %collision_pairs, ptr noundef nonnull align 4 dereferenceable(112) %trans_cache_1to0, i32 noundef %retval.0.i.i119, i32 noundef %add.i.i102, i1 noundef zeroext false)
   %25 = load ptr, ptr %m_data.i.i.i.i, align 8
   %m_escapeIndexOrDataIndex.i.i.i124 = getelementptr inbounds %class.GIM_BVH_TREE_NODE, ptr %25, i64 %idxprom.i.i.i114, i32 1
   %26 = load i32, ptr %m_escapeIndexOrDataIndex.i.i.i124, align 4
-  %add9.i.i126 = sub i32 %add.i.i92, %26
+  %add9.i.i126 = sub nsw i32 %add.i.i92, %26
   %cmp.i8.i.i127 = icmp slt i32 %26, 0
   %retval.0.i.i128 = select i1 %cmp.i8.i.i127, i32 %add9.i.i126, i32 %add3.i.i116
   %27 = load ptr, ptr %m_data.i.i.i1.i, align 8
   %m_escapeIndexOrDataIndex.i.i.i132 = getelementptr inbounds %class.GIM_BVH_TREE_NODE, ptr %27, i64 %idxprom.i.i.i106, i32 1
   %28 = load i32, ptr %m_escapeIndexOrDataIndex.i.i.i132, align 4
-  %add9.i.i134 = sub i32 %add.i.i102, %28
+  %add9.i.i134 = sub nsw i32 %add.i.i102, %28
   %cmp.i8.i.i135 = icmp slt i32 %28, 0
   %retval.0.i.i136 = select i1 %cmp.i8.i.i135, i32 %add9.i.i134, i32 %add3.i.i108
   call fastcc void @_ZL31_find_collision_pairs_recursiveP12btGImpactBvhS0_P9btPairSetRK26BT_BOX_BOX_TRANSFORM_CACHEiib(ptr noundef nonnull %boxset0, ptr noundef nonnull %boxset1, ptr noundef %collision_pairs, ptr noundef nonnull align 4 dereferenceable(112) %trans_cache_1to0, i32 noundef %retval.0.i.i128, i32 noundef %retval.0.i.i136, i1 noundef zeroext false)

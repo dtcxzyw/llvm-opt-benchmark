@@ -6158,7 +6158,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
   %_M_node5.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %12 = load ptr, ptr %_M_node5.i.i.i, align 8, !noalias !69
   %sub.i.i.i11 = sub nsw i64 0, %add12.i.i.i
-  %add.i.i.i.i = sub i64 %sub.ptr.div.i.i.i.pre-phi.i, %add12.i.i.i
+  %add.i.i.i.i = sub nsw i64 %sub.ptr.div.i.i.i.pre-phi.i, %add12.i.i.i
   %cmp.i.i.i.i = icmp sgt i64 %add.i.i.i.i, -1
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %cond.false.i.i.i.i
 
@@ -6961,7 +6961,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
   %12 = phi ptr [ %.pre4.i, %if.then.i ], [ %9, %if.then ]
   %13 = phi ptr [ %.pre.i, %if.then.i ], [ %5, %if.then ]
   %sub.i.i.i = sub nsw i64 0, %__n
-  %add.i.i.i.i = sub i64 %sub.ptr.div.i.i.i.pre-phi.i, %__n
+  %add.i.i.i.i = sub nsw i64 %sub.ptr.div.i.i.i.pre-phi.i, %__n
   %cmp.i.i.i.i = icmp sgt i64 %add.i.i.i.i, -1
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %cond.false.i.i.i.i
 
@@ -7183,7 +7183,7 @@ invoke.cont22:                                    ; preds = %invoke.cont
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %34 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
-  %add.i.i.i = sub i64 %sub.ptr.div.i.i.i, %__n
+  %add.i.i.i = sub nsw i64 %sub.ptr.div.i.i.i, %__n
   %cmp.i.i.i = icmp sgt i64 %add.i.i.i, -1
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %cond.false.i.i.i
 
@@ -7487,7 +7487,7 @@ _ZNSt5dequeImSaImEE27_M_reserve_elements_at_backEm.exit: ; preds = %if.then.i.i.
   %sub.ptr.lhs.cast.i.i.i324 = ptrtoint ptr %61 to i64
   %sub.ptr.sub.i.i.i326 = sub i64 %sub.ptr.lhs.cast.i.i.i324, %sub.ptr.rhs.cast.i.i.i286.pre-phi
   %sub.ptr.div.i.i.i327 = ashr exact i64 %sub.ptr.sub.i.i.i326, 3
-  %add.i.i.i328 = sub i64 %sub.ptr.div.i.i.i327, %sub53
+  %add.i.i.i328 = sub nsw i64 %sub.ptr.div.i.i.i327, %sub53
   %cmp.i.i.i329 = icmp sgt i64 %add.i.i.i328, -1
   br i1 %cmp.i.i.i329, label %land.lhs.true.i.i.i340, label %cond.false.i.i.i330
 
@@ -7540,7 +7540,7 @@ if.then58:                                        ; preds = %_ZStmiRKSt15_Deque_
   %sub.ptr.rhs.cast.i.i.i355 = ptrtoint ptr %65 to i64
   %sub.ptr.sub.i.i.i356 = sub i64 %sub.ptr.lhs.cast.i.i.i354, %sub.ptr.rhs.cast.i.i.i355
   %sub.ptr.div.i.i.i357 = ashr exact i64 %sub.ptr.sub.i.i.i356, 3
-  %add.i.i.i358 = sub i64 %sub.ptr.div.i.i.i357, %__n
+  %add.i.i.i358 = sub nsw i64 %sub.ptr.div.i.i.i357, %__n
   %cmp.i.i.i359 = icmp sgt i64 %add.i.i.i358, -1
   br i1 %cmp.i.i.i359, label %land.lhs.true.i.i.i370, label %cond.false.i.i.i360
 
