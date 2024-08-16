@@ -11259,7 +11259,7 @@ ipopt/IpTSymDependencyDetector.ll 163071564
 ipopt/IpTSymLinearSolver.ll 543395411
 ipopt/IpTaggedObject.ll 143665392
 ipopt/IpTimingStatistics.ll 296611228
-ipopt/IpTransposeMatrix.ll 253779828
+ipopt/IpTransposeMatrix.ll 253526029
 ipopt/IpTripletHelper.ll 848827024
 ipopt/IpTripletToCSRConverter.ll 523864864
 ipopt/IpUserScaling.ll 81631618
@@ -19954,7 +19954,7 @@ opencv/ocl_test.cpp.ll 199072317
 opencv/ocr_beamsearch_decoder.cpp.ll 3164064639
 opencv/ocr_hmm_decoder.cpp.ll 4308411152
 opencv/ocr_holistic.cpp.ll 643683825
-opencv/ocr_tesseract.cpp.ll 278818252
+opencv/ocr_tesseract.cpp.ll 278539425
 opencv/odometry.cpp.ll 3032571497
 opencv/odometry_evaluation.cpp.ll 667263769
 opencv/oil.cpp.ll 188197538
