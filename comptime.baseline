@@ -2665,7 +2665,7 @@ ceres/schur_eliminator_2_2_4.cc.ll 18319748753
 ceres/schur_eliminator_2_2_d.cc.ll 17888219166
 ceres/schur_eliminator_2_3_3.cc.ll 18667862237
 ceres/schur_eliminator_2_3_4.cc.ll 19061790564
-ceres/schur_eliminator_2_3_6.cc.ll 19053803740
+ceres/schur_eliminator_2_3_6.cc.ll 19072860855
 ceres/schur_eliminator_2_3_9.cc.ll 19246037290
 ceres/schur_eliminator_2_3_d.cc.ll 18523252020
 ceres/schur_eliminator_2_4_3.cc.ll 18922326704
