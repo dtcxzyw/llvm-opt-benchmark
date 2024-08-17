@@ -4774,7 +4774,7 @@ coreutils-rs/lmnw7208yoqv03v.ll 122428305
 coreutils-rs/loy8e4jcy9kaesh.ll 1846470270
 coreutils-rs/lxs6l3vkum8cy1f.ll 118774301
 coreutils-rs/m5zq6btnq4khxr4.ll 282961496
-coreutils-rs/mw14fam5hmud9wq.ll 37322763
+coreutils-rs/mw14fam5hmud9wq.ll 37360217
 coreutils-rs/mw884w9advpx9w7.ll 182945167
 coreutils-rs/n33cnmvvtvw0rft.ll 122607306
 coreutils-rs/n4hjs6qlpu51thp.ll 343348494
@@ -9060,7 +9060,7 @@ gromacs/slamrg.cpp.ll 59180565
 gromacs/slange.cpp.ll 91207927
 gromacs/slanst.cpp.ll 59799659
 gromacs/slansy.cpp.ll 124256515
-gromacs/slapy2.cpp.ll 38726321
+gromacs/slapy2.cpp.ll 38765085
 gromacs/slar1vx.cpp.ll 193952876
 gromacs/slarf.cpp.ll 42475255
 gromacs/slarfb.cpp.ll 278294509
@@ -16379,7 +16379,7 @@ mold/cmdline.cc.SH4.cc.ll 9670807649
 mold/cmdline.cc.SPARC64.cc.ll 9680819848
 mold/cmdline.cc.X86_64.cc.ll 9685857405
 mold/compress.cc.ll 2122787574
-mold/demangle.cc.ll 155529009
+mold/demangle.cc.ll 155684539
 mold/filepath.cc.ll 199496318
 mold/gc-sections.cc.ALPHA.cc.ll 4305901995
 mold/gc-sections.cc.ARM32.cc.ll 4311737492
@@ -18400,7 +18400,7 @@ oniguruma/iso8859_15.ll 47060518
 oniguruma/iso8859_16.ll 47236834
 oniguruma/iso8859_2.ll 47171766
 oniguruma/iso8859_3.ll 47135720
-oniguruma/iso8859_4.ll 47128323
+oniguruma/iso8859_4.ll 47175462
 oniguruma/iso8859_5.ll 45550610
 oniguruma/iso8859_6.ll 38767666
 oniguruma/iso8859_7.ll 45337146
@@ -23916,7 +23916,7 @@ openmpi/queries.ll 461106577
 openmpi/ras_base_allocate.ll 722805994
 openmpi/ras_base_frame.ll 38839164
 openmpi/ras_base_node.ll 141566498
-openmpi/ras_base_select.ll 37063457
+openmpi/ras_base_select.ll 37100557
 openmpi/ras_pbs_component.ll 40198739
 openmpi/ras_pbs_module.ll 113081565
 openmpi/ras_sim_component.ll 39255670
