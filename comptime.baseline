@@ -5400,7 +5400,7 @@ cvc5/ceg_bv_instantiator_utils.cpp.ll 1307165472
 cvc5/ceg_dt_instantiator.cpp.ll 765346171
 cvc5/ceg_instantiator.cpp.ll 10487463841
 cvc5/ceg_utils.cpp.ll 374275389
-cvc5/cegis.cpp.ll 4471221414
+cvc5/cegis.cpp.ll 4475695235
 cvc5/cegis_core_connective.cpp.ll 5395519199
 cvc5/cegis_unif.cpp.ll 4281417647
 cvc5/check.cpp.ll 125961114
@@ -34425,7 +34425,7 @@ wasmtime-rs/4k23uly17pm0bac4.ll 49246652
 wasmtime-rs/4kfbj1e4an3vjclp.ll 311502328
 wasmtime-rs/4kjqemxk6q4urbyh.ll 35722472
 wasmtime-rs/4krmo5yuqbsteeuo.ll 1400784245
-wasmtime-rs/4ks3lu37dr8dhwdj.ll 37418884
+wasmtime-rs/4ks3lu37dr8dhwdj.ll 37456378
 wasmtime-rs/4m5zcpduwo4in0sh.ll 1602741581
 wasmtime-rs/4mhzt4bue6j9nl9q.ll 1403773814
 wasmtime-rs/4nkh38vfk0kb3m00.ll 180929515
