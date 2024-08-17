@@ -1549,7 +1549,7 @@ anki-rs/139hbm22unmnzc5x.ll 80896187
 anki-rs/1uaqk007tqhuyb5l.ll 82713924
 anki-rs/1wav3jgc9yfcjc1.ll 79820748
 anki-rs/22lei7qbgq6q4wqu.ll 298298463
-anki-rs/242w8kogp1366avu.ll 43852032
+anki-rs/242w8kogp1366avu.ll 43896086
 anki-rs/2bx0w5w13uk9h60p.ll 100825936
 anki-rs/2c14k37euo1vpe62.ll 52500020
 anki-rs/2e6g9zuu2nvjpnsh.ll 47345790
@@ -11245,7 +11245,7 @@ ipopt/IpSlackBasedTSymScalingMethod.ll 225321657
 ipopt/IpSolveStatistics.ll 83813048
 ipopt/IpStdAugSystemSolver.ll 941552513
 ipopt/IpStdCInterface.ll 239676644
-ipopt/IpStdFInterface.ll 121652134
+ipopt/IpStdFInterface.ll 121773857
 ipopt/IpStdInterfaceTNLP.ll 240129640
 ipopt/IpStdJInterface.ll 331698468
 ipopt/IpSumMatrix.ll 598859008
@@ -25512,7 +25512,7 @@ openssl/libcrypto-shlib-x_int64.ll 81869473
 openssl/libcrypto-shlib-x_long.ll 80363018
 openssl/libcrypto-shlib-x_name.ll 213432536
 openssl/libcrypto-shlib-x_pubkey.ll 250711753
-openssl/libcrypto-shlib-x_req.ll 68032258
+openssl/libcrypto-shlib-x_req.ll 68100437
 openssl/libcrypto-shlib-x_spki.ll 44153542
 openssl/libcrypto-shlib-x_val.ll 39127578
 openssl/libcrypto-shlib-x_x509.ll 104436034
@@ -28264,7 +28264,7 @@ pybind11/test_unnamed_namespace_a.cpp.ll 5518856625
 pybind11/test_unnamed_namespace_b.cpp.ll 5481151234
 pybind11/test_vector_unique_ptr_member.cpp.ll 6106241662
 pybind11/test_virtual_functions.cpp.ll 14353857722
-pyo3-rs/12pmqv2gc6052dxx.ll 57555495
+pyo3-rs/12pmqv2gc6052dxx.ll 57613219
 pyo3-rs/15s6k8fofhe1ctoo.ll 65106253
 pyo3-rs/19zapqww2dzqzqs1.ll 44804815
 pyo3-rs/1a7w5j0xbcjzugy7.ll 125661926
