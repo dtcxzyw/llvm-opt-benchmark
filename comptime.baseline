@@ -18775,7 +18775,7 @@ openblas/dtpmv_thread_TUU.c.ll 67509710
 openblas/dtprfs.c.ll 214788807
 openblas/dtpsv_NUN.c.ll 46096853
 openblas/dtpsv_NUU.c.ll 45579138
-openblas/dtpsv_TLN.c.ll 45933550
+openblas/dtpsv_TLN.c.ll 45979490
 openblas/dtpsv_TLU.c.ll 44626444
 openblas/dtptri.c.ll 75576322
 openblas/dtpttf.c.ll 268024690
