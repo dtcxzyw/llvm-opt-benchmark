@@ -28245,7 +28245,7 @@ pybind11/test_methods_and_attributes.cpp.ll 15582124826
 pybind11/test_modules.cpp.ll 8632587716
 pybind11/test_multiple_inheritance.cpp.ll 18515324719
 pybind11/test_numpy_array.cpp.ll 19863692411
-pybind11/test_numpy_dtypes.cpp.ll 15682067145
+pybind11/test_numpy_dtypes.cpp.ll 15697753840
 pybind11/test_numpy_vectorize.cpp.ll 12850400707
 pybind11/test_opaque_types.cpp.ll 7949470905
 pybind11/test_operator_overloading.cpp.ll 11268209763
