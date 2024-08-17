@@ -7756,7 +7756,7 @@ git/tr2_tgt_event.ll 149601651
 git/tr2_tgt_normal.ll 132003921
 git/tr2_tgt_perf.ll 196972647
 git/tr2_tls.ll 82292362
-git/trace.ll 190971518
+git/trace.ll 191162608
 git/trace2.ll 366265408
 git/trailer.ll 865490316
 git/transport-helper.ll 744560950
@@ -12504,7 +12504,7 @@ libzmq/ws_connecter.cpp.ll 109146908
 libzmq/ws_decoder.cpp.ll 154736241
 libzmq/ws_encoder.cpp.ll 141010347
 libzmq/ws_engine.cpp.ll 419402257
-libzmq/ws_listener.cpp.ll 132565159
+libzmq/ws_listener.cpp.ll 132697789
 libzmq/wss_engine.cpp.ll 90033390
 libzmq/xpub.cpp.ll 1236940309
 libzmq/xsub.cpp.ll 132224531
@@ -17725,7 +17725,7 @@ nuttx/pthread_setschedprio.c.ll 35935074
 nuttx/pthread_sigmask.c.ll 37493796
 nuttx/ramdisk.c.ll 65467645
 nuttx/reboot_notifier.c.ll 58789283
-nuttx/sched_get_stackinfo.c.ll 39203069
+nuttx/sched_get_stackinfo.c.ll 39242328
 nuttx/sched_getparam.c.ll 43467137
 nuttx/sched_getprioritymax.c.ll 35772589
 nuttx/sched_getscheduler.c.ll 41712273
@@ -25631,7 +25631,7 @@ openssl/libdefault-lib-ssl3_cbc.ll 205078645
 openssl/libdefault-lib-test_rng.ll 96518583
 openssl/libdefault-lib-tls1_prf.ll 130766295
 openssl/libdefault-lib-x942kdf.ll 176296951
-openssl/liblegacy-lib-cipher_des.ll 82167713
+openssl/liblegacy-lib-cipher_des.ll 82250173
 openssl/liblegacy-lib-cipher_des_hw.ll 98960129
 openssl/liblegacy-lib-cipher_rc2.ll 96428786
 openssl/liblegacy-lib-cipher_rc4_hmac_md5.ll 69101574
@@ -34135,7 +34135,7 @@ wasmtime-rs/2mvmiig8uppske03.ll 53098592
 wasmtime-rs/2mw8cxzcp8dley0k.ll 240854039
 wasmtime-rs/2mzhr81bqzbenmxl.ll 275941808
 wasmtime-rs/2n3i9iy4shf5dn0f.ll 46045571
-wasmtime-rs/2n6nz0uffz9fliys.ll 50337661
+wasmtime-rs/2n6nz0uffz9fliys.ll 50388130
 wasmtime-rs/2n7r1uxdbx9gorqm.ll 44537789
 wasmtime-rs/2niyyz8nbah1jl4k.ll 1719406422
 wasmtime-rs/2njh46gxhkl5k884.ll 45037300
