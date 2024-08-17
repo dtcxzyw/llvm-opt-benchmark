@@ -29377,7 +29377,7 @@ quickjs/cutils.ll 307034855
 quickjs/libbf.ll 5596592014
 quickjs/libregexp.ll 1069548494
 quickjs/libunicode.ll 996668689
-quickjs/qjs.ll 251109956
+quickjs/qjs.ll 251361158
 quickjs/qjsc.ll 301376633
 quickjs/quickjs-libc.ll 1387442143
 quickjs/quickjs.ll 39528068584
@@ -31140,7 +31140,7 @@ slurm/common.ll 929089805
 slurm/common_as.ll 260281693
 slurm/common_jag.ll 532884983
 slurm/common_topo.ll 216982806
-slurm/complete.ll 38395144
+slurm/complete.ll 38433638
 slurm/config_functions.ll 122562791
 slurm/config_info.ll 856406817
 slurm/conmgr.ll 1117116132
@@ -34322,7 +34322,7 @@ wasmtime-rs/3xoiqyy2a9jbg7ae.ll 1892752980
 wasmtime-rs/3xq5xc9b9lctwdv8.ll 35041147
 wasmtime-rs/3xuz4wft4mnh9t46.ll 3181017854
 wasmtime-rs/3xvmdgv8w9rmwxfc.ll 2255351386
-wasmtime-rs/3y9flu9tkvrwgb2s.ll 75850879
+wasmtime-rs/3y9flu9tkvrwgb2s.ll 75926843
 wasmtime-rs/3yirtpiqdnll1kue.ll 805747934
 wasmtime-rs/3yjk9pfnc4get7bo.ll 97842231
 wasmtime-rs/3yr40www2jy0a6jn.ll 155211569
