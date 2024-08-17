@@ -34723,7 +34723,7 @@ wireshark/crc11.c.ll 43324640
 wireshark/crc16-plain.c.ll 55348748
 wireshark/crc16.c.ll 108943490
 wireshark/crc32.c.ll 86893282
-wireshark/crc5.c.ll 53364238
+wireshark/crc5.c.ll 53417774
 wireshark/crc6.c.ll 40846062
 wireshark/crc7.c.ll 41256878
 wireshark/crc8-tvb.c.ll 47923564
