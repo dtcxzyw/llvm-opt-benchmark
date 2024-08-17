@@ -6466,7 +6466,7 @@ diesel-rs/44agai6l9usndq55.ll 38968790
 diesel-rs/44c8lulaecaby5hs.ll 40597340
 diesel-rs/45f6id93ri6p0wrz.ll 674570000
 diesel-rs/45jx9qcvbu2qh8j4.ll 499722146
-diesel-rs/460dg0xpdxlmpnbd.ll 38782083
+diesel-rs/460dg0xpdxlmpnbd.ll 38820970
 diesel-rs/462o5qgxgzqa9ugn.ll 1354692900
 diesel-rs/46661qc4yjpbja0f.ll 484700486
 diesel-rs/46vg1kk5awhtusbt.ll 447816140
@@ -10331,7 +10331,7 @@ html5ever-rs/dg2cb04337sswh6.ll 126790820
 html5ever-rs/iuandvk122jw87c.ll 91928553
 html5ever-rs/nl96z7gxt9bz3gf.ll 168945302
 html5ever-rs/scjfsdpdca697ba.ll 65732006
-html5ever-rs/xk8nwqurfealy2n.ll 48222802
+html5ever-rs/xk8nwqurfealy2n.ll 48271093
 hwloc/base64.ll 102797843
 hwloc/bind.ll 321944271
 hwloc/bitmap.ll 1218573315
@@ -13725,7 +13725,7 @@ linux/intel_pch.ll 180836599
 linux/intel_pch_display.ll 190221214
 linux/intel_pch_refclk.ll 183549742
 linux/intel_pcode.ll 101005529
-linux/intel_pconfig.ll 52118434
+linux/intel_pconfig.ll 52170573
 linux/intel_pipe_crc.ll 128258276
 linux/intel_pmdemand.ll 218162073
 linux/intel_ppgtt.ll 132114262
@@ -28316,7 +28316,7 @@ pyo3-rs/4fpkjiye8kew4xnh.ll 499597356
 pyo3-rs/4fyq24zlp6hft7gw.ll 698438494
 pyo3-rs/4j2ap14wuiuq11rw.ll 84001811
 pyo3-rs/4jasan85b3uy4sdw.ll 466620534
-pyo3-rs/4u25hzdyj9ojt6ot.ll 89403609
+pyo3-rs/4u25hzdyj9ojt6ot.ll 89493048
 pyo3-rs/4w6r7rh8tcoxwvbr.ll 438248799
 pyo3-rs/4xqhuut9mffkjr9e.ll 55571323
 pyo3-rs/4ybq1xu6nzdahol5.ll 72710484
