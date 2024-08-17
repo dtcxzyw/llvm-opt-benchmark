@@ -4346,7 +4346,7 @@ coreutils-rs/3py8um1cxp7hgj0m.ll 618697834
 coreutils-rs/3q8ukvkopatfv0x0.ll 5437681908
 coreutils-rs/3qc0yve8cevcl6aw.ll 670502058
 coreutils-rs/3qd2nnv0mbtxq1wn.ll 300253060
-coreutils-rs/3qdqns6te50g1281.ll 111812392
+coreutils-rs/3qdqns6te50g1281.ll 111924294
 coreutils-rs/3qg4jogr5wmrcs5e.ll 320256504
 coreutils-rs/3qy3udkyvxxwkrzs.ll 89156315
 coreutils-rs/3qzq2dwq4ijru3ue.ll 139325616
@@ -27018,7 +27018,7 @@ postgres/hashpage.ll 362988666
 postgres/hashsearch.ll 214897049
 postgres/hashsort.ll 50034072
 postgres/hashutil.ll 158505626
-postgres/hashvalidate.ll 144257489
+postgres/hashvalidate.ll 144401781
 postgres/hba.ll 1291381855
 postgres/hbafuncs.ll 323251831
 postgres/heap.ll 782709703
