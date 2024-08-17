@@ -1163,29 +1163,29 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %borrow.041.neg = phi i32 [ 0, %for.body.lr.ph ], [ %shr.neg, %for.body ]
+  %borrow.041 = phi i32 [ 0, %for.body.lr.ph ], [ %shr, %for.body ]
   %19 = add nsw i64 %indvars.iv, %15
   %arrayidx.i = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i, i64 0, i64 %19
   %20 = load i32, ptr %arrayidx.i, align 4
   %arrayidx.i20 = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i18, i64 0, i64 %indvars.iv
   %21 = load i32, ptr %arrayidx.i20, align 4
-  %.neg37 = add i32 %20, %borrow.041.neg
-  %sub7 = sub i32 %.neg37, %21
+  %22 = add i32 %borrow.041, %21
+  %sub7 = sub i32 %20, %22
   %and = and i32 %sub7, 268435455
   store i32 %and, ptr %arrayidx.i, align 4
-  %shr.neg = ashr i32 %sub7, 31
+  %shr = lshr i32 %sub7, 31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %22 = load i16, ptr %other, align 4
-  %23 = sext i16 %22 to i64
-  %cmp = icmp slt i64 %indvars.iv.next, %23
+  %23 = load i16, ptr %other, align 4
+  %24 = sext i16 %23 to i64
+  %cmp = icmp slt i64 %indvars.iv.next, %24
   br i1 %cmp, label %for.body, label %while.cond.preheader, !llvm.loop !22
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
   %indvars.iv48 = phi i64 [ %17, %while.body.lr.ph ], [ %indvars.iv.next49, %while.body ]
-  %24 = add nsw i64 %indvars.iv48, %18
-  %arrayidx.i26 = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i24, i64 0, i64 %24
-  %25 = load i32, ptr %arrayidx.i26, align 4
-  %sub14 = add i32 %25, -1
+  %25 = add nsw i64 %indvars.iv48, %18
+  %arrayidx.i26 = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i24, i64 0, i64 %25
+  %26 = load i32, ptr %arrayidx.i26, align 4
+  %sub14 = add i32 %26, -1
   %and15 = and i32 %sub14, 268435455
   store i32 %and15, ptr %arrayidx.i26, align 4
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
@@ -1202,19 +1202,19 @@ land.rhs.lr.ph.i:                                 ; preds = %while.end
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.body.i, %land.rhs.lr.ph.i
-  %26 = phi i16 [ %.pr.i, %land.rhs.lr.ph.i ], [ %dec.i, %while.body.i ]
-  %conv.i33 = zext nneg i16 %26 to i64
+  %27 = phi i16 [ %.pr.i, %land.rhs.lr.ph.i ], [ %dec.i, %while.body.i ]
+  %conv.i33 = zext nneg i16 %27 to i64
   %sub.i34 = add nuw nsw i64 %conv.i33, 4294967295
   %idxprom.i.i = and i64 %sub.i34, 4294967295
   %arrayidx.i.i35 = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i.i32, i64 0, i64 %idxprom.i.i
-  %27 = load i32, ptr %arrayidx.i.i35, align 4
-  %cmp4.i = icmp eq i32 %27, 0
+  %28 = load i32, ptr %arrayidx.i.i35, align 4
+  %cmp4.i = icmp eq i32 %28, 0
   br i1 %cmp4.i, label %while.body.i, label %_ZN6icu_7517double_conversion6Bignum5ClampEv.exit
 
 while.body.i:                                     ; preds = %land.rhs.i
-  %dec.i = add nsw i16 %26, -1
+  %dec.i = add nsw i16 %27, -1
   store i16 %dec.i, ptr %this, align 4
-  %cmp.i36 = icmp sgt i16 %26, 1
+  %cmp.i36 = icmp sgt i16 %27, 1
   br i1 %cmp.i36, label %land.rhs.i, label %if.then.i30, !llvm.loop !9
 
 while.end.i:                                      ; preds = %while.end

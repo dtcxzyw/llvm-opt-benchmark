@@ -63697,7 +63697,7 @@ for.body72.lr.ph:                                 ; preds = %for.cond70.preheade
 
 for.body53:                                       ; preds = %for.body53.lr.ph, %_ZN5o3dgc22CompressedTriangleFans17PushTriangleIndexEl.exit
   %i50.052 = phi i64 [ 0, %for.body53.lr.ph ], [ %inc68, %_ZN5o3dgc22CompressedTriangleFans17PushTriangleIndexEl.exit ]
-  %prev.0.neg51 = phi i64 [ 0, %for.body53.lr.ph ], [ %add66.neg, %_ZN5o3dgc22CompressedTriangleFans17PushTriangleIndexEl.exit ]
+  %prev.051 = phi i64 [ 0, %for.body53.lr.ph ], [ %add66, %_ZN5o3dgc22CompressedTriangleFans17PushTriangleIndexEl.exit ]
   %39 = load ptr, ptr %m_invTMap, align 8
   %arrayidx54 = getelementptr inbounds i64, ptr %39, i64 %i50.052
   %40 = load i64, ptr %arrayidx54, align 8
@@ -63714,7 +63714,7 @@ for.body53:                                       ; preds = %for.body53.lr.ph, %
   %45 = load ptr, ptr %m_tmap, align 8
   %arrayidx61 = getelementptr inbounds i64, ptr %45, i64 %40
   %46 = load i64, ptr %arrayidx61, align 8
-  %sub62 = add i64 %46, %prev.0.neg51
+  %sub62 = sub nsw i64 %46, %prev.051
   %47 = load i64, ptr %m_size.i.i, align 8
   %48 = load i64, ptr %m_allocated.i.i, align 8
   %cmp.i.i = icmp eq i64 %47, %48
@@ -63765,7 +63765,7 @@ _ZN5o3dgc22CompressedTriangleFans17PushTriangleIndexEl.exit: ; preds = %entry.if
   %55 = load ptr, ptr %m_tmap, align 8
   %arrayidx65 = getelementptr inbounds i64, ptr %55, i64 %40
   %56 = load i64, ptr %arrayidx65, align 8
-  %add66.neg = xor i64 %56, -1
+  %add66 = add nsw i64 %56, 1
   %inc68 = add nuw nsw i64 %i50.052, 1
   %exitcond56.not = icmp eq i64 %inc68, %numTriangles
   br i1 %exitcond56.not, label %for.cond70.preheader, label %for.body53, !llvm.loop !612

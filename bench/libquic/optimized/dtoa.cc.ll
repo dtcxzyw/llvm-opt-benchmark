@@ -5668,7 +5668,7 @@ do.body.preheader:                                ; preds = %if.end
 do.body:                                          ; preds = %do.body.preheader, %do.body
   %bx.0 = phi ptr [ %incdec.ptr15, %do.body ], [ %x2.ptr.ptr, %do.body.preheader ]
   %sx.0 = phi ptr [ %incdec.ptr, %do.body ], [ %x, %do.body.preheader ]
-  %borrow.0.neg = phi i64 [ %7, %do.body ], [ 0, %do.body.preheader ]
+  %borrow.0 = phi i64 [ %and12, %do.body ], [ 0, %do.body.preheader ]
   %carry.0 = phi i64 [ %shr, %do.body ], [ 0, %do.body.preheader ]
   %incdec.ptr = getelementptr inbounds i8, ptr %sx.0, i64 4
   %5 = load i32, ptr %sx.0, align 4
@@ -5679,9 +5679,10 @@ do.body:                                          ; preds = %do.body.preheader, 
   %6 = load i32, ptr %bx.0, align 4
   %conv9 = zext i32 %6 to i64
   %and = and i64 %add8, 4294967295
-  %sub = sub nsw i64 %conv9, %and
-  %sub10 = add nsw i64 %sub, %borrow.0.neg
-  %7 = ashr i64 %sub10, 32
+  %7 = add nuw nsw i64 %borrow.0, %and
+  %sub10 = sub nsw i64 %conv9, %7
+  %shr11 = lshr i64 %sub10, 32
+  %and12 = and i64 %shr11, 1
   %conv14 = trunc i64 %sub10 to i32
   %incdec.ptr15 = getelementptr inbounds i8, ptr %bx.0, i64 4
   store i32 %conv14, ptr %bx.0, align 4
@@ -5698,29 +5699,29 @@ do.end.if.end27_crit_edge:                        ; preds = %do.end
   br label %if.end27
 
 while.cond.preheader:                             ; preds = %do.end
-  %cmp2257 = icmp sgt i32 %0, 2
-  br i1 %cmp2257, label %land.rhs.preheader, label %while.end
+  %cmp2258 = icmp sgt i32 %0, 2
+  br i1 %cmp2258, label %land.rhs.preheader, label %while.end
 
 land.rhs.preheader:                               ; preds = %while.cond.preheader
-  %bxe.0.add56 = add nsw i64 %add.ptr5.idx, 20
+  %bxe.0.add57 = add nsw i64 %add.ptr5.idx, 20
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %while.body
-  %bxe.0.add59 = phi i64 [ %bxe.0.add, %while.body ], [ %bxe.0.add56, %land.rhs.preheader ]
-  %n.158 = phi i32 [ %dec24, %while.body ], [ %dec, %land.rhs.preheader ]
-  %incdec.ptr21.ptr = getelementptr inbounds i8, ptr %b, i64 %bxe.0.add59
+  %bxe.0.add60 = phi i64 [ %bxe.0.add, %while.body ], [ %bxe.0.add57, %land.rhs.preheader ]
+  %n.159 = phi i32 [ %dec24, %while.body ], [ %dec, %land.rhs.preheader ]
+  %incdec.ptr21.ptr = getelementptr inbounds i8, ptr %b, i64 %bxe.0.add60
   %9 = load i32, ptr %incdec.ptr21.ptr, align 4
   %tobool23.not = icmp eq i32 %9, 0
   br i1 %tobool23.not, label %while.body, label %while.end
 
 while.body:                                       ; preds = %land.rhs
-  %dec24 = add nsw i32 %n.158, -1
-  %bxe.0.add = add nsw i64 %bxe.0.add59, -4
-  %cmp22 = icmp sgt i64 %bxe.0.add59, 28
+  %dec24 = add nsw i32 %n.159, -1
+  %bxe.0.add = add nsw i64 %bxe.0.add60, -4
+  %cmp22 = icmp sgt i64 %bxe.0.add60, 28
   br i1 %cmp22, label %land.rhs, label %while.end, !llvm.loop !55
 
 while.end:                                        ; preds = %land.rhs, %while.body, %while.cond.preheader
-  %n.1.lcssa = phi i32 [ %dec, %while.cond.preheader ], [ %dec24, %while.body ], [ %n.158, %land.rhs ]
+  %n.1.lcssa = phi i32 [ %dec, %while.cond.preheader ], [ %dec24, %while.body ], [ %n.159, %land.rhs ]
   store i32 %n.1.lcssa, ptr %wds1, align 4
   br label %if.end27
 
@@ -5767,15 +5768,16 @@ do.body34.preheader:                              ; preds = %if.end9.i, %if.then
 do.body34:                                        ; preds = %do.body34.preheader, %do.body34
   %bx.1 = phi ptr [ %incdec.ptr47, %do.body34 ], [ %x2.ptr.ptr, %do.body34.preheader ]
   %sx.1 = phi ptr [ %incdec.ptr35, %do.body34 ], [ %x, %do.body34.preheader ]
-  %borrow.1.neg = phi i64 [ %16, %do.body34 ], [ 0, %do.body34.preheader ]
+  %borrow.1 = phi i64 [ %and44, %do.body34 ], [ 0, %do.body34.preheader ]
   %incdec.ptr35 = getelementptr inbounds i8, ptr %sx.1, i64 4
   %14 = load i32, ptr %sx.1, align 4
   %conv36 = zext i32 %14 to i64
   %15 = load i32, ptr %bx.1, align 4
   %conv39 = zext i32 %15 to i64
-  %sub41 = sub nsw i64 %conv39, %conv36
-  %sub42 = add nsw i64 %sub41, %borrow.1.neg
-  %16 = ashr i64 %sub42, 32
+  %16 = add nuw nsw i64 %borrow.1, %conv36
+  %sub42 = sub nsw i64 %conv39, %16
+  %shr43 = lshr i64 %sub42, 32
+  %and44 = and i64 %shr43, 1
   %conv46 = trunc i64 %sub42 to i32
   %incdec.ptr47 = getelementptr inbounds i8, ptr %bx.1, i64 4
   store i32 %conv46, ptr %bx.1, align 4
@@ -5793,29 +5795,29 @@ do.end50:                                         ; preds = %do.body34
   br i1 %tobool55.not, label %while.cond57.preheader, label %return
 
 while.cond57.preheader:                           ; preds = %do.end50
-  %cmp5962 = icmp sgt i32 %n.0, 1
-  br i1 %cmp5962, label %land.rhs60.preheader, label %while.end66
+  %cmp5963 = icmp sgt i32 %n.0, 1
+  br i1 %cmp5963, label %land.rhs60.preheader, label %while.end66
 
 land.rhs60.preheader:                             ; preds = %while.cond57.preheader
-  %bxe.1.add61 = add nuw nsw i64 %add.ptr54.idx, 20
+  %bxe.1.add62 = add nuw nsw i64 %add.ptr54.idx, 20
   br label %land.rhs60
 
 land.rhs60:                                       ; preds = %land.rhs60.preheader, %while.body64
-  %bxe.1.add64 = phi i64 [ %bxe.1.add, %while.body64 ], [ %bxe.1.add61, %land.rhs60.preheader ]
-  %n.263 = phi i32 [ %dec65, %while.body64 ], [ %n.0, %land.rhs60.preheader ]
-  %incdec.ptr58.ptr = getelementptr inbounds i8, ptr %b, i64 %bxe.1.add64
+  %bxe.1.add65 = phi i64 [ %bxe.1.add, %while.body64 ], [ %bxe.1.add62, %land.rhs60.preheader ]
+  %n.264 = phi i32 [ %dec65, %while.body64 ], [ %n.0, %land.rhs60.preheader ]
+  %incdec.ptr58.ptr = getelementptr inbounds i8, ptr %b, i64 %bxe.1.add65
   %19 = load i32, ptr %incdec.ptr58.ptr, align 4
   %tobool61.not = icmp eq i32 %19, 0
   br i1 %tobool61.not, label %while.body64, label %while.end66
 
 while.body64:                                     ; preds = %land.rhs60
-  %dec65 = add nsw i32 %n.263, -1
-  %bxe.1.add = add nsw i64 %bxe.1.add64, -4
-  %cmp59 = icmp sgt i64 %bxe.1.add64, 28
+  %dec65 = add nsw i32 %n.264, -1
+  %bxe.1.add = add nsw i64 %bxe.1.add65, -4
+  %cmp59 = icmp sgt i64 %bxe.1.add65, 28
   br i1 %cmp59, label %land.rhs60, label %while.end66, !llvm.loop !57
 
 while.end66:                                      ; preds = %land.rhs60, %while.body64, %while.cond57.preheader
-  %n.2.lcssa = phi i32 [ %n.0, %while.cond57.preheader ], [ %dec65, %while.body64 ], [ %n.263, %land.rhs60 ]
+  %n.2.lcssa = phi i32 [ %n.0, %while.cond57.preheader ], [ %dec65, %while.body64 ], [ %n.264, %land.rhs60 ]
   store i32 %n.2.lcssa, ptr %wds1, align 4
   br label %return
 

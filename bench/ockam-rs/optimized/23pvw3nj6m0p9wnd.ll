@@ -57056,10 +57056,10 @@ define hidden void @_ZN3std2io4copy17stack_buffer_copy17h9be307637cb005cdE.llvm.
 
 "_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hc3f6208f0c5e83b0E.exit.i.i.outer": ; preds = %49, %3
   %.sroa.21.0.ph.sroa.phi = phi ptr [ %6, %3 ], [ %.sroa.21.0.ph.sroa.gep71, %49 ]
-  %.sroa.21.0.ph.neg = phi i64 [ 8192, %3 ], [ 0, %49 ]
+  %.sroa.21.0.ph = phi i64 [ 8192, %3 ], [ 0, %49 ]
   %.017.ph = phi i64 [ 0, %3 ], [ %34, %49 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !7706
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %.sroa.21.0.ph.sroa.phi, i8 0, i64 %.sroa.21.0.ph.neg, i1 false), !noalias !7706
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %.sroa.21.0.ph.sroa.phi, i8 0, i64 %.sroa.21.0.ph, i1 false), !noalias !7706
   call void @"_ZN80_$LT$zstd..stream..zio..reader..Reader$LT$R$C$D$GT$$u20$as$u20$std..io..Read$GT$4read17hc910f7806fe5b6f1E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(88) %1, ptr noalias noundef nonnull align 1 %6, i64 noundef 8192), !noalias !7713
   %11 = load i64, ptr %5, align 8, !range !422, !noalias !7706, !noundef !4
   %trunc.i.i56 = trunc nuw i64 %11 to i1

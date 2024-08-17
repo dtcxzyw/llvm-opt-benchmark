@@ -2087,7 +2087,7 @@ if.then:                                          ; preds = %entry
 
 do.body:                                          ; preds = %if.end, %if.then
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end ], [ %2, %if.then ]
-  %step.0.neg = phi i32 [ -1, %if.end ], [ 0, %if.then ]
+  %step.0 = phi i32 [ 1, %if.end ], [ 0, %if.then ]
   %edgeNumber.addr.1 = phi i32 [ %edgeNumber.addr.2, %if.end ], [ %edgeNumber, %if.then ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %arrayidx = getelementptr inbounds [5 x ptr], ptr %equal, i64 0, i64 %indvars.iv.next
@@ -2096,7 +2096,7 @@ do.body:                                          ; preds = %if.end, %if.then
   br i1 %cmp2.not, label %if.end, label %if.then3
 
 if.then3:                                         ; preds = %do.body
-  %sub = add i32 %edgeNumber.addr.1, %step.0.neg
+  %sub = sub nsw i32 %edgeNumber.addr.1, %step.0
   %vtable = load ptr, ptr %3, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %4 = load ptr, ptr %vfn, align 8

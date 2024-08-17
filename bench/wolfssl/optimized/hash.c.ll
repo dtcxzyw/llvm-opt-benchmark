@@ -340,7 +340,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %cmp10 = phi i1 [ false, %for.inc ], [ true, %entry ]
   %indvars.iv.sroa.phi = phi ptr [ %indvars.iv.sroa.gep, %for.inc ], [ %test_sha, %entry ]
-  %indvars.iv.neg = phi i32 [ -11, %for.inc ], [ -10, %entry ]
+  %indvars.iv = phi i32 [ -11, %for.inc ], [ -10, %entry ]
   %0 = load ptr, ptr %indvars.iv.sroa.phi, align 16
   %inLen15 = getelementptr inbounds i8, ptr %indvars.iv.sroa.phi, i64 16
   %1 = load i64, ptr %inLen15, align 16
@@ -369,7 +369,7 @@ for.end:                                          ; preds = %for.inc
   br label %return
 
 return:                                           ; preds = %if.end20, %for.body, %if.end25, %entry, %for.end
-  %retval.0 = phi i32 [ 0, %for.end ], [ -4005, %entry ], [ %indvars.iv.neg, %if.end25 ], [ %call21, %if.end20 ], [ %call16, %for.body ]
+  %retval.0 = phi i32 [ 0, %for.end ], [ -4005, %entry ], [ %indvars.iv, %if.end25 ], [ %call21, %if.end20 ], [ %call16, %for.body ]
   ret i32 %retval.0
 }
 
@@ -398,7 +398,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %cmp14 = phi i1 [ false, %for.inc ], [ true, %entry ]
   %indvars.iv.sroa.phi = phi ptr [ %indvars.iv.sroa.gep, %for.inc ], [ %test_sha, %entry ]
-  %indvars.iv.neg = phi i32 [ -11, %for.inc ], [ -10, %entry ]
+  %indvars.iv = phi i32 [ -11, %for.inc ], [ -10, %entry ]
   %0 = load ptr, ptr %indvars.iv.sroa.phi, align 16
   %inLen19 = getelementptr inbounds i8, ptr %indvars.iv.sroa.phi, i64 16
   %1 = load i64, ptr %inLen19, align 16
@@ -427,7 +427,7 @@ for.end:                                          ; preds = %for.inc
   br label %return
 
 return:                                           ; preds = %if.end24, %for.body, %if.end29, %entry, %for.end
-  %retval.0 = phi i32 [ 0, %for.end ], [ %call13, %entry ], [ %indvars.iv.neg, %if.end29 ], [ %call25, %if.end24 ], [ %call20, %for.body ]
+  %retval.0 = phi i32 [ 0, %for.end ], [ %call13, %entry ], [ %indvars.iv, %if.end29 ], [ %call25, %if.end24 ], [ %call20, %for.body ]
   ret i32 %retval.0
 }
 
@@ -456,7 +456,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %cmp14 = phi i1 [ false, %for.inc ], [ true, %entry ]
   %indvars.iv.sroa.phi = phi ptr [ %indvars.iv.sroa.gep, %for.inc ], [ %test_sha, %entry ]
-  %indvars.iv.neg = phi i32 [ -11, %for.inc ], [ -10, %entry ]
+  %indvars.iv = phi i32 [ -11, %for.inc ], [ -10, %entry ]
   %0 = load ptr, ptr %indvars.iv.sroa.phi, align 16
   %inLen19 = getelementptr inbounds i8, ptr %indvars.iv.sroa.phi, i64 16
   %1 = load i64, ptr %inLen19, align 16
@@ -485,7 +485,7 @@ for.end:                                          ; preds = %for.inc
   br label %return
 
 return:                                           ; preds = %if.end24, %for.body, %if.end29, %entry, %for.end
-  %retval.0 = phi i32 [ 0, %for.end ], [ %call13, %entry ], [ %indvars.iv.neg, %if.end29 ], [ %call25, %if.end24 ], [ %call20, %for.body ]
+  %retval.0 = phi i32 [ 0, %for.end ], [ %call13, %entry ], [ %indvars.iv, %if.end29 ], [ %call25, %if.end24 ], [ %call20, %for.body ]
   ret i32 %retval.0
 }
 
@@ -514,7 +514,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %cmp14 = phi i1 [ false, %for.inc ], [ true, %entry ]
   %indvars.iv.sroa.phi = phi ptr [ %indvars.iv.sroa.gep, %for.inc ], [ %test_sha, %entry ]
-  %indvars.iv.neg = phi i32 [ -11, %for.inc ], [ -10, %entry ]
+  %indvars.iv = phi i32 [ -11, %for.inc ], [ -10, %entry ]
   %0 = load ptr, ptr %indvars.iv.sroa.phi, align 16
   %inLen19 = getelementptr inbounds i8, ptr %indvars.iv.sroa.phi, i64 16
   %1 = load i64, ptr %inLen19, align 16
@@ -543,7 +543,7 @@ for.end:                                          ; preds = %for.inc
   br label %return
 
 return:                                           ; preds = %if.end24, %for.body, %if.end29, %entry, %for.end
-  %retval.0 = phi i32 [ 0, %for.end ], [ %call13, %entry ], [ %indvars.iv.neg, %if.end29 ], [ %call25, %if.end24 ], [ %call20, %for.body ]
+  %retval.0 = phi i32 [ 0, %for.end ], [ %call13, %entry ], [ %indvars.iv, %if.end29 ], [ %call25, %if.end24 ], [ %call20, %for.body ]
   ret i32 %retval.0
 }
 

@@ -253,7 +253,7 @@ if.then:                                          ; preds = %entry
   br label %for.end
 
 for.body:                                         ; preds = %entry, %for.body
-  %c.0.neg13 = phi i64 [ %3, %for.body ], [ 0, %entry ]
+  %c.013 = phi i64 [ %and, %for.body ], [ 0, %entry ]
   %i.012 = phi i64 [ %inc, %for.body ], [ 0, %entry ]
   %arrayidx = getelementptr i8, ptr %a, i64 %i.012
   %1 = load i8, ptr %arrayidx, align 1
@@ -261,11 +261,12 @@ for.body:                                         ; preds = %entry, %for.body
   %arrayidx9 = getelementptr i8, ptr %b, i64 %i.012
   %2 = load i8, ptr %arrayidx9, align 1
   %conv10 = zext i8 %2 to i64
-  %sub = sub nsw i64 %conv, %conv10
-  %sub11 = add nsw i64 %sub, %c.0.neg13
+  %3 = add nuw nsw i64 %c.013, %conv10
+  %sub11 = sub nsw i64 %conv, %3
   %conv12 = trunc i64 %sub11 to i8
   store i8 %conv12, ptr %arrayidx, align 1
-  %3 = ashr i64 %sub11, 8
+  %shr = lshr i64 %sub11, 8
+  %and = and i64 %shr, 1
   %inc = add nuw i64 %i.012, 1
   %exitcond.not = icmp eq i64 %inc, %len
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !17

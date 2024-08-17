@@ -3428,9 +3428,9 @@ define internal fastcc void @_ZN7similar10algorithms5myers17find_middle_snake17h
   ret void
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %141
-  %not..sroa.14128.0.neg174 = phi i64 [ -1, %141 ], [ 0, %.lr.ph.preheader ]
+  %not..sroa.14128.0174 = phi i64 [ 1, %141 ], [ 0, %.lr.ph.preheader ]
   %.sroa.7127.0172 = phi i64 [ %.sroa.7127.1, %141 ], [ %.sroa.05.0186, %.lr.ph.preheader ]
-  %58 = add i64 %not..sroa.14128.0.neg174, %.sroa.7127.0172
+  %58 = sub i64 %.sroa.7127.0172, %not..sroa.14128.0174
   %.not.i.not.i = icmp sgt i64 %58, %.sroa.7127.0172
   br i1 %.not.i.not.i, label %.lr.ph182.preheader, label %59
 
@@ -3462,9 +3462,9 @@ define internal fastcc void @_ZN7similar10algorithms5myers17find_middle_snake17h
   br label %115
 
 .lr.ph182:                                        ; preds = %.lr.ph182.preheader, %103
-  %not..sroa.17146.0.neg180 = phi i64 [ -1, %103 ], [ 0, %.lr.ph182.preheader ]
+  %not..sroa.17146.0180 = phi i64 [ 1, %103 ], [ 0, %.lr.ph182.preheader ]
   %.sroa.7145.0178 = phi i64 [ %.sroa.7145.1, %103 ], [ %.sroa.05.0186, %.lr.ph182.preheader ]
-  %66 = add i64 %not..sroa.17146.0.neg180, %.sroa.7145.0178
+  %66 = sub i64 %.sroa.7145.0178, %not..sroa.17146.0180
   %.not.i.not.i85 = icmp sgt i64 %66, %.sroa.7145.0178
   br i1 %.not.i.not.i85, label %._crit_edge183, label %67
 
@@ -3808,9 +3808,9 @@ define internal fastcc void @_ZN7similar10algorithms5myers17find_middle_snake17h
   ret void
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %135
-  %not..sroa.14128.0.neg174 = phi i64 [ -1, %135 ], [ 0, %.lr.ph.preheader ]
+  %not..sroa.14128.0174 = phi i64 [ 1, %135 ], [ 0, %.lr.ph.preheader ]
   %.sroa.7127.0172 = phi i64 [ %.sroa.7127.1, %135 ], [ %.sroa.05.0186, %.lr.ph.preheader ]
-  %52 = add i64 %not..sroa.14128.0.neg174, %.sroa.7127.0172
+  %52 = sub i64 %.sroa.7127.0172, %not..sroa.14128.0174
   %.not.i.not.i = icmp sgt i64 %52, %.sroa.7127.0172
   br i1 %.not.i.not.i, label %.lr.ph182.preheader, label %53
 
@@ -3842,9 +3842,9 @@ define internal fastcc void @_ZN7similar10algorithms5myers17find_middle_snake17h
   br label %109
 
 .lr.ph182:                                        ; preds = %.lr.ph182.preheader, %97
-  %not..sroa.17146.0.neg180 = phi i64 [ -1, %97 ], [ 0, %.lr.ph182.preheader ]
+  %not..sroa.17146.0180 = phi i64 [ 1, %97 ], [ 0, %.lr.ph182.preheader ]
   %.sroa.7145.0178 = phi i64 [ %.sroa.7145.1, %97 ], [ %.sroa.05.0186, %.lr.ph182.preheader ]
-  %60 = add i64 %not..sroa.17146.0.neg180, %.sroa.7145.0178
+  %60 = sub i64 %.sroa.7145.0178, %not..sroa.17146.0180
   %.not.i.not.i85 = icmp sgt i64 %60, %.sroa.7145.0178
   br i1 %.not.i.not.i85, label %._crit_edge183, label %61
 
@@ -4339,9 +4339,9 @@ _ZN7similar10algorithms5utils17common_suffix_len17h2dd02b8ba86efcceE.exit: ; pre
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %167, %.lr.ph.preheader.i
-  %not..sroa.14128.0.neg174.i = phi i64 [ -1, %167 ], [ 0, %.lr.ph.preheader.i ]
+  %not..sroa.14128.0174.i = phi i64 [ 1, %167 ], [ 0, %.lr.ph.preheader.i ]
   %.sroa.7127.0172.i = phi i64 [ %.sroa.7127.1.i, %167 ], [ %.sroa.05.0186.i, %.lr.ph.preheader.i ]
-  %86 = add i64 %.sroa.7127.0172.i, %not..sroa.14128.0.neg174.i
+  %86 = sub i64 %.sroa.7127.0172.i, %not..sroa.14128.0174.i
   %.not.i.not.i.i = icmp sgt i64 %86, %.sroa.7127.0172.i
   br i1 %.not.i.not.i.i, label %.lr.ph182.preheader.i, label %87
 
@@ -4370,9 +4370,9 @@ _ZN7similar10algorithms5utils17common_suffix_len17h2dd02b8ba86efcceE.exit: ; pre
   br i1 %93, label %._crit_edge191.i, label %141
 
 .lr.ph182.i:                                      ; preds = %130, %.lr.ph182.preheader.i
-  %not..sroa.17146.0.neg180.i = phi i64 [ -1, %130 ], [ 0, %.lr.ph182.preheader.i ]
+  %not..sroa.17146.0180.i = phi i64 [ 1, %130 ], [ 0, %.lr.ph182.preheader.i ]
   %.sroa.7145.0178.i = phi i64 [ %.sroa.7145.1.i, %130 ], [ %.sroa.05.0186.i, %.lr.ph182.preheader.i ]
-  %94 = add i64 %.sroa.7145.0178.i, %not..sroa.17146.0.neg180.i
+  %94 = sub i64 %.sroa.7145.0178.i, %not..sroa.17146.0180.i
   %.not.i.not.i85.i = icmp sgt i64 %94, %.sroa.7145.0178.i
   br i1 %.not.i.not.i85.i, label %._crit_edge183.i, label %95
 
@@ -5999,9 +5999,9 @@ _ZN7similar10algorithms5utils17common_suffix_len17h5a6d9afcb6ca1c89E.exit: ; pre
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %167, %.lr.ph.preheader.i
-  %not..sroa.14128.0.neg174.i = phi i64 [ -1, %167 ], [ 0, %.lr.ph.preheader.i ]
+  %not..sroa.14128.0174.i = phi i64 [ 1, %167 ], [ 0, %.lr.ph.preheader.i ]
   %.sroa.7127.0172.i = phi i64 [ %.sroa.7127.1.i, %167 ], [ %.sroa.05.0186.i, %.lr.ph.preheader.i ]
-  %86 = add i64 %.sroa.7127.0172.i, %not..sroa.14128.0.neg174.i
+  %86 = sub i64 %.sroa.7127.0172.i, %not..sroa.14128.0174.i
   %.not.i.not.i.i = icmp sgt i64 %86, %.sroa.7127.0172.i
   br i1 %.not.i.not.i.i, label %.lr.ph182.preheader.i, label %87
 
@@ -6030,9 +6030,9 @@ _ZN7similar10algorithms5utils17common_suffix_len17h5a6d9afcb6ca1c89E.exit: ; pre
   br i1 %93, label %._crit_edge191.i, label %141
 
 .lr.ph182.i:                                      ; preds = %130, %.lr.ph182.preheader.i
-  %not..sroa.17146.0.neg180.i = phi i64 [ -1, %130 ], [ 0, %.lr.ph182.preheader.i ]
+  %not..sroa.17146.0180.i = phi i64 [ 1, %130 ], [ 0, %.lr.ph182.preheader.i ]
   %.sroa.7145.0178.i = phi i64 [ %.sroa.7145.1.i, %130 ], [ %.sroa.05.0186.i, %.lr.ph182.preheader.i ]
-  %94 = add i64 %.sroa.7145.0178.i, %not..sroa.17146.0.neg180.i
+  %94 = sub i64 %.sroa.7145.0178.i, %not..sroa.17146.0180.i
   %.not.i.not.i85.i = icmp sgt i64 %94, %.sroa.7145.0178.i
   br i1 %.not.i.not.i85.i, label %._crit_edge183.i, label %95
 

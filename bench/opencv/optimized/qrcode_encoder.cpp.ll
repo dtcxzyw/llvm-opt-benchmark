@@ -6580,10 +6580,10 @@ define hidden void @_ZN2cv17QRCodeEncoderImpl9writeDataEv(ptr nocapture noundef 
 
 25:                                               ; preds = %21, %_ZN2cv17QRCodeEncoderImpl8writeBitEiib.exit
   %26 = phi i1 [ true, %21 ], [ false, %_ZN2cv17QRCodeEncoderImpl8writeBitEiib.exit ]
-  %indvars.iv.neg = phi i64 [ 0, %21 ], [ -1, %_ZN2cv17QRCodeEncoderImpl8writeBitEiib.exit ]
+  %indvars.iv = phi i64 [ 0, %21 ], [ 1, %_ZN2cv17QRCodeEncoderImpl8writeBitEiib.exit ]
   %.13449 = phi i32 [ %.03352, %21 ], [ %.235, %_ZN2cv17QRCodeEncoderImpl8writeBitEiib.exit ]
   %.13748 = phi i32 [ %.03651, %21 ], [ %.3, %_ZN2cv17QRCodeEncoderImpl8writeBitEiib.exit ]
-  %27 = add nsw i64 %indvars.iv.neg, %24
+  %27 = sub nuw nsw i64 %24, %indvars.iv
   %28 = load ptr, ptr %17, align 8
   %29 = load ptr, ptr %18, align 8
   %30 = load i64, ptr %29, align 8

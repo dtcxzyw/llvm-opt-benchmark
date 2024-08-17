@@ -812,7 +812,7 @@ scanzws.exit:                                     ; preds = %139, %143, %fmap_re
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %279, %fmap_readn.exit272
-  %.1471.neg = phi i32 [ -8, %fmap_readn.exit272 ], [ -3, %279 ]
+  %.1471 = phi i32 [ 8, %fmap_readn.exit272 ], [ 3, %279 ]
   %.1216470 = phi i32 [ %293, %fmap_readn.exit272 ], [ 0, %279 ]
   %.1222469 = phi i32 [ %294, %fmap_readn.exit272 ], [ %283, %279 ]
   %.1227468 = phi i32 [ %291, %fmap_readn.exit272 ], [ %282, %279 ]
@@ -829,7 +829,7 @@ scanzws.exit:                                     ; preds = %139, %143, %fmap_re
 
 fmap_readn.exit272:                               ; preds = %287
   %290 = load i8, ptr %289, align 1
-  %291 = add i32 %.1471.neg, %.1227468
+  %291 = sub nuw nsw i32 %.1227468, %.1471
   %292 = shl i32 %.1222469, %291
   %293 = or i32 %292, %.1216470
   %294 = zext i8 %290 to i32
