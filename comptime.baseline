@@ -4288,7 +4288,7 @@ coreutils-rs/3gr7iuormcphs5un.ll 133030552
 coreutils-rs/3gsrjlewn44v90k5.ll 777144861
 coreutils-rs/3gtjltp7vx7om7oi.ll 391681657
 coreutils-rs/3hb12eado17s6ewo.ll 115001624
-coreutils-rs/3heqg1c10mhsundz.ll 48232687
+coreutils-rs/3heqg1c10mhsundz.ll 48280997
 coreutils-rs/3hfmcjldus1136q4.ll 100861028
 coreutils-rs/3hir10ntu7ll6uhr.ll 40815668
 coreutils-rs/3hoeynirldfc9xhs.ll 128095901
@@ -18899,7 +18899,7 @@ openblas/lapacke_dspgv_work.c.ll 56057213
 openblas/lapacke_dspgvd_work.c.ll 58879804
 openblas/lapacke_dspgvx_work.c.ll 61721552
 openblas/lapacke_dsprfs_work.c.ll 57768548
-openblas/lapacke_dspsv_work.c.ll 51131583
+openblas/lapacke_dspsv_work.c.ll 51182790
 openblas/lapacke_dspsvx_work.c.ll 60417949
 openblas/lapacke_dsptrd_work.c.ll 45367877
 openblas/lapacke_dsptrf_work.c.ll 45114540
@@ -22025,7 +22025,7 @@ openjdk/psAdaptiveSizePolicy.ll 293375210
 openjdk/psCardTable.ll 2801689329
 openjdk/psCompactionManager.ll 1964752906
 openjdk/psGCAdaptivePolicyCounters.ll 195333871
-openjdk/psGenerationCounters.ll 81289223
+openjdk/psGenerationCounters.ll 81370729
 openjdk/psMemoryPool.ll 105077059
 openjdk/psOldGen.ll 310110622
 openjdk/psParallelCompact.ll 6216049861
@@ -25549,7 +25549,7 @@ openssl/libdefault-lib-cipher_camellia_hw.ll 48887007
 openssl/libdefault-lib-cipher_chacha20.ll 67543714
 openssl/libdefault-lib-cipher_chacha20_hw.ll 87362670
 openssl/libdefault-lib-cipher_chacha20_poly1305.ll 94613957
-openssl/libdefault-lib-cipher_chacha20_poly1305_hw.ll 143109751
+openssl/libdefault-lib-cipher_chacha20_poly1305_hw.ll 143252992
 openssl/libdefault-lib-cipher_cts.ll 117527848
 openssl/libdefault-lib-cipher_null.ll 60333169
 openssl/libdefault-lib-cipher_sm4_gcm_hw.ll 44669428
@@ -34609,7 +34609,7 @@ wasmtime-rs/q3ll6mve06vdv2f.ll 102956218
 wasmtime-rs/qsyhyu9sy9d0tl6.ll 38142793
 wasmtime-rs/qzwdmrmrn8c2iza.ll 15750263857
 wasmtime-rs/r9f6jef0e11b5fk.ll 2241791355
-wasmtime-rs/rhkmwh2hoc9indn.ll 37048483
+wasmtime-rs/rhkmwh2hoc9indn.ll 37085717
 wasmtime-rs/rodgfxfn0hg2efa.ll 41794794
 wasmtime-rs/rpltamrj260p6v4.ll 13005020531
 wasmtime-rs/sa4imocsqq56n3l.ll 6429010811
