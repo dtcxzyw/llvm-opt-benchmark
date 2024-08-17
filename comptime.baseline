@@ -12026,7 +12026,7 @@ libquic/s3_enc.c.ll 95436654
 libquic/s3_lib.c.ll 159721763
 libquic/s3_pkt.c.ll 200812199
 libquic/s3_srvr.c.ll 554507620
-libquic/sample_map.cc.ll 280535180
+libquic/sample_map.cc.ll 280815752
 libquic/sample_vector.cc.ll 249132352
 libquic/secure_hash.cc.ll 101171999
 libquic/sequence_token.cc.ll 93675304
@@ -17707,7 +17707,7 @@ nuttx/pthread_mutexattr_init.c.ll 36020165
 nuttx/pthread_mutexattr_setprotocol.c.ll 37091951
 nuttx/pthread_mutexattr_setpshared.c.ll 36793242
 nuttx/pthread_mutexattr_setrobust.c.ll 35494687
-nuttx/pthread_mutexattr_settype.c.ll 37072607
+nuttx/pthread_mutexattr_settype.c.ll 37109742
 nuttx/pthread_mutexconsistent.c.ll 39963252
 nuttx/pthread_mutexdestroy.c.ll 40965745
 nuttx/pthread_mutexinit.c.ll 40114690
