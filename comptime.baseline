@@ -17680,7 +17680,7 @@ nuttx/pthread_attr_setstacksize.c.ll 36066508
 nuttx/pthread_barrierattr_destroy.c.ll 34751807
 nuttx/pthread_barrierattr_getpshared.c.ll 35951927
 nuttx/pthread_barrierattr_init.c.ll 35279945
-nuttx/pthread_barrierattr_setpshared.c.ll 36102745
+nuttx/pthread_barrierattr_setpshared.c.ll 36138848
 nuttx/pthread_barrierinit.c.ll 36646931
 nuttx/pthread_barrierwait.c.ll 50815658
 nuttx/pthread_completejoin.c.ll 67726067
