@@ -9699,7 +9699,7 @@ hdf5/H5EAhdr.c.ll 142019179
 hdf5/H5EAiblock.c.ll 117905371
 hdf5/H5EAint.c.ll 38229999
 hdf5/H5EAsblock.c.ll 96471592
-hdf5/H5EAstat.c.ll 35153626
+hdf5/H5EAstat.c.ll 35189029
 hdf5/H5EAtest.c.ll 78280463
 hdf5/H5ES.c.ll 172800569
 hdf5/H5ESevent.c.ll 47359666
@@ -20576,7 +20576,7 @@ openexr/ImfAcesFile.cpp.ll 404707924
 openexr/ImfAttribute.cpp.ll 267024684
 openexr/ImfB44Compressor.cpp.ll 1105168146
 openexr/ImfBoxAttribute.cpp.ll 158183004
-openexr/ImfCRgbaFile.cpp.ll 646142508
+openexr/ImfCRgbaFile.cpp.ll 646788747
 openexr/ImfChannelList.cpp.ll 438066174
 openexr/ImfChannelListAttribute.cpp.ll 290581952
 openexr/ImfCheckFile.cpp.ll 2551784740
