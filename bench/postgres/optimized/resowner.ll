@@ -1176,27 +1176,23 @@ define internal range(i32 -1, 2) i32 @resource_priority_cmp(ptr nocapture nounde
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %6, %10
-  br i1 %11, label %12, label %21
+  br i1 %11, label %12, label %18
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %8, i64 12
   %14 = load i32, ptr %13, align 4
   %15 = getelementptr inbounds i8, ptr %4, i64 12
   %16 = load i32, ptr %15, align 4
-  %17 = icmp ugt i32 %14, %16
-  %18 = zext i1 %17 to i32
-  %19 = icmp ult i32 %14, %16
-  %.neg.i = sext i1 %19 to i32
-  %20 = add nsw i32 %.neg.i, %18
-  br label %23
+  %17 = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %14, i32 %16)
+  br label %20
 
-21:                                               ; preds = %2
-  %22 = icmp ugt i32 %6, %10
-  %. = select i1 %22, i32 -1, i32 1
-  br label %23
+18:                                               ; preds = %2
+  %19 = icmp ugt i32 %6, %10
+  %. = select i1 %19, i32 -1, i32 1
+  br label %20
 
-23:                                               ; preds = %21, %12
-  %.0 = phi i32 [ %20, %12 ], [ %., %21 ]
+20:                                               ; preds = %18, %12
+  %.0 = phi i32 [ %17, %12 ], [ %., %18 ]
   ret i32 %.0
 }
 
@@ -1204,6 +1200,9 @@ declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #9

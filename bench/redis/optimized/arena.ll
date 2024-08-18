@@ -3122,109 +3122,97 @@ entry:
   br i1 %cmp.not, label %if.else10, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %1 = getelementptr i8, ptr %0, i64 32
-  %.val13 = load i64, ptr %1, align 8
-  %2 = getelementptr i8, ptr %slab, i64 32
-  %slab.val14 = load i64, ptr %2, align 8
-  %cmp.i.i = icmp ugt i64 %.val13, %slab.val14
-  %conv.i.i = zext i1 %cmp.i.i to i32
-  %cmp4.i.i = icmp ult i64 %.val13, %slab.val14
-  %conv5.neg.i.i = sext i1 %cmp4.i.i to i32
-  %sub.i.i = add nsw i32 %conv5.neg.i.i, %conv.i.i
-  %cmp6.not.i.i = icmp eq i32 %sub.i.i, 0
-  br i1 %cmp6.not.i.i, label %if.end.i.i, label %edata_snad_comp.exit
-
-if.end.i.i:                                       ; preds = %land.lhs.true
+  %1 = getelementptr i8, ptr %0, i64 8
+  %.val12 = load ptr, ptr %1, align 8
+  %2 = getelementptr i8, ptr %0, i64 32
+  %.val13 = load i64, ptr %2, align 8
   %3 = getelementptr i8, ptr %slab, i64 8
   %slab.val = load ptr, ptr %3, align 8
-  %4 = getelementptr i8, ptr %0, i64 8
-  %.val12 = load ptr, ptr %4, align 8
-  %cmp9.i.i = icmp ugt ptr %.val12, %slab.val
-  %conv10.i.i = zext i1 %cmp9.i.i to i32
-  %cmp13.i.i = icmp ult ptr %.val12, %slab.val
-  %conv14.neg.i.i = sext i1 %cmp13.i.i to i32
-  %sub15.i.i = add nsw i32 %conv14.neg.i.i, %conv10.i.i
-  br label %edata_snad_comp.exit
-
-edata_snad_comp.exit:                             ; preds = %land.lhs.true, %if.end.i.i
-  %retval.0.i.i = phi i32 [ %sub15.i.i, %if.end.i.i ], [ %sub.i.i, %land.lhs.true ]
+  %4 = getelementptr i8, ptr %slab, i64 32
+  %slab.val14 = load i64, ptr %4, align 8
+  %5 = ptrtoint ptr %.val12 to i64
+  %6 = ptrtoint ptr %slab.val to i64
+  %cmp6.not.i.i = icmp eq i64 %.val13, %slab.val14
+  %sub.i.i = tail call i32 @llvm.ucmp.i32.i64(i64 %.val13, i64 %slab.val14)
+  %sub15.i.i = tail call i32 @llvm.ucmp.i32.i64(i64 %5, i64 %6)
+  %retval.0.i.i = select i1 %cmp6.not.i.i, i32 %sub15.i.i, i32 %sub.i.i
   %cmp2 = icmp sgt i32 %retval.0.i.i, 0
   br i1 %cmp2, label %if.then, label %if.else10
 
-if.then:                                          ; preds = %edata_snad_comp.exit
+if.then:                                          ; preds = %land.lhs.true
   %.val = load i64, ptr %0, align 8
-  %5 = and i64 %.val, 274609471488
-  %cmp5.not = icmp eq i64 %5, 0
+  %7 = and i64 %.val, 274609471488
+  %cmp5.not = icmp eq i64 %7, 0
   br i1 %cmp5.not, label %if.else, label %if.then6
 
 if.then6:                                         ; preds = %if.then
   %slabs_nonfull.i = getelementptr inbounds i8, ptr %bin, i64 200
   tail call void @edata_heap_insert(ptr noundef nonnull %slabs_nonfull.i, ptr noundef nonnull %0) #15
   %nonfull_slabs.i = getelementptr inbounds i8, ptr %bin, i64 184
-  %6 = load i64, ptr %nonfull_slabs.i, align 8
-  %inc.i = add i64 %6, 1
+  %8 = load i64, ptr %nonfull_slabs.i, align 8
+  %inc.i = add i64 %8, 1
   store i64 %inc.i, ptr %nonfull_slabs.i, align 8
   br label %if.end
 
 if.else:                                          ; preds = %if.then
-  %7 = getelementptr i8, ptr %arena, i64 78928
-  %arena.val = load i32, ptr %7, align 8
-  %8 = load i32, ptr @manual_arena_base, align 4
-  %cmp.i.i15 = icmp ugt i32 %8, %arena.val
-  br i1 %cmp.i.i15, label %if.end, label %if.end.i
+  %9 = getelementptr i8, ptr %arena, i64 78928
+  %arena.val = load i32, ptr %9, align 8
+  %10 = load i32, ptr @manual_arena_base, align 4
+  %cmp.i.i = icmp ugt i32 %10, %arena.val
+  br i1 %cmp.i.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %if.else
   %slabs_full.i = getelementptr inbounds i8, ptr %bin, i64 216
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %0, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  store ptr %0, ptr %11, align 8
   %qre_prev.i.i = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %0, ptr %qre_prev.i.i, align 8
-  %10 = load ptr, ptr %slabs_full.i, align 8
-  %cmp.i1.i = icmp eq ptr %10, null
+  %12 = load ptr, ptr %slabs_full.i, align 8
+  %cmp.i1.i = icmp eq ptr %12, null
   br i1 %cmp.i1.i, label %edata_list_active_append.exit.i, label %do.body2.i.i
 
 do.body2.i.i:                                     ; preds = %if.end.i
-  %qre_prev5.i.i = getelementptr inbounds i8, ptr %10, i64 48
-  %11 = load ptr, ptr %qre_prev5.i.i, align 8
-  store ptr %11, ptr %9, align 8
-  %12 = load ptr, ptr %slabs_full.i, align 8
-  %qre_prev11.i.i = getelementptr inbounds i8, ptr %12, i64 48
+  %qre_prev5.i.i = getelementptr inbounds i8, ptr %12, i64 48
+  %13 = load ptr, ptr %qre_prev5.i.i, align 8
+  store ptr %13, ptr %11, align 8
+  %14 = load ptr, ptr %slabs_full.i, align 8
+  %qre_prev11.i.i = getelementptr inbounds i8, ptr %14, i64 48
   store ptr %0, ptr %qre_prev11.i.i, align 8
-  %13 = load ptr, ptr %qre_prev.i.i, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 40
-  %15 = load ptr, ptr %14, align 8
-  store ptr %15, ptr %qre_prev.i.i, align 8
-  %16 = load ptr, ptr %slabs_full.i, align 8
-  %qre_prev19.i.i = getelementptr inbounds i8, ptr %16, i64 48
-  %17 = load ptr, ptr %qre_prev19.i.i, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 40
-  store ptr %16, ptr %18, align 8
-  %19 = load ptr, ptr %qre_prev.i.i, align 8
+  %15 = load ptr, ptr %qre_prev.i.i, align 8
+  %16 = getelementptr inbounds i8, ptr %15, i64 40
+  %17 = load ptr, ptr %16, align 8
+  store ptr %17, ptr %qre_prev.i.i, align 8
+  %18 = load ptr, ptr %slabs_full.i, align 8
+  %qre_prev19.i.i = getelementptr inbounds i8, ptr %18, i64 48
+  %19 = load ptr, ptr %qre_prev19.i.i, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 40
-  store ptr %0, ptr %20, align 8
-  %.pre.i.i = load ptr, ptr %9, align 8
+  store ptr %18, ptr %20, align 8
+  %21 = load ptr, ptr %qre_prev.i.i, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 40
+  store ptr %0, ptr %22, align 8
+  %.pre.i.i = load ptr, ptr %11, align 8
   br label %edata_list_active_append.exit.i
 
 edata_list_active_append.exit.i:                  ; preds = %do.body2.i.i, %if.end.i
-  %21 = phi ptr [ %.pre.i.i, %do.body2.i.i ], [ %0, %if.end.i ]
-  store ptr %21, ptr %slabs_full.i, align 8
+  %23 = phi ptr [ %.pre.i.i, %do.body2.i.i ], [ %0, %if.end.i ]
+  store ptr %23, ptr %slabs_full.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %edata_list_active_append.exit.i, %if.else, %if.then6
   store ptr %slab, ptr %slabcur, align 8
   br label %if.end11
 
-if.else10:                                        ; preds = %edata_snad_comp.exit, %entry
-  %slabs_nonfull.i16 = getelementptr inbounds i8, ptr %bin, i64 200
-  tail call void @edata_heap_insert(ptr noundef nonnull %slabs_nonfull.i16, ptr noundef %slab) #15
+if.else10:                                        ; preds = %land.lhs.true, %entry
+  %slabs_nonfull.i15 = getelementptr inbounds i8, ptr %bin, i64 200
+  tail call void @edata_heap_insert(ptr noundef nonnull %slabs_nonfull.i15, ptr noundef %slab) #15
   br label %if.end11
 
 if.end11:                                         ; preds = %if.else10, %if.end
   %.sink = phi i64 [ 184, %if.else10 ], [ 168, %if.end ]
-  %nonfull_slabs.i17 = getelementptr inbounds i8, ptr %bin, i64 %.sink
-  %22 = load i64, ptr %nonfull_slabs.i17, align 8
-  %inc.i18 = add i64 %22, 1
-  store i64 %inc.i18, ptr %nonfull_slabs.i17, align 8
+  %nonfull_slabs.i16 = getelementptr inbounds i8, ptr %bin, i64 %.sink
+  %24 = load i64, ptr %nonfull_slabs.i16, align 8
+  %inc.i17 = add i64 %24, 1
+  store i64 %inc.i17, ptr %nonfull_slabs.i16, align 8
   ret void
 }
 
@@ -7183,6 +7171,9 @@ declare i32 @llvm.umin.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14

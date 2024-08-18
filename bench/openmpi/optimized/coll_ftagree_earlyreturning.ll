@@ -7449,24 +7449,16 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef
 define internal range(i32 -1, 2) i32 @compare_ints(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #15 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
-  %5 = icmp sgt i32 %3, %4
-  %6 = zext i1 %5 to i32
-  %7 = icmp slt i32 %3, %4
-  %.neg = sext i1 %7 to i32
-  %8 = add nsw i32 %.neg, %6
-  ret i32 %8
+  %5 = tail call i32 @llvm.scmp.i32.i32(i32 %3, i32 %4)
+  ret i32 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 -1, 2) i32 @compare_uint16_ts(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #15 {
   %3 = load i16, ptr %0, align 2
   %4 = load i16, ptr %1, align 2
-  %5 = icmp ugt i16 %3, %4
-  %6 = zext i1 %5 to i32
-  %7 = icmp ult i16 %3, %4
-  %.neg = sext i1 %7 to i32
-  %8 = add nsw i32 %.neg, %6
-  ret i32 %8
+  %5 = tail call i32 @llvm.ucmp.i32.i16(i16 %3, i16 %4)
+  ret i32 %5
 }
 
 declare i32 @opal_pointer_array_set_item(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
@@ -7492,6 +7484,12 @@ declare i32 @llvm.smin.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i16(i16, i16) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #16

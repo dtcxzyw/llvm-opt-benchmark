@@ -97049,12 +97049,8 @@ define internal range(i32 -1, 2) i32 @exec_module_list_cmp(ptr nocapture noundef
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 176
   %9 = load i64, ptr %8, align 8
-  %10 = icmp sgt i64 %7, %9
-  %11 = zext i1 %10 to i32
-  %12 = icmp slt i64 %7, %9
-  %.neg = sext i1 %12 to i32
-  %13 = add nsw i32 %.neg, %11
-  ret i32 %13
+  %10 = tail call i32 @llvm.scmp.i32.i64(i64 %7, i64 %9)
+  ret i32 %10
 }
 
 declare void @dbuf_init2(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
@@ -192038,7 +192034,7 @@ define internal i32 @js_array_cmp_generic(ptr nocapture noundef %0, ptr nocaptur
   %.sroa.026.0.extract.trunc = trunc i64 %22 to i32
   %trunc = trunc i64 %23 to i32
   switch i32 %trunc, label %26 [
-    i32 6, label %133
+    i32 6, label %130
     i32 0, label %24
   ]
 
@@ -192068,7 +192064,7 @@ define internal i32 @js_array_cmp_generic(ptr nocapture noundef %0, ptr nocaptur
 JS_ToFloat64Free.exit:                            ; preds = %30
   %34 = call fastcc i32 @__JS_ToFloat64Free(ptr noundef %7, ptr noundef nonnull %6, i64 %22, i64 %23)
   %35 = icmp slt i32 %34, 0
-  br i1 %35, label %133, label %JS_ToFloat64Free.exit.JS_ToFloat64Free.exit.thread_crit_edge
+  br i1 %35, label %130, label %JS_ToFloat64Free.exit.JS_ToFloat64Free.exit.thread_crit_edge
 
 JS_ToFloat64Free.exit.JS_ToFloat64Free.exit.thread_crit_edge: ; preds = %JS_ToFloat64Free.exit
   %.pre = load double, ptr %6, align 8
@@ -192097,7 +192093,7 @@ JS_ToFloat64Free.exit.thread:                     ; preds = %JS_ToFloat64Free.ex
   %49 = extractvalue { i64, i64 } %48, 1
   %50 = and i64 %49, 4294967295
   %.not77 = icmp eq i64 %50, 6
-  br i1 %.not77, label %133, label %51
+  br i1 %.not77, label %130, label %51
 
 51:                                               ; preds = %44
   %52 = extractvalue { i64, i64 } %48, 0
@@ -192120,7 +192116,7 @@ JS_ToFloat64Free.exit.thread:                     ; preds = %JS_ToFloat64Free.ex
   %63 = extractvalue { i64, i64 } %62, 1
   %64 = and i64 %63, 4294967295
   %.not78 = icmp eq i64 %64, 6
-  br i1 %.not78, label %133, label %65
+  br i1 %.not78, label %130, label %65
 
 65:                                               ; preds = %58
   %66 = extractvalue { i64, i64 } %62, 0
@@ -192267,19 +192263,15 @@ js_string_compare.exit.thread73:                  ; preds = %js_string_memcmp.ex
   %126 = load i64, ptr %125, align 8
   %127 = getelementptr inbounds i8, ptr %1, i64 24
   %128 = load i64, ptr %127, align 8
-  %129 = icmp sgt i64 %126, %128
-  %130 = zext i1 %129 to i32
-  %131 = icmp slt i64 %126, %128
-  %.neg68 = sext i1 %131 to i32
-  %132 = add nsw i32 %.neg68, %130
+  %129 = call i32 @llvm.scmp.i32.i64(i64 %126, i64 %128)
   br label %js_string_compare.exit.thread
 
-133:                                              ; preds = %14, %58, %44, %JS_ToFloat64Free.exit
+130:                                              ; preds = %14, %58, %44, %JS_ToFloat64Free.exit
   store i32 1, ptr %8, align 8
   br label %js_string_compare.exit.thread
 
-js_string_compare.exit.thread:                    ; preds = %123, %js_string_memcmp.exit.i, %js_string_compare.exit, %3, %133, %js_string_compare.exit.thread73
-  %.0 = phi i32 [ 0, %133 ], [ %132, %js_string_compare.exit.thread73 ], [ 0, %3 ], [ %.059, %js_string_compare.exit ], [ %..i, %123 ], [ %.0.i.i, %js_string_memcmp.exit.i ]
+js_string_compare.exit.thread:                    ; preds = %123, %js_string_memcmp.exit.i, %js_string_compare.exit, %3, %130, %js_string_compare.exit.thread73
+  %.0 = phi i32 [ 0, %130 ], [ %129, %js_string_compare.exit.thread73 ], [ 0, %3 ], [ %.059, %js_string_compare.exit ], [ %..i, %123 ], [ %.0.i.i, %js_string_memcmp.exit.i ]
   ret i32 %.0
 }
 
@@ -213323,12 +213315,8 @@ define internal { i64, i64 } @js_TA_get_int32(ptr nocapture readnone %0, ptr noc
 define internal range(i32 -1, 2) i32 @js_TA_cmp_int32(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #7 {
   %4 = load i32, ptr %0, align 4
   %5 = load i32, ptr %1, align 4
-  %6 = icmp slt i32 %5, %4
-  %7 = zext i1 %6 to i32
-  %8 = icmp sgt i32 %5, %4
-  %.neg = sext i1 %8 to i32
-  %9 = add nsw i32 %.neg, %7
-  ret i32 %9
+  %6 = tail call i32 @llvm.scmp.i32.i32(i32 %4, i32 %5)
+  ret i32 %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -213349,12 +213337,8 @@ define internal { i64, i64 } @js_TA_get_uint32(ptr nocapture readnone %0, ptr no
 define internal range(i32 -1, 2) i32 @js_TA_cmp_uint32(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #7 {
   %4 = load i32, ptr %0, align 4
   %5 = load i32, ptr %1, align 4
-  %6 = icmp ult i32 %5, %4
-  %7 = zext i1 %6 to i32
-  %8 = icmp ugt i32 %5, %4
-  %.neg = sext i1 %8 to i32
-  %9 = add nsw i32 %.neg, %7
-  ret i32 %9
+  %6 = tail call i32 @llvm.ucmp.i32.i32(i32 %4, i32 %5)
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -213368,12 +213352,8 @@ define internal { i64, i64 } @js_TA_get_int64(ptr noundef %0, ptr nocapture noun
 define internal range(i32 -1, 2) i32 @js_TA_cmp_int64(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #7 {
   %4 = load i64, ptr %0, align 8
   %5 = load i64, ptr %1, align 8
-  %6 = icmp slt i64 %5, %4
-  %7 = zext i1 %6 to i32
-  %8 = icmp sgt i64 %5, %4
-  %.neg = sext i1 %8 to i32
-  %9 = add nsw i32 %.neg, %7
-  ret i32 %9
+  %6 = tail call i32 @llvm.scmp.i32.i64(i64 %4, i64 %5)
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -213387,12 +213367,8 @@ define internal { i64, i64 } @js_TA_get_uint64(ptr noundef %0, ptr nocapture nou
 define internal range(i32 -1, 2) i32 @js_TA_cmp_uint64(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #7 {
   %4 = load i64, ptr %0, align 8
   %5 = load i64, ptr %1, align 8
-  %6 = icmp ult i64 %5, %4
-  %7 = zext i1 %6 to i32
-  %8 = icmp ugt i64 %5, %4
-  %.neg = sext i1 %8 to i32
-  %9 = add nsw i32 %.neg, %7
-  ret i32 %9
+  %6 = tail call i32 @llvm.ucmp.i32.i64(i64 %4, i64 %5)
+  ret i32 %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -213615,82 +213591,72 @@ JS_ToFloat64Free.exit.thread:                     ; preds = %JS_ToFloat64Free.ex
 62:                                               ; preds = %JS_ToFloat64Free.exit.thread, %45
   %.2 = phi i32 [ %46, %45 ], [ %61, %JS_ToFloat64Free.exit.thread ]
   %63 = icmp eq i32 %.2, 0
-  br i1 %63, label %64, label %69
-
-64:                                               ; preds = %62
-  %65 = icmp ugt i32 %11, %12
-  %66 = zext i1 %65 to i32
-  %67 = icmp ult i32 %11, %12
-  %.neg63 = sext i1 %67 to i32
-  %68 = add nsw i32 %.neg63, %66
-  br label %69
-
-69:                                               ; preds = %64, %62
-  %.3 = phi i32 [ %68, %64 ], [ %.2, %62 ]
-  %70 = getelementptr inbounds i8, ptr %2, i64 16
-  %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr i8, ptr %71, i64 48
-  %.val = load ptr, ptr %72, align 8
-  %73 = getelementptr i8, ptr %.val, i64 24
-  %.val.val = load ptr, ptr %73, align 8
-  %74 = getelementptr i8, ptr %.val.val, i64 48
-  %.val.val.val = load ptr, ptr %74, align 8
-  %75 = getelementptr i8, ptr %.val.val.val, i64 4
-  %.val.val.val.val = load i8, ptr %75, align 4
+  %64 = call i32 @llvm.ucmp.i32.i32(i32 %11, i32 %12)
+  %spec.select = select i1 %63, i32 %64, i32 %.2
+  %65 = getelementptr inbounds i8, ptr %2, i64 16
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr i8, ptr %66, i64 48
+  %.val = load ptr, ptr %67, align 8
+  %68 = getelementptr i8, ptr %.val, i64 24
+  %.val.val = load ptr, ptr %68, align 8
+  %69 = getelementptr i8, ptr %.val.val, i64 48
+  %.val.val.val = load ptr, ptr %69, align 8
+  %70 = getelementptr i8, ptr %.val.val.val, i64 4
+  %.val.val.val.val = load i8, ptr %70, align 4
   %.not64 = icmp eq i8 %.val.val.val.val, 0
-  br i1 %.not64, label %76, label %.sink.split
+  br i1 %.not64, label %71, label %.sink.split
 
-.sink.split:                                      ; preds = %69, %JS_ToFloat64Free.exit, %10
-  %.sink = phi i32 [ 1, %10 ], [ 1, %JS_ToFloat64Free.exit ], [ 2, %69 ]
-  %.1.ph = phi i32 [ 0, %10 ], [ 0, %JS_ToFloat64Free.exit ], [ %.3, %69 ]
+.sink.split:                                      ; preds = %62, %JS_ToFloat64Free.exit, %10
+  %.sink = phi i32 [ 1, %10 ], [ 1, %JS_ToFloat64Free.exit ], [ 2, %62 ]
+  %.1.ph = phi i32 [ 0, %10 ], [ 0, %JS_ToFloat64Free.exit ], [ %spec.select, %62 ]
   store i32 %.sink, ptr %8, align 8
-  br label %76
+  br label %71
 
-76:                                               ; preds = %.sink.split, %69
-  %.1 = phi i32 [ %.3, %69 ], [ %.1.ph, %.sink.split ]
+71:                                               ; preds = %.sink.split, %62
+  %.1 = phi i32 [ %spec.select, %62 ], [ %.1.ph, %.sink.split ]
   %.sroa.01.0.copyload = load i64, ptr %5, align 16
   %.sroa.22.0.copyload = load i64, ptr %.sroa.212.0..sroa_idx, align 8
-  %77 = trunc i64 %.sroa.22.0.copyload to i32
-  %78 = icmp ugt i32 %77, -12
+  %72 = trunc i64 %.sroa.22.0.copyload to i32
+  %73 = icmp ugt i32 %72, -12
+  br i1 %73, label %74, label %JS_FreeValue.exit
+
+74:                                               ; preds = %71
+  %75 = inttoptr i64 %.sroa.01.0.copyload to ptr
+  %76 = load i32, ptr %75, align 4
+  %77 = add i32 %76, -1
+  store i32 %77, ptr %75, align 4
+  %78 = icmp slt i32 %77, 1
   br i1 %78, label %79, label %JS_FreeValue.exit
 
-79:                                               ; preds = %76
-  %80 = inttoptr i64 %.sroa.01.0.copyload to ptr
-  %81 = load i32, ptr %80, align 4
-  %82 = add i32 %81, -1
-  store i32 %82, ptr %80, align 4
-  %83 = icmp slt i32 %82, 1
-  br i1 %83, label %84, label %JS_FreeValue.exit
-
-84:                                               ; preds = %79
-  %85 = getelementptr inbounds i8, ptr %7, i64 24
-  %86 = load ptr, ptr %85, align 8
-  call void @__JS_FreeValueRT(ptr noundef %86, i64 %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload)
+79:                                               ; preds = %74
+  %80 = getelementptr inbounds i8, ptr %7, i64 24
+  %81 = load ptr, ptr %80, align 8
+  call void @__JS_FreeValueRT(ptr noundef %81, i64 %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload)
   br label %JS_FreeValue.exit
 
-JS_FreeValue.exit:                                ; preds = %76, %79, %84
+JS_FreeValue.exit:                                ; preds = %71, %74, %79
   %.sroa.0.0.copyload = load i64, ptr %26, align 16
   %.sroa.2.0.copyload = load i64, ptr %.sroa.210.0..sroa_idx, align 8
-  %87 = trunc i64 %.sroa.2.0.copyload to i32
-  %88 = icmp ugt i32 %87, -12
+  %82 = trunc i64 %.sroa.2.0.copyload to i32
+  %83 = icmp ugt i32 %82, -12
+  br i1 %83, label %84, label %JS_FreeValue.exit65
+
+84:                                               ; preds = %JS_FreeValue.exit
+  %85 = inttoptr i64 %.sroa.0.0.copyload to ptr
+  %86 = load i32, ptr %85, align 4
+  %87 = add i32 %86, -1
+  store i32 %87, ptr %85, align 4
+  %88 = icmp slt i32 %87, 1
   br i1 %88, label %89, label %JS_FreeValue.exit65
 
-89:                                               ; preds = %JS_FreeValue.exit
-  %90 = inttoptr i64 %.sroa.0.0.copyload to ptr
-  %91 = load i32, ptr %90, align 4
-  %92 = add i32 %91, -1
-  store i32 %92, ptr %90, align 4
-  %93 = icmp slt i32 %92, 1
-  br i1 %93, label %94, label %JS_FreeValue.exit65
-
-94:                                               ; preds = %89
-  %95 = getelementptr inbounds i8, ptr %7, i64 24
-  %96 = load ptr, ptr %95, align 8
-  call void @__JS_FreeValueRT(ptr noundef %96, i64 %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload)
+89:                                               ; preds = %84
+  %90 = getelementptr inbounds i8, ptr %7, i64 24
+  %91 = load ptr, ptr %90, align 8
+  call void @__JS_FreeValueRT(ptr noundef %91, i64 %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload)
   br label %JS_FreeValue.exit65
 
-JS_FreeValue.exit65:                              ; preds = %94, %89, %JS_FreeValue.exit, %3
-  %.0 = phi i32 [ 0, %3 ], [ %.1, %JS_FreeValue.exit ], [ %.1, %89 ], [ %.1, %94 ]
+JS_FreeValue.exit65:                              ; preds = %89, %84, %JS_FreeValue.exit, %3
+  %.0 = phi i32 [ 0, %3 ], [ %.1, %JS_FreeValue.exit ], [ %.1, %84 ], [ %.1, %89 ]
   ret i32 %.0
 }
 
@@ -215123,6 +215089,9 @@ declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_add
 declare i32 @llvm.smin.i32(i32, i32) #37
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i64(i64, i64) #37
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.bswap.i64(i64) #37
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -215136,6 +215105,15 @@ declare i32 @llvm.ctpop.i32(i32) #37
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.copysign.f64(double, double) #37
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #37
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #37
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i64(i64, i64) #37
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #40
