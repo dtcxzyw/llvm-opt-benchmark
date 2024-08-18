@@ -24537,7 +24537,7 @@ openssl/libcrypto-lib-dh_backend.ll 82934684
 openssl/libcrypto-lib-dh_check.ll 115545620
 openssl/libcrypto-lib-dh_ctrl.ll 106071397
 openssl/libcrypto-lib-dh_err.ll 36698454
-openssl/libcrypto-lib-dh_gen.ll 71795286
+openssl/libcrypto-lib-dh_gen.ll 71867118
 openssl/libcrypto-lib-dh_group_params.ll 50195881
 openssl/libcrypto-lib-dh_kdf.ll 46827162
 openssl/libcrypto-lib-dh_key.ll 128454481
