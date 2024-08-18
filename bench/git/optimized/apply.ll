@@ -8214,7 +8214,8 @@ while.end18.loopexit.i:                           ; preds = %if.end17.i
 while.end18.i:                                    ; preds = %while.end18.loopexit.i, %while.cond.preheader.i
   %j.0.lcssa.i = phi i64 [ 0, %while.cond.preheader.i ], [ %13, %while.end18.loopexit.i ]
   %arrayidx20.i = getelementptr inbounds i8, ptr %call.i, i64 %j.0.lcssa.i
-  br label %return.sink.split
+  store i8 0, ptr %arrayidx20.i, align 1
+  br label %return
 
 if.end26:                                         ; preds = %while.end
   %sub.ptr.lhs.cast = ptrtoint ptr %line.addr.0.lcssa to i64
@@ -8280,7 +8281,8 @@ while.end18.loopexit.i51:                         ; preds = %if.end17.i46
 while.end18.i52:                                  ; preds = %while.end18.loopexit.i51, %while.cond.preheader.i37
   %j.0.lcssa.i53 = phi i64 [ 0, %while.cond.preheader.i37 ], [ %20, %while.end18.loopexit.i51 ]
   %arrayidx20.i54 = getelementptr inbounds i8, ptr %call.i33, i64 %j.0.lcssa.i53
-  br label %return.sink.split
+  store i8 0, ptr %arrayidx20.i54, align 1
+  br label %return
 
 if.end32:                                         ; preds = %if.end26
   br i1 %tobool.not.i31, label %if.end47, label %if.then34
@@ -8350,7 +8352,8 @@ while.end18.loopexit.i78:                         ; preds = %if.end17.i73
 while.end18.i79:                                  ; preds = %while.end18.loopexit.i78, %while.cond.preheader.i64
   %j.0.lcssa.i80 = phi i64 [ 0, %while.cond.preheader.i64 ], [ %27, %while.end18.loopexit.i78 ]
   %arrayidx20.i81 = getelementptr inbounds i8, ptr %call44, i64 %j.0.lcssa.i80
-  br label %return.sink.split
+  store i8 0, ptr %arrayidx20.i81, align 1
+  br label %return
 
 if.end47:                                         ; preds = %if.then34, %land.lhs.true39, %if.end32
   %len48 = getelementptr inbounds i8, ptr %root, i64 8
@@ -8412,7 +8415,8 @@ while.end18.loopexit.i105:                        ; preds = %if.end17.i100
 while.end18.i106:                                 ; preds = %while.end18.loopexit.i105, %while.cond.preheader.i91
   %j.0.lcssa.i107 = phi i64 [ 0, %while.cond.preheader.i91 ], [ %36, %while.end18.loopexit.i105 ]
   %arrayidx20.i108 = getelementptr inbounds i8, ptr %call51, i64 %j.0.lcssa.i107
-  br label %return.sink.split
+  store i8 0, ptr %arrayidx20.i108, align 1
+  br label %return
 
 if.end53:                                         ; preds = %if.end47
   %sext25 = shl i64 %sub.ptr.sub, 32
@@ -8468,16 +8472,11 @@ while.end18.loopexit.i132:                        ; preds = %if.end17.i127
 while.end18.i133:                                 ; preds = %while.end18.loopexit.i132, %while.cond.preheader.i118
   %j.0.lcssa.i134 = phi i64 [ 0, %while.cond.preheader.i118 ], [ %43, %while.end18.loopexit.i132 ]
   %arrayidx20.i135 = getelementptr inbounds i8, ptr %call55, i64 %j.0.lcssa.i134
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %while.end18.i, %while.end18.i52, %while.end18.i79, %while.end18.i106, %while.end18.i133
-  %arrayidx20.i135.sink = phi ptr [ %arrayidx20.i135, %while.end18.i133 ], [ %arrayidx20.i108, %while.end18.i106 ], [ %arrayidx20.i81, %while.end18.i79 ], [ %arrayidx20.i54, %while.end18.i52 ], [ %arrayidx20.i, %while.end18.i ]
-  %retval.0.ph = phi ptr [ %call55, %while.end18.i133 ], [ %call51, %while.end18.i106 ], [ %call44, %while.end18.i79 ], [ %call.i33, %while.end18.i52 ], [ %call.i, %while.end18.i ]
-  store i8 0, ptr %arrayidx20.i135.sink, align 1
+  store i8 0, ptr %arrayidx20.i135, align 1
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.then29, %if.then23, %if.end53, %if.then50, %if.then43, %xstrdup_or_null.exit35, %xstrdup_or_null.exit
-  %retval.0 = phi ptr [ null, %xstrdup_or_null.exit ], [ null, %xstrdup_or_null.exit35 ], [ null, %if.then43 ], [ null, %if.then50 ], [ null, %if.end53 ], [ null, %if.then23 ], [ null, %if.then29 ], [ %retval.0.ph, %return.sink.split ]
+return:                                           ; preds = %if.then29, %if.then23, %while.end18.i133, %if.end53, %while.end18.i106, %if.then50, %while.end18.i79, %if.then43, %while.end18.i52, %xstrdup_or_null.exit35, %while.end18.i, %xstrdup_or_null.exit
+  %retval.0 = phi ptr [ null, %xstrdup_or_null.exit ], [ %call.i, %while.end18.i ], [ null, %xstrdup_or_null.exit35 ], [ %call.i33, %while.end18.i52 ], [ null, %if.then43 ], [ %call44, %while.end18.i79 ], [ null, %if.then50 ], [ %call51, %while.end18.i106 ], [ null, %if.end53 ], [ %call55, %while.end18.i133 ], [ null, %if.then23 ], [ null, %if.then29 ]
   ret ptr %retval.0
 }
 

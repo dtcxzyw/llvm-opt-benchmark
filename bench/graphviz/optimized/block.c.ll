@@ -68,9 +68,18 @@ define void @appendBlock(ptr nocapture noundef %0, ptr noundef %1) local_unnamed
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
-  %.sink = select i1 %.not, ptr %0, ptr %6
-  store ptr %1, ptr %.sink, align 8
+  br i1 %.not, label %8, label %6
+
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %1, ptr %7, align 8
+  br label %9
+
+8:                                                ; preds = %2
+  store ptr %1, ptr %0, align 8
+  br label %9
+
+9:                                                ; preds = %8, %6
   store ptr %1, ptr %4, align 8
   ret void
 }

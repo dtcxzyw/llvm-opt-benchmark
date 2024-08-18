@@ -10688,7 +10688,8 @@ method_name_by_decl.exit:                         ; preds = %.critedge131, %27
   %90 = add i32 %89, -1
   %91 = zext i32 %90 to i64
   %92 = getelementptr inbounds ptr, ptr %88, i64 %91
-  br label %.sink.split2.i
+  store ptr %2, ptr %92, align 8
+  br label %unit_add_base_extension_method.exit
 
 93:                                               ; preds = %55
   %94 = load ptr, ptr %0, align 8
@@ -10761,7 +10762,8 @@ expand_.exit56.i:                                 ; preds = %106, %102
 133:                                              ; preds = %128, %expand_.exit56.i
   %.041.i = phi i64 [ %132, %128 ], [ 4294967295, %expand_.exit56.i ]
   %134 = getelementptr inbounds ptr, ptr %127, i64 %.041.i
-  br label %.sink.split2.i
+  store ptr %2, ptr %134, align 8
+  br label %unit_add_base_extension_method.exit
 
 135:                                              ; preds = %55
   %136 = load ptr, ptr %13, align 8
@@ -10818,11 +10820,7 @@ expand_.exit56.i:                                 ; preds = %106, %102
   %165 = add i32 %164, -1
   %166 = zext i32 %165 to i64
   %167 = getelementptr inbounds ptr, ptr %163, i64 %166
-  br label %.sink.split2.i
-
-.sink.split2.i:                                   ; preds = %160, %133, %85
-  %.sink.i = phi ptr [ %167, %160 ], [ %134, %133 ], [ %92, %85 ]
-  store ptr %2, ptr %.sink.i, align 8
+  store ptr %2, ptr %167, align 8
   br label %unit_add_base_extension_method.exit
 
 168:                                              ; preds = %.critedge
@@ -11291,8 +11289,8 @@ expand_.exit146:                                  ; preds = %318, %322
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.unit_add_method_like, ptr noundef nonnull @.str.4, i32 noundef 1735) #11
   unreachable
 
-unit_add_base_extension_method.exit:              ; preds = %sema_analyse_operator_len.exit.i.thread, %sema_analyse_operator_element_at.exit.i.thread, %.sink.split2.i, %55, %283, %301, %349, %359, %393, %sema_check_operator_method_validity.exit, %method_name_by_decl.exit135, %method_name_by_decl.exit
-  %.0109 = phi i1 [ false, %method_name_by_decl.exit ], [ false, %method_name_by_decl.exit135 ], [ false, %sema_check_operator_method_validity.exit ], [ true, %393 ], [ true, %359 ], [ true, %349 ], [ true, %301 ], [ true, %283 ], [ true, %55 ], [ true, %.sink.split2.i ], [ false, %sema_analyse_operator_element_at.exit.i.thread ], [ false, %sema_analyse_operator_len.exit.i.thread ]
+unit_add_base_extension_method.exit:              ; preds = %sema_analyse_operator_len.exit.i.thread, %sema_analyse_operator_element_at.exit.i.thread, %160, %133, %85, %55, %283, %301, %349, %359, %393, %sema_check_operator_method_validity.exit, %method_name_by_decl.exit135, %method_name_by_decl.exit
+  %.0109 = phi i1 [ false, %method_name_by_decl.exit ], [ false, %method_name_by_decl.exit135 ], [ false, %sema_check_operator_method_validity.exit ], [ true, %393 ], [ true, %359 ], [ true, %349 ], [ true, %301 ], [ true, %283 ], [ true, %55 ], [ true, %85 ], [ true, %133 ], [ true, %160 ], [ false, %sema_analyse_operator_element_at.exit.i.thread ], [ false, %sema_analyse_operator_len.exit.i.thread ]
   ret i1 %.0109
 }
 

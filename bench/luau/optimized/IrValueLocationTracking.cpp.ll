@@ -141,7 +141,9 @@ define dso_local void @_ZN4Luau7CodeGen23IrValueLocationTracking18beforeInstLowe
 _ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i: ; preds = %43, %31
   %46 = phi ptr [ %.pre.i.i, %43 ], [ %38, %31 ]
   %47 = getelementptr inbounds %"struct.Luau::CodeGen::IrOp", ptr %46, i64 %34
-  br label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.sink.split
+  store i32 0, ptr %47, align 4
+  store i32 -1, ptr %12, align 4
+  br label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit
 
 48:                                               ; preds = %2
   %49 = getelementptr inbounds i8, ptr %1, i64 4
@@ -206,7 +208,9 @@ _ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i: ; preds = %43,
 _ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i50: ; preds = %83, %72
   %86 = phi ptr [ %.pre.i.i49, %83 ], [ %78, %72 ]
   %87 = getelementptr inbounds %"struct.Luau::CodeGen::IrOp", ptr %86, i64 %.pre-phi
-  br label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.sink.split
+  store i32 0, ptr %87, align 4
+  store i32 -1, ptr %56, align 4
+  br label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit
 
 88:                                               ; preds = %2, %2, %2, %2, %2, %2
   %89 = getelementptr inbounds i8, ptr %1, i64 4
@@ -271,7 +275,9 @@ _ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i50: ; preds = %8
 _ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i55: ; preds = %123, %112
   %126 = phi ptr [ %.pre.i.i54, %123 ], [ %118, %112 ]
   %127 = getelementptr inbounds %"struct.Luau::CodeGen::IrOp", ptr %126, i64 %.pre-phi227
-  br label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.sink.split
+  store i32 0, ptr %127, align 4
+  store i32 -1, ptr %96, align 4
+  br label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit
 
 128:                                              ; preds = %2
   %129 = getelementptr inbounds i8, ptr %1, i64 4
@@ -605,7 +611,9 @@ _ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.
 _ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i91: ; preds = %314, %303
   %317 = phi ptr [ %.pre.i.i90, %314 ], [ %309, %303 ]
   %318 = getelementptr inbounds %"struct.Luau::CodeGen::IrOp", ptr %317, i64 %.pre-phi229
-  br label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.sink.split
+  store i32 0, ptr %318, align 4
+  store i32 -1, ptr %287, align 4
+  br label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit
 
 319:                                              ; preds = %2
   %320 = getelementptr inbounds i8, ptr %1, i64 4
@@ -761,7 +769,9 @@ _ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.
 _ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i111: ; preds = %407, %396
   %410 = phi ptr [ %.pre.i.i110, %407 ], [ %402, %396 ]
   %411 = getelementptr inbounds %"struct.Luau::CodeGen::IrOp", ptr %410, i64 %.pre-phi231
-  br label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.sink.split
+  store i32 0, ptr %411, align 4
+  store i32 -1, ptr %380, align 4
+  br label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit
 
 412:                                              ; preds = %2
   %413 = getelementptr inbounds i8, ptr %1, i64 4
@@ -985,7 +995,9 @@ _ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.
 _ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i146: ; preds = %532, %521
   %535 = phi ptr [ %.pre.i.i145, %532 ], [ %527, %521 ]
   %536 = getelementptr inbounds %"struct.Luau::CodeGen::IrOp", ptr %535, i64 %.pre-phi233
-  br label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.sink.split
+  store i32 0, ptr %536, align 4
+  store i32 -1, ptr %505, align 4
+  br label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit
 
 537:                                              ; preds = %2
   %538 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1221,7 +1233,9 @@ _ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.
 _ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i181: ; preds = %668, %657
   %671 = phi ptr [ %.pre.i.i180, %668 ], [ %663, %657 ]
   %672 = getelementptr inbounds %"struct.Luau::CodeGen::IrOp", ptr %671, i64 %.pre-phi235
-  br label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.sink.split
+  store i32 0, ptr %672, align 4
+  store i32 -1, ptr %641, align 4
+  br label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit
 
 673:                                              ; preds = %2
   %674 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1303,14 +1317,7 @@ _ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.
   %exitcond.not.i193 = icmp eq i32 %.013.i186, %spec.select.i183
   br i1 %exitcond.not.i193, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %682, !llvm.loop !5
 
-_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.sink.split: ; preds = %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i, %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i50, %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i55, %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i91, %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i111, %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i146, %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i181
-  %.sink244 = phi ptr [ %672, %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i181 ], [ %536, %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i146 ], [ %411, %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i111 ], [ %318, %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i91 ], [ %127, %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i55 ], [ %87, %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i50 ], [ %47, %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i ]
-  %.sink = phi ptr [ %641, %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i181 ], [ %505, %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i146 ], [ %380, %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i111 ], [ %287, %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i91 ], [ %96, %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i55 ], [ %56, %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i50 ], [ %12, %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i ]
-  store i32 0, ptr %.sink244, align 4
-  store i32 -1, ptr %.sink, align 4
-  br label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit
-
-_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit: ; preds = %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i192, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i172, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i157, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i137, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i122, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i102, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i82, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i67, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.sink.split, %673, %637, %633, %580, %537, %501, %497, %454, %412, %376, %372, %319, %283, %279, %236, %170, %128, %92, %88, %52, %48, %14, %8, %4, %2, %225
+_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit: ; preds = %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i192, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i172, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i157, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i137, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i122, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i102, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i82, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i67, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i, %673, %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i181, %637, %633, %580, %537, %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i146, %501, %497, %454, %412, %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i111, %376, %372, %319, %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i91, %283, %279, %236, %170, %128, %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i55, %92, %88, %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i50, %52, %48, %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i, %14, %8, %4, %2, %225
   ret void
 }
 

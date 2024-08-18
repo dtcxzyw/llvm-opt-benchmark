@@ -433,7 +433,8 @@ define dso_local i32 @Curl_pp_readresp(ptr noundef %0, i32 noundef %1, ptr nound
   store i64 %storemerge, ptr %19, align 8
   %65 = load i64, ptr %2, align 8
   store i64 %65, ptr %4, align 8
-  br label %._crit_edge
+  store i64 0, ptr %2, align 8
+  br label %78
 
 66:                                               ; preds = %55
   %67 = call i64 @Curl_dyn_len(ptr noundef nonnull %42) #8
@@ -450,6 +451,10 @@ define dso_local i32 @Curl_pp_readresp(ptr noundef %0, i32 noundef %1, ptr nound
   call void @Curl_dyn_reset(ptr noundef nonnull %42) #8
   br label %74
 
+._crit_edge:                                      ; preds = %74, %41
+  store i64 0, ptr %19, align 8
+  br label %78
+
 74:                                               ; preds = %73, %69
   %75 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %42) #8
   %76 = call i64 @Curl_dyn_len(ptr noundef nonnull %42) #8
@@ -457,15 +462,13 @@ define dso_local i32 @Curl_pp_readresp(ptr noundef %0, i32 noundef %1, ptr nound
   %.not74 = icmp eq ptr %77, null
   br i1 %.not74, label %._crit_edge, label %47
 
-._crit_edge:                                      ; preds = %74, %41, %64
-  %.sink = phi ptr [ %2, %64 ], [ %19, %41 ], [ %19, %74 ]
-  store i64 0, ptr %.sink, align 8
-  %78 = getelementptr inbounds i8, ptr %2, i64 8
-  store i8 0, ptr %78, align 8
+78:                                               ; preds = %._crit_edge, %64
+  %79 = getelementptr inbounds i8, ptr %2, i64 8
+  store i8 0, ptr %79, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %47, %30, %21, %._crit_edge, %27, %23
-  %.0 = phi i32 [ 0, %._crit_edge ], [ %22, %23 ], [ 56, %27 ], [ 0, %21 ], [ %32, %30 ], [ %54, %47 ]
+.loopexit:                                        ; preds = %47, %30, %21, %78, %27, %23
+  %.0 = phi i32 [ 0, %78 ], [ %22, %23 ], [ 56, %27 ], [ 0, %21 ], [ %32, %30 ], [ %54, %47 ]
   ret i32 %.0
 }
 

@@ -3066,32 +3066,29 @@ define i64 @cli_recursion_stack_get_size(ptr nocapture noundef readonly %0, i32 
 recursion_stack_get.exit:                         ; preds = %12, %2, %.preheader.i
   %.1.i = phi i32 [ %.015.i, %.preheader.i ], [ %6, %2 ], [ %spec.select.i, %12 ]
   %21 = icmp slt i32 %.1.i, 0
-  br i1 %21, label %22, label %26
+  br i1 %21, label %22, label %27
 
 22:                                               ; preds = %recursion_stack_get.exit
   %23 = getelementptr inbounds i8, ptr %0, i64 80
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 8
-  br label %.sink.split
+  %26 = load i64, ptr %25, align 8
+  br label %35
 
-26:                                               ; preds = %recursion_stack_get.exit
-  %27 = icmp ult i32 %4, %.1.i
-  br i1 %27, label %34, label %28
+27:                                               ; preds = %recursion_stack_get.exit
+  %28 = icmp ult i32 %4, %.1.i
+  br i1 %28, label %35, label %29
 
-28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %0, i64 80
-  %30 = load ptr, ptr %29, align 8
-  %31 = zext nneg i32 %.1.i to i64
-  %32 = getelementptr inbounds %struct.recursion_level_tag, ptr %30, i64 %31, i32 1
-  br label %.sink.split
+29:                                               ; preds = %27
+  %30 = getelementptr inbounds i8, ptr %0, i64 80
+  %31 = load ptr, ptr %30, align 8
+  %32 = zext nneg i32 %.1.i to i64
+  %33 = getelementptr inbounds %struct.recursion_level_tag, ptr %31, i64 %32, i32 1
+  %34 = load i64, ptr %33, align 8
+  br label %35
 
-.sink.split:                                      ; preds = %22, %28
-  %.sink = phi ptr [ %32, %28 ], [ %25, %22 ]
-  %33 = load i64, ptr %.sink, align 8
-  br label %34
-
-34:                                               ; preds = %.sink.split, %26
-  %.0 = phi i64 [ 0, %26 ], [ %33, %.sink.split ]
+35:                                               ; preds = %27, %29, %22
+  %.0 = phi i64 [ %26, %22 ], [ %34, %29 ], [ 0, %27 ]
   ret i64 %.0
 }
 

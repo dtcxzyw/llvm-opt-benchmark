@@ -3522,22 +3522,18 @@ if.then:                                          ; preds = %while.body
 
 if.then15:                                        ; preds = %if.then
   %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
-  br label %if.end22.sink.split
+  store ptr %__p.022, ptr %arrayidx16, align 8
+  br label %if.end22
 
 if.else:                                          ; preds = %while.body
   %6 = load ptr, ptr %3, align 8
   store ptr %6, ptr %__p.022, align 8
   %7 = load ptr, ptr %arrayidx, align 8
-  br label %if.end22.sink.split
-
-if.end22.sink.split:                              ; preds = %if.else, %if.then15
-  %arrayidx16.sink = phi ptr [ %arrayidx16, %if.then15 ], [ %7, %if.else ]
-  %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then15 ], [ %__bbegin_bkt.021, %if.else ]
-  store ptr %__p.022, ptr %arrayidx16.sink, align 8
+  store ptr %__p.022, ptr %7, align 8
   br label %if.end22
 
-if.end22:                                         ; preds = %if.end22.sink.split, %if.then
-  %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then ], [ %__bbegin_bkt.1.ph, %if.end22.sink.split ]
+if.end22:                                         ; preds = %if.then, %if.then15, %if.else
+  %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.021, %if.else ], [ %rem.i.i, %if.then15 ], [ %rem.i.i, %if.then ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !23
 
@@ -10777,7 +10773,7 @@ _ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES
 _ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit.i.i.i.i.i.i: ; preds = %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit.sink.split.i.i.i.i.i.i, %for.end.i.i.i.i.i.i.i
   %46 = load i8, ptr %_M_engaged.i.i.i.i11.i.i.i.i.i.i, align 1
   %tobool.i.i.i.i.i.i.i.i.i.i = trunc i8 %46 to i1
-  br i1 %tobool.i.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i, label %_ZZN8facebook5velox9functions12_GLOBAL__N_121FindFirstFunctionBase13toElementRowsEiRKNS0_17SelectivityVectorEPKmPKiSA_ENKUlT_E_clImEEDaSB_.exit.i.i.i.i.i
+  br i1 %tobool.i.i.i.i.i.i.i.i.i.i, label %_ZZN8facebook5velox9functions12_GLOBAL__N_121FindFirstFunctionBase13toElementRowsEiRKNS0_17SelectivityVectorEPKmPKiSA_ENKUlT_E_clImEEDaSB_.exit.i.sink.split.i.i.i.i, label %_ZZN8facebook5velox9functions12_GLOBAL__N_121FindFirstFunctionBase13toElementRowsEiRKNS0_17SelectivityVectorEPKmPKiSA_ENKUlT_E_clImEEDaSB_.exit.i.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i.i
   %add5.i.i.i.i.i.i = add nsw i32 %38, 1
@@ -10869,13 +10865,13 @@ _ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES
 _ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit77.i.i.i.i.i.i: ; preds = %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit77.sink.split.i.i.i.i.i.i, %for.end.i49.i.i.i.i.i.i
   %52 = load i8, ptr %_M_engaged.i.i.i.i11.i.i.i.i.i.i, align 1
   %tobool.i.i.i.i12.i.i.i.i.i.i = trunc i8 %52 to i1
-  br i1 %tobool.i.i.i.i12.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i, label %_ZZN8facebook5velox9functions12_GLOBAL__N_121FindFirstFunctionBase13toElementRowsEiRKNS0_17SelectivityVectorEPKmPKiSA_ENKUlT_E_clImEEDaSB_.exit.i.i.i.i.i
+  br i1 %tobool.i.i.i.i12.i.i.i.i.i.i, label %_ZZN8facebook5velox9functions12_GLOBAL__N_121FindFirstFunctionBase13toElementRowsEiRKNS0_17SelectivityVectorEPKmPKiSA_ENKUlT_E_clImEEDaSB_.exit.i.sink.split.i.i.i.i, label %_ZZN8facebook5velox9functions12_GLOBAL__N_121FindFirstFunctionBase13toElementRowsEiRKNS0_17SelectivityVectorEPKmPKiSA_ENKUlT_E_clImEEDaSB_.exit.i.i.i.i.i
 
-if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit77.i.i.i.i.i.i, %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit.i.i.i.i.i.i
+_ZZN8facebook5velox9functions12_GLOBAL__N_121FindFirstFunctionBase13toElementRowsEiRKNS0_17SelectivityVectorEPKmPKiSA_ENKUlT_E_clImEEDaSB_.exit.i.sink.split.i.i.i.i: ; preds = %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit77.i.i.i.i.i.i, %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit.i.i.i.i.i.i
   store i8 0, ptr %_M_engaged.i.i.i.i11.i.i.i.i.i.i, align 1
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_121FindFirstFunctionBase13toElementRowsEiRKNS0_17SelectivityVectorEPKmPKiSA_ENKUlT_E_clImEEDaSB_.exit.i.i.i.i.i
 
-_ZZN8facebook5velox9functions12_GLOBAL__N_121FindFirstFunctionBase13toElementRowsEiRKNS0_17SelectivityVectorEPKmPKiSA_ENKUlT_E_clImEEDaSB_.exit.i.i.i.i.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i, %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit77.i.i.i.i.i.i, %if.else.i.i.i.i.i.i, %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit.i.i.i.i.i.i, %land.lhs.true.i.i.i.i.i.i
+_ZZN8facebook5velox9functions12_GLOBAL__N_121FindFirstFunctionBase13toElementRowsEiRKNS0_17SelectivityVectorEPKmPKiSA_ENKUlT_E_clImEEDaSB_.exit.i.i.i.i.i: ; preds = %_ZZN8facebook5velox9functions12_GLOBAL__N_121FindFirstFunctionBase13toElementRowsEiRKNS0_17SelectivityVectorEPKmPKiSA_ENKUlT_E_clImEEDaSB_.exit.i.sink.split.i.i.i.i, %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit77.i.i.i.i.i.i, %if.else.i.i.i.i.i.i, %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit.i.i.i.i.i.i, %land.lhs.true.i.i.i.i.i.i
   %inc.i.i.i.i.i = add nuw i64 %row.015.i.i.i.i.i, 1
   %cmp6.i.i.i.i.i = icmp ult i64 %inc.i.i.i.i.i, %conv5.i.i.i.i.i
   br i1 %cmp6.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_9functions12_GLOBAL__N_121FindFirstFunctionBase13toElementRowsEiRKNS0_17SelectivityVectorEPKmPKiSC_EUlT_E_EEvSA_iibSD_ENKUliE_clEi.exit.i.i.i.i, !llvm.loop !93
@@ -12409,7 +12405,11 @@ _ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES
   %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 37
   %18 = load i8, ptr %_M_engaged.i.i.i.i, align 1
   %tobool.i.i.i.i = trunc i8 %18 to i1
-  br i1 %tobool.i.i.i.i, label %if.end9.sink.split, label %if.end9
+  br i1 %tobool.i.i.i.i, label %if.then.i.i.i.i, label %if.end9
+
+if.then.i.i.i.i:                                  ; preds = %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit
+  store i8 0, ptr %_M_engaged.i.i.i.i, align 1
+  br label %if.end9
 
 if.else:                                          ; preds = %if.end
   %add6 = add nsw i32 %6, 1
@@ -12502,14 +12502,13 @@ _ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES
   %_M_engaged.i.i.i.i11 = getelementptr inbounds i8, ptr %12, i64 37
   %24 = load i8, ptr %_M_engaged.i.i.i.i11, align 1
   %tobool.i.i.i.i12 = trunc i8 %24 to i1
-  br i1 %tobool.i.i.i.i12, label %if.end9.sink.split, label %if.end9
+  br i1 %tobool.i.i.i.i12, label %if.then.i.i.i.i13, label %if.end9
 
-if.end9.sink.split:                               ; preds = %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit77, %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit
-  %_M_engaged.i.i.i.i11.sink = phi ptr [ %_M_engaged.i.i.i.i, %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit ], [ %_M_engaged.i.i.i.i11, %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit77 ]
-  store i8 0, ptr %_M_engaged.i.i.i.i11.sink, align 1
+if.then.i.i.i.i13:                                ; preds = %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit77
+  store i8 0, ptr %_M_engaged.i.i.i.i11, align 1
   br label %if.end9
 
-if.end9:                                          ; preds = %if.end9.sink.split, %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit77, %if.else, %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit, %land.lhs.true
+if.end9:                                          ; preds = %if.then.i.i.i.i13, %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit77, %if.else, %if.then.i.i.i.i, %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit, %land.lhs.true
   ret void
 }
 

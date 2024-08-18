@@ -397,6 +397,11 @@ fixjump.exit:                                     ; preds = %if.then
   %10 = load ptr, ptr %code.i, align 8
   %arrayidx.i13 = getelementptr inbounds i32, ptr %10, i64 %idxprom.i
   %11 = load i32, ptr %arrayidx.i13, align 4
+  %and.i14 = and i32 %11, 127
+  %add2.i = shl i32 %sub.i10, 7
+  %shl.i15 = add i32 %add2.i, 2147483520
+  %or.i16 = or disjoint i32 %and.i14, %shl.i15
+  store i32 %or.i16, ptr %arrayidx.i13, align 4
   br label %if.end
 
 if.else:                                          ; preds = %getjumpcontrol.exit.i
@@ -413,17 +418,14 @@ if.then.i20:                                      ; preds = %if.else
 fixjump.exit30:                                   ; preds = %if.else
   %add.neg.i17 = xor i32 %list.addr.036, -1
   %sub.i18 = add i32 %add.neg.i17, %dtarget
+  %and.i26 = and i32 %1, 127
+  %add2.i27 = shl i32 %sub.i18, 7
+  %shl.i28 = add i32 %add2.i27, 2147483520
+  %or.i29 = or disjoint i32 %and.i26, %shl.i28
+  store i32 %or.i29, ptr %arrayidx.i, align 4
   br label %if.end
 
 if.end:                                           ; preds = %fixjump.exit30, %fixjump.exit
-  %.sink = phi i32 [ %1, %fixjump.exit30 ], [ %11, %fixjump.exit ]
-  %sub.i18.sink = phi i32 [ %sub.i18, %fixjump.exit30 ], [ %sub.i10, %fixjump.exit ]
-  %arrayidx.i.sink = phi ptr [ %arrayidx.i, %fixjump.exit30 ], [ %arrayidx.i13, %fixjump.exit ]
-  %and.i26 = and i32 %.sink, 127
-  %add2.i27 = shl i32 %sub.i18.sink, 7
-  %shl.i28 = add i32 %add2.i27, 2147483520
-  %or.i29 = or disjoint i32 %and.i26, %shl.i28
-  store i32 %or.i29, ptr %arrayidx.i.sink, align 4
   %cmp.not37 = icmp eq i32 %add1.i, -1
   %cmp.not = select i1 %cmp.i, i1 true, i1 %cmp.not37
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !7

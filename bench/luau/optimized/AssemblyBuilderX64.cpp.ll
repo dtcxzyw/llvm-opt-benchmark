@@ -3492,7 +3492,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX6410placeLabelERNS0
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, -1
-  br i1 %5, label %6, label %84
+  br i1 %5, label %6, label %85
 
 6:                                                ; preds = %2
   %7 = load i32, ptr %1, align 4
@@ -3671,27 +3671,27 @@ _ZNSt6vectorIN4Luau7CodeGen5LabelESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cx
 _ZNSt6vectorIN4Luau7CodeGen5LabelESaIS2_EE9push_backEOS2_.exit: ; preds = %57, %_ZNSt6vectorIN4Luau7CodeGen5LabelESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit
   %83 = load ptr, ptr %46, align 8
   store i32 0, ptr %83, align 1
-  br label %92
+  %84 = getelementptr inbounds i8, ptr %83, i64 4
+  store ptr %84, ptr %46, align 8
+  br label %94
 
-84:                                               ; preds = %2
-  %85 = getelementptr inbounds i8, ptr %0, i64 232
-  %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %0, i64 24
-  %88 = load ptr, ptr %87, align 8
-  %89 = ptrtoint ptr %86 to i64
-  %90 = ptrtoint ptr %88 to i64
-  %.neg = sub i64 %90, %89
+85:                                               ; preds = %2
+  %86 = getelementptr inbounds i8, ptr %0, i64 232
+  %87 = load ptr, ptr %86, align 8
+  %88 = getelementptr inbounds i8, ptr %0, i64 24
+  %89 = load ptr, ptr %88, align 8
+  %90 = ptrtoint ptr %87 to i64
+  %91 = ptrtoint ptr %89 to i64
+  %.neg = sub i64 %91, %90
   %.neg19 = trunc i64 %.neg to i32
   %.neg20 = add i32 %4, -4
-  %91 = add i32 %.neg20, %.neg19
-  store i32 %91, ptr %86, align 1
-  br label %92
+  %92 = add i32 %.neg20, %.neg19
+  store i32 %92, ptr %87, align 1
+  %93 = getelementptr inbounds i8, ptr %87, i64 4
+  store ptr %93, ptr %86, align 8
+  br label %94
 
-92:                                               ; preds = %84, %_ZNSt6vectorIN4Luau7CodeGen5LabelESaIS2_EE9push_backEOS2_.exit
-  %.sink22 = phi ptr [ %86, %84 ], [ %83, %_ZNSt6vectorIN4Luau7CodeGen5LabelESaIS2_EE9push_backEOS2_.exit ]
-  %.sink21 = phi ptr [ %85, %84 ], [ %46, %_ZNSt6vectorIN4Luau7CodeGen5LabelESaIS2_EE9push_backEOS2_.exit ]
-  %93 = getelementptr inbounds i8, ptr %.sink22, i64 4
-  store ptr %93, ptr %.sink21, align 8
+94:                                               ; preds = %85, %_ZNSt6vectorIN4Luau7CodeGen5LabelESaIS2_EE9push_backEOS2_.exit
   ret void
 }
 

@@ -31193,7 +31193,7 @@ for.body.i.i.i33:                                 ; preds = %try.cont, %_ZSt19__
   %_M_parent.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
   %7 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !61, !noalias !58
   %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %7, null
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aISt3mapIN6Assimp7Blender7PointerESt10shared_ptrINS2_8ElemBaseEESt4lessIS3_ESaISt4pairIKS3_S6_EEESD_SaISD_EEvPT_PT0_RT1_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %for.body.i.i.i33
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
@@ -31206,22 +31206,17 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %for.body.i.i.i33
   store ptr %6, ptr %_M_parent16.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !63
   %_M_node_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 40
   %11 = load i64, ptr %_M_node_count.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !61, !noalias !58
-  %_M_node_count17.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 40
-  store i64 %11, ptr %_M_node_count17.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !58, !noalias !61
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !61, !noalias !58
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr %_M_left.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !61, !noalias !58
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr %_M_right.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !61, !noalias !58
+  store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !61, !noalias !58
   br label %_ZSt19__relocate_object_aISt3mapIN6Assimp7Blender7PointerESt10shared_ptrINS2_8ElemBaseEESt4lessIS3_ESaISt4pairIKS3_S6_EEESD_SaISD_EEvPT_PT0_RT1_.exit.i.i.i
 
-if.else.i.i.i.i.i.i.i.i.i.i:                      ; preds = %for.body.i.i.i33
-  %_M_node_count.i5.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 40
-  br label %_ZSt19__relocate_object_aISt3mapIN6Assimp7Blender7PointerESt10shared_ptrINS2_8ElemBaseEESt4lessIS3_ESaISt4pairIKS3_S6_EEESD_SaISD_EEvPT_PT0_RT1_.exit.i.i.i
-
-_ZSt19__relocate_object_aISt3mapIN6Assimp7Blender7PointerESt10shared_ptrINS2_8ElemBaseEESt4lessIS3_ESaISt4pairIKS3_S6_EEESD_SaISD_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i
-  %.sink10.i.i.i = phi i32 [ 0, %if.else.i.i.i.i.i.i.i.i.i.i ], [ %8, %if.then.i.i.i.i.i.i.i.i.i.i ]
-  %.sink8.i.i.i = phi ptr [ %6, %if.else.i.i.i.i.i.i.i.i.i.i ], [ %9, %if.then.i.i.i.i.i.i.i.i.i.i ]
-  %.sink.i.i.i = phi ptr [ %6, %if.else.i.i.i.i.i.i.i.i.i.i ], [ %10, %if.then.i.i.i.i.i.i.i.i.i.i ]
-  %_M_node_count.i5.sink.i.i.i.i.i.i.i.i.i.i = phi ptr [ %_M_node_count.i5.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i ], [ %_M_node_count.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ]
+_ZSt19__relocate_object_aISt3mapIN6Assimp7Blender7PointerESt10shared_ptrINS2_8ElemBaseEESt4lessIS3_ESaISt4pairIKS3_S6_EEESD_SaISD_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i33
+  %.sink10.i.i.i = phi i32 [ %8, %if.then.i.i.i.i.i.i.i.i.i.i ], [ 0, %for.body.i.i.i33 ]
+  %.sink8.i.i.i = phi ptr [ %9, %if.then.i.i.i.i.i.i.i.i.i.i ], [ %6, %for.body.i.i.i33 ]
+  %.sink.i.i.i = phi ptr [ %10, %if.then.i.i.i.i.i.i.i.i.i.i ], [ %6, %for.body.i.i.i33 ]
+  %.sink.i.i.i.i = phi i64 [ %11, %if.then.i.i.i.i.i.i.i.i.i.i ], [ 0, %for.body.i.i.i33 ]
   store i32 %.sink10.i.i.i, ptr %6, align 8
   %12 = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
   store ptr %7, ptr %12, align 8
@@ -31229,7 +31224,8 @@ _ZSt19__relocate_object_aISt3mapIN6Assimp7Blender7PointerESt10shared_ptrINS2_8El
   store ptr %.sink8.i.i.i, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 32
   store ptr %.sink.i.i.i, ptr %14, align 8
-  store i64 0, ptr %_M_node_count.i5.sink.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !63
+  %15 = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 40
+  store i64 %.sink.i.i.i.i, ptr %15, align 8, !alias.scope !58, !noalias !61
   %incdec.ptr.i.i.i34 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 48
   %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 48
   %cmp.not.i.i.i35 = icmp eq ptr %incdec.ptr.i.i.i34, %0

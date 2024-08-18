@@ -831,7 +831,7 @@ _ZNSt7__cxx114listIPN7rocksdb14StallInterfaceESaIS3_EE5clearEv.exit.i.i: ; preds
   store i64 0, ptr %_M_size.i.i.i.i.i, align 8
   %10 = load ptr, ptr %queue_, align 8
   %cmp.i.i.i.i = icmp eq ptr %10, %queue_
-  br i1 %cmp.i.i.i.i, label %_ZNSt7__cxx114listIPN7rocksdb14StallInterfaceESaIS3_EEaSEOS5_.exit, label %if.else.i.i.i.i
+  br i1 %cmp.i.i.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit15, label %if.else.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %_ZNSt7__cxx114listIPN7rocksdb14StallInterfaceESaIS3_EE5clearEv.exit.i.i
   store ptr %10, ptr %cleanup, align 8
@@ -847,14 +847,10 @@ if.else.i.i.i.i:                                  ; preds = %_ZNSt7__cxx114listI
   store i64 %13, ptr %_M_size.i.i.i.i.i, align 8
   store ptr %queue_, ptr %_M_prev.i.i.i.i, align 8
   store ptr %queue_, ptr %queue_, align 8
-  br label %_ZNSt7__cxx114listIPN7rocksdb14StallInterfaceESaIS3_EEaSEOS5_.exit
-
-_ZNSt7__cxx114listIPN7rocksdb14StallInterfaceESaIS3_EEaSEOS5_.exit: ; preds = %_ZNSt7__cxx114listIPN7rocksdb14StallInterfaceESaIS3_EE5clearEv.exit.i.i, %if.else.i.i.i.i
-  %_M_size.sink.i.i.i.i = phi ptr [ %_M_size.i.i.i.i, %if.else.i.i.i.i ], [ %_M_size.i.i.i.i.i, %_ZNSt7__cxx114listIPN7rocksdb14StallInterfaceESaIS3_EE5clearEv.exit.i.i ]
-  store i64 0, ptr %_M_size.sink.i.i.i.i, align 8
+  store i64 0, ptr %_M_size.i.i.i.i, align 8
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit15
 
-_ZNSt11unique_lockISt5mutexED2Ev.exit15:          ; preds = %_ZNSt7__cxx114listIPN7rocksdb14StallInterfaceESaIS3_EEaSEOS5_.exit, %invoke.cont
+_ZNSt11unique_lockISt5mutexED2Ev.exit15:          ; preds = %invoke.cont, %_ZNSt7__cxx114listIPN7rocksdb14StallInterfaceESaIS3_EE5clearEv.exit.i.i, %if.else.i.i.i.i
   %call1.i.i.i.i14 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %mu_) #14
   %14 = load ptr, ptr %cleanup, align 8
   %cmp.not4.i.i.i = icmp eq ptr %14, %cleanup

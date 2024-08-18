@@ -1008,22 +1008,23 @@ if.end:                                           ; preds = %entry
 
 if.then6:                                         ; preds = %if.end
   %vtable = load ptr, ptr %0, align 8
+  %1 = load ptr, ptr %vtable, align 8
+  %call9 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   br label %if.end13
 
 if.else:                                          ; preds = %if.end
   %db_ = getelementptr inbounds i8, ptr %this, i64 64
-  %1 = load ptr, ptr %db_, align 8
-  %vtable10 = load ptr, ptr %1, align 8
+  %2 = load ptr, ptr %db_, align 8
+  %vtable10 = load ptr, ptr %2, align 8
   %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 848
+  %3 = load ptr, ptr %vfn11, align 8
+  %call12 = tail call noundef i64 %3(ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %if.end13
 
 if.end13:                                         ; preds = %if.else, %if.then6
-  %vfn11.sink = phi ptr [ %vfn11, %if.else ], [ %vtable, %if.then6 ]
-  %.sink = phi ptr [ %1, %if.else ], [ %0, %if.then6 ]
-  %2 = load ptr, ptr %vfn11.sink, align 8
-  %call12 = tail call noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(8) %.sink)
+  %seq.0 = phi i64 [ %call9, %if.then6 ], [ %call12, %if.else ]
   call void @_ZNK7rocksdb5Slice8ToStringB5cxx11Eb(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %key_str, ptr noundef nonnull align 8 dereferenceable(16) %key, i1 noundef zeroext false)
-  invoke void @_ZN7rocksdb19TransactionBaseImpl8TrackKeyEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmbb(ptr noundef nonnull align 8 dereferenceable(320) %this, i32 noundef %call, ptr noundef nonnull align 8 dereferenceable(32) %key_str, i64 noundef %call12, i1 noundef zeroext %read_only, i1 noundef zeroext %exclusive)
+  invoke void @_ZN7rocksdb19TransactionBaseImpl8TrackKeyEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmbb(ptr noundef nonnull align 8 dereferenceable(320) %this, i32 noundef %call, ptr noundef nonnull align 8 dereferenceable(32) %key_str, i64 noundef %seq.0, i1 noundef zeroext %read_only, i1 noundef zeroext %exclusive)
           to label %invoke.cont16 unwind label %lpad
 
 invoke.cont16:                                    ; preds = %if.end13
@@ -1034,10 +1035,10 @@ invoke.cont16:                                    ; preds = %if.end13
   br label %return
 
 lpad:                                             ; preds = %if.end13
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %key_str) #17
-  resume { ptr, i32 } %3
+  resume { ptr, i32 } %4
 
 return:                                           ; preds = %invoke.cont16, %if.then
   ret void

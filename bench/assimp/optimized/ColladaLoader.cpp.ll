@@ -1069,12 +1069,11 @@ if.then33:                                        ; preds = %if.then32
   %c4.i125 = getelementptr inbounds i8, ptr %ref.tmp34, i64 44
   %d4.i129 = getelementptr inbounds i8, ptr %ref.tmp34, i64 60
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %c4.i125, i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr %d4.i129, align 4
   br label %if.then33.invoke
 
 if.then33.invoke:                                 ; preds = %if.then42, %if.then33
-  %d4.i144.sink = phi ptr [ %d4.i144, %if.then42 ], [ %d4.i129, %if.then33 ]
-  %44 = phi ptr [ %ref.tmp43, %if.then42 ], [ %ref.tmp34, %if.then33 ]
-  store float 1.000000e+00, ptr %d4.i144.sink, align 4
+  %44 = phi ptr [ %ref.tmp34, %if.then33 ], [ %ref.tmp43, %if.then42 ]
   %45 = load ptr, ptr %mRootNode20, align 8
   %mTransformation46 = getelementptr inbounds i8, ptr %45, i64 1028
   %46 = invoke noundef nonnull align 4 dereferenceable(64) ptr @_ZN12aiMatrix4x4tIfEmLERKS0_(ptr noundef nonnull align 4 dereferenceable(64) %mTransformation46, ptr noundef nonnull align 4 dereferenceable(64) %44)
@@ -1095,6 +1094,7 @@ if.then42:                                        ; preds = %if.then32
   %c3.i139 = getelementptr inbounds i8, ptr %ref.tmp43, i64 40
   %d4.i144 = getelementptr inbounds i8, ptr %ref.tmp43, i64 60
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %c3.i139, i8 0, i64 20, i1 false)
+  store float 1.000000e+00, ptr %d4.i144, align 4
   br label %if.then33.invoke
 
 if.end51:                                         ; preds = %if.then33.invoke, %if.then32, %if.end30
@@ -15690,22 +15690,18 @@ if.then:                                          ; preds = %while.body
 
 if.then15:                                        ; preds = %if.then
   %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
-  br label %if.end22.sink.split
+  store ptr %__p.022, ptr %arrayidx16, align 8
+  br label %if.end22
 
 if.else:                                          ; preds = %while.body
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %__p.022, align 8
   %8 = load ptr, ptr %arrayidx, align 8
-  br label %if.end22.sink.split
-
-if.end22.sink.split:                              ; preds = %if.else, %if.then15
-  %arrayidx16.sink = phi ptr [ %arrayidx16, %if.then15 ], [ %8, %if.else ]
-  %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then15 ], [ %__bbegin_bkt.021, %if.else ]
-  store ptr %__p.022, ptr %arrayidx16.sink, align 8
+  store ptr %__p.022, ptr %8, align 8
   br label %if.end22
 
-if.end22:                                         ; preds = %if.end22.sink.split, %if.then
-  %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then ], [ %__bbegin_bkt.1.ph, %if.end22.sink.split ]
+if.end22:                                         ; preds = %if.then, %if.then15, %if.else
+  %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.021, %if.else ], [ %rem.i.i, %if.then15 ], [ %rem.i.i, %if.then ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !130
 

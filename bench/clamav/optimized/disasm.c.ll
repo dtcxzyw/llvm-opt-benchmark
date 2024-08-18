@@ -1218,7 +1218,8 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
   %389 = icmp ne i32 %spec.select620.i, 54
   %390 = zext i1 %389 to i8
   store i8 %390, ptr %375, align 8
-  br label %.sink.split966.i
+  store i32 54, ptr %380, align 4
+  br label %403
 
 391:                                              ; preds = %362
   %392 = icmp eq i8 %.0546.i, 0
@@ -1241,20 +1242,13 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
   %401 = getelementptr inbounds i8, ptr %290, i64 16
   store i32 %.sink.i, ptr %401, align 8
   %402 = getelementptr inbounds i8, ptr %290, i64 20
-  br label %.sink.split966.i
-
-.sink.split966.i:                                 ; preds = %400, %388
-  %.sink967.i = phi ptr [ %380, %388 ], [ %402, %400 ]
-  %.2548.ph.i = phi i8 [ %spec.select621.i, %388 ], [ %.3549.i, %400 ]
-  %.6516.ph.i = phi i32 [ %365, %388 ], [ %277, %400 ]
-  %.6.ph.i = phi ptr [ %368, %388 ], [ %280, %400 ]
-  store i32 54, ptr %.sink967.i, align 4
+  store i32 54, ptr %402, align 4
   br label %403
 
-403:                                              ; preds = %.sink.split966.i, %366
-  %.2548.i = phi i8 [ %spec.select621.i, %366 ], [ %.2548.ph.i, %.sink.split966.i ]
-  %.6516.i = phi i32 [ %365, %366 ], [ %.6516.ph.i, %.sink.split966.i ]
-  %.6.i = phi ptr [ %368, %366 ], [ %.6.ph.i, %.sink.split966.i ]
+403:                                              ; preds = %400, %388, %366
+  %.2548.i = phi i8 [ %spec.select621.i, %388 ], [ %spec.select621.i, %366 ], [ %.3549.i, %400 ]
+  %.6516.i = phi i32 [ %365, %388 ], [ %365, %366 ], [ %277, %400 ]
+  %.6.i = phi ptr [ %368, %388 ], [ %368, %366 ], [ %280, %400 ]
   %404 = icmp eq i8 %.2548.i, 2
   %spec.select622.i = select i1 %404, i8 4, i8 %.2548.i
   %405 = zext nneg i8 %spec.select622.i to i32
@@ -1368,11 +1362,11 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
   br label %._crit_edge731.thread.i
 
 ._crit_edge731.thread.i:                          ; preds = %._crit_edge720.i, %416, %403
-  %.sink968.i = phi i32 [ %423, %416 ], [ %456, %._crit_edge720.i ], [ 0, %403 ]
+  %.sink966.i = phi i32 [ %423, %416 ], [ %456, %._crit_edge720.i ], [ 0, %403 ]
   %.8518.i = phi i32 [ %407, %416 ], [ %.9519.lcssa.i, %._crit_edge720.i ], [ %.6516.i, %403 ]
   %.8.i = phi ptr [ %scevgep836.i, %416 ], [ %.9.lcssa.i, %._crit_edge720.i ], [ %.6.i, %403 ]
   %457 = getelementptr inbounds i8, ptr %290, i64 28
-  store i32 %.sink968.i, ptr %457, align 4
+  store i32 %.sink966.i, ptr %457, align 4
   %.off624.i = add i32 %195, -21
   %switch625.i = icmp ult i32 %.off624.i, 2
   br i1 %switch625.i, label %458, label %476

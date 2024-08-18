@@ -7332,7 +7332,7 @@ _ZN2mu11ParserTokenIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6SetVa
   %104 = load i32, ptr %103, align 4
   %105 = and i32 %104, 4
   %.not34 = icmp eq i32 %105, 0
-  br i1 %.not34, label %.loopexit.sink.split, label %106
+  br i1 %.not34, label %_ZNK2mu17ParserTokenReader5ErrorENS_11EErrorCodesEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %106
 
 106:                                              ; preds = %_ZN2mu11ParserTokenIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6SetValEdRKS6_.exit
   %107 = load i32, ptr %65, align 8
@@ -7341,7 +7341,7 @@ _ZN2mu11ParserTokenIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6SetVa
   %110 = sub nsw i32 %107, %109
   %111 = load ptr, ptr %0, align 8
   invoke void @_ZNK2mu10ParserBase5ErrorENS_11EErrorCodesEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(596) %111, i32 noundef 5, i32 noundef %110, ptr noundef nonnull align 8 dereferenceable(32) %7)
-          to label %.loopexit.sink.split unwind label %.loopexit.split-lp
+          to label %_ZNK2mu17ParserTokenReader5ErrorENS_11EErrorCodesEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %.loopexit.split-lp
 
 .loopexit69:                                      ; preds = %116
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -7352,6 +7352,10 @@ _ZN2mu11ParserTokenIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6SetVa
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %159
+
+_ZNK2mu17ParserTokenReader5ErrorENS_11EErrorCodesEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %106, %_ZN2mu11ParserTokenIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6SetValEdRKS6_.exit
+  store i32 3373, ptr %103, align 4
+  br label %.loopexit
 
 112:                                              ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt4pairIKS5_dEEE4findERS9_.exit, %69
   %113 = getelementptr inbounds i8, ptr %0, i64 128
@@ -7447,20 +7451,19 @@ _ZNK2mu17ParserTokenReader5ErrorENS_11EErrorCodesEiRKNSt7__cxx1112basic_stringIc
   %158 = load ptr, ptr %157, align 8
   store ptr null, ptr %157, align 8
   %.not.i.i.i42 = icmp eq ptr %158, null
-  br i1 %.not.i.i.i42, label %.loopexit.sink.split, label %_ZNKSt14default_deleteIN2mu14ParserCallbackEEclEPS1_.exit.i.i.i43
+  br i1 %.not.i.i.i42, label %_ZN2mu11ParserTokenIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6SetValEdRKS6_.exit45, label %_ZNKSt14default_deleteIN2mu14ParserCallbackEEclEPS1_.exit.i.i.i43
 
 _ZNKSt14default_deleteIN2mu14ParserCallbackEEclEPS1_.exit.i.i.i43: ; preds = %.noexc44
   call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %158) #21
   call void @_ZdlPv(ptr noundef nonnull %158) #22
-  br label %.loopexit.sink.split
+  br label %_ZN2mu11ParserTokenIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6SetValEdRKS6_.exit45
 
-.loopexit.sink.split:                             ; preds = %.noexc44, %_ZNKSt14default_deleteIN2mu14ParserCallbackEEclEPS1_.exit.i.i.i43, %_ZN2mu11ParserTokenIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6SetValEdRKS6_.exit, %106
-  %.sink = phi ptr [ %103, %106 ], [ %103, %_ZN2mu11ParserTokenIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6SetValEdRKS6_.exit ], [ %136, %_ZNKSt14default_deleteIN2mu14ParserCallbackEEclEPS1_.exit.i.i.i43 ], [ %136, %.noexc44 ]
-  store i32 3373, ptr %.sink, align 4
+_ZN2mu11ParserTokenIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6SetValEdRKS6_.exit45: ; preds = %_ZNKSt14default_deleteIN2mu14ParserCallbackEEclEPS1_.exit.i.i.i43, %.noexc44
+  store i32 3373, ptr %136, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %115, %.loopexit.sink.split
-  %.0 = phi i1 [ true, %.loopexit.sink.split ], [ false, %115 ]
+.loopexit:                                        ; preds = %115, %_ZN2mu11ParserTokenIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6SetValEdRKS6_.exit45, %_ZNK2mu17ParserTokenReader5ErrorENS_11EErrorCodesEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+  %.0 = phi i1 [ true, %_ZNK2mu17ParserTokenReader5ErrorENS_11EErrorCodesEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ true, %_ZN2mu11ParserTokenIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6SetValEdRKS6_.exit45 ], [ false, %115 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #21
   ret i1 %.0
 

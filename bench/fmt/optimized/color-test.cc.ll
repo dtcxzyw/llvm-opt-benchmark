@@ -5652,6 +5652,7 @@ if.end15:                                         ; preds = %if.then11, %0
   %arrayidx29 = getelementptr inbounds [32 x i8], ptr %this, i64 0, i64 %inc25
   store i8 109, ptr %arrayidx29, align 1
   %arrayidx32 = getelementptr inbounds [32 x i8], ptr %this, i64 0, i64 %inc28
+  store i8 0, ptr %arrayidx32, align 1
   br label %return
 
 for.body:                                         ; preds = %entry, %for.body
@@ -5716,11 +5717,10 @@ for.end:                                          ; preds = %for.body
   %arrayidx12.i36 = getelementptr inbounds i8, ptr %this, i64 18
   store i8 109, ptr %arrayidx12.i36, align 1
   %arrayidx50 = getelementptr inbounds i8, ptr %this, i64 19
+  store i8 0, ptr %arrayidx50, align 1
   br label %return
 
 return:                                           ; preds = %for.end, %if.end15
-  %arrayidx50.sink = phi ptr [ %arrayidx50, %for.end ], [ %arrayidx32, %if.end15 ]
-  store i8 0, ptr %arrayidx50.sink, align 1
   ret void
 }
 
@@ -10109,6 +10109,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit: ; preds = %s
   %5 = load ptr, ptr %ptr_.i.i, align 8
   store i64 %inc.pre-phi.i.i, ptr %size_.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %5, i64 %4
+  store i8 92, ptr %arrayidx.i.i, align 1
   br label %sw.epilog
 
 sw.bb8:                                           ; preds = %entry
@@ -10135,6 +10136,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit27: ; preds = 
   %10 = load ptr, ptr %ptr_.i.i21, align 8
   store i64 %inc.pre-phi.i.i20, ptr %size_.i.i16, align 8
   %arrayidx.i.i22 = getelementptr inbounds i8, ptr %10, i64 %9
+  store i8 92, ptr %arrayidx.i.i22, align 1
   br label %sw.epilog
 
 sw.bb16:                                          ; preds = %entry
@@ -10161,6 +10163,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit40: ; preds = 
   %15 = load ptr, ptr %ptr_.i.i34, align 8
   store i64 %inc.pre-phi.i.i33, ptr %size_.i.i29, align 8
   %arrayidx.i.i35 = getelementptr inbounds i8, ptr %15, i64 %14
+  store i8 92, ptr %arrayidx.i.i35, align 1
   br label %sw.epilog
 
 sw.bb26:                                          ; preds = %entry, %entry, %entry
@@ -10187,6 +10190,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit53: ; preds = 
   %20 = load ptr, ptr %ptr_.i.i47, align 8
   store i64 %inc.pre-phi.i.i46, ptr %size_.i.i42, align 8
   %arrayidx.i.i48 = getelementptr inbounds i8, ptr %20, i64 %19
+  store i8 92, ptr %arrayidx.i.i48, align 1
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
@@ -10231,9 +10235,7 @@ for.body:                                         ; preds = %if.end62, %for.body
   br i1 %cmp68.not, label %return, label %for.body
 
 sw.epilog:                                        ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit53, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit40, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit27, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit
-  %arrayidx.i.i48.sink = phi ptr [ %arrayidx.i.i48, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit53 ], [ %arrayidx.i.i35, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit40 ], [ %arrayidx.i.i22, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit27 ], [ %arrayidx.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit ]
   %c.0 = phi i8 [ %conv, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit53 ], [ 116, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit40 ], [ 114, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit27 ], [ 110, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit ]
-  store i8 92, ptr %arrayidx.i.i48.sink, align 1
   %size_.i.i56 = getelementptr inbounds i8, ptr %out.coerce, i64 16
   %24 = load i64, ptr %size_.i.i56, align 8
   %add.i.i57 = add i64 %24, 1

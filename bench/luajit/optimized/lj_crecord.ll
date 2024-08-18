@@ -7038,13 +7038,15 @@ if.end28:                                         ; preds = %land.lhs.true18, %i
   %12 = load i32, ptr %11, align 4
   %13 = load ptr, ptr %rd, align 8
   %call32 = tail call fastcc i32 @crec_ct_tv(ptr noundef nonnull %J, ptr noundef nonnull %arrayidx.i49, i32 noundef 0, i32 noundef %12, ptr noundef %13)
+  %14 = load ptr, ptr %base, align 8
+  store i32 %call32, ptr %14, align 4
   br label %if.end43
 
 if.else35:                                        ; preds = %if.end
   %base36 = getelementptr inbounds i8, ptr %J, i64 160
-  %14 = load ptr, ptr %base36, align 8
-  %15 = load i32, ptr %14, align 4
-  %and.i23 = and i32 %15, 520093696
+  %15 = load ptr, ptr %base36, align 8
+  %16 = load i32, ptr %15, align 4
+  %and.i23 = and i32 %16, 520093696
   %cmp.i = icmp eq i32 %and.i23, 167772160
   br i1 %cmp.i, label %argv2cdata.exit, label %if.then.i
 
@@ -7053,11 +7055,11 @@ if.then.i:                                        ; preds = %if.else35
   unreachable
 
 argv2cdata.exit:                                  ; preds = %if.else35
-  %16 = load ptr, ptr %rd, align 8
-  %17 = load i64, ptr %16, align 8
-  %and1.i = and i64 %17, 140737488355327
-  %18 = inttoptr i64 %and1.i to ptr
-  %conv.i = trunc i32 %15 to i16
+  %17 = load ptr, ptr %rd, align 8
+  %18 = load i64, ptr %17, align 8
+  %and1.i = and i64 %18, 140737488355327
+  %19 = inttoptr i64 %and1.i to ptr
+  %conv.i = trunc i32 %16 to i16
   %fold.i11.i = getelementptr inbounds i8, ptr %J, i64 184
   %ot1.i12.i = getelementptr inbounds i8, ptr %J, i64 188
   store i16 17682, ptr %ot1.i12.i, align 4
@@ -7066,22 +7068,20 @@ argv2cdata.exit:                                  ; preds = %if.else35
   store i16 20, ptr %op2.i15.i, align 2
   %call.i = tail call i32 @lj_opt_fold(ptr noundef nonnull %J) #8
   %conv2.i = trunc i32 %call.i to i16
-  %ctypeid.i = getelementptr inbounds i8, ptr %18, i64 10
-  %19 = load i16, ptr %ctypeid.i, align 2
-  %conv3.i = zext i16 %19 to i32
+  %ctypeid.i = getelementptr inbounds i8, ptr %19, i64 10
+  %20 = load i16, ptr %ctypeid.i, align 2
+  %conv3.i = zext i16 %20 to i32
   %call4.i = tail call i32 @lj_ir_kint(ptr noundef nonnull %J, i32 noundef %conv3.i) #8
   %conv5.i = trunc i32 %call4.i to i16
   store i16 2195, ptr %ot1.i12.i, align 4
   store i16 %conv2.i, ptr %fold.i11.i, align 8
   store i16 %conv5.i, ptr %op2.i15.i, align 2
   %call6.i = tail call i32 @lj_opt_fold(ptr noundef nonnull %J) #8
+  %21 = load ptr, ptr %base36, align 8
+  store i32 32767, ptr %21, align 4
   br label %if.end43
 
 if.end43:                                         ; preds = %argv2cdata.exit, %if.end28
-  %base36.sink = phi ptr [ %base36, %argv2cdata.exit ], [ %base, %if.end28 ]
-  %.sink = phi i32 [ 32767, %argv2cdata.exit ], [ %call32, %if.end28 ]
-  %20 = load ptr, ptr %base36.sink, align 8
-  store i32 %.sink, ptr %20, align 4
   ret void
 }
 

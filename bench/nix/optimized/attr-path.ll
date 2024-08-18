@@ -1001,7 +1001,8 @@ _ZNSt15__allocated_ptrISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_tra
   store i64 %25, ptr %11, align 8
   store i64 0, ptr %13, align 8
   %26 = load ptr, ptr %6, align 8
-  br label %.loopexit.sink.split
+  store i8 0, ptr %26, align 1
+  br label %.loopexit
 
 .loopexit43:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1183,15 +1184,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit27: ; pred
   store i64 %65, ptr %13, align 8
   %76 = load ptr, ptr %6, align 8
   %77 = getelementptr inbounds i8, ptr %76, i64 %65
-  br label %.loopexit.sink.split
-
-.loopexit.sink.split:                             ; preds = %23, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit27
-  %.sink = phi ptr [ %77, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit27 ], [ %26, %23 ]
-  store i8 0, ptr %.sink, align 1
+  store i8 0, ptr %77, align 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %.loopexit.sink.split
-  %.117 = phi ptr [ %.01654, %.loopexit.sink.split ], [ %.252, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit27, %23
+  %.117 = phi ptr [ %.01654, %23 ], [ %.01654, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit27 ], [ %.252, %.lr.ph ]
   %78 = getelementptr inbounds i8, ptr %.117, i64 1
   %.not = icmp eq ptr %78, %16
   br i1 %.not, label %._crit_edge57, label %.lr.ph56, !llvm.loop !12
@@ -7722,7 +7719,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
 .split:                                           ; preds = %29
   %30 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %30, align 8
-  br label %.sink.split
+  store i8 0, ptr %6, align 1
+  br label %39
 
 .split12:                                         ; preds = %.thread, %29
   %31 = phi ptr [ %25, %.thread ], [ %6, %29 ]
@@ -7744,14 +7742,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit: ; pre
   store i64 %5, ptr %36, align 8
   %37 = load ptr, ptr %0, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 %5
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %.split, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit
-  %.sink = phi ptr [ %38, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit ], [ %6, %.split ]
-  store i8 0, ptr %.sink, align 1
+  store i8 0, ptr %38, align 1
   br label %39
 
-39:                                               ; preds = %.sink.split, %2
+39:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit, %.split, %2
   ret void
 }
 
@@ -14009,22 +14003,18 @@ _ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_S4_IPKNS
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
-  br label %.sink.split
+  store ptr %.031, ptr %26, align 8
+  br label %30
 
 27:                                               ; preds = %.lr.ph
   %28 = load ptr, ptr %21, align 8
   store ptr %28, ptr %.031, align 8
   %29 = load ptr, ptr %20, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %27, %25
-  %.sink = phi ptr [ %26, %25 ], [ %29, %27 ]
-  %.1.ph = phi i64 [ %19, %25 ], [ %.02530, %27 ]
-  store ptr %.031, ptr %.sink, align 8
+  store ptr %.031, ptr %29, align 8
   br label %30
 
-30:                                               ; preds = %.sink.split, %22
-  %.1 = phi i64 [ %19, %22 ], [ %.1.ph, %.sink.split ]
+30:                                               ; preds = %22, %25, %27
+  %.1 = phi i64 [ %.02530, %27 ], [ %19, %25 ], [ %19, %22 ]
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !79
 

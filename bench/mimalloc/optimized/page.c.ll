@@ -641,12 +641,21 @@ mi_page_queue.exit:                               ; preds = %mi_page_block_size.
   store ptr null, ptr %prev.i, align 8
   %10 = load ptr, ptr %arrayidx.i, align 8
   %cmp.not.i = icmp eq ptr %10, null
-  %last.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  br i1 %cmp.not.i, label %if.else.i5, label %if.then.i4
+
+if.then.i4:                                       ; preds = %mi_page_queue.exit
   %prev3.i = getelementptr inbounds i8, ptr %10, i64 64
-  %last.sink.i = select i1 %cmp.not.i, ptr %last.i, ptr %prev3.i
-  store ptr %page, ptr %last.sink.i, align 8
+  store ptr %page, ptr %prev3.i, align 8
+  br label %mi_page_queue_push.exit
+
+if.else.i5:                                       ; preds = %mi_page_queue.exit
+  %last.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  store ptr %page, ptr %last.i, align 8
+  br label %mi_page_queue_push.exit
+
+mi_page_queue_push.exit:                          ; preds = %if.then.i4, %if.else.i5
   store ptr %page, ptr %arrayidx.i, align 8
-  call fastcc void @mi_heap_queue_first_update(ptr noundef %heap, ptr noundef nonnull %arrayidx.i) #13
+  call fastcc void @mi_heap_queue_first_update(ptr noundef nonnull %heap, ptr noundef nonnull %arrayidx.i) #13
   %page_count.i = getelementptr inbounds i8, ptr %heap, i64 3024
   %11 = load i64, ptr %page_count.i, align 8
   %inc.i = add i64 %11, 1
@@ -2236,10 +2245,19 @@ if.then7:                                         ; preds = %cond.end
   store ptr null, ptr %prev.i, align 8
   %12 = load ptr, ptr %pq, align 8
   %cmp.not.i = icmp eq ptr %12, null
-  %last.i = getelementptr inbounds i8, ptr %pq, i64 8
+  br i1 %cmp.not.i, label %if.else.i19, label %if.then.i18
+
+if.then.i18:                                      ; preds = %if.then7
   %prev3.i = getelementptr inbounds i8, ptr %12, i64 64
-  %last.sink.i = select i1 %cmp.not.i, ptr %last.i, ptr %prev3.i
-  store ptr %call, ptr %last.sink.i, align 8
+  store ptr %call, ptr %prev3.i, align 8
+  br label %mi_page_queue_push.exit
+
+if.else.i19:                                      ; preds = %if.then7
+  %last.i = getelementptr inbounds i8, ptr %pq, i64 8
+  store ptr %call, ptr %last.i, align 8
+  br label %mi_page_queue_push.exit
+
+mi_page_queue_push.exit:                          ; preds = %if.then.i18, %if.else.i19
   store ptr %call, ptr %pq, align 8
   call fastcc void @mi_heap_queue_first_update(ptr noundef nonnull %heap, ptr noundef nonnull %pq) #13
   %page_count.i = getelementptr inbounds i8, ptr %heap, i64 3024
@@ -2248,7 +2266,7 @@ if.then7:                                         ; preds = %cond.end
   store i64 %inc.i, ptr %page_count.i, align 8
   br label %return
 
-return:                                           ; preds = %cond.end, %if.then7, %entry
+return:                                           ; preds = %cond.end, %mi_page_queue_push.exit, %entry
   ret ptr %call
 }
 

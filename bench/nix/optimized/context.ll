@@ -6288,7 +6288,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
 .split:                                           ; preds = %29
   %30 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %30, align 8
-  br label %.sink.split
+  store i8 0, ptr %6, align 1
+  br label %39
 
 .split12:                                         ; preds = %.thread, %29
   %31 = phi ptr [ %25, %.thread ], [ %6, %29 ]
@@ -6310,14 +6311,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit: ; pre
   store i64 %5, ptr %36, align 8
   %37 = load ptr, ptr %0, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 %5
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %.split, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit
-  %.sink = phi ptr [ %38, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit ], [ %6, %.split ]
-  store i8 0, ptr %.sink, align 1
+  store i8 0, ptr %38, align 1
   br label %39
 
-39:                                               ; preds = %.sink.split, %2
+39:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit, %.split, %2
   ret void
 }
 
@@ -11046,7 +11043,9 @@ _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant
   %19 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %18, ptr %19, align 8
   store ptr %9, ptr %1, align 8
-  br label %.sink.split
+  store i64 0, ptr %17, align 8
+  store i8 0, ptr %9, align 8
+  br label %65
 
 20:                                               ; preds = %2
   %21 = load ptr, ptr %0, align 8
@@ -11079,7 +11078,9 @@ _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant
   %34 = getelementptr inbounds i8, ptr %21, i64 8
   store i64 %33, ptr %34, align 8
   store ptr %24, ptr %1, align 8
-  br label %.sink.split
+  store i64 0, ptr %32, align 8
+  store i8 0, ptr %24, align 8
+  br label %65
 
 35:                                               ; preds = %2
   %36 = load ptr, ptr %0, align 8
@@ -11140,19 +11141,14 @@ _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant
   %63 = getelementptr inbounds i8, ptr %36, i64 24
   store i64 %62, ptr %63, align 8
   store ptr %53, ptr %50, align 8
-  br label %.sink.split
+  store i64 0, ptr %61, align 8
+  store i8 0, ptr %53, align 8
+  br label %65
 
 64:                                               ; preds = %2
   unreachable
 
-.sink.split:                                      ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_15_Move_ctor_baseILb0EJN3nix17DerivedPathOpaqueENS5_20NixStringContextElem7DrvDeepENS5_22SingleDerivedPathBuiltEEEC1EOSA_EUlOT_T0_E_OSt7variantIJS6_S8_S9_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESG_SJ_.exit, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_15_Move_ctor_baseILb0EJN3nix17DerivedPathOpaqueENS5_20NixStringContextElem7DrvDeepENS5_22SingleDerivedPathBuiltEEEC1EOSA_EUlOT_T0_E_OSt7variantIJS6_S8_S9_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESG_SJ_.exit, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_15_Move_ctor_baseILb0EJN3nix17DerivedPathOpaqueENS5_20NixStringContextElem7DrvDeepENS5_22SingleDerivedPathBuiltEEEC1EOSA_EUlOT_T0_E_OSt7variantIJS6_S8_S9_EEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESG_SJ_.exit
-  %.sink11 = phi ptr [ %61, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_15_Move_ctor_baseILb0EJN3nix17DerivedPathOpaqueENS5_20NixStringContextElem7DrvDeepENS5_22SingleDerivedPathBuiltEEEC1EOSA_EUlOT_T0_E_OSt7variantIJS6_S8_S9_EEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESG_SJ_.exit ], [ %32, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_15_Move_ctor_baseILb0EJN3nix17DerivedPathOpaqueENS5_20NixStringContextElem7DrvDeepENS5_22SingleDerivedPathBuiltEEEC1EOSA_EUlOT_T0_E_OSt7variantIJS6_S8_S9_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESG_SJ_.exit ], [ %17, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_15_Move_ctor_baseILb0EJN3nix17DerivedPathOpaqueENS5_20NixStringContextElem7DrvDeepENS5_22SingleDerivedPathBuiltEEEC1EOSA_EUlOT_T0_E_OSt7variantIJS6_S8_S9_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESG_SJ_.exit ]
-  %.sink = phi ptr [ %53, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_15_Move_ctor_baseILb0EJN3nix17DerivedPathOpaqueENS5_20NixStringContextElem7DrvDeepENS5_22SingleDerivedPathBuiltEEEC1EOSA_EUlOT_T0_E_OSt7variantIJS6_S8_S9_EEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESG_SJ_.exit ], [ %24, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_15_Move_ctor_baseILb0EJN3nix17DerivedPathOpaqueENS5_20NixStringContextElem7DrvDeepENS5_22SingleDerivedPathBuiltEEEC1EOSA_EUlOT_T0_E_OSt7variantIJS6_S8_S9_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESG_SJ_.exit ], [ %9, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_15_Move_ctor_baseILb0EJN3nix17DerivedPathOpaqueENS5_20NixStringContextElem7DrvDeepENS5_22SingleDerivedPathBuiltEEEC1EOSA_EUlOT_T0_E_OSt7variantIJS6_S8_S9_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESG_SJ_.exit ]
-  store i64 0, ptr %.sink11, align 8
-  store i8 0, ptr %.sink, align 1
-  br label %65
-
-65:                                               ; preds = %.sink.split, %2
+65:                                               ; preds = %2, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_15_Move_ctor_baseILb0EJN3nix17DerivedPathOpaqueENS5_20NixStringContextElem7DrvDeepENS5_22SingleDerivedPathBuiltEEEC1EOSA_EUlOT_T0_E_OSt7variantIJS6_S8_S9_EEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESG_SJ_.exit, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_15_Move_ctor_baseILb0EJN3nix17DerivedPathOpaqueENS5_20NixStringContextElem7DrvDeepENS5_22SingleDerivedPathBuiltEEEC1EOSA_EUlOT_T0_E_OSt7variantIJS6_S8_S9_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESG_SJ_.exit, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_15_Move_ctor_baseILb0EJN3nix17DerivedPathOpaqueENS5_20NixStringContextElem7DrvDeepENS5_22SingleDerivedPathBuiltEEEC1EOSA_EUlOT_T0_E_OSt7variantIJS6_S8_S9_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESG_SJ_.exit
   ret void
 }
 

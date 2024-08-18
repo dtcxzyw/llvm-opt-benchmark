@@ -4347,6 +4347,8 @@ for.end:                                          ; preds = %for.end.loopexit, %
 for.body17.lr.ph:                                 ; preds = %for.end
   %m_patterns_decls.i.i.i.i16 = getelementptr inbounds i8, ptr %q, i64 80
   %m_num_decls.i.i.i17 = getelementptr inbounds i8, ptr %q, i64 20
+  %m_lazy_mam = getelementptr inbounds i8, ptr %this, i64 40
+  %m_mam = getelementptr inbounds i8, ptr %this, i64 32
   %wide.trip.count34 = zext i32 %2 to i64
   br label %for.body17
 
@@ -4364,13 +4366,13 @@ for.body17:                                       ; preds = %for.body17.lr.ph, %
   %cmp22 = icmp eq i32 %13, 1
   %cmp24.not = icmp ult i32 %j.030, %spec.select
   %or.cond = select i1 %cmp22, i1 true, i1 %cmp24.not
-  %m_mam.m_lazy_mam.v = select i1 %or.cond, i64 32, i64 40
-  %m_mam.m_lazy_mam = getelementptr inbounds i8, ptr %this, i64 %m_mam.m_lazy_mam.v
-  %14 = load ptr, ptr %m_mam.m_lazy_mam, align 8
-  %vtable28 = load ptr, ptr %14, align 8
+  %14 = load ptr, ptr %m_mam, align 8
+  %15 = load ptr, ptr %m_lazy_mam, align 8
+  %.sink40 = select i1 %or.cond, ptr %14, ptr %15
+  %vtable28 = load ptr, ptr %.sink40, align 8
   %vfn29 = getelementptr inbounds i8, ptr %vtable28, i64 16
-  %15 = load ptr, ptr %vfn29, align 8
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull %q, ptr noundef nonnull %12)
+  %16 = load ptr, ptr %vfn29, align 8
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %.sink40, ptr noundef nonnull %q, ptr noundef nonnull %12)
   %not.cmp22 = xor i1 %cmp22, true
   %inc33 = zext i1 %not.cmp22 to i32
   %spec.select15 = add i32 %j.030, %inc33

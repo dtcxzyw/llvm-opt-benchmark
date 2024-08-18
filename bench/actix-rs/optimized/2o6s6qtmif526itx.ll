@@ -3519,16 +3519,16 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit846
           to label %"_ZN4core3ptr120drop_in_place$LT$h2..frame..data..Data$LT$h2..proto..streams..prioritize..Prioritized$LT$bytes..bytes..Bytes$GT$$GT$$GT$17h7654534be3b35cdaE.exit876" unwind label %203
 
 .invoke:                                          ; preds = %908, %905
-  %.sink = getelementptr inbounds i8, ptr %1, i64 8
-  %913 = load ptr, ptr %.sink, align 8, !nonnull !10, !align !12, !noundef !10
-  %914 = getelementptr inbounds i8, ptr %913, i64 24
-  %915 = load ptr, ptr %914, align 8, !noalias !10, !nonnull !10, !noundef !10
-  %916 = getelementptr inbounds i8, ptr %1, i64 32
-  %917 = getelementptr inbounds i8, ptr %1, i64 16
-  %918 = load ptr, ptr %917, align 8, !noundef !10
-  %919 = getelementptr inbounds i8, ptr %1, i64 24
-  %920 = load i64, ptr %919, align 8, !noundef !10
-  invoke void %915(ptr noalias noundef nonnull align 8 dereferenceable(8) %916, ptr noundef %918, i64 noundef %920)
+  %.sink1299.in = getelementptr inbounds i8, ptr %1, i64 8
+  %.sink1299 = load ptr, ptr %.sink1299.in, align 8, !nonnull !10, !align !12, !noundef !10
+  %913 = getelementptr inbounds i8, ptr %.sink1299, i64 24
+  %914 = load ptr, ptr %913, align 8, !noalias !10, !nonnull !10, !noundef !10
+  %915 = getelementptr inbounds i8, ptr %1, i64 32
+  %916 = getelementptr inbounds i8, ptr %1, i64 16
+  %917 = load ptr, ptr %916, align 8, !noundef !10
+  %918 = getelementptr inbounds i8, ptr %1, i64 24
+  %919 = load i64, ptr %918, align 8, !noundef !10
+  invoke void %914(ptr noalias noundef nonnull align 8 dereferenceable(8) %915, ptr noundef %917, i64 noundef %919)
           to label %"_ZN4core3ptr120drop_in_place$LT$h2..frame..data..Data$LT$h2..proto..streams..prioritize..Prioritized$LT$bytes..bytes..Bytes$GT$$GT$$GT$17h7654534be3b35cdaE.exit876" unwind label %203
 }
 

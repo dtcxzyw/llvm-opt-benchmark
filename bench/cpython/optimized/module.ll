@@ -1287,15 +1287,16 @@ if.end5:                                          ; preds = %if.then, %entry
 
 if.then7:                                         ; preds = %if.end5
   %arrayidx = getelementptr i8, ptr %args, i64 40
-  br label %if.end19.sink.split
+  %3 = load ptr, ptr %arrayidx, align 8
+  br label %if.end19
 
 if.else:                                          ; preds = %if.end5
   %cmp8.not = icmp eq ptr %kwnames, null
   br i1 %cmp8.not, label %if.end19, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.else
-  %3 = getelementptr i8, ptr %kwnames, i64 16
-  %kwnames.val14 = load i64, ptr %3, align 8
+  %4 = getelementptr i8, ptr %kwnames, i64 16
+  %kwnames.val14 = load i64, ptr %4, align 8
   %cmp1115 = icmp sgt i64 %kwnames.val14, 0
   br i1 %cmp1115, label %for.body.lr.ph, label %if.end19
 
@@ -1306,29 +1307,25 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.016 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %arrayidx12 = getelementptr [1 x ptr], ptr %ob_item, i64 0, i64 %i.016
-  %4 = load ptr, ptr %arrayidx12, align 8
-  %call13 = tail call i32 @PyUnicode_CompareWithASCIIString(ptr noundef %4, ptr noundef nonnull @.str.117) #5
+  %5 = load ptr, ptr %arrayidx12, align 8
+  %call13 = tail call i32 @PyUnicode_CompareWithASCIIString(ptr noundef %5, ptr noundef nonnull @.str.117) #5
   %cmp14 = icmp eq i32 %call13, 0
   br i1 %cmp14, label %if.then15, label %for.inc
 
 if.then15:                                        ; preds = %for.body
-  %5 = getelementptr ptr, ptr %args, i64 %and.i
-  %arrayidx16 = getelementptr ptr, ptr %5, i64 %i.016
-  br label %if.end19.sink.split
+  %6 = getelementptr ptr, ptr %args, i64 %and.i
+  %arrayidx16 = getelementptr ptr, ptr %6, i64 %i.016
+  %7 = load ptr, ptr %arrayidx16, align 8
+  br label %if.end19
 
 for.inc:                                          ; preds = %for.body
   %inc = add nuw nsw i64 %i.016, 1
-  %kwnames.val = load i64, ptr %3, align 8
+  %kwnames.val = load i64, ptr %4, align 8
   %cmp11 = icmp slt i64 %inc, %kwnames.val
   br i1 %cmp11, label %for.body, label %if.end19, !llvm.loop !6
 
-if.end19.sink.split:                              ; preds = %if.then7, %if.then15
-  %arrayidx16.sink = phi ptr [ %arrayidx16, %if.then15 ], [ %arrayidx, %if.then7 ]
-  %6 = load ptr, ptr %arrayidx16.sink, align 8
-  br label %if.end19
-
-if.end19:                                         ; preds = %for.inc, %if.end19.sink.split, %for.cond.preheader, %if.else
-  %factory.0 = phi ptr [ %0, %if.else ], [ %0, %for.cond.preheader ], [ %6, %if.end19.sink.split ], [ %0, %for.inc ]
+if.end19:                                         ; preds = %for.inc, %for.cond.preheader, %if.else, %if.then15, %if.then7
+  %factory.0 = phi ptr [ %3, %if.then7 ], [ %7, %if.then15 ], [ %0, %if.else ], [ %0, %for.cond.preheader ], [ %0, %for.inc ]
   %call20 = tail call ptr @PyObject_Vectorcall(ptr noundef %factory.0, ptr noundef %args, i64 noundef %nargsf, ptr noundef %kwnames) #5
   br label %return
 

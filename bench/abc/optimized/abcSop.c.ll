@@ -1847,7 +1847,8 @@ define range(i32 0, 2) i32 @Abc_SopCheckReadTruth(ptr noundef %0, ptr nocapture 
 
 Vec_PtrFreeData.exit:                             ; preds = %22, %12, %.preheader.i
   %25 = getelementptr inbounds i8, ptr %0, i64 4
-  br label %.sink.split
+  store i32 0, ptr %25, align 4
+  br label %55
 
 26:                                               ; preds = %3
   %27 = getelementptr i8, ptr %0, i64 4
@@ -1892,12 +1893,12 @@ Abc_SopGetVarNum.exit:                            ; preds = %32, %36
   %45 = add nsw i32 %.val, 1
   %46 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %.06.i, i32 noundef %45, i32 noundef %43)
   %47 = icmp eq ptr %0, null
-  br i1 %47, label %.sink.split, label %.preheader.i28
+  br i1 %47, label %Vec_PtrFreeData.exit38, label %.preheader.i28
 
 .preheader.i28:                                   ; preds = %44
   %.val16.i29 = load i32, ptr %27, align 4
   %48 = icmp sgt i32 %.val16.i29, 0
-  br i1 %48, label %.lr.ph.i30, label %.sink.split
+  br i1 %48, label %.lr.ph.i30, label %Vec_PtrFreeData.exit38
 
 .lr.ph.i30:                                       ; preds = %.preheader.i28, %52
   %.val19.i31 = phi i32 [ %.val.i36, %52 ], [ %.val16.i29, %.preheader.i28 ]
@@ -1918,15 +1919,14 @@ Abc_SopGetVarNum.exit:                            ; preds = %32, %36
   %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i32, 1
   %53 = sext i32 %.val.i36 to i64
   %54 = icmp slt i64 %indvars.iv.next.i37, %53
-  br i1 %54, label %.lr.ph.i30, label %.sink.split, !llvm.loop !31
+  br i1 %54, label %.lr.ph.i30, label %Vec_PtrFreeData.exit38, !llvm.loop !31
 
-.sink.split:                                      ; preds = %52, %.preheader.i28, %44, %Vec_PtrFreeData.exit
-  %.sink = phi ptr [ %25, %Vec_PtrFreeData.exit ], [ %27, %44 ], [ %27, %.preheader.i28 ], [ %27, %52 ]
-  store i32 0, ptr %.sink, align 4
+Vec_PtrFreeData.exit38:                           ; preds = %52, %44, %.preheader.i28
+  store i32 0, ptr %27, align 4
   br label %55
 
-55:                                               ; preds = %.sink.split, %Abc_SopGetVarNum.exit, %26
-  %.020 = phi i32 [ 1, %26 ], [ 1, %Abc_SopGetVarNum.exit ], [ 0, %.sink.split ]
+55:                                               ; preds = %Abc_SopGetVarNum.exit, %26, %Vec_PtrFreeData.exit38, %Vec_PtrFreeData.exit
+  %.020 = phi i32 [ 0, %Vec_PtrFreeData.exit ], [ 0, %Vec_PtrFreeData.exit38 ], [ 1, %26 ], [ 1, %Abc_SopGetVarNum.exit ]
   ret i32 %.020
 }
 

@@ -1037,11 +1037,11 @@ define dso_local void @json_free(ptr noundef %0, ptr nocapture noundef %1) local
   %or.cond10.not.i = and i1 %8, %or.cond9.not11.i
   %9 = icmp ne ptr %3, @empty_obj_val
   %spec.select.i = and i1 %9, %or.cond10.not.i
-  br i1 %spec.select.i, label %10, label %44
+  br i1 %spec.select.i, label %10, label %43
 
 10:                                               ; preds = %2
   %11 = load i32, ptr %3, align 8
-  switch i32 %11, label %41 [
+  switch i32 %11, label %40 [
     i32 0, label %.preheader
     i32 2, label %.preheader29
     i32 1, label %37
@@ -1100,18 +1100,18 @@ define dso_local void @json_free(ptr noundef %0, ptr nocapture noundef %1) local
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.lr.ph, %.preheader29, %._crit_edge34, %37
-  %.sink37 = phi ptr [ %38, %37 ], [ %15, %._crit_edge34 ], [ %12, %.preheader29 ], [ %12, %.lr.ph ]
-  %39 = load ptr, ptr %.sink37, align 8
-  %40 = tail call ptr %0(ptr noundef %39) #8
-  br label %41
+  %.sink.in = phi ptr [ %38, %37 ], [ %15, %._crit_edge34 ], [ %12, %.preheader29 ], [ %12, %.lr.ph ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %39 = tail call ptr %0(ptr noundef %.sink) #8
+  br label %40
 
-41:                                               ; preds = %.sink.split, %10
-  %42 = load ptr, ptr %1, align 8
-  %43 = tail call ptr %0(ptr noundef %42) #8
+40:                                               ; preds = %.sink.split, %10
+  %41 = load ptr, ptr %1, align 8
+  %42 = tail call ptr %0(ptr noundef %41) #8
   store ptr null, ptr %1, align 8
-  br label %44
+  br label %43
 
-44:                                               ; preds = %2, %41
+43:                                               ; preds = %2, %40
   ret void
 }
 

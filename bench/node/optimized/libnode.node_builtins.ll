@@ -531,11 +531,10 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %_ZN4node9MutexBaseI
   %_M_parent16.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %_M_parent16.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !11
   %6 = load i64, ptr %_M_node_count.i.i.i.i.i, align 8, !noalias !11
-  %_M_node_count17.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 112
-  store i64 %6, ptr %_M_node_count17.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !11
   store ptr null, ptr %_M_parent.i.i.i.i.i, align 8, !noalias !11
   store ptr %0, ptr %_M_left.i.i.i.i.i, align 8, !noalias !11
   store ptr %0, ptr %_M_right.i.i.i.i.i, align 8, !noalias !11
+  store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8, !noalias !11
   br label %_ZN4node11CopyOnWriteINS_21ThreadsafeCopyOnWriteISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10UnionBytesESt4lessIS8_ESaISt4pairIKS8_S9_EEEE4ImplEEC2IJSG_EEEDpOT_.exit
 
 if.else.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %_ZN4node9MutexBaseINS_17LibuvRwlockTraitsEEC2Ev.exit.i.i.i.i.i.i.i.i.i
@@ -546,13 +545,13 @@ if.else.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %_ZN4node9MutexBaseI
   store ptr %1, ptr %_M_left.i3.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !11
   %_M_right.i4.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 104
   store ptr %1, ptr %_M_right.i4.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !11
-  %_M_node_count.i5.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 112
   br label %_ZN4node11CopyOnWriteINS_21ThreadsafeCopyOnWriteISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10UnionBytesESt4lessIS8_ESaISt4pairIKS8_S9_EEEE4ImplEEC2IJSG_EEEDpOT_.exit
 
 _ZN4node11CopyOnWriteINS_21ThreadsafeCopyOnWriteISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10UnionBytesESt4lessIS8_ESaISt4pairIKS8_S9_EEEE4ImplEEC2IJSG_EEEDpOT_.exit: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %_M_node_count.i5.sink.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %_M_node_count.i5.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %_M_node_count.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %.sink.i.i.i.i.i = phi i64 [ 0, %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %6, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  store i64 0, ptr %_M_node_count.i5.sink.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !11
+  %7 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 112
+  store i64 %.sink.i.i.i.i.i, ptr %7, align 8, !noalias !11
   store ptr %call5.i.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !11
   store ptr %_M_impl.i.i.i.i.i.i.i, ptr %this, align 8, !alias.scope !11
   call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4node10UnionBytesEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef null)
@@ -7203,22 +7202,18 @@ if.then:                                          ; preds = %while.body
 
 if.then15:                                        ; preds = %if.then
   %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
-  br label %if.end22.sink.split
+  store ptr %__p.022, ptr %arrayidx16, align 8
+  br label %if.end22
 
 if.else:                                          ; preds = %while.body
   %6 = load ptr, ptr %3, align 8
   store ptr %6, ptr %__p.022, align 8
   %7 = load ptr, ptr %arrayidx, align 8
-  br label %if.end22.sink.split
-
-if.end22.sink.split:                              ; preds = %if.else, %if.then15
-  %arrayidx16.sink = phi ptr [ %arrayidx16, %if.then15 ], [ %7, %if.else ]
-  %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then15 ], [ %__bbegin_bkt.021, %if.else ]
-  store ptr %__p.022, ptr %arrayidx16.sink, align 8
+  store ptr %__p.022, ptr %7, align 8
   br label %if.end22
 
-if.end22:                                         ; preds = %if.end22.sink.split, %if.then
-  %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then ], [ %__bbegin_bkt.1.ph, %if.end22.sink.split ]
+if.end22:                                         ; preds = %if.then, %if.then15, %if.else
+  %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.021, %if.else ], [ %rem.i.i, %if.then15 ], [ %rem.i.i, %if.then ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !86
 
@@ -8769,22 +8764,18 @@ if.then:                                          ; preds = %while.body
 
 if.then15:                                        ; preds = %if.then
   %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
-  br label %if.end22.sink.split
+  store ptr %__p.022, ptr %arrayidx16, align 8
+  br label %if.end22
 
 if.else:                                          ; preds = %while.body
   %6 = load ptr, ptr %3, align 8
   store ptr %6, ptr %__p.022, align 8
   %7 = load ptr, ptr %arrayidx, align 8
-  br label %if.end22.sink.split
-
-if.end22.sink.split:                              ; preds = %if.else, %if.then15
-  %arrayidx16.sink = phi ptr [ %arrayidx16, %if.then15 ], [ %7, %if.else ]
-  %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then15 ], [ %__bbegin_bkt.021, %if.else ]
-  store ptr %__p.022, ptr %arrayidx16.sink, align 8
+  store ptr %__p.022, ptr %7, align 8
   br label %if.end22
 
-if.end22:                                         ; preds = %if.end22.sink.split, %if.then
-  %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then ], [ %__bbegin_bkt.1.ph, %if.end22.sink.split ]
+if.end22:                                         ; preds = %if.then, %if.then15, %if.else
+  %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.021, %if.else ], [ %rem.i.i, %if.then15 ], [ %rem.i.i, %if.then ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !304
 

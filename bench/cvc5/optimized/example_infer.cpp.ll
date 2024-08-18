@@ -2751,6 +2751,7 @@ invoke.cont192:                                   ; preds = %lor.rhs.i863, %if.t
   %second.i870 = getelementptr inbounds i8, ptr %__i.sroa.0.0.i869, i64 40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i842)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i843)
+  store i8 1, ptr %second.i870, align 1
   br label %cleanup
 
 if.else196:                                       ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit647
@@ -2761,11 +2762,13 @@ invoke.cont198:                                   ; preds = %if.else196
   store i8 1, ptr %call199, align 1
   %d_examplesOut_invalid200 = getelementptr inbounds i8, ptr %this, i64 64
   %call202 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEbSt4lessIS3_ESaISt4pairIKS3_bEEEixERS7_(ptr noundef nonnull align 8 dereferenceable(48) %d_examplesOut_invalid200, ptr noundef nonnull align 8 dereferenceable(8) %eh)
-          to label %cleanup unwind label %lpad156.loopexit.split-lp
+          to label %invoke.cont201 unwind label %lpad156.loopexit.split-lp
 
-cleanup:                                          ; preds = %invoke.cont198, %invoke.cont192
-  %second.i870.sink = phi ptr [ %second.i870, %invoke.cont192 ], [ %call202, %invoke.cont198 ]
-  store i8 1, ptr %second.i870.sink, align 1
+invoke.cont201:                                   ; preds = %invoke.cont198
+  store i8 1, ptr %call202, align 1
+  br label %cleanup
+
+cleanup:                                          ; preds = %invoke.cont192, %invoke.cont201
   %198 = load ptr, ptr %ex, align 8
   %_M_finish.i875 = getelementptr inbounds i8, ptr %ex, i64 8
   %199 = load ptr, ptr %_M_finish.i875, align 8
@@ -6806,22 +6809,18 @@ if.then:                                          ; preds = %while.body
 
 if.then15:                                        ; preds = %if.then
   %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
-  br label %if.end22.sink.split
+  store ptr %__p.022, ptr %arrayidx16, align 8
+  br label %if.end22
 
 if.else:                                          ; preds = %while.body
   %6 = load ptr, ptr %3, align 8
   store ptr %6, ptr %__p.022, align 8
   %7 = load ptr, ptr %arrayidx, align 8
-  br label %if.end22.sink.split
-
-if.end22.sink.split:                              ; preds = %if.else, %if.then15
-  %arrayidx16.sink = phi ptr [ %arrayidx16, %if.then15 ], [ %7, %if.else ]
-  %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then15 ], [ %__bbegin_bkt.021, %if.else ]
-  store ptr %__p.022, ptr %arrayidx16.sink, align 8
+  store ptr %__p.022, ptr %7, align 8
   br label %if.end22
 
-if.end22:                                         ; preds = %if.end22.sink.split, %if.then
-  %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then ], [ %__bbegin_bkt.1.ph, %if.end22.sink.split ]
+if.end22:                                         ; preds = %if.then, %if.then15, %if.else
+  %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.021, %if.else ], [ %rem.i.i, %if.then15 ], [ %rem.i.i, %if.then ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !55
 

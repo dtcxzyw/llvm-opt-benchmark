@@ -4176,7 +4176,8 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt
   store ptr null, ptr %7, align 8
   store ptr %10, ptr %14, align 8
   store ptr %10, ptr %17, align 8
-  br label %35
+  store i64 0, ptr %21, align 8
+  br label %_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3setIS7_St4lessIS7_ESaIS7_EEEEEE9constructISE_JRS8_SD_EEEvRSG_PT_DpOT0_.exit
 
 24:                                               ; preds = %.noexc
   store i32 0, ptr %6, align 8
@@ -4187,7 +4188,8 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt
   %27 = getelementptr inbounds i8, ptr %1, i64 96
   store ptr %6, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %1, i64 104
-  br label %35
+  store i64 0, ptr %28, align 8
+  br label %_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3setIS7_St4lessIS7_ESaIS7_EEEEEE9constructISE_JRS8_SD_EEEvRSG_PT_DpOT0_.exit
 
 29:                                               ; preds = %4
   %30 = landingpad { ptr, i32 }
@@ -4196,30 +4198,28 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt
   %32 = tail call ptr @__cxa_begin_catch(ptr %31) #17
   tail call void @_ZdlPv(ptr noundef %1) #20
   invoke void @__cxa_rethrow() #18
-          to label %40 unwind label %33
+          to label %39 unwind label %33
 
 33:                                               ; preds = %29
   %34 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %36 unwind label %37
+          to label %35 unwind label %36
 
-35:                                               ; preds = %24, %9
-  %.sink.i.i.i.i.i.i.i = phi ptr [ %28, %24 ], [ %21, %9 ]
-  store i64 0, ptr %.sink.i.i.i.i.i.i.i, align 8
+_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3setIS7_St4lessIS7_ESaIS7_EEEEEE9constructISE_JRS8_SD_EEEvRSG_PT_DpOT0_.exit: ; preds = %24, %9
   ret void
 
-36:                                               ; preds = %33
+35:                                               ; preds = %33
   resume { ptr, i32 } %34
 
-37:                                               ; preds = %33
-  %38 = landingpad { ptr, i32 }
+36:                                               ; preds = %33
+  %37 = landingpad { ptr, i32 }
           catch ptr null
-  %39 = extractvalue { ptr, i32 } %38, 0
-  tail call void @__clang_call_terminate(ptr %39) #21
+  %38 = extractvalue { ptr, i32 } %37, 0
+  tail call void @__clang_call_terminate(ptr %38) #21
   unreachable
 
-40:                                               ; preds = %29
+39:                                               ; preds = %29
   unreachable
 }
 

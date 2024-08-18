@@ -4735,6 +4735,7 @@ Vec_QuePrio.exit30.i.i:                           ; preds = %88, %84
 Vec_QueMoveUp.exit.thread13.i:                    ; preds = %94
   %102 = load ptr, ptr %74, align 8
   %103 = getelementptr inbounds i32, ptr %102, i64 %81
+  store i32 %1, ptr %103, align 4
   br label %Vec_QueUpdate.exit.sink.split
 
 Vec_QueMoveUp.exit.i:                             ; preds = %Vec_QuePrio.exit30.i.i
@@ -4861,6 +4862,7 @@ Vec_QueMoveDown.exit.i:                           ; preds = %158, %Vec_QuePrio.e
   %169 = load ptr, ptr %74, align 8
   %170 = sext i32 %.035.lcssa.i.i to i64
   %171 = getelementptr inbounds i32, ptr %169, i64 %170
+  store i32 %1, ptr %171, align 4
   br label %Vec_QueUpdate.exit.sink.split
 
 Vec_QueIsMember.exit.thread:                      ; preds = %46, %Vec_QueIsMember.exit
@@ -4975,16 +4977,15 @@ Vec_QuePush.exit:                                 ; preds = %Vec_QuePrio.exit30.
   %228 = load ptr, ptr %190, align 8
   %229 = sext i32 %.027.lcssa.i.i to i64
   %230 = getelementptr inbounds i32, ptr %228, i64 %229
+  store i32 %1, ptr %230, align 4
   br label %Vec_QueUpdate.exit.sink.split
 
 Vec_QueUpdate.exit.sink.split:                    ; preds = %Vec_QueMoveUp.exit.thread13.i, %Vec_QueMoveDown.exit.i, %Vec_QuePush.exit
-  %.sink.i.sink = phi ptr [ %230, %Vec_QuePush.exit ], [ %103, %Vec_QueMoveUp.exit.thread13.i ], [ %171, %Vec_QueMoveDown.exit.i ]
-  %.sink = phi ptr [ %187, %Vec_QuePush.exit ], [ %60, %Vec_QueMoveUp.exit.thread13.i ], [ %60, %Vec_QueMoveDown.exit.i ]
-  %.02634.i.lcssa26.sink.i.sink = phi i32 [ %.027.lcssa.i.i, %Vec_QuePush.exit ], [ %.02634.i.i, %Vec_QueMoveUp.exit.thread13.i ], [ %.035.lcssa.i.i, %Vec_QueMoveDown.exit.i ]
-  store i32 %1, ptr %.sink.i.sink, align 4
-  %231 = load ptr, ptr %.sink, align 8
-  %232 = getelementptr inbounds i32, ptr %231, i64 %4
-  store i32 %.02634.i.lcssa26.sink.i.sink, ptr %232, align 4
+  %.sink62.in = phi ptr [ %187, %Vec_QuePush.exit ], [ %60, %Vec_QueMoveDown.exit.i ], [ %60, %Vec_QueMoveUp.exit.thread13.i ]
+  %.02634.i.lcssa26.sink.i.sink = phi i32 [ %.027.lcssa.i.i, %Vec_QuePush.exit ], [ %.035.lcssa.i.i, %Vec_QueMoveDown.exit.i ], [ %.02634.i.i, %Vec_QueMoveUp.exit.thread13.i ]
+  %.sink62 = load ptr, ptr %.sink62.in, align 8
+  %231 = getelementptr inbounds i32, ptr %.sink62, i64 %4
+  store i32 %.02634.i.lcssa26.sink.i.sink, ptr %231, align 4
   br label %Vec_QueUpdate.exit
 
 Vec_QueUpdate.exit:                               ; preds = %Vec_QueUpdate.exit.sink.split, %Vec_QueMoveUp.exit.i, %Vec_QueIsMember.exit.thread, %2, %8

@@ -38,24 +38,30 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 define dso_local range(i32 -901, 1) i32 @nghttp2_queue_push(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #10
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %8, label %.sink.split
+  br i1 %.not, label %11, label %4
 
-.sink.split:                                      ; preds = %2
+4:                                                ; preds = %2
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8
-  %.not14 = icmp eq ptr %6, null
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
-  %.sink15 = select i1 %.not14, ptr %5, ptr %7
-  %.sink = select i1 %.not14, ptr %0, ptr %5
-  store ptr %3, ptr %.sink15, align 8
-  store ptr %3, ptr %.sink, align 8
-  br label %8
+  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr null, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = load ptr, ptr %6, align 8
+  %.not14 = icmp eq ptr %7, null
+  br i1 %.not14, label %10, label %8
 
-8:                                                ; preds = %.sink.split, %2
-  %.0 = phi i32 [ -901, %2 ], [ 0, %.sink.split ]
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr %3, ptr %9, align 8
+  store ptr %3, ptr %6, align 8
+  br label %11
+
+10:                                               ; preds = %4
+  store ptr %3, ptr %6, align 8
+  store ptr %3, ptr %0, align 8
+  br label %11
+
+11:                                               ; preds = %8, %10, %2
+  %.0 = phi i32 [ -901, %2 ], [ 0, %10 ], [ 0, %8 ]
   ret i32 %.0
 }
 

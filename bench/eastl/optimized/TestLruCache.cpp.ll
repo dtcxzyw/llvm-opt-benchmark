@@ -5689,7 +5689,13 @@ if.then.i:                                        ; preds = %if.then
 if.end.i:                                         ; preds = %if.then.i, %if.then
   %15 = load ptr, ptr %arrayidx.i, align 8, !noalias !251
   %cmp.i.i = icmp eq ptr %15, %pNode.addr.05.i.i
-  br i1 %cmp.i.i, label %delete.notnull.i.i.i.i, label %while.cond.i.i
+  br i1 %cmp.i.i, label %if.end.i.thread.i, label %while.cond.i.i
+
+if.end.i.thread.i:                                ; preds = %if.end.i
+  %mpNext.i.i5 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = load ptr, ptr %mpNext.i.i5, align 8, !noalias !251
+  store ptr %16, ptr %arrayidx.i, align 8, !noalias !251
+  br label %delete.notnull.i.i.i.i
 
 while.cond.i.i:                                   ; preds = %if.end.i, %while.cond.i.i
   %pNodeCurrent.0.i.i = phi ptr [ %pNodeNext.0.i.i, %while.cond.i.i ], [ %15, %if.end.i ]
@@ -5700,24 +5706,22 @@ while.cond.i.i:                                   ; preds = %if.end.i, %while.co
 
 if.end.i.i:                                       ; preds = %while.cond.i.i
   %pNodeNext.0.in.i.i.le = getelementptr inbounds i8, ptr %pNodeCurrent.0.i.i, i64 24
+  %mpNext8.i.i = getelementptr inbounds i8, ptr %pNodeNext.0.i.i, i64 24
+  %17 = load ptr, ptr %mpNext8.i.i, align 8, !noalias !251
+  store ptr %17, ptr %pNodeNext.0.in.i.i.le, align 8, !noalias !251
   br label %delete.notnull.i.i.i.i
 
-delete.notnull.i.i.i.i:                           ; preds = %if.end.i, %if.end.i.i
-  %pNodeNext.0.i.i.sink = phi ptr [ %pNodeNext.0.i.i, %if.end.i.i ], [ %15, %if.end.i ]
-  %pNodeNext.0.in.i.i.le.sink = phi ptr [ %pNodeNext.0.in.i.i.le, %if.end.i.i ], [ %arrayidx.i, %if.end.i ]
-  %mpNext8.i.i = getelementptr inbounds i8, ptr %pNodeNext.0.i.i.sink, i64 24
-  %16 = load ptr, ptr %mpNext8.i.i, align 8, !noalias !251
-  store ptr %16, ptr %pNodeNext.0.in.i.i.le.sink, align 8, !noalias !251
+delete.notnull.i.i.i.i:                           ; preds = %if.end.i.i, %if.end.i.thread.i
   tail call void @_ZdaPv(ptr noundef nonnull %pNode.addr.05.i.i) #12, !noalias !251
   %mnElementCount.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %17 = load i64, ptr %mnElementCount.i.i, align 8, !noalias !251
-  %dec.i.i4 = add i64 %17, -1
+  %18 = load i64, ptr %mnElementCount.i.i, align 8, !noalias !251
+  %dec.i.i4 = add i64 %18, -1
   store i64 %dec.i.i4, ptr %mnElementCount.i.i, align 8, !noalias !251
   br label %return
 
 return:                                           ; preds = %for.inc.i.i, %entry, %_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit, %delete.notnull.i.i.i.i
-  %cmp.i13 = phi i1 [ false, %_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit ], [ %cmp.i, %delete.notnull.i.i.i.i ], [ false, %entry ], [ false, %for.inc.i.i ]
-  ret i1 %cmp.i13
+  %cmp.i14 = phi i1 [ false, %_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit ], [ %cmp.i, %delete.notnull.i.i.i.i ], [ false, %entry ], [ false, %for.inc.i.i ]
+  ret i1 %cmp.i14
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6954,8 +6958,8 @@ if.end.i:                                         ; preds = %if.then.i, %_ZN5eas
   br i1 %cmp.i.i, label %if.end.i.thread.i, label %while.cond.i.i
 
 if.end.i.thread.i:                                ; preds = %if.end.i
-  %mpNext8.i4.i = getelementptr inbounds i8, ptr %15, i64 24
-  %16 = load ptr, ptr %mpNext8.i4.i, align 8, !noalias !320
+  %mpNext.i.i4 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = load ptr, ptr %mpNext.i.i4, align 8, !noalias !320
   store ptr %16, ptr %add.ptr8.sink.i, align 8, !noalias !320
   br label %delete.notnull.i.i.i.i
 
@@ -7298,8 +7302,8 @@ if.end.i:                                         ; preds = %if.then.i, %_ZN5eas
   br i1 %cmp.i.i, label %if.end.i.thread.i, label %while.cond.i.i
 
 if.end.i.thread.i:                                ; preds = %if.end.i
-  %mpNext8.i4.i = getelementptr inbounds i8, ptr %15, i64 24
-  %16 = load ptr, ptr %mpNext8.i4.i, align 8, !noalias !339
+  %mpNext.i.i4 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = load ptr, ptr %mpNext.i.i4, align 8, !noalias !339
   store ptr %16, ptr %add.ptr8.sink.i, align 8, !noalias !339
   br label %delete.notnull.i.i.i.i
 
@@ -7700,8 +7704,8 @@ if.end.i:                                         ; preds = %if.then.i, %_ZN5eas
   br i1 %cmp.i.i, label %if.end.i.thread.i, label %while.cond.i.i
 
 if.end.i.thread.i:                                ; preds = %if.end.i
-  %mpNext8.i4.i = getelementptr inbounds i8, ptr %15, i64 24
-  %16 = load ptr, ptr %mpNext8.i4.i, align 8, !noalias !359
+  %mpNext.i.i4 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = load ptr, ptr %mpNext.i.i4, align 8, !noalias !359
   store ptr %16, ptr %add.ptr8.sink.i, align 8, !noalias !359
   br label %delete.notnull.i.i.i.i
 

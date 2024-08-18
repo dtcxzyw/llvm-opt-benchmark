@@ -386,23 +386,32 @@ if.end:                                           ; preds = %if.then23.i, %if.en
   %28 = load ptr, ptr %head_, align 8
   %tobool.not = icmp eq ptr %28, null
   %tail_ = getelementptr inbounds i8, ptr %this, i64 16
+  br i1 %tobool.not, label %if.then24, label %if.else
+
+if.then24:                                        ; preds = %if.end
+  store ptr %call, ptr %tail_, align 8
+  store ptr %call, ptr %head_, align 8
+  br label %if.end28
+
+if.else:                                          ; preds = %if.end
   %29 = load ptr, ptr %tail_, align 8
   %next_ = getelementptr inbounds i8, ptr %29, i64 16
-  %next_.sink = select i1 %tobool.not, ptr %tail_, ptr %next_
-  %tail_.sink = select i1 %tobool.not, ptr %head_, ptr %tail_
-  store ptr %call, ptr %next_.sink, align 8
-  store ptr %call, ptr %tail_.sink, align 8
+  store ptr %call, ptr %next_, align 8
+  store ptr %call, ptr %tail_, align 8
+  br label %if.end28
+
+if.end28:                                         ; preds = %if.else, %if.then24
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %this)
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit unwind label %terminate.lpad.i
 
-terminate.lpad.i:                                 ; preds = %if.end
+terminate.lpad.i:                                 ; preds = %if.end28
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
   tail call void @__clang_call_terminate(ptr %31) #16
   unreachable
 
-_ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %if.end
+_ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %if.end28
   ret void
 }
 

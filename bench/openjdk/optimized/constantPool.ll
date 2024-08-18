@@ -3525,37 +3525,35 @@ define hidden noundef zeroext i1 @_ZN12ConstantPool25has_appendix_at_if_loadedER
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %24, label %8
+  br i1 %7, label %27, label %8
 
 8:                                                ; preds = %3
   %9 = icmp eq i32 %2, 186
   %10 = sext i32 %1 to i64
-  br i1 %9, label %11, label %16
+  br i1 %9, label %11, label %19
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds i8, ptr %6, i64 40
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   %15 = getelementptr inbounds %class.ResolvedIndyEntry, ptr %14, i64 %10, i32 5
-  br label %.sink.split
+  %16 = load i8, ptr %15, align 1
+  %17 = and i8 %16, 2
+  %18 = icmp ne i8 %17, 0
+  br label %27
 
-16:                                               ; preds = %8
-  %17 = getelementptr inbounds i8, ptr %6, i64 56
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
-  %20 = getelementptr inbounds %class.ResolvedMethodEntry, ptr %19, i64 %10, i32 5
-  br label %.sink.split
+19:                                               ; preds = %8
+  %20 = getelementptr inbounds i8, ptr %6, i64 56
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %23 = getelementptr inbounds %class.ResolvedMethodEntry, ptr %22, i64 %10, i32 5
+  %24 = load i8, ptr %23, align 1
+  %25 = and i8 %24, 8
+  %26 = icmp ne i8 %25, 0
+  br label %27
 
-.sink.split:                                      ; preds = %11, %16
-  %.sink = phi ptr [ %20, %16 ], [ %15, %11 ]
-  %.sink7 = phi i8 [ 8, %16 ], [ 2, %11 ]
-  %21 = load i8, ptr %.sink, align 1
-  %22 = and i8 %21, %.sink7
-  %23 = icmp ne i8 %22, 0
-  br label %24
-
-24:                                               ; preds = %.sink.split, %3
-  %.0 = phi i1 [ false, %3 ], [ %23, %.sink.split ]
+27:                                               ; preds = %3, %19, %11
+  %.0 = phi i1 [ %18, %11 ], [ %26, %19 ], [ false, %3 ]
   ret i1 %.0
 }
 

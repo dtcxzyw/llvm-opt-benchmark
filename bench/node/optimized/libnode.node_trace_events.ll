@@ -343,11 +343,10 @@ if.then.i.i.i.i.i:                                ; preds = %do.end65
   %_M_parent16.i.i.i.i.i.i = getelementptr inbounds i8, ptr %34, i64 8
   store ptr %33, ptr %_M_parent16.i.i.i.i.i.i, align 8
   %38 = load i64, ptr %_M_node_count.i.i.i.i.i, align 8
-  %_M_node_count17.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call66, i64 80
-  store i64 %38, ptr %_M_node_count17.i.i.i.i.i.i, align 8
   store ptr null, ptr %_M_parent.i.i.i.i.i, align 8
   store ptr %12, ptr %_M_left.i.i.i.i.i, align 8
   store ptr %12, ptr %_M_right.i.i.i.i.i, align 8
+  store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8
   br label %_ZN4node15NodeCategorySetC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEEOSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISD_ESaISD_EE.exit
 
 if.else.i.i.i.i.i:                                ; preds = %do.end65
@@ -358,18 +357,18 @@ if.else.i.i.i.i.i:                                ; preds = %do.end65
   store ptr %33, ptr %_M_left.i3.i.i.i.i.i, align 8
   %_M_right.i4.i.i.i.i.i = getelementptr inbounds i8, ptr %call66, i64 72
   store ptr %33, ptr %_M_right.i4.i.i.i.i.i, align 8
-  %_M_node_count.i5.i.i.i.i.i = getelementptr inbounds i8, ptr %call66, i64 80
   br label %_ZN4node15NodeCategorySetC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEEOSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISD_ESaISD_EE.exit
 
 _ZN4node15NodeCategorySetC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEEOSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISD_ESaISD_EE.exit: ; preds = %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  %_M_node_count.i5.sink.i.i.i.i.i = phi ptr [ %_M_node_count.i5.i.i.i.i.i, %if.else.i.i.i.i.i ], [ %_M_node_count.i.i.i.i.i, %if.then.i.i.i.i.i ]
-  store i64 0, ptr %_M_node_count.i5.sink.i.i.i.i.i, align 8
+  %.sink = phi i64 [ 0, %if.else.i.i.i.i.i ], [ %38, %if.then.i.i.i.i.i ]
+  %39 = getelementptr inbounds i8, ptr %call66, i64 80
+  store i64 %.sink, ptr %39, align 8
   call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %call66) #16
   br label %cleanup75
 
 cleanup75:                                        ; preds = %if.end40, %for.body, %_ZN4node15NodeCategorySetC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEEOSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISD_ESaISD_EE.exit
-  %39 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
-  call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %categories, ptr noundef %39)
+  %40 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
+  call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %categories, ptr noundef %40)
   ret void
 }
 

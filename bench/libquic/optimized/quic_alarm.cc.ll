@@ -44,21 +44,18 @@ if.then2.i.i:                                     ; preds = %if.then.i.i
   %and.i1.i.i = and i64 %1, -2
   %2 = inttoptr i64 %and.i1.i.i to ptr
   %vtable.i.i = load ptr, ptr %2, align 8
-  br label %if.end13.sink.split.i.i
+  %3 = load ptr, ptr %vtable.i.i, align 8
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #7
+  br label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEED2Ev.exit
 
 delete.notnull.i.i:                               ; preds = %if.then.i.i
   %vtable5.i.i = load ptr, ptr %0, align 8
   %vfn6.i.i = getelementptr inbounds i8, ptr %vtable5.i.i, i64 8
-  br label %if.end13.sink.split.i.i
-
-if.end13.sink.split.i.i:                          ; preds = %delete.notnull.i.i, %if.then2.i.i
-  %vfn6.sink.i.i = phi ptr [ %vfn6.i.i, %delete.notnull.i.i ], [ %vtable.i.i, %if.then2.i.i ]
-  %.sink.i.i = phi ptr [ %0, %delete.notnull.i.i ], [ %2, %if.then2.i.i ]
-  %3 = load ptr, ptr %vfn6.sink.i.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %.sink.i.i) #7
+  %4 = load ptr, ptr %vfn6.i.i, align 8
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %0) #7
   br label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEED2Ev.exit
 
-_ZN3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEED2Ev.exit: ; preds = %entry, %if.end13.sink.split.i.i
+_ZN3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEED2Ev.exit: ; preds = %entry, %if.then2.i.i, %delete.notnull.i.i
   store ptr null, ptr %delegate_, align 8
   ret void
 }
@@ -153,9 +150,9 @@ if.else:                                          ; preds = %if.end10
   br label %if.end16.sink.split
 
 if.end16.sink.split:                              ; preds = %if.then13, %if.else, %if.end.i
-  %vfn.i.sink = phi ptr [ %vfn.i, %if.end.i ], [ %vfn15, %if.else ], [ %vfn, %if.then13 ]
-  %2 = load ptr, ptr %vfn.i.sink, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(24) %this)
+  %.sink.in = phi ptr [ %vfn.i, %if.end.i ], [ %vfn15, %if.else ], [ %vfn, %if.then13 ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  tail call void %.sink(ptr noundef nonnull align 8 dereferenceable(24) %this)
   br label %if.end16
 
 if.end16:                                         ; preds = %if.end16.sink.split, %if.then, %if.end

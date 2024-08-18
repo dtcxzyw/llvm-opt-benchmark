@@ -3138,26 +3138,24 @@ do.end:                                           ; preds = %_ZN4node10BaseObjec
 if.then.i49:                                      ; preds = %do.end
   tail call void @_ZN2v812api_internal12ToLocalEmptyEv() #20
   %14 = load ptr, ptr %args, align 8
+  %arrayidx.i9 = getelementptr inbounds i8, ptr %14, i64 24
   %arrayidx.i.i = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load ptr, ptr %arrayidx.i.i, align 8
   %16 = ptrtoint ptr %15 to i64
   %add1.i.i.i = add i64 %16, 616
   %17 = inttoptr i64 %add1.i.i.i to ptr
-  br label %return.sink.split
-
-if.else.i:                                        ; preds = %do.end
-  %18 = load ptr, ptr %args, align 8
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.else.i, %if.then.i49
-  %.sink11 = phi ptr [ %17, %if.then.i49 ], [ %call12, %if.else.i ]
-  %.pn = phi ptr [ %14, %if.then.i49 ], [ %18, %if.else.i ]
-  %arrayidx.i9.sink = getelementptr inbounds i8, ptr %.pn, i64 24
-  %19 = load i64, ptr %.sink11, align 8
-  store i64 %19, ptr %arrayidx.i9.sink, align 8
+  %18 = load i64, ptr %17, align 8
+  store i64 %18, ptr %arrayidx.i9, align 8
   br label %return
 
-return:                                           ; preds = %return.sink.split, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit
+if.else.i:                                        ; preds = %do.end
+  %19 = load ptr, ptr %args, align 8
+  %arrayidx.i = getelementptr inbounds i8, ptr %19, i64 24
+  %20 = load i64, ptr %call12, align 8
+  store i64 %20, ptr %arrayidx.i, align 8
+  br label %return
+
+return:                                           ; preds = %if.then.i49, %if.else.i, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit
   ret void
 }
 

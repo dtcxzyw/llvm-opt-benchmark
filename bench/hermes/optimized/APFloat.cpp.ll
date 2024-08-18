@@ -1058,8 +1058,8 @@ _ZN4llvh5APInt15clearUnusedBitsEv.exit.i11:       ; preds = %_ZN4llvh5APIntC2Ejm
   %sub2.i.i14 = xor i32 %rem.i.i13, 63
   %sh_prom.i.i15 = zext nneg i32 %sub2.i.i14 to i64
   %shr.i.i16 = lshr i64 -1, %sh_prom.i.i15
-  %and6.i.i17 = and i64 %storemerge.i, %shr.i.i16
-  store i64 %and6.i.i17, ptr %IntegerConstant, align 8
+  %and.i.i17 = and i64 %storemerge.i, %shr.i.i16
+  store i64 %and.i.i17, ptr %IntegerConstant, align 8
   br label %_ZN4llvh5APIntlSEj.exit
 
 if.end5.i:                                        ; preds = %_ZN4llvh5APIntC2Ejmb.exit
@@ -4491,8 +4491,8 @@ _ZN4llvh5APInt15clearUnusedBitsEv.exit.i.i.i:     ; preds = %_ZN4llvh5APIntC2ERK
   %sub2.i.i.i.i = xor i32 %rem.i.i.i.i, 63
   %sh_prom.i.i.i.i = zext nneg i32 %sub2.i.i.i.i to i64
   %shr.i.i.i.i = lshr i64 -1, %sh_prom.i.i.i.i
-  %and6.i.i.i.i = and i64 %shr.i.i.i.i, %xor.i.i.i
-  store i64 %and6.i.i.i.i, ptr %agg.tmp9, align 8, !noalias !10
+  %and.i.i.i.i = and i64 %shr.i.i.i.i, %xor.i.i.i
+  store i64 %and.i.i.i.i, ptr %agg.tmp9, align 8, !noalias !10
   br label %_ZN4llvhngENS_5APIntE.exit
 
 if.else.i.i.i:                                    ; preds = %_ZN4llvh5APIntC2ERKS0_.exit
@@ -5253,8 +5253,8 @@ _ZN4llvh5APInt15clearUnusedBitsEv.exit.i.i.i:     ; preds = %if.then, %_ZN4llvh5
   %sub2.i.i.i.i = xor i32 %rem.i.i.i.i12, 63
   %sh_prom.i.i.i.i = zext nneg i32 %sub2.i.i.i.i to i64
   %shr.i.i.i.i = lshr i64 -1, %sh_prom.i.i.i.i
-  %and6.i.i.i.i = and i64 %shr.i.i.i.i, %xor.i.i.i
-  store i64 %and6.i.i.i.i, ptr %agg.tmp, align 8, !noalias !20
+  %and.i.i.i.i = and i64 %shr.i.i.i.i, %xor.i.i.i
+  store i64 %and.i.i.i.i, ptr %agg.tmp, align 8, !noalias !20
   br label %_ZN4llvhngENS_5APIntE.exit
 
 if.else.i.i.i:                                    ; preds = %_ZN4llvh5APIntC2ERKS0_.exit10
@@ -8281,8 +8281,8 @@ if.end19:                                         ; preds = %land.lhs.true, %if.
   %shl.masked = and i32 %shl, 32768
   %or.masked = or disjoint i32 %shl25, %shl.masked
   %13 = or disjoint i32 %or.masked, %and26
-  %and6.i.i = zext nneg i32 %13 to i64
-  store i64 %and6.i.i, ptr %agg.result, align 8
+  %and.i.i = zext nneg i32 %13 to i64
+  store i64 %and.i.i, ptr %agg.result, align 8
   ret void
 }
 
@@ -8353,8 +8353,8 @@ _ZNK4llvh6detail9IEEEFloat25convertHalfAPFloatToAPIntEv.exit: ; preds = %if.then
   %shl.masked.i = and i32 %shl.i, 32768
   %or.masked.i = or disjoint i32 %shl25.i, %shl.masked.i
   %8 = or disjoint i32 %or.masked.i, %and26.i
-  %and6.i.i.i = zext nneg i32 %8 to i64
-  store i64 %and6.i.i.i, ptr %agg.result, align 8, !alias.scope !48
+  %and.i.i.i = zext nneg i32 %8 to i64
+  store i64 %and.i.i.i, ptr %agg.result, align 8, !alias.scope !48
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -10274,8 +10274,8 @@ _ZN4llvh5APInt15clearUnusedBitsEv.exit.i:         ; preds = %_ZN4llvh5APIntD2Ev.
   %sub2.i.i = xor i32 %rem.i.i, 63
   %sh_prom.i.i = zext nneg i32 %sub2.i.i to i64
   %shr.i.i = lshr i64 -1, %sh_prom.i.i
-  %and6.i.i = and i64 %storemerge.i, %shr.i.i
-  store i64 %and6.i.i, ptr %significand, align 8
+  %and.i.i = and i64 %storemerge.i, %shr.i.i
+  store i64 %and.i.i, ptr %significand, align 8
   br label %if.end77
 
 if.end5.i:                                        ; preds = %_ZN4llvh5APIntD2Ev.exit
@@ -10323,8 +10323,8 @@ _ZN4llvh5APInt15clearUnusedBitsEv.exit.i253:      ; preds = %_ZN4llvh5APIntD2Ev.
   %sub2.i.i256 = xor i32 %rem.i.i255, 63
   %sh_prom.i.i257 = zext nneg i32 %sub2.i.i256 to i64
   %shr.i.i258 = lshr i64 -1, %sh_prom.i.i257
-  %and6.i.i259 = and i64 %shr.i.i258, 5
-  store i64 %and6.i.i259, ptr %five_to_the_i, align 8
+  %and.i.i259 = and i64 %shr.i.i258, 5
+  store i64 %and.i.i259, ptr %five_to_the_i, align 8
   br label %while.cond.preheader
 
 if.else.i251:                                     ; preds = %_ZN4llvh5APIntD2Ev.exit248
@@ -10433,8 +10433,8 @@ _ZN4llvh5APInt15clearUnusedBitsEv.exit.i20.i:     ; preds = %_ZN4llvh5APIntC2Ejm
   %sub2.i.i23.i = xor i32 %rem.i.i22.i, 63
   %sh_prom.i.i24.i = zext nneg i32 %sub2.i.i23.i to i64
   %shr.i.i25.i = lshr i64 -1, %sh_prom.i.i24.i
-  %and6.i.i26.i = and i64 %shr.i.i25.i, 10
-  store i64 %and6.i.i26.i, ptr %powten.i, align 8
+  %and.i.i26.i = and i64 %shr.i.i25.i, 10
+  store i64 %and.i.i26.i, ptr %powten.i, align 8
   br label %_ZN4llvh5APIntC2Ejmb.exit27.i
 
 if.else.i19.i:                                    ; preds = %_ZN4llvh5APIntC2Ejmb.exit.i
@@ -10575,8 +10575,8 @@ _ZN4llvh5APInt15clearUnusedBitsEv.exit.i295:      ; preds = %_ZN4llvh6detail12_G
   %sub2.i.i286 = xor i32 %rem.i.i285, 63
   %sh_prom.i.i287 = zext nneg i32 %sub2.i.i286 to i64
   %shr.i.i288 = lshr i64 -1, %sh_prom.i.i287
-  %and6.i.i289 = and i64 %shr.i.i288, 10
-  store i64 %and6.i.i289, ptr %ten, align 8
+  %and.i.i289 = and i64 %shr.i.i288, 10
+  store i64 %and.i.i289, ptr %ten, align 8
   %BitWidth.i291576 = getelementptr inbounds i8, ptr %digit, i64 8
   store i32 %79, ptr %BitWidth.i291576, align 8
   store i64 0, ptr %digit, align 8

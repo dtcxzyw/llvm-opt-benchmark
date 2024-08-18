@@ -329,7 +329,8 @@ Aig_ManObj.exit.thread:                           ; preds = %140, %127, %Aig_Man
 149:                                              ; preds = %132
   %150 = load ptr, ptr %56, align 8
   %151 = getelementptr i8, ptr %150, i64 48
-  br label %Aig_ManObj.exit169.sink.split
+  %.val160 = load ptr, ptr %151, align 8
+  br label %Aig_ManObj.exit169
 
 152:                                              ; preds = %Aig_ManObj.exit
   %153 = load ptr, ptr %56, align 8
@@ -345,17 +346,12 @@ Aig_ManObj.exit.thread:                           ; preds = %140, %127, %Aig_Man
   %.val.i168 = load ptr, ptr %158, align 8
   %159 = sext i32 %157 to i64
   %160 = getelementptr inbounds ptr, ptr %.val.i168, i64 %159
-  br label %Aig_ManObj.exit169.sink.split
-
-Aig_ManObj.exit169.sink.split:                    ; preds = %149, %155
-  %.sink = phi ptr [ %160, %155 ], [ %151, %149 ]
-  %.sink211.ph = phi i32 [ 21845, %155 ], [ 0, %149 ]
-  %161 = load ptr, ptr %.sink, align 8
+  %161 = load ptr, ptr %160, align 8
   br label %Aig_ManObj.exit169
 
-Aig_ManObj.exit169:                               ; preds = %Aig_ManObj.exit169.sink.split, %152
-  %.sink211 = phi i32 [ 21845, %152 ], [ %.sink211.ph, %Aig_ManObj.exit169.sink.split ]
-  %.sink210 = phi ptr [ null, %152 ], [ %161, %Aig_ManObj.exit169.sink.split ]
+Aig_ManObj.exit169:                               ; preds = %155, %152, %149
+  %.sink211 = phi i32 [ 0, %149 ], [ 21845, %152 ], [ 21845, %155 ]
+  %.sink210 = phi ptr [ %.val160, %149 ], [ null, %152 ], [ %161, %155 ]
   %162 = and i32 %129, 65535
   %163 = icmp eq i32 %162, %.sink211
   %164 = ptrtoint ptr %.sink210 to i64

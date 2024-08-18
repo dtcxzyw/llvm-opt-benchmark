@@ -1253,11 +1253,18 @@ land.lhs.true:                                    ; preds = %if.then19
   %add.ptr27 = getelementptr inbounds i8, ptr %p.141, i64 2
   %cmp28 = icmp eq ptr %add.ptr27, %add.ptr
   %or.cond = select i1 %cmp24, i1 %cmp28, i1 false
-  br i1 %or.cond, label %fin.sink.split, label %if.else31
+  br i1 %or.cond, label %if.end32, label %if.else31
 
 if.else31:                                        ; preds = %land.lhs.true, %if.then19
   tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 1121, ptr noundef nonnull @__PRETTY_FUNCTION__.sf_base64decode) #7
   unreachable
+
+if.end32:                                         ; preds = %land.lhs.true
+  %shr = lshr i32 %n.042, 16
+  %conv33 = trunc i32 %shr to i8
+  %incdec.ptr = getelementptr inbounds i8, ptr %o.046, i64 1
+  store i8 %conv33, ptr %o.046, align 1
+  br label %fin
 
 if.end34:                                         ; preds = %if.end17
   %add.ptr39 = getelementptr inbounds i8, ptr %p.141, i64 1
@@ -1274,7 +1281,11 @@ if.end44:                                         ; preds = %if.end34
   %conv46 = trunc i32 %shr45 to i8
   %incdec.ptr47 = getelementptr inbounds i8, ptr %o.046, i64 1
   store i8 %conv46, ptr %o.046, align 1
-  br label %fin.sink.split
+  %shr48 = lshr i32 %n.042, 8
+  %conv50 = trunc i32 %shr48 to i8
+  %incdec.ptr51 = getelementptr inbounds i8, ptr %o.046, i64 2
+  store i8 %conv50, ptr %incdec.ptr47, align 1
+  br label %fin
 
 if.end52:                                         ; preds = %for.body11
   %6 = trunc nuw i64 %i.043 to i32
@@ -1302,18 +1313,8 @@ for.end:                                          ; preds = %if.end52
   %cmp8.not = icmp eq ptr %scevgep, %add.ptr
   br i1 %cmp8.not, label %fin, label %for.cond9.preheader, !llvm.loop !10
 
-fin.sink.split:                                   ; preds = %land.lhs.true, %if.end44
-  %.sink57 = phi i32 [ 8, %if.end44 ], [ 16, %land.lhs.true ]
-  %.sink = phi i64 [ 2, %if.end44 ], [ 1, %land.lhs.true ]
-  %incdec.ptr47.sink = phi ptr [ %incdec.ptr47, %if.end44 ], [ %o.046, %land.lhs.true ]
-  %shr48 = lshr i32 %n.042, %.sink57
-  %conv50 = trunc i32 %shr48 to i8
-  %incdec.ptr51 = getelementptr inbounds i8, ptr %o.046, i64 %.sink
-  store i8 %conv50, ptr %incdec.ptr47.sink, align 1
-  br label %fin
-
-fin:                                              ; preds = %for.end, %fin.sink.split
-  %o.1 = phi ptr [ %incdec.ptr51, %fin.sink.split ], [ %incdec.ptr63, %for.end ]
+fin:                                              ; preds = %for.end, %if.end44, %if.end32
+  %o.1 = phi ptr [ %incdec.ptr, %if.end32 ], [ %incdec.ptr51, %if.end44 ], [ %incdec.ptr63, %for.end ]
   %8 = load ptr, ptr %dest, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %o.1 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %8 to i64

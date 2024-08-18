@@ -1181,12 +1181,18 @@ for.end.split:                                    ; preds = %for.end
   store i32 4, ptr %bstate.i, align 8
   %and8.i = and i64 %.fr.i, 134217728
   %tobool9.not.i = icmp eq i64 %and8.i, 0
-  br i1 %tobool9.not.i, label %if.then.i, label %if.end39
+  br i1 %tobool9.not.i, label %if.then.i, label %blockClient.exit
 
 if.then.i:                                        ; preds = %for.end.split
   %30 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4876), align 4
   %inc.i = add i32 %30, 1
   store i32 %inc.i, ptr getelementptr inbounds (i8, ptr @server, i64 4876), align 4
+  br label %blockClient.exit
+
+blockClient.exit:                                 ; preds = %for.end.split, %if.then.i
+  %31 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4896), align 8
+  %inc10.i = add i32 %31, 1
+  store i32 %inc10.i, ptr getelementptr inbounds (i8, ptr @server, i64 4896), align 8
   br label %if.end39
 
 if.then38:                                        ; preds = %for.end
@@ -1213,21 +1219,20 @@ cond.end.i34:                                     ; preds = %if.then38
   br i1 %tobool9.not.i38, label %if.then.i40, label %blockClient.exit42
 
 if.then.i40:                                      ; preds = %cond.end.i34
-  %31 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4876), align 4
-  %inc.i41 = add i32 %31, 1
+  %32 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4876), align 4
+  %inc.i41 = add i32 %32, 1
   store i32 %inc.i41, ptr getelementptr inbounds (i8, ptr @server, i64 4876), align 4
   br label %blockClient.exit42
 
 blockClient.exit42:                               ; preds = %cond.end.i34, %if.then.i40
   %idxprom.i = sext i32 %btype to i64
   %arrayidx.i = getelementptr inbounds [9 x i32], ptr getelementptr inbounds (i8, ptr @server, i64 4880), i64 0, i64 %idxprom.i
+  %33 = load i32, ptr %arrayidx.i, align 4
+  %inc10.i39 = add i32 %33, 1
+  store i32 %inc10.i39, ptr %arrayidx.i, align 4
   br label %if.end39
 
-if.end39:                                         ; preds = %if.then.i, %for.end.split, %blockClient.exit42
-  %.sink54 = phi ptr [ %arrayidx.i, %blockClient.exit42 ], [ getelementptr inbounds (i8, ptr @server, i64 4896), %for.end.split ], [ getelementptr inbounds (i8, ptr @server, i64 4896), %if.then.i ]
-  %32 = load i32, ptr %.sink54, align 4
-  %inc10.i = add i32 %32, 1
-  store i32 %inc10.i, ptr %.sink54, align 4
+if.end39:                                         ; preds = %blockClient.exit, %blockClient.exit42
   call void @addClientToTimeoutTable(ptr noundef nonnull %c) #6
   ret void
 }

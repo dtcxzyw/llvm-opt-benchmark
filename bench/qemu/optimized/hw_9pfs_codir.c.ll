@@ -209,22 +209,31 @@ if.end19.us:                                      ; preds = %if.end14.us
 if.end25.us:                                      ; preds = %if.end19.us
   %tobool26.not.us = icmp eq ptr %e.070.us, null
   %call28.us = call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #9
+  br i1 %tobool26.not.us, label %if.then27.us, label %if.else29.us
+
+if.else29.us:                                     ; preds = %if.end25.us
   %next.us = getelementptr inbounds i8, ptr %e.070.us, i64 16
-  %entries.sink = select i1 %tobool26.not.us, ptr %entries, ptr %next.us
-  store ptr %call28.us, ptr %entries.sink, align 8
+  store ptr %call28.us, ptr %next.us, align 8
+  br label %if.end31.us
+
+if.then27.us:                                     ; preds = %if.end25.us
+  store ptr %call28.us, ptr %entries, align 8
+  br label %if.end31.us
+
+if.end31.us:                                      ; preds = %if.then27.us, %if.else29.us
   %d_reclen.i.us = getelementptr inbounds i8, ptr %call3.i.us, i64 16
   %12 = load i16, ptr %d_reclen.i.us, align 8
   %conv.i.us = zext i16 %12 to i64
   %cmp.i38.us = icmp eq i16 %12, 0
   br i1 %cmp.i38.us, label %if.then.i39.us, label %qemu_dirent_dup.exit.us
 
-if.then.i39.us:                                   ; preds = %if.end25.us
+if.then.i39.us:                                   ; preds = %if.end31.us
   %call.i40.us = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %d_name.us) #10
   %add2.i.us = add i64 %call.i40.us, 20
   br label %qemu_dirent_dup.exit.us
 
-qemu_dirent_dup.exit.us:                          ; preds = %if.then.i39.us, %if.end25.us
-  %sz.0.i.us = phi i64 [ %add2.i.us, %if.then.i39.us ], [ %conv.i.us, %if.end25.us ]
+qemu_dirent_dup.exit.us:                          ; preds = %if.then.i39.us, %if.end31.us
+  %sz.0.i.us = phi i64 [ %add2.i.us, %if.then.i39.us ], [ %conv.i.us, %if.end31.us ]
   %conv3.i.us = trunc i64 %sz.0.i.us to i32
   %call4.i.us = call ptr @g_memdup(ptr noundef nonnull %call3.i.us, i32 noundef %conv3.i.us) #11
   store ptr %call4.i.us, ptr %call28.us, align 8
@@ -288,22 +297,31 @@ if.end19:                                         ; preds = %if.end14
 if.end25:                                         ; preds = %if.end19
   %tobool26.not = icmp eq ptr %e.070, null
   %call28 = call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #9
+  br i1 %tobool26.not, label %if.then27, label %if.else29
+
+if.then27:                                        ; preds = %if.end25
+  store ptr %call28, ptr %entries, align 8
+  br label %if.end31
+
+if.else29:                                        ; preds = %if.end25
   %next = getelementptr inbounds i8, ptr %e.070, i64 16
-  %next.sink = select i1 %tobool26.not, ptr %entries, ptr %next
-  store ptr %call28, ptr %next.sink, align 8
+  store ptr %call28, ptr %next, align 8
+  br label %if.end31
+
+if.end31:                                         ; preds = %if.else29, %if.then27
   %d_reclen.i = getelementptr inbounds i8, ptr %call3.i, i64 16
   %20 = load i16, ptr %d_reclen.i, align 8
   %conv.i = zext i16 %20 to i64
   %cmp.i38 = icmp eq i16 %20, 0
   br i1 %cmp.i38, label %if.then.i39, label %qemu_dirent_dup.exit
 
-if.then.i39:                                      ; preds = %if.end25
+if.then.i39:                                      ; preds = %if.end31
   %call.i40 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %d_name) #10
   %add2.i = add i64 %call.i40, 20
   br label %qemu_dirent_dup.exit
 
-qemu_dirent_dup.exit:                             ; preds = %if.end25, %if.then.i39
-  %sz.0.i = phi i64 [ %add2.i, %if.then.i39 ], [ %conv.i, %if.end25 ]
+qemu_dirent_dup.exit:                             ; preds = %if.end31, %if.then.i39
+  %sz.0.i = phi i64 [ %add2.i, %if.then.i39 ], [ %conv.i, %if.end31 ]
   %conv3.i = trunc i64 %sz.0.i to i32
   %call4.i = call ptr @g_memdup(ptr noundef nonnull %call3.i, i32 noundef %conv3.i) #11
   store ptr %call4.i, ptr %call28, align 8

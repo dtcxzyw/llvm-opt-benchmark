@@ -6745,7 +6745,11 @@ if.then.i.i.i107.i.i:                             ; preds = %_ZNSt10shared_ptrIN
   %675 = load atomic i64, ptr %_M_use_count.i.i.i.i108.i.i acquire, align 8
   %cmp.i.i.i.i109.i.i = icmp eq i64 %675, 4294967297
   %676 = trunc i64 %675 to i32
-  br i1 %cmp.i.i.i.i109.i.i, label %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EED2Ev.exit.sink.split.sink.split.i.i, label %if.end.i.i.i.i110.i.i
+  br i1 %cmp.i.i.i.i109.i.i, label %if.then.i.i.i.i132.i.i, label %if.end.i.i.i.i110.i.i
+
+if.then.i.i.i.i132.i.i:                           ; preds = %if.then.i.i.i107.i.i
+  store i32 0, ptr %_M_use_count.i.i.i.i108.i.i, align 8
+  br label %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EED2Ev.exit.sink.split.sink.split.i.i
 
 if.end.i.i.i.i110.i.i:                            ; preds = %if.then.i.i.i107.i.i
   %677 = load i8, ptr @__libc_single_threaded, align 1, !noalias !222
@@ -7222,7 +7226,11 @@ if.then.i.i.i381.i.i:                             ; preds = %cleanup80.i.i
   %749 = load atomic i64, ptr %_M_use_count.i.i.i.i382.i.i acquire, align 8
   %cmp.i.i.i.i383.i.i = icmp eq i64 %749, 4294967297
   %750 = trunc i64 %749 to i32
-  br i1 %cmp.i.i.i.i383.i.i, label %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EED2Ev.exit.sink.split.sink.split.i.i, label %if.end.i.i.i.i384.i.i
+  br i1 %cmp.i.i.i.i383.i.i, label %if.then.i.i.i.i406.i.i, label %if.end.i.i.i.i384.i.i
+
+if.then.i.i.i.i406.i.i:                           ; preds = %if.then.i.i.i381.i.i
+  store i32 0, ptr %_M_use_count.i.i.i.i382.i.i, align 8
+  br label %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EED2Ev.exit.sink.split.sink.split.i.i
 
 if.end.i.i.i.i384.i.i:                            ; preds = %if.then.i.i.i381.i.i
   %751 = load i8, ptr @__libc_single_threaded, align 1, !noalias !222
@@ -7268,10 +7276,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i398.i.i: ; preds 
   %cmp.i.i.i.i.i.i400.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i399.i.i, 1
   br i1 %cmp.i.i.i.i.i.i400.i.i, label %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EED2Ev.exit.sink.split.i.i, label %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EED2Ev.exit.i.i
 
-_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EED2Ev.exit.sink.split.sink.split.i.i: ; preds = %if.then.i.i.i381.i.i, %if.then.i.i.i107.i.i
-  %_M_use_count.i.i.i.i382.sink.i.i = phi ptr [ %_M_use_count.i.i.i.i108.i.i, %if.then.i.i.i107.i.i ], [ %_M_use_count.i.i.i.i382.i.i, %if.then.i.i.i381.i.i ]
-  %.sink450.i.i = phi ptr [ %674, %if.then.i.i.i107.i.i ], [ %748, %if.then.i.i.i381.i.i ]
-  store i32 0, ptr %_M_use_count.i.i.i.i382.sink.i.i, align 8
+_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EED2Ev.exit.sink.split.sink.split.i.i: ; preds = %if.then.i.i.i.i406.i.i, %if.then.i.i.i.i132.i.i
+  %.sink450.i.i = phi ptr [ %748, %if.then.i.i.i.i406.i.i ], [ %674, %if.then.i.i.i.i132.i.i ]
   %_M_weak_count.i.i.i.i407.i.i = getelementptr inbounds i8, ptr %.sink450.i.i, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i407.i.i, align 4
   %vtable.i.i.i.i408.i.i = load ptr, ptr %.sink450.i.i, align 8

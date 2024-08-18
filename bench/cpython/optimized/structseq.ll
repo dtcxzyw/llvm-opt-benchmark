@@ -1049,7 +1049,11 @@ cond.end.i:                                       ; preds = %if.then
 
 for.cond.preheader.i:                             ; preds = %cond.end.i
   %cmp526.i = icmp sgt i64 %i.0.lcssa.i, 0
-  br i1 %cmp526.i, label %for.body.i14, label %_Py_SetImmortal.exit
+  br i1 %cmp526.i, label %for.body.i14, label %initialize_members.exit.thread24
+
+initialize_members.exit.thread24:                 ; preds = %for.cond.preheader.i
+  store ptr null, ptr %call.i, align 8
+  br label %_Py_SetImmortal.exit
 
 initialize_members.exit.thread:                   ; preds = %if.then, %cond.end.i
   %call4.i = tail call ptr @PyErr_NoMemory() #8
@@ -1091,11 +1095,10 @@ for.inc.i17:                                      ; preds = %if.end8.i, %for.bod
 
 initialize_members.exit:                          ; preds = %for.inc.i17
   %arrayidx24.i = getelementptr %struct.PyMemberDef, ptr %call.i, i64 %k.1.i
+  store ptr null, ptr %arrayidx24.i, align 8
   br label %_Py_SetImmortal.exit
 
-_Py_SetImmortal.exit:                             ; preds = %for.cond.preheader.i, %initialize_members.exit
-  %arrayidx24.i.sink = phi ptr [ %arrayidx24.i, %initialize_members.exit ], [ %call.i, %for.cond.preheader.i ]
-  store ptr null, ptr %arrayidx24.i.sink, align 8
+_Py_SetImmortal.exit:                             ; preds = %initialize_members.exit, %initialize_members.exit.thread24
   %13 = load ptr, ptr %desc, align 8
   %tp_name.i = getelementptr inbounds i8, ptr %type, i64 24
   store ptr %13, ptr %tp_name.i, align 8
@@ -1438,7 +1441,11 @@ cond.end.i:                                       ; preds = %count_members.exit
 
 for.cond.preheader.i:                             ; preds = %cond.end.i
   %cmp526.i = icmp sgt i64 %i.0.lcssa.i, 0
-  br i1 %cmp526.i, label %for.body.i10, label %if.end5
+  br i1 %cmp526.i, label %for.body.i10, label %initialize_members.exit.thread23
+
+initialize_members.exit.thread23:                 ; preds = %for.cond.preheader.i
+  store ptr null, ptr %call.i, align 8
+  br label %if.end5
 
 initialize_members.exit.thread:                   ; preds = %count_members.exit, %cond.end.i
   %call4.i = tail call ptr @PyErr_NoMemory() #8
@@ -1480,11 +1487,10 @@ for.inc.i13:                                      ; preds = %if.end8.i, %for.bod
 
 initialize_members.exit:                          ; preds = %for.inc.i13
   %arrayidx24.i = getelementptr %struct.PyMemberDef, ptr %call.i, i64 %k.1.i
+  store ptr null, ptr %arrayidx24.i, align 8
   br label %if.end5
 
-if.end5:                                          ; preds = %for.cond.preheader.i, %initialize_members.exit
-  %arrayidx24.i.sink = phi ptr [ %arrayidx24.i, %initialize_members.exit ], [ %call.i, %for.cond.preheader.i ]
-  store ptr null, ptr %arrayidx24.i.sink, align 8
+if.end5:                                          ; preds = %initialize_members.exit, %initialize_members.exit.thread23
   %12 = load ptr, ptr %desc, align 8
   %tp_name.i = getelementptr inbounds i8, ptr %type, i64 24
   store ptr %12, ptr %tp_name.i, align 8
@@ -1642,7 +1648,11 @@ cond.end.i:                                       ; preds = %count_members.exit
 
 for.cond.preheader.i:                             ; preds = %cond.end.i
   %cmp526.i = icmp sgt i64 %i.0.lcssa.i, 0
-  br i1 %cmp526.i, label %for.body.i23, label %if.end
+  br i1 %cmp526.i, label %for.body.i23, label %initialize_members.exit.thread31
+
+initialize_members.exit.thread31:                 ; preds = %for.cond.preheader.i
+  store ptr null, ptr %call.i, align 8
+  br label %if.end
 
 initialize_members.exit.thread:                   ; preds = %count_members.exit, %cond.end.i
   %call4.i = tail call ptr @PyErr_NoMemory() #8
@@ -1684,11 +1694,10 @@ for.inc.i26:                                      ; preds = %if.end8.i, %for.bod
 
 initialize_members.exit:                          ; preds = %for.inc.i26
   %arrayidx24.i = getelementptr %struct.PyMemberDef, ptr %call.i, i64 %k.1.i
+  store ptr null, ptr %arrayidx24.i, align 8
   br label %if.end
 
-if.end:                                           ; preds = %for.cond.preheader.i, %initialize_members.exit
-  %arrayidx24.i.sink = phi ptr [ %arrayidx24.i, %initialize_members.exit ], [ %call.i, %for.cond.preheader.i ]
-  store ptr null, ptr %arrayidx24.i.sink, align 8
+if.end:                                           ; preds = %initialize_members.exit, %initialize_members.exit.thread31
   store i32 52, ptr %slots, align 16
   %.compoundliteral.sroa.28.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %slots, i64 8
   store ptr @structseq_dealloc, ptr %.compoundliteral.sroa.28.0.arrayidx.sroa_idx, align 8

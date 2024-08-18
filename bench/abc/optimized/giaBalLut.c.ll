@@ -2735,7 +2735,8 @@ Gia_ObjIsAndReal.exit.thread41.i:                 ; preds = %Gia_ObjIsAndReal.ex
 Vec_IntGrow.exit.i.i37.i:                         ; preds = %185, %183
   %187 = phi ptr [ %186, %185 ], [ %.val.i32.i, %183 ]
   store i32 0, ptr %187, align 4
-  br label %.sink.split.i.i
+  store i32 1, ptr %177, align 4
+  br label %Gia_ManSuperCollect.exit
 
 188:                                              ; preds = %180
   %189 = icmp ne i32 %.02147.i.i, -1
@@ -2770,7 +2771,8 @@ Vec_IntGrow.exit.i.i37.i:                         ; preds = %185, %183
 Vec_IntGrow.exit.i30.i.i:                         ; preds = %197, %195
   %199 = phi ptr [ %198, %197 ], [ %.val.i32.i, %195 ]
   store i32 0, ptr %199, align 4
-  br label %.sink.split.i.i
+  store i32 1, ptr %177, align 4
+  br label %Gia_ManSuperCollect.exit
 
 200:                                              ; preds = %194, %190, %180
   %.val27.i.i = phi i32 [ %.val27.pre.i.i, %190 ], [ %.val2752.i.i, %194 ], [ %.val2752.i.i, %180 ]
@@ -2820,14 +2822,10 @@ Vec_IntPush.exit.i27.i:                           ; preds = %Vec_IntGrow.exit.i3
   store i32 %217, ptr %177, align 4
   %218 = sext i32 %215 to i64
   %219 = getelementptr inbounds i32, ptr %216, i64 %218
-  br label %.sink.split.i.i
-
-.sink.split.i.i:                                  ; preds = %Vec_IntPush.exit.i27.i, %Vec_IntGrow.exit.i30.i.i, %Vec_IntGrow.exit.i.i37.i
-  %.sink.i.i = phi ptr [ %219, %Vec_IntPush.exit.i27.i ], [ %177, %Vec_IntGrow.exit.i30.i.i ], [ %177, %Vec_IntGrow.exit.i.i37.i ]
-  store i32 1, ptr %.sink.i.i, align 4
+  store i32 1, ptr %219, align 4
   br label %Gia_ManSuperCollect.exit
 
-Gia_ManSuperCollect.exit:                         ; preds = %84, %Vec_IntPush.exit.i.i, %141, %142, %145, %Gia_ObjIsAndReal.exit.i, %.critedge.i35.i, %.sink.split.i.i
+Gia_ManSuperCollect.exit:                         ; preds = %84, %Vec_IntPush.exit.i.i, %141, %142, %145, %Gia_ObjIsAndReal.exit.i, %Vec_IntGrow.exit.i.i37.i, %Vec_IntGrow.exit.i30.i.i, %.critedge.i35.i, %Vec_IntPush.exit.i27.i
   %220 = getelementptr inbounds i8, ptr %1, i64 968
   %221 = load ptr, ptr %220, align 8
   %222 = icmp eq ptr %221, null

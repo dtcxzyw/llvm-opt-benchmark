@@ -1177,11 +1177,17 @@ if.then.i:                                        ; preds = %if.then2
 
 if.end.i:                                         ; preds = %if.then2
   %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %if.then2.i, label %return.sink.split
+  br i1 %tobool.not.i, label %if.then2.i, label %parse_submodule_fetchjobs.exit
 
 if.then2.i:                                       ; preds = %if.end.i
   %call3.i = tail call i32 @online_cpus() #14
-  br label %return.sink.split
+  br label %parse_submodule_fetchjobs.exit
+
+parse_submodule_fetchjobs.exit:                   ; preds = %if.end.i, %if.then2.i
+  %fetchjobs.0.i = phi i32 [ %call.i, %if.end.i ], [ %call3.i, %if.then2.i ]
+  %2 = load ptr, ptr %cb, align 8
+  store i32 %fetchjobs.0.i, ptr %2, align 4
+  br label %return
 
 if.else:                                          ; preds = %entry
   %call5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %var, ptr noundef nonnull dereferenceable(24) @.str.33) #16
@@ -1190,37 +1196,36 @@ if.else:                                          ; preds = %entry
 
 if.then7:                                         ; preds = %if.else
   %recurse_submodules = getelementptr inbounds i8, ptr %cb, i64 8
-  %2 = load ptr, ptr %recurse_submodules, align 8
-  %tobool8.not = icmp eq ptr %2, null
+  %3 = load ptr, ptr %recurse_submodules, align 8
+  %tobool8.not = icmp eq ptr %3, null
   br i1 %tobool8.not, label %return, label %if.then9
 
 if.then9:                                         ; preds = %if.then7
   %call.i.i = tail call i32 @git_parse_maybe_bool(ptr noundef %value) #14
   switch i32 %call.i.i, label %sw.default.i.i [
-    i32 1, label %return.sink.split
+    i32 1, label %parse_fetch_recurse_submodules_arg.exit
     i32 0, label %sw.bb1.i.i
   ]
 
 sw.bb1.i.i:                                       ; preds = %if.then9
-  br label %return.sink.split
+  br label %parse_fetch_recurse_submodules_arg.exit
 
 sw.default.i.i:                                   ; preds = %if.then9
   %call2.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %value, ptr noundef nonnull dereferenceable(10) @.str.4) #16
   %tobool.not.i.i = icmp eq i32 %call2.i.i, 0
-  br i1 %tobool.not.i.i, label %return.sink.split, label %if.end.i.i
+  br i1 %tobool.not.i.i, label %parse_fetch_recurse_submodules_arg.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %sw.default.i.i
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.5, ptr noundef %var, ptr noundef %value) #15
   unreachable
 
-return.sink.split:                                ; preds = %sw.default.i.i, %sw.bb1.i.i, %if.then9, %if.then2.i, %if.end.i
-  %recurse_submodules.sink = phi ptr [ %cb, %if.end.i ], [ %cb, %if.then2.i ], [ %recurse_submodules, %if.then9 ], [ %recurse_submodules, %sw.bb1.i.i ], [ %recurse_submodules, %sw.default.i.i ]
-  %retval.0.i.i.sink = phi i32 [ %call.i, %if.end.i ], [ %call3.i, %if.then2.i ], [ 2, %if.then9 ], [ 0, %sw.bb1.i.i ], [ -1, %sw.default.i.i ]
-  %3 = load ptr, ptr %recurse_submodules.sink, align 8
-  store i32 %retval.0.i.i.sink, ptr %3, align 4
+parse_fetch_recurse_submodules_arg.exit:          ; preds = %if.then9, %sw.bb1.i.i, %sw.default.i.i
+  %retval.0.i.i = phi i32 [ 0, %sw.bb1.i.i ], [ 2, %if.then9 ], [ -1, %sw.default.i.i ]
+  %4 = load ptr, ptr %recurse_submodules, align 8
+  store i32 %retval.0.i.i, ptr %4, align 4
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.else, %if.then7, %if.then
+return:                                           ; preds = %if.else, %if.then7, %parse_fetch_recurse_submodules_arg.exit, %if.then, %parse_submodule_fetchjobs.exit
   ret i32 0
 }
 

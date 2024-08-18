@@ -2863,7 +2863,11 @@ land.lhs.true.i.i:                                ; preds = %if.then.i
   %closed_.i.i = getelementptr inbounds i8, ptr %29, i64 106
   %33 = load i8, ptr %closed_.i.i, align 2
   %tobool2.i.i = trunc i8 %33 to i1
-  br i1 %tobool2.i.i, label %if.end123, label %if.then.i.i105.invoke
+  br i1 %tobool2.i.i, label %if.end123, label %if.then.i.i63
+
+if.then.i.i63:                                    ; preds = %land.lhs.true.i.i
+  store i8 1, ptr %closed_.i.i, align 2
+  br label %if.then.i.i105.invoke
 
 if.then113:                                       ; preds = %if.then110
   %pending_actions_.i.i = getelementptr inbounds i8, ptr %29, i64 24
@@ -2894,7 +2898,11 @@ land.lhs.true.i.i81:                              ; preds = %if.then.i78
   %closed_.i.i82 = getelementptr inbounds i8, ptr %29, i64 106
   %38 = load i8, ptr %closed_.i.i82, align 2
   %tobool2.i.i83 = trunc i8 %38 to i1
-  br i1 %tobool2.i.i83, label %if.end123, label %if.then.i.i105.invoke
+  br i1 %tobool2.i.i83, label %if.end123, label %if.then.i.i84
+
+if.then.i.i84:                                    ; preds = %land.lhs.true.i.i81
+  store i8 1, ptr %closed_.i.i82, align 2
+  br label %if.then.i.i105.invoke
 
 if.else120:                                       ; preds = %invoke.cont101
   %is_orphaned_.i89 = getelementptr inbounds i8, ptr %29, i64 104
@@ -2912,11 +2920,13 @@ land.lhs.true.i.i102:                             ; preds = %if.then.i99
   %closed_.i.i103 = getelementptr inbounds i8, ptr %29, i64 106
   %41 = load i8, ptr %closed_.i.i103, align 2
   %tobool2.i.i104 = trunc i8 %41 to i1
-  br i1 %tobool2.i.i104, label %if.end123, label %if.then.i.i105.invoke
+  br i1 %tobool2.i.i104, label %if.end123, label %if.then.i.i105
 
-if.then.i.i105.invoke:                            ; preds = %land.lhs.true.i.i102, %land.lhs.true.i.i81, %land.lhs.true.i.i
-  %closed_.i.i.sink = phi ptr [ %closed_.i.i, %land.lhs.true.i.i ], [ %closed_.i.i82, %land.lhs.true.i.i81 ], [ %closed_.i.i103, %land.lhs.true.i.i102 ]
-  store i8 1, ptr %closed_.i.i.sink, align 2
+if.then.i.i105:                                   ; preds = %land.lhs.true.i.i102
+  store i8 1, ptr %closed_.i.i103, align 2
+  br label %if.then.i.i105.invoke
+
+if.then.i.i105.invoke:                            ; preds = %if.then.i.i63, %if.then.i.i84, %if.then.i.i105
   %fd_.i.i = getelementptr inbounds i8, ptr %29, i64 20
   %42 = load i32, ptr %fd_.i.i, align 4
   %43 = invoke i32 @close(i32 noundef %42)
@@ -3054,11 +3064,13 @@ land.lhs.true.i.i139:                             ; preds = %if.then.i136
   %closed_.i.i140 = getelementptr inbounds i8, ptr %60, i64 106
   %64 = load i8, ptr %closed_.i.i140, align 2
   %tobool2.i.i141 = trunc i8 %64 to i1
-  br i1 %tobool2.i.i141, label %if.end197, label %if.then.i.i142.invoke
+  br i1 %tobool2.i.i141, label %if.end197, label %if.then.i.i142
 
-if.then.i.i142.invoke:                            ; preds = %land.lhs.true.i.i139, %land.lhs.true.i.i163
-  %closed_.i.i164.sink = phi ptr [ %closed_.i.i164, %land.lhs.true.i.i163 ], [ %closed_.i.i140, %land.lhs.true.i.i139 ]
-  store i8 1, ptr %closed_.i.i164.sink, align 2
+if.then.i.i142:                                   ; preds = %land.lhs.true.i.i139
+  store i8 1, ptr %closed_.i.i140, align 2
+  br label %if.then.i.i142.invoke
+
+if.then.i.i142.invoke:                            ; preds = %if.then.i.i166, %if.then.i.i142
   %fd_.i.i167 = getelementptr inbounds i8, ptr %60, i64 20
   %65 = load i32, ptr %fd_.i.i167, align 4
   %66 = invoke i32 @close(i32 noundef %65)
@@ -3108,7 +3120,11 @@ land.lhs.true.i.i163:                             ; preds = %if.then.i160
   %closed_.i.i164 = getelementptr inbounds i8, ptr %60, i64 106
   %71 = load i8, ptr %closed_.i.i164, align 2
   %tobool2.i.i165 = trunc i8 %71 to i1
-  br i1 %tobool2.i.i165, label %if.end197, label %if.then.i.i142.invoke
+  br i1 %tobool2.i.i165, label %if.end197, label %if.then.i.i166
+
+if.then.i.i166:                                   ; preds = %land.lhs.true.i.i163
+  store i8 1, ptr %closed_.i.i164, align 2
+  br label %if.then.i.i142.invoke
 
 if.then5.i151:                                    ; preds = %if.end180
   %72 = load i16, ptr %revents174, align 2

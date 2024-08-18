@@ -12550,7 +12550,8 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
 19:                                               ; preds = %.lr.ph
   %20 = load ptr, ptr %.05469, align 8
   store ptr %20, ptr %.072, align 8
-  br label %.sink.split
+  store ptr %.072, ptr %.05469, align 8
+  br label %42
 
 21:                                               ; preds = %.lr.ph
   %22 = trunc nuw i8 %.05568 to i1
@@ -12591,24 +12592,19 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds ptr, ptr %.0.i, i64 %.05271
-  br label %.sink.split
+  store ptr %.072, ptr %38, align 8
+  br label %42
 
 39:                                               ; preds = %31
   %40 = load ptr, ptr %33, align 8
   store ptr %40, ptr %.072, align 8
   %41 = load ptr, ptr %32, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %19, %39, %37
-  %.sink = phi ptr [ %38, %37 ], [ %41, %39 ], [ %.05469, %19 ]
-  %.156.ph = phi i8 [ %.2, %37 ], [ %.2, %39 ], [ 1, %19 ]
-  %.1.ph = phi i64 [ %17, %37 ], [ %.05271, %39 ], [ %.05271, %19 ]
-  store ptr %.072, ptr %.sink, align 8
+  store ptr %.072, ptr %41, align 8
   br label %42
 
-42:                                               ; preds = %.sink.split, %34
-  %.156 = phi i8 [ %.2, %34 ], [ %.156.ph, %.sink.split ]
-  %.1 = phi i64 [ %17, %34 ], [ %.1.ph, %.sink.split ]
+42:                                               ; preds = %34, %37, %39, %19
+  %.156 = phi i8 [ 1, %19 ], [ %.2, %39 ], [ %.2, %37 ], [ %.2, %34 ]
+  %.1 = phi i64 [ %.05271, %19 ], [ %.05271, %39 ], [ %17, %37 ], [ %17, %34 ]
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !99
 
@@ -17476,6 +17472,7 @@ _ZN2cv5gimpl17DataObjectCounterC2EOS1_.exit:      ; preds = %39, %41
   store ptr null, ptr %84, align 8
   store ptr %87, ptr %91, align 8
   store ptr %87, ptr %94, align 8
+  store i64 0, ptr %98, align 8
   br label %_ZNSt3mapImN2cv5gimpl10ConstValueESt4lessImESaISt4pairIKmS2_EEEC2EOS9_.exit
 
 101:                                              ; preds = %_ZN2cv5gimpl17DataObjectCounterC2EOS1_.exit
@@ -17487,11 +17484,10 @@ _ZN2cv5gimpl17DataObjectCounterC2EOS1_.exit:      ; preds = %39, %41
   %104 = getelementptr inbounds i8, ptr %0, i64 232
   store ptr %83, ptr %104, align 8
   %105 = getelementptr inbounds i8, ptr %0, i64 240
+  store i64 0, ptr %105, align 8
   br label %_ZNSt3mapImN2cv5gimpl10ConstValueESt4lessImESaISt4pairIKmS2_EEEC2EOS9_.exit
 
 _ZNSt3mapImN2cv5gimpl10ConstValueESt4lessImESaISt4pairIKmS2_EEEC2EOS9_.exit: ; preds = %86, %101
-  %.sink.i.i.i.i = phi ptr [ %98, %86 ], [ %105, %101 ]
-  store i64 0, ptr %.sink.i.i.i.i, align 8
   ret void
 }
 

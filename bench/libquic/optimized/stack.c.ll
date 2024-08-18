@@ -278,6 +278,7 @@ if.end25:                                         ; preds = %if.end22, %if.end
 
 if.then28:                                        ; preds = %if.end25
   %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %3
+  store ptr %p, ptr %arrayidx, align 8
   br label %if.end40
 
 if.else:                                          ; preds = %if.end25
@@ -288,11 +289,10 @@ if.else:                                          ; preds = %if.end25
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %arrayidx33, ptr align 8 %5, i64 %mul37, i1 false)
   %6 = load ptr, ptr %data31, align 8
   %arrayidx39 = getelementptr inbounds ptr, ptr %6, i64 %where
+  store ptr %p, ptr %arrayidx39, align 8
   br label %if.end40
 
 if.end40:                                         ; preds = %if.else, %if.then28
-  %arrayidx39.sink = phi ptr [ %arrayidx39, %if.else ], [ %arrayidx, %if.then28 ]
-  store ptr %p, ptr %arrayidx39.sink, align 8
   %7 = load i64, ptr %sk, align 8
   %inc = add i64 %7, 1
   store i64 %inc, ptr %sk, align 8
@@ -640,6 +640,8 @@ if.then28.i:                                      ; preds = %if.end25.i.thread, 
   %4 = phi ptr [ %2, %if.end25.i.thread ], [ %call.i, %if.end25.i ]
   %5 = phi i64 [ %0, %if.end25.i.thread ], [ %.pre.i, %if.end25.i ]
   %arrayidx.i = getelementptr inbounds ptr, ptr %4, i64 %5
+  store ptr %p, ptr %arrayidx.i, align 8
+  %.pre = load i64, ptr %sk, align 8
   br label %if.end40.i
 
 if.else.i:                                        ; preds = %if.end25.i
@@ -648,12 +650,11 @@ if.else.i:                                        ; preds = %if.end25.i
   %sub.i = sub nuw i64 %.pre.i, %0
   %mul37.i = shl i64 %sub.i, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %arrayidx33.i, ptr align 8 %6, i64 %mul37.i, i1 false)
+  store ptr %p, ptr %6, align 8
   br label %if.end40.i
 
 if.end40.i:                                       ; preds = %if.else.i, %if.then28.i
-  %arrayidx39.sink.i = phi ptr [ %6, %if.else.i ], [ %arrayidx.i, %if.then28.i ]
-  store ptr %p, ptr %arrayidx39.sink.i, align 8
-  %7 = load i64, ptr %sk, align 8
+  %7 = phi i64 [ %.pre.i, %if.else.i ], [ %.pre, %if.then28.i ]
   %inc.i = add i64 %7, 1
   store i64 %inc.i, ptr %sk, align 8
   %sorted.i = getelementptr inbounds i8, ptr %sk, i64 16

@@ -7899,29 +7899,34 @@ _ZNK5folly8FunctionIFvvEE4execENS_6detail8function2OpEPNS4_4DataES7_.exit.i: ; p
 if.then.i64:                                      ; preds = %_ZNK5folly8FunctionIFvvEE4execENS_6detail8function2OpEPNS4_4DataES7_.exit.i
   %18 = load ptr, ptr %exec_.i.i.i, align 8, !tbaa !12
   %tobool.not.i16.i = icmp eq ptr %18, null
-  br i1 %tobool.not.i16.i, label %_ZN5folly14UnboundedQueueINS_8FunctionIFvvEEELb0ELb1ELb1ELm8ELm7ESt6atomicE11try_dequeueERS3_.exit, label %if.end.i17.i
+  br i1 %tobool.not.i16.i, label %_ZNK5folly8FunctionIFvvEE4execENS_6detail8function2OpEPNS4_4DataES7_.exit20.i, label %if.end.i17.i
 
 if.end.i17.i:                                     ; preds = %if.then.i64
   %call.i18.i = call noundef i64 %18(i32 noundef 0, ptr noundef nonnull %o.i, ptr noundef nonnull %func_) #24
   %.pre.i = load ptr, ptr %exec_.i.i.i, align 8, !tbaa !12
+  br label %_ZNK5folly8FunctionIFvvEE4execENS_6detail8function2OpEPNS4_4DataES7_.exit20.i
+
+_ZNK5folly8FunctionIFvvEE4execENS_6detail8function2OpEPNS4_4DataES7_.exit20.i: ; preds = %if.end.i17.i, %if.then.i64
+  %19 = phi ptr [ null, %if.then.i64 ], [ %.pre.i, %if.end.i17.i ]
+  %20 = load ptr, ptr %call_.i.i.i, align 16, !tbaa !44
   br label %_ZN5folly14UnboundedQueueINS_8FunctionIFvvEEELb0ELb1ELb1ELm8ELm7ESt6atomicE11try_dequeueERS3_.exit
 
 _ZN5folly14UnboundedQueueINS_8FunctionIFvvEEELb0ELb1ELb1ELm8ELm7ESt6atomicE11try_dequeueERS3_.exitthread-pre-split: ; preds = %_ZNK5folly8FunctionIFvvEE4execENS_6detail8function2OpEPNS4_4DataES7_.exit.i
   %.pr8 = load ptr, ptr %exec_.i, align 8, !tbaa !12
+  %.pre17 = load ptr, ptr %call_6.i, align 16, !tbaa !44
   br label %_ZN5folly14UnboundedQueueINS_8FunctionIFvvEEELb0ELb1ELb1ELm8ELm7ESt6atomicE11try_dequeueERS3_.exit
 
-_ZN5folly14UnboundedQueueINS_8FunctionIFvvEEELb0ELb1ELb1ELm8ELm7ESt6atomicE11try_dequeueERS3_.exit: ; preds = %if.then.i64, %if.end.i17.i, %_ZN5folly14UnboundedQueueINS_8FunctionIFvvEEELb0ELb1ELb1ELm8ELm7ESt6atomicE11try_dequeueERS3_.exitthread-pre-split
-  %call_6.i.sink = phi ptr [ %call_6.i, %_ZN5folly14UnboundedQueueINS_8FunctionIFvvEEELb0ELb1ELb1ELm8ELm7ESt6atomicE11try_dequeueERS3_.exitthread-pre-split ], [ %call_.i.i.i, %if.end.i17.i ], [ %call_.i.i.i, %if.then.i64 ]
-  %19 = phi ptr [ %.pr8, %_ZN5folly14UnboundedQueueINS_8FunctionIFvvEEELb0ELb1ELb1ELm8ELm7ESt6atomicE11try_dequeueERS3_.exitthread-pre-split ], [ %.pre.i, %if.end.i17.i ], [ null, %if.then.i64 ]
-  %.pre17 = load ptr, ptr %call_6.i.sink, align 16, !tbaa !44
+_ZN5folly14UnboundedQueueINS_8FunctionIFvvEEELb0ELb1ELb1ELm8ELm7ESt6atomicE11try_dequeueERS3_.exit: ; preds = %_ZN5folly14UnboundedQueueINS_8FunctionIFvvEEELb0ELb1ELb1ELm8ELm7ESt6atomicE11try_dequeueERS3_.exitthread-pre-split, %_ZNK5folly8FunctionIFvvEE4execENS_6detail8function2OpEPNS4_4DataES7_.exit20.i
+  %21 = phi ptr [ %.pre17, %_ZN5folly14UnboundedQueueINS_8FunctionIFvvEEELb0ELb1ELb1ELm8ELm7ESt6atomicE11try_dequeueERS3_.exitthread-pre-split ], [ %20, %_ZNK5folly8FunctionIFvvEE4execENS_6detail8function2OpEPNS4_4DataES7_.exit20.i ]
+  %22 = phi ptr [ %.pr8, %_ZN5folly14UnboundedQueueINS_8FunctionIFvvEEELb0ELb1ELb1ELm8ELm7ESt6atomicE11try_dequeueERS3_.exitthread-pre-split ], [ %19, %_ZNK5folly8FunctionIFvvEE4execENS_6detail8function2OpEPNS4_4DataES7_.exit20.i ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %o.i) #24
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %f7) #24
   store ptr null, ptr %f7, align 16, !tbaa !42
-  store ptr %.pre17, ptr %call_.i70, align 16, !tbaa !44
-  store ptr %19, ptr %exec_.i72, align 8, !tbaa !12
+  store ptr %21, ptr %call_.i70, align 16, !tbaa !44
+  store ptr %22, ptr %exec_.i72, align 8, !tbaa !12
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE10uninitCallERNS1_4DataE, ptr %call_6.i, align 16, !tbaa !44
   store ptr null, ptr %exec_.i, align 8, !tbaa !12
-  %tobool.not.i.i74 = icmp eq ptr %19, null
+  %tobool.not.i.i74 = icmp eq ptr %22, null
   br i1 %tobool.not.i.i74, label %_ZN5folly8FunctionIFvvEEC2EOS2_.exit78, label %if.end.i.i75
 
 _ZN5folly8OptionalINS_8FunctionIFvvEEEED2Ev.exit: ; preds = %_ZN5folly14UnboundedQueueINS_8FunctionIFvvEEELb0ELb1ELb1ELm8ELm7ESt6atomicE17tryDequeueUntilSCINSt6chrono3_V212steady_clockENS7_8durationIlSt5ratioILl1ELl1000000000EEEEEENS_8OptionalIS3_EEPNS5_7SegmentERKNS7_10time_pointIT_T0_EE.exit, %_ZN5folly14UnboundedQueueINS_8FunctionIFvvEEELb0ELb1ELb1ELm8ELm7ESt6atomicE17tryDequeueUntilSCINSt6chrono3_V212steady_clockENS7_8durationIlSt5ratioILl1ELl1000000000EEEEEENS_8OptionalIS3_EEPNS5_7SegmentERKNS7_10time_pointIT_T0_EE.exit.thread
@@ -7929,23 +7934,23 @@ _ZN5folly8OptionalINS_8FunctionIFvvEEEED2Ev.exit: ; preds = %_ZN5folly14Unbounde
   br label %while.end
 
 if.end.i.i75:                                     ; preds = %_ZN5folly14UnboundedQueueINS_8FunctionIFvvEEELb0ELb1ELb1ELm8ELm7ESt6atomicE11try_dequeueERS3_.exit
-  %call.i.i76 = call noundef i64 %19(i32 noundef 0, ptr noundef nonnull %func_, ptr noundef nonnull %f7) #24
+  %call.i.i76 = call noundef i64 %22(i32 noundef 0, ptr noundef nonnull %func_, ptr noundef nonnull %f7) #24
   %.pre = load ptr, ptr %call_.i70, align 16, !tbaa !44
   br label %_ZN5folly8FunctionIFvvEEC2EOS2_.exit78
 
 _ZN5folly8FunctionIFvvEEC2EOS2_.exit78:           ; preds = %if.end.i.i75, %_ZN5folly14UnboundedQueueINS_8FunctionIFvvEEELb0ELb1ELb1ELm8ELm7ESt6atomicE11try_dequeueERS3_.exit
-  %20 = phi ptr [ %.pre17, %_ZN5folly14UnboundedQueueINS_8FunctionIFvvEEELb0ELb1ELb1ELm8ELm7ESt6atomicE11try_dequeueERS3_.exit ], [ %.pre, %if.end.i.i75 ]
-  invoke void %20(ptr noundef nonnull align 16 dereferenceable(48) %f7)
+  %23 = phi ptr [ %21, %_ZN5folly14UnboundedQueueINS_8FunctionIFvvEEELb0ELb1ELb1ELm8ELm7ESt6atomicE11try_dequeueERS3_.exit ], [ %.pre, %if.end.i.i75 ]
+  invoke void %23(ptr noundef nonnull align 16 dereferenceable(48) %f7)
           to label %invoke.cont9 unwind label %terminate.lpad.loopexit
 
 invoke.cont9:                                     ; preds = %_ZN5folly8FunctionIFvvEEC2EOS2_.exit78
   %inc = add nuw i64 %count.199, 1
-  %21 = load ptr, ptr %exec_.i72, align 8, !tbaa !12
-  %tobool.not.i.i83 = icmp eq ptr %21, null
+  %24 = load ptr, ptr %exec_.i72, align 8, !tbaa !12
+  %tobool.not.i.i83 = icmp eq ptr %24, null
   br i1 %tobool.not.i.i83, label %_ZN5folly8FunctionIFvvEED2Ev.exit87, label %if.end.i.i84
 
 if.end.i.i84:                                     ; preds = %invoke.cont9
-  %call.i.i85 = call noundef i64 %21(i32 noundef 1, ptr noundef nonnull %f7, ptr noundef null) #24
+  %call.i.i85 = call noundef i64 %24(i32 noundef 1, ptr noundef nonnull %f7, ptr noundef null) #24
   br label %_ZN5folly8FunctionIFvvEED2Ev.exit87
 
 _ZN5folly8FunctionIFvvEED2Ev.exit87:              ; preds = %if.end.i.i84, %invoke.cont9
@@ -7969,8 +7974,8 @@ terminate.lpad.loopexit.split-lp:                 ; preds = %_ZN5folly8FunctionI
 
 terminate.lpad:                                   ; preds = %terminate.lpad.loopexit.split-lp, %terminate.lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %terminate.lpad.loopexit ], [ %lpad.loopexit.split-lp, %terminate.lpad.loopexit.split-lp ]
-  %22 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %22) #30
+  %25 = extractvalue { ptr, i32 } %lpad.phi, 0
+  call void @__clang_call_terminate(ptr %25) #30
   unreachable
 }
 

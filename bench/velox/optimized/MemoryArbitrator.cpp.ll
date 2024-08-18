@@ -3738,22 +3738,18 @@ if.then:                                          ; preds = %while.body
 
 if.then15:                                        ; preds = %if.then
   %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
-  br label %if.end22.sink.split
+  store ptr %__p.022, ptr %arrayidx16, align 8
+  br label %if.end22
 
 if.else:                                          ; preds = %while.body
   %6 = load ptr, ptr %3, align 8
   store ptr %6, ptr %__p.022, align 8
   %7 = load ptr, ptr %arrayidx, align 8
-  br label %if.end22.sink.split
-
-if.end22.sink.split:                              ; preds = %if.else, %if.then15
-  %arrayidx16.sink = phi ptr [ %arrayidx16, %if.then15 ], [ %7, %if.else ]
-  %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then15 ], [ %__bbegin_bkt.021, %if.else ]
-  store ptr %__p.022, ptr %arrayidx16.sink, align 8
+  store ptr %__p.022, ptr %7, align 8
   br label %if.end22
 
-if.end22:                                         ; preds = %if.end22.sink.split, %if.then
-  %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then ], [ %__bbegin_bkt.1.ph, %if.end22.sink.split ]
+if.end22:                                         ; preds = %if.then, %if.then15, %if.else
+  %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.021, %if.else ], [ %rem.i.i, %if.then15 ], [ %rem.i.i, %if.then ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !49
 
@@ -12402,22 +12398,18 @@ if.then:                                          ; preds = %while.body
 
 if.then15:                                        ; preds = %if.then
   %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
-  br label %if.end22.sink.split
+  store ptr %__p.022, ptr %arrayidx16, align 8
+  br label %if.end22
 
 if.else:                                          ; preds = %while.body
   %6 = load ptr, ptr %3, align 8
   store ptr %6, ptr %__p.022, align 8
   %7 = load ptr, ptr %arrayidx, align 8
-  br label %if.end22.sink.split
-
-if.end22.sink.split:                              ; preds = %if.else, %if.then15
-  %arrayidx16.sink = phi ptr [ %arrayidx16, %if.then15 ], [ %7, %if.else ]
-  %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then15 ], [ %__bbegin_bkt.021, %if.else ]
-  store ptr %__p.022, ptr %arrayidx16.sink, align 8
+  store ptr %__p.022, ptr %7, align 8
   br label %if.end22
 
-if.end22:                                         ; preds = %if.end22.sink.split, %if.then
-  %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then ], [ %__bbegin_bkt.1.ph, %if.end22.sink.split ]
+if.end22:                                         ; preds = %if.then, %if.then15, %if.else
+  %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.021, %if.else ], [ %rem.i.i, %if.then15 ], [ %rem.i.i, %if.then ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !166
 
@@ -13407,15 +13399,15 @@ _ZZN8facebook5velox6memory15MemoryReclaimer7reclaimEPNS1_10MemoryPoolEmmRNS2_5St
   br i1 %cmp9.not.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPZN8facebook5velox6memory15MemoryReclaimer7reclaimEPNS4_10MemoryPoolEmmRNS5_5StatsEE9CandidateSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS5_7reclaimES7_mmS9_E3$_0EEEvT_SK_RT0_.exit.i.i", label %while.body.i.i.i
 
 common.resume:                                    ; preds = %lpad.i, %lpad.i.i.i
-  %_M_refcount.i.i.i7.i.sink = phi ptr [ %_M_refcount.i.i.i7.i, %lpad.i ], [ %_M_refcount.i.i.i14.i.i.i, %lpad.i.i.i ]
+  %agg.tmp7.val.i.sink = phi ptr [ %agg.tmp7.val.i, %lpad.i ], [ %agg.tmp6.val.i.i.i, %lpad.i.i.i ]
   %common.resume.op = phi { ptr, i32 } [ %42, %lpad.i ], [ %14, %lpad.i.i.i ]
-  %agg.tmp7.val.i = load ptr, ptr %_M_refcount.i.i.i7.i.sink, align 8
-  tail call fastcc void @_ZZN8facebook5velox6memory15MemoryReclaimer7reclaimEPNS1_10MemoryPoolEmmRNS2_5StatsEEN9CandidateD2Ev(ptr %agg.tmp7.val.i) #32
+  tail call fastcc void @_ZZN8facebook5velox6memory15MemoryReclaimer7reclaimEPNS1_10MemoryPoolEmmRNS2_5StatsEEN9CandidateD2Ev(ptr %agg.tmp7.val.i.sink) #32
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i.i:                                       ; preds = %while.body.i.i.i
   %14 = landingpad { ptr, i32 }
           cleanup
+  %agg.tmp6.val.i.i.i = load ptr, ptr %_M_refcount.i.i.i14.i.i.i, align 8
   br label %common.resume
 
 "_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPZN8facebook5velox6memory15MemoryReclaimer7reclaimEPNS4_10MemoryPoolEmmRNS5_5StatsEE9CandidateSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS5_7reclaimES7_mmS9_E3$_0EEEvT_SK_RT0_.exit.i.i": ; preds = %_ZZN8facebook5velox6memory15MemoryReclaimer7reclaimEPNS1_10MemoryPoolEmmRNS2_5StatsEEN9CandidateD2Ev.exit48.i.i.i
@@ -13599,6 +13591,7 @@ if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__ex
 lpad.i:                                           ; preds = %_ZZN8facebook5velox6memory15MemoryReclaimer7reclaimEPNS1_10MemoryPoolEmmRNS2_5StatsEEN9CandidateaSEOS7_.exit.i
   %42 = landingpad { ptr, i32 }
           cleanup
+  %agg.tmp7.val.i = load ptr, ptr %_M_refcount.i.i.i7.i, align 8
   br label %common.resume
 
 "_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZN8facebook5velox6memory15MemoryReclaimer7reclaimEPNS4_10MemoryPoolEmmRNS5_5StatsEE9CandidateSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS5_7reclaimES7_mmS9_E3$_0EEEvT_SK_SK_RT0_.exit": ; preds = %invoke.cont.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i17, %if.end8.sink.split.i.i.i.i.i.i

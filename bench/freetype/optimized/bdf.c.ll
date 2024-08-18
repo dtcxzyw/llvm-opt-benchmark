@@ -4857,6 +4857,7 @@ switch.edge405:                                   ; preds = %188, %188, %188, %1
   %237 = load i64, ptr %200, align 8
   %238 = getelementptr inbounds i8, ptr %234, i64 8
   store i64 %237, ptr %238, align 8
+  store ptr null, ptr %235, align 8
   br label %271
 
 239:                                              ; preds = %.thread429, %213
@@ -4909,17 +4910,17 @@ switch.edge405:                                   ; preds = %188, %188, %188, %1
   store i64 %266, ptr %245, align 8
   %267 = getelementptr inbounds i8, ptr %262, i64 8
   store i64 %265, ptr %267, align 8
+  store ptr null, ptr %263, align 8
   br label %271
 
 268:                                              ; preds = %239
   %269 = getelementptr inbounds i8, ptr %4, i64 40
   %270 = load ptr, ptr %269, align 8
   tail call void @ft_mem_free(ptr noundef %12, ptr noundef %270) #18
+  store ptr null, ptr %269, align 8
   br label %271
 
 271:                                              ; preds = %259, %268, %230
-  %.sink = phi ptr [ %263, %259 ], [ %269, %268 ], [ %235, %230 ]
-  store ptr null, ptr %.sink, align 8
   %272 = load i64, ptr %4, align 8
   %273 = and i64 %272, -3221225601
   %274 = or disjoint i64 %273, 128
@@ -4935,11 +4936,11 @@ switch.edge405:                                   ; preds = %188, %188, %188, %1
   %277 = getelementptr inbounds i8, ptr %4, i64 48
   %278 = load i64, ptr %277, align 8
   %279 = icmp eq i64 %278, -1
-  %.465 = select i1 %279, i64 120, i64 96
-  %.466 = select i1 %279, i64 112, i64 88
-  %280 = getelementptr inbounds i8, ptr %10, i64 %.465
+  %.463 = select i1 %279, i64 120, i64 96
+  %.464 = select i1 %279, i64 112, i64 88
+  %280 = getelementptr inbounds i8, ptr %10, i64 %.463
   %281 = load ptr, ptr %280, align 8
-  %282 = getelementptr inbounds i8, ptr %10, i64 %.466
+  %282 = getelementptr inbounds i8, ptr %10, i64 %.464
   %283 = load i64, ptr %282, align 8
   %284 = getelementptr %struct.bdf_glyph_t_, ptr %281, i64 %283
   %285 = and i64 %38, 2048

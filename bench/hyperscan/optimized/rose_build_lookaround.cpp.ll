@@ -9591,6 +9591,7 @@ if.end.i:                                         ; preds = %if.then.i.i.i45.i, 
   store i64 %17, ptr %m_capacity.i.i.i, align 8
   %m_size.i = getelementptr inbounds i8, ptr %__b, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %call5.i.i.i.i.i.i.i.i.i11, ptr nonnull align 8 %m_storage_start.i.i.i.ptr, i64 %add.ptr.i.i.i.i.i22.idx, i1 false)
+  store i64 %17, ptr %m_size.i, align 8
   br label %.noexc.i.i.i24
 
 if.end27.i:                                       ; preds = %if.else.i.i.i.i20
@@ -9617,19 +9618,21 @@ invoke.cont1.i.i.i.i:                             ; preds = %invoke.cont3.i.i.i.
   %sub.i.i = sub i64 %17, %21
   %mul.i.i18.i.i = shl i64 %sub.i.i, 1
   call void @llvm.memmove.p0.p0.i64(ptr align 2 %out_start.addr.0.i.i, ptr nonnull align 2 %f.sroa.0.0.i.i.i.i, i64 %mul.i.i18.i.i, i1 false)
-  br label %.noexc.i.i.i24
+  br label %_ZN5boost9container25copy_assign_range_alloc_nINS0_22small_vector_allocatorItSaIvEvEENS_13move_iteratorIPtEES6_EEvRT_T0_NS0_16allocator_traitsIS8_E9size_typeET1_SD_.exit.i
 
 if.else.i.i6:                                     ; preds = %if.end27.i
   %tobool.not.i.i20.i.i = icmp eq i64 %17, 0
-  br i1 %tobool.not.i.i20.i.i, label %.noexc.i.i.i24, label %invoke.cont1.i.i21.i.i, !prof !57
+  br i1 %tobool.not.i.i20.i.i, label %_ZN5boost9container25copy_assign_range_alloc_nINS0_22small_vector_allocatorItSaIvEvEENS_13move_iteratorIPtEES6_EEvRT_T0_NS0_16allocator_traitsIS8_E9size_typeET1_SD_.exit.i, label %invoke.cont1.i.i21.i.i, !prof !57
 
 invoke.cont1.i.i21.i.i:                           ; preds = %if.else.i.i6
   call void @llvm.memmove.p0.p0.i64(ptr align 2 %20, ptr nonnull align 8 %m_storage_start.i.i.i.ptr, i64 %add.ptr.i.i.i.i.i22.idx, i1 false)
+  br label %_ZN5boost9container25copy_assign_range_alloc_nINS0_22small_vector_allocatorItSaIvEvEENS_13move_iteratorIPtEES6_EEvRT_T0_NS0_16allocator_traitsIS8_E9size_typeET1_SD_.exit.i
+
+_ZN5boost9container25copy_assign_range_alloc_nINS0_22small_vector_allocatorItSaIvEvEENS_13move_iteratorIPtEES6_EEvRT_T0_NS0_16allocator_traitsIS8_E9size_typeET1_SD_.exit.i: ; preds = %invoke.cont1.i.i21.i.i, %if.else.i.i6, %invoke.cont1.i.i.i.i
+  store i64 %17, ptr %m_size.i48.i, align 8
   br label %.noexc.i.i.i24
 
-.noexc.i.i.i24:                                   ; preds = %invoke.cont1.i.i.i.i, %if.else.i.i6, %invoke.cont1.i.i21.i.i, %if.end.i
-  %m_size.i48.i.sink = phi ptr [ %m_size.i, %if.end.i ], [ %m_size.i48.i, %invoke.cont1.i.i21.i.i ], [ %m_size.i48.i, %if.else.i.i6 ], [ %m_size.i48.i, %invoke.cont1.i.i.i.i ]
-  store i64 %17, ptr %m_size.i48.i.sink, align 8
+.noexc.i.i.i24:                                   ; preds = %_ZN5boost9container25copy_assign_range_alloc_nINS0_22small_vector_allocatorItSaIvEvEENS_13move_iteratorIPtEES6_EEvRT_T0_NS0_16allocator_traitsIS8_E9size_typeET1_SD_.exit.i, %if.end.i
   store i64 0, ptr %m_size.i.i.i.i, align 8
   br label %_ZN5boost9container12small_vectorItLm1ESaItEvEaSEOS3_.exit25
 

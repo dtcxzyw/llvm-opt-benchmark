@@ -7928,7 +7928,9 @@ if.then:                                          ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %b3.i, i8 0, i64 32, i1 false)
   store double 1.000000e+00, ptr %c3.i, align 8
   %c4.i = getelementptr inbounds i8, ptr %agg.result, i64 88
+  %d4.i = getelementptr inbounds i8, ptr %agg.result, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %c4.i, i8 0, i64 32, i1 false)
+  store double 1.000000e+00, ptr %d4.i, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -7966,7 +7968,9 @@ if.then1:                                         ; preds = %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %b3.i29, i8 0, i64 32, i1 false)
   store double 1.000000e+00, ptr %c3.i30, align 8
   %c4.i31 = getelementptr inbounds i8, ptr %agg.result, i64 88
+  %d4.i32 = getelementptr inbounds i8, ptr %agg.result, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %c4.i31, i8 0, i64 32, i1 false)
+  store double 1.000000e+00, ptr %d4.i32, align 8
   br label %return
 
 if.end2:                                          ; preds = %if.end
@@ -8292,11 +8296,11 @@ for.end47:                                        ; preds = %for.body26, %for.en
   store double %88, ptr %m.sroa.51.0.agg.result.sroa_idx, align 8
   %m.sroa.53.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 112
   store double %90, ptr %m.sroa.53.0.agg.result.sroa_idx, align 8
+  %m.sroa.55.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 120
+  store double 1.000000e+00, ptr %m.sroa.55.0.agg.result.sroa_idx, align 8
   br label %return
 
 return:                                           ; preds = %for.end47, %if.then1, %if.then
-  %m.sroa.55.0.agg.result.sroa_idx.sink = getelementptr inbounds i8, ptr %agg.result, i64 120
-  store double 1.000000e+00, ptr %m.sroa.55.0.agg.result.sroa_idx.sink, align 8
   ret void
 }
 

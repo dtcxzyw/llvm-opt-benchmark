@@ -2008,13 +2008,15 @@ lpad.i.i:                                         ; preds = %if.end.i.i
           cleanup
   %2 = load i8, ptr %_M_engaged.i.i.i.i, align 8, !noalias !28
   %tobool.i.i.i.i.i.i = trunc i8 %2 to i1
-  br i1 %tobool.i.i.i.i.i.i, label %common.resume.sink.split.i, label %common.resume
+  br i1 %tobool.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %common.resume
 
-common.resume.sink.split.i:                       ; preds = %ehcleanup20.i, %lpad.i.i
-  %_M_engaged.i.i.sink.i = phi ptr [ %_M_engaged.i.i.i, %ehcleanup20.i ], [ %_M_engaged.i.i.i.i, %lpad.i.i ]
-  %address_value.sink.i = phi ptr [ %address_value.i, %ehcleanup20.i ], [ %arg_value.i.i, %lpad.i.i ]
-  %common.resume.op.ph.i = phi { ptr, i32 } [ %.pn.pn.i, %ehcleanup20.i ], [ %1, %lpad.i.i ]
-  store i8 0, ptr %_M_engaged.i.i.sink.i, align 8, !noalias !25
+if.then.i.i.i.i.i.i:                              ; preds = %lpad.i.i
+  store i8 0, ptr %_M_engaged.i.i.i.i, align 8, !noalias !28
+  br label %common.resume.sink.split.i
+
+common.resume.sink.split.i:                       ; preds = %if.then.i.i.i.i8.i, %if.then.i.i.i.i.i.i
+  %address_value.sink.i = phi ptr [ %address_value.i, %if.then.i.i.i.i8.i ], [ %arg_value.i.i, %if.then.i.i.i.i.i.i ]
+  %common.resume.op.ph.i = phi { ptr, i32 } [ %.pn.pn.i, %if.then.i.i.i.i8.i ], [ %1, %if.then.i.i.i.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %address_value.sink.i) #16, !noalias !25
   br label %common.resume
 
@@ -2119,7 +2121,11 @@ ehcleanup20.i:                                    ; preds = %ehcleanup.i, %lpad.
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %ehcleanup.i ], [ %8, %lpad.i ]
   %15 = load i8, ptr %_M_engaged.i.i.i, align 8, !noalias !25
   %tobool.i.i.i.i7.i = trunc i8 %15 to i1
-  br i1 %tobool.i.i.i.i7.i, label %common.resume.sink.split.i, label %common.resume
+  br i1 %tobool.i.i.i.i7.i, label %if.then.i.i.i.i8.i, label %common.resume
+
+if.then.i.i.i.i8.i:                               ; preds = %ehcleanup20.i
+  store i8 0, ptr %_M_engaged.i.i.i, align 8, !noalias !25
+  br label %common.resume.sink.split.i
 
 _ZN9grpc_core12_GLOBAL__N_121GetAddressProxyServerERKNS_11ChannelArgsE.exit: ; preds = %cleanup19.i, %if.then.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %address_value.i)
@@ -2883,6 +2889,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   store ptr null, ptr %_M_parent.i.i.i.i, align 8
   store ptr %add.ptr.i.i.i, ptr %_M_left.i.i.i.i.i, align 8
   store ptr %add.ptr.i.i.i, ptr %_M_right.i.i.i.i.i, align 8
+  store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8
   br label %_ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEES3_St4lessIS3_ESaISt4pairIKS3_S3_EEEC2EOSA_.exit
 
 if.else.i.i.i.i:                                  ; preds = %entry
@@ -2894,11 +2901,10 @@ if.else.i.i.i.i:                                  ; preds = %entry
   %_M_right.i4.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 128
   store ptr %1, ptr %_M_right.i4.i.i.i.i, align 8
   %_M_node_count.i5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
+  store i64 0, ptr %_M_node_count.i5.i.i.i.i, align 8
   br label %_ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEES3_St4lessIS3_ESaISt4pairIKS3_S3_EEEC2EOSA_.exit
 
 _ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEES3_St4lessIS3_ESaISt4pairIKS3_S3_EEEC2EOSA_.exit: ; preds = %if.then.i.i.i.i, %if.else.i.i.i.i
-  %_M_node_count.i5.sink.i.i.i.i = phi ptr [ %_M_node_count.i5.i.i.i.i, %if.else.i.i.i.i ], [ %_M_node_count.i.i.i.i.i, %if.then.i.i.i.i ]
-  store i64 0, ptr %_M_node_count.i5.sink.i.i.i.i, align 8
   %query_parameter_pairs_ = getelementptr inbounds i8, ptr %this, i64 144
   %query_parameter_pairs_6 = getelementptr inbounds i8, ptr %0, i64 144
   %8 = load ptr, ptr %query_parameter_pairs_6, align 8

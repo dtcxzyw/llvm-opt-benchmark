@@ -467,23 +467,26 @@ Mvc_CoverBestLiteral.exit:                        ; preds = %.lr.ph48.split.us.i
   %58 = getelementptr inbounds i8, ptr %3, i64 16
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
-  br i1 %60, label %64, label %61
+  br i1 %60, label %61, label %62
 
 61:                                               ; preds = %Mvc_CoverBestLiteral.exit
-  %62 = getelementptr inbounds i8, ptr %3, i64 24
-  %63 = load ptr, ptr %62, align 8
-  br label %64
+  store ptr %4, ptr %58, align 8
+  br label %65
 
-64:                                               ; preds = %Mvc_CoverBestLiteral.exit, %61
-  %.sink = phi ptr [ %63, %61 ], [ %58, %Mvc_CoverBestLiteral.exit ]
-  store ptr %4, ptr %.sink, align 8
-  %65 = getelementptr inbounds i8, ptr %3, i64 24
-  store ptr %4, ptr %65, align 8
+62:                                               ; preds = %Mvc_CoverBestLiteral.exit
+  %63 = getelementptr inbounds i8, ptr %3, i64 24
+  %64 = load ptr, ptr %63, align 8
+  store ptr %4, ptr %64, align 8
+  br label %65
+
+65:                                               ; preds = %62, %61
+  %66 = getelementptr inbounds i8, ptr %3, i64 24
+  store ptr %4, ptr %66, align 8
   store ptr null, ptr %4, align 8
-  %66 = getelementptr inbounds i8, ptr %3, i64 32
-  %67 = load i32, ptr %66, align 8
-  %68 = add nsw i32 %67, 1
-  store i32 %68, ptr %66, align 8
+  %67 = getelementptr inbounds i8, ptr %3, i64 32
+  %68 = load i32, ptr %67, align 8
+  %69 = add nsw i32 %68, 1
+  store i32 %69, ptr %67, align 8
   ret ptr %3
 }
 

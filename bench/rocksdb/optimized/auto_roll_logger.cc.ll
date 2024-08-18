@@ -3345,7 +3345,15 @@ invoke.cont99:                                    ; preds = %_ZN7rocksdb6StatusD
   %call100 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN7rocksdb6StatusaSEOS0_(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp98) #16
   %92 = load ptr, ptr %state_.i.i165, align 8
   %cmp.not.i.i167 = icmp eq ptr %92, null
-  br i1 %cmp.not.i.i167, label %if.end111thread-pre-split.sink.split, label %if.end111thread-pre-split.sink.split.sink.split
+  br i1 %cmp.not.i.i167, label %_ZN7rocksdb6StatusD2Ev.exit169, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i168
+
+_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i168: ; preds = %invoke.cont99
+  call void @_ZdaPv(ptr noundef nonnull %92) #17
+  br label %_ZN7rocksdb6StatusD2Ev.exit169
+
+_ZN7rocksdb6StatusD2Ev.exit169:                   ; preds = %invoke.cont99, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i168
+  store ptr null, ptr %state_.i.i165, align 8
+  br label %if.end111thread-pre-split
 
 lpad84:                                           ; preds = %invoke.cont81
   %93 = landingpad { ptr, i32 }
@@ -3360,20 +3368,17 @@ invoke.cont108:                                   ; preds = %_ZN7rocksdb6StatusD
   %call109 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN7rocksdb6StatusaSEOS0_(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp107) #16
   %94 = load ptr, ptr %state_.i.i171, align 8
   %cmp.not.i.i173 = icmp eq ptr %94, null
-  br i1 %cmp.not.i.i173, label %if.end111thread-pre-split.sink.split, label %if.end111thread-pre-split.sink.split.sink.split
+  br i1 %cmp.not.i.i173, label %_ZN7rocksdb6StatusD2Ev.exit175, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i174
 
-if.end111thread-pre-split.sink.split.sink.split:  ; preds = %invoke.cont108, %invoke.cont99
-  %.sink = phi ptr [ %92, %invoke.cont99 ], [ %94, %invoke.cont108 ]
-  %state_.i.i165.sink.ph = phi ptr [ %state_.i.i165, %invoke.cont99 ], [ %state_.i.i171, %invoke.cont108 ]
-  call void @_ZdaPv(ptr noundef nonnull %.sink) #17
-  br label %if.end111thread-pre-split.sink.split
+_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i174: ; preds = %invoke.cont108
+  call void @_ZdaPv(ptr noundef nonnull %94) #17
+  br label %_ZN7rocksdb6StatusD2Ev.exit175
 
-if.end111thread-pre-split.sink.split:             ; preds = %if.end111thread-pre-split.sink.split.sink.split, %invoke.cont108, %invoke.cont99
-  %state_.i.i165.sink = phi ptr [ %state_.i.i165, %invoke.cont99 ], [ %state_.i.i171, %invoke.cont108 ], [ %state_.i.i165.sink.ph, %if.end111thread-pre-split.sink.split.sink.split ]
-  store ptr null, ptr %state_.i.i165.sink, align 8
+_ZN7rocksdb6StatusD2Ev.exit175:                   ; preds = %invoke.cont108, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i174
+  store ptr null, ptr %state_.i.i171, align 8
   br label %if.end111thread-pre-split
 
-if.end111thread-pre-split:                        ; preds = %if.end111thread-pre-split.sink.split, %invoke.cont87
+if.end111thread-pre-split:                        ; preds = %_ZN7rocksdb6StatusD2Ev.exit169, %invoke.cont87, %_ZN7rocksdb6StatusD2Ev.exit175
   %.pr218 = load i8, ptr %agg.result, align 8
   br label %if.end111
 

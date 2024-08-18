@@ -2073,10 +2073,14 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %44, %42
   %45 = getelementptr inbounds i8, ptr %2, i64 32
   %46 = load ptr, ptr %45, align 8
   %.not.i.i.i20.i = icmp eq ptr %46, null
-  br i1 %.not.i.i.i20.i, label %_ZN3gmxL7openTNGERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9SelectionEPK10gmx_mtop_t.exit, label %47
+  br i1 %.not.i.i.i20.i, label %_ZNSt10filesystem7__cxx114pathD2Ev.exit21.i, label %47
 
 47:                                               ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit.i
   call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %45, ptr noundef nonnull %46) #15
+  br label %_ZNSt10filesystem7__cxx114pathD2Ev.exit21.i
+
+_ZNSt10filesystem7__cxx114pathD2Ev.exit21.i:      ; preds = %47, %_ZNSt10filesystem7__cxx114pathD2Ev.exit.i
+  store ptr null, ptr %45, align 8
   br label %_ZN3gmxL7openTNGERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9SelectionEPK10gmx_mtop_t.exit
 
 48:                                               ; preds = %31
@@ -2142,10 +2146,14 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit25.i:      ; preds = %71, %_ZNSt6vectorIi
   %72 = getelementptr inbounds i8, ptr %5, i64 32
   %73 = load ptr, ptr %72, align 8
   %.not.i.i.i26.i = icmp eq ptr %73, null
-  br i1 %.not.i.i.i26.i, label %_ZN3gmxL7openTNGERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9SelectionEPK10gmx_mtop_t.exit, label %74
+  br i1 %.not.i.i.i26.i, label %_ZNSt10filesystem7__cxx114pathD2Ev.exit27.i, label %74
 
 74:                                               ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit25.i
   call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %72, ptr noundef nonnull %73) #15
+  br label %_ZNSt10filesystem7__cxx114pathD2Ev.exit27.i
+
+_ZNSt10filesystem7__cxx114pathD2Ev.exit27.i:      ; preds = %74, %_ZNSt10filesystem7__cxx114pathD2Ev.exit25.i
+  store ptr null, ptr %72, align 8
   br label %_ZN3gmxL7openTNGERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9SelectionEPK10gmx_mtop_t.exit
 
 75:                                               ; preds = %_ZNSt10filesystem7__cxx114pathC2Ev.exit22.i
@@ -2169,18 +2177,16 @@ common.resume:                                    ; preds = %88, %100, %98, %_ZN
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt6vectorIiSaIiEED2Ev.exit29.i:                ; preds = %80, %77, %75, %48
-  %.sink32.i = phi ptr [ %3, %48 ], [ %6, %80 ], [ %6, %77 ], [ %6, %75 ]
-  %.sink31.i = phi ptr [ %2, %48 ], [ %5, %80 ], [ %5, %77 ], [ %5, %75 ]
+  %.sink31.i = phi ptr [ %3, %48 ], [ %6, %80 ], [ %6, %77 ], [ %6, %75 ]
+  %.sink30.i = phi ptr [ %2, %48 ], [ %5, %80 ], [ %5, %77 ], [ %5, %75 ]
   %.pn18.i = phi { ptr, i32 } [ %49, %48 ], [ %78, %80 ], [ %78, %77 ], [ %76, %75 ]
-  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink32.i) #15
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink31.i) #15
+  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink30.i) #15
   br label %common.resume
 
-_ZN3gmxL7openTNGERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9SelectionEPK10gmx_mtop_t.exit: ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit.i, %47, %_ZNSt10filesystem7__cxx114pathD2Ev.exit25.i, %74
-  %.sink30.i = phi ptr [ %45, %_ZNSt10filesystem7__cxx114pathD2Ev.exit.i ], [ %45, %47 ], [ %72, %_ZNSt10filesystem7__cxx114pathD2Ev.exit25.i ], [ %72, %74 ]
-  %.sink.i = phi ptr [ %2, %_ZNSt10filesystem7__cxx114pathD2Ev.exit.i ], [ %2, %47 ], [ %5, %_ZNSt10filesystem7__cxx114pathD2Ev.exit25.i ], [ %5, %74 ]
-  %.016.i = phi ptr [ %41, %_ZNSt10filesystem7__cxx114pathD2Ev.exit.i ], [ %41, %47 ], [ %66, %_ZNSt10filesystem7__cxx114pathD2Ev.exit25.i ], [ %66, %74 ]
-  store ptr null, ptr %.sink30.i, align 8
+_ZN3gmxL7openTNGERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9SelectionEPK10gmx_mtop_t.exit: ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit21.i, %_ZNSt10filesystem7__cxx114pathD2Ev.exit27.i
+  %.sink.i = phi ptr [ %5, %_ZNSt10filesystem7__cxx114pathD2Ev.exit27.i ], [ %2, %_ZNSt10filesystem7__cxx114pathD2Ev.exit21.i ]
+  %.016.i = phi ptr [ %66, %_ZNSt10filesystem7__cxx114pathD2Ev.exit27.i ], [ %41, %_ZNSt10filesystem7__cxx114pathD2Ev.exit21.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink.i) #15
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)

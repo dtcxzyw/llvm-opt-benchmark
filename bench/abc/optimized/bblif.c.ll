@@ -2033,7 +2033,7 @@ select.unfold76._crit_edge:                       ; preds = %select.unfold76, %2
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
-; Function Attrs: nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: nofree nounwind memory(write, argmem: read, inaccessiblemem: readwrite) uwtable
 define noalias noundef ptr @Bbl_ManTruthToSop(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #17 {
   %3 = shl nuw i32 1, %1
   %.not = icmp eq i32 %1, 31
@@ -2088,7 +2088,8 @@ define noalias noundef ptr @Bbl_ManTruthToSop(ptr nocapture noundef readonly %0,
   store i8 %23, ptr %22, align 1
   %25 = getelementptr inbounds i8, ptr %.045.lcssa, i64 3
   store i8 10, ptr %24, align 1
-  br label %._crit_edge61
+  store i8 0, ptr %25, align 1
+  br label %64
 
 26:                                               ; preds = %._crit_edge
   %27 = add nsw i32 %1, 3
@@ -2172,10 +2173,13 @@ define noalias noundef ptr @Bbl_ManTruthToSop(ptr nocapture noundef readonly %0,
   %exitcond74.not = icmp eq i32 %63, %smax76
   br i1 %exitcond74.not, label %._crit_edge61, label %.lr.ph60.split, !llvm.loop !21
 
-._crit_edge61:                                    ; preds = %62, %46, %26, %._crit_edge67
-  %.146.lcssa.sink = phi ptr [ %25, %._crit_edge67 ], [ %31, %26 ], [ %.2.us, %46 ], [ %.2, %62 ]
-  %.044 = phi ptr [ %18, %._crit_edge67 ], [ %31, %26 ], [ %31, %46 ], [ %31, %62 ]
-  store i8 0, ptr %.146.lcssa.sink, align 1
+._crit_edge61:                                    ; preds = %62, %46, %26
+  %.146.lcssa = phi ptr [ %31, %26 ], [ %.2.us, %46 ], [ %.2, %62 ]
+  store i8 0, ptr %.146.lcssa, align 1
+  br label %64
+
+64:                                               ; preds = %._crit_edge61, %._crit_edge67
+  %.044 = phi ptr [ %18, %._crit_edge67 ], [ %31, %._crit_edge61 ]
   ret ptr %.044
 }
 
@@ -3014,7 +3018,7 @@ attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nofree nounwind memory(write, argmem: read, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { nofree nounwind }
 attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #20 = { nofree nounwind willreturn memory(argmem: read) }

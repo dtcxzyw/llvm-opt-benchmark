@@ -127,7 +127,7 @@ declare i32 @nxsem_trywait(ptr noundef) local_unnamed_addr #1
 define i32 @pthread_mutex_give(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %18, label %3
+  br i1 %.not, label %21, label %3
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr @g_readytorun, align 8
@@ -151,24 +151,33 @@ define i32 @pthread_mutex_give(ptr noundef %0) local_unnamed_addr #0 {
 11:                                               ; preds = %7
   %12 = icmp eq ptr %.012.i, null
   %13 = load ptr, ptr %0, align 8
-  %..012.lcssa.i = select i1 %12, ptr %6, ptr %.012.i
-  store ptr %13, ptr %..012.lcssa.i, align 8
-  store ptr null, ptr %0, align 8
-  %14 = and i64 %5, 512
-  %.not.i.i = icmp eq i64 %14, 0
-  br i1 %.not.i.i, label %pthread_mutex_remove.exit, label %15
+  br i1 %12, label %14, label %15
+
+14:                                               ; preds = %11
+  store ptr %13, ptr %6, align 8
+  br label %16
 
 15:                                               ; preds = %11
+  store ptr %13, ptr %.012.i, align 8
+  br label %16
+
+16:                                               ; preds = %15, %14
+  store ptr null, ptr %0, align 8
+  %17 = and i64 %5, 512
+  %.not.i.i = icmp eq i64 %17, 0
+  br i1 %.not.i.i, label %pthread_mutex_remove.exit, label %18
+
+18:                                               ; preds = %16
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !8
   br label %pthread_mutex_remove.exit
 
-pthread_mutex_remove.exit:                        ; preds = %11, %15
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
-  %17 = call i32 @pthread_sem_give(ptr noundef nonnull %16) #3
-  br label %18
+pthread_mutex_remove.exit:                        ; preds = %16, %18
+  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = call i32 @pthread_sem_give(ptr noundef nonnull %19) #3
+  br label %21
 
-18:                                               ; preds = %pthread_mutex_remove.exit, %1
-  %.0 = phi i32 [ %17, %pthread_mutex_remove.exit ], [ 22, %1 ]
+21:                                               ; preds = %pthread_mutex_remove.exit, %1
+  %.0 = phi i32 [ %20, %pthread_mutex_remove.exit ], [ 22, %1 ]
   ret i32 %.0
 }
 

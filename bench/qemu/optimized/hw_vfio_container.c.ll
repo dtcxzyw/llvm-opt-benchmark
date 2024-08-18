@@ -243,7 +243,11 @@ while.end.i.i54.us.i.i:                           ; preds = %if.end.i.i.us.i.i
   %waiting.i.i.us.i.i = getelementptr inbounds i8, ptr %call.i.i51.us.i.i, i64 8
   %12 = load atomic i8, ptr %waiting.i.i.us.i.i monotonic, align 8
   %tobool.i.i.us.i.i = trunc i8 %12 to i1
-  br i1 %tobool.i.i.us.i.i, label %if.end117.sink.split.i.i, label %cpu_physical_memory_set_dirty_lebitmap.exit.i
+  br i1 %tobool.i.i.us.i.i, label %while.end21.i.i.us.i.i, label %cpu_physical_memory_set_dirty_lebitmap.exit.i
+
+while.end21.i.i.us.i.i:                           ; preds = %while.end.i.i54.us.i.i
+  store atomic i8 0, ptr %waiting.i.i.us.i.i monotonic, align 8
+  br label %if.end117.sink.split.i.i
 
 for.body19.us.i.i:                                ; preds = %while.end.us.i.i, %if.end52.us.i.i
   %idx.181.us.i.i = phi i64 [ %spec.select49.us.i.i, %if.end52.us.i.i ], [ %div847.i.i, %while.end.us.i.i ]
@@ -362,7 +366,11 @@ while.end.i.i54.i.i:                              ; preds = %if.end.i.i.i.i
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i51.i.i, i64 8
   %34 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %34 to i1
-  br i1 %tobool.i.i.i.i, label %if.end117.sink.split.i.i, label %cpu_physical_memory_set_dirty_lebitmap.exit.i
+  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %cpu_physical_memory_set_dirty_lebitmap.exit.i
+
+while.end21.i.i.i.i:                              ; preds = %while.end.i.i54.i.i
+  store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
+  br label %if.end117.sink.split.i.i
 
 if.else.i.i:                                      ; preds = %if.then15.i
   %35 = load i8, ptr @tcg_allowed, align 1
@@ -502,14 +510,14 @@ while.end.i.i33.us.i.us.us.i.i:                   ; preds = %if.end.i.i.us.i.us.
   %waiting.i.i.us.i.us.us.i.i = getelementptr inbounds i8, ptr %call.i.i30.us.i.us.us.i.i, i64 8
   %50 = load atomic i8, ptr %waiting.i.i.us.i.us.us.i.i monotonic, align 8
   %tobool.i.i.us.i.us.us.i.i = trunc i8 %50 to i1
-  br i1 %tobool.i.i.us.i.us.us.i.i, label %return.sink.split.i.us.us.i.i, label %cpu_physical_memory_set_dirty_range.exit.us.us.i.i
+  br i1 %tobool.i.i.us.i.us.us.i.i, label %while.end21.i.i.us.i.us.us.i.i, label %cpu_physical_memory_set_dirty_range.exit.us.us.i.i
 
-return.sink.split.i.us.us.i.i:                    ; preds = %while.end.i.i33.us.i.us.us.i.i
+while.end21.i.i.us.i.us.us.i.i:                   ; preds = %while.end.i.i33.us.i.us.us.i.i
   store atomic i8 0, ptr %waiting.i.i.us.i.us.us.i.i monotonic, align 8
   call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #15
   br label %cpu_physical_memory_set_dirty_range.exit.us.us.i.i
 
-cpu_physical_memory_set_dirty_range.exit.us.us.i.i: ; preds = %return.sink.split.i.us.us.i.i, %while.end.i.i33.us.i.us.us.i.i, %if.end.i.i.us.i.us.us.i.i
+cpu_physical_memory_set_dirty_range.exit.us.us.i.i: ; preds = %while.end21.i.i.us.i.us.us.i.i, %while.end.i.i33.us.i.us.us.i.i, %if.end.i.i.us.i.us.us.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %blocks.i.i.i)
   %cmp110.not.us.us.i.i = icmp eq i64 %and102.us.us.i.i, 0
   br i1 %cmp110.not.us.us.i.i, label %for.inc114.us.i.i, label %do.body98.us.us.i.i, !llvm.loop !15
@@ -679,14 +687,14 @@ while.end.i.i33.i.i.i:                            ; preds = %if.end.i.i.i.i.i
   %waiting.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i30.i.i.i, i64 8
   %71 = load atomic i8, ptr %waiting.i.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i.i = trunc i8 %71 to i1
-  br i1 %tobool.i.i.i.i.i, label %return.sink.split.i.i.i, label %cpu_physical_memory_set_dirty_range.exit.i.i
+  br i1 %tobool.i.i.i.i.i, label %while.end21.i.i.i.i.i, label %cpu_physical_memory_set_dirty_range.exit.i.i
 
-return.sink.split.i.i.i:                          ; preds = %while.end.i.i33.i.i.i
+while.end21.i.i.i.i.i:                            ; preds = %while.end.i.i33.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i.i monotonic, align 8
   call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #15
   br label %cpu_physical_memory_set_dirty_range.exit.i.i
 
-cpu_physical_memory_set_dirty_range.exit.i.i:     ; preds = %return.sink.split.i.i.i, %while.end.i.i33.i.i.i, %if.end.i.i.i.i.i
+cpu_physical_memory_set_dirty_range.exit.i.i:     ; preds = %while.end21.i.i.i.i.i, %while.end.i.i33.i.i.i, %if.end.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %blocks.i.i.i)
   %cmp110.not.i.i = icmp eq i64 %and102.i.i, 0
   br i1 %cmp110.not.i.i, label %for.inc114.i.i, label %do.body98.i.i, !llvm.loop !15
@@ -696,9 +704,7 @@ for.inc114.i.i:                                   ; preds = %cpu_physical_memory
   %exitcond.not.i.i = icmp eq i64 %inc115.i.i, %div44.i.i
   br i1 %exitcond.not.i.i, label %cpu_physical_memory_set_dirty_lebitmap.exit.i, label %for.body77.i.i, !llvm.loop !11
 
-if.end117.sink.split.i.i:                         ; preds = %while.end.i.i54.i.i, %while.end.i.i54.us.i.i
-  %waiting.i.i.us.sink.i.i = phi ptr [ %waiting.i.i.us.i.i, %while.end.i.i54.us.i.i ], [ %waiting.i.i.i.i, %while.end.i.i54.i.i ]
-  store atomic i8 0, ptr %waiting.i.i.us.sink.i.i monotonic, align 8
+if.end117.sink.split.i.i:                         ; preds = %while.end21.i.i.i.i, %while.end21.i.i.us.i.i
   call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #15
   br label %cpu_physical_memory_set_dirty_lebitmap.exit.i
 

@@ -6938,25 +6938,26 @@ if.end:                                           ; preds = %entry
 
 if.then3:                                         ; preds = %if.end
   %sharedVertexData = getelementptr inbounds i8, ptr %0, i64 48
-  br label %return.sink.split
+  %2 = load ptr, ptr %sharedVertexData, align 8
+  br label %return
 
 if.end5:                                          ; preds = %if.end
   %conv = zext i16 %1 to i32
   %sub = add nsw i32 %conv, -1
   %subMeshes.i = getelementptr inbounds i8, ptr %0, i64 56
   %_M_finish.i.i = getelementptr inbounds i8, ptr %0, i64 64
-  %2 = load ptr, ptr %_M_finish.i.i, align 8
-  %3 = load ptr, ptr %subMeshes.i, align 8
-  %cmp6.not.i = icmp ne ptr %2, %3
+  %3 = load ptr, ptr %_M_finish.i.i, align 8
+  %4 = load ptr, ptr %subMeshes.i, align 8
+  %cmp6.not.i = icmp ne ptr %3, %4
   tail call void @llvm.assume(i1 %cmp6.not.i)
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %2 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %3 to i64
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %3 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %umax.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %4 = load ptr, ptr %3, align 8
-  %5 = load i32, ptr %4, align 8
-  %cmp5.i2 = icmp eq i32 %5, %sub
+  %5 = load ptr, ptr %4, align 8
+  %6 = load i32, ptr %5, align 8
+  %cmp5.i2 = icmp eq i32 %6, %sub
   br i1 %cmp5.i2, label %_ZNK6Assimp4Ogre4Mesh10GetSubMeshEm.exit, label %for.cond.i
 
 for.cond.i:                                       ; preds = %if.end5, %for.cond.i
@@ -6964,24 +6965,20 @@ for.cond.i:                                       ; preds = %if.end5, %for.cond.
   %inc.i = add nuw i64 %i.07.i3, 1
   %exitcond.not.i = icmp ne i64 %inc.i, %umax.i
   tail call void @llvm.assume(i1 %exitcond.not.i)
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %3, i64 %inc.i
-  %6 = load ptr, ptr %add.ptr.i.i, align 8
-  %7 = load i32, ptr %6, align 8
-  %cmp5.i = icmp eq i32 %7, %sub
+  %add.ptr.i.i = getelementptr inbounds ptr, ptr %4, i64 %inc.i
+  %7 = load ptr, ptr %add.ptr.i.i, align 8
+  %8 = load i32, ptr %7, align 8
+  %cmp5.i = icmp eq i32 %8, %sub
   br i1 %cmp5.i, label %_ZNK6Assimp4Ogre4Mesh10GetSubMeshEm.exit, label %for.cond.i
 
 _ZNK6Assimp4Ogre4Mesh10GetSubMeshEm.exit:         ; preds = %for.cond.i, %if.end5
-  %.lcssa = phi ptr [ %4, %if.end5 ], [ %6, %for.cond.i ]
+  %.lcssa = phi ptr [ %5, %if.end5 ], [ %7, %for.cond.i ]
   %vertexData = getelementptr inbounds i8, ptr %.lcssa, i64 152
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.then3, %_ZNK6Assimp4Ogre4Mesh10GetSubMeshEm.exit
-  %vertexData.sink = phi ptr [ %vertexData, %_ZNK6Assimp4Ogre4Mesh10GetSubMeshEm.exit ], [ %sharedVertexData, %if.then3 ]
-  %8 = load ptr, ptr %vertexData.sink, align 8
+  %9 = load ptr, ptr %vertexData, align 8
   br label %return
 
-return:                                           ; preds = %return.sink.split, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ %8, %return.sink.split ]
+return:                                           ; preds = %entry, %_ZNK6Assimp4Ogre4Mesh10GetSubMeshEm.exit, %if.then3
+  %retval.0 = phi ptr [ %2, %if.then3 ], [ %9, %_ZNK6Assimp4Ogre4Mesh10GetSubMeshEm.exit ], [ null, %entry ]
   ret ptr %retval.0
 }
 

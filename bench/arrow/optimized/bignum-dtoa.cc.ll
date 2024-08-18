@@ -332,10 +332,22 @@ if.else33.i:                                      ; preds = %if.then29.i
   %19 = getelementptr i8, ptr %buffer.coerce0, i64 %18
   %arrayidx.i38.i = getelementptr i8, ptr %19, i64 -1
   %20 = load i8, ptr %arrayidx.i38.i, align 1
+  br i1 %cmp34.not.i, label %if.else38.i, label %if.then35.i
+
+if.then35.i:                                      ; preds = %if.else33.i
+  %inc37.i = add i8 %20, 1
+  store i8 %inc37.i, ptr %arrayidx.i38.i, align 1
+  br label %sw.epilog
+
+if.else38.i:                                      ; preds = %if.else33.i
   %21 = and i8 %20, 1
   %cmp43.i = icmp eq i8 %21, 0
-  %or.cond.i = select i1 %cmp34.not.i, i1 %cmp43.i, i1 false
-  br i1 %or.cond.i, label %sw.epilog, label %return.sink.split.i
+  br i1 %cmp43.i, label %sw.epilog, label %if.else45.i
+
+if.else45.i:                                      ; preds = %if.else38.i
+  %inc48.i = add i8 %20, 1
+  store i8 %inc48.i, ptr %arrayidx.i38.i, align 1
+  br label %sw.epilog
 
 if.else52.i:                                      ; preds = %if.else25.i
   br i1 %.us-phi.i, label %sw.epilog, label %if.else55.i
@@ -346,13 +358,8 @@ if.else55.i:                                      ; preds = %if.else52.i
   %24 = getelementptr i8, ptr %buffer.coerce0, i64 %23
   %arrayidx.i42.i = getelementptr i8, ptr %24, i64 -1
   %25 = load i8, ptr %arrayidx.i42.i, align 1
-  br label %return.sink.split.i
-
-return.sink.split.i:                              ; preds = %if.else55.i, %if.else33.i
-  %.sink.i = phi i8 [ %25, %if.else55.i ], [ %20, %if.else33.i ]
-  %arrayidx.i38.sink.i = phi ptr [ %arrayidx.i42.i, %if.else55.i ], [ %arrayidx.i38.i, %if.else33.i ]
-  %inc48.i = add i8 %.sink.i, 1
-  store i8 %inc48.i, ptr %arrayidx.i38.sink.i, align 1
+  %inc58.i = add i8 %25, 1
+  store i8 %inc58.i, ptr %arrayidx.i42.i, align 1
   br label %sw.epilog
 
 sw.bb30:                                          ; preds = %_ZN14arrow_vendored17double_conversionL15FixupMultiply10EibPiPNS0_6BignumES3_S3_S3_.exit
@@ -402,7 +409,7 @@ sw.default:                                       ; preds = %_ZN14arrow_vendored
   call void @abort() #5
   unreachable
 
-sw.epilog:                                        ; preds = %if.else9.i, %if.else8.i, %if.then6.i65, %if.then.i67, %return.sink.split.i, %if.else52.i, %if.else33.i, %if.then29.i, %sw.bb32
+sw.epilog:                                        ; preds = %if.else9.i, %if.else8.i, %if.then6.i65, %if.then.i67, %if.else55.i, %if.else52.i, %if.else45.i, %if.else38.i, %if.then35.i, %if.then29.i, %sw.bb32
   %28 = load i32, ptr %length, align 4
   %idxprom.i = sext i32 %28 to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %buffer.coerce0, i64 %idxprom.i

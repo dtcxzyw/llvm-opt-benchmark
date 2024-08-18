@@ -264,10 +264,10 @@ if.then67:                                        ; preds = %if.then60, %if.then
   br label %for.inc74.sink.split
 
 for.inc74.sink.split:                             ; preds = %if.then60, %if.then67
-  %path71.sink = phi ptr [ %buf, %if.then67 ], [ %path71, %if.then60 ]
-  %13 = load ptr, ptr %path71.sink, align 8
-  %14 = load ptr, ptr @stdout, align 8
-  tail call void @write_name_quoted(ptr noundef %13, ptr noundef %14, i32 noundef %spec.store.select) #14
+  %.sink.in = phi ptr [ %buf, %if.then67 ], [ %path71, %if.then60 ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %13 = load ptr, ptr @stdout, align 8
+  tail call void @write_name_quoted(ptr noundef %.sink, ptr noundef %13, i32 noundef %spec.store.select) #14
   br label %for.inc74
 
 for.inc74:                                        ; preds = %for.inc74.sink.split, %for.body54
@@ -277,9 +277,9 @@ for.inc74:                                        ; preds = %for.inc74.sink.spli
 
 for.end76:                                        ; preds = %for.inc74, %if.end50
   %path77 = getelementptr inbounds i8, ptr %p, i64 8
-  %15 = load ptr, ptr %path77, align 8
-  %16 = load ptr, ptr @stdout, align 8
-  tail call void @write_name_quoted(ptr noundef %15, ptr noundef %16, i32 noundef %0) #14
+  %14 = load ptr, ptr %path77, align 8
+  %15 = load ptr, ptr @stdout, align 8
+  tail call void @write_name_quoted(ptr noundef %14, ptr noundef %15, i32 noundef %0) #14
   ret void
 }
 
@@ -3901,13 +3901,13 @@ if.then.i.i:                                      ; preds = %sw.bb
 
 st_add.exit.i:                                    ; preds = %sw.bb
   %cmp.i18.i = icmp eq i32 %spec.select.i, -33
-  br i1 %cmp.i18.i, label %if.then.i20.i, label %append_lost.exit
+  br i1 %cmp.i18.i, label %if.then.i20.i, label %st_add.exit21.i
 
 if.then.i20.i:                                    ; preds = %st_add.exit.i
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.39, i64 noundef -1, i64 noundef 1) #15
   unreachable
 
-append_lost.exit:                                 ; preds = %st_add.exit.i
+st_add.exit21.i:                                  ; preds = %st_add.exit.i
   %add.i19.i = add nsw i64 %conv2.i, 33
   %call4.i = tail call ptr @xcalloc(i64 noundef 1, i64 noundef %add.i19.i) #14
   %line5.i = getelementptr inbounds i8, ptr %call4.i, i64 32
@@ -3920,9 +3920,18 @@ append_lost.exit:                                 ; preds = %st_add.exit.i
   %prev.i = getelementptr inbounds i8, ptr %call4.i, i64 8
   store ptr %7, ptr %prev.i, align 8
   %tobool.not.i = icmp eq ptr %7, null
+  br i1 %tobool.not.i, label %if.else.i, label %if.then8.i
+
+if.then8.i:                                       ; preds = %st_add.exit21.i
+  store ptr %call4.i, ptr %7, align 8
+  br label %append_lost.exit
+
+if.else.i:                                        ; preds = %st_add.exit21.i
   %plost.i = getelementptr inbounds i8, ptr %0, i64 16
-  %plost.sink.i = select i1 %tobool.not.i, ptr %plost.i, ptr %7
-  store ptr %call4.i, ptr %plost.sink.i, align 8
+  store ptr %call4.i, ptr %plost.i, align 8
+  br label %append_lost.exit
+
+append_lost.exit:                                 ; preds = %if.then8.i, %if.else.i
   %sh_prom.i = zext nneg i32 %2 to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
   store ptr %call4.i, ptr %lost_tail.i, align 8

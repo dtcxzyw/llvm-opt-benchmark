@@ -526,12 +526,18 @@ if.then11.i:                                      ; preds = %while.end.i
   %cmp12.not.i = icmp eq ptr %prev.0.i, null
   %next16.i = getelementptr inbounds i8, ptr %heap, i64 3048
   %14 = load ptr, ptr %next16.i, align 8
+  br i1 %cmp12.not.i, label %if.else.i, label %if.then13.i
+
+if.then13.i:                                      ; preds = %if.then11.i
   %next15.i = getelementptr inbounds i8, ptr %prev.0.i, i64 3048
-  %next15.sink.i = select i1 %cmp12.not.i, ptr %heaps.i, ptr %next15.i
-  store ptr %14, ptr %next15.sink.i, align 8
+  store ptr %14, ptr %next15.i, align 8
   br label %if.end20.i
 
-if.end20.i:                                       ; preds = %if.then11.i, %while.end.i
+if.else.i:                                        ; preds = %if.then11.i
+  store ptr %14, ptr %heaps.i, align 8
+  br label %if.end20.i
+
+if.end20.i:                                       ; preds = %if.else.i, %if.then13.i, %while.end.i
   call void @mi_free(ptr noundef nonnull %heap) #9
   br label %if.end2
 
@@ -639,12 +645,18 @@ if.then11.i:                                      ; preds = %while.end.i
   %cmp12.not.i = icmp eq ptr %prev.0.i, null
   %next16.i = getelementptr inbounds i8, ptr %heap, i64 3048
   %11 = load ptr, ptr %next16.i, align 8
+  br i1 %cmp12.not.i, label %if.else.i, label %if.then13.i
+
+if.then13.i:                                      ; preds = %if.then11.i
   %next15.i = getelementptr inbounds i8, ptr %prev.0.i, i64 3048
-  %next15.sink.i = select i1 %cmp12.not.i, ptr %heaps.i, ptr %next15.i
-  store ptr %11, ptr %next15.sink.i, align 8
+  store ptr %11, ptr %next15.i, align 8
   br label %if.end20.i
 
-if.end20.i:                                       ; preds = %if.then11.i, %while.end.i
+if.else.i:                                        ; preds = %if.then11.i
+  store ptr %11, ptr %heaps.i, align 8
+  br label %if.end20.i
+
+if.end20.i:                                       ; preds = %if.else.i, %if.then13.i, %while.end.i
   tail call void @mi_free(ptr noundef nonnull %heap) #9
   br label %return
 

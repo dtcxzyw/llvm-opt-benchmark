@@ -1552,12 +1552,17 @@ Vec_IntPush.exit.i:                               ; preds = %343, %Vec_IntGrow.e
   %358 = load i32, ptr %357, align 4
   %.not40.i.i = icmp eq i32 %353, 0
   %.pre46.i.i = sext i32 %358 to i64
-  br i1 %.not40.i.i, label %xSAT_HeapInsert.exit, label %.lr.ph.i13.i
+  br i1 %.not40.i.i, label %.split24.i.i, label %.lr.ph.i13.i
 
 .split24.loopexit.i.i:                            ; preds = %372
   %.pre.i16.i = load ptr, ptr %312, align 8
   %.phi.trans.insert.i17.i = getelementptr i8, ptr %.pre.i16.i, i64 8
   %.val31.pre.i.i = load ptr, ptr %.phi.trans.insert.i17.i, align 8
+  br label %.split24.i.i
+
+.split24.i.i:                                     ; preds = %.split24.loopexit.i.i, %Vec_IntPush.exit.i
+  %.val31.i.i = phi ptr [ %.val31.pre.i.i, %.split24.loopexit.i.i ], [ %.val28.i.i, %Vec_IntPush.exit.i ]
+  store i32 %358, ptr %.val31.i.i, align 4
   br label %xSAT_HeapInsert.exit
 
 .lr.ph.i13.i:                                     ; preds = %Vec_IntPush.exit.i, %372
@@ -1581,7 +1586,11 @@ Vec_IntPush.exit.i:                               ; preds = %343, %Vec_IntGrow.e
   %.not36.i.i = icmp ugt i32 %366, %369
   %370 = sext i32 %.02341.i.i to i64
   %371 = getelementptr inbounds i32, ptr %.val27.i.i, i64 %370
-  br i1 %.not36.i.i, label %372, label %xSAT_HeapInsert.exit
+  br i1 %.not36.i.i, label %372, label %.split.i.i
+
+.split.i.i:                                       ; preds = %.lr.ph.i13.i
+  store i32 %358, ptr %371, align 4
+  br label %xSAT_HeapInsert.exit
 
 372:                                              ; preds = %.lr.ph.i13.i
   store i32 %363, ptr %371, align 4
@@ -1599,15 +1608,13 @@ Vec_IntPush.exit.i:                               ; preds = %343, %Vec_IntGrow.e
   %.not.i15.i = icmp ult i32 %.042.in.i.i, 2
   br i1 %.not.i15.i, label %.split24.loopexit.i.i, label %.lr.ph.i13.i, !llvm.loop !10
 
-xSAT_HeapInsert.exit:                             ; preds = %.lr.ph.i13.i, %Vec_IntPush.exit.i, %.split24.loopexit.i.i
-  %.val31.i.sink.i = phi ptr [ %.val31.pre.i.i, %.split24.loopexit.i.i ], [ %.val28.i.i, %Vec_IntPush.exit.i ], [ %371, %.lr.ph.i13.i ]
-  %.sink.i14.i = phi i32 [ 0, %.split24.loopexit.i.i ], [ 0, %Vec_IntPush.exit.i ], [ %.02341.i.i, %.lr.ph.i13.i ]
-  store i32 %358, ptr %.val31.i.sink.i, align 4
-  %381 = load ptr, ptr %273, align 8
-  %382 = getelementptr i8, ptr %381, i64 8
-  %.val29.i.i = load ptr, ptr %382, align 8
-  %383 = getelementptr inbounds i32, ptr %.val29.i.i, i64 %.pre46.i.i
-  store i32 %.sink.i14.i, ptr %383, align 4
+xSAT_HeapInsert.exit:                             ; preds = %.split24.i.i, %.split.i.i
+  %.sink.i14.i = phi i32 [ 0, %.split24.i.i ], [ %.02341.i.i, %.split.i.i ]
+  %.sink51.i.i = load ptr, ptr %273, align 8
+  %381 = getelementptr i8, ptr %.sink51.i.i, i64 8
+  %.val29.i.i = load ptr, ptr %381, align 8
+  %382 = getelementptr inbounds i32, ptr %.val29.i.i, i64 %.pre46.i.i
+  store i32 %.sink.i14.i, ptr %382, align 4
   ret void
 }
 

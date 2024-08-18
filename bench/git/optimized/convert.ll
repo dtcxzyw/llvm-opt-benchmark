@@ -4562,7 +4562,7 @@ entry:
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal noundef i32 @lf_to_crlf_filter_fn(ptr nocapture noundef %filter, ptr noundef readonly %input, ptr nocapture noundef %isize_p, ptr nocapture noundef writeonly %output, ptr nocapture noundef %osize_p) #16 {
 entry:
   %has_held = getelementptr inbounds i8, ptr %filter, i64 8
@@ -4670,7 +4670,8 @@ if.then48:                                        ; preds = %if.end45.thread, %i
   %bf.load50 = load i8, ptr %has_held, align 8
   %bf.set52 = or i8 %bf.load50, 1
   store i8 %bf.set52, ptr %has_held, align 8
-  br label %for.inc.sink.split
+  store i8 %6, ptr %held53, align 1
+  br label %for.inc
 
 if.end54:                                         ; preds = %if.end45
   %cmp56 = icmp eq i8 %6, 13
@@ -4680,18 +4681,12 @@ if.end59:                                         ; preds = %if.end45.thread, %i
   %o.24346 = phi i64 [ %o.2, %if.end54 ], [ %inc38, %if.end45.thread ]
   %inc60 = add nuw i64 %o.24346, 1
   %arrayidx61 = getelementptr inbounds i8, ptr %output, i64 %o.24346
-  br label %for.inc.sink.split
-
-for.inc.sink.split:                               ; preds = %if.then48, %if.end59
-  %arrayidx61.sink = phi ptr [ %arrayidx61, %if.end59 ], [ %held53, %if.then48 ]
-  %o.3.ph = phi i64 [ %inc60, %if.end59 ], [ %o.242, %if.then48 ]
-  %was_cr.2.ph = phi i32 [ 0, %if.end59 ], [ %was_cr.151, %if.then48 ]
-  store i8 %6, ptr %arrayidx61.sink, align 1
+  store i8 %6, ptr %arrayidx61, align 1
   br label %for.inc
 
-for.inc:                                          ; preds = %for.inc.sink.split, %if.end54
-  %o.3 = phi i64 [ %o.2, %if.end54 ], [ %o.3.ph, %for.inc.sink.split ]
-  %was_cr.2 = phi i32 [ 1, %if.end54 ], [ %was_cr.2.ph, %for.inc.sink.split ]
+for.inc:                                          ; preds = %if.end54, %if.end59, %if.then48
+  %o.3 = phi i64 [ %o.242, %if.then48 ], [ %inc60, %if.end59 ], [ %o.2, %if.end54 ]
+  %was_cr.2 = phi i32 [ %was_cr.151, %if.then48 ], [ 0, %if.end59 ], [ 1, %if.end54 ]
   %inc62 = add nuw i64 %i.050, 1
   %9 = load i64, ptr %osize_p, align 8
   %cmp29 = icmp ult i64 %o.3, %9
@@ -4765,7 +4760,7 @@ attributes #12 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="tru
 attributes #13 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #19 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

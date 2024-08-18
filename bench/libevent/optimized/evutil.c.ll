@@ -3528,6 +3528,7 @@ if.then17:                                        ; preds = %evutil_fast_socket_
   %arrayidx20 = getelementptr inbounds i8, ptr %fd, i64 4
   %5 = load i32, ptr %arrayidx20, align 4
   %call21 = tail call i32 @close(i32 noundef %5) #30
+  store i32 -1, ptr %arrayidx20, align 4
   br label %return.sink.split
 
 if.else:                                          ; preds = %if.end
@@ -3583,15 +3584,15 @@ if.then44:                                        ; preds = %evutil_fast_socket_
   %arrayidx47 = getelementptr inbounds i8, ptr %fd, i64 4
   %11 = load i32, ptr %arrayidx47, align 4
   %call.i57 = tail call i32 @close(i32 noundef %11) #30
+  store i32 -1, ptr %arrayidx47, align 4
   br label %return.sink.split
 
 if.end52:                                         ; preds = %if.else
   %arrayidx53 = getelementptr inbounds i8, ptr %fd, i64 4
+  store i32 -1, ptr %arrayidx53, align 4
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.then17, %if.then44, %if.end52
-  %arrayidx53.sink = phi ptr [ %arrayidx53, %if.end52 ], [ %arrayidx47, %if.then44 ], [ %arrayidx20, %if.then17 ]
-  store i32 -1, ptr %arrayidx53.sink, align 4
   store i32 -1, ptr %fd, align 4
   br label %return
 

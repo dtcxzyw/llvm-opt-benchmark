@@ -1328,7 +1328,10 @@ define internal { double, double } @arrow_type_tee(ptr noundef %0, double %1, do
 
 55:                                               ; preds = %38
   store double %.sroa.042.0, ptr %9, align 16
-  br label %.sink.split
+  store double %.sroa.746.0, ptr %41, align 8
+  store double %.sroa.034.0, ptr %51, align 16
+  store double %.sroa.7.0, ptr %53, align 8
+  br label %59
 
 56:                                               ; preds = %38
   %57 = and i32 %7, 128
@@ -1337,18 +1340,12 @@ define internal { double, double } @arrow_type_tee(ptr noundef %0, double %1, do
 
 58:                                               ; preds = %56
   store double %.sroa.042.0, ptr %43, align 16
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %55, %58
-  %.sink85 = phi ptr [ %45, %58 ], [ %41, %55 ]
-  %.sink84 = phi ptr [ %47, %58 ], [ %51, %55 ]
-  %.sink = phi ptr [ %49, %58 ], [ %53, %55 ]
-  store double %.sroa.746.0, ptr %.sink85, align 8
-  store double %.sroa.034.0, ptr %.sink84, align 16
-  store double %.sroa.7.0, ptr %.sink, align 8
+  store double %.sroa.746.0, ptr %45, align 8
+  store double %.sroa.034.0, ptr %47, align 16
+  store double %.sroa.7.0, ptr %49, align 8
   br label %59
 
-59:                                               ; preds = %.sink.split, %56
+59:                                               ; preds = %56, %58, %55
   call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 4, i32 noundef 1) #11
   store double %.sroa.067.0, ptr %9, align 16
   store double %.sroa.771.0, ptr %41, align 8
@@ -1434,7 +1431,10 @@ define internal { double, double } @arrow_type_box(ptr noundef %0, double %1, do
 
 47:                                               ; preds = %26
   store double %27, ptr %9, align 16
-  br label %.sink.split
+  store double %28, ptr %33, align 8
+  store double %29, ptr %43, align 16
+  store double %30, ptr %45, align 8
+  br label %51
 
 48:                                               ; preds = %26
   %49 = and i32 %7, 128
@@ -1443,18 +1443,12 @@ define internal { double, double } @arrow_type_box(ptr noundef %0, double %1, do
 
 50:                                               ; preds = %48
   store double %27, ptr %35, align 16
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %47, %50
-  %.sink65 = phi ptr [ %37, %50 ], [ %33, %47 ]
-  %.sink64 = phi ptr [ %39, %50 ], [ %43, %47 ]
-  %.sink = phi ptr [ %41, %50 ], [ %45, %47 ]
-  store double %28, ptr %.sink65, align 8
-  store double %29, ptr %.sink64, align 16
-  store double %30, ptr %.sink, align 8
+  store double %28, ptr %37, align 8
+  store double %29, ptr %39, align 16
+  store double %30, ptr %41, align 8
   br label %51
 
-51:                                               ; preds = %.sink.split, %48
+51:                                               ; preds = %48, %50, %47
   %52 = fadd double %2, %4
   %53 = fsub double %52, %.sroa.5.0
   %54 = fadd double %1, %3

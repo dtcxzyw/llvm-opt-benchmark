@@ -2178,7 +2178,8 @@ cfunc_noargs.exit.thread:                         ; preds = %for.inc.i, %if.end,
   %11 = load ptr, ptr @PyExc_RuntimeError, align 8
   %call9.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %11, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.30) #15
   %_py_float_as_integer_ratio248 = getelementptr inbounds i8, ptr %m.val, i64 224
-  br label %do.body548.thread324.sink.split
+  store ptr null, ptr %_py_float_as_integer_ratio248, align 8
+  br label %do.body548.thread324
 
 cfunc_noargs.exit:                                ; preds = %if.then5.i
   %ml_meth.i = getelementptr inbounds i8, ptr %m.03.i, i64 8
@@ -2222,7 +2223,8 @@ cfunc_noargs.exit233.thread:                      ; preds = %for.inc.i221, %do.b
   %17 = load ptr, ptr @PyExc_RuntimeError, align 8
   %call9.i225 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %17, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.31) #15
   %_py_long_bit_length251 = getelementptr inbounds i8, ptr %m.val, i64 216
-  br label %do.body548.thread324.sink.split
+  store ptr null, ptr %_py_long_bit_length251, align 8
+  br label %do.body548.thread324
 
 cfunc_noargs.exit233:                             ; preds = %if.then5.i227
   %ml_meth.i232 = getelementptr inbounds i8, ptr %m.03.i218, i64 8
@@ -2520,7 +2522,8 @@ do.body238:                                       ; preds = %do.body231
 
 dec_cond_map_init.exit.thread:                    ; preds = %do.body238
   %call1.i = tail call ptr @PyErr_NoMemory() #15
-  br label %do.body548.thread324.sink.split
+  store ptr null, ptr %signal_map253, align 8
+  br label %do.body548.thread324
 
 dec_cond_map_init.exit:                           ; preds = %do.body238
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %call.i234, ptr noundef nonnull readonly align 16 dereferenceable(320) @signal_map_template, i64 320, i1 false)
@@ -2640,7 +2643,8 @@ do.body292:                                       ; preds = %_Py_NewRef.exit
 
 dec_cond_map_init.exit242.thread:                 ; preds = %do.body292
   %call1.i241 = tail call ptr @PyErr_NoMemory() #15
-  br label %do.body548.thread324.sink.split
+  store ptr null, ptr %cond_map254, align 8
+  br label %do.body548.thread324
 
 do.end299:                                        ; preds = %do.body292
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %call.i237, ptr noundef nonnull readonly align 16 dereferenceable(192) @cond_map_template, i64 192, i1 false)
@@ -2924,12 +2928,7 @@ if.then1.i571:                                    ; preds = %if.end.i568
   tail call void @_Py_Dealloc(ptr noundef nonnull %collections.1264274.ph319) #15
   br label %do.body540
 
-do.body548.thread324.sink.split:                  ; preds = %cfunc_noargs.exit.thread, %cfunc_noargs.exit233.thread, %dec_cond_map_init.exit.thread, %dec_cond_map_init.exit242.thread
-  %cond_map254.sink = phi ptr [ %cond_map254, %dec_cond_map_init.exit242.thread ], [ %signal_map253, %dec_cond_map_init.exit.thread ], [ %_py_long_bit_length251, %cfunc_noargs.exit233.thread ], [ %_py_float_as_integer_ratio248, %cfunc_noargs.exit.thread ]
-  store ptr null, ptr %cond_map254.sink, align 8
-  br label %do.body548.thread324
-
-do.body548.thread324:                             ; preds = %do.body282, %do.body274, %sw.epilog, %do.body341, %do.body331, %if.end326, %do.body432, %do.body479, %do.body466, %do.body548.thread324.sink.split, %do.body500, %do.body493, %do.end417, %do.body409, %do.end399, %do.body391, %do.body384, %do.body377, %do.body369, %do.body361, %do.body352, %do.body231, %do.body224, %do.body217, %do.body210, %do.body203, %do.body196, %do.body121, %do.body74, %do.body48, %do.body39, %do.body30, %do.body21, %do.body12, %cfunc_noargs.exit233, %cfunc_noargs.exit, %do.body532
+do.body548.thread324:                             ; preds = %do.body282, %do.body274, %sw.epilog, %do.body341, %do.body331, %if.end326, %do.body432, %do.body479, %do.body466, %dec_cond_map_init.exit242.thread, %dec_cond_map_init.exit.thread, %cfunc_noargs.exit233.thread, %cfunc_noargs.exit.thread, %do.body500, %do.body493, %do.end417, %do.body409, %do.end399, %do.body391, %do.body384, %do.body377, %do.body369, %do.body361, %do.body352, %do.body231, %do.body224, %do.body217, %do.body210, %do.body203, %do.body196, %do.body121, %do.body74, %do.body48, %do.body39, %do.body30, %do.body21, %do.body12, %cfunc_noargs.exit233, %cfunc_noargs.exit, %do.body532
   br label %return
 
 do.body540:                                       ; preds = %if.end.i568, %if.then1.i571, %if.then537

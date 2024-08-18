@@ -53053,6 +53053,11 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$1
           cleanup
   br label %.body
 
+.body:                                            ; preds = %19, %26
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ]
+  store ptr null, ptr %11, align 8
+  br label %65
+
 "_ZN4core3ptr269drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$hir..Impl$GT$$C$hir..term_search..tactics..impl_static_method$LT$ide_db..RootDatabase$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7db34e25b89e4f65E.exit": ; preds = %3, %16, %"_ZN4core3ptr241drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$hir..Impl$GT$$C$hir..term_search..tactics..impl_static_method$LT$ide_db..RootDatabase$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h052bf7cffbc328e5E.exit.i"
   store ptr null, ptr %11, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !17879)
@@ -53093,7 +53098,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$1
           cleanup
   %40 = getelementptr inbounds i8, ptr %1, i64 128
   invoke void @"_ZN4core3ptr30drop_in_place$LT$hir..Type$GT$17h41481d0d8a7b5c57E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %40)
-          to label %.body unwind label %41
+          to label %.body19 unwind label %41
 
 41:                                               ; preds = %38
   %42 = landingpad { ptr, i32 }
@@ -53119,7 +53124,12 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$1
 45:                                               ; preds = %"_ZN4core3ptr241drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$hir..Impl$GT$$C$hir..term_search..tactics..impl_static_method$LT$ide_db..RootDatabase$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h052bf7cffbc328e5E.exit.i18"
   %46 = landingpad { ptr, i32 }
           cleanup
-  br label %.body
+  br label %.body19
+
+.body19:                                          ; preds = %38, %45
+  %eh.lpad-body20 = phi { ptr, i32 } [ %46, %45 ], [ %39, %38 ]
+  store ptr null, ptr %11, align 8
+  br label %65
 
 "_ZN4core3ptr269drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$hir..Impl$GT$$C$hir..term_search..tactics..impl_static_method$LT$ide_db..RootDatabase$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7db34e25b89e4f65E.exit22": ; preds = %"_ZN4core3ptr269drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$hir..Impl$GT$$C$hir..term_search..tactics..impl_static_method$LT$ide_db..RootDatabase$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7db34e25b89e4f65E.exit", %35, %"_ZN4core3ptr241drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$hir..Impl$GT$$C$hir..term_search..tactics..impl_static_method$LT$ide_db..RootDatabase$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h052bf7cffbc328e5E.exit.i18"
   store ptr null, ptr %11, align 8
@@ -53153,7 +53163,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$1
           cleanup
   %57 = getelementptr inbounds i8, ptr %1, i64 176
   invoke void @"_ZN4core3ptr30drop_in_place$LT$hir..Type$GT$17h41481d0d8a7b5c57E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %57)
-          to label %.body unwind label %58
+          to label %.body26 unwind label %58
 
 58:                                               ; preds = %55
   %59 = landingpad { ptr, i32 }
@@ -53179,7 +53189,12 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$1
 62:                                               ; preds = %"_ZN4core3ptr241drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$hir..Impl$GT$$C$hir..term_search..tactics..impl_static_method$LT$ide_db..RootDatabase$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h052bf7cffbc328e5E.exit.i25"
   %63 = landingpad { ptr, i32 }
           cleanup
-  br label %.body
+  br label %.body26
+
+.body26:                                          ; preds = %55, %62
+  %eh.lpad-body27 = phi { ptr, i32 } [ %63, %62 ], [ %56, %55 ]
+  store ptr null, ptr %47, align 8
+  br label %65
 
 "_ZN4core3ptr269drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$hir..Impl$GT$$C$hir..term_search..tactics..impl_static_method$LT$ide_db..RootDatabase$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7db34e25b89e4f65E.exit29": ; preds = %"_ZN4core3ptr269drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$hir..Impl$GT$$C$hir..term_search..tactics..impl_static_method$LT$ide_db..RootDatabase$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7db34e25b89e4f65E.exit22", %52, %"_ZN4core3ptr241drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$hir..Impl$GT$$C$hir..term_search..tactics..impl_static_method$LT$ide_db..RootDatabase$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h052bf7cffbc328e5E.exit.i25"
   store ptr null, ptr %47, align 8
@@ -53189,10 +53204,8 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$1
 64:                                               ; preds = %"_ZN4core3ptr269drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$hir..Impl$GT$$C$hir..term_search..tactics..impl_static_method$LT$ide_db..RootDatabase$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7db34e25b89e4f65E.exit29", %25, %61, %44
   ret void
 
-.body:                                            ; preds = %62, %55, %45, %38, %26, %19
-  %.sink = phi ptr [ %11, %19 ], [ %11, %26 ], [ %11, %38 ], [ %11, %45 ], [ %47, %55 ], [ %47, %62 ]
-  %.pn = phi { ptr, i32 } [ %20, %19 ], [ %27, %26 ], [ %39, %38 ], [ %46, %45 ], [ %56, %55 ], [ %63, %62 ]
-  store ptr null, ptr %.sink, align 8
+65:                                               ; preds = %.body26, %.body19, %.body
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body27, %.body26 ], [ %eh.lpad-body20, %.body19 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn
 }
 

@@ -5080,7 +5080,8 @@ if.end.i225:                                      ; preds = %if.then328
   %conv5.i230 = zext i32 %58 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i222, ptr align 1 %call3.i229, i64 %conv5.i230, i1 false)
   %arrayidx.i231 = getelementptr inbounds [1024 x i8], ptr %data.i222, i64 0, i64 %conv5.i230
-  br label %if.end335.sink.split
+  store i8 0, ptr %arrayidx.i231, align 1
+  br label %if.end335
 
 lpad288:                                          ; preds = %invoke.cont286
   %59 = landingpad { ptr, i32 }
@@ -5125,14 +5126,10 @@ invoke.cont331:                                   ; preds = %if.else330
 invoke.cont333:                                   ; preds = %invoke.cont331
   store i32 17, ptr %szString, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %data.i222, ptr noundef nonnull align 1 dereferenceable(17) @.str.98, i64 17, i1 false)
-  br label %if.end335.sink.split
-
-if.end335.sink.split:                             ; preds = %invoke.cont333, %if.end.i225
-  %arrayidx.i231.sink = phi ptr [ %arrayidx.i231, %if.end.i225 ], [ %arrayidx.i236, %invoke.cont333 ]
-  store i8 0, ptr %arrayidx.i231.sink, align 1
+  store i8 0, ptr %arrayidx.i236, align 1
   br label %if.end335
 
-if.end335:                                        ; preds = %if.end335.sink.split, %if.then328
+if.end335:                                        ; preds = %if.end.i225, %if.then328, %invoke.cont333
   %call337 = invoke noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %call287, ptr noundef nonnull %szString, ptr noundef nonnull @.str.31, i32 noundef 1, i32 noundef 0)
           to label %invoke.cont336 unwind label %lpad236.loopexit.split-lp.loopexit
 

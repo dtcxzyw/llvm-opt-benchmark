@@ -2084,11 +2084,17 @@ if.then59.i.i:                                    ; preds = %sw.bb56.i.i
   %chunk_length61.i.i = getelementptr inbounds i8, ptr %172, i64 40
   %187 = load i64, ptr %chunk_length61.i.i, align 8, !noalias !47
   %cmp62.i.i = icmp eq i64 %187, 0
-  %parser.chunked_state.i.i = select i1 %cmp62.i.i, ptr %parser, ptr %chunked_state.i.i
-  store i32 3, ptr %parser.chunked_state.i.i, align 8, !noalias !47
+  br i1 %cmp62.i.i, label %if.then63.i.i, label %if.else64.i.i
+
+if.then63.i.i:                                    ; preds = %if.then59.i.i
+  store i32 3, ptr %parser, align 8, !noalias !47
   br label %if.end68.i.i
 
-if.end68.i.i:                                     ; preds = %if.then59.i.i, %sw.bb56.i.i
+if.else64.i.i:                                    ; preds = %if.then59.i.i
+  store i32 3, ptr %chunked_state.i.i, align 8, !noalias !47
+  br label %if.end68.i.i
+
+if.end68.i.i:                                     ; preds = %if.else64.i.i, %if.then63.i.i, %sw.bb56.i.i
   store i64 0, ptr %agg.result, align 8, !alias.scope !51
   br label %_ZL12addbyte_bodyP16grpc_http_parserh.exit.i
 

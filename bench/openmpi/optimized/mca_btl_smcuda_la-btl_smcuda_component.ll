@@ -831,7 +831,7 @@ sm_fifo_write.exit.thread:                        ; preds = %opal_atomic_lock.ex
   %163 = load i32, ptr %162, align 8
   %164 = and i32 %161, %163
   store volatile i32 %164, ptr %152, align 8
-  br label %.loopexit.sink.split
+  br label %add_pending.exit
 
 sm_fifo_write.exit:                               ; preds = %opal_atomic_lock.exit72
   %165 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 1904), align 16
@@ -877,12 +877,17 @@ opal_thread_add_fetch_32.exit.i:                  ; preds = %sm_fifo_write.exit
   %191 = add i64 %190, 1
   store volatile i64 %191, ptr %183, align 8
   %192 = trunc i8 %181 to i1
-  br i1 %192, label %193, label %.loopexit.sink.split
+  br i1 %192, label %193, label %add_pending.exit
 
 193:                                              ; preds = %180
   %194 = getelementptr inbounds i8, ptr %167, i64 96
   %195 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %194) #14
-  br label %.loopexit.sink.split
+  br label %add_pending.exit
+
+add_pending.exit:                                 ; preds = %193, %180, %sm_fifo_write.exit.thread
+  fence release
+  store volatile i32 0, ptr %133, align 4
+  br label %.loopexit
 
 196:                                              ; preds = %88
   %197 = and i64 %90, -8
@@ -1105,7 +1110,7 @@ sm_fifo_write.exit80.thread:                      ; preds = %opal_atomic_lock.ex
   %321 = load i32, ptr %320, align 8
   %322 = and i32 %319, %321
   store volatile i32 %322, ptr %310, align 8
-  br label %.loopexit.sink.split
+  br label %add_pending.exit82
 
 sm_fifo_write.exit80:                             ; preds = %opal_atomic_lock.exit77
   %323 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 1904), align 16
@@ -1150,21 +1155,20 @@ opal_thread_add_fetch_32.exit.i81:                ; preds = %sm_fifo_write.exit8
   %348 = add i64 %347, 1
   store volatile i64 %348, ptr %340, align 8
   %349 = trunc i8 %338 to i1
-  br i1 %349, label %350, label %.loopexit.sink.split
+  br i1 %349, label %350, label %add_pending.exit82
 
 350:                                              ; preds = %337
   %351 = getelementptr inbounds i8, ptr %325, i64 96
   %352 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %351) #14
-  br label %.loopexit.sink.split
+  br label %add_pending.exit82
 
-.loopexit.sink.split:                             ; preds = %sm_fifo_write.exit80.thread, %337, %350, %sm_fifo_write.exit.thread, %180, %193
-  %.sink = phi ptr [ %133, %193 ], [ %133, %180 ], [ %133, %sm_fifo_write.exit.thread ], [ %292, %350 ], [ %292, %337 ], [ %292, %sm_fifo_write.exit80.thread ]
+add_pending.exit82:                               ; preds = %350, %337, %sm_fifo_write.exit80.thread
   fence release
-  store volatile i32 0, ptr %.sink, align 4
+  store volatile i32 0, ptr %292, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %87, %.loopexit.sink.split
-  %.2 = phi i32 [ %89, %.loopexit.sink.split ], [ %.1, %87 ]
+.loopexit:                                        ; preds = %87, %add_pending.exit, %add_pending.exit82
+  %.2 = phi i32 [ %89, %add_pending.exit82 ], [ %89, %add_pending.exit ], [ %.1, %87 ]
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %353 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 472), align 8
   %354 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 476), align 4
