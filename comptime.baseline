@@ -18585,7 +18585,7 @@ openblas/dlaqtr.c.ll 265597184
 openblas/dlar1v.c.ll 151582873
 openblas/dlarfb.c.ll 246960521
 openblas/dlarfg.c.ll 53362665
-openblas/dlarfgp.c.ll 66386092
+openblas/dlarfgp.c.ll 66452562
 openblas/dlarge.c.ll 59114349
 openblas/dlaror.c.ll 82654366
 openblas/dlarra.c.ll 52311481
@@ -36274,7 +36274,7 @@ wireshark/splash_overlay.cpp.ll 277988671
 wireshark/srt_table.c.ll 105774155
 wireshark/ssl_key_export.c.ll 83748005
 wireshark/stanag4607.c.ll 79445394
-wireshark/stat_tap_ui.c.ll 114577773
+wireshark/stat_tap_ui.c.ll 114692439
 wireshark/stats_tree.c.ll 442095447
 wireshark/stats_tree_dialog.cpp.ll 477032818
 wireshark/stock_icon.cpp.ll 1346450449
