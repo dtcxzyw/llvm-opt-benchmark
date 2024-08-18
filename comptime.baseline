@@ -2779,7 +2779,7 @@ clamav/conv.c.ll 66330831
 clamav/cpio.c.ll 176635180
 clamav/crc.cpp.ll 114317168
 clamav/crtmgr.c.ll 242229641
-clamav/crypt.cpp.ll 449892445
+clamav/crypt.cpp.ll 450342424
 clamav/crypto.c.ll 239698987
 clamav/cvd.c.ll 384347269
 clamav/dconf.c.ll 250961891
