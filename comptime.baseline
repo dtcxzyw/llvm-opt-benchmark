@@ -23267,7 +23267,7 @@ openmpi/libmpi_c_profile_la-ssend.ll 101166259
 openmpi/libmpi_c_profile_la-ssend_init.ll 88791416
 openmpi/libmpi_c_profile_la-start.ll 67831851
 openmpi/libmpi_c_profile_la-startall.ll 64851751
-openmpi/libmpi_c_profile_la-status_c2f.ll 46662892
+openmpi/libmpi_c_profile_la-status_c2f.ll 46709615
 openmpi/libmpi_c_profile_la-status_c2f08.ll 48476391
 openmpi/libmpi_c_profile_la-status_f082c.ll 49819064
 openmpi/libmpi_c_profile_la-status_f082f.ll 44181314
