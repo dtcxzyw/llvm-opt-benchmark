@@ -2209,7 +2209,7 @@ bullet3/btSoftBodyConcaveCollisionAlgorithm.ll 767637765
 bullet3/btSoftBodyHelpers.ll 3465905822
 bullet3/btSoftBodyRigidBodyCollisionConfiguration.ll 101186570
 bullet3/btSoftMultiBodyDynamicsWorld.ll 411715762
-bullet3/btSoftRigidCollisionAlgorithm.ll 69437312
+bullet3/btSoftRigidCollisionAlgorithm.ll 69506757
 bullet3/btSoftRigidDynamicsWorld.ll 392637571
 bullet3/btSoftSoftCollisionAlgorithm.ll 92348840
 bullet3/btSphereBoxCollisionAlgorithm.ll 212019566
@@ -7062,7 +7062,7 @@ faiss/VectorTransform.cpp.ll 1755137574
 faiss/WorkerThread.cpp.ll 890091710
 faiss/clone_index.cpp.ll 2326510407
 faiss/distances.cpp.ll 4142015886
-faiss/distances_simd.cpp.ll 657730076
+faiss/distances_simd.cpp.ll 658404674
 faiss/extra_distances.cpp.ll 1444307589
 faiss/hamming.cpp.ll 9163308111
 faiss/index_factory.cpp.ll 7649170768
@@ -12169,7 +12169,7 @@ libquic/x509name.c.ll 146125696
 libquic/x86_64-gcc.c.ll 251572255
 libquic/x_algor.c.ll 62040002
 libquic/x_bignum.c.ll 49070228
-libquic/x_crl.c.ll 177536801
+libquic/x_crl.c.ll 177714412
 libquic/x_long.c.ll 68494475
 libquic/x_name.c.ll 196275410
 libquic/x_pubkey.c.ll 99317973
