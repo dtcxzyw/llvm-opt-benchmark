@@ -3692,7 +3692,7 @@ cmake/index_decoder.c.ll 97603066
 cmake/index_encoder.c.ll 78283363
 cmake/index_hash.c.ll 102789146
 cmake/inet.c.ll 276408800
-cmake/inffast.c.ll 166284310
+cmake/inffast.c.ll 166450677
 cmake/inflate.c.ll 1120917895
 cmake/inftrees.c.ll 135607684
 cmake/io.cpp.ll 895902130
