@@ -2769,11 +2769,11 @@ define hidden noundef zeroext i1 @"_ZN89_$LT$chrono..format..formatting..Delayed
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hb50398bb251d6c3eE.exit": ; preds = %436, %439
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %70), !noalias !191
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %74)
   br label %443
 
 443:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hb50398bb251d6c3eE.exit61", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hb50398bb251d6c3eE.exit"
   %.0 = phi i1 [ %435, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hb50398bb251d6c3eE.exit" ], [ true, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hb50398bb251d6c3eE.exit61" ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %74)
   ret i1 %.0
 
 .loopexit:                                        ; preds = %655, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h667bab4f34d52ff8E.exit.i.i", %708, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe79c28ba77270e3E.exit.i"
@@ -4759,7 +4759,6 @@ _ZN6chrono6format10formatting12format_inner17h676de4db6b32ca9cE.exit.thread: ; p
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hb50398bb251d6c3eE.exit61": ; preds = %"_ZN4core3ptr41drop_in_place$LT$chrono..format..Item$GT$17h03df872deac1ed40E.exit59", %997
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %46), !noalias !552
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %74)
   br label %443
 
 1001:                                             ; preds = %423
@@ -5143,12 +5142,10 @@ define hidden void @_ZN6diesel5mysql10connection3raw13RawConnection23enable_mult
   %.sroa.214.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %7, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.214.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.412.0..sroa_idx.i.i, i64 24, i1 false), !noalias !623
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !621
-  store i64 %16, ptr %7, align 8, !alias.scope !624, !noalias !623
   br label %"_ZN99_$LT$diesel..mysql..connection..MysqlConnection$u20$as$u20$diesel..connection..SimpleConnection$GT$13batch_execute28_$u7b$$u7b$closure$u7d$$u7d$17h58908362693fed06E.exit"
 
 22:                                               ; preds = %18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !621
-  store i64 -9223372036854775798, ptr %7, align 8, !alias.scope !624, !noalias !623
   br label %"_ZN99_$LT$diesel..mysql..connection..MysqlConnection$u20$as$u20$diesel..connection..SimpleConnection$GT$13batch_execute28_$u7b$$u7b$closure$u7d$$u7d$17h58908362693fed06E.exit"
 
 23:                                               ; preds = %18
@@ -5156,10 +5153,11 @@ define hidden void @_ZN6diesel5mysql10connection3raw13RawConnection23enable_mult
   %.sroa.220.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %7, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.220.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.418.0..sroa_idx.i.i, i64 24, i1 false), !noalias !623
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !621
-  store i64 %19, ptr %7, align 8, !alias.scope !624, !noalias !623
   br label %"_ZN99_$LT$diesel..mysql..connection..MysqlConnection$u20$as$u20$diesel..connection..SimpleConnection$GT$13batch_execute28_$u7b$$u7b$closure$u7d$$u7d$17h58908362693fed06E.exit"
 
 "_ZN99_$LT$diesel..mysql..connection..MysqlConnection$u20$as$u20$diesel..connection..SimpleConnection$GT$13batch_execute28_$u7b$$u7b$closure$u7d$$u7d$17h58908362693fed06E.exit": ; preds = %21, %22, %23
+  %.sink = phi i64 [ %16, %21 ], [ -9223372036854775798, %22 ], [ %19, %23 ]
+  store i64 %.sink, ptr %7, align 8, !alias.scope !624, !noalias !623
   %24 = invoke noundef i32 @mysql_set_server_option(ptr noundef nonnull %9, i32 noundef 1)
           to label %31 unwind label %26
 

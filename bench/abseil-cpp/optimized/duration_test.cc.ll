@@ -85547,30 +85547,14 @@ entry:
 
 cond.true.i:                                      ; preds = %entry
   %cmp4.i = icmp eq i64 %retval.sroa.0.0.copyload.i4.i, -9223372036854775808
-  br i1 %cmp4.i, label %_ZN4abslngENS_8DurationE.exit.thread, label %_ZN4abslngENS_8DurationE.exit.thread351
-
-_ZN4abslngENS_8DurationE.exit.thread:             ; preds = %cond.true.i
-  store i64 9223372036854775807, ptr %range_past, align 8
-  %tmp.coerce3.sroa.2.0.range_past.sroa_idx333 = getelementptr inbounds i8, ptr %range_past, i64 8
-  store i32 -1, ptr %tmp.coerce3.sroa.2.0.range_past.sroa_idx333, align 8
-  store i64 9223372036854775807, ptr %ref.tmp, align 8
+  %sub.i = sub nsw i64 0, %retval.sroa.0.0.copyload.i4.i
+  %spec.select = select i1 %cmp4.i, i64 9223372036854775807, i64 %sub.i
+  %spec.select364 = sext i1 %cmp4.i to i32
   br label %if.then.i.sink.split
 
 _ZN4abslngENS_8DurationE.exit:                    ; preds = %entry
   %cond.i.i = xor i64 %retval.sroa.0.0.copyload.i4.i, -1
   %sub24.i = sub i32 -294967296, %retval.sroa.2.0.copyload.i6.i
-  store i64 %cond.i.i, ptr %range_past, align 8
-  %tmp.coerce3.sroa.2.0.range_past.sroa_idx = getelementptr inbounds i8, ptr %range_past, i64 8
-  store i32 %sub24.i, ptr %tmp.coerce3.sroa.2.0.range_past.sroa_idx, align 8
-  store i64 9223372036854775807, ptr %ref.tmp, align 8
-  br label %if.then.i.sink.split
-
-_ZN4abslngENS_8DurationE.exit.thread351:          ; preds = %cond.true.i
-  %sub.i = sub nsw i64 0, %retval.sroa.0.0.copyload.i4.i
-  store i64 %sub.i, ptr %range_past, align 8
-  %tmp.coerce3.sroa.2.0.range_past.sroa_idx355 = getelementptr inbounds i8, ptr %range_past, i64 8
-  store i32 0, ptr %tmp.coerce3.sroa.2.0.range_past.sroa_idx355, align 8
-  store i64 9223372036854775807, ptr %ref.tmp, align 8
   br label %if.then.i.sink.split
 
 _ZN4abslngENS_8DurationE.exit.thread340:          ; preds = %entry
@@ -85585,14 +85569,19 @@ _ZN4abslngENS_8DurationE.exit.thread340:          ; preds = %entry
   %cmp.not.i.i346 = icmp eq i64 %retval.sroa.0.0.copyload.i4.i, 9223372036854775807
   br i1 %cmp.not.i.i346, label %if.else.i, label %if.then.i
 
-if.then.i.sink.split:                             ; preds = %_ZN4abslngENS_8DurationE.exit.thread, %_ZN4abslngENS_8DurationE.exit.thread351, %_ZN4abslngENS_8DurationE.exit
-  %tmp.coerce3.sroa.2.0.range_past.sroa_idx338.ph = phi ptr [ %tmp.coerce3.sroa.2.0.range_past.sroa_idx355, %_ZN4abslngENS_8DurationE.exit.thread351 ], [ %tmp.coerce3.sroa.2.0.range_past.sroa_idx, %_ZN4abslngENS_8DurationE.exit ], [ %tmp.coerce3.sroa.2.0.range_past.sroa_idx333, %_ZN4abslngENS_8DurationE.exit.thread ]
+if.then.i.sink.split:                             ; preds = %cond.true.i, %_ZN4abslngENS_8DurationE.exit
+  %cond.i.i.sink = phi i64 [ %cond.i.i, %_ZN4abslngENS_8DurationE.exit ], [ %spec.select, %cond.true.i ]
+  %sub24.i.sink = phi i32 [ %sub24.i, %_ZN4abslngENS_8DurationE.exit ], [ %spec.select364, %cond.true.i ]
+  store i64 %cond.i.i.sink, ptr %range_past, align 8
+  %tmp.coerce3.sroa.2.0.range_past.sroa_idx = getelementptr inbounds i8, ptr %range_past, i64 8
+  store i32 %sub24.i.sink, ptr %tmp.coerce3.sroa.2.0.range_past.sroa_idx, align 8
+  store i64 9223372036854775807, ptr %ref.tmp, align 8
   %tmp.coerce5.sroa.2.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i32 -1, ptr %tmp.coerce5.sroa.2.0.ref.tmp.sroa_idx, align 8
   br label %if.then.i
 
 if.then.i:                                        ; preds = %if.then.i.sink.split, %_ZN4abslngENS_8DurationE.exit.thread340
-  %tmp.coerce3.sroa.2.0.range_past.sroa_idx338 = phi ptr [ %tmp.coerce3.sroa.2.0.range_past.sroa_idx344, %_ZN4abslngENS_8DurationE.exit.thread340 ], [ %tmp.coerce3.sroa.2.0.range_past.sroa_idx338.ph, %if.then.i.sink.split ]
+  %tmp.coerce3.sroa.2.0.range_past.sroa_idx338 = phi ptr [ %tmp.coerce3.sroa.2.0.range_past.sroa_idx344, %_ZN4abslngENS_8DurationE.exit.thread340 ], [ %tmp.coerce3.sroa.2.0.range_past.sroa_idx, %if.then.i.sink.split ]
   call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar)
   br label %_ZN7testing8internal11CmpHelperLTIN4absl8DurationES3_EENS_15AssertionResultEPKcS6_RKT_RKT0_.exit
 

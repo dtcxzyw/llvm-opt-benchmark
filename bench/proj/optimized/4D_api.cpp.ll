@@ -7786,7 +7786,7 @@ define internal fastcc void @"_ZZN16PJCoordOperationC1EiddddddddP8PJconstsRKNSt7
   %6 = tail call i32 @proj_get_type(ptr noundef %0)
   %7 = and i32 %6, -2
   %or.cond = icmp eq i32 %7, 12
-  br i1 %or.cond, label %8, label %28
+  br i1 %or.cond, label %8, label %29
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %0, align 8
@@ -7807,28 +7807,28 @@ define internal fastcc void @"_ZZN16PJCoordOperationC1EiddddddddP8PJconstsRKNSt7
   %17 = load ptr, ptr %0, align 8
   %18 = call i32 @proj_cs_get_axis_info(ptr noundef %17, ptr noundef %10, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef null, ptr noundef null, ptr noundef null)
   %.not12 = icmp eq i32 %18, 0
-  br i1 %.not12, label %26, label %19
+  br i1 %.not12, label %27, label %19
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr %4, align 8
   %21 = call noundef zeroext i1 @_ZN5osgeo4proj8internal8ci_equalEPKcS3_(ptr noundef %20, ptr noundef nonnull @.str.107) #33
-  br i1 %21, label %.sink.split, label %26
+  br i1 %21, label %.sink.split, label %27
 
 .sink.split:                                      ; preds = %19, %13
   %.sink1 = phi ptr [ %1, %13 ], [ %2, %19 ]
-  %.sink = load double, ptr %5, align 8
-  %22 = fadd double %.sink, 0xBF91DF46A2529D39
-  %23 = call double @llvm.fabs.f64(double %22)
-  %24 = fcmp olt double %23, 0x3D06849B86A12B9B
-  %25 = zext i1 %24 to i8
-  store i8 %25, ptr %.sink1, align 1
-  br label %26
+  %22 = load double, ptr %5, align 8
+  %23 = fadd double %22, 0xBF91DF46A2529D39
+  %24 = call double @llvm.fabs.f64(double %23)
+  %25 = fcmp olt double %24, 0x3D06849B86A12B9B
+  %26 = zext i1 %25 to i8
+  store i8 %26, ptr %.sink1, align 1
+  br label %27
 
-26:                                               ; preds = %.sink.split, %16, %19
-  %27 = call ptr @proj_destroy(ptr noundef %10)
-  br label %28
+27:                                               ; preds = %.sink.split, %16, %19
+  %28 = call ptr @proj_destroy(ptr noundef %10)
+  br label %29
 
-28:                                               ; preds = %3, %26
+29:                                               ; preds = %3, %27
   ret void
 }
 

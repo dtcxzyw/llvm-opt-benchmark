@@ -163,12 +163,12 @@ define internal ptr @H5O__cont_decode(ptr noundef %0, ptr nocapture readnone %1,
   br label %.sink.split
 
 .sink.split:                                      ; preds = %85, %56
-  %storemerge = phi ptr [ %90, %85 ], [ %71, %56 ]
-  %.sink50 = phi i64 [ 8, %85 ], [ 24, %56 ]
-  %.sink49 = phi i64 [ %88, %85 ], [ %70, %56 ]
-  %.sink47 = phi ptr [ %89, %85 ], [ %60, %56 ]
-  store ptr %storemerge, ptr %7, align 8
-  %91 = load i8, ptr %storemerge, align 1
+  %.sink52 = phi ptr [ %71, %56 ], [ %90, %85 ]
+  %.sink50 = phi i64 [ 24, %56 ], [ 8, %85 ]
+  %.sink49 = phi i64 [ %70, %56 ], [ %88, %85 ]
+  %.sink47 = phi ptr [ %60, %56 ], [ %89, %85 ]
+  store ptr %.sink52, ptr %7, align 8
+  %91 = load i8, ptr %.sink52, align 1
   %92 = zext i8 %91 to i64
   %93 = shl nuw nsw i64 %92, %.sink50
   %94 = or disjoint i64 %93, %.sink49
@@ -253,12 +253,12 @@ define internal noundef i32 @H5O__cont_encode(ptr noundef %0, i1 zeroext %1, i64
 .sink.split:                                      ; preds = %33, %9
   %.sink27 = phi ptr [ %10, %9 ], [ %34, %33 ]
   %.sink26 = phi i64 [ 24, %9 ], [ 8, %33 ]
-  %.sink = load ptr, ptr %6, align 8
-  %38 = getelementptr inbounds i8, ptr %.sink, i64 1
-  %39 = load i64, ptr %.sink27, align 8
-  %40 = lshr i64 %39, %.sink26
-  %41 = trunc i64 %40 to i8
-  store i8 %41, ptr %38, align 1
+  %38 = load ptr, ptr %6, align 8
+  %39 = getelementptr inbounds i8, ptr %38, i64 1
+  %40 = load i64, ptr %.sink27, align 8
+  %41 = lshr i64 %40, %.sink26
+  %42 = trunc i64 %41 to i8
+  store i8 %42, ptr %39, align 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %28, %.sink.split, %5

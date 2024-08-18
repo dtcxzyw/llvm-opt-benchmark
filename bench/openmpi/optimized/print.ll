@@ -1984,7 +1984,7 @@ define i32 @pmix20_bfrop_print_pinfo(ptr noundef %0, ptr noundef %1, ptr noundef
 9:                                                ; preds = %4
   %10 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str) #7
   %11 = icmp slt i32 %10, 0
-  br i1 %11, label %41, label %._crit_edge
+  br i1 %11, label %42, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   %.pre = load ptr, ptr %5, align 8
@@ -1998,7 +1998,7 @@ define i32 @pmix20_bfrop_print_pinfo(ptr noundef %0, ptr noundef %1, ptr noundef
   %14 = phi ptr [ %.pre, %._crit_edge ], [ %1, %12 ]
   %15 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.92, ptr noundef %14) #7
   %16 = icmp slt i32 %15, 0
-  br i1 %16, label %38, label %17
+  br i1 %16, label %39, label %17
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %6, align 8
@@ -2024,26 +2024,26 @@ define i32 @pmix20_bfrop_print_pinfo(ptr noundef %0, ptr noundef %1, ptr noundef
   %35 = call ptr @PMIx_Proc_state_string(i8 noundef zeroext %34) #7
   %36 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %0, ptr noundef nonnull @.str.93, ptr noundef %21, ptr noundef %22, ptr noundef %23, ptr noundef %25, ptr noundef %27, ptr noundef %23, i64 noundef %30, i32 noundef %32, ptr noundef %35) #7
   %37 = icmp slt i32 %36, 0
-  br i1 %37, label %.sink.split, label %38
+  br i1 %37, label %.sink.split, label %39
 
 .sink.split:                                      ; preds = %20, %17
   %.0.ph = phi i32 [ %19, %17 ], [ -32, %20 ]
-  %.sink = load ptr, ptr %6, align 8
-  call void @free(ptr noundef %.sink) #7
-  br label %38
+  %38 = load ptr, ptr %6, align 8
+  call void @free(ptr noundef %38) #7
+  br label %39
 
-38:                                               ; preds = %.sink.split, %13, %20
+39:                                               ; preds = %.sink.split, %13, %20
   %.0 = phi i32 [ 0, %20 ], [ -32, %13 ], [ %.0.ph, %.sink.split ]
-  %39 = load ptr, ptr %5, align 8
-  %.not15 = icmp eq ptr %39, %1
-  br i1 %.not15, label %41, label %40
+  %40 = load ptr, ptr %5, align 8
+  %.not15 = icmp eq ptr %40, %1
+  br i1 %.not15, label %42, label %41
 
-40:                                               ; preds = %38
-  call void @free(ptr noundef %39) #7
-  br label %41
+41:                                               ; preds = %39
+  call void @free(ptr noundef %40) #7
+  br label %42
 
-41:                                               ; preds = %38, %40, %9
-  %.011 = phi i32 [ -32, %9 ], [ %.0, %40 ], [ %.0, %38 ]
+42:                                               ; preds = %39, %41, %9
+  %.011 = phi i32 [ -32, %9 ], [ %.0, %41 ], [ %.0, %39 ]
   ret i32 %.011
 }
 

@@ -9178,11 +9178,7 @@ if.else354:                                       ; preds = %if.then346
 if.end362:                                        ; preds = %if.else354
   %134 = load i64, ptr %count, align 8
   %cmp363 = icmp slt i64 %134, 0
-  br i1 %cmp363, label %if.end367.thread, label %if.end367
-
-if.end367.thread:                                 ; preds = %if.end362
-  store i64 0, ptr %count, align 8
-  br label %if.end373
+  br i1 %cmp363, label %if.end373.sink.split, label %if.end367
 
 if.end367:                                        ; preds = %if.end362, %if.then342
   %135 = phi i64 [ %134, %if.end362 ], [ 10, %if.then342 ]
@@ -9190,14 +9186,15 @@ if.end367:                                        ; preds = %if.end362, %if.then
   %len368 = getelementptr inbounds i8, ptr %136, i64 40
   %137 = load i64, ptr %len368, align 8
   %cmp369 = icmp ugt i64 %135, %137
-  br i1 %cmp369, label %if.then371, label %if.end373
+  br i1 %cmp369, label %if.end373.sink.split, label %if.end373
 
-if.then371:                                       ; preds = %if.end367
-  store i64 %137, ptr %count, align 8
+if.end373.sink.split:                             ; preds = %if.end367, %if.end362
+  %.sink = phi i64 [ 0, %if.end362 ], [ %137, %if.end367 ]
+  store i64 %.sink, ptr %count, align 8
   br label %if.end373
 
-if.end373:                                        ; preds = %if.end367.thread, %if.then371, %if.end367
-  %138 = phi i64 [ %137, %if.then371 ], [ %135, %if.end367 ], [ 0, %if.end367.thread ]
+if.end373:                                        ; preds = %if.end373.sink.split, %if.end367
+  %138 = phi i64 [ %135, %if.end367 ], [ %.sink, %if.end373.sink.split ]
   call void @addReplyArrayLen(ptr noundef nonnull %c, i64 noundef %138) #24
   %139 = load ptr, ptr @ACLLog, align 8
   call void @listRewind(ptr noundef %139, ptr noundef nonnull %li374) #24

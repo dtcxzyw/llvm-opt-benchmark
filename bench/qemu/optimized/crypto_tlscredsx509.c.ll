@@ -693,12 +693,12 @@ land.lhs.true31.i:                                ; preds = %for.end.i
 if.then.i65.i:                                    ; preds = %land.lhs.true31.i
   %cond.i66.i = select i1 %cmp39, ptr @.str.62, ptr @.str.63
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.17, i32 noundef 339, ptr noundef nonnull @__func__.qcrypto_tls_creds_check_cert_pair, ptr noundef nonnull %cond.i66.i, ptr noundef %11, ptr noundef %10) #9
-  br label %qcrypto_tls_creds_check_cert_pair.exit.thread.i
+  br label %if.then39.sink.split.i
 
 if.end.i62.i:                                     ; preds = %land.lhs.true31.i
   %36 = load i32, ptr %status.i.i, align 4
   %cmp3.not.i.i = icmp eq i32 %36, 0
-  br i1 %cmp3.not.i.i, label %qcrypto_tls_creds_check_cert_pair.exit.i, label %if.then5.i63.i
+  br i1 %cmp3.not.i.i, label %if.then39.sink.split.i, label %if.then5.i63.i
 
 if.then5.i63.i:                                   ; preds = %if.end.i62.i
   %and.i.i = and i32 %36, 2
@@ -714,17 +714,7 @@ if.then5.i63.i:                                   ; preds = %if.end.i62.i
   %tobool18.not.i.i = icmp eq i32 %and17.i.i, 0
   %spec.store.select3.i.i = select i1 %tobool18.not.i.i, ptr %spec.store.select2.i.i, ptr @.str.68
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.17, i32 noundef 364, ptr noundef nonnull @__func__.qcrypto_tls_creds_check_cert_pair, ptr noundef nonnull @.str.69, ptr noundef %11, ptr noundef %10, ptr noundef nonnull %spec.store.select3.i.i) #9
-  br label %qcrypto_tls_creds_check_cert_pair.exit.thread.i
-
-qcrypto_tls_creds_check_cert_pair.exit.thread.i:  ; preds = %if.then5.i63.i, %if.then.i65.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %cert.addr.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i.i)
-  br label %if.then39.i
-
-qcrypto_tls_creds_check_cert_pair.exit.i:         ; preds = %if.end.i62.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %cert.addr.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i.i)
-  br label %if.then39.i
+  br label %if.then39.sink.split.i
 
 cleanup.i:                                        ; preds = %for.body.i, %if.end21.i, %qcrypto_tls_creds_load_ca_cert_list.exit.thread.i
   %ncacerts.0.i = phi i64 [ 0, %qcrypto_tls_creds_load_ca_cert_list.exit.thread.i ], [ 0, %if.end21.i ], [ %ncacerts.1.i, %for.body.i ]
@@ -732,9 +722,15 @@ cleanup.i:                                        ; preds = %for.body.i, %if.end
   %tobool38.not.i = icmp eq ptr %cert.0.i, null
   br i1 %tobool38.not.i, label %if.end40.i, label %if.then39.i
 
-if.then39.i:                                      ; preds = %cleanup.i, %qcrypto_tls_creds_check_cert_pair.exit.i, %qcrypto_tls_creds_check_cert_pair.exit.thread.i, %land.lhs.true16.i
-  %ret.083.i = phi i32 [ %ret.0.i, %cleanup.i ], [ 0, %qcrypto_tls_creds_check_cert_pair.exit.i ], [ -1, %qcrypto_tls_creds_check_cert_pair.exit.thread.i ], [ -1, %land.lhs.true16.i ]
-  %ncacerts.080.i = phi i64 [ %ncacerts.0.i, %cleanup.i ], [ %ncacerts.1.i, %qcrypto_tls_creds_check_cert_pair.exit.i ], [ %ncacerts.1.i, %qcrypto_tls_creds_check_cert_pair.exit.thread.i ], [ %ncacerts.1.i, %land.lhs.true16.i ]
+if.then39.sink.split.i:                           ; preds = %if.then5.i63.i, %if.end.i62.i, %if.then.i65.i
+  %ret.083.ph.i = phi i32 [ -1, %if.then.i65.i ], [ -1, %if.then5.i63.i ], [ 0, %if.end.i62.i ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %cert.addr.i.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i.i)
+  br label %if.then39.i
+
+if.then39.i:                                      ; preds = %if.then39.sink.split.i, %cleanup.i, %land.lhs.true16.i
+  %ret.083.i = phi i32 [ %ret.0.i, %cleanup.i ], [ -1, %land.lhs.true16.i ], [ %ret.083.ph.i, %if.then39.sink.split.i ]
+  %ncacerts.080.i = phi i64 [ %ncacerts.0.i, %cleanup.i ], [ %ncacerts.1.i, %land.lhs.true16.i ], [ %ncacerts.1.i, %if.then39.sink.split.i ]
   call void @gnutls_x509_crt_deinit(ptr noundef nonnull %cert.0.i) #9
   br label %if.end40.i
 

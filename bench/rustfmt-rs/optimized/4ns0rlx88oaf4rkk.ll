@@ -65301,7 +65301,7 @@ define void @"_ZN97_$LT$rustfmt_nightly..emitter..diff..DiffEmitter$u20$as$u20$r
   %34 = getelementptr inbounds i8, ptr %3, i64 72
   %35 = load ptr, ptr %34, align 8, !invariant.load !5, !nonnull !5
   %36 = invoke noundef ptr %35(ptr noundef nonnull align 1 %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7)
-          to label %37 unwind label %120
+          to label %37 unwind label %119
 
 37:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit.thread"
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
@@ -65401,11 +65401,6 @@ define void @"_ZN97_$LT$rustfmt_nightly..emitter..diff..DiffEmitter$u20$as$u20$r
   call void @__rust_dealloc(ptr noundef nonnull %68, i64 noundef %72, i64 noundef 8) #43, !noalias !28274
   br label %"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$rustfmt_nightly..rustfmt_diff..Mismatch$GT$$GT$17h48d1dca3f534be50E.exit"
 
-"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$rustfmt_nightly..rustfmt_diff..Mismatch$GT$$GT$17h48d1dca3f534be50E.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h029e5c5c96553ff1E.llvm.17249484671449717553.exit.i", %71
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  br label %119
-
 73:                                               ; preds = %5
   %74 = getelementptr inbounds i8, ptr %1, i64 842
   store i8 1, ptr %74, align 2
@@ -65422,7 +65417,7 @@ define void @"_ZN97_$LT$rustfmt_nightly..emitter..diff..DiffEmitter$u20$as$u20$r
   %79 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 1, ptr %79, align 1
   store i8 0, ptr %0, align 8
-  br label %"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$rustfmt_nightly..rustfmt_diff..Mismatch$GT$$GT$17h48d1dca3f534be50E.exit43"
+  br label %"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$rustfmt_nightly..rustfmt_diff..Mismatch$GT$$GT$17h48d1dca3f534be50E.exit"
 
 80:                                               ; preds = %73
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
@@ -65442,18 +65437,13 @@ define void @"_ZN97_$LT$rustfmt_nightly..emitter..diff..DiffEmitter$u20$as$u20$r
   %86 = getelementptr inbounds i8, ptr %3, i64 72
   %87 = load ptr, ptr %86, align 8, !invariant.load !5, !nonnull !5
   %88 = invoke noundef ptr %87(ptr noundef nonnull align 1 %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %10)
-          to label %89 unwind label %120
+          to label %89 unwind label %119
 
 89:                                               ; preds = %80
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
   %90 = icmp eq ptr %88, null
   %91 = getelementptr inbounds i8, ptr %11, i64 8
   br i1 %90, label %.critedge, label %45
-
-"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$rustfmt_nightly..rustfmt_diff..Mismatch$GT$$GT$17h48d1dca3f534be50E.exit43": ; preds = %117, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h029e5c5c96553ff1E.llvm.17249484671449717553.exit.i42", %78
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  br label %119
 
 .critedge:                                        ; preds = %89
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
@@ -65522,17 +65512,19 @@ define void @"_ZN97_$LT$rustfmt_nightly..emitter..diff..DiffEmitter$u20$as$u20$r
   call void @llvm.experimental.noalias.scope.decl(metadata !28324)
   %115 = load i64, ptr %11, align 8, !alias.scope !28327, !noalias !28330, !noundef !5
   %116 = icmp eq i64 %115, 0
-  br i1 %116, label %"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$rustfmt_nightly..rustfmt_diff..Mismatch$GT$$GT$17h48d1dca3f534be50E.exit43", label %117
+  br i1 %116, label %"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$rustfmt_nightly..rustfmt_diff..Mismatch$GT$$GT$17h48d1dca3f534be50E.exit", label %117
 
 117:                                              ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h029e5c5c96553ff1E.llvm.17249484671449717553.exit.i42"
   %118 = shl nuw i64 %115, 5
   call void @__rust_dealloc(ptr noundef nonnull %114, i64 noundef %118, i64 noundef 8) #43, !noalias !28332
-  br label %"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$rustfmt_nightly..rustfmt_diff..Mismatch$GT$$GT$17h48d1dca3f534be50E.exit43"
+  br label %"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$rustfmt_nightly..rustfmt_diff..Mismatch$GT$$GT$17h48d1dca3f534be50E.exit"
 
-119:                                              ; preds = %"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$rustfmt_nightly..rustfmt_diff..Mismatch$GT$$GT$17h48d1dca3f534be50E.exit43", %"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$rustfmt_nightly..rustfmt_diff..Mismatch$GT$$GT$17h48d1dca3f534be50E.exit"
+"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$rustfmt_nightly..rustfmt_diff..Mismatch$GT$$GT$17h48d1dca3f534be50E.exit": ; preds = %78, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h029e5c5c96553ff1E.llvm.17249484671449717553.exit.i42", %117, %71, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h029e5c5c96553ff1E.llvm.17249484671449717553.exit.i"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   ret void
 
-120:                                              ; preds = %80, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit.thread"
+119:                                              ; preds = %80, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit.thread"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   call void @"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$rustfmt_nightly..rustfmt_diff..Mismatch$GT$$GT$17h48d1dca3f534be50E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #45
@@ -65688,7 +65680,6 @@ define void @"_ZN116_$LT$rustfmt_nightly..emitter..modified_lines..ModifiedLines
   %65 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 %64, ptr %65, align 1
   store i8 0, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   br label %96
 
 66:                                               ; preds = %33
@@ -65774,10 +65765,10 @@ define void @"_ZN116_$LT$rustfmt_nightly..emitter..modified_lines..ModifiedLines
 "_ZN4core3ptr65drop_in_place$LT$rustfmt_nightly..rustfmt_diff..ModifiedLines$GT$17h21f8a668dcb2d6a2E.exit17": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h78e4176c7255c115E.llvm.17249484671449717553.exit.i.i16", %94
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   br label %96
 
 96:                                               ; preds = %"_ZN4core3ptr65drop_in_place$LT$rustfmt_nightly..rustfmt_diff..ModifiedLines$GT$17h21f8a668dcb2d6a2E.exit17", %"_ZN4core3ptr65drop_in_place$LT$rustfmt_nightly..rustfmt_diff..ModifiedLines$GT$17h21f8a668dcb2d6a2E.exit"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   ret void
 }
 
@@ -65913,8 +65904,6 @@ define hidden void @_ZN15rustfmt_nightly11ignore_path13IgnorePathSet16from_ignor
   %.sroa.09.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.09.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.09.sroa.6, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.09.sroa.6)
-  call fastcc void @"_ZN4core3ptr56drop_in_place$LT$ignore..gitignore..GitignoreBuilder$GT$17h7cff15a8682bd333E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %8)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8)
   br label %49
 
 47:                                               ; preds = %42
@@ -65923,11 +65912,11 @@ define hidden void @_ZN15rustfmt_nightly11ignore_path13IgnorePathSet16from_ignor
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %48, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.712, i64 56, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.09.sroa.6)
-  call fastcc void @"_ZN4core3ptr56drop_in_place$LT$ignore..gitignore..GitignoreBuilder$GT$17h7cff15a8682bd333E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %8)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8)
   br label %49
 
 49:                                               ; preds = %63, %47, %46
+  call fastcc void @"_ZN4core3ptr56drop_in_place$LT$ignore..gitignore..GitignoreBuilder$GT$17h7cff15a8682bd333E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %8)
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8)
   ret void
 
 50:                                               ; preds = %56
@@ -65980,8 +65969,6 @@ define hidden void @_ZN15rustfmt_nightly11ignore_path13IgnorePathSet16from_ignor
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.329.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.329, i64 40, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
-  call fastcc void @"_ZN4core3ptr56drop_in_place$LT$ignore..gitignore..GitignoreBuilder$GT$17h7cff15a8682bd333E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %8)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8)
   br label %49
 
 .loopexit51:                                      ; preds = %37

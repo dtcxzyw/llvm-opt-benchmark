@@ -3673,25 +3673,10 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   store i32 1447904331, ptr %magic, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(75) %header, i8 0, i64 69, i1 false)
-  br i1 %compress, label %if.then5, label %if.else
-
-if.then5:                                         ; preds = %if.end
-  store i32 3, ptr %header, align 4
-  br label %if.end12
-
-if.else:                                          ; preds = %if.end
-  br i1 %zeroed_grain, label %if.then7, label %if.else9
-
-if.then7:                                         ; preds = %if.else
-  store i32 2, ptr %header, align 4
-  br label %if.end12
-
-if.else9:                                         ; preds = %if.else
-  store i32 1, ptr %header, align 4
-  br label %if.end12
-
-if.end12:                                         ; preds = %if.then7, %if.else9, %if.then5
-  %cond = phi i32 [ 3, %if.then7 ], [ 3, %if.else9 ], [ 196611, %if.then5 ]
+  %. = select i1 %zeroed_grain, i32 2, i32 1
+  %.sink = select i1 %compress, i32 3, i32 %.
+  %cond = select i1 %compress, i32 196611, i32 3
+  store i32 %.sink, ptr %header, align 4
   %cond15 = select i1 %zeroed_grain, i32 4, i32 0
   %or16 = or disjoint i32 %cond, %cond15
   %flags = getelementptr inbounds i8, ptr %header, i64 4
@@ -3742,11 +3727,11 @@ if.end12:                                         ; preds = %if.then7, %if.else9
   %cmp = icmp slt i32 %call100, 0
   br i1 %cmp, label %if.then102, label %if.end103
 
-if.then102:                                       ; preds = %if.end12
+if.then102:                                       ; preds = %if.end
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.24, i32 noundef 2280, ptr noundef nonnull @__func__.vmdk_init_extent, ptr noundef nonnull @.str.105) #15
   br label %exit
 
-if.end103:                                        ; preds = %if.end12
+if.end103:                                        ; preds = %if.end
   %call104 = call i32 @blk_co_pwrite(ptr noundef %blk, i64 noundef 4, i64 noundef 75, ptr noundef nonnull %header, i32 noundef 0) #15
   %cmp105 = icmp slt i32 %call104, 0
   br i1 %cmp105, label %if.then107, label %if.end108

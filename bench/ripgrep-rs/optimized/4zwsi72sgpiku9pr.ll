@@ -64,7 +64,7 @@ define hidden void @_ZN7memmap211MmapOptions3map17h6eebbf1552d8e396E(ptr noalias
   %11 = load ptr, ptr %10, align 8, !noalias !15
   %.cast.i.i = ptrtoint ptr %11 to i64
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !15
-  br i1 %trunc.i.i, label %36, label %12
+  br i1 %trunc.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h98e7f1d05645f318E.llvm.14751623873358387643.exit", label %12
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds i8, ptr %1, i64 16
@@ -78,7 +78,7 @@ define hidden void @_ZN7memmap211MmapOptions3map17h6eebbf1552d8e396E(ptr noalias
 
 18:                                               ; preds = %12
   %19 = tail call noundef nonnull ptr @_ZN3std2io5error5Error3new17h48ba9fc2f45157cbE(i8 noundef 21, ptr noalias noundef nonnull readonly align 1 @anon.a0d8be9e5c9aad43dbfc8588da29692d.0, i64 noundef 39), !noalias !15
-  br label %36
+  br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h98e7f1d05645f318E.llvm.14751623873358387643.exit"
 
 20:                                               ; preds = %3
   %21 = getelementptr inbounds i8, ptr %1, i64 8
@@ -109,23 +109,13 @@ define hidden void @_ZN7memmap211MmapOptions3map17h6eebbf1552d8e396E(ptr noalias
   store i64 %33, ptr %34, align 8, !alias.scope !21, !noalias !24
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h98e7f1d05645f318E.llvm.14751623873358387643.exit"
 
-"_ZN4core6result19Result$LT$T$C$E$GT$3map17h98e7f1d05645f318E.llvm.14751623873358387643.exit": ; preds = %23, %31
-  %storemerge.i = phi i64 [ 0, %31 ], [ 1, %23 ]
+"_ZN4core6result19Result$LT$T$C$E$GT$3map17h98e7f1d05645f318E.llvm.14751623873358387643.exit": ; preds = %18, %8, %31, %23
+  %.sink = phi ptr [ %30, %23 ], [ %30, %31 ], [ %19, %18 ], [ %11, %8 ]
+  %storemerge.i.sink = phi i64 [ 1, %23 ], [ 0, %31 ], [ 1, %18 ], [ 1, %8 ]
   %35 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %30, ptr %35, align 8, !alias.scope !21, !noalias !24
-  store i64 %storemerge.i, ptr %0, align 8, !alias.scope !21, !noalias !24
+  store ptr %.sink, ptr %35, align 8
+  store i64 %storemerge.i.sink, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  br label %38
-
-36:                                               ; preds = %8, %18
-  %.sroa.5.1 = phi ptr [ %19, %18 ], [ %11, %8 ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.5.1, ptr %37, align 8
-  store i64 1, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  br label %38
-
-38:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h98e7f1d05645f318E.llvm.14751623873358387643.exit", %36
   ret void
 }
 

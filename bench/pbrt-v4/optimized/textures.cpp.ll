@@ -5794,46 +5794,22 @@ invoke.cont38:                                    ; preds = %invoke.cont36
   call void @llvm.experimental.noalias.scope.decl(metadata !88)
   %call.i74 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call43, ptr noundef nonnull dereferenceable(6) @.str.122) #26, !noalias !88
   %tobool.not.i = icmp eq i32 %call.i74, 0
-  br i1 %tobool.not.i, label %if.then.i78, label %if.else.i75
-
-if.then.i78:                                      ; preds = %invoke.cont38
-  %set.i.i79 = getelementptr inbounds i8, ptr %wrapMode, i64 4
-  store i8 1, ptr %set.i.i79, align 4, !alias.scope !88
-  store i32 1, ptr %wrapMode, align 8, !alias.scope !88
-  br label %if.end51
+  br i1 %tobool.not.i, label %if.end51, label %if.else.i75
 
 if.else.i75:                                      ; preds = %invoke.cont38
   %call1.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call43, ptr noundef nonnull dereferenceable(7) @.str.57) #26, !noalias !88
   %tobool2.not.i = icmp eq i32 %call1.i, 0
-  br i1 %tobool2.not.i, label %if.then3.i77, label %if.else5.i76
-
-if.then3.i77:                                     ; preds = %if.else.i75
-  %set.i4.i = getelementptr inbounds i8, ptr %wrapMode, i64 4
-  store i8 1, ptr %set.i4.i, align 4, !alias.scope !88
-  store i32 2, ptr %wrapMode, align 8, !alias.scope !88
-  br label %if.end51
+  br i1 %tobool2.not.i, label %if.end51, label %if.else5.i76
 
 if.else5.i76:                                     ; preds = %if.else.i75
   %call6.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call43, ptr noundef nonnull dereferenceable(6) @.str.123) #26, !noalias !88
   %tobool7.not.i = icmp eq i32 %call6.i, 0
-  br i1 %tobool7.not.i, label %if.then8.i, label %if.else10.i
-
-if.then8.i:                                       ; preds = %if.else5.i76
-  %set.i5.i = getelementptr inbounds i8, ptr %wrapMode, i64 4
-  store i8 1, ptr %set.i5.i, align 4, !alias.scope !88
-  store i32 0, ptr %wrapMode, align 8, !alias.scope !88
-  br label %if.end51
+  br i1 %tobool7.not.i, label %if.end51, label %if.else10.i
 
 if.else10.i:                                      ; preds = %if.else5.i76
   %call11.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call43, ptr noundef nonnull dereferenceable(17) @.str.124) #26, !noalias !88
   %tobool12.not.i = icmp eq i32 %call11.i, 0
-  br i1 %tobool12.not.i, label %if.then13.i, label %if.then49
-
-if.then13.i:                                      ; preds = %if.else10.i
-  %set.i6.i = getelementptr inbounds i8, ptr %wrapMode, i64 4
-  store i8 1, ptr %set.i6.i, align 4, !alias.scope !88
-  store i32 3, ptr %wrapMode, align 8, !alias.scope !88
-  br label %if.end51
+  br i1 %tobool12.not.i, label %if.end51, label %if.then49
 
 if.then49:                                        ; preds = %if.else10.i
   store i64 0, ptr %wrapMode, align 8, !alias.scope !88
@@ -5872,7 +5848,11 @@ ehcleanup125.thread212:                           ; preds = %if.then49
           cleanup
   br label %ehcleanup126
 
-if.end51:                                         ; preds = %if.then13.i, %if.then8.i, %if.then3.i77, %if.then.i78
+if.end51:                                         ; preds = %if.else10.i, %if.else5.i76, %if.else.i75, %invoke.cont38
+  %.sink = phi i32 [ 1, %invoke.cont38 ], [ 2, %if.else.i75 ], [ 0, %if.else5.i76 ], [ 3, %if.else10.i ]
+  %set.i6.i = getelementptr inbounds i8, ptr %wrapMode, i64 4
+  store i8 1, ptr %set.i6.i, align 4, !alias.scope !88
+  store i32 %.sink, ptr %wrapMode, align 8, !alias.scope !88
   %set.i80195 = getelementptr inbounds i8, ptr %wrapMode, i64 4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp53) #23
   %call.i8286 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp52)

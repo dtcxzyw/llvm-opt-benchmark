@@ -977,7 +977,6 @@ define void @_ZN16mini_lsm_starter5table10FileObject4read17h31179e23291ff7acE(pt
 
 23:                                               ; preds = %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %26
 
 24:                                               ; preds = %21
@@ -985,6 +984,7 @@ define void @_ZN16mini_lsm_starter5table10FileObject4read17h31179e23291ff7acE(pt
           to label %"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hecb5a825535d065dE.exit" unwind label %16
 
 26:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hed346fe2fe0aa26aE.exit", %23
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   ret void
 
 "_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hecb5a825535d065dE.exit": ; preds = %24
@@ -1007,7 +1007,6 @@ define void @_ZN16mini_lsm_starter5table10FileObject4read17h31179e23291ff7acE(pt
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hed346fe2fe0aa26aE.exit": ; preds = %"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hecb5a825535d065dE.exit", %30
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !95
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %26
 
 34:                                               ; preds = %16
@@ -1266,14 +1265,14 @@ define void @_ZN16mini_lsm_starter5table10FileObject4open17h9c8721e136a50174E(pt
   store ptr %15, ptr %16, align 8
   store i64 1, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br label %35
+  br label %31
 
 17:                                               ; preds = %29, %13
   %18 = landingpad { ptr, i32 }
           cleanup
   %19 = load i32, ptr %7, align 4, !alias.scope !154, !noundef !4
   %20 = invoke noundef i32 @close(i32 noundef %19)
-          to label %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17hb3b0204370fbdd58E.exit" unwind label %36
+          to label %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17hb3b0204370fbdd58E.exit" unwind label %35
 
 21:                                               ; preds = %13
   %22 = load i64, ptr %4, align 8, !range !165, !noundef !4
@@ -1291,14 +1290,14 @@ define void @_ZN16mini_lsm_starter5table10FileObject4open17h9c8721e136a50174E(pt
   %28 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %12, ptr %28, align 8
   store i64 0, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   br label %31
 
 29:                                               ; preds = %21
   %30 = invoke noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$9construct17h7ec50fe22634bed8E.llvm.11765080855088437741"(ptr noundef nonnull %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) @anon.dc11edbcffc71d2885bfbd8bf2d0ded7.24.llvm.11765080855088437741)
           to label %"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hecb5a825535d065dE.exit" unwind label %17
 
-31:                                               ; preds = %35, %26
+31:                                               ; preds = %14, %"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hecb5a825535d065dE.exit", %26
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   ret void
 
 "_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hecb5a825535d065dE.exit": ; preds = %29
@@ -1312,14 +1311,10 @@ define void @_ZN16mini_lsm_starter5table10FileObject4open17h9c8721e136a50174E(pt
   call void @llvm.experimental.noalias.scope.decl(metadata !178)
   %33 = load i32, ptr %7, align 4, !alias.scope !181, !noundef !4
   %34 = call noundef i32 @close(i32 noundef %33), !noalias !181
-  br label %35
-
-35:                                               ; preds = %"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hecb5a825535d065dE.exit", %14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   br label %31
 
-36:                                               ; preds = %17
-  %37 = landingpad { ptr, i32 }
+35:                                               ; preds = %17
+  %36 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #22
   unreachable

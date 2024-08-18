@@ -234,23 +234,20 @@ if.end8:                                          ; preds = %do.end.if.end8_crit
   %3 = phi i32 [ %.pre, %do.end.if.end8_crit_edge ], [ %2, %if.then6 ]
   %4 = add i32 %3, -3
   %5 = icmp ult i32 %4, -2
-  br i1 %5, label %if.then12, label %if.else
-
-if.then12:                                        ; preds = %if.end8
-  store i32 0, ptr %param, align 4
-  br label %if.end18
+  br i1 %5, label %if.end18.sink.split, label %if.else
 
 if.else:                                          ; preds = %if.end8
   %_thread_priority = getelementptr inbounds i8, ptr %this, i64 48
   %6 = load i32, ptr %_thread_priority, align 8
   %cmp13.not = icmp eq i32 %6, -1
-  br i1 %cmp13.not, label %if.end18, label %if.then14
+  br i1 %cmp13.not, label %if.end18, label %if.end18.sink.split
 
-if.then14:                                        ; preds = %if.else
-  store i32 %6, ptr %param, align 4
+if.end18.sink.split:                              ; preds = %if.else, %if.end8
+  %.sink = phi i32 [ 0, %if.end8 ], [ %6, %if.else ]
+  store i32 %.sink, ptr %param, align 4
   br label %if.end18
 
-if.end18:                                         ; preds = %if.else, %if.then14, %if.then12
+if.end18:                                         ; preds = %if.end18.sink.split, %if.else
   %call20 = call i32 @pthread_setschedparam(i64 noundef %call, i32 noundef %3, ptr noundef nonnull %param) #14
   %tobool23.not = icmp eq i32 %call20, 0
   br i1 %tobool23.not, label %do.end30, label %if.then24

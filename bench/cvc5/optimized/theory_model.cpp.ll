@@ -15156,7 +15156,7 @@ if.end:                                           ; preds = %lor.lhs.false.i.i.i
           to label %call.i.noexc59 unwind label %lpad16
 
 call.i.noexc59:                                   ; preds = %if.end
-  br i1 %call.i60, label %if.then19, label %if.end.i
+  br i1 %call.i60, label %if.end86.sink.split, label %if.end.i
 
 if.end.i:                                         ; preds = %call.i.noexc59
   %45 = load ptr, ptr %agg.tmp, align 8
@@ -15164,14 +15164,10 @@ if.end.i:                                         ; preds = %call.i.noexc59
   %bf.load.i.i = load i16, ptr %d_kind.i.i, align 8
   %bf.clear.i.i = and i16 %bf.load.i.i, 1023
   switch i16 %bf.clear.i.i, label %if.else [
-    i16 69, label %if.then19
-    i16 26, label %if.then19
-    i16 11, label %if.then19
+    i16 69, label %if.end86.sink.split
+    i16 26, label %if.end86.sink.split
+    i16 11, label %if.end86.sink.split
   ]
-
-if.then19:                                        ; preds = %call.i.noexc59, %if.end.i, %if.end.i, %if.end.i
-  store i8 1, ptr %currentReturn, align 1
-  br label %if.end86
 
 lpad16:                                           ; preds = %if.end
   %46 = landingpad { ptr, i32 }
@@ -15205,8 +15201,7 @@ if.then23:                                        ; preds = %invoke.cont20
   %bf.clear.i = and i16 %bf.load.i, 1023
   %cmp26 = icmp eq i16 %bf.clear.i, 79
   %frombool27 = zext i1 %cmp26 to i8
-  store i8 %frombool27, ptr %currentReturn, align 1
-  br label %if.end86
+  br label %if.end86.sink.split
 
 if.else28:                                        ; preds = %invoke.cont20
   store ptr %48, ptr %agg.tmp30, align 8
@@ -15243,15 +15238,11 @@ terminate.lpad.i:                                 ; preds = %if.then13.i.i
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %invoke.cont33, %if.then.i.i68, %if.then13.i.i
-  br i1 %cmp.i.not, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit.if.then46_crit_edge, label %if.then37
+  br i1 %cmp.i.not, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit.if.then46_crit_edge, label %if.end86.sink.split
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit.if.then46_crit_edge: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
   %.pre = load ptr, ptr %cur, align 8
   br label %if.then46
-
-if.then37:                                        ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
-  store i8 0, ptr %currentReturn, align 1
-  br label %if.end86
 
 lpad32:                                           ; preds = %if.else28
   %54 = landingpad { ptr, i32 }
@@ -15290,11 +15281,7 @@ invoke.cont57:                                    ; preds = %if.then46
   %cond.i.i84 = add nsw i32 %bf.clear.i.i82, %sub.i.i83
   %conv.i85 = zext i32 %cond.i.i84 to i64
   %cmp59 = icmp eq i64 %spec.select10, %conv.i85
-  br i1 %cmp59, label %if.then60, label %if.else61
-
-if.then60:                                        ; preds = %invoke.cont57
-  store i8 1, ptr %currentReturn, align 1
-  br label %if.end86
+  br i1 %cmp59, label %if.end86.sink.split, label %if.else61
 
 if.else61:                                        ; preds = %invoke.cont57
   %58 = load i64, ptr %second.i12, align 8
@@ -15535,7 +15522,12 @@ lpad80.loopexit.split-lp:                         ; preds = %if.then.i.i260
           cleanup
   br label %ehcleanup95
 
-if.end86:                                         ; preds = %if.then19, %if.then23, %if.then37, %if.then60, %if.else41
+if.end86.sink.split:                              ; preds = %invoke.cont57, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %if.end.i, %if.end.i, %if.end.i, %call.i.noexc59, %if.then23
+  %.sink = phi i8 [ %frombool27, %if.then23 ], [ 1, %call.i.noexc59 ], [ 1, %if.end.i ], [ 1, %if.end.i ], [ 1, %if.end.i ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ 1, %invoke.cont57 ]
+  store i8 %.sink, ptr %currentReturn, align 1
+  br label %if.end86
+
+if.end86:                                         ; preds = %if.end86.sink.split, %if.else41
   %call.i137 = invoke noundef ptr @_ZN4cvc58internal11NodeManager9currentNMEv()
           to label %call.i.noexc136 unwind label %lpad9
 

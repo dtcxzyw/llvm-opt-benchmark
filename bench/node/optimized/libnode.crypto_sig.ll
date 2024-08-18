@@ -2619,11 +2619,7 @@ _ZN4node26NoArrayBufferZeroFillScopeD2Ev.exit.i31: ; preds = %if.then.i9.i, %_ZN
   store ptr %call5.i, ptr %sig_data.addr.i.i, align 8, !noalias !9
   %call.i.i = call ptr @d2i_ECDSA_SIG(ptr noundef null, ptr noundef nonnull %sig_data.addr.i.i, i64 noundef %call9.i) #20, !noalias !9
   %cmp.i.not.i.i = icmp eq ptr %call.i.i, null
-  br i1 %cmp.i.not.i.i, label %_ZN4node6crypto12_GLOBAL__N_112ExtractP1363EPKhPhmm.exit.thread.i, label %if.end.i.i
-
-_ZN4node6crypto12_GLOBAL__N_112ExtractP1363EPKhPhmm.exit.thread.i: ; preds = %_ZN4node26NoArrayBufferZeroFillScopeD2Ev.exit.i31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sig_data.addr.i.i), !noalias !9
-  br label %cleanup.i32
+  br i1 %cmp.i.not.i.i, label %cleanup.sink.split.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %_ZN4node26NoArrayBufferZeroFillScopeD2Ev.exit.i31
   %call3.i.i = call ptr @ECDSA_SIG_get0_r(ptr noundef nonnull %call.i.i) #20, !noalias !9
@@ -2634,8 +2630,7 @@ if.end.i.i:                                       ; preds = %_ZN4node26NoArrayBu
 
 _ZN4node6crypto12_GLOBAL__N_112ExtractP1363EPKhPhmm.exit.thread18.i: ; preds = %if.end.i.i
   call void @ECDSA_SIG_free(ptr noundef nonnull %call.i.i) #20, !noalias !9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sig_data.addr.i.i), !noalias !9
-  br label %cleanup.i32
+  br label %cleanup.sink.split.i
 
 _ZN4node6crypto12_GLOBAL__N_112ExtractP1363EPKhPhmm.exit.i: ; preds = %if.end.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call7.i, i64 %conv10.i
@@ -2645,7 +2640,11 @@ _ZN4node6crypto12_GLOBAL__N_112ExtractP1363EPKhPhmm.exit.i: ; preds = %if.end.i.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sig_data.addr.i.i), !noalias !9
   br i1 %cmp9.i.i, label %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i.i.i.i, label %cleanup.i32
 
-cleanup.i32:                                      ; preds = %_ZN4node6crypto12_GLOBAL__N_112ExtractP1363EPKhPhmm.exit.i, %_ZN4node6crypto12_GLOBAL__N_112ExtractP1363EPKhPhmm.exit.thread18.i, %_ZN4node6crypto12_GLOBAL__N_112ExtractP1363EPKhPhmm.exit.thread.i
+cleanup.sink.split.i:                             ; preds = %_ZN4node6crypto12_GLOBAL__N_112ExtractP1363EPKhPhmm.exit.thread18.i, %_ZN4node26NoArrayBufferZeroFillScopeD2Ev.exit.i31
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sig_data.addr.i.i), !noalias !9
+  br label %cleanup.i32
+
+cleanup.i32:                                      ; preds = %cleanup.sink.split.i, %_ZN4node6crypto12_GLOBAL__N_112ExtractP1363EPKhPhmm.exit.i
   call void @_ZN2v812BackingStoreD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #20, !noalias !9
   call void @_ZdlPv(ptr noundef nonnull %23) #20, !noalias !9
   br label %_ZN4node6crypto12_GLOBAL__N_123ConvertSignatureToP1363EPNS_11EnvironmentERKNS0_14ManagedEVPPKeyEOSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS9_EE.exit.thread
@@ -6345,11 +6344,7 @@ _ZN4node6crypto10ByteSource7BuilderC2Em.exit:     ; preds = %if.end
   store ptr %0, ptr %sig_data.addr.i, align 8
   %call.i = call ptr @d2i_ECDSA_SIG(ptr noundef null, ptr noundef nonnull %sig_data.addr.i, i64 noundef %1) #20
   %cmp.i.not.i = icmp eq ptr %call.i, null
-  br i1 %cmp.i.not.i, label %_ZN4node6crypto12_GLOBAL__N_112ExtractP1363EPKhPhmm.exit.thread, label %if.end.i
-
-_ZN4node6crypto12_GLOBAL__N_112ExtractP1363EPKhPhmm.exit.thread: ; preds = %_ZN4node6crypto10ByteSource7BuilderC2Em.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sig_data.addr.i)
-  br label %if.then9
+  br i1 %cmp.i.not.i, label %if.then9.sink.split, label %if.end.i
 
 if.end.i:                                         ; preds = %_ZN4node6crypto10ByteSource7BuilderC2Em.exit
   %call3.i = call ptr @ECDSA_SIG_get0_r(ptr noundef nonnull %call.i) #20
@@ -6360,8 +6355,7 @@ if.end.i:                                         ; preds = %_ZN4node6crypto10By
 
 _ZN4node6crypto12_GLOBAL__N_112ExtractP1363EPKhPhmm.exit.thread7: ; preds = %if.end.i
   call void @ECDSA_SIG_free(ptr noundef nonnull %call.i) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sig_data.addr.i)
-  br label %if.then9
+  br label %if.then9.sink.split
 
 _ZN4node6crypto12_GLOBAL__N_112ExtractP1363EPKhPhmm.exit: ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %call1.i.i, i64 %conv7
@@ -6371,7 +6365,11 @@ _ZN4node6crypto12_GLOBAL__N_112ExtractP1363EPKhPhmm.exit: ; preds = %if.end.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sig_data.addr.i)
   br i1 %cmp9.i, label %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit, label %if.then9
 
-if.then9:                                         ; preds = %_ZN4node6crypto12_GLOBAL__N_112ExtractP1363EPKhPhmm.exit.thread7, %_ZN4node6crypto12_GLOBAL__N_112ExtractP1363EPKhPhmm.exit.thread, %_ZN4node6crypto12_GLOBAL__N_112ExtractP1363EPKhPhmm.exit
+if.then9.sink.split:                              ; preds = %_ZN4node6crypto10ByteSource7BuilderC2Em.exit, %_ZN4node6crypto12_GLOBAL__N_112ExtractP1363EPKhPhmm.exit.thread7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sig_data.addr.i)
+  br label %if.then9
+
+if.then9:                                         ; preds = %if.then9.sink.split, %_ZN4node6crypto12_GLOBAL__N_112ExtractP1363EPKhPhmm.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   br label %cleanup
 

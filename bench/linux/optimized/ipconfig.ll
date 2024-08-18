@@ -1603,7 +1603,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @ic_setup_routes() unnamed_a
   %1 = alloca %struct.rtentry, align 8
   %2 = load i32, ptr @ic_gateway, align 4
   %3 = icmp eq i32 %2, -1
-  br i1 %3, label %26, label %4
+  br i1 %3, label %24, label %4
 
 4:                                                ; preds = %0
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %1) #17
@@ -1617,7 +1617,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @ic_setup_routes() unnamed_a
 
 10:                                               ; preds = %4
   %11 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.57) #19
-  br label %25
+  br label %.sink.split
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1636,23 +1636,20 @@ define internal fastcc noundef range(i32 -1, 1) i32 @ic_setup_routes() unnamed_a
   store i16 3, ptr %19, align 8
   %20 = call i32 @ip_rt_ioctl(ptr noundef nonnull @init_net, i32 noundef 35083, ptr noundef nonnull %1) #17
   %21 = icmp slt i32 %20, 0
-  br i1 %21, label %22, label %24
+  br i1 %21, label %22, label %.sink.split
 
 22:                                               ; preds = %12
   %23 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.58, i32 noundef %20) #19
-  br label %25
+  br label %.sink.split
 
-24:                                               ; preds = %12
+.sink.split:                                      ; preds = %10, %22, %12
+  %.ph = phi i32 [ 0, %12 ], [ -1, %22 ], [ -1, %10 ]
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %1) #17
-  br label %26
+  br label %24
 
-25:                                               ; preds = %22, %10
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %1) #17
-  br label %26
-
-26:                                               ; preds = %25, %24, %0
-  %27 = phi i32 [ -1, %25 ], [ 0, %24 ], [ 0, %0 ]
-  ret i32 %27
+24:                                               ; preds = %.sink.split, %0
+  %25 = phi i32 [ 0, %0 ], [ %.ph, %.sink.split ]
+  ret i32 %25
 }
 
 ; Function Attrs: null_pointer_is_valid

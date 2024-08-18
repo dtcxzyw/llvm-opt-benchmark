@@ -1375,10 +1375,9 @@ _validate_dynamic_conf.exit.i:                    ; preds = %.preheader.preheade
   br i1 %.not15.i.i96, label %551, label %_create_nodes.exit.i
 
 _create_nodes.exit.thread.i:                      ; preds = %538, %534
-  %storemerge.i = phi ptr [ %539, %538 ], [ %535, %534 ]
-  store ptr %storemerge.i, ptr %5, align 8
-  %543 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.37, ptr noundef %storemerge.i) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  %.sink29.i = phi ptr [ %535, %534 ], [ %539, %538 ]
+  store ptr %.sink29.i, ptr %5, align 8
+  %543 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.37, ptr noundef %.sink29.i) #19
   br label %547
 
 _create_nodes.exit.i:                             ; preds = %540
@@ -1386,10 +1385,10 @@ _create_nodes.exit.i:                             ; preds = %540
   %545 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.37, ptr noundef %544) #19
   %546 = load ptr, ptr %3, align 8
   call void @s_p_hashtbl_destroy(ptr noundef %546) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %547
 
 547:                                              ; preds = %_create_nodes.exit.i, %_create_nodes.exit.thread.i
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %548 = load ptr, ptr @conf, align 8
   %549 = getelementptr inbounds i8, ptr %548, i64 4600
   %550 = load ptr, ptr %549, align 8

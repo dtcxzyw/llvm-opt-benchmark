@@ -1205,8 +1205,7 @@ H5MF__alloc_to_fs_type.exit:                      ; preds = %16, %24, %26, %28, 
   %49 = load i64, ptr @H5E_RESOURCE_g, align 8
   %50 = load i64, ptr @H5E_SYSTEM_g, align 8
   %51 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF_alloc, i32 noundef 780, i64 noundef %49, i64 noundef %50, ptr noundef nonnull @.str.7) #7
-  store i64 -1, ptr %5, align 8
-  br label %241
+  br label %.sink.split
 
 52:                                               ; preds = %45
   %53 = load ptr, ptr %7, align 8
@@ -1233,8 +1232,7 @@ H5MF__alloc_to_fs_type.exit:                      ; preds = %16, %24, %26, %28, 
   %66 = load i64, ptr @H5E_RESOURCE_g, align 8
   %67 = load i64, ptr @H5E_CANTOPENOBJ_g, align 8
   %68 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF_alloc, i32 noundef 786, i64 noundef %66, i64 noundef %67, ptr noundef nonnull @.str.3) #7
-  store i64 -1, ptr %5, align 8
-  br label %241
+  br label %.sink.split
 
 69:                                               ; preds = %62
   %.pre = load ptr, ptr %7, align 8
@@ -1254,8 +1252,7 @@ H5MF__alloc_to_fs_type.exit:                      ; preds = %16, %24, %26, %28, 
   %74 = load i64, ptr @H5E_RESOURCE_g, align 8
   %75 = load i64, ptr @H5E_CANTALLOC_g, align 8
   %76 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF_alloc, i32 noundef 793, i64 noundef %74, i64 noundef %75, ptr noundef nonnull @.str.8) #7
-  store i64 -1, ptr %5, align 8
-  br label %241
+  br label %.sink.split
 
 .thread:                                          ; preds = %58, %H5MF__alloc_to_fs_type.exit, %69, %.thread65
   %77 = load i64, ptr %5, align 8
@@ -1380,7 +1377,7 @@ H5MF__alloc_to_fs_type.exit41.thread:             ; preds = %87, %H5MF__alloc_to
 
 135:                                              ; preds = %127
   %.not76.i = icmp eq i64 %.062.i, 0
-  br i1 %.not76.i, label %H5MF__alloc_pagefs.exit, label %136
+  br i1 %.not76.i, label %.sink.split, label %136
 
 136:                                              ; preds = %135
   %137 = load ptr, ptr %7, align 8
@@ -1421,7 +1418,7 @@ H5MF__alloc_to_fs_type.exit41.thread:             ; preds = %87, %H5MF__alloc_to
   %161 = load ptr, ptr %160, align 8
   %162 = call i32 @H5MF__add_sect(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %161, ptr noundef nonnull %151)
   %163 = icmp slt i32 %162, 0
-  br i1 %163, label %221, label %H5MF__alloc_pagefs.exit
+  br i1 %163, label %221, label %.sink.split
 
 164:                                              ; preds = %H5MF__alloc_to_fs_type.exit41, %H5MF__alloc_to_fs_type.exit41, %H5MF__alloc_to_fs_type.exit41, %H5MF__alloc_to_fs_type.exit41, %H5MF__alloc_to_fs_type.exit41, %H5MF__alloc_to_fs_type.exit41
   %165 = load ptr, ptr %7, align 8
@@ -1491,12 +1488,12 @@ H5MF__alloc_to_fs_type.exit41.thread:             ; preds = %87, %H5MF__alloc_to
   %208 = getelementptr inbounds i8, ptr %207, i64 104
   %209 = load ptr, ptr %208, align 8
   %.not72.i = icmp eq ptr %209, null
-  br i1 %.not72.i, label %H5MF__alloc_pagefs.exit, label %210
+  br i1 %.not72.i, label %.sink.split, label %210
 
 210:                                              ; preds = %206
   %211 = call i32 @H5PB_add_new_page(ptr noundef nonnull %207, i32 noundef %1, i64 noundef %168) #7
   %212 = icmp slt i32 %211, 0
-  br i1 %212, label %213, label %H5MF__alloc_pagefs.exit
+  br i1 %212, label %213, label %.sink.split
 
 213:                                              ; preds = %210
   %214 = load i64, ptr @H5E_RESOURCE_g, align 8
@@ -1526,18 +1523,12 @@ H5MF__alloc_to_fs_type.exit41.thread:             ; preds = %87, %H5MF__alloc_to
   %230 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF__alloc_pagefs, i32 noundef 969, i64 noundef %228, i64 noundef %229, ptr noundef nonnull @.str.52) #7
   br label %H5MF__alloc_pagefs.exit.thread
 
-H5MF__alloc_pagefs.exit:                          ; preds = %135, %157, %210, %206
-  %.061.i.ph = phi i64 [ %168, %206 ], [ %168, %210 ], [ %129, %157 ], [ %129, %135 ]
-  store i64 %.061.i.ph, ptr %5, align 8
-  br label %241
-
 H5MF__alloc_pagefs.exit.thread:                   ; preds = %217, %170, %195, %213, %183, %113, %131, %153, %145, %221, %227
   store i64 -1, ptr %5, align 8
   %231 = load i64, ptr @H5E_RESOURCE_g, align 8
   %232 = load i64, ptr @H5E_CANTALLOC_g, align 8
   %233 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF_alloc, i32 noundef 805, i64 noundef %231, i64 noundef %232, ptr noundef nonnull @.str.9) #7
-  store i64 -1, ptr %5, align 8
-  br label %241
+  br label %.sink.split
 
 234:                                              ; preds = %78
   %235 = call i64 @H5MF_aggr_vfd_alloc(ptr noundef nonnull %0, i32 noundef %1, i64 noundef %2) #7
@@ -1549,10 +1540,14 @@ H5MF__alloc_pagefs.exit.thread:                   ; preds = %217, %170, %195, %2
   %238 = load i64, ptr @H5E_RESOURCE_g, align 8
   %239 = load i64, ptr @H5E_CANTALLOC_g, align 8
   %240 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF_alloc, i32 noundef 809, i64 noundef %238, i64 noundef %239, ptr noundef nonnull @.str.10) #7
-  store i64 -1, ptr %5, align 8
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %206, %210, %157, %135, %48, %65, %73, %H5MF__alloc_pagefs.exit.thread, %237
+  %.061.i.ph.sink = phi i64 [ -1, %237 ], [ -1, %H5MF__alloc_pagefs.exit.thread ], [ -1, %73 ], [ -1, %65 ], [ -1, %48 ], [ %168, %206 ], [ %168, %210 ], [ %129, %157 ], [ %129, %135 ]
+  store i64 %.061.i.ph.sink, ptr %5, align 8
   br label %241
 
-241:                                              ; preds = %H5MF__alloc_pagefs.exit, %.thread, %234, %237, %H5MF__alloc_pagefs.exit.thread, %73, %65, %48
+241:                                              ; preds = %.sink.split, %.thread, %234
   %242 = load i32, ptr %4, align 4
   %.not34 = icmp eq i32 %242, 0
   br i1 %.not34, label %244, label %243

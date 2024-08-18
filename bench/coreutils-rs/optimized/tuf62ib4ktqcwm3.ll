@@ -1045,7 +1045,7 @@ _ZN5uu_dd8progress10ProgUpdate17reprint_prog_line17h933899837543cb1cE.exit.us.i.
 .unreachabledefault:                              ; preds = %21
   unreachable
 
-default.unreachable:                              ; preds = %38, %.split.i.i, %"_ZN5uu_dd8progress16gen_prog_updater28_$u7b$$u7b$closure$u7d$$u7d$17h25f745b560b49d4eE.exit.i"
+default.unreachable:                              ; preds = %38, %.split.i.i, %62
   unreachable
 
 .split.i.i:                                       ; preds = %1, %61
@@ -1092,8 +1092,7 @@ default.unreachable:                              ; preds = %38, %.split.i.i, %"
 
 .split21.us.i.i:                                  ; preds = %.noexc5.i, %.noexc.i
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6), !noalias !197
-  call void @llvm.lifetime.end.p0(i64 84, ptr nonnull %.sroa.8.i.i)
-  br label %"_ZN5uu_dd8progress16gen_prog_updater28_$u7b$$u7b$closure$u7d$$u7d$17h25f745b560b49d4eE.exit.i"
+  br label %62
 
 40:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !205
@@ -1149,8 +1148,7 @@ _ZN5uu_dd8progress10ProgUpdate20print_transfer_stats17h8cc168035ea80af2E.exit.i.
 
 .noexc9.i:                                        ; preds = %.split23.us.i.i
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %7), !noalias !195
-  call void @llvm.lifetime.end.p0(i64 84, ptr nonnull %.sroa.8.i.i)
-  br label %"_ZN5uu_dd8progress16gen_prog_updater28_$u7b$$u7b$closure$u7d$$u7d$17h25f745b560b49d4eE.exit.i"
+  br label %62
 
 .split29.us.i.i:                                  ; preds = %.noexc4.i
   %53 = extractvalue { ptr, ptr } %29, 1
@@ -1201,37 +1199,38 @@ _ZN5uu_dd8progress10ProgUpdate20print_transfer_stats17h8cc168035ea80af2E.exit.i.
 .body.i:                                          ; preds = %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %56, %47
   %eh.lpad-body.i = phi { ptr, i32 } [ %48, %47 ], [ %57, %56 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit11.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp12.i, %.loopexit.split-lp.loopexit.split-lp.i ]
   invoke fastcc void @"_ZN4core3ptr83drop_in_place$LT$uu_dd..progress..gen_prog_updater..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6063130b035ea524E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #38
-          to label %67 unwind label %65
+          to label %68 unwind label %66
 
-"_ZN5uu_dd8progress16gen_prog_updater28_$u7b$$u7b$closure$u7d$$u7d$17h25f745b560b49d4eE.exit.i": ; preds = %.noexc9.i, %.split21.us.i.i
+62:                                               ; preds = %.noexc9.i, %.split21.us.i.i
+  call void @llvm.lifetime.end.p0(i64 84, ptr nonnull %.sroa.8.i.i)
   switch i64 %8, label %default.unreachable [
-    i64 0, label %62
-    i64 1, label %63
-    i64 2, label %64
+    i64 0, label %63
+    i64 1, label %64
+    i64 2, label %65
   ]
 
-62:                                               ; preds = %"_ZN5uu_dd8progress16gen_prog_updater28_$u7b$$u7b$closure$u7d$$u7d$17h25f745b560b49d4eE.exit.i"
+63:                                               ; preds = %62
   call void @"_ZN3std4sync4mpmc7counter17Receiver$LT$C$GT$7release17hda8c663f2b6c9dc8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %9)
   br label %_ZN4core3ops8function6FnOnce9call_once17hbbc8751f5d3467b7E.exit
 
-63:                                               ; preds = %"_ZN5uu_dd8progress16gen_prog_updater28_$u7b$$u7b$closure$u7d$$u7d$17h25f745b560b49d4eE.exit.i"
+64:                                               ; preds = %62
   call void @"_ZN3std4sync4mpmc7counter17Receiver$LT$C$GT$7release17h24fc504a5ed6327fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %9)
   br label %_ZN4core3ops8function6FnOnce9call_once17hbbc8751f5d3467b7E.exit
 
-64:                                               ; preds = %"_ZN5uu_dd8progress16gen_prog_updater28_$u7b$$u7b$closure$u7d$$u7d$17h25f745b560b49d4eE.exit.i"
+65:                                               ; preds = %62
   call void @"_ZN3std4sync4mpmc7counter17Receiver$LT$C$GT$7release17h1a63390f417e059cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %9)
   br label %_ZN4core3ops8function6FnOnce9call_once17hbbc8751f5d3467b7E.exit
 
-65:                                               ; preds = %.body.i
-  %66 = landingpad { ptr, i32 }
+66:                                               ; preds = %.body.i
+  %67 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #36
   unreachable
 
-67:                                               ; preds = %.body.i
+68:                                               ; preds = %.body.i
   resume { ptr, i32 } %eh.lpad-body.i
 
-_ZN4core3ops8function6FnOnce9call_once17hbbc8751f5d3467b7E.exit: ; preds = %62, %63, %64
+_ZN4core3ops8function6FnOnce9call_once17hbbc8751f5d3467b7E.exit: ; preds = %63, %64, %65
   call void asm sideeffect "", "~{memory}"() #26, !srcloc !181
   ret void
 }

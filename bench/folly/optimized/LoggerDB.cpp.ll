@@ -14947,11 +14947,7 @@ invoke.cont168:                                   ; preds = %invoke.cont166
 ehcleanup172.thread:                              ; preds = %catch
   %151 = landingpad { ptr, i32 }
           cleanup
-  %exn.slot.5674 = extractvalue { ptr, i32 } %151, 0
-  %ehselector.slot.5675 = extractvalue { ptr, i32 } %151, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp162) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp159) #26
-  br label %cleanup.action176
+  br label %cleanup.action176.sink.split
 
 lpad167:                                          ; preds = %invoke.cont168, %invoke.cont166
   %cleanup.isactive169.0 = phi i1 [ false, %invoke.cont168 ], [ true, %invoke.cont166 ]
@@ -14985,22 +14981,11 @@ ehcleanup171.thread:                              ; preds = %invoke.cont164
   %arrayidx.i.i.i696 = getelementptr inbounds i8, ptr %ref.tmp162, i64 23
   %158 = load i8, ptr %arrayidx.i.i.i696, align 1, !tbaa !34
   %cmp.i.i697 = icmp ult i8 %158, 64
-  br i1 %cmp.i.i697, label %ehcleanup172.thread704, label %if.end.i.i.thread
-
-ehcleanup172.thread704:                           ; preds = %ehcleanup171.thread
-  %exn.slot.5707 = extractvalue { ptr, i32 } %157, 0
-  %ehselector.slot.5708 = extractvalue { ptr, i32 } %157, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp162) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp159) #26
-  br label %cleanup.action176
+  br i1 %cmp.i.i697, label %cleanup.action176.sink.split, label %if.end.i.i.thread
 
 if.end.i.i.thread:                                ; preds = %ehcleanup171.thread
   call void @_ZN5folly13fbstring_coreIcE18destroyMediumLargeEv(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp162) #26
-  %exn.slot.5680702 = extractvalue { ptr, i32 } %157, 0
-  %ehselector.slot.5681703 = extractvalue { ptr, i32 } %157, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp162) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp159) #26
-  br label %cleanup.action176
+  br label %cleanup.action176.sink.split
 
 if.end.i.i:                                       ; preds = %ehcleanup171
   call void @_ZN5folly13fbstring_coreIcE18destroyMediumLargeEv(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp162) #26
@@ -15017,9 +15002,17 @@ ehcleanup172:                                     ; preds = %ehcleanup171
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp159) #26
   br i1 %cleanup.isactive169.0, label %cleanup.action176, label %cleanup.done177
 
-cleanup.action176:                                ; preds = %ehcleanup172, %if.end.i.i, %if.end.i.i.thread, %ehcleanup172.thread704, %ehcleanup172.thread
-  %ehselector.slot.5679 = phi i32 [ %ehselector.slot.5675, %ehcleanup172.thread ], [ %ehselector.slot.5, %ehcleanup172 ], [ %ehselector.slot.5681, %if.end.i.i ], [ %ehselector.slot.5681703, %if.end.i.i.thread ], [ %ehselector.slot.5708, %ehcleanup172.thread704 ]
-  %exn.slot.5677 = phi ptr [ %exn.slot.5674, %ehcleanup172.thread ], [ %exn.slot.5, %ehcleanup172 ], [ %exn.slot.5680, %if.end.i.i ], [ %exn.slot.5680702, %if.end.i.i.thread ], [ %exn.slot.5707, %ehcleanup172.thread704 ]
+cleanup.action176.sink.split:                     ; preds = %ehcleanup171.thread, %ehcleanup172.thread, %if.end.i.i.thread
+  %.sink248 = phi { ptr, i32 } [ %157, %if.end.i.i.thread ], [ %151, %ehcleanup172.thread ], [ %157, %ehcleanup171.thread ]
+  %exn.slot.5680702 = extractvalue { ptr, i32 } %.sink248, 0
+  %ehselector.slot.5681703 = extractvalue { ptr, i32 } %.sink248, 1
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp162) #26
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp159) #26
+  br label %cleanup.action176
+
+cleanup.action176:                                ; preds = %cleanup.action176.sink.split, %ehcleanup172, %if.end.i.i
+  %ehselector.slot.5679 = phi i32 [ %ehselector.slot.5, %ehcleanup172 ], [ %ehselector.slot.5681, %if.end.i.i ], [ %ehselector.slot.5681703, %cleanup.action176.sink.split ]
+  %exn.slot.5677 = phi ptr [ %exn.slot.5, %ehcleanup172 ], [ %exn.slot.5680, %if.end.i.i ], [ %exn.slot.5680702, %cleanup.action176.sink.split ]
   call void @__cxa_free_exception(ptr %exception158) #26
   br label %cleanup.done177
 

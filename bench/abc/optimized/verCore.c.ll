@@ -2380,7 +2380,7 @@ Vec_PtrFree.exit.i:                               ; preds = %65, %.critedge.i
 80:                                               ; preds = %75, %73
   %81 = load ptr, ptr %3, align 8
   %.not.i.i373.i = icmp eq ptr %81, null
-  br i1 %.not.i.i373.i, label %Ver_ParseConnectBox.exit.thread, label %Ver_ParseConnectBox.exit.thread40
+  br i1 %.not.i.i373.i, label %.critedge.sink.split, label %Ver_ParseConnectBox.exit.thread40
 
 82:                                               ; preds = %85
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2529,7 +2529,7 @@ Vec_PtrFree.exit378.i:                            ; preds = %127, %.critedge6.i
 142:                                              ; preds = %137, %135
   %143 = load ptr, ptr %3, align 8
   %.not.i.i380.i = icmp eq ptr %143, null
-  br i1 %.not.i.i380.i, label %Ver_ParseConnectBox.exit.thread, label %Ver_ParseConnectBox.exit.thread40
+  br i1 %.not.i.i380.i, label %.critedge.sink.split, label %Ver_ParseConnectBox.exit.thread40
 
 .critedge10.loopexit.loopexit.i:                  ; preds = %.lr.ph488.i
   %144 = add i32 %.val325.i, %.0280492.i
@@ -2858,7 +2858,7 @@ Ver_ParseFreeBundle.exit384.i:                    ; preds = %188, %183
 268:                                              ; preds = %263, %261
   %269 = load ptr, ptr %3, align 8
   %.not.i.i388.i = icmp eq ptr %269, null
-  br i1 %.not.i.i388.i, label %Ver_ParseConnectBox.exit.thread, label %Ver_ParseConnectBox.exit.thread40
+  br i1 %.not.i.i388.i, label %.critedge.sink.split, label %Ver_ParseConnectBox.exit.thread40
 
 270:                                              ; preds = %.critedge22.i, %.critedge20.i
   %.2291.i = phi ptr [ %.1290.i, %.critedge20.i ], [ %239, %.critedge22.i ]
@@ -3140,7 +3140,7 @@ Vec_PtrFree.exit394.i:                            ; preds = %378, %.critedge34.i
 393:                                              ; preds = %388, %386
   %394 = load ptr, ptr %3, align 8
   %.not.i.i396.i = icmp eq ptr %394, null
-  br i1 %.not.i.i396.i, label %Ver_ParseConnectBox.exit.thread, label %Ver_ParseConnectBox.exit.thread40
+  br i1 %.not.i.i396.i, label %.critedge.sink.split, label %Ver_ParseConnectBox.exit.thread40
 
 395:                                              ; preds = %353
   %396 = call ptr @Abc_NtkCreateObj(ptr noundef %35, i32 noundef 5) #19
@@ -3204,16 +3204,11 @@ Ver_ParseFreeBundle.exit400.i:                    ; preds = %412, %407
   %.not.i35 = icmp eq ptr %416, null
   br i1 %.not.i35, label %Vec_PtrFree.exit386.i, label %Vec_PtrFree.exit386.i.sink.split
 
-Ver_ParseConnectBox.exit.thread:                  ; preds = %80, %142, %268, %393
-  call void @llvm.lifetime.end.p0(i64 1000, ptr nonnull %2)
-  br label %.critedge
-
 Ver_ParseConnectBox.exit.thread40:                ; preds = %393, %268, %142, %80
   %.sink = phi ptr [ %81, %80 ], [ %143, %142 ], [ %269, %268 ], [ %394, %393 ]
   call void @Abc_DesFree(ptr noundef nonnull %.sink, ptr noundef null) #19
   store ptr null, ptr %3, align 8
-  call void @llvm.lifetime.end.p0(i64 1000, ptr nonnull %2)
-  br label %.critedge
+  br label %.critedge.sink.split
 
 Vec_PtrFree.exit386.i.sink.split:                 ; preds = %.critedge36.i, %.critedge16.i
   %.sink291 = phi ptr [ %191, %.critedge16.i ], [ %416, %.critedge36.i ]
@@ -3273,8 +3268,12 @@ Vec_PtrFree.exit386.i:                            ; preds = %Vec_PtrFree.exit386
   %441 = icmp slt i64 %indvars.iv.next214, %440
   br i1 %441, label %.lr.ph142, label %.critedge, !llvm.loop !49
 
-.critedge:                                        ; preds = %.critedge2, %1, %Ver_ParseConnectBox.exit.thread40, %Ver_ParseConnectBox.exit.thread
-  %.022 = phi i32 [ 0, %Ver_ParseConnectBox.exit.thread ], [ 0, %Ver_ParseConnectBox.exit.thread40 ], [ 1, %1 ], [ %.1.lcssa, %.critedge2 ]
+.critedge.sink.split:                             ; preds = %393, %268, %142, %80, %Ver_ParseConnectBox.exit.thread40
+  call void @llvm.lifetime.end.p0(i64 1000, ptr nonnull %2)
+  br label %.critedge
+
+.critedge:                                        ; preds = %.critedge2, %.critedge.sink.split, %1
+  %.022 = phi i32 [ 1, %1 ], [ 0, %.critedge.sink.split ], [ %.1.lcssa, %.critedge2 ]
   ret i32 %.022
 }
 

@@ -25554,7 +25554,7 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if
   %retval.sroa.0.0.in.i.i.i = phi ptr [ %_M_before_begin.i.i.i.i.i, %if.then.i.i.i ], [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ]
   %retval.sroa.0.0.i.i.i = load ptr, ptr %retval.sroa.0.0.in.i.i.i, align 8
   %cmp.i.not.i.i.i = icmp eq ptr %retval.sroa.0.0.i.i.i, null
-  br i1 %cmp.i.not.i.i.i, label %if.then.i.i49.loopexit, label %for.body.i.i.i
+  br i1 %cmp.i.not.i.i.i, label %if.then.i.i49, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i, i64 8
@@ -25570,7 +25570,7 @@ if.end15.i.i.i:                                   ; preds = %invoke.cont7
   %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %15, i64 %rem.i.i.i.i.i.i
   %16 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %16, null
-  br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i49.loopexit158, label %if.end.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i49, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.end15.i.i.i
   %17 = load ptr, ptr %16, align 8
@@ -25595,31 +25595,18 @@ if.end3.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i.i, %
   %__p.013.i.i.i.i.i = phi ptr [ %21, %for.cond.i.i.i.i.i ], [ %17, %if.end.i.i.i.i.i ]
   %21 = load ptr, ptr %__p.013.i.i.i.i.i, align 8
   %tobool5.not.i.i.i.i.i = icmp eq ptr %21, null
-  br i1 %tobool5.not.i.i.i.i.i, label %if.then.i.i49.loopexit156, label %lor.lhs.false.i.i.i.i.i
+  br i1 %tobool5.not.i.i.i.i.i, label %if.then.i.i49, label %lor.lhs.false.i.i.i.i.i
 
 lor.lhs.false.i.i.i.i.i:                          ; preds = %if.end3.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 32
   %22 = load i64, ptr %add.ptr.i.i.i.i.i.i.i, align 8
   %rem.i.i.i.i.i.i.i.i = urem i64 %22, %14
   %cmp.not.i.i.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i.i, %rem.i.i.i.i.i.i
-  br i1 %cmp.not.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i49.loopexit156, !llvm.loop !55
+  br i1 %cmp.not.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i49, !llvm.loop !55
 
-if.then.i.i49.loopexit:                           ; preds = %for.cond.i.i.i
+if.then.i.i49:                                    ; preds = %if.end15.i.i.i, %lor.lhs.false.i.i.i.i.i, %if.end3.i.i.i.i.i, %for.cond.i.i.i
   store ptr %cond.i10.i.i166184, ptr %verts_accept, align 8
   store ptr %cond.i10.i.i104174183, ptr %verts_accept_eod, align 8
-  br label %if.then.i.i49
-
-if.then.i.i49.loopexit156:                        ; preds = %if.end3.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i
-  store ptr %cond.i10.i.i166184, ptr %verts_accept, align 8
-  store ptr %cond.i10.i.i104174183, ptr %verts_accept_eod, align 8
-  br label %if.then.i.i49
-
-if.then.i.i49.loopexit158:                        ; preds = %if.end15.i.i.i
-  store ptr %cond.i10.i.i166184, ptr %verts_accept, align 8
-  store ptr %cond.i10.i.i104174183, ptr %verts_accept_eod, align 8
-  br label %if.then.i.i49
-
-if.then.i.i49:                                    ; preds = %if.then.i.i49.loopexit158, %if.then.i.i49.loopexit156, %if.then.i.i49.loopexit
   invoke void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #25
           to label %.noexc unwind label %lpad.loopexit.split-lp
 
@@ -25816,7 +25803,7 @@ if.else.i:                                        ; preds = %invoke.cont19
   %cmp.i.i.i69 = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775792
   br i1 %cmp.i.i.i69, label %if.then.i.i.i73.invoke, label %_ZNKSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE12_M_check_lenEmPKc.exit.i.i
 
-if.then.i.i.i73.invoke:                           ; preds = %if.else.i89, %if.else.i
+if.then.i.i.i73.invoke:                           ; preds = %if.else.i, %if.else.i89
   store ptr %cond.i10.i.i166184, ptr %verts_accept, align 8
   store ptr %cond.i10.i.i104174183, ptr %verts_accept_eod, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #25

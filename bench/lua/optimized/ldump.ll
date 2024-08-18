@@ -42,7 +42,8 @@ dumpBlock.exit.i:
 
 dumpByte.exit16.thread71.i:                       ; preds = %dumpBlock.exit.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %x.i.i)
-  br label %dumpBlock.exit23.thread.i
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %x.i9.i)
+  br label %dumpBlock.exit23.thread.sink.split.i
 
 dumpByte.exit.i:                                  ; preds = %dumpBlock.exit.i
   %call.i.i.i = call i32 %w(ptr noundef %L, ptr noundef nonnull %x.i.i, i64 noundef 1, ptr noundef %data) #2
@@ -51,11 +52,7 @@ dumpByte.exit.i:                                  ; preds = %dumpBlock.exit.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %x.i9.i)
   store i8 0, ptr %x.i9.i, align 1
   %cmp.i.i11.i = icmp eq i32 %call.i.i.i, 0
-  br i1 %cmp.i.i11.i, label %dumpByte.exit16.i, label %dumpByte.exit16.thread.i
-
-dumpByte.exit16.thread.i:                         ; preds = %dumpByte.exit.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %x.i9.i)
-  br label %dumpBlock.exit23.thread.i
+  br i1 %cmp.i.i11.i, label %dumpByte.exit16.i, label %dumpBlock.exit23.thread.sink.split.i
 
 dumpByte.exit16.i:                                ; preds = %dumpByte.exit.i
   %call.i.i15.i = call i32 %w(ptr noundef %L, ptr noundef nonnull %x.i9.i, i64 noundef 1, ptr noundef %data) #2
@@ -64,7 +61,11 @@ dumpByte.exit16.i:                                ; preds = %dumpByte.exit.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %x.i9.i)
   br i1 %0, label %dumpBlock.exit23.i, label %dumpBlock.exit23.thread.i
 
-dumpBlock.exit23.thread.i:                        ; preds = %dumpByte.exit16.i, %dumpByte.exit16.thread.i, %dumpByte.exit16.thread71.i
+dumpBlock.exit23.thread.sink.split.i:             ; preds = %dumpByte.exit.i, %dumpByte.exit16.thread71.i
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %x.i9.i)
+  br label %dumpBlock.exit23.thread.i
+
+dumpBlock.exit23.thread.i:                        ; preds = %dumpBlock.exit23.thread.sink.split.i, %dumpByte.exit16.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %x.i24.i)
   br label %dumpByte.exit31.thread.i
 
@@ -107,7 +108,7 @@ dumpByte.exit39.i:                                ; preds = %dumpByte.exit31.i
 dumpByte.exit47.thread.i:                         ; preds = %dumpByte.exit39.i, %dumpByte.exit39.thread.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %x.i40.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %x.addr.i.i)
-  br label %dumpHeader.exit.thread16
+  br label %dumpHeader.exit.thread17
 
 dumpByte.exit47.i:                                ; preds = %dumpByte.exit39.i
   %call.i.i46.i = call i32 %w(ptr noundef %L, ptr noundef nonnull %x.i40.i, i64 noundef 1, ptr noundef %data) #2
@@ -116,9 +117,9 @@ dumpByte.exit47.i:                                ; preds = %dumpByte.exit39.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %x.i40.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %x.addr.i.i)
   store i64 22136, ptr %x.addr.i.i, align 8
-  br i1 %4, label %dumpInteger.exit.i, label %dumpHeader.exit.thread16
+  br i1 %4, label %dumpInteger.exit.i, label %dumpHeader.exit.thread17
 
-dumpHeader.exit.thread16:                         ; preds = %dumpByte.exit47.thread.i, %dumpByte.exit47.i
+dumpHeader.exit.thread17:                         ; preds = %dumpByte.exit47.thread.i, %dumpByte.exit47.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %x.addr.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %x.i)
   br label %dumpByte.exit
@@ -154,7 +155,7 @@ if.then.i.i:                                      ; preds = %dumpHeader.exit
   store i32 %call.i.i7, ptr %status, align 4
   br label %dumpByte.exit
 
-dumpByte.exit:                                    ; preds = %dumpHeader.exit.thread16, %dumpHeader.exit.thread, %dumpHeader.exit, %if.then.i.i
+dumpByte.exit:                                    ; preds = %dumpHeader.exit.thread17, %dumpHeader.exit.thread, %dumpHeader.exit, %if.then.i.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %x.i)
   call fastcc void @dumpFunction(ptr noundef nonnull %D, ptr noundef nonnull %f, ptr noundef null)
   %7 = load i32, ptr %status, align 4

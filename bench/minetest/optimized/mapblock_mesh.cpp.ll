@@ -2225,18 +2225,15 @@ if.else.i:                                        ; preds = %if.then24
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %cond.i31.i.i488506 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775804
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
+  br i1 %cmp.i.i.i, label %if.then.i.i.i.invoke, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
 
-if.then.i.i.i:                                    ; preds = %if.else.i
+if.then.i.i.i.invoke:                             ; preds = %if.else.i, %if.else.i259, %if.else.i223
   store ptr %add.ptr19.i.i283514, ptr %_M_end_of_storage.i255, align 8, !tbaa !81
   store ptr %add.ptr19.i.i525, ptr %_M_end_of_storage.i, align 8, !tbaa !81
   store ptr %incdec.ptr.i.i279531, ptr %_M_finish.i254, align 8, !tbaa !84
   store ptr %incdec.ptr.i.i537, ptr %_M_finish.i216, align 8, !tbaa !84
   store ptr %cond.i31.i.i274491505, ptr %back_list, align 8, !tbaa !74
   store ptr %cond.i31.i.i498504, ptr %node_list, align 8, !tbaa !74
-  br label %if.then.i.i.i.invoke
-
-if.then.i.i.i.invoke:                             ; preds = %if.then.i.i.i285, %if.then.i.i.i249, %if.then.i.i.i
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.21) #30
           to label %if.then.i.i.i.cont unwind label %lpad25.loopexit.split-lp
 
@@ -2318,16 +2315,7 @@ if.else.i223:                                     ; preds = %if.then28
   %sub.ptr.rhs.cast.i.i.i.i225 = ptrtoint ptr %cond.i31.i.i238486507 to i64
   %sub.ptr.sub.i.i.i.i226 = sub i64 %sub.ptr.lhs.cast.i.i.i.i224, %sub.ptr.rhs.cast.i.i.i.i225
   %cmp.i.i.i227 = icmp eq i64 %sub.ptr.sub.i.i.i.i226, 9223372036854775804
-  br i1 %cmp.i.i.i227, label %if.then.i.i.i249, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i228
-
-if.then.i.i.i249:                                 ; preds = %if.else.i223
-  store ptr %add.ptr19.i.i283514, ptr %_M_end_of_storage.i255, align 8, !tbaa !81
-  store ptr %add.ptr19.i.i525, ptr %_M_end_of_storage.i, align 8, !tbaa !81
-  store ptr %incdec.ptr.i.i279531, ptr %_M_finish.i254, align 8, !tbaa !84
-  store ptr %incdec.ptr.i.i537, ptr %_M_finish.i216, align 8, !tbaa !84
-  store ptr %cond.i31.i.i274491505, ptr %back_list, align 8, !tbaa !74
-  store ptr %cond.i31.i.i498504, ptr %node_list, align 8, !tbaa !74
-  br label %if.then.i.i.i.invoke
+  br i1 %cmp.i.i.i227, label %if.then.i.i.i.invoke, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i228
 
 _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i228: ; preds = %if.else.i223
   %sub.ptr.div.i.i.i.i229 = ashr exact i64 %sub.ptr.sub.i.i.i.i226, 2
@@ -2386,16 +2374,7 @@ if.else.i259:                                     ; preds = %if.else30
   %sub.ptr.rhs.cast.i.i.i.i261 = ptrtoint ptr %cond.i31.i.i274484508 to i64
   %sub.ptr.sub.i.i.i.i262 = sub i64 %sub.ptr.lhs.cast.i.i.i.i260, %sub.ptr.rhs.cast.i.i.i.i261
   %cmp.i.i.i263 = icmp eq i64 %sub.ptr.sub.i.i.i.i262, 9223372036854775804
-  br i1 %cmp.i.i.i263, label %if.then.i.i.i285, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i264
-
-if.then.i.i.i285:                                 ; preds = %if.else.i259
-  store ptr %add.ptr19.i.i283514, ptr %_M_end_of_storage.i255, align 8, !tbaa !81
-  store ptr %add.ptr19.i.i525, ptr %_M_end_of_storage.i, align 8, !tbaa !81
-  store ptr %incdec.ptr.i.i279531, ptr %_M_finish.i254, align 8, !tbaa !84
-  store ptr %incdec.ptr.i.i537, ptr %_M_finish.i216, align 8, !tbaa !84
-  store ptr %cond.i31.i.i274491505, ptr %back_list, align 8, !tbaa !74
-  store ptr %cond.i31.i.i498504, ptr %node_list, align 8, !tbaa !74
-  br label %if.then.i.i.i.invoke
+  br i1 %cmp.i.i.i263, label %if.then.i.i.i.invoke, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i264
 
 _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i264: ; preds = %if.else.i259
   %sub.ptr.div.i.i.i.i265 = ashr exact i64 %sub.ptr.sub.i.i.i.i262, 2

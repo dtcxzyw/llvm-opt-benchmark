@@ -5927,8 +5927,8 @@ cond.end:
   %ref.tmp216 = alloca %"class.cvc5::internal::Result", align 8
   %sol_map = alloca %"class.std::map.656", align 8
   %ref.tmp228 = alloca %"class.cvc5::internal::SynthResult", align 8
-  %ref.tmp245 = alloca %"class.cvc5::internal::SynthResult", align 8
-  %ref.tmp248 = alloca %"class.cvc5::internal::SynthResult", align 8
+  %ref.tmp245 = alloca %"class.cvc5::internal::SynthResult", align 4
+  %ref.tmp248 = alloca %"class.cvc5::internal::SynthResult", align 4
   br i1 %isNext, label %if.end, label %if.then
 
 if.then:                                          ; preds = %cond.end
@@ -7589,39 +7589,35 @@ if.else240:                                       ; preds = %if.then.i893, %invo
 
 if.then244:                                       ; preds = %if.else240
   invoke void @_ZN4cvc58internal11SynthResultC1ENS1_6StatusENS_18UnknownExplanationE(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp245, i32 noundef 2, i32 noundef 9)
-          to label %invoke.cont246 unwind label %lpad224
-
-invoke.cont246:                                   ; preds = %if.then244
-  %204 = load i64, ptr %ref.tmp245, align 8
-  store i64 %204, ptr %retval, align 8
-  br label %if.end251
+          to label %if.end251.sink.split unwind label %lpad224
 
 if.else247:                                       ; preds = %if.else240
   invoke void @_ZN4cvc58internal11SynthResultC1ENS1_6StatusENS_18UnknownExplanationE(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp248, i32 noundef 3, i32 noundef 9)
-          to label %invoke.cont249 unwind label %lpad224
+          to label %if.end251.sink.split unwind label %lpad224
 
-invoke.cont249:                                   ; preds = %if.else247
-  %205 = load i64, ptr %ref.tmp248, align 8
-  store i64 %205, ptr %retval, align 8
+if.end251.sink.split:                             ; preds = %if.else247, %if.then244
+  %.sink.in = phi ptr [ %ref.tmp245, %if.then244 ], [ %ref.tmp248, %if.else247 ]
+  %.sink = load i64, ptr %.sink.in, align 4
+  store i64 %.sink, ptr %retval, align 8
   br label %if.end251
 
-if.end251:                                        ; preds = %invoke.cont246, %invoke.cont249, %invoke.cont230, %invoke.cont236
-  %206 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
-  invoke void @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_S3_ESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %sol_map, ptr noundef %206)
+if.end251:                                        ; preds = %if.end251.sink.split, %invoke.cont230, %invoke.cont236
+  %204 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
+  invoke void @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_S3_ESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %sol_map, ptr noundef %204)
           to label %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES3_St4lessIS3_ESaISt4pairIKS3_S3_EEED2Ev.exit unwind label %terminate.lpad.i.i899
 
 terminate.lpad.i.i899:                            ; preds = %if.end251
-  %207 = landingpad { ptr, i32 }
+  %205 = landingpad { ptr, i32 }
           catch ptr null
-  %208 = extractvalue { ptr, i32 } %207, 0
-  call void @__clang_call_terminate(ptr %208) #21
+  %206 = extractvalue { ptr, i32 } %205, 0
+  call void @__clang_call_terminate(ptr %206) #21
   unreachable
 
 _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES3_St4lessIS3_ESaISt4pairIKS3_S3_EEED2Ev.exit: ; preds = %if.end251
   %d_inputName.i900 = getelementptr inbounds i8, ptr %r, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_inputName.i900) #19
-  %209 = load i64, ptr %retval, align 8
-  ret i64 %209
+  %207 = load i64, ptr %retval, align 8
+  ret i64 %207
 
 ehcleanup253:                                     ; preds = %lpad224, %ehcleanup221, %lpad201
   %.pn17 = phi { ptr, i32 } [ %202, %lpad224 ], [ %179, %lpad201 ], [ %.pn15, %ehcleanup221 ]

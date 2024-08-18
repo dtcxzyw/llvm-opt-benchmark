@@ -3636,7 +3636,7 @@ call.i.us.us.us.i.noexc:                          ; preds = %for.body195.us.us.u
 if.end.i.us.us.us.i:                              ; preds = %call.i.us.us.us.i.noexc
   %0 = load i8, ptr %is_valid_position.i.i, align 1, !tbaa !123, !range !124, !noundef !125
   %tobool.not.i.us.us.us.i = icmp eq i8 %0, 0
-  br i1 %tobool.not.i.us.us.us.i, label %for.cond178.cleanup215_crit_edge.i.loopexit, label %if.then9.i.i
+  br i1 %tobool.not.i.us.us.us.i, label %for.cond178.cleanup215_crit_edge.i, label %if.then9.i.i
 
 for.cond190.preheader.i:                          ; preds = %for.cond184.preheader.lr.ph.split.split.i
   %data.i.i = getelementptr inbounds i8, ptr %call24.i27, i64 24
@@ -3656,7 +3656,7 @@ call.i.i.noexc.peel:                              ; preds = %for.cond190.prehead
 if.end.i.i.peel:                                  ; preds = %call.i.i.noexc.peel
   %2 = load i8, ptr %is_valid_position.i.i, align 1, !tbaa !123, !range !124, !noundef !125
   %tobool.not.i.i.peel = icmp eq i8 %2, 0
-  br i1 %tobool.not.i.i.peel, label %for.cond178.cleanup215_crit_edge.i.loopexit54, label %if.then9.i.i
+  br i1 %tobool.not.i.i.peel, label %for.cond178.cleanup215_crit_edge.i, label %if.then9.i.i
 
 if.then.i.i:                                      ; preds = %call.i.i.noexc.peel, %call.i.us.us.us.i.noexc
   %exception.i.i = call ptr @__cxa_allocate_exception(i64 72) #21
@@ -4019,19 +4019,10 @@ ehcleanup44.i.i:                                  ; preds = %ehcleanup44.sink.sp
 unreachable.i.i:                                  ; preds = %invoke.cont16.i.i, %invoke.cont6.i.i
   unreachable
 
-for.cond178.cleanup215_crit_edge.i.loopexit:      ; preds = %if.end.i.us.us.us.i
+for.cond178.cleanup215_crit_edge.i:               ; preds = %if.end.i.i.peel, %if.end.i.us.us.us.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_valid_position.i.i) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp3.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp11.i.i)
-  br label %for.cond178.cleanup215_crit_edge.i
-
-for.cond178.cleanup215_crit_edge.i.loopexit54:    ; preds = %if.end.i.i.peel
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_valid_position.i.i) #21
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp3.i.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp11.i.i)
-  br label %for.cond178.cleanup215_crit_edge.i
-
-for.cond178.cleanup215_crit_edge.i:               ; preds = %for.cond178.cleanup215_crit_edge.i.loopexit54, %for.cond178.cleanup215_crit_edge.i.loopexit
   call void @_ZN3MapD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %map) #21
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %map) #21
   ret void

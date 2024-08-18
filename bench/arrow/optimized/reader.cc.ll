@@ -35992,8 +35992,7 @@ invoke.cont41:                                    ; preds = %invoke.cont.i112, %
 
 _ZN5arrow6StatusaNEOS0_.exit.thread:              ; preds = %invoke.cont41
   store ptr %44, ptr %st, align 8
-  store ptr null, ptr %ref.tmp39, align 8
-  br label %cleanup43
+  br label %cleanup43.sink.split
 
 _ZN5arrow6StatusaNEOS0_.exit:                     ; preds = %invoke.cont41
   br i1 %cmp.i2.i, label %cleanup43, label %delete.notnull.i.i117
@@ -36076,11 +36075,14 @@ _ZN5arrow6Status11DeleteStateEv.exit.i130:        ; preds = %if.end8.sink.split.
   %msg.i.i.i131 = getelementptr inbounds i8, ptr %44, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i.i131) #30
   call void @_ZdlPv(ptr noundef nonnull %44) #31
+  br label %cleanup43.sink.split
+
+cleanup43.sink.split:                             ; preds = %_ZN5arrow6StatusaNEOS0_.exit.thread, %_ZN5arrow6Status11DeleteStateEv.exit.i130
   store ptr null, ptr %ref.tmp39, align 8
   br label %cleanup43
 
-cleanup43:                                        ; preds = %_ZN5arrow6Status11DeleteStateEv.exit.i130, %_ZN5arrow6StatusaNEOS0_.exit, %_ZN5arrow6StatusaNEOS0_.exit.thread, %_ZN5arrow6StatusD2Ev.exit, %_ZN5arrow6StatusD2Ev.exit109
-  %cleanup.dest.slot.1 = phi i32 [ 5, %_ZN5arrow6StatusD2Ev.exit109 ], [ 1, %_ZN5arrow6StatusD2Ev.exit ], [ 0, %_ZN5arrow6StatusaNEOS0_.exit.thread ], [ 0, %_ZN5arrow6StatusaNEOS0_.exit ], [ 0, %_ZN5arrow6Status11DeleteStateEv.exit.i130 ]
+cleanup43:                                        ; preds = %cleanup43.sink.split, %_ZN5arrow6StatusaNEOS0_.exit, %_ZN5arrow6StatusD2Ev.exit, %_ZN5arrow6StatusD2Ev.exit109
+  %cleanup.dest.slot.1 = phi i32 [ 5, %_ZN5arrow6StatusD2Ev.exit109 ], [ 1, %_ZN5arrow6StatusD2Ev.exit ], [ 0, %_ZN5arrow6StatusaNEOS0_.exit ], [ 0, %cleanup43.sink.split ]
   %57 = load ptr, ptr %_M_refcount.i.i152, align 8
   %cmp.not.i.i.i153 = icmp eq ptr %57, null
   br i1 %cmp.not.i.i.i153, label %_ZNSt10shared_ptrIN5arrow11RecordBatchEED2Ev.exit, label %if.then.i.i.i154

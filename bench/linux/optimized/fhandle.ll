@@ -305,27 +305,27 @@ define internal fastcc i64 @do_handle_open(i32 noundef %0, ptr noundef %1, i32 n
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
   %6 = tail call zeroext i1 @capable(i32 noundef 2) #8
-  br i1 %6, label %7, label %.thread10
+  br i1 %6, label %7, label %.sink.split
 
 7:                                                ; preds = %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !7
   store i64 0, ptr %4, align 8, !annotation !7
   %8 = call i64 @_copy_from_user(ptr noundef nonnull %4, ptr noundef %1, i64 noundef 8) #8
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %10, label %.thread10
+  br i1 %9, label %10, label %.sink.split
 
 10:                                               ; preds = %7
   %11 = load i32, ptr %4, align 8
   %12 = add i32 %11, -129
   %13 = icmp ult i32 %12, -128
-  br i1 %13, label %.thread10, label %14
+  br i1 %13, label %.sink.split, label %14
 
 14:                                               ; preds = %10
   %15 = add nuw nsw i32 %11, 8
   %16 = zext nneg i32 %15 to i64
   %17 = call noalias align 8 ptr @__kmalloc(i64 noundef %16, i32 noundef 3264) #9
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %.thread10, label %19
+  br i1 %18, label %.sink.split, label %19
 
 19:                                               ; preds = %14
   %20 = load i64, ptr %4, align 8
@@ -415,15 +415,9 @@ define internal fastcc i64 @do_handle_open(i32 noundef %0, ptr noundef %1, i32 n
   call void @mntput(ptr noundef %64) #8
   br label %65
 
-.thread10:                                        ; preds = %3, %7, %10, %14
-  %.ph = phi i64 [ -12, %14 ], [ -22, %10 ], [ -14, %7 ], [ -1, %3 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
-  br label %70
-
 .thread12:                                        ; preds = %24, %23
   call void @kfree(ptr noundef nonnull %17) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
-  br label %70
+  br label %.sink.split
 
 65:                                               ; preds = %52, %63, %.thread
   %66 = phi ptr [ %60, %63 ], [ %53, %52 ], [ inttoptr (i64 -9 to ptr), %.thread ]
@@ -434,8 +428,13 @@ define internal fastcc i64 @do_handle_open(i32 noundef %0, ptr noundef %1, i32 n
   %69 = icmp eq i64 %68, 0
   br i1 %69, label %73, label %70
 
-70:                                               ; preds = %.thread12, %.thread10, %65
-  %71 = phi i64 [ %.ph, %.thread10 ], [ %67, %65 ], [ -14, %.thread12 ]
+.sink.split:                                      ; preds = %14, %10, %7, %3, %.thread12
+  %.ph14 = phi i64 [ -14, %.thread12 ], [ -12, %14 ], [ -22, %10 ], [ -14, %7 ], [ -1, %3 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
+  br label %70
+
+70:                                               ; preds = %.sink.split, %65
+  %71 = phi i64 [ %67, %65 ], [ %.ph14, %.sink.split ]
   %sext = shl i64 %71, 32
   %72 = ashr exact i64 %sext, 32
   br label %87

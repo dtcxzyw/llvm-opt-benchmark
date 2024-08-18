@@ -437,7 +437,6 @@ define hidden void @_ZN10serde_json3ser6to_vec17h06b39166324a221aE.llvm.23375837
 
 34:                                               ; preds = %.thread, %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %46
 
 35:                                               ; preds = %32
@@ -464,10 +463,10 @@ define hidden void @_ZN10serde_json3ser6to_vec17h06b39166324a221aE.llvm.23375837
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h3d435a9404f40398E.exit": ; preds = %35, %40, %44
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !188
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %46
 
 46:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h3d435a9404f40398E.exit", %34
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   ret void
 
 47:                                               ; preds = %30
@@ -527,7 +526,6 @@ define hidden void @_ZN10serde_json3ser6to_vec17ha49188c6891b2c59E.llvm.23375837
 
 22:                                               ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %34
 
 23:                                               ; preds = %20
@@ -554,10 +552,10 @@ define hidden void @_ZN10serde_json3ser6to_vec17ha49188c6891b2c59E.llvm.23375837
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h3d435a9404f40398E.exit": ; preds = %23, %28, %32
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !199
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %34
 
 34:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h3d435a9404f40398E.exit", %22
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   ret void
 
 35:                                               ; preds = %18
@@ -1250,8 +1248,7 @@ define hidden noundef align 8 ptr @_ZN4time5serde7rfc33396option9serialize17hff2
   store i64 %.sroa.618.sroa.7.sroa.7.0.copyload, ptr %.sroa.5.0..sroa_idx78, align 8
   %12 = call noundef nonnull align 8 ptr @"_ZN62_$LT$serde_json..error..Error$u20$as$u20$serde..ser..Error$GT$6custom17h660d04cd2edae269E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %4), !noalias !414
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  br label %62
+  br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h142f1041b57afb0cE.exit"
 
 13:                                               ; preds = %.thread, %9
   %.val = load ptr, ptr %1, align 8, !alias.scope !417, !noalias !420, !nonnull !11, !align !21, !noundef !11
@@ -1335,7 +1332,7 @@ _ZN10serde_json3ser9Formatter12begin_string17hb00ffd679b16d776E.llvm.23375837900
   %46 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h142f1041b57afb0cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #21
-          to label %65 unwind label %63
+          to label %64 unwind label %62
 
 47:                                               ; preds = %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17he1e86084e95e2748E.exit", %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_none17hcb7e0485abcb0c1bE.exit"
   %.sink = phi ptr [ %26, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17he1e86084e95e2748E.exit" ], [ %14, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_none17hcb7e0485abcb0c1bE.exit" ]
@@ -1371,21 +1368,18 @@ _ZN10serde_json3ser9Formatter12begin_string17hb00ffd679b16d776E.llvm.23375837900
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !503
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h142f1041b57afb0cE.exit"
 
-"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h142f1041b57afb0cE.exit": ; preds = %47, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he66bee07c28499bfE.exit.i"
+"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h142f1041b57afb0cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he66bee07c28499bfE.exit.i", %47, %11
+  %.sroa.0.1 = phi ptr [ %12, %11 ], [ null, %47 ], [ null, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he66bee07c28499bfE.exit.i" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  br label %62
-
-62:                                               ; preds = %11, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h142f1041b57afb0cE.exit"
-  %.sroa.0.1 = phi ptr [ null, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h142f1041b57afb0cE.exit" ], [ %12, %11 ]
   ret ptr %.sroa.0.1
 
-63:                                               ; preds = %45
-  %64 = landingpad { ptr, i32 }
+62:                                               ; preds = %45
+  %63 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #23
   unreachable
 
-65:                                               ; preds = %45
+64:                                               ; preds = %45
   resume { ptr, i32 } %46
 }
 

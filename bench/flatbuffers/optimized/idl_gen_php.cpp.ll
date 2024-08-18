@@ -9073,34 +9073,28 @@ if.then35:                                        ; preds = %sw.bb32
 if.end17.i:                                       ; preds = %if.then35
   %15 = load i32, ptr %call11.i, align 4
   %tobool21.not.i = icmp eq i32 %15, 0
-  br i1 %tobool21.not.i, label %16, label %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread
+  %spec.select = select i1 %tobool21.not.i, i64 %call1.i.i, i64 0
+  br label %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread
 
 _ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread: ; preds = %if.end17.i, %if.then35
+  %16 = phi i64 [ 0, %if.then35 ], [ %spec.select, %if.end17.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %endptr.i)
-  br label %17
-
-16:                                               ; preds = %if.end17.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %endptr.i)
-  br label %17
-
-17:                                               ; preds = %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread, %16
-  %18 = phi i64 [ %call1.i.i, %16 ], [ 0, %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread ]
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %ss.i)
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i), !noalias !165
   %add.ptr.i38 = getelementptr inbounds i8, ptr %ss.i, i64 16
-  %call.i39 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i38, i64 noundef %18)
+  %call.i39 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i38, i64 noundef %16)
           to label %invoke.cont.i unwind label %lpad.i40, !noalias !165
 
-invoke.cont.i:                                    ; preds = %17
+invoke.cont.i:                                    ; preds = %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %ss.i)
           to label %_ZN11flatbuffers11NumToStringIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_.exit unwind label %lpad.i40
 
 common.resume:                                    ; preds = %ehcleanup18, %lpad24.body, %lpad29.body, %lpad42.body, %lpad.i40
-  %common.resume.op = phi { ptr, i32 } [ %19, %lpad.i40 ], [ %.pn.pn.pn, %ehcleanup18 ], [ %eh.lpad-body47, %lpad42.body ], [ %eh.lpad-body34, %lpad29.body ], [ %eh.lpad-body26, %lpad24.body ]
+  %common.resume.op = phi { ptr, i32 } [ %17, %lpad.i40 ], [ %.pn.pn.pn, %ehcleanup18 ], [ %eh.lpad-body47, %lpad42.body ], [ %eh.lpad-body34, %lpad29.body ], [ %eh.lpad-body26, %lpad24.body ]
   resume { ptr, i32 } %common.resume.op
 
-lpad.i40:                                         ; preds = %invoke.cont.i, %17
-  %19 = landingpad { ptr, i32 }
+lpad.i40:                                         ; preds = %invoke.cont.i, %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread
+  %17 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i) #18
   br label %common.resume
@@ -9124,7 +9118,7 @@ call.i41.noexc:                                   ; preds = %if.end40
           to label %invoke.cont43 unwind label %lpad.i44
 
 lpad.i44:                                         ; preds = %.noexc46
-  %20 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #18
   br label %lpad42.body
@@ -9134,12 +9128,12 @@ invoke.cont43:                                    ; preds = %.noexc46
   br label %return
 
 lpad42:                                           ; preds = %call.i41.noexc, %if.end40
-  %21 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   br label %lpad42.body
 
 lpad42.body:                                      ; preds = %lpad.i44, %lpad42
-  %eh.lpad-body47 = phi { ptr, i32 } [ %21, %lpad42 ], [ %20, %lpad.i44 ]
+  %eh.lpad-body47 = phi { ptr, i32 } [ %19, %lpad42 ], [ %18, %lpad.i44 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp41) #18
   br label %common.resume
 

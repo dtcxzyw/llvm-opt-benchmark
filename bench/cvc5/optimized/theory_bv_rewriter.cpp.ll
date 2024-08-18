@@ -37673,23 +37673,21 @@ invoke.cont44:                                    ; preds = %invoke.cont.i.i119,
 
 if.then:                                          ; preds = %invoke.cont44
   %cmp.not.i124 = icmp eq ptr %44, %46
-  br i1 %cmp.not.i124, label %if.end, label %if.then.i125
-
-if.then.i125:                                     ; preds = %if.then
-  store ptr %46, ptr %a, align 8
-  br label %if.end
+  br i1 %cmp.not.i124, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %invoke.cont44
   %cmp.not.i130 = icmp eq ptr %44, %45
-  br i1 %cmp.not.i130, label %if.end, label %if.then.i131
+  br i1 %cmp.not.i130, label %if.end, label %if.end.sink.split
 
-if.then.i131:                                     ; preds = %if.else
-  store ptr %45, ptr %a, align 8
+if.end.sink.split:                                ; preds = %if.else, %if.then
+  %.sink = phi ptr [ %46, %if.then ], [ %45, %if.else ]
+  %addxt.sroa.0.0.ph = phi ptr [ %45, %if.then ], [ %46, %if.else ]
+  store ptr %.sink, ptr %a, align 8
   br label %if.end
 
-if.end:                                           ; preds = %if.then.i131, %if.else, %if.then.i125, %if.then
-  %47 = phi ptr [ %44, %if.then ], [ %46, %if.then.i125 ], [ %44, %if.else ], [ %45, %if.then.i131 ]
-  %addxt.sroa.0.0 = phi ptr [ %45, %if.then ], [ %45, %if.then.i125 ], [ %46, %if.else ], [ %46, %if.then.i131 ]
+if.end:                                           ; preds = %if.end.sink.split, %if.else, %if.then
+  %47 = phi ptr [ %44, %if.then ], [ %44, %if.else ], [ %.sink, %if.end.sink.split ]
+  %addxt.sroa.0.0 = phi ptr [ %45, %if.then ], [ %46, %if.else ], [ %addxt.sroa.0.0.ph, %if.end.sink.split ]
   %48 = load ptr, ptr %mr, align 16
   %cmp.i = icmp eq ptr %48, %47
   %arrayidx32.val = load ptr, ptr %arrayidx32, align 8

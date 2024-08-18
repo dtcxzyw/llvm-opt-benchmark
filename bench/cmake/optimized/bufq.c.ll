@@ -1060,12 +1060,7 @@ Curl_bufq_is_full.exit.thread42:                  ; preds = %24, %Curl_bufq_is_f
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   %28 = call zeroext i1 @Curl_bufq_peek(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %8)
-  br i1 %28, label %.lr.ph.i, label %Curl_bufq_pass.exit.thread45
-
-Curl_bufq_pass.exit.thread45:                     ; preds = %Curl_bufq_is_full.exit.thread42
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  br label %.lr.ph.i34.preheader
+  br i1 %28, label %.lr.ph.i, label %Curl_bufq_is_full.exit.thread.sink.split
 
 .lr.ph.i:                                         ; preds = %Curl_bufq_is_full.exit.thread42, %38
   %.020.i = phi i64 [ %39, %38 ], [ 0, %Curl_bufq_is_full.exit.thread42 ]
@@ -1082,7 +1077,7 @@ Curl_bufq_pass.exit.thread45:                     ; preds = %Curl_bufq_is_full.e
   br i1 %.not16.i, label %Curl_bufq_pass.exit.thread, label %35
 
 35:                                               ; preds = %33
-  br i1 %34, label %Curl_bufq_pass.exit, label %Curl_bufq_pass.exit.thread.thread90
+  br i1 %34, label %Curl_bufq_is_full.exit.thread.sink.split, label %Curl_bufq_pass.exit.thread.thread90
 
 Curl_bufq_pass.exit.thread.thread90:              ; preds = %35
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -1095,7 +1090,7 @@ Curl_bufq_pass.exit.thread.thread90:              ; preds = %35
 
 37:                                               ; preds = %36
   %.not15.i = icmp eq i64 %.020.i, 0
-  br i1 %.not15.i, label %Curl_bufq_pass.exit.thread.thread, label %Curl_bufq_pass.exit
+  br i1 %.not15.i, label %Curl_bufq_pass.exit.thread.thread, label %Curl_bufq_is_full.exit.thread.sink.split
 
 Curl_bufq_pass.exit.thread.thread:                ; preds = %37
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -1106,19 +1101,19 @@ Curl_bufq_pass.exit.thread.thread:                ; preds = %37
   tail call void @Curl_bufq_skip(ptr noundef %0, i64 noundef %31)
   %39 = add nuw nsw i64 %31, %.020.i
   %40 = call zeroext i1 @Curl_bufq_peek(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %8)
-  br i1 %40, label %.lr.ph.i, label %Curl_bufq_pass.exit, !llvm.loop !15
+  br i1 %40, label %.lr.ph.i, label %Curl_bufq_is_full.exit.thread.sink.split, !llvm.loop !15
 
 Curl_bufq_pass.exit.thread:                       ; preds = %33
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br i1 %34, label %.loopexit, label %.critedge
 
-Curl_bufq_pass.exit:                              ; preds = %38, %35, %37
+Curl_bufq_is_full.exit.thread.sink.split:         ; preds = %38, %37, %35, %Curl_bufq_is_full.exit.thread42
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %.lr.ph.i34.preheader
 
-.lr.ph.i34.preheader:                             ; preds = %Curl_bufq_pass.exit, %20, %16, %18, %Curl_bufq_pass.exit.thread45, %Curl_bufq_is_full.exit
+.lr.ph.i34.preheader:                             ; preds = %Curl_bufq_is_full.exit.thread.sink.split, %20, %16, %18, %Curl_bufq_is_full.exit
   br label %.lr.ph.i34
 
 .lr.ph.i34:                                       ; preds = %.lr.ph.i34.preheader, %chunk_append.exit.i

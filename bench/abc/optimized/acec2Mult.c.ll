@@ -1018,15 +1018,10 @@ Abc_TtExpand.exit80.i.us:                         ; preds = %Abc_TtExpand.exit80
 
 .lr.ph.preheader.i82.i.us:                        ; preds = %.preheader18.i.i.us
   %458 = xor i64 %456, -1
-  store i64 %458, ptr %3, align 8
-  br label %Abc_TtXor.exit.i.us
+  br label %Abc_TtXor.exit.sink.split.i.us
 
 .preheader.i88.i.us:                              ; preds = %455
-  br i1 %.not105.i.us, label %Abc_TtXor.exit.i.us, label %.lr.ph22.preheader.i.i.us
-
-.lr.ph22.preheader.i.i.us:                        ; preds = %.preheader.i88.i.us
-  store i64 %456, ptr %3, align 8
-  br label %Abc_TtXor.exit.i.us
+  br i1 %.not105.i.us, label %Abc_TtXor.exit.i.us, label %Abc_TtXor.exit.sink.split.i.us
 
 459:                                              ; preds = %Abc_TtExpand.exit80.i.us
   %460 = and i64 %453, %454
@@ -1039,18 +1034,19 @@ Abc_TtExpand.exit80.i.us:                         ; preds = %Abc_TtExpand.exit80
 
 .lr.ph.preheader.i91.i.us:                        ; preds = %.preheader18.i90.i.us
   %462 = xor i64 %460, -1
-  store i64 %462, ptr %3, align 8
-  br label %Abc_TtXor.exit.i.us
+  br label %Abc_TtXor.exit.sink.split.i.us
 
 .preheader.i97.i.us:                              ; preds = %459
-  br i1 %.not105.i.us, label %Abc_TtXor.exit.i.us, label %.lr.ph22.preheader.i98.i.us
+  br i1 %.not105.i.us, label %Abc_TtXor.exit.i.us, label %Abc_TtXor.exit.sink.split.i.us
 
-.lr.ph22.preheader.i98.i.us:                      ; preds = %.preheader.i97.i.us
-  store i64 %460, ptr %3, align 8
+Abc_TtXor.exit.sink.split.i.us:                   ; preds = %.preheader.i97.i.us, %.lr.ph.preheader.i91.i.us, %.preheader.i88.i.us, %.lr.ph.preheader.i82.i.us
+  %.sink.i.us = phi i64 [ %458, %.lr.ph.preheader.i82.i.us ], [ %462, %.lr.ph.preheader.i91.i.us ], [ %456, %.preheader.i88.i.us ], [ %460, %.preheader.i97.i.us ]
+  %.047.ph.i.us = phi i32 [ 1, %.lr.ph.preheader.i82.i.us ], [ 1, %.lr.ph.preheader.i91.i.us ], [ 0, %.preheader.i88.i.us ], [ 0, %.preheader.i97.i.us ]
+  store i64 %.sink.i.us, ptr %3, align 8
   br label %Abc_TtXor.exit.i.us
 
-Abc_TtXor.exit.i.us:                              ; preds = %.lr.ph22.preheader.i98.i.us, %.preheader.i97.i.us, %.lr.ph.preheader.i91.i.us, %.preheader18.i90.i.us, %.lr.ph22.preheader.i.i.us, %.preheader.i88.i.us, %.lr.ph.preheader.i82.i.us, %.preheader18.i.i.us
-  %.047.i.us = phi i32 [ 1, %.preheader18.i.i.us ], [ 0, %.preheader.i88.i.us ], [ 1, %.preheader18.i90.i.us ], [ 0, %.preheader.i97.i.us ], [ 0, %.lr.ph22.preheader.i98.i.us ], [ 1, %.lr.ph.preheader.i91.i.us ], [ 0, %.lr.ph22.preheader.i.i.us ], [ 1, %.lr.ph.preheader.i82.i.us ]
+Abc_TtXor.exit.i.us:                              ; preds = %Abc_TtXor.exit.sink.split.i.us, %.preheader.i97.i.us, %.preheader18.i90.i.us, %.preheader.i88.i.us, %.preheader18.i.i.us
+  %.047.i.us = phi i32 [ 1, %.preheader18.i.i.us ], [ 0, %.preheader.i88.i.us ], [ 1, %.preheader18.i90.i.us ], [ 0, %.preheader.i97.i.us ], [ %.047.ph.i.us, %Abc_TtXor.exit.sink.split.i.us ]
   %463 = load i32, ptr %45, align 4
   %.not49.i.us = icmp eq i32 %463, 0
   br i1 %.not49.i.us, label %Sdb_CutComputeTruth.exit.us, label %464
@@ -1591,7 +1587,7 @@ Sdb_CutComputeTruth.exit.us:                      ; preds = %Abc_TtXor.exit.i.us
   %749 = phi ptr [ %.pre119.i.us, %Abc_TtMinBase.exit.i.us ], [ %.val.i.us, %Abc_TtXor.exit.i.us ]
   %750 = call fastcc i32 @Vec_MemHashInsert(ptr noundef %749, ptr noundef nonnull %3)
   %751 = shl nsw i32 %750, 1
-  %752 = or disjoint i32 %751, %.047.i.us
+  %752 = add nuw nsw i32 %751, %.047.i.us
   %753 = getelementptr inbounds i8, ptr %201, i64 8
   store i32 %752, ptr %753, align 8
   %754 = load i32, ptr %205, align 4

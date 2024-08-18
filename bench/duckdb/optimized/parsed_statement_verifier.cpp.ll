@@ -272,11 +272,7 @@ invoke.cont12:                                    ; preds = %invoke.cont8
 ehcleanup13.thread:                               ; preds = %catch
   %10 = landingpad { ptr, i32 }
           cleanup
-  %exn.slot.160 = extractvalue { ptr, i32 } %10, 0
-  %ehselector.slot.161 = extractvalue { ptr, i32 } %10, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp3) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #16
-  br label %cleanup.action
+  br label %cleanup.action.sink.split
 
 lpad11:                                           ; preds = %invoke.cont12, %invoke.cont8
   %cleanup.isactive.0 = phi i1 [ false, %invoke.cont12 ], [ true, %invoke.cont8 ]
@@ -317,19 +313,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %20 = load i64, ptr %_M_string_length.i.i.i3982, align 8, !tbaa !8
   %cmp3.i.i.i4083 = icmp ult i64 %20, 16
   call void @llvm.assume(i1 %cmp3.i.i.i4083)
-  %exn.slot.16684 = extractvalue { ptr, i32 } %17, 0
-  %ehselector.slot.16785 = extractvalue { ptr, i32 } %17, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp3) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #16
-  br label %cleanup.action
+  br label %cleanup.action.sink.split
 
 ehcleanup13.thread75:                             ; preds = %ehcleanup.thread
   call void @_ZdlPv(ptr noundef %18) #17
-  %exn.slot.178 = extractvalue { ptr, i32 } %17, 0
-  %ehselector.slot.179 = extractvalue { ptr, i32 } %17, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp3) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #16
-  br label %cleanup.action
+  br label %cleanup.action.sink.split
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i38: ; preds = %ehcleanup
   %_M_string_length.i.i.i39 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
@@ -350,9 +338,17 @@ ehcleanup13:                                      ; preds = %ehcleanup
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #16
   br i1 %cleanup.isactive.0, label %cleanup.action, label %cleanup.done
 
-cleanup.action:                                   ; preds = %ehcleanup13, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i38, %ehcleanup13.thread75, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i38.thread, %ehcleanup13.thread
-  %ehselector.slot.165 = phi i32 [ %ehselector.slot.161, %ehcleanup13.thread ], [ %ehselector.slot.1, %ehcleanup13 ], [ %ehselector.slot.167, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i38 ], [ %ehselector.slot.179, %ehcleanup13.thread75 ], [ %ehselector.slot.16785, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i38.thread ]
-  %exn.slot.163 = phi ptr [ %exn.slot.160, %ehcleanup13.thread ], [ %exn.slot.1, %ehcleanup13 ], [ %exn.slot.166, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i38 ], [ %exn.slot.178, %ehcleanup13.thread75 ], [ %exn.slot.16684, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i38.thread ]
+cleanup.action.sink.split:                        ; preds = %ehcleanup13.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i38.thread, %ehcleanup13.thread75
+  %.sink11 = phi { ptr, i32 } [ %17, %ehcleanup13.thread75 ], [ %17, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i38.thread ], [ %10, %ehcleanup13.thread ]
+  %exn.slot.178 = extractvalue { ptr, i32 } %.sink11, 0
+  %ehselector.slot.179 = extractvalue { ptr, i32 } %.sink11, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp3) #16
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #16
+  br label %cleanup.action
+
+cleanup.action:                                   ; preds = %cleanup.action.sink.split, %ehcleanup13, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i38
+  %ehselector.slot.165 = phi i32 [ %ehselector.slot.1, %ehcleanup13 ], [ %ehselector.slot.167, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i38 ], [ %ehselector.slot.179, %cleanup.action.sink.split ]
+  %exn.slot.163 = phi ptr [ %exn.slot.1, %ehcleanup13 ], [ %exn.slot.166, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i38 ], [ %exn.slot.178, %cleanup.action.sink.split ]
   call void @__cxa_free_exception(ptr %exception) #16
   br label %cleanup.done
 

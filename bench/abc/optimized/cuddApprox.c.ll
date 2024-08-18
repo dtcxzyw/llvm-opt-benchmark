@@ -2798,7 +2798,7 @@ define internal fastcc ptr @gatherInfoAux(ptr noundef %0, ptr noundef %1, i32 no
 
 16:                                               ; preds = %12, %11
   %17 = load ptr, ptr %4, align 8
-  br label %86
+  br label %89
 
 18:                                               ; preds = %3
   %19 = getelementptr inbounds i8, ptr %7, i64 16
@@ -2814,13 +2814,13 @@ define internal fastcc ptr @gatherInfoAux(ptr noundef %0, ptr noundef %1, i32 no
   %29 = xor i64 %28, %23
   %30 = call fastcc ptr @gatherInfoAux(ptr noundef %25, ptr noundef nonnull %1, i32 noundef %2)
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %86, label %32
+  br i1 %31, label %89, label %32
 
 32:                                               ; preds = %18
   %33 = inttoptr i64 %29 to ptr
   %34 = call fastcc ptr @gatherInfoAux(ptr noundef %33, ptr noundef nonnull %1, i32 noundef %2)
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %86, label %36
+  br i1 %35, label %89, label %36
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds i8, ptr %30, i64 16
@@ -2881,22 +2881,22 @@ define internal fastcc ptr @gatherInfoAux(ptr noundef %0, ptr noundef %1, i32 no
   br label %78
 
 78:                                               ; preds = %72, %66
-  %.sink41.in.in = phi ptr [ %77, %72 ], [ %34, %66 ]
-  %.sink41.in = load double, ptr %.sink41.in.in, align 8
-  %.sink41 = fmul double %.sink41.in, 5.000000e-01
-  %.sink43 = load ptr, ptr %4, align 8
-  %79 = getelementptr inbounds i8, ptr %.sink43, i64 8
-  %80 = load double, ptr %79, align 8
-  %81 = fadd double %.sink41, %80
-  store double %81, ptr %79, align 8
-  %82 = load ptr, ptr %8, align 8
-  %83 = call i32 @st__insert(ptr noundef %82, ptr noundef nonnull %7, ptr noundef nonnull %.sink43) #10
-  %84 = icmp eq i32 %83, -10000
-  %85 = load ptr, ptr %4, align 8
-  %spec.select = select i1 %84, ptr null, ptr %85
-  br label %86
+  %.sink44 = phi ptr [ %77, %72 ], [ %34, %66 ]
+  %79 = load double, ptr %.sink44, align 8
+  %80 = fmul double %79, 5.000000e-01
+  %81 = load ptr, ptr %4, align 8
+  %82 = getelementptr inbounds i8, ptr %81, i64 8
+  %83 = load double, ptr %82, align 8
+  %84 = fadd double %80, %83
+  store double %84, ptr %82, align 8
+  %85 = load ptr, ptr %8, align 8
+  %86 = call i32 @st__insert(ptr noundef %85, ptr noundef nonnull %7, ptr noundef nonnull %81) #10
+  %87 = icmp eq i32 %86, -10000
+  %88 = load ptr, ptr %4, align 8
+  %spec.select = select i1 %87, ptr null, ptr %88
+  br label %89
 
-86:                                               ; preds = %78, %32, %18, %16
+89:                                               ; preds = %78, %32, %18, %16
   %.0 = phi ptr [ %17, %16 ], [ null, %18 ], [ null, %32 ], [ %spec.select, %78 ]
   ret ptr %.0
 }

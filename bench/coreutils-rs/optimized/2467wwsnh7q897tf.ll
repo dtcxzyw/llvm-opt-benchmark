@@ -63,8 +63,6 @@ define hidden void @_ZN3nix3sys4stat4stat17h7cfddb268834dd63E(ptr noalias nocapt
 10:                                               ; preds = %8
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %11, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store i32 0, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
   br label %14
 
 12:                                               ; preds = %8
@@ -72,14 +70,15 @@ define hidden void @_ZN3nix3sys4stat4stat17h7cfddb268834dd63E(ptr noalias nocapt
   br label %15
 
 14:                                               ; preds = %15, %10
+  %.sink = phi i32 [ 1, %15 ], [ 0, %10 ]
+  store i32 %.sink, ptr %0, align 8
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
   ret void
 
 15:                                               ; preds = %3, %12
-  %.sink = phi i32 [ %13, %12 ], [ %7, %3 ]
+  %.sink18 = phi i32 [ %13, %12 ], [ %7, %3 ]
   %16 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.sink, ptr %16, align 4
-  store i32 1, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
+  store i32 %.sink18, ptr %16, align 4
   br label %14
 }
 
@@ -100,8 +99,6 @@ define hidden void @_ZN3nix3sys4stat5lstat17haab7b9b7adac8b89E(ptr noalias nocap
 10:                                               ; preds = %8
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %11, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store i32 0, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
   br label %14
 
 12:                                               ; preds = %8
@@ -109,14 +106,15 @@ define hidden void @_ZN3nix3sys4stat5lstat17haab7b9b7adac8b89E(ptr noalias nocap
   br label %15
 
 14:                                               ; preds = %15, %10
+  %.sink = phi i32 [ 1, %15 ], [ 0, %10 ]
+  store i32 %.sink, ptr %0, align 8
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
   ret void
 
 15:                                               ; preds = %3, %12
-  %.sink = phi i32 [ %13, %12 ], [ %7, %3 ]
+  %.sink18 = phi i32 [ %13, %12 ], [ %7, %3 ]
   %16 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.sink, ptr %16, align 4
-  store i32 1, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
+  store i32 %.sink18, ptr %16, align 4
   br label %14
 }
 

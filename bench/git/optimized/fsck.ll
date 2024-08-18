@@ -3776,7 +3776,7 @@ land.lhs.true10:                                  ; preds = %if.end6
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %c.i)
   %call.i = call i32 @looks_like_command_line_option(ptr noundef nonnull %value) #16
   %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %if.end.i, label %check_submodule_url.exit.thread
+  br i1 %tobool.not.i, label %if.end.i, label %if.then13.sink.split
 
 if.end.i:                                         ; preds = %land.lhs.true10
   %call.i.i.i = call i32 @path_match_flags(ptr noundef nonnull %value, i32 noundef 6) #16
@@ -3798,7 +3798,7 @@ if.then5.i:                                       ; preds = %lor.lhs.false.i, %s
   %call7.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %call6.i, i32 noundef 10) #17
   %tobool8.not.i = icmp eq ptr %call7.i, null
   call void @free(ptr noundef %call6.i) #16
-  br i1 %tobool8.not.i, label %while.body.outer.i.i, label %check_submodule_url.exit.thread
+  br i1 %tobool8.not.i, label %while.body.outer.i.i, label %if.then13.sink.split
 
 while.body.outer.i.i:                             ; preds = %if.then5.i, %if.then.i.i
   %url.addr.0.ph.i.i = phi ptr [ %add.ptr.i.i, %if.then.i.i ], [ %value, %if.then5.i ]
@@ -3937,17 +3937,12 @@ lor.lhs.false27.i:                                ; preds = %if.then24.i
 
 if.end30.i.thread:                                ; preds = %if.then24.i, %lor.lhs.false27.i
   call void @credential_clear(ptr noundef nonnull %c.i) #16
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %c.i)
-  br label %if.then13
+  br label %if.then13.sink.split
 
 if.end30.i:                                       ; preds = %lor.lhs.false27.i
   call void @credential_clear(ptr noundef nonnull %c.i) #16
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %c.i)
   br label %if.end19
-
-check_submodule_url.exit.thread:                  ; preds = %land.lhs.true10, %if.then5.i
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %c.i)
-  br label %if.then13
 
 check_submodule_url.exit.thread28:                ; preds = %count_leading_dotdots.exit.i, %lor.lhs.false13.i.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %c.i)
@@ -3961,7 +3956,11 @@ check_submodule_url.exit:                         ; preds = %count_leading_dotdo
     i8 47, label %if.then13
   ]
 
-if.then13:                                        ; preds = %check_submodule_url.exit, %check_submodule_url.exit, %if.end30.i.thread, %check_submodule_url.exit.thread
+if.then13.sink.split:                             ; preds = %if.then5.i, %land.lhs.true10, %if.end30.i.thread
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %c.i)
+  br label %if.then13
+
+if.then13:                                        ; preds = %if.then13.sink.split, %check_submodule_url.exit, %check_submodule_url.exit
   %options14 = getelementptr inbounds i8, ptr %vdata, i64 8
   %17 = load ptr, ptr %options14, align 8
   %18 = load ptr, ptr %vdata, align 8

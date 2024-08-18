@@ -669,16 +669,11 @@ cleanup.i.thread:                                 ; preds = %if.then2.i28
   %cmp.not.i12.i18 = icmp eq ptr %36, %fixed_buffer_.i.i
   %isnull.i13.i19 = icmp eq ptr %36, null
   %or.cond.i14.i20 = or i1 %cmp.not.i12.i18, %isnull.i13.i19
-  br i1 %or.cond.i14.i20, label %_ZN3url12_GLOBAL__N_113DoComplexHostEPKtibbPNS_12CanonOutputTIcEE.exit.thread23, label %delete.notnull.i15.i.thread
+  br i1 %or.cond.i14.i20, label %if.then15.sink.split, label %delete.notnull.i15.i.thread
 
 delete.notnull.i15.i.thread:                      ; preds = %cleanup.i.thread
   call void @_ZdaPv(ptr noundef nonnull %36) #8
-  call void @llvm.lifetime.end.p0(i64 1048, ptr nonnull %utf8.i)
-  br label %if.then15
-
-_ZN3url12_GLOBAL__N_113DoComplexHostEPKtibbPNS_12CanonOutputTIcEE.exit.thread23: ; preds = %cleanup.i.thread
-  call void @llvm.lifetime.end.p0(i64 1048, ptr nonnull %utf8.i)
-  br label %if.then15
+  br label %if.then15.sink.split
 
 delete.notnull.i15.i:                             ; preds = %cleanup.i
   call void @_ZdaPv(ptr noundef nonnull %35) #8
@@ -687,8 +682,7 @@ delete.notnull.i15.i:                             ; preds = %cleanup.i
 
 _ZN3url12_GLOBAL__N_113DoComplexHostEPKtibbPNS_12CanonOutputTIcEE.exit.thread: ; preds = %if.else
   tail call fastcc void @_ZN3url12_GLOBAL__N_19DoIDNHostEPKtiPNS_12CanonOutputTIcEE(ptr noundef %arrayidx7, i32 noundef %host.4.val, ptr noundef nonnull %output)
-  call void @llvm.lifetime.end.p0(i64 1048, ptr nonnull %utf8.i)
-  br label %if.then15
+  br label %if.then15.sink.split
 
 _ZN3url12_GLOBAL__N_113DoComplexHostEPKtibbPNS_12CanonOutputTIcEE.exit: ; preds = %cleanup.i
   call void @llvm.lifetime.end.p0(i64 1048, ptr nonnull %utf8.i)
@@ -697,7 +691,11 @@ _ZN3url12_GLOBAL__N_113DoComplexHostEPKtibbPNS_12CanonOutputTIcEE.exit: ; preds 
 if.end13:                                         ; preds = %for.inc.i25
   br i1 %success.1.i, label %invoke.cont, label %if.then15
 
-if.then15:                                        ; preds = %delete.notnull.i15.i.thread, %_ZN3url12_GLOBAL__N_113DoComplexHostEPKtibbPNS_12CanonOutputTIcEE.exit.thread23, %delete.notnull.i15.i, %_ZN3url12_GLOBAL__N_113DoComplexHostEPKtibbPNS_12CanonOutputTIcEE.exit.thread, %_ZN3url12_GLOBAL__N_113DoComplexHostEPKtibbPNS_12CanonOutputTIcEE.exit, %if.end13
+if.then15.sink.split:                             ; preds = %cleanup.i.thread, %_ZN3url12_GLOBAL__N_113DoComplexHostEPKtibbPNS_12CanonOutputTIcEE.exit.thread, %delete.notnull.i15.i.thread
+  call void @llvm.lifetime.end.p0(i64 1048, ptr nonnull %utf8.i)
+  br label %if.then15
+
+if.then15:                                        ; preds = %if.then15.sink.split, %delete.notnull.i15.i, %_ZN3url12_GLOBAL__N_113DoComplexHostEPKtibbPNS_12CanonOutputTIcEE.exit, %if.end13
   store i32 1, ptr %host_info, align 4
   %.pre11 = zext i32 %2 to i64
   br label %if.end29

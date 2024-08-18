@@ -2053,16 +2053,7 @@ _ZN5osgeo4proj4util8optionalINS0_6common9DataEpochEEC2ERKS5_.exit103: ; preds = 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #27
   %153 = load ptr, ptr %4, align 8
   %.not.i.i = icmp eq ptr %153, null
-  br i1 %.not.i.i, label %_ZN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj2io19PROJStringFormatterESt14default_deleteIS6_EEED2Ev.exit, label %_ZNKSt14default_deleteIN5osgeo4proj2io19PROJStringFormatterEEclEPS3_.exit.i.i
-
-_ZNKSt14default_deleteIN5osgeo4proj2io19PROJStringFormatterEEclEPS3_.exit.i.i: ; preds = %152
-  call void @_ZN5osgeo4proj2io19PROJStringFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %153) #27
-  call void @_ZdlPv(ptr noundef nonnull %153) #28
-  br label %_ZN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj2io19PROJStringFormatterESt14default_deleteIS6_EEED2Ev.exit
-
-_ZN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj2io19PROJStringFormatterESt14default_deleteIS6_EEED2Ev.exit: ; preds = %152, %_ZNKSt14default_deleteIN5osgeo4proj2io19PROJStringFormatterEEclEPS3_.exit.i.i
-  store ptr null, ptr %4, align 8
-  br label %163
+  br i1 %.not.i.i, label %.sink.split140, label %.sink.split140.sink.split
 
 154:                                              ; preds = %144, %142
   %.pn = phi { ptr, i32 } [ %145, %144 ], [ %143, %142 ]
@@ -2096,20 +2087,24 @@ _ZN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj2io19PROJStringFormatterESt14de
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #27
   %162 = load ptr, ptr %4, align 8
   %.not.i.i104 = icmp eq ptr %162, null
-  br i1 %.not.i.i104, label %_ZN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj2io19PROJStringFormatterESt14default_deleteIS6_EEED2Ev.exit106, label %_ZNKSt14default_deleteIN5osgeo4proj2io19PROJStringFormatterEEclEPS3_.exit.i.i105
+  br i1 %.not.i.i104, label %.sink.split140, label %.sink.split140.sink.split
 
-_ZNKSt14default_deleteIN5osgeo4proj2io19PROJStringFormatterEEclEPS3_.exit.i.i105: ; preds = %.critedge
-  call void @_ZN5osgeo4proj2io19PROJStringFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %162) #27
-  call void @_ZdlPv(ptr noundef nonnull %162) #28
-  br label %_ZN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj2io19PROJStringFormatterESt14default_deleteIS6_EEED2Ev.exit106
+.sink.split140.sink.split:                        ; preds = %.critedge, %152
+  %.sink141 = phi ptr [ %153, %152 ], [ %162, %.critedge ]
+  %.2.ph.ph = phi ptr [ %70, %152 ], [ null, %.critedge ]
+  call void @_ZN5osgeo4proj2io19PROJStringFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink141) #27
+  call void @_ZdlPv(ptr noundef nonnull %.sink141) #28
+  br label %.sink.split140
 
-_ZN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj2io19PROJStringFormatterESt14default_deleteIS6_EEED2Ev.exit106: ; preds = %.critedge, %_ZNKSt14default_deleteIN5osgeo4proj2io19PROJStringFormatterEEclEPS3_.exit.i.i105
+.sink.split140:                                   ; preds = %.sink.split140.sink.split, %.critedge, %152
+  %switch.ph = phi i1 [ false, %152 ], [ true, %.critedge ], [ %.not85, %.sink.split140.sink.split ]
+  %.2.ph = phi ptr [ %70, %152 ], [ null, %.critedge ], [ %.2.ph.ph, %.sink.split140.sink.split ]
   store ptr null, ptr %4, align 8
   br label %163
 
-163:                                              ; preds = %_ZN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj2io19PROJStringFormatterESt14default_deleteIS6_EEED2Ev.exit, %160, %_ZN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj2io19PROJStringFormatterESt14default_deleteIS6_EEED2Ev.exit106
-  %switch = phi i1 [ true, %_ZN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj2io19PROJStringFormatterESt14default_deleteIS6_EEED2Ev.exit106 ], [ true, %160 ], [ false, %_ZN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj2io19PROJStringFormatterESt14default_deleteIS6_EEED2Ev.exit ]
-  %.2 = phi ptr [ null, %_ZN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj2io19PROJStringFormatterESt14default_deleteIS6_EEED2Ev.exit106 ], [ undef, %160 ], [ %70, %_ZN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj2io19PROJStringFormatterESt14default_deleteIS6_EEED2Ev.exit ]
+163:                                              ; preds = %.sink.split140, %160
+  %switch = phi i1 [ true, %160 ], [ %switch.ph, %.sink.split140 ]
+  %.2 = phi ptr [ undef, %160 ], [ %.2.ph, %.sink.split140 ]
   %164 = load ptr, ptr %17, align 8
   %.not.i.i.i107 = icmp eq ptr %164, null
   br i1 %.not.i.i.i107, label %_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit113, label %165

@@ -186,11 +186,11 @@ define ptr @ws_strptime(ptr noundef %0, ptr nocapture noundef readonly %1, ptr n
     i8 121, label %374
     i8 90, label %404
     i8 122, label %404
-    i8 110, label %.preheader1603
-    i8 116, label %.preheader1603
+    i8 110, label %.preheader1605
+    i8 116, label %.preheader1605
   ]
 
-.preheader1603:                                   ; preds = %.preheader615, %.preheader615
+.preheader1605:                                   ; preds = %.preheader615, %.preheader615
   br label %548
 
 .preheader.us.i391.preheader:                     ; preds = %.preheader615, %.preheader615, %.preheader615
@@ -1077,8 +1077,7 @@ conv_num.exit580:                                 ; preds = %374, %.critedge.i57
   %394 = srem i32 %.fr, 100
   %395 = add i32 %391, %.fr
   %396 = sub i32 %395, %394
-  store i32 %396, ptr %5, align 4
-  br label %401
+  br label %.sink.split
 
 397:                                              ; preds = %conv_num.exit580
   %398 = icmp ult i32 %391, 69
@@ -1086,11 +1085,15 @@ conv_num.exit580:                                 ; preds = %374, %.critedge.i57
 
 399:                                              ; preds = %397
   %400 = add nuw nsw i32 %391, 100
-  store i32 %400, ptr %5, align 4
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %392, %399
+  %.sink = phi i32 [ %400, %399 ], [ %396, %392 ]
+  store i32 %.sink, ptr %5, align 4
   br label %401
 
-401:                                              ; preds = %397, %399, %392
-  %402 = phi i32 [ %391, %397 ], [ %400, %399 ], [ %396, %392 ]
+401:                                              ; preds = %.sink.split, %397
+  %402 = phi i32 [ %391, %397 ], [ %.sink, %.sink.split ]
   store i32 %402, ptr %12, align 4
   %403 = or i32 %.0266885, 1
   br label %select.unfold.backedge
@@ -1435,8 +1438,8 @@ thread-pre-split591:                              ; preds = %417, %428, %432, %.
   store ptr null, ptr %11, align 8
   br label %select.unfold.backedge
 
-548:                                              ; preds = %.preheader1603, %548
-  %.9 = phi ptr [ %554, %548 ], [ %.0277882, %.preheader1603 ]
+548:                                              ; preds = %.preheader1605, %548
+  %.9 = phi ptr [ %554, %548 ], [ %.0277882, %.preheader1605 ]
   %549 = load i8, ptr %.9, align 1
   %550 = zext i8 %549 to i64
   %551 = getelementptr i16, ptr %9, i64 %550
@@ -1495,7 +1498,7 @@ thread-pre-split591:                              ; preds = %417, %428, %432, %.
   %580 = load i32, ptr %579, align 4
   %581 = add i32 %578, -1
   %582 = add i32 %581, %580
-  br label %.sink.split
+  br label %.sink.split1384
 
 583:                                              ; preds = %557
   %.not312 = icmp eq i32 %.0264.lcssa, -1
@@ -1559,18 +1562,18 @@ first_wday_of.exit:                               ; preds = %589, %597, %598
   %616 = add i32 %reass.sub910, -7
   %617 = add i32 %616, %615
   %618 = add i32 %617, %612
-  br label %.sink.split
+  br label %.sink.split1384
 
-.sink.split:                                      ; preds = %first_wday_of.exit, %572
-  %.sink = phi i32 [ %582, %572 ], [ %618, %first_wday_of.exit ]
+.sink.split1384:                                  ; preds = %first_wday_of.exit, %572
+  %.sink1385 = phi i32 [ %582, %572 ], [ %618, %first_wday_of.exit ]
   %.0266.lcssa.sink = phi i32 [ %.0266.lcssa, %572 ], [ %.4, %first_wday_of.exit ]
   %619 = getelementptr inbounds i8, ptr %2, i64 28
-  store i32 %.sink, ptr %619, align 4
+  store i32 %.sink1385, ptr %619, align 4
   %620 = or i32 %.0266.lcssa.sink, 4
   br label %621
 
-621:                                              ; preds = %.sink.split, %583, %.critedge
-  %.3 = phi i32 [ %.0266.lcssa, %.critedge ], [ %.0266.lcssa, %583 ], [ %620, %.sink.split ]
+621:                                              ; preds = %.sink.split1384, %583, %.critedge
+  %.3 = phi i32 [ %.0266.lcssa, %.critedge ], [ %.0266.lcssa, %583 ], [ %620, %.sink.split1384 ]
   %622 = and i32 %.3, 5
   %or.cond389.not = icmp eq i32 %622, 5
   br i1 %or.cond389.not, label %623, label %.loopexit616

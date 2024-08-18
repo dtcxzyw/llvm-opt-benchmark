@@ -331,8 +331,7 @@ define ptr @H5A__dense_open(ptr noundef %0, ptr nocapture noundef readonly %1, p
   %16 = load i64, ptr @H5E_ATTR_g, align 8
   %17 = load i64, ptr @H5E_CANTGET_g, align 8
   %18 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_open, i32 noundef 346, i64 noundef %16, i64 noundef %17, ptr noundef nonnull @.str.11) #6
-  store ptr null, ptr %6, align 8
-  br label %.thread48
+  br label %.thread48.sink.split
 
 19:                                               ; preds = %12
   %.not = icmp eq i32 %13, 0
@@ -347,8 +346,7 @@ define ptr @H5A__dense_open(ptr noundef %0, ptr nocapture noundef readonly %1, p
   %24 = load i64, ptr @H5E_ATTR_g, align 8
   %25 = load i64, ptr @H5E_CANTGET_g, align 8
   %26 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_open, i32 noundef 354, i64 noundef %24, i64 noundef %25, ptr noundef nonnull @.str.12) #6
-  store ptr null, ptr %6, align 8
-  br label %.thread48
+  br label %.thread48.sink.split
 
 27:                                               ; preds = %20
   %28 = load i64, ptr %7, align 8
@@ -364,8 +362,7 @@ define ptr @H5A__dense_open(ptr noundef %0, ptr nocapture noundef readonly %1, p
   %33 = load i64, ptr @H5E_ATTR_g, align 8
   %34 = load i64, ptr @H5E_CANTOPENOBJ_g, align 8
   %35 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_open, i32 noundef 360, i64 noundef %33, i64 noundef %34, ptr noundef nonnull @.str.10) #6
-  store ptr null, ptr %6, align 8
-  br label %.thread48
+  br label %.thread48.sink.split
 
 36:                                               ; preds = %27, %29, %19
   %.1 = phi ptr [ %30, %29 ], [ null, %27 ], [ null, %19 ]
@@ -379,8 +376,7 @@ define ptr @H5A__dense_open(ptr noundef %0, ptr nocapture noundef readonly %1, p
   %42 = load i64, ptr @H5E_ATTR_g, align 8
   %43 = load i64, ptr @H5E_CANTOPENOBJ_g, align 8
   %44 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_open, i32 noundef 366, i64 noundef %42, i64 noundef %43, ptr noundef nonnull @.str.13) #6
-  store ptr null, ptr %6, align 8
-  br label %70
+  br label %.sink.split
 
 45:                                               ; preds = %36
   store ptr %0, ptr %4, align 8
@@ -411,8 +407,7 @@ define ptr @H5A__dense_open(ptr noundef %0, ptr nocapture noundef readonly %1, p
   %59 = load i64, ptr @H5E_ATTR_g, align 8
   %60 = load i64, ptr @H5E_NOTFOUND_g, align 8
   %61 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_open, i32 noundef 382, i64 noundef %59, i64 noundef %60, ptr noundef nonnull @.str.14) #6
-  store ptr null, ptr %6, align 8
-  br label %70
+  br label %.sink.split
 
 62:                                               ; preds = %45
   %63 = load i8, ptr %5, align 1
@@ -424,10 +419,13 @@ define ptr @H5A__dense_open(ptr noundef %0, ptr nocapture noundef readonly %1, p
   %67 = load i64, ptr @H5E_ATTR_g, align 8
   %68 = load i64, ptr @H5E_NOTFOUND_g, align 8
   %69 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_open, i32 noundef 384, i64 noundef %67, i64 noundef %68, ptr noundef nonnull @.str.15) #6
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %41, %58, %66
   store ptr null, ptr %6, align 8
   br label %70
 
-70:                                               ; preds = %62, %66, %58, %41
+70:                                               ; preds = %.sink.split, %62
   %.not40 = icmp eq ptr %.1, null
   br i1 %.not40, label %.thread48, label %71
 
@@ -440,18 +438,21 @@ define ptr @H5A__dense_open(ptr noundef %0, ptr nocapture noundef readonly %1, p
   %75 = load i64, ptr @H5E_ATTR_g, align 8
   %76 = load i64, ptr @H5E_CLOSEERROR_g, align 8
   %77 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_open, i32 noundef 389, i64 noundef %75, i64 noundef %76, ptr noundef nonnull @.str.7) #6
-  store ptr null, ptr %6, align 8
-  br label %.thread48
+  br label %.thread48.sink.split
 
 .thread54:                                        ; preds = %3
   %78 = load i64, ptr @H5E_ATTR_g, align 8
   %79 = load i64, ptr @H5E_CANTOPENOBJ_g, align 8
   %80 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_open, i32 noundef 342, i64 noundef %78, i64 noundef %79, ptr noundef nonnull @.str.10) #6
-  store ptr null, ptr %6, align 8
-  br label %95
+  br label %.sink.split57
 
-.thread48:                                        ; preds = %32, %23, %15, %70, %71, %74
-  %.04650 = phi ptr [ %39, %74 ], [ %39, %71 ], [ %39, %70 ], [ null, %15 ], [ null, %23 ], [ null, %32 ]
+.thread48.sink.split:                             ; preds = %74, %15, %23, %32
+  %.04650.ph = phi ptr [ null, %32 ], [ null, %23 ], [ null, %15 ], [ %39, %74 ]
+  store ptr null, ptr %6, align 8
+  br label %.thread48
+
+.thread48:                                        ; preds = %.thread48.sink.split, %70, %71
+  %.04650 = phi ptr [ %39, %71 ], [ %39, %70 ], [ %.04650.ph, %.thread48.sink.split ]
   %81 = call i32 @H5HF_close(ptr noundef nonnull %10) #6
   %82 = icmp slt i32 %81, 0
   br i1 %82, label %83, label %87
@@ -476,10 +477,13 @@ define ptr @H5A__dense_open(ptr noundef %0, ptr nocapture noundef readonly %1, p
   %92 = load i64, ptr @H5E_ATTR_g, align 8
   %93 = load i64, ptr @H5E_CLOSEERROR_g, align 8
   %94 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_open, i32 noundef 393, i64 noundef %92, i64 noundef %93, ptr noundef nonnull @.str.8) #6
+  br label %.sink.split57
+
+.sink.split57:                                    ; preds = %91, %.thread54
   store ptr null, ptr %6, align 8
   br label %95
 
-95:                                               ; preds = %.thread54, %91, %88, %87
+95:                                               ; preds = %.sink.split57, %88, %87
   %96 = load ptr, ptr %6, align 8
   ret ptr %96
 }

@@ -606,7 +606,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$18trim_start_mat
   %8 = load i64, ptr %5, align 8, !range !144, !noalias !139, !noundef !4
   switch i64 %8, label %9 [
     i64 1, label %_ZN4core3str7pattern8Searcher11next_reject17hb96c1fa40e0f6df8E.llvm.14055365465535721004.exit
-    i64 2, label %12
+    i64 2, label %.loopexit
   ]
 
 9:                                                ; preds = %7
@@ -616,21 +616,17 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$18trim_start_mat
 _ZN4core3str7pattern8Searcher11next_reject17hb96c1fa40e0f6df8E.llvm.14055365465535721004.exit: ; preds = %7
   %10 = getelementptr inbounds i8, ptr %5, i64 8
   %11 = load i64, ptr %10, align 8, !noalias !139, !noundef !4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !139
-  br label %13
+  br label %.loopexit
 
-12:                                               ; preds = %7
+.loopexit:                                        ; preds = %7, %_ZN4core3str7pattern8Searcher11next_reject17hb96c1fa40e0f6df8E.llvm.14055365465535721004.exit
+  %12 = phi i64 [ %11, %_ZN4core3str7pattern8Searcher11next_reject17hb96c1fa40e0f6df8E.llvm.14055365465535721004.exit ], [ %1, %7 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !139
-  br label %13
-
-13:                                               ; preds = %_ZN4core3str7pattern8Searcher11next_reject17hb96c1fa40e0f6df8E.llvm.14055365465535721004.exit, %12
-  %14 = phi i64 [ %1, %12 ], [ %11, %_ZN4core3str7pattern8Searcher11next_reject17hb96c1fa40e0f6df8E.llvm.14055365465535721004.exit ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 %14
-  %16 = sub i64 %1, %14
+  %13 = getelementptr inbounds i8, ptr %0, i64 %12
+  %14 = sub i64 %1, %12
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %6)
-  %17 = insertvalue { ptr, i64 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i64 } %17, i64 %16, 1
-  ret { ptr, i64 } %18
+  %15 = insertvalue { ptr, i64 } poison, ptr %13, 0
+  %16 = insertvalue { ptr, i64 } %15, i64 %14, 1
+  ret { ptr, i64 } %16
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write) uwtable

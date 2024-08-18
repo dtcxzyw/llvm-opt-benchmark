@@ -7772,25 +7772,16 @@ if.end45:                                         ; preds = %if.then42, %if.end3
   %mShading46 = getelementptr inbounds i8, ptr %mat, i64 84
   %23 = load i32, ptr %mShading46, align 4
   switch i32 %23, label %sw.epilog [
-    i32 1, label %sw.bb
-    i32 3, label %sw.bb47
+    i32 1, label %sw.epilog.sink.split
+    i32 3, label %sw.epilog.sink.split
     i32 5, label %sw.bb48
     i32 0, label %sw.bb49
     i32 2, label %sw.bb52
     i32 4, label %sw.bb53
   ]
 
-sw.bb:                                            ; preds = %if.end45
-  store i32 1, ptr %eShading, align 4
-  br label %sw.epilog
-
-sw.bb47:                                          ; preds = %if.end45
-  store i32 3, ptr %eShading, align 4
-  br label %sw.epilog
-
 sw.bb48:                                          ; preds = %if.end45
-  store i32 4, ptr %eShading, align 4
-  br label %sw.epilog
+  br label %sw.epilog.sink.split
 
 sw.bb49:                                          ; preds = %if.end45
   store i32 1, ptr %iWire, align 4
@@ -7799,14 +7790,17 @@ sw.bb49:                                          ; preds = %if.end45
   br label %sw.bb52
 
 sw.bb52:                                          ; preds = %sw.bb49, %if.end45
-  store i32 2, ptr %eShading, align 4
-  br label %sw.epilog
+  br label %sw.epilog.sink.split
 
 sw.bb53:                                          ; preds = %if.end45
-  store i32 8, ptr %eShading, align 4
+  br label %sw.epilog.sink.split
+
+sw.epilog.sink.split:                             ; preds = %if.end45, %if.end45, %sw.bb48, %sw.bb52, %sw.bb53
+  %.sink = phi i32 [ 8, %sw.bb53 ], [ 2, %sw.bb52 ], [ 4, %sw.bb48 ], [ %23, %if.end45 ], [ %23, %if.end45 ]
+  store i32 %.sink, ptr %eShading, align 4
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.bb53, %sw.bb52, %sw.bb48, %sw.bb47, %sw.bb, %if.end45
+sw.epilog:                                        ; preds = %sw.epilog.sink.split, %if.end45
   %25 = load ptr, ptr %pcInstance, align 8
   %call.i65 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull %eShading, i32 noundef 4, ptr noundef nonnull @.str.29, i32 noundef 0, i32 noundef 0, i32 noundef 4)
   %mMapName = getelementptr inbounds i8, ptr %mat, i64 104

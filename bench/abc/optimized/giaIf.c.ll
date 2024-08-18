@@ -9026,8 +9026,7 @@ If_CutTruthW.exit:                                ; preds = %.lr.ph.i.i, %.lr.ph
   %96 = and i64 %95, %94
   %97 = lshr i64 %96, %84
   %98 = or i64 %97, %96
-  store i64 %98, ptr %9, align 16
-  br label %Abc_TtCofactor1p.exit
+  br label %Abc_TtCofactor1p.exit.sink.split
 
 99:                                               ; preds = %92
   br i1 %71, label %100, label %109
@@ -9088,8 +9087,7 @@ If_CutTruthW.exit:                                ; preds = %.lr.ph.i.i, %.lr.ph
   %123 = and i64 %122, %121
   %124 = shl i64 %123, %84
   %125 = or i64 %124, %123
-  store i64 %125, ptr %9, align 16
-  br label %Abc_TtCofactor1p.exit
+  br label %Abc_TtCofactor1p.exit.sink.split
 
 126:                                              ; preds = %119
   br i1 %71, label %127, label %136
@@ -9141,7 +9139,12 @@ If_CutTruthW.exit:                                ; preds = %.lr.ph.i.i, %.lr.ph
   %145 = icmp ult ptr %143, %73
   br i1 %145, label %.preheader.us.i116, label %Abc_TtCofactor1p.exit, !llvm.loop !97
 
-Abc_TtCofactor1p.exit:                            ; preds = %._crit_edge.us.i, %102, %._crit_edge.us.i120, %129, %136, %109, %127, %120, %100, %93
+Abc_TtCofactor1p.exit.sink.split:                 ; preds = %93, %120
+  %.sink = phi i64 [ %125, %120 ], [ %98, %93 ]
+  store i64 %.sink, ptr %9, align 16
+  br label %Abc_TtCofactor1p.exit
+
+Abc_TtCofactor1p.exit:                            ; preds = %._crit_edge.us.i, %102, %._crit_edge.us.i120, %129, %Abc_TtCofactor1p.exit.sink.split, %136, %109, %127, %100
   %146 = load i64, ptr %15, align 4
   %147 = trunc i64 %146 to i32
   %148 = lshr i32 %147, 24

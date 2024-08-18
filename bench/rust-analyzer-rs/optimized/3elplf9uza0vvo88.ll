@@ -2406,7 +2406,7 @@ _ZN7countme3imp3inc17he571db09c31d1d11E.exit.i:   ; preds = %327, %"_ZN4core3ptr
   %.sroa.16.0 = phi i32 [ %363, %376 ], [ undef, %"_ZN74_$LT$syntax..syntax_node..RustLanguage$u20$as$u20$rowan..api..Language$GT$13kind_from_raw17h329786d93afe91e3E.exit.i" ]
   %.sroa.14.0 = phi i32 [ %.0.i.i135.i, %376 ], [ undef, %"_ZN74_$LT$syntax..syntax_node..RustLanguage$u20$as$u20$rowan..api..Language$GT$13kind_from_raw17h329786d93afe91e3E.exit.i" ]
   %.sroa.12107.0 = phi ptr [ %338, %376 ], [ undef, %"_ZN74_$LT$syntax..syntax_node..RustLanguage$u20$as$u20$rowan..api..Language$GT$13kind_from_raw17h329786d93afe91e3E.exit.i" ]
-  %.sroa.0105.4 = phi i64 [ %.sroa.018.i.sroa.0.0.copyload, %376 ], [ -9223372036854775808, %"_ZN74_$LT$syntax..syntax_node..RustLanguage$u20$as$u20$rowan..api..Language$GT$13kind_from_raw17h329786d93afe91e3E.exit.i" ]
+  %.sroa.0105.3 = phi i64 [ %.sroa.018.i.sroa.0.0.copyload, %376 ], [ -9223372036854775808, %"_ZN74_$LT$syntax..syntax_node..RustLanguage$u20$as$u20$rowan..api..Language$GT$13kind_from_raw17h329786d93afe91e3E.exit.i" ]
   %378 = phi ptr [ %.pre185.i, %376 ], [ %.val85.i, %"_ZN74_$LT$syntax..syntax_node..RustLanguage$u20$as$u20$rowan..api..Language$GT$13kind_from_raw17h329786d93afe91e3E.exit.i" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !329)
   call void @llvm.experimental.noalias.scope.decl(metadata !330)
@@ -2464,25 +2464,25 @@ _ZN7countme3imp3inc17he571db09c31d1d11E.exit.i:   ; preds = %327, %"_ZN4core3ptr
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %34), !noalias !170
   br label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit.thread160.i"
 
-_ZN6syntax7parsing9reparsing13reparse_token17hf24f3e52b223e2e7E.exit.thread: ; preds = %56, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0ea68b0cbe8ba08bE.exit.sink.split.i.i", %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit.thread160.i", %160
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35), !noalias !170
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24)
-  br label %"_ZN4core3ptr175drop_in_place$LT$core..option..Option$LT$$LP$rowan..green..node..GreenNode$C$alloc..vec..Vec$LT$syntax..syntax_error..SyntaxError$GT$$C$text_size..range..TextRange$RP$$GT$$GT$17h69986474b420ea9cE.exit"
-
 common.resume:                                    ; preds = %673, %666, %416, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0ea68b0cbe8ba08bE.exit.sink.split.i.i.i", %"_ZN4core3ptr192drop_in_place$LT$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h2a225c395288df48E.exit13.i.i", %527, %532, %554, %560, %59, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0ea68b0cbe8ba08bE.exit.sink.split.i88.i", %68, %74
   %common.resume.op = phi { ptr, i32 } [ %60, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0ea68b0cbe8ba08bE.exit.sink.split.i88.i" ], [ %60, %59 ], [ %.pn75.i, %74 ], [ %.pn75.i, %68 ], [ %417, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0ea68b0cbe8ba08bE.exit.sink.split.i.i.i" ], [ %417, %416 ], [ %.pn.i.i, %532 ], [ %.pn.i.i, %"_ZN4core3ptr192drop_in_place$LT$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h2a225c395288df48E.exit13.i.i" ], [ %.pn.i.i, %527 ], [ %.pn21.i, %554 ], [ %.pn21.i, %560 ], [ %667, %666 ], [ %674, %673 ]
   resume { ptr, i32 } %common.resume.op
 
+_ZN6syntax7parsing9reparsing13reparse_token17hf24f3e52b223e2e7E.exit.thread: ; preds = %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0ea68b0cbe8ba08bE.exit.sink.split.i.i", %56, %160, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit.thread160.i"
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35), !noalias !170
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24)
+  br label %"_ZN4core3ptr175drop_in_place$LT$core..option..Option$LT$$LP$rowan..green..node..GreenNode$C$alloc..vec..Vec$LT$syntax..syntax_error..SyntaxError$GT$$C$text_size..range..TextRange$RP$$GT$$GT$17h69986474b420ea9cE.exit"
+
 _ZN6syntax7parsing9reparsing13reparse_token17hf24f3e52b223e2e7E.exit: ; preds = %377, %383
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35), !noalias !170
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24)
-  %.not = icmp eq i64 %.sroa.0105.4, -9223372036854775808
+  %.not = icmp eq i64 %.sroa.0105.3, -9223372036854775808
   br i1 %.not, label %"_ZN4core3ptr175drop_in_place$LT$core..option..Option$LT$$LP$rowan..green..node..GreenNode$C$alloc..vec..Vec$LT$syntax..syntax_error..SyntaxError$GT$$C$text_size..range..TextRange$RP$$GT$$GT$17h69986474b420ea9cE.exit", label %396
 
 396:                                              ; preds = %_ZN6syntax7parsing9reparsing13reparse_token17hf24f3e52b223e2e7E.exit
   %397 = icmp ne ptr %.sroa.12107.0, null
   call void @llvm.assume(i1 %397)
-  store i64 %.sroa.0105.4, ptr %41, align 8
+  store i64 %.sroa.0105.3, ptr %41, align 8
   %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %41, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0)
@@ -2904,7 +2904,7 @@ _ZN6syntax7parsing9reparsing20find_reparsable_node17h33444ebd1f3e37d4E.exit.i: ;
   %544 = extractvalue { ptr, ptr } %521, 0
   %545 = extractvalue { ptr, ptr } %521, 1
   %546 = icmp eq ptr %544, null
-  br i1 %546, label %_ZN6syntax7parsing9reparsing13reparse_block17h51801816ef6d22efE.exit.thread, label %547
+  br i1 %546, label %"_ZN4core3ptr175drop_in_place$LT$core..option..Option$LT$$LP$rowan..green..node..GreenNode$C$alloc..vec..Vec$LT$syntax..syntax_error..SyntaxError$GT$$C$text_size..range..TextRange$RP$$GT$$GT$17h69986474b420ea9cE.exit22.sink.split", label %547
 
 547:                                              ; preds = %_ZN6syntax7parsing9reparsing20find_reparsable_node17h33444ebd1f3e37d4E.exit.i
   %548 = icmp ne ptr %545, null
@@ -2924,10 +2924,6 @@ _ZN6syntax7parsing9reparsing20find_reparsable_node17h33444ebd1f3e37d4E.exit.i: ;
 
 .noexc.i19:                                       ; preds = %553
   unreachable
-
-_ZN6syntax7parsing9reparsing13reparse_block17h51801816ef6d22efE.exit.thread: ; preds = %_ZN6syntax7parsing9reparsing20find_reparsable_node17h33444ebd1f3e37d4E.exit.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %16)
-  br label %"_ZN4core3ptr175drop_in_place$LT$core..option..Option$LT$$LP$rowan..green..node..GreenNode$C$alloc..vec..Vec$LT$syntax..syntax_error..SyntaxError$GT$$C$text_size..range..TextRange$RP$$GT$$GT$17h69986474b420ea9cE.exit22"
 
 554:                                              ; preds = %570, %561
   %.pn21.i = phi { ptr, i32 } [ %562, %561 ], [ %.pn18.pn.i, %570 ]
@@ -3135,8 +3131,7 @@ _ZN6syntax7parsing9reparsing11is_balanced17h8e1a6604a5bc8633E.exit.thread45.i: ;
 
 _ZN6syntax7parsing9reparsing13reparse_block17h51801816ef6d22efE.exit.thread116: ; preds = %607, %613
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20), !noalias !438
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %16)
-  br label %"_ZN4core3ptr175drop_in_place$LT$core..option..Option$LT$$LP$rowan..green..node..GreenNode$C$alloc..vec..Vec$LT$syntax..syntax_error..SyntaxError$GT$$C$text_size..range..TextRange$RP$$GT$$GT$17h69986474b420ea9cE.exit22"
+  br label %"_ZN4core3ptr175drop_in_place$LT$core..option..Option$LT$$LP$rowan..green..node..GreenNode$C$alloc..vec..Vec$LT$syntax..syntax_error..SyntaxError$GT$$C$text_size..range..TextRange$RP$$GT$$GT$17h69986474b420ea9cE.exit22.sink.split"
 
 614:                                              ; preds = %_ZN6syntax7parsing9reparsing11is_balanced17h8e1a6604a5bc8633E.exit.thread45.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14), !noalias !438
@@ -3351,7 +3346,11 @@ _ZN6syntax7parsing9reparsing13reparse_block17h51801816ef6d22efE.exit: ; preds = 
   invoke fastcc void @_ZN6syntax7parsing9reparsing12merge_errors17h27e57d2d11eaf89bE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull %3, ptr noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %38, i32 noundef %.0.i.i.i10, i32 noundef %639, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2)
           to label %675 unwind label %673
 
-"_ZN4core3ptr175drop_in_place$LT$core..option..Option$LT$$LP$rowan..green..node..GreenNode$C$alloc..vec..Vec$LT$syntax..syntax_error..SyntaxError$GT$$C$text_size..range..TextRange$RP$$GT$$GT$17h69986474b420ea9cE.exit22": ; preds = %_ZN6syntax7parsing9reparsing13reparse_block17h51801816ef6d22efE.exit.thread116, %_ZN6syntax7parsing9reparsing13reparse_block17h51801816ef6d22efE.exit, %_ZN6syntax7parsing9reparsing13reparse_block17h51801816ef6d22efE.exit.thread
+"_ZN4core3ptr175drop_in_place$LT$core..option..Option$LT$$LP$rowan..green..node..GreenNode$C$alloc..vec..Vec$LT$syntax..syntax_error..SyntaxError$GT$$C$text_size..range..TextRange$RP$$GT$$GT$17h69986474b420ea9cE.exit22.sink.split": ; preds = %_ZN6syntax7parsing9reparsing20find_reparsable_node17h33444ebd1f3e37d4E.exit.i, %_ZN6syntax7parsing9reparsing13reparse_block17h51801816ef6d22efE.exit.thread116
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %16)
+  br label %"_ZN4core3ptr175drop_in_place$LT$core..option..Option$LT$$LP$rowan..green..node..GreenNode$C$alloc..vec..Vec$LT$syntax..syntax_error..SyntaxError$GT$$C$text_size..range..TextRange$RP$$GT$$GT$17h69986474b420ea9cE.exit22"
+
+"_ZN4core3ptr175drop_in_place$LT$core..option..Option$LT$$LP$rowan..green..node..GreenNode$C$alloc..vec..Vec$LT$syntax..syntax_error..SyntaxError$GT$$C$text_size..range..TextRange$RP$$GT$$GT$17h69986474b420ea9cE.exit22": ; preds = %"_ZN4core3ptr175drop_in_place$LT$core..option..Option$LT$$LP$rowan..green..node..GreenNode$C$alloc..vec..Vec$LT$syntax..syntax_error..SyntaxError$GT$$C$text_size..range..TextRange$RP$$GT$$GT$17h69986474b420ea9cE.exit22.sink.split", %_ZN6syntax7parsing9reparsing13reparse_block17h51801816ef6d22efE.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.8)
   store i64 -9223372036854775808, ptr %0, align 8
   br label %669

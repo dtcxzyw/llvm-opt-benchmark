@@ -452,8 +452,7 @@ define internal i64 @H5T__ref_mem_getsize(ptr nocapture readnone %0, ptr noundef
   %18 = load i64, ptr @H5E_ARGS_g, align 8
   %19 = load i64, ptr @H5E_BADTYPE_g, align 8
   %20 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__ref_mem_getsize, i32 noundef 431, i64 noundef %18, i64 noundef %19, ptr noundef nonnull @.str.9) #10
-  store i64 0, ptr %6, align 8
-  br label %104
+  br label %.sink.split
 
 21:                                               ; preds = %12
   %22 = call i32 @H5VL_file_is_same(ptr noundef nonnull %15, ptr noundef nonnull %3, ptr noundef nonnull %7) #10
@@ -464,8 +463,7 @@ define internal i64 @H5T__ref_mem_getsize(ptr nocapture readnone %0, ptr noundef
   %25 = load i64, ptr @H5E_REFERENCE_g, align 8
   %26 = load i64, ptr @H5E_CANTCOMPARE_g, align 8
   %27 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__ref_mem_getsize, i32 noundef 435, i64 noundef %25, i64 noundef %26, ptr noundef nonnull @.str.10) #10
-  store i64 0, ptr %6, align 8
-  br label %104
+  br label %.sink.split
 
 28:                                               ; preds = %21
   %29 = load i8, ptr %7, align 1
@@ -499,8 +497,7 @@ define internal i64 @H5T__ref_mem_getsize(ptr nocapture readnone %0, ptr noundef
   %41 = load i64, ptr @H5E_REFERENCE_g, align 8
   %42 = load i64, ptr @H5E_CANTGET_g, align 8
   %43 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__ref_mem_getsize, i32 noundef 453, i64 noundef %41, i64 noundef %42, ptr noundef nonnull @.str.11) #10
-  store i64 0, ptr %6, align 8
-  br label %104
+  br label %.sink.split
 
 44:                                               ; preds = %37
   %45 = load i8, ptr %11, align 1
@@ -516,8 +513,7 @@ define internal i64 @H5T__ref_mem_getsize(ptr nocapture readnone %0, ptr noundef
   %51 = load i64, ptr @H5E_ARGS_g, align 8
   %52 = load i64, ptr @H5E_BADTYPE_g, align 8
   %53 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__ref_mem_getsize, i32 noundef 460, i64 noundef %51, i64 noundef %52, ptr noundef nonnull @.str.4) #10
-  store i64 0, ptr %6, align 8
-  br label %104
+  br label %.sink.split
 
 54:                                               ; preds = %47
   %55 = call i32 @H5CX_set_libver_bounds(ptr noundef nonnull %48) #10
@@ -546,8 +542,7 @@ define internal i64 @H5T__ref_mem_getsize(ptr nocapture readnone %0, ptr noundef
   %67 = load i64, ptr @H5E_REFERENCE_g, align 8
   %68 = load i64, ptr @H5E_CANTGET_g, align 8
   %69 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__ref_mem_getsize, i32 noundef 476, i64 noundef %67, i64 noundef %68, ptr noundef nonnull @.str.12) #10
-  store i64 0, ptr %6, align 8
-  br label %104
+  br label %.sink.split
 
 70:                                               ; preds = %58
   %71 = load i64, ptr %10, align 8
@@ -564,8 +559,7 @@ define internal i64 @H5T__ref_mem_getsize(ptr nocapture readnone %0, ptr noundef
   %78 = load i64, ptr @H5E_REFERENCE_g, align 8
   %79 = load i64, ptr @H5E_CANTALLOC_g, align 8
   %80 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__ref_mem_getsize, i32 noundef 482, i64 noundef %78, i64 noundef %79, ptr noundef nonnull @.str.13) #10
-  store i64 0, ptr %6, align 8
-  br label %104
+  br label %.sink.split
 
 81:                                               ; preds = %73
   store i64 %74, ptr %60, align 8
@@ -579,8 +573,7 @@ define internal i64 @H5T__ref_mem_getsize(ptr nocapture readnone %0, ptr noundef
   %86 = load i64, ptr @H5E_REFERENCE_g, align 8
   %87 = load i64, ptr @H5E_CANTGET_g, align 8
   %88 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__ref_mem_getsize, i32 noundef 490, i64 noundef %86, i64 noundef %87, ptr noundef nonnull @.str.12) #10
-  store i64 0, ptr %6, align 8
-  br label %104
+  br label %.sink.split
 
 89:                                               ; preds = %70, %81
   %.1 = phi ptr [ %75, %81 ], [ null, %70 ]
@@ -593,8 +586,7 @@ define internal i64 @H5T__ref_mem_getsize(ptr nocapture readnone %0, ptr noundef
   %93 = load i64, ptr @H5E_REFERENCE_g, align 8
   %94 = load i64, ptr @H5E_CANTENCODE_g, align 8
   %95 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__ref_mem_getsize, i32 noundef 499, i64 noundef %93, i64 noundef %94, ptr noundef nonnull @.str.14) #10
-  store i64 0, ptr %6, align 8
-  br label %104
+  br label %.sink.split
 
 96:                                               ; preds = %.thread
   %97 = getelementptr inbounds i8, ptr %1, i64 44
@@ -610,11 +602,16 @@ define internal i64 @H5T__ref_mem_getsize(ptr nocapture readnone %0, ptr noundef
 101:                                              ; preds = %100, %96
   %102 = phi i32 [ %.pre, %100 ], [ %32, %96 ]
   %103 = zext i32 %102 to i64
-  store i64 %103, ptr %6, align 8
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %17, %24, %40, %50, %66, %77, %85, %92, %101
+  %.sink = phi i64 [ %103, %101 ], [ 0, %92 ], [ 0, %85 ], [ 0, %77 ], [ 0, %66 ], [ 0, %50 ], [ 0, %40 ], [ 0, %24 ], [ 0, %17 ]
+  %.032.ph = phi ptr [ null, %101 ], [ %.1, %92 ], [ %75, %85 ], [ null, %77 ], [ null, %66 ], [ null, %50 ], [ null, %40 ], [ null, %24 ], [ null, %17 ]
+  store i64 %.sink, ptr %6, align 8
   br label %104
 
-104:                                              ; preds = %101, %89, %92, %85, %77, %66, %50, %40, %24, %17
-  %.032 = phi ptr [ null, %17 ], [ null, %24 ], [ null, %40 ], [ null, %50 ], [ null, %66 ], [ null, %77 ], [ %75, %85 ], [ %.1, %92 ], [ %.1, %89 ], [ null, %101 ]
+104:                                              ; preds = %.sink.split, %89
+  %.032 = phi ptr [ %.1, %89 ], [ %.032.ph, %.sink.split ]
   %105 = call ptr @H5MM_xfree(ptr noundef %.032) #10
   %106 = load i64, ptr %6, align 8
   ret i64 %106

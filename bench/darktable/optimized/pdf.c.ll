@@ -782,7 +782,7 @@ define noundef range(i32 0, 2) i32 @dimension(ptr nocapture noundef readnone %0,
   %6 = alloca float, align 4
   %7 = alloca float, align 4
   %8 = icmp eq ptr %1, null
-  br i1 %8, label %39, label %9
+  br i1 %8, label %37, label %9
 
 9:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #16
@@ -792,7 +792,7 @@ define noundef range(i32 0, 2) i32 @dimension(ptr nocapture noundef readnone %0,
   %11 = load float, ptr %10, align 8, !tbaa !6
   %12 = call fastcc i32 @_paper_size(ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7), !range !15
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %38
+  br i1 %13, label %14, label %.sink.split
 
 14:                                               ; preds = %9
   %15 = load float, ptr %5, align 4, !tbaa !17
@@ -816,30 +816,25 @@ define noundef range(i32 0, 2) i32 @dimension(ptr nocapture noundef readnone %0,
   %31 = getelementptr inbounds i8, ptr %1, i64 412
   %32 = load i32, ptr %31, align 4, !tbaa !56
   %33 = icmp eq i32 %32, 0
-  br i1 %33, label %37, label %34
+  br i1 %33, label %.sink.split, label %34
 
 34:                                               ; preds = %14
   %35 = load i32, ptr %2, align 4, !tbaa !33
   %36 = tail call i32 @llvm.umax.i32(i32 %35, i32 %30)
   store i32 %36, ptr %3, align 4, !tbaa !33
   store i32 %36, ptr %2, align 4, !tbaa !33
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %9, %14, %34
+  %.ph = phi i32 [ 0, %34 ], [ 0, %14 ], [ 1, %9 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #16
   br label %37
 
-37:                                               ; preds = %34, %14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #16
-  br label %39
-
-38:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #16
-  br label %39
-
-39:                                               ; preds = %38, %37, %4
-  %40 = phi i32 [ 1, %38 ], [ 0, %37 ], [ 0, %4 ]
-  ret i32 %40
+37:                                               ; preds = %.sink.split, %4
+  %38 = phi i32 [ 0, %4 ], [ %.ph, %.sink.split ]
+  ret i32 %38
 }
 
 ; Function Attrs: nounwind uwtable

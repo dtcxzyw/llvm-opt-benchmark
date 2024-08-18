@@ -7174,13 +7174,7 @@ if.else.i.i.i:                                    ; preds = %while.body.i
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %cond.i10.i.i.i.i333 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %cmp.i.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i.i, 9223372036854775800
-  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i
-
-if.then.i.i.i.i.i:                                ; preds = %if.else.i.i.i
-  store ptr %incdec.ptr.i.i.i.i324, ptr %_M_finish.i.i.i, align 8
-  store ptr %add.ptr19.i.i.i.i329, ptr %_M_end_of_storage.i.i.i, align 8
-  store ptr %cond.i10.i.i.i.i333, ptr %ref, align 8
-  br label %if.then.i.i.i.i.i263.invoke
+  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i263.invoke.sink.split, label %_ZNKSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i
 
 _ZNKSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %if.else.i.i.i
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i, 3
@@ -7571,15 +7565,18 @@ if.else.i.i.i237:                                 ; preds = %while.body.i230
   %sub.ptr.rhs.cast.i.i.i.i.i.i239 = ptrtoint ptr %cond.i10.i.i.i.i252348 to i64
   %sub.ptr.sub.i.i.i.i.i.i240 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i238, %sub.ptr.rhs.cast.i.i.i.i.i.i239
   %cmp.i.i.i.i.i241 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i.i240, 9223372036854775800
-  br i1 %cmp.i.i.i.i.i241, label %if.then.i.i.i.i.i263, label %_ZNKSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i242
+  br i1 %cmp.i.i.i.i.i241, label %if.then.i.i.i.i.i263.invoke.sink.split, label %_ZNKSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i242
 
-if.then.i.i.i.i.i263:                             ; preds = %if.else.i.i.i237
-  store ptr %39, ptr %_M_finish.i.i.i, align 8
-  store ptr %38, ptr %_M_end_of_storage.i.i.i, align 8
-  store ptr %cond.i10.i.i.i.i252348, ptr %ref, align 8
+if.then.i.i.i.i.i263.invoke.sink.split:           ; preds = %if.else.i.i.i, %if.else.i.i.i237
+  %incdec.ptr.i.i.i.i324.lcssa.sink = phi ptr [ %39, %if.else.i.i.i237 ], [ %incdec.ptr.i.i.i.i324, %if.else.i.i.i ]
+  %add.ptr19.i.i.i.i329.lcssa.sink = phi ptr [ %38, %if.else.i.i.i237 ], [ %add.ptr19.i.i.i.i329, %if.else.i.i.i ]
+  %cond.i10.i.i.i.i333.lcssa.sink = phi ptr [ %cond.i10.i.i.i.i252348, %if.else.i.i.i237 ], [ %cond.i10.i.i.i.i333, %if.else.i.i.i ]
+  store ptr %incdec.ptr.i.i.i.i324.lcssa.sink, ptr %_M_finish.i.i.i, align 8
+  store ptr %add.ptr19.i.i.i.i329.lcssa.sink, ptr %_M_end_of_storage.i.i.i, align 8
+  store ptr %cond.i10.i.i.i.i333.lcssa.sink, ptr %ref, align 8
   br label %if.then.i.i.i.i.i263.invoke
 
-if.then.i.i.i.i.i263.invoke:                      ; preds = %if.else.i.i.i187, %if.else.i.i.i151, %if.then.i.i.i.i.i, %if.then.i.i.i.i.i263
+if.then.i.i.i.i.i263.invoke:                      ; preds = %if.then.i.i.i.i.i263.invoke.sink.split, %if.else.i.i.i187, %if.else.i.i.i151
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.25) #25
           to label %if.then.i.i.i.i.i263.cont unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

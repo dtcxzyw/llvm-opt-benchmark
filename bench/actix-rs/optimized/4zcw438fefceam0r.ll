@@ -888,7 +888,6 @@ _ZN5bytes3buf8buf_impl3Buf15chunks_vectored17h444613da7f2cbedbE.exit: ; preds = 
 
 36:                                               ; preds = %_ZN5bytes3buf8buf_impl3Buf15chunks_vectored17h444613da7f2cbedbE.exit
   store i64 2, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6)
   br label %39
 
 37:                                               ; preds = %35
@@ -896,10 +895,10 @@ _ZN5bytes3buf8buf_impl3Buf15chunks_vectored17h444613da7f2cbedbE.exit: ; preds = 
   store i64 1, ptr %0, align 8
   %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %38, ptr %.sroa.425.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6)
   br label %39
 
 39:                                               ; preds = %37, %36
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %13
 }
@@ -1102,7 +1101,6 @@ define hidden void @_ZN10tokio_util4util8poll_buf14poll_write_buf17h82ae71698102
 
 72:                                               ; preds = %"_ZN83_$LT$bytes..buf..chain..Chain$LT$T$C$U$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$15chunks_vectored17hd785c9b15a275205E.exit"
   store i64 2, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %10)
   br label %75
 
 73:                                               ; preds = %71
@@ -1110,10 +1108,10 @@ define hidden void @_ZN10tokio_util4util8poll_buf14poll_write_buf17h82ae71698102
   store i64 1, ptr %0, align 8
   %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %74, ptr %.sroa.425.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %10)
   br label %75
 
 75:                                               ; preds = %73, %72
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   br label %22
 }
@@ -1386,7 +1384,6 @@ define hidden void @_ZN10tokio_util4util8poll_buf14poll_write_buf17he36f3c8aa1d1
 
 109:                                              ; preds = %"_ZN83_$LT$bytes..buf..chain..Chain$LT$T$C$U$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$15chunks_vectored17hd785c9b15a275205E.exit"
   store i64 2, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %11)
   br label %113
 
 110:                                              ; preds = %108
@@ -1399,10 +1396,10 @@ define hidden void @_ZN10tokio_util4util8poll_buf14poll_write_buf17he36f3c8aa1d1
   store i64 1, ptr %0, align 8
   %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %112, ptr %.sroa.425.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %11)
   br label %113
 
 113:                                              ; preds = %111, %109
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %30
 }
@@ -1540,7 +1537,6 @@ _ZN5bytes3buf8buf_impl3Buf15chunks_vectored17h444613da7f2cbedbE.exit: ; preds = 
 
 59:                                               ; preds = %_ZN5bytes3buf8buf_impl3Buf15chunks_vectored17h444613da7f2cbedbE.exit
   store i64 2, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7)
   br label %63
 
 60:                                               ; preds = %58
@@ -1553,10 +1549,10 @@ _ZN5bytes3buf8buf_impl3Buf15chunks_vectored17h444613da7f2cbedbE.exit: ; preds = 
   store i64 1, ptr %0, align 8
   %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %62, ptr %.sroa.425.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7)
   br label %63
 
 63:                                               ; preds = %61, %59
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br label %21
 }

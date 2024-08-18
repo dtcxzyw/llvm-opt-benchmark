@@ -48496,20 +48496,13 @@ invoke.cont243:                                   ; preds = %invoke.cont241
   %299 = load i64, ptr %buffer_3.i.i.i612, align 8, !noalias !1226
   %300 = inttoptr i64 %299 to ptr
   %cmp.not.i.i.i.i613 = icmp eq ptr %298, null
-  br i1 %cmp.not.i.i.i.i613, label %invoke.cont.i618, label %_ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i614
+  br i1 %cmp.not.i.i.i.i613, label %invoke.cont245.sink.split.sink.split, label %_ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i614
 
 _ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i614: ; preds = %invoke.cont243
   %shared_destroy.i.i.i.i615 = getelementptr inbounds i8, ptr %298, i64 24
   %301 = load ptr, ptr %shared_destroy.i.i.i.i615, align 8, !noalias !1226
   %cmp3.i.not.i.i.i616 = icmp eq ptr %301, null
-  br i1 %cmp3.i.not.i.i.i616, label %_ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i.i.thread, label %_ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i.i
-
-_ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i.i.thread: ; preds = %_ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i614
-  %vtable_.i.i.i11.i956 = getelementptr inbounds i8, ptr %ref.tmp234, i64 8
-  store ptr %298, ptr %vtable_.i.i.i11.i956, align 8, !alias.scope !1226
-  %buffer_.i.i.i12.i957 = getelementptr inbounds i8, ptr %ref.tmp234, i64 16
-  store i64 %299, ptr %buffer_.i.i.i12.i957, align 8, !alias.scope !1226
-  br label %_ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i2.i.thread
+  br i1 %cmp3.i.not.i.i.i616, label %invoke.cont245.sink.split.sink.split, label %_ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i.i
 
 _ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i.i: ; preds = %_ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i614
   %302 = atomicrmw add ptr %300, i32 1 monotonic, align 4, !noalias !1226
@@ -48519,19 +48512,7 @@ _ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8I
   %buffer_.i.i.i12.i = getelementptr inbounds i8, ptr %ref.tmp234, i64 16
   store i64 %299, ptr %buffer_.i.i.i12.i, align 8, !alias.scope !1226
   %cmp3.i.not.i.i.i.i = icmp eq ptr %.pr955, null
-  br i1 %cmp3.i.not.i.i.i.i, label %_ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i2.i.thread, label %_ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i2.i
-
-invoke.cont.i618:                                 ; preds = %invoke.cont243
-  %vtable_.i.i.i.i619 = getelementptr inbounds i8, ptr %ref.tmp234, i64 8
-  store ptr null, ptr %vtable_.i.i.i.i619, align 8, !alias.scope !1226
-  %buffer_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp234, i64 16
-  store i64 %299, ptr %buffer_.i.i.i.i, align 8, !alias.scope !1226
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherISt17basic_string_viewIcSt11char_traitsIcEEEE, i64 16), ptr %ref.tmp234, align 8, !alias.scope !1226
-  br label %invoke.cont245
-
-_ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i2.i.thread: ; preds = %_ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i.i.thread, %_ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherISt17basic_string_viewIcSt11char_traitsIcEEEE, i64 16), ptr %ref.tmp234, align 8, !alias.scope !1226
-  br label %invoke.cont245
+  br i1 %cmp3.i.not.i.i.i.i, label %invoke.cont245.sink.split, label %_ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i2.i
 
 _ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i2.i: ; preds = %_ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i.i
   %303 = atomicrmw add ptr %300, i32 1 monotonic, align 4, !noalias !1226
@@ -48557,7 +48538,18 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i6.i
   call void @__clang_call_terminate(ptr %307) #29
   unreachable
 
-invoke.cont245:                                   ; preds = %_ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i2.i.thread, %if.then.i.i.i6.i, %land.lhs.true.i.i.i.i, %_ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i2.i, %invoke.cont.i618
+invoke.cont245.sink.split.sink.split:             ; preds = %invoke.cont243, %_ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i614
+  %vtable_.i.i.i11.i956 = getelementptr inbounds i8, ptr %ref.tmp234, i64 8
+  store ptr %298, ptr %vtable_.i.i.i11.i956, align 8, !alias.scope !1226
+  %buffer_.i.i.i12.i957 = getelementptr inbounds i8, ptr %ref.tmp234, i64 16
+  store i64 %299, ptr %buffer_.i.i.i12.i957, align 8, !alias.scope !1226
+  br label %invoke.cont245.sink.split
+
+invoke.cont245.sink.split:                        ; preds = %invoke.cont245.sink.split.sink.split, %_ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i.i
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherISt17basic_string_viewIcSt11char_traitsIcEEEE, i64 16), ptr %ref.tmp234, align 8, !alias.scope !1226
+  br label %invoke.cont245
+
+invoke.cont245:                                   ; preds = %invoke.cont245.sink.split, %if.then.i.i.i6.i, %land.lhs.true.i.i.i.i, %_ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i2.i
   invoke void @_ZNK7testing8internal10NotMatcherINS_7MatcherISt17basic_string_viewIcSt11char_traitsIcEEEEEcvNS2_IT_EEIS6_EEv(ptr nonnull sret(%"class.testing::Matcher.78") align 8 %ref.tmp233, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp234)
           to label %invoke.cont247 unwind label %lpad246
 

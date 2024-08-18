@@ -3558,15 +3558,18 @@ Py_DECREF.exit:                                   ; preds = %if.else24, %if.then
 
 if.then28:                                        ; preds = %Py_DECREF.exit
   %puts12 = call i32 @puts(ptr nonnull dereferenceable(1) @str.21)
-  store i32 6, ptr %result, align 4
-  br label %if.then.i
+  br label %if.then.i.sink.split
 
 if.end31:                                         ; preds = %cond.end
   call void @PyErr_Print() #18
-  store i32 5, ptr %result, align 4
+  br label %if.then.i.sink.split
+
+if.then.i.sink.split:                             ; preds = %if.end31, %if.then28
+  %.sink = phi i32 [ 6, %if.then28 ], [ 5, %if.end31 ]
+  store i32 %.sink, ptr %result, align 4
   br label %if.then.i
 
-if.then.i:                                        ; preds = %if.then28, %Py_DECREF.exit, %if.end31
+if.then.i:                                        ; preds = %if.then.i.sink.split, %Py_DECREF.exit
   %4 = load i64, ptr %call18, align 8
   %5 = and i64 %4, 2147483648
   %cmp.i2.not.i = icmp eq i64 %5, 0

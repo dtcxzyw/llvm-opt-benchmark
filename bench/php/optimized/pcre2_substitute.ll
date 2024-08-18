@@ -1098,8 +1098,7 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   %555 = getelementptr inbounds i8, ptr %543, i64 4
   %556 = load i32, ptr %555, align 4
   %557 = add nsw i32 %556, %528
-  store i32 %557, ptr %16, align 4
-  br label %579
+  br label %.sink.split
 
 558:                                              ; preds = %529
   %559 = load ptr, ptr %103, align 8
@@ -1124,12 +1123,16 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   %576 = getelementptr inbounds i8, ptr %574, i64 %575
   %577 = load i8, ptr %576, align 1
   %578 = zext i8 %577 to i32
-  store i32 %578, ptr %16, align 4
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %573, %554
+  %.sink = phi i32 [ %557, %554 ], [ %578, %573 ]
+  store i32 %.sink, ptr %16, align 4
   br label %579
 
-579:                                              ; preds = %554, %550, %530, %573, %558, %527
-  %580 = phi i32 [ %528, %527 ], [ %528, %558 ], [ %578, %573 ], [ %528, %530 ], [ %528, %550 ], [ %557, %554 ]
-  %.5565 = phi i32 [ 0, %527 ], [ %.3570, %558 ], [ %.3570, %573 ], [ %.3570, %530 ], [ %.3570, %550 ], [ %.3570, %554 ]
+579:                                              ; preds = %.sink.split, %550, %530, %558, %527
+  %580 = phi i32 [ %528, %527 ], [ %528, %558 ], [ %528, %530 ], [ %528, %550 ], [ %.sink, %.sink.split ]
+  %.5565 = phi i32 [ 0, %527 ], [ %.3570, %558 ], [ %.3570, %530 ], [ %.3570, %550 ], [ %.3570, %.sink.split ]
   br i1 %25, label %581, label %583
 
 581:                                              ; preds = %579
@@ -1407,8 +1410,7 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   %747 = getelementptr inbounds i8, ptr %735, i64 4
   %748 = load i32, ptr %747, align 4
   %749 = add nsw i32 %748, %722
-  store i32 %749, ptr %16, align 4
-  br label %772
+  br label %.sink.split1032
 
 750:                                              ; preds = %720
   %751 = load ptr, ptr %103, align 8
@@ -1434,11 +1436,15 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   %769 = getelementptr inbounds i8, ptr %767, i64 %768
   %770 = load i8, ptr %769, align 1
   %771 = zext i8 %770 to i32
-  store i32 %771, ptr %16, align 4
+  br label %.sink.split1032
+
+.sink.split1032:                                  ; preds = %766, %746
+  %.sink1033 = phi i32 [ %749, %746 ], [ %771, %766 ]
+  store i32 %.sink1033, ptr %16, align 4
   br label %772
 
-772:                                              ; preds = %746, %742, %721, %766, %750, %719
-  %.7 = phi i32 [ 0, %719 ], [ %.3570, %750 ], [ %.3570, %766 ], [ %.3570, %721 ], [ %.3570, %742 ], [ %.3570, %746 ]
+772:                                              ; preds = %.sink.split1032, %742, %721, %750, %719
+  %.7 = phi i32 [ 0, %719 ], [ %.3570, %750 ], [ %.3570, %721 ], [ %.3570, %742 ], [ %.3570, %.sink.split1032 ]
   %773 = load i32, ptr %16, align 4
   br i1 %25, label %774, label %776
 

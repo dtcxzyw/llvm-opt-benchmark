@@ -510,8 +510,7 @@ process_knl_entry.exit.thread:                    ; preds = %190, %._crit_edge.i
 
 208:                                              ; preds = %205
   %209 = load i64, ptr %7, align 8
-  store i64 0, ptr %7, align 8
-  br label %230
+  br label %.sink.split
 
 210:                                              ; preds = %205
   %211 = getelementptr inbounds i8, ptr %7, i64 24
@@ -545,16 +544,21 @@ process_knl_entry.exit.thread:                    ; preds = %190, %._crit_edge.i
   %.sink.i = phi i64 [ %218, %216 ], [ %220, %219 ], [ %215, %213 ]
   %225 = phi i64 [ %217, %216 ], [ %220, %219 ], [ %214, %213 ]
   %226 = sub i64 %225, %.sink.i
-  store i64 %226, ptr %7, align 8
-  br label %230
+  br label %.sink.split
 
 227:                                              ; preds = %205
   %228 = load ptr, ptr @stderr, align 8
   %229 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %228, ptr noundef nonnull @.str.38, i32 noundef %207) #11
   br label %print_result.exit
 
-230:                                              ; preds = %205, %224, %208
-  %231 = phi i64 [ %.sink.i, %224 ], [ %209, %208 ], [ 0, %205 ]
+.sink.split:                                      ; preds = %208, %224
+  %.sink = phi i64 [ %226, %224 ], [ 0, %208 ]
+  %.ph = phi i64 [ %.sink.i, %224 ], [ %209, %208 ]
+  store i64 %.sink, ptr %7, align 8
+  br label %230
+
+230:                                              ; preds = %.sink.split, %205
+  %231 = phi i64 [ 0, %205 ], [ %.ph, %.sink.split ]
   switch i32 %199, label %236 [
     i32 1, label %get_cluster_mode_str.exit.i
     i32 2, label %232

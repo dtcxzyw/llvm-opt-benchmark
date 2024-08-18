@@ -4043,22 +4043,7 @@ _ZN12_GLOBAL__N_112cmQtAutoRccT12TestInfoFileEv.exit: ; preds = %859
   %871 = getelementptr inbounds i8, ptr %0, i64 328
   %.val.i = load i8, ptr %871, align 8
   %872 = trunc i8 %.val.i to i1
-  br i1 %872, label %873, label %_ZN12_GLOBAL__N_112cmQtAutoRccT15GenerateWrapperEv.exit.thread
-
-_ZN12_GLOBAL__N_112cmQtAutoRccT15GenerateWrapperEv.exit.thread: ; preds = %870
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %25)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28)
-  br label %1022
+  br i1 %872, label %873, label %.sink.split
 
 873:                                              ; preds = %870
   call fastcc void @_ZNK12_GLOBAL__N_112cmQtAutoRccT17MultiConfigOutputB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(954) %0)
@@ -4453,19 +4438,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
 
 _ZN12_GLOBAL__N_112cmQtAutoRccT15GenerateWrapperEv.exit.thread102: ; preds = %964, %995
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %25)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28)
-  br label %1022
+  br label %.sink.split
 
 _ZN12_GLOBAL__N_112cmQtAutoRccT15GenerateWrapperEv.exit: ; preds = %932, %1020
   %.sink59.i = phi ptr [ %.sink.i65, %1020 ], [ %22, %932 ]
@@ -4486,7 +4459,22 @@ _ZN12_GLOBAL__N_112cmQtAutoRccT15GenerateWrapperEv.exit: ; preds = %932, %1020
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28)
   br i1 %.3.ph.ph.i, label %1022, label %1094
 
-1022:                                             ; preds = %_ZN12_GLOBAL__N_112cmQtAutoRccT15GenerateWrapperEv.exit.thread102, %_ZN12_GLOBAL__N_112cmQtAutoRccT15GenerateWrapperEv.exit.thread, %_ZN12_GLOBAL__N_112cmQtAutoRccT15GenerateWrapperEv.exit
+.sink.split:                                      ; preds = %870, %_ZN12_GLOBAL__N_112cmQtAutoRccT15GenerateWrapperEv.exit.thread102
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28)
+  br label %1022
+
+1022:                                             ; preds = %.sink.split, %_ZN12_GLOBAL__N_112cmQtAutoRccT15GenerateWrapperEv.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)

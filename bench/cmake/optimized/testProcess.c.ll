@@ -335,21 +335,12 @@ define dso_local noundef i32 @runChild(ptr noundef %0, i32 noundef %1, i32 nound
   %110 = icmp ne i32 %.0.i, 0
   %111 = icmp slt i32 %.0.i, 5
   %or.cond5.i33 = and i1 %110, %111
-  br i1 %or.cond5.i33, label %runChild2.exit.thread, label %runChild2.exit.thread35
-
-runChild2.exit.thread35:                          ; preds = %.thread
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
-  br label %.loopexit
+  br i1 %or.cond5.i33, label %runChild2.exit.thread, label %.loopexit.sink.split
 
 runChild2.exit.thread:                            ; preds = %104, %.thread
   %112 = load ptr, ptr @stderr, align 8
   %113 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %112, ptr noundef nonnull @.str.23, i32 noundef %.0.i, i32 noundef 5) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
-  br label %.loopexit
+  br label %.loopexit.sink.split
 
 runChild2.exit:                                   ; preds = %104
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
@@ -357,8 +348,14 @@ runChild2.exit:                                   ; preds = %104
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
   br i1 %.not22, label %24, label %.loopexit, !llvm.loop !5
 
-.loopexit:                                        ; preds = %24, %runChild2.exit, %runChild2.exit.thread35, %.preheader, %runChild2.exit.thread
-  %.1 = phi i32 [ 1, %runChild2.exit.thread ], [ 1, %.preheader ], [ 1, %runChild2.exit.thread35 ], [ 0, %24 ], [ 1, %runChild2.exit ]
+.loopexit.sink.split:                             ; preds = %.thread, %runChild2.exit.thread
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %24, %runChild2.exit, %.loopexit.sink.split, %.preheader
+  %.1 = phi i32 [ 1, %.preheader ], [ 1, %.loopexit.sink.split ], [ 0, %24 ], [ 1, %runChild2.exit ]
   call void @cmsysProcess_Delete(ptr noundef nonnull %17) #12
   br label %114
 

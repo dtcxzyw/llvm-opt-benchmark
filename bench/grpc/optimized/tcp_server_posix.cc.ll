@@ -1830,9 +1830,7 @@ invoke.cont6.i:                                   ; preds = %for.body4.i
 
 if.then.i:                                        ; preds = %invoke.cont6.i
   store i64 54, ptr %ref.tmp.i, align 8, !noalias !28
-  store i64 %24, ptr %agg.tmp37, align 8, !alias.scope !28
-  store i64 54, ptr %err.i, align 8, !noalias !28
-  br label %_ZN4absl12lts_202308026StatusD2Ev.exit66.i
+  br label %_ZN4absl12lts_202308026StatusD2Ev.exit66.sink.split.i
 
 lpad5.loopexit.i:                                 ; preds = %do.end.i, %invoke.cont53.i, %if.end38.i, %if.end18.i, %if.end.i, %for.body4.i
   %lpad.loopexit.i = landingpad { ptr, i32 }
@@ -1862,9 +1860,7 @@ invoke.cont12.i:                                  ; preds = %if.end.i
 
 if.then17.i:                                      ; preds = %invoke.cont12.i
   store i64 54, ptr %ref.tmp10.i, align 8, !noalias !28
-  store i64 %27, ptr %agg.tmp37, align 8, !alias.scope !28
-  store i64 54, ptr %err.i, align 8, !noalias !28
-  br label %_ZN4absl12lts_202308026StatusD2Ev.exit66.i
+  br label %_ZN4absl12lts_202308026StatusD2Ev.exit66.sink.split.i
 
 if.end18.i:                                       ; preds = %invoke.cont12.i
   %28 = load ptr, ptr %server.i, align 8, !noalias !28
@@ -2156,7 +2152,13 @@ terminate.lpad.i64.i:                             ; preds = %if.then.i.i63.i
   call void @__clang_call_terminate(ptr %68) #26
   unreachable
 
-_ZN4absl12lts_202308026StatusD2Ev.exit66.i:       ; preds = %cleanup.i.thread, %if.then.i.i63.i, %cleanup.i, %if.then17.i, %if.then.i
+_ZN4absl12lts_202308026StatusD2Ev.exit66.sink.split.i: ; preds = %if.then17.i, %if.then.i
+  %.lcssa.sink.i = phi i64 [ %24, %if.then.i ], [ %27, %if.then17.i ]
+  store i64 %.lcssa.sink.i, ptr %agg.tmp37, align 8, !alias.scope !28
+  store i64 54, ptr %err.i, align 8, !noalias !28
+  br label %_ZN4absl12lts_202308026StatusD2Ev.exit66.i
+
+_ZN4absl12lts_202308026StatusD2Ev.exit66.i:       ; preds = %cleanup.i.thread, %_ZN4absl12lts_202308026StatusD2Ev.exit66.sink.split.i, %if.then.i.i63.i, %cleanup.i
   %69 = load i64, ptr %addr_str.i, align 8, !noalias !28
   %cmp.i.i.i.i67.i = icmp eq i64 %69, 0
   br i1 %cmp.i.i.i.i67.i, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i73.i, label %if.else.i.i68.i

@@ -137,6 +137,7 @@ $_ZTV17DeadlyImportError = comdat any
 @.str.33 = private unnamed_addr constant [16 x i8] c"vector::reserve\00", align 1
 @.str.34 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_X3DImporter_Postprocess.cpp, ptr null }]
+@switch.table._ZNK6Assimp11X3DImporter22Postprocess_BuildShapeERK19X3DNodeElementShapeRNSt7__cxx114listIjSaIjEEERNS5_IP6aiMeshSaISA_EEERNS5_IP10aiMaterialSaISF_EEE = private unnamed_addr constant [4 x i32] [i32 3, i32 2, i32 2, i32 1], align 4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4pugi14xpath_node_setD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -4187,32 +4188,21 @@ land.lhs.true32:                                  ; preds = %if.then29
   br i1 %17, label %if.end39, label %if.then34
 
 if.then34:                                        ; preds = %land.lhs.true32
-  switch i32 %mesh_type.1, label %sw.default [
-    i32 15, label %sw.bb
-    i32 16, label %sw.bb35
-    i32 17, label %sw.bb35
-    i32 18, label %sw.bb36
-  ]
+  %switch.tableidx = add i32 %mesh_type.1, -15
+  %18 = icmp ult i32 %switch.tableidx, 4
+  br i1 %18, label %switch.lookup, label %sw.epilog
 
-sw.bb:                                            ; preds = %if.then34
-  store i32 3, ptr %tm, align 4
+switch.lookup:                                    ; preds = %if.then34
+  %19 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZNK6Assimp11X3DImporter22Postprocess_BuildShapeERK19X3DNodeElementShapeRNSt7__cxx114listIjSaIjEEERNS5_IP6aiMeshSaISA_EEERNS5_IP10aiMaterialSaISF_EEE, i64 0, i64 %19
+  %switch.load = load i32, ptr %switch.gep, align 4
   br label %sw.epilog
 
-sw.bb35:                                          ; preds = %if.then34, %if.then34
-  store i32 2, ptr %tm, align 4
-  br label %sw.epilog
-
-sw.bb36:                                          ; preds = %if.then34
-  store i32 1, ptr %tm, align 4
-  br label %sw.epilog
-
-sw.default:                                       ; preds = %if.then34
-  store i32 4, ptr %tm, align 4
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %sw.default, %sw.bb36, %sw.bb35, %sw.bb
-  %18 = load ptr, ptr %tmat, align 8
-  %call.i18 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull %tm, i32 noundef 4, ptr noundef nonnull @.str.29, i32 noundef 1, i32 noundef 0, i32 noundef 4)
+sw.epilog:                                        ; preds = %if.then34, %switch.lookup
+  %.sink = phi i32 [ %switch.load, %switch.lookup ], [ 4, %if.then34 ]
+  store i32 %.sink, ptr %tm, align 4
+  %20 = load ptr, ptr %tmat, align 8
+  %call.i18 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull %tm, i32 noundef 4, ptr noundef nonnull @.str.29, i32 noundef 1, i32 noundef 0, i32 noundef 4)
   br label %if.end39
 
 if.end39:                                         ; preds = %entry, %if.then29, %land.lhs.true32, %sw.epilog, %for.end

@@ -2820,30 +2820,20 @@ per_check_items.exit:                             ; preds = %71, %75, %77
   %85 = load i32, ptr %11, align 4
   %86 = call fastcc i32 @dissect_per_sequence_of_helper(ptr noundef %0, i32 noundef %.1, ptr noundef %2, ptr noundef %68, ptr noundef %82, i32 noundef %84, i32 noundef %85)
   %87 = icmp eq i32 %86, %.1
-  br i1 %87, label %88, label %89
+  br i1 %87, label %93, label %88
 
 88:                                               ; preds = %per_check_items.exit
-  store i32 0, ptr %11, align 4
-  br label %96
+  %89 = lshr i32 %86, 3
+  %90 = lshr i32 %.1, 3
+  %91 = icmp eq i32 %89, %90
+  %92 = sub nsw i32 %89, %90
+  %spec.select = select i1 %91, i32 1, i32 %92
+  br label %93
 
-89:                                               ; preds = %per_check_items.exit
-  %90 = lshr i32 %86, 3
-  %91 = lshr i32 %.1, 3
-  %92 = icmp eq i32 %90, %91
-  br i1 %92, label %93, label %94
-
-93:                                               ; preds = %89
-  store i32 1, ptr %11, align 4
-  br label %96
-
-94:                                               ; preds = %89
-  %95 = sub nsw i32 %90, %91
-  store i32 %95, ptr %11, align 4
-  br label %96
-
-96:                                               ; preds = %93, %94, %88
-  %97 = phi i32 [ 1, %93 ], [ %95, %94 ], [ 0, %88 ]
-  call void @proto_item_set_len(ptr noundef %.071, i32 noundef %97) #10
+93:                                               ; preds = %88, %per_check_items.exit
+  %.sink = phi i32 [ 0, %per_check_items.exit ], [ %spec.select, %88 ]
+  store i32 %.sink, ptr %11, align 4
+  call void @proto_item_set_len(ptr noundef %.071, i32 noundef %.sink) #10
   ret i32 %86
 }
 

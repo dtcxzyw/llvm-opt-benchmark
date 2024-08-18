@@ -721,8 +721,8 @@ define range(i32 0, 2) i32 @Sbm_ManCreateCnf(ptr nocapture noundef readonly %0) 
   br label %78
 
 78:                                               ; preds = %68, %74
-  %storemerge = phi i32 [ %73, %68 ], [ %77, %74 ]
-  store i32 %storemerge, ptr %2, align 4
+  %.sink = phi i32 [ %73, %68 ], [ %77, %74 ]
+  store i32 %.sink, ptr %2, align 4
   %79 = load i32, ptr %21, align 4
   %80 = add nsw i32 %79, %.sink85
   %81 = shl nsw i32 %80, 1

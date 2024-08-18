@@ -2856,10 +2856,10 @@ _ZN6sparse5index14inverted_index19inverted_index_mmap17InvertedIndexMmap22index_
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
   call void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h156e3452876be140E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
   br label %151
 
 151:                                              ; preds = %158, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h156e3452876be140E.exit93", %150
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
   ret void
 
 152:                                              ; preds = %169, %154, %147, %.body, %125, %113, %"_ZN4core3ptr37drop_in_place$LT$memmap2..MmapMut$GT$17h27afca2cc7bf5868E.exit91"
@@ -2889,7 +2889,6 @@ _ZN6sparse5index14inverted_index19inverted_index_mmap17InvertedIndexMmap22index_
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
   call void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h156e3452876be140E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
   br label %151
 
 159:                                              ; preds = %119
@@ -2950,7 +2949,6 @@ _ZN6sparse5index14inverted_index19inverted_index_mmap17InvertedIndexMmap22index_
 
 "_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h156e3452876be140E.exit93": ; preds = %170, %173
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !482
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
   br label %151
 }
 
@@ -3171,10 +3169,10 @@ _ZN6sparse5index14inverted_index19inverted_index_mmap17InvertedIndexMmap15index_
 
 "_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h156e3452876be140E.exit57": ; preds = %77, %80
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !511
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   br label %84
 
 84:                                               ; preds = %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h156e3452876be140E.exit65", %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h156e3452876be140E.exit57"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   ret void
 
 85:                                               ; preds = %93, %.body, %"_ZN4core3ptr34drop_in_place$LT$memmap2..Mmap$GT$17hce47b58eab2680c7E.exit63", %21
@@ -3230,7 +3228,6 @@ _ZN6sparse5index14inverted_index19inverted_index_mmap17InvertedIndexMmap15index_
 
 "_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h156e3452876be140E.exit65": ; preds = %96, %99
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !537
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   br label %84
 
 103:                                              ; preds = %31
@@ -3412,7 +3409,7 @@ _ZN10serde_json3ser9Formatter12begin_object17hfa940585c1f49633E.exit.i.i: ; pred
 
 "_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17hbb9270768aa4e6d3E.exit": ; preds = %_ZN10serde_json3ser9Formatter12begin_object17hfa940585c1f49633E.exit.i.i
   %15 = tail call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error2io17hfebb91be721cbb84E(ptr noundef nonnull %13), !noalias !586
-  br label %43
+  br label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h706a833cbaec3675E.exit"
 
 16:                                               ; preds = %_ZN10serde_json3ser9Formatter12begin_object17hfa940585c1f49633E.exit.i.i, %_ZN10serde_json3ser9Formatter12begin_object17hfa940585c1f49633E.exit.thread.i.i
   store ptr %1, ptr %3, align 8
@@ -3421,14 +3418,14 @@ _ZN10serde_json3ser9Formatter12begin_object17hfa940585c1f49633E.exit.i.i: ; pred
   %.val = load i64, ptr %0, align 8
   %18 = call fastcc noundef align 8 ptr @"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h0dff1cd8308af2b0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 1 @anon.20b2b994cad5c991457c4b7e848f440a.53.llvm.8195939683630598414, i64 noundef 13, i64 %.val)
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %20, label %43
+  br i1 %19, label %20, label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h706a833cbaec3675E.exit"
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds i8, ptr %0, i64 8
   %.val21 = load i64, ptr %21, align 8
   %22 = call fastcc noundef align 8 ptr @"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h0dff1cd8308af2b0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 1 @anon.20b2b994cad5c991457c4b7e848f440a.54.llvm.8195939683630598414, i64 noundef 12, i64 %.val21)
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %24, label %43
+  br i1 %23, label %24, label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h706a833cbaec3675E.exit"
 
 24:                                               ; preds = %20
   %25 = load ptr, ptr %3, align 8, !nonnull !4, !align !41, !noundef !4
@@ -3465,19 +3462,10 @@ _ZN10serde_json3ser9Formatter10end_object17hf6bb65e0a67f877aE.exit.i: ; preds = 
   %41 = tail call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error2io17hfebb91be721cbb84E(ptr noundef nonnull %38)
   br label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h706a833cbaec3675E.exit"
 
-"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h706a833cbaec3675E.exit": ; preds = %24, %_ZN10serde_json3ser9Formatter10end_object17hf6bb65e0a67f877aE.exit.thread.i, %_ZN10serde_json3ser9Formatter10end_object17hf6bb65e0a67f877aE.exit.i, %40
-  %.0.i = phi ptr [ null, %24 ], [ %41, %40 ], [ null, %_ZN10serde_json3ser9Formatter10end_object17hf6bb65e0a67f877aE.exit.i ], [ null, %_ZN10serde_json3ser9Formatter10end_object17hf6bb65e0a67f877aE.exit.thread.i ]
+"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h706a833cbaec3675E.exit": ; preds = %40, %_ZN10serde_json3ser9Formatter10end_object17hf6bb65e0a67f877aE.exit.i, %_ZN10serde_json3ser9Formatter10end_object17hf6bb65e0a67f877aE.exit.thread.i, %24, %16, %20, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17hbb9270768aa4e6d3E.exit"
+  %.1 = phi ptr [ %15, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17hbb9270768aa4e6d3E.exit" ], [ %18, %16 ], [ %22, %20 ], [ null, %24 ], [ %41, %40 ], [ null, %_ZN10serde_json3ser9Formatter10end_object17hf6bb65e0a67f877aE.exit.i ], [ null, %_ZN10serde_json3ser9Formatter10end_object17hf6bb65e0a67f877aE.exit.thread.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  br label %42
-
-42:                                               ; preds = %43, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h706a833cbaec3675E.exit"
-  %.1 = phi ptr [ %.0, %43 ], [ %.0.i, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h706a833cbaec3675E.exit" ]
   ret ptr %.1
-
-43:                                               ; preds = %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17hbb9270768aa4e6d3E.exit", %20, %16
-  %.0 = phi ptr [ %15, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17hbb9270768aa4e6d3E.exit" ], [ %18, %16 ], [ %22, %20 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  br label %42
 }
 
 ; Function Attrs: nonlazybind uwtable

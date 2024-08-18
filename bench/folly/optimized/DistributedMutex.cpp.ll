@@ -158,8 +158,7 @@ _ZN5folly6detail17distributed_mutex33recordTimedWaiterAndClearTimedBitERbRm.exit
 cleanup84.thread:                                 ; preds = %_ZN5folly6detail17distributed_mutex33recordTimedWaiterAndClearTimedBitERbRm.exit
   %tobool30 = icmp ne i8 %timedWaiter.1, 0
   call void @_ZN5folly6detail17distributed_mutex16DistributedMutexISt6atomicLb1EE26DistributedMutexStateProxyC1EPNS1_6WaiterIS3_EEmbbmS8_S8_(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef null, i64 noundef %or, i1 noundef zeroext %tobool30, i1 noundef zeroext false, i64 noundef 0, ptr noundef null, ptr noundef %nextSleeper.0)
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %state) #9
-  br label %cleanup107
+  br label %cleanup107.sink.split
 
 while.end65:                                      ; preds = %_ZN5folly6detail17distributed_mutex33recordTimedWaiterAndClearTimedBitERbRm.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %signal) #9
@@ -220,8 +219,7 @@ if.end68:                                         ; preds = %_ZN5folly6detail17d
   %16 = inttoptr i64 %and18.i127 to ptr
   call void @_ZN5folly6detail17distributed_mutex16DistributedMutexISt6atomicLb1EE26DistributedMutexStateProxyC1EPNS1_6WaiterIS3_EEmbbmS8_S8_(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef %14, i64 noundef %spec.select, i1 noundef zeroext %tobool81, i1 noundef zeroext false, i64 noundef %12, ptr noundef %16, ptr noundef %nextSleeper.0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %signal) #9
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %state) #9
-  br label %cleanup107
+  br label %cleanup107.sink.split
 
 cleanup84:                                        ; preds = %_ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.exit, %_ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.exit.thread141
   %nextSleeper.2140 = phi ptr [ %11, %_ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.exit.thread141 ], [ %nextSleeper.0, %_ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.exit ]
@@ -229,7 +227,11 @@ cleanup84:                                        ; preds = %_ZN5folly6detail17d
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %state) #9
   br label %_ZN5folly6detail17distributed_mutex6WaiterISt6atomicE10initializeEmNS0_17InlineFunctionRefIFvvELm48EEE.exit
 
-cleanup107:                                       ; preds = %if.end68, %cleanup84.thread, %entry
+cleanup107.sink.split:                            ; preds = %cleanup84.thread, %if.end68
+  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %state) #9
+  br label %cleanup107
+
+cleanup107:                                       ; preds = %cleanup107.sink.split, %entry
   ret void
 }
 

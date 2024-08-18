@@ -4154,8 +4154,7 @@ _ZNSt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS1_EED2Ev.exit93.thread227:
   store ptr %43, ptr %7, align 8
   %44 = getelementptr inbounds i8, ptr %0, i64 344
   %45 = load ptr, ptr %44, align 8
-  store ptr %45, ptr %8, align 8
-  br label %84
+  br label %.sink.split
 
 46:                                               ; preds = %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit.thread, %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit
   %.sroa.0116.0220 = phi ptr [ null, %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit.thread ], [ %20, %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit ]
@@ -4225,11 +4224,16 @@ _ZNSt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS1_EED2Ev.exit93.thread227:
   %82 = phi ptr [ %.pre, %._crit_edge211 ], [ %76, %74 ]
   %83 = load ptr, ptr %68, align 8
   store ptr %83, ptr %7, align 8
-  store ptr %82, ptr %8, align 8
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %41, %81
+  %.sink = phi ptr [ %82, %81 ], [ %45, %41 ]
+  %.sroa.0116.0219.ph = phi ptr [ %.sroa.0116.0220, %81 ], [ %.sroa.0116.0215223, %41 ]
+  store ptr %.sink, ptr %8, align 8
   br label %84
 
-84:                                               ; preds = %58, %81, %41
-  %.sroa.0116.0219 = phi ptr [ %.sroa.0116.0220, %58 ], [ %.sroa.0116.0220, %81 ], [ %.sroa.0116.0215223, %41 ]
+84:                                               ; preds = %.sink.split, %58
+  %.sroa.0116.0219 = phi ptr [ %.sroa.0116.0220, %58 ], [ %.sroa.0116.0219.ph, %.sink.split ]
   %85 = getelementptr inbounds i8, ptr %0, i64 592
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr inbounds i8, ptr %0, i64 8

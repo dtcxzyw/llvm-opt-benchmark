@@ -5254,18 +5254,22 @@ for.inc:                                          ; preds = %_ZNSt6vectorIN8nloh
 if.end44.loopexit:                                ; preds = %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_112my_allocatorENS1_14adl_serializerES_IhSaIhEEvEESaISF_EE9push_backEOSF_.exit.i.i
   store ptr %__cur.0.i2238.i389, ptr %_M_finish.i.i.i.i, align 8
   store ptr %add.ptr19.i392, ptr %7, align 8
-  store ptr %call5.i.i.i.i207396, ptr %stack, align 8
-  br label %if.end44
+  br label %if.end44.sink.split
 
 if.end44.loopexit370:                             ; preds = %for.inc
   store ptr %__cur.0.i2238.i239380, ptr %_M_finish.i42, align 8
   store ptr %add.ptr19.i254382, ptr %11, align 8
-  store ptr %call5.i.i.i.i258385, ptr %stack, align 8
+  br label %if.end44.sink.split
+
+if.end44.sink.split:                              ; preds = %if.end44.loopexit, %if.end44.loopexit370
+  %call5.i.i.i.i258385.lcssa.sink = phi ptr [ %call5.i.i.i.i258385, %if.end44.loopexit370 ], [ %call5.i.i.i.i207396, %if.end44.loopexit ]
+  %stack.val26464.ph = phi ptr [ %__cur.0.i2238.i239380, %if.end44.loopexit370 ], [ %__cur.0.i2238.i389, %if.end44.loopexit ]
+  store ptr %call5.i.i.i.i258385.lcssa.sink, ptr %stack, align 8
   br label %if.end44
 
-if.end44:                                         ; preds = %if.end44.loopexit370, %if.end44.loopexit, %invoke.cont25, %invoke.cont35
-  %stack.val26464 = phi ptr [ %__cur.0.i2238.i239380, %if.end44.loopexit370 ], [ %__cur.0.i2238.i389, %if.end44.loopexit ], [ %stack.promoted395, %invoke.cont25 ], [ %stack.promoted, %invoke.cont35 ]
-  %stack.val462 = phi ptr [ %call5.i.i.i.i258385, %if.end44.loopexit370 ], [ %call5.i.i.i.i207396, %if.end44.loopexit ], [ %stack.promoted395, %invoke.cont25 ], [ %stack.promoted, %invoke.cont35 ]
+if.end44:                                         ; preds = %if.end44.sink.split, %invoke.cont25, %invoke.cont35
+  %stack.val26464 = phi ptr [ %stack.promoted395, %invoke.cont25 ], [ %stack.promoted, %invoke.cont35 ], [ %stack.val26464.ph, %if.end44.sink.split ]
+  %stack.val462 = phi ptr [ %stack.promoted395, %invoke.cont25 ], [ %stack.promoted, %invoke.cont35 ], [ %call5.i.i.i.i258385.lcssa.sink, %if.end44.sink.split ]
   %15 = getelementptr inbounds i8, ptr %stack, i64 8
   %m_value75 = getelementptr inbounds i8, ptr %current_item, i64 8
   %_M_end_of_storage.i50 = getelementptr inbounds i8, ptr %stack, i64 16
@@ -6425,18 +6429,22 @@ for.inc:                                          ; preds = %_ZNSt6vectorIN8nloh
 if.end44.loopexit:                                ; preds = %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_120allocator_no_forwardENS1_14adl_serializerES_IhSaIhEEvEESaISF_EE9push_backEOSF_.exit.i.i
   store ptr %__cur.0.i2238.i389, ptr %_M_finish.i.i.i.i, align 8
   store ptr %add.ptr19.i392, ptr %7, align 8
-  store ptr %call5.i.i.i.i207396, ptr %stack, align 8
-  br label %if.end44
+  br label %if.end44.sink.split
 
 if.end44.loopexit370:                             ; preds = %for.inc
   store ptr %__cur.0.i2238.i239380, ptr %_M_finish.i42, align 8
   store ptr %add.ptr19.i254382, ptr %11, align 8
-  store ptr %call5.i.i.i.i258385, ptr %stack, align 8
+  br label %if.end44.sink.split
+
+if.end44.sink.split:                              ; preds = %if.end44.loopexit, %if.end44.loopexit370
+  %call5.i.i.i.i258385.lcssa.sink = phi ptr [ %call5.i.i.i.i258385, %if.end44.loopexit370 ], [ %call5.i.i.i.i207396, %if.end44.loopexit ]
+  %stack.val26464.ph = phi ptr [ %__cur.0.i2238.i239380, %if.end44.loopexit370 ], [ %__cur.0.i2238.i389, %if.end44.loopexit ]
+  store ptr %call5.i.i.i.i258385.lcssa.sink, ptr %stack, align 8
   br label %if.end44
 
-if.end44:                                         ; preds = %if.end44.loopexit370, %if.end44.loopexit, %invoke.cont25, %invoke.cont35
-  %stack.val26464 = phi ptr [ %__cur.0.i2238.i239380, %if.end44.loopexit370 ], [ %__cur.0.i2238.i389, %if.end44.loopexit ], [ %stack.promoted395, %invoke.cont25 ], [ %stack.promoted, %invoke.cont35 ]
-  %stack.val462 = phi ptr [ %call5.i.i.i.i258385, %if.end44.loopexit370 ], [ %call5.i.i.i.i207396, %if.end44.loopexit ], [ %stack.promoted395, %invoke.cont25 ], [ %stack.promoted, %invoke.cont35 ]
+if.end44:                                         ; preds = %if.end44.sink.split, %invoke.cont25, %invoke.cont35
+  %stack.val26464 = phi ptr [ %stack.promoted395, %invoke.cont25 ], [ %stack.promoted, %invoke.cont35 ], [ %stack.val26464.ph, %if.end44.sink.split ]
+  %stack.val462 = phi ptr [ %stack.promoted395, %invoke.cont25 ], [ %stack.promoted, %invoke.cont35 ], [ %call5.i.i.i.i258385.lcssa.sink, %if.end44.sink.split ]
   %15 = getelementptr inbounds i8, ptr %stack, i64 8
   %m_value75 = getelementptr inbounds i8, ptr %current_item, i64 8
   %_M_end_of_storage.i49 = getelementptr inbounds i8, ptr %stack, i64 16

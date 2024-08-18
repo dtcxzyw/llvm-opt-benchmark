@@ -280,8 +280,7 @@ define internal fastcc void @hwloc_pci_forced_locality_parse(ptr nocapture nound
 
 26:                                               ; preds = %23
   %27 = load i32, ptr %4, align 4
-  store i32 %27, ptr %5, align 4
-  br label %32
+  br label %.sink.split.i
 
 28:                                               ; preds = %23
   %29 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.015, ptr noundef nonnull @.str.116, ptr noundef nonnull %3, ptr noundef nonnull %6) #21
@@ -290,10 +289,14 @@ define internal fastcc void @hwloc_pci_forced_locality_parse(ptr nocapture nound
 
 31:                                               ; preds = %28
   store i32 0, ptr %4, align 4
-  store i32 255, ptr %5, align 4
+  br label %.sink.split.i
+
+.sink.split.i:                                    ; preds = %31, %26
+  %.sink.i = phi i32 [ %27, %26 ], [ 255, %31 ]
+  store i32 %.sink.i, ptr %5, align 4
   br label %32
 
-32:                                               ; preds = %31, %26, %19
+32:                                               ; preds = %.sink.split.i, %19
   %33 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.015, i32 noundef 32) #24
   %.not.i = icmp eq ptr %33, null
   br i1 %.not.i, label %hwloc_pci_forced_locality_parse_one.exit, label %34
@@ -309,12 +312,12 @@ define internal fastcc void @hwloc_pci_forced_locality_parse(ptr nocapture nound
   %39 = call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #22
   store ptr %39, ptr %9, align 8
   %.not34.i = icmp eq ptr %39, null
-  br i1 %.not34.i, label %61, label %.sink.split.i
+  br i1 %.not34.i, label %61, label %.sink.split37.i
 
 40:                                               ; preds = %34
   %.not35.i = icmp ult i32 %20, %.019
   %.pre = load ptr, ptr %9, align 8
-  br i1 %.not35.i, label %.sink.split.i, label %41
+  br i1 %.not35.i, label %.sink.split37.i, label %41
 
 41:                                               ; preds = %40
   %42 = shl i32 %.019, 1
@@ -326,9 +329,9 @@ define internal fastcc void @hwloc_pci_forced_locality_parse(ptr nocapture nound
 
 46:                                               ; preds = %41
   store ptr %45, ptr %9, align 8
-  br label %.sink.split.i
+  br label %.sink.split37.i
 
-.sink.split.i:                                    ; preds = %38, %46, %40
+.sink.split37.i:                                  ; preds = %38, %46, %40
   %47 = phi ptr [ %.pre, %40 ], [ %45, %46 ], [ %39, %38 ]
   %.1 = phi i32 [ %.019, %40 ], [ %42, %46 ], [ 1, %38 ]
   %48 = load i32, ptr %3, align 4
@@ -355,8 +358,8 @@ define internal fastcc void @hwloc_pci_forced_locality_parse(ptr nocapture nound
   call void @hwloc_bitmap_free(ptr noundef %36) #21
   br label %hwloc_pci_forced_locality_parse_one.exit
 
-hwloc_pci_forced_locality_parse_one.exit:         ; preds = %28, %32, %.sink.split.i, %61
-  %.2 = phi i32 [ %.019, %32 ], [ %.019, %61 ], [ %.1, %.sink.split.i ], [ %.019, %28 ]
+hwloc_pci_forced_locality_parse_one.exit:         ; preds = %28, %32, %.sink.split37.i, %61
+  %.2 = phi i32 [ %.019, %32 ], [ %.019, %61 ], [ %.1, %.sink.split37.i ], [ %.019, %28 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)

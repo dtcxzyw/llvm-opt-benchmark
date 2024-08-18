@@ -33232,18 +33232,18 @@ _ZNSt6vectorIN16cmLocalGenerator11UnitySourceESaIS1_EED2Ev.exit: ; preds = %441,
   %.sink368 = phi ptr [ %271, %417 ], [ %269, %441 ]
   %.sink366 = phi ptr [ %272, %417 ], [ %270, %441 ]
   %.sink = phi ptr [ %45, %417 ], [ %46, %441 ]
-  %.pr.i243 = load ptr, ptr %.sink, align 8
-  store ptr %.pr.i243, ptr %44, align 8
+  %.sink369 = load ptr, ptr %.sink, align 8
+  store ptr %.sink369, ptr %44, align 8
   %465 = load ptr, ptr %.sink368, align 8
   store ptr %465, ptr %267, align 8
   %466 = load ptr, ptr %.sink366, align 8
   store ptr %466, ptr %268, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sink, i8 0, i64 24, i1 false)
-  %.not304342 = icmp eq ptr %.pr.i243, %465
+  %.not304342 = icmp eq ptr %.sink369, %465
   br i1 %.not304342, label %_ZSt8_DestroyIPN16cmLocalGenerator11UnitySourceES1_EvT_S3_RSaIT0_E.exit.i244, label %.lr.ph344
 
 .lr.ph344:                                        ; preds = %_ZNSt6vectorIN16cmLocalGenerator11UnitySourceESaIS1_EED2Ev.exit, %518
-  %.sroa.0275.0343 = phi ptr [ %519, %518 ], [ %.pr.i243, %_ZNSt6vectorIN16cmLocalGenerator11UnitySourceESaIS1_EED2Ev.exit ]
+  %.sroa.0275.0343 = phi ptr [ %519, %518 ], [ %.sink369, %_ZNSt6vectorIN16cmLocalGenerator11UnitySourceESaIS1_EED2Ev.exit ]
   %467 = load ptr, ptr %75, align 8
   %468 = invoke noundef ptr @_ZN10cmMakefile17GetOrCreateSourceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb24cmSourceFileLocationKind(ptr noundef nonnull align 8 dereferenceable(3520) %467, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0275.0343, i1 noundef zeroext false, i32 noundef 0)
           to label %469 unwind label %.loopexit
@@ -33530,18 +33530,18 @@ _ZN12cmSourceFile11SetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br i1 %.not304342, label %_ZSt8_DestroyIPN16cmLocalGenerator11UnitySourceES1_EvT_S3_RSaIT0_E.exit.i244, label %.lr.ph.i.i.i.i239
 
 .lr.ph.i.i.i.i239:                                ; preds = %._crit_edge345, %.lr.ph.i.i.i.i239
-  %.05.i.i.i.i240 = phi ptr [ %520, %.lr.ph.i.i.i.i239 ], [ %.pr.i243, %._crit_edge345 ]
+  %.05.i.i.i.i240 = phi ptr [ %520, %.lr.ph.i.i.i.i239 ], [ %.sink369, %._crit_edge345 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i240) #23
   %520 = getelementptr inbounds i8, ptr %.05.i.i.i.i240, i64 40
   %.not.i.i.i.i241 = icmp eq ptr %520, %465
   br i1 %.not.i.i.i.i241, label %_ZSt8_DestroyIPN16cmLocalGenerator11UnitySourceES1_EvT_S3_RSaIT0_E.exit.i244, label %.lr.ph.i.i.i.i239, !llvm.loop !1100
 
 _ZSt8_DestroyIPN16cmLocalGenerator11UnitySourceES1_EvT_S3_RSaIT0_E.exit.i244: ; preds = %.lr.ph.i.i.i.i239, %_ZNSt6vectorIN16cmLocalGenerator11UnitySourceESaIS1_EED2Ev.exit, %._crit_edge345
-  %.not.i.i.i245 = icmp eq ptr %.pr.i243, null
+  %.not.i.i.i245 = icmp eq ptr %.sink369, null
   br i1 %.not.i.i.i245, label %_ZNSt6vectorIN16cmLocalGenerator11UnitySourceESaIS1_EED2Ev.exit246, label %521
 
 521:                                              ; preds = %_ZSt8_DestroyIPN16cmLocalGenerator11UnitySourceES1_EvT_S3_RSaIT0_E.exit.i244
-  call void @_ZdlPv(ptr noundef nonnull %.pr.i243) #25
+  call void @_ZdlPv(ptr noundef nonnull %.sink369) #25
   br label %_ZNSt6vectorIN16cmLocalGenerator11UnitySourceESaIS1_EED2Ev.exit246
 
 _ZNSt6vectorIN16cmLocalGenerator11UnitySourceESaIS1_EED2Ev.exit246: ; preds = %_ZSt8_DestroyIPN16cmLocalGenerator11UnitySourceES1_EvT_S3_RSaIT0_E.exit.i244.thread, %_ZSt8_DestroyIPN16cmLocalGenerator11UnitySourceES1_EvT_S3_RSaIT0_E.exit.i244, %521

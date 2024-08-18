@@ -2241,11 +2241,7 @@ for.body:                                         ; preds = %_ZNSt10lock_guardIS
 invoke.cont:                                      ; preds = %for.body
   %3 = load ptr, ptr %ref.tmp, align 8
   %cmp.i12 = icmp eq ptr %3, null
-  br i1 %cmp.i12, label %_ZN5arrow6ResultINS_8internal13SignalHandlerEED2Ev.exit.thread, label %cond.false.i
-
-_ZN5arrow6ResultINS_8internal13SignalHandlerEED2Ev.exit.thread: ; preds = %invoke.cont
-  store ptr null, ptr %_s, align 8
-  br label %_ZN5arrow6StatusD2Ev.exit
+  br i1 %cmp.i12, label %_ZN5arrow6StatusD2Ev.exit.sink.split, label %cond.false.i
 
 cond.false.i:                                     ; preds = %invoke.cont
   %call.i13 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #22
@@ -2622,10 +2618,13 @@ _ZN5arrow6Status11DeleteStateEv.exit.i:           ; preds = %if.end8.sink.split.
   %msg.i.i.i = getelementptr inbounds i8, ptr %.pr100, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i.i) #23
   call void @_ZdlPv(ptr noundef nonnull %.pr100) #24
+  br label %_ZN5arrow6StatusD2Ev.exit.sink.split
+
+_ZN5arrow6StatusD2Ev.exit.sink.split:             ; preds = %invoke.cont, %_ZN5arrow6Status11DeleteStateEv.exit.i
   store ptr null, ptr %_s, align 8
   br label %_ZN5arrow6StatusD2Ev.exit
 
-_ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZN5arrow6ResultINS_8internal13SignalHandlerEED2Ev.exit, %_ZN5arrow6ResultINS_8internal13SignalHandlerEED2Ev.exit.thread, %cleanup.done41, %_ZN5arrow6Status11DeleteStateEv.exit.i
+_ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZN5arrow6StatusD2Ev.exit.sink.split, %_ZN5arrow6ResultINS_8internal13SignalHandlerEED2Ev.exit, %cleanup.done41
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0106, i64 160
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body

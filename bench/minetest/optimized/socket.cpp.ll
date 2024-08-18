@@ -489,9 +489,6 @@ invoke.cont51:                                    ; preds = %invoke.cont47
 ehcleanup57.thread:                               ; preds = %if.end41
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp45) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp44) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp43) #23
   br label %cleanup.action63
 
 lpad52:                                           ; preds = %invoke.cont51
@@ -532,16 +529,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %47 = load i64, ptr %_M_string_length.i.i.i128212, align 8, !tbaa !41
   %cmp3.i.i.i129213 = icmp ult i64 %47, 16
   call void @llvm.assume(i1 %cmp3.i.i.i129213)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp45) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp44) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp43) #23
   br label %cleanup.action63
 
 ehcleanup57.thread203:                            ; preds = %ehcleanup56.thread
   call void @_ZdlPv(ptr noundef %45) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp45) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp44) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp43) #23
   br label %cleanup.action63
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i127: ; preds = %ehcleanup56
@@ -563,6 +554,9 @@ ehcleanup57:                                      ; preds = %ehcleanup56
 
 cleanup.action63:                                 ; preds = %ehcleanup57.thread203, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i127.thread, %ehcleanup57.thread
   %.pn.pn195 = phi { ptr, i32 } [ %37, %ehcleanup57.thread ], [ %44, %ehcleanup57.thread203 ], [ %44, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i127.thread ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp45) #23
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp44) #23
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp43) #23
   call void @__cxa_free_exception(ptr %exception42) #23
   br label %eh.resume
 

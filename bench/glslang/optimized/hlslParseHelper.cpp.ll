@@ -35650,12 +35650,12 @@ define void @_ZN7glslang16HlslParseContext28decomposeStructBufferMethodsERKNS_10
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %35, %65
-  %.sink233 = phi ptr [ %72, %65 ], [ %3, %35 ]
-  %.sink232 = phi i64 [ 24, %65 ], [ 96, %35 ]
-  %73 = load ptr, ptr %.sink233, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 %.sink232
+  %.sink = phi ptr [ %72, %65 ], [ %3, %35 ]
+  %.sink229 = phi i64 [ 24, %65 ], [ 96, %35 ]
+  %73 = load ptr, ptr %.sink, align 8
+  %74 = getelementptr inbounds i8, ptr %73, i64 %.sink229
   %75 = load ptr, ptr %74, align 8
-  %76 = tail call noundef ptr %75(ptr noundef nonnull align 8 dereferenceable(32) %.sink233) #24
+  %76 = tail call noundef ptr %75(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #24
   store ptr %76, ptr %6, align 8
   %77 = icmp eq ptr %76, null
   br i1 %77, label %_ZNSt6vectorIP11TIntermNodeN7glslang14pool_allocatorIS1_EEE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_S5_EESA_.exit, label %78
@@ -36485,10 +36485,10 @@ default.unreachable218:                           ; preds = %376
   br label %607
 
 607:                                              ; preds = %597, %584
-  %.sink227 = phi ptr [ %598, %597 ], [ %593, %584 ]
-  %.sink226 = phi ptr [ %606, %597 ], [ %596, %584 ]
-  %608 = load ptr, ptr %.sink227, align 8
-  %609 = call noundef ptr @_ZN7glslang13TIntermediate13growAggregateEP11TIntermNodeS2_RKNS_10TSourceLocE(ptr noundef nonnull align 8 dereferenceable(2024) %608, ptr noundef null, ptr noundef %.sink226, ptr noundef nonnull align 8 dereferenceable(24) %1) #24
+  %.sink232 = phi ptr [ %598, %597 ], [ %593, %584 ]
+  %.sink231 = phi ptr [ %606, %597 ], [ %596, %584 ]
+  %608 = load ptr, ptr %.sink232, align 8
+  %609 = call noundef ptr @_ZN7glslang13TIntermediate13growAggregateEP11TIntermNodeS2_RKNS_10TSourceLocE(ptr noundef nonnull align 8 dereferenceable(2024) %608, ptr noundef null, ptr noundef %.sink231, ptr noundef nonnull align 8 dereferenceable(24) %1) #24
   %.not211 = icmp eq ptr %575, null
   br i1 %.not211, label %647, label %610
 

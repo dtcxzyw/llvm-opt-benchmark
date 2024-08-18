@@ -1243,7 +1243,6 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit37: ; preds = %194
   %.sroa.64.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 49
   store i8 %209, ptr %.sroa.64.0..sroa_idx, align 1
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.03)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28)
   br label %212
 
 210:                                              ; preds = %163, %.body, %56
@@ -1253,6 +1252,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit37: ; preds = %194
   unreachable
 
 212:                                              ; preds = %"_ZN4core3ptr51drop_in_place$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$17hee03c3d52c9993f8E.exit40", %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17ha4b473856cfe62c9E.exit"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28)
   ret void
 
 213:                                              ; preds = %163, %56
@@ -1284,7 +1284,6 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit37: ; preds = %194
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %.sroa.642)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28)
   br label %212
 }
 
@@ -3220,14 +3219,14 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit21.i: ; preds = %.noexc
 
 136:                                              ; preds = %79, %75, %.noexc
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14), !noalias !561
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21)
-  call void @"_ZN4core3ptr90drop_in_place$LT$std..io..buffered..bufwriter..BufWriter$LT$std..io..stdio..Stdout$GT$$GT$17h741170155e165559E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %22)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %22)
   br label %137
 
 137:                                              ; preds = %368, %136
   %.sroa.3.0 = phi ptr [ undef, %136 ], [ %348, %368 ]
   %.sroa.0.0 = phi ptr [ null, %136 ], [ %347, %368 ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21)
+  call void @"_ZN4core3ptr90drop_in_place$LT$std..io..buffered..bufwriter..BufWriter$LT$std..io..stdio..Stdout$GT$$GT$17h741170155e165559E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %22)
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %22)
   %138 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %139 = insertvalue { ptr, ptr } %138, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %139
@@ -3374,7 +3373,7 @@ _ZN11uu_unexpand4open17hd359cbb5c6c43d80E.exit:   ; preds = %"_ZN3std2io8buffere
 
 "_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$17h0ca40256259d4ac8E.llvm.8096336929218550691.exit.i": ; preds = %"_ZN4core3ptr65drop_in_place$LT$std..io..buffered..bufreader..buffer..Buffer$GT$17h23947b6009894c0bE.llvm.8096336929218550691.exit.i"
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb506d92b2370df9fE.llvm.8096336929218550691"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx)
-          to label %"_ZN4core3ptr114drop_in_place$LT$std..io..buffered..bufreader..BufReader$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$$GT$17h6ee08c4ceb26ca9cE.exit" unwind label %.loopexit114
+          to label %.backedge unwind label %.loopexit114
 
 168:                                              ; preds = %159
   %169 = landingpad { ptr, i32 }
@@ -3382,11 +3381,8 @@ _ZN11uu_unexpand4open17hd359cbb5c6c43d80E.exit:   ; preds = %"_ZN3std2io8buffere
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #21
   unreachable
 
-"_ZN4core3ptr114drop_in_place$LT$std..io..buffered..bufreader..BufReader$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$$GT$17h6ee08c4ceb26ca9cE.exit": ; preds = %"_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$17h0ca40256259d4ac8E.llvm.8096336929218550691.exit.i"
+.backedge:                                        ; preds = %"_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$17h0ca40256259d4ac8E.llvm.8096336929218550691.exit.i", %"_ZN4core3ptr81drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$17hedd0b0fd8cdc63f1E.exit"
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %20)
-  br label %.backedge
-
-.backedge:                                        ; preds = %"_ZN4core3ptr114drop_in_place$LT$std..io..buffered..bufreader..BufReader$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$$GT$17h6ee08c4ceb26ca9cE.exit", %"_ZN4core3ptr81drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$17hedd0b0fd8cdc63f1E.exit"
   %170 = icmp eq ptr %82, %43
   br i1 %170, label %._crit_edge, label %81
 
@@ -3899,9 +3895,6 @@ _ZN11uu_unexpand13unexpand_line17h377f80d7e34d3991E.exit: ; preds = %.noexc61
 
 368:                                              ; preds = %366, %362, %.noexc85
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !694
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21)
-  call void @"_ZN4core3ptr90drop_in_place$LT$std..io..buffered..bufwriter..BufWriter$LT$std..io..stdio..Stdout$GT$$GT$17h741170155e165559E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %22)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %22)
   br label %137
 
 369:                                              ; preds = %371, %.loopexit.split-lp, %133, %.body
@@ -3993,7 +3986,6 @@ _ZN11uu_unexpand13unexpand_line17h377f80d7e34d3991E.exit: ; preds = %.noexc61
 "_ZN4core3ptr81drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$17hedd0b0fd8cdc63f1E.exit": ; preds = %399, %391
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.19)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %20)
   br label %.backedge
 
 400:                                              ; preds = %133

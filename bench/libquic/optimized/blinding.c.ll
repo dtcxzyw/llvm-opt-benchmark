@@ -104,7 +104,7 @@ if.end.lr.ph.i.i:                                 ; preds = %if.then.i
 
 if.then.i.i:                                      ; preds = %if.end15.i.i, %if.then.i
   call void @ERR_put_error(i32 noundef 4, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 226) #5
-  br label %bn_blinding_create_param.exit.thread.i
+  br label %bn_blinding_update.exit.thread12
 
 if.end.i.i:                                       ; preds = %if.end15.i.i, %if.end.lr.ph.i.i
   %retry_counter.019.i.i = phi i32 [ 32, %if.end.lr.ph.i.i ], [ %dec.i.i, %if.end15.i.i ]
@@ -116,7 +116,7 @@ if.end.i.i:                                       ; preds = %if.end15.i.i, %if.e
 
 if.then5.i.i:                                     ; preds = %if.end.i.i
   call void @ERR_put_error(i32 noundef 4, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 233) #5
-  br label %bn_blinding_create_param.exit.thread.i
+  br label %bn_blinding_update.exit.thread12
 
 if.end6.i.i:                                      ; preds = %if.end.i.i
   %4 = load ptr, ptr %Ai.i.i, align 8
@@ -135,7 +135,7 @@ if.then12.i.i:                                    ; preds = %if.then10.i.i
 
 if.then14.i.i:                                    ; preds = %if.then12.i.i
   call void @ERR_put_error(i32 noundef 4, i32 noundef 0, i32 noundef 141, ptr noundef nonnull @.str, i32 noundef 243) #5
-  br label %bn_blinding_create_param.exit.thread.i
+  br label %bn_blinding_update.exit.thread12
 
 if.end15.i.i:                                     ; preds = %if.then12.i.i
   %dec.i.i = add nsw i32 %retry_counter.019.i.i, -1
@@ -147,7 +147,7 @@ if.end15.i.i:                                     ; preds = %if.then12.i.i
 
 if.else.i.i:                                      ; preds = %if.then10.i.i
   call void @ERR_put_error(i32 noundef 4, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 248) #5
-  br label %bn_blinding_create_param.exit.thread.i
+  br label %bn_blinding_update.exit.thread12
 
 do.end.i.i:                                       ; preds = %if.end6.i.i
   %7 = load ptr, ptr %b, align 8
@@ -157,7 +157,7 @@ do.end.i.i:                                       ; preds = %if.end6.i.i
 
 if.then24.i.i:                                    ; preds = %do.end.i.i
   call void @ERR_put_error(i32 noundef 4, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 257) #5
-  br label %bn_blinding_create_param.exit.thread.i
+  br label %bn_blinding_update.exit.thread12
 
 if.end25.i.i:                                     ; preds = %do.end.i.i
   %8 = load ptr, ptr %b, align 8
@@ -167,12 +167,7 @@ if.end25.i.i:                                     ; preds = %do.end.i.i
 
 if.then30.i.i:                                    ; preds = %if.end25.i.i
   call void @ERR_put_error(i32 noundef 4, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 262) #5
-  br label %bn_blinding_create_param.exit.thread.i
-
-bn_blinding_create_param.exit.thread.i:           ; preds = %if.then30.i.i, %if.then24.i.i, %if.else.i.i, %if.then14.i.i, %if.then5.i.i, %if.then.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %mont_N_consttime.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %no_inverse.i.i)
-  br label %bn_blinding_update.exit.thread7
+  br label %bn_blinding_update.exit.thread12
 
 if.else.i:                                        ; preds = %entry
   %9 = load ptr, ptr %b, align 8
@@ -187,7 +182,13 @@ lor.lhs.false.i:                                  ; preds = %if.else.i
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %bn_blinding_update.exit.thread7, label %lor.lhs.false
 
-bn_blinding_update.exit.thread7:                  ; preds = %bn_blinding_create_param.exit.thread.i, %if.else.i, %lor.lhs.false.i
+bn_blinding_update.exit.thread7:                  ; preds = %if.else.i, %lor.lhs.false.i
+  store i32 31, ptr %counter.i, align 8
+  br label %return
+
+bn_blinding_update.exit.thread12:                 ; preds = %if.then14.i.i, %if.else.i.i, %if.then30.i.i, %if.then24.i.i, %if.then5.i.i, %if.then.i.i
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %mont_N_consttime.i.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %no_inverse.i.i)
   store i32 31, ptr %counter.i, align 8
   br label %return
 
@@ -204,8 +205,8 @@ lor.lhs.false:                                    ; preds = %lor.lhs.false.i, %b
   %spec.select = zext i1 %tobool2.not to i32
   br label %return
 
-return:                                           ; preds = %bn_blinding_update.exit.thread7, %lor.lhs.false
-  %retval.0 = phi i32 [ %spec.select, %lor.lhs.false ], [ 0, %bn_blinding_update.exit.thread7 ]
+return:                                           ; preds = %bn_blinding_update.exit.thread12, %bn_blinding_update.exit.thread7, %lor.lhs.false
+  %retval.0 = phi i32 [ %spec.select, %lor.lhs.false ], [ 0, %bn_blinding_update.exit.thread7 ], [ 0, %bn_blinding_update.exit.thread12 ]
   ret i32 %retval.0
 }
 

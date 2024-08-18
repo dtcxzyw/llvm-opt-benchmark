@@ -92,12 +92,7 @@ if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %err.i.i.i.i.i.i.i.i)
   %call.i.i.i.i.i.i39.i.i = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str, i32 noundef 524288)
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i39.i.i, -1
-  br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZN4absl13base_internalL16ReadLongFromFileEPKcPl.exit.thread.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
-
-_ZN4absl13base_internalL16ReadLongFromFileEPKcPl.exit.thread.i.i.i.i.i.i.i: ; preds = %if.then.i.i
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %line.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %err.i.i.i.i.i.i.i.i)
-  br label %if.end.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %line.i.i.i.i.i.i.i.i, i8 0, i64 1024, i1 false)
@@ -134,8 +129,6 @@ land.lhs.true.i.i.i.i.i.i.i.i:                    ; preds = %if.else.i.i.i.i.i.i
 
 _ZN4absl13base_internalL16ReadLongFromFileEPKcPl.exit.thread4.i.i.i.i.i.i.i: ; preds = %land.rhs.i.i.i.i.i.i.i.i, %land.lhs.true.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i, %do.end.i.i.i.i.i.i.i.i
   %call17.i7.i.i.i.i.i41.i.i = call i32 @close(i32 noundef %call.i.i.i.i.i.i39.i.i)
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %line.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %err.i.i.i.i.i.i.i.i)
   br label %if.end.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %land.lhs.true.i.i.i.i.i.i.i.i, %land.lhs.true.i.i.i.i.i.i.i.i
@@ -146,7 +139,9 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %land.lhs.true.i.i.i
   %mul.i.i.i.i.i.i.i = fmul double %conv.i.i.i.i.i.i.i, 1.000000e+03
   br label %release.i.i.i
 
-if.end.i.i.i.i.i.i.i:                             ; preds = %_ZN4absl13base_internalL16ReadLongFromFileEPKcPl.exit.thread4.i.i.i.i.i.i.i, %_ZN4absl13base_internalL16ReadLongFromFileEPKcPl.exit.thread.i.i.i.i.i.i.i
+if.end.i.i.i.i.i.i.i:                             ; preds = %_ZN4absl13base_internalL16ReadLongFromFileEPKcPl.exit.thread4.i.i.i.i.i.i.i, %if.then.i.i
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %line.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %err.i.i.i.i.i.i.i.i)
   %tv_nsec.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ts.i.i.i.i.i.i.i.i.i, i64 8
   br label %for.body.i.i.i.i.i.i.i.i
 

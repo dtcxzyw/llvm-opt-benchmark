@@ -18721,8 +18721,8 @@ while.body.us.i.us.i.i:                           ; preds = %while.body.lr.ph.i5
   %tobool.not.us.i.us.i.i = icmp eq ptr %call.us.i.us.i.i, null
   %sub.ptr.lhs.cast.us.i.us.i.i = ptrtoint ptr %call.us.i.us.i.i to i64
   %sub.ptr.rhs.cast.us.i.us.i.i = ptrtoint ptr %data.addr.021.us.i.us.i.i to i64
-  %reass.sub127 = sub i64 %sub.ptr.lhs.cast.us.i.us.i.i, %sub.ptr.rhs.cast.us.i.us.i.i
-  %add.us.i.us.i.i = add i64 %reass.sub127, 1
+  %reass.sub128 = sub i64 %sub.ptr.lhs.cast.us.i.us.i.i, %sub.ptr.rhs.cast.us.i.us.i.i
+  %add.us.i.us.i.i = add i64 %reass.sub128, 1
   %cond.us.i.us.i.i = select i1 %tobool.not.us.i.us.i.i, i64 %conv.us.i.us.i.i, i64 %add.us.i.us.i.i
   %conv2.us.i.us.i.i = trunc i64 %cond.us.i.us.i.i to i32
   call fastcc void @emit_diff_symbol(ptr noundef %.pre99.i.i, i32 noundef 28, ptr noundef %data.addr.021.us.i.us.i.i, i32 noundef %conv2.us.i.us.i.i, i32 noundef %or.i18.us.i.i.i)
@@ -18749,8 +18749,8 @@ while.body.us.i.us68.i.i:                         ; preds = %while.body.lr.ph.i5
   %tobool.not.us.i.us73.i.i = icmp eq ptr %call.us.i.us72.i.i, null
   %sub.ptr.lhs.cast.us.i.us74.i.i = ptrtoint ptr %call.us.i.us72.i.i to i64
   %sub.ptr.rhs.cast.us.i.us75.i.i = ptrtoint ptr %data.addr.021.us.i.us69.i.i to i64
-  %reass.sub126 = sub i64 %sub.ptr.lhs.cast.us.i.us74.i.i, %sub.ptr.rhs.cast.us.i.us75.i.i
-  %add.us.i.us78.i.i = add i64 %reass.sub126, 1
+  %reass.sub127 = sub i64 %sub.ptr.lhs.cast.us.i.us74.i.i, %sub.ptr.rhs.cast.us.i.us75.i.i
+  %add.us.i.us78.i.i = add i64 %reass.sub127, 1
   %cond.us.i.us79.i.i = select i1 %tobool.not.us.i.us73.i.i, i64 %conv.us.i.us71.i.i, i64 %add.us.i.us78.i.i
   %conv2.us.i.us80.i.i = trunc i64 %cond.us.i.us79.i.i to i32
   call fastcc void @emit_diff_symbol(ptr noundef %.pre99.i.i, i32 noundef 28, ptr noundef %data.addr.021.us.i.us69.i.i, i32 noundef %conv2.us.i.us80.i.i, i32 noundef %or.i18.us.i.i.i)
@@ -18770,8 +18770,8 @@ while.body.us.i.i.i:                              ; preds = %emit_add_line.exit.
   %tobool.not.us.i.i.i = icmp eq ptr %call.us.i.i.i, null
   %sub.ptr.lhs.cast.us.i.i.i = ptrtoint ptr %call.us.i.i.i to i64
   %sub.ptr.rhs.cast.us.i.i.i = ptrtoint ptr %data.addr.021.us.i.i.i to i64
-  %reass.sub125 = sub i64 %sub.ptr.lhs.cast.us.i.i.i, %sub.ptr.rhs.cast.us.i.i.i
-  %add.us.i.i.i = add i64 %reass.sub125, 1
+  %reass.sub126 = sub i64 %sub.ptr.lhs.cast.us.i.i.i, %sub.ptr.rhs.cast.us.i.i.i
+  %add.us.i.i.i = add i64 %reass.sub126, 1
   %cond.us.i.i.i = select i1 %tobool.not.us.i.i.i, i64 %conv.us.i.i.i, i64 %add.us.i.i.i
   %conv2.us.i.i.i = trunc i64 %cond.us.i.i.i to i32
   %inc5.us.i.i.i = add nuw nsw i32 %182, 1
@@ -19340,7 +19340,7 @@ do.body.i.i:                                      ; preds = %do.cond.i.i, %do.bo
   %str.addr.0.i.i = phi ptr [ %incdec.ptr.i.i, %do.cond.i.i ], [ %call368.i, %do.body.i.preheader.i ]
   %prefix.addr.0.i.idx.i = phi i64 [ %prefix.addr.0.i.add.i, %do.cond.i.i ], [ 0, %do.body.i.preheader.i ]
   %exitcond.i = icmp eq i64 %prefix.addr.0.i.idx.i, 10
-  br i1 %exitcond.i, label %if.then373.i, label %do.cond.i.i
+  br i1 %exitcond.i, label %if.end383.sink.split.i, label %do.cond.i.i
 
 do.cond.i.i:                                      ; preds = %do.body.i.i
   %prefix.addr.0.i.ptr.i = getelementptr inbounds i8, ptr @.str.433, i64 %prefix.addr.0.i.idx.i
@@ -19355,16 +19355,11 @@ do.body.i320.preheader.i:                         ; preds = %do.cond.i.i
   %scevgep414.i = getelementptr i8, ptr %call368.i, i64 2
   br label %do.body.i320.i
 
-if.then373.i:                                     ; preds = %do.body.i.i
-  %call374.i = call i64 @strtoul(ptr nocapture noundef nonnull %scevgep.i, ptr noundef null, i32 noundef 10) #31
-  store i64 %call374.i, ptr %xecfg.i, align 8
-  br label %if.end383.i
-
 do.body.i320.i:                                   ; preds = %do.cond.i324.i, %do.body.i320.preheader.i
   %str.addr.0.i321.i = phi ptr [ %incdec.ptr.i325.i, %do.cond.i324.i ], [ %call368.i, %do.body.i320.preheader.i ]
   %prefix.addr.0.i322.idx.i = phi i64 [ %prefix.addr.0.i322.add.i, %do.cond.i324.i ], [ 0, %do.body.i320.preheader.i ]
   %exitcond415.i = icmp eq i64 %prefix.addr.0.i322.idx.i, 2
-  br i1 %exitcond415.i, label %if.then378.i, label %do.cond.i324.i
+  br i1 %exitcond415.i, label %if.end383.sink.split.i, label %do.cond.i324.i
 
 do.cond.i324.i:                                   ; preds = %do.body.i320.i
   %prefix.addr.0.i322.ptr.i = getelementptr inbounds i8, ptr @.str.434, i64 %prefix.addr.0.i322.idx.i
@@ -19375,12 +19370,13 @@ do.cond.i324.i:                                   ; preds = %do.body.i320.i
   %cmp.i327.i = icmp eq i8 %274, %273
   br i1 %cmp.i327.i, label %do.body.i320.i, label %if.end383.i, !llvm.loop !7
 
-if.then378.i:                                     ; preds = %do.body.i320.i
-  %call379.i = call i64 @strtoul(ptr nocapture noundef nonnull %scevgep414.i, ptr noundef null, i32 noundef 10) #31
-  store i64 %call379.i, ptr %xecfg.i, align 8
+if.end383.sink.split.i:                           ; preds = %do.body.i.i, %do.body.i320.i
+  %scevgep.sink.i = phi ptr [ %scevgep414.i, %do.body.i320.i ], [ %scevgep.i, %do.body.i.i ]
+  %call374.i = call i64 @strtoul(ptr nocapture noundef nonnull %scevgep.sink.i, ptr noundef null, i32 noundef 10) #31
+  store i64 %call374.i, ptr %xecfg.i, align 8
   br label %if.end383.i
 
-if.end383.i:                                      ; preds = %do.cond.i324.i, %if.then378.i, %if.then373.i, %if.end367.i
+if.end383.i:                                      ; preds = %do.cond.i324.i, %if.end383.sink.split.i, %if.end367.i
   %word_diff.i = getelementptr inbounds i8, ptr %o, i64 416
   %275 = load i32, ptr %word_diff.i, align 8
   %tobool384.not.i = icmp eq i32 %275, 0

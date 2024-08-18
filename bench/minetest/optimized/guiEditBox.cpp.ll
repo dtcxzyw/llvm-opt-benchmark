@@ -1679,7 +1679,7 @@ if.end65:                                         ; preds = %if.then62, %land.lh
   %p.0 = phi i32 [ %sub, %if.then62 ], [ %add, %if.then46 ], [ %conv.i256, %sw.bb42 ], [ %add, %land.lhs.true ]
   %30 = and i8 %bf.load, 2
   %bf.cast70.not = icmp eq i8 %30, 0
-  br i1 %bf.cast70.not, label %if.else78, label %if.then71
+  br i1 %bf.cast70.not, label %if.end79.sink.split, label %if.then71
 
 if.then71:                                        ; preds = %if.end65
   %cmp74 = icmp eq i32 %2, %3
@@ -1688,15 +1688,16 @@ if.then71:                                        ; preds = %if.end65
 if.then75:                                        ; preds = %if.then71
   %m_cursor_pos76 = getelementptr inbounds i8, ptr %this, i64 396
   %31 = load i32, ptr %m_cursor_pos76, align 4, !tbaa !76
-  store i32 %31, ptr %new_mark_begin, align 4, !tbaa !59
+  br label %if.end79.sink.split
+
+if.end79.sink.split:                              ; preds = %if.end65, %if.then75
+  %.sink = phi i32 [ %31, %if.then75 ], [ 0, %if.end65 ]
+  %storemerge249.ph = phi i32 [ %p.0, %if.then75 ], [ 0, %if.end65 ]
+  store i32 %.sink, ptr %new_mark_begin, align 4, !tbaa !59
   br label %if.end79
 
-if.else78:                                        ; preds = %if.end65
-  store i32 0, ptr %new_mark_begin, align 4, !tbaa !59
-  br label %if.end79
-
-if.end79:                                         ; preds = %if.else78, %if.then75, %if.then71
-  %storemerge249 = phi i32 [ 0, %if.else78 ], [ %p.0, %if.then75 ], [ %p.0, %if.then71 ]
+if.end79:                                         ; preds = %if.end79.sink.split, %if.then71
+  %storemerge249 = phi i32 [ %p.0, %if.then71 ], [ %storemerge249.ph, %if.end79.sink.split ]
   store i32 %storemerge249, ptr %new_mark_end, align 4, !tbaa !59
   %m_cursor_pos80 = getelementptr inbounds i8, ptr %this, i64 396
   store i32 %p.0, ptr %m_cursor_pos80, align 4, !tbaa !76
@@ -1739,7 +1740,7 @@ if.end96:                                         ; preds = %if.then90, %sw.bb83
   %p84.0 = phi i32 [ %38, %if.then90 ], [ 0, %sw.bb83 ]
   %39 = and i8 %bf.load, 2
   %bf.cast101.not = icmp eq i8 %39, 0
-  br i1 %bf.cast101.not, label %if.else109, label %if.then102
+  br i1 %bf.cast101.not, label %if.end110.sink.split, label %if.then102
 
 if.then102:                                       ; preds = %if.end96
   %cmp105 = icmp eq i32 %2, %3
@@ -1748,15 +1749,16 @@ if.then102:                                       ; preds = %if.end96
 if.then106:                                       ; preds = %if.then102
   %m_cursor_pos107 = getelementptr inbounds i8, ptr %this, i64 396
   %40 = load i32, ptr %m_cursor_pos107, align 4, !tbaa !76
-  store i32 %40, ptr %new_mark_begin, align 4, !tbaa !59
+  br label %if.end110.sink.split
+
+if.end110.sink.split:                             ; preds = %if.end96, %if.then106
+  %.sink6 = phi i32 [ %40, %if.then106 ], [ 0, %if.end96 ]
+  %storemerge.ph = phi i32 [ %p84.0, %if.then106 ], [ 0, %if.end96 ]
+  store i32 %.sink6, ptr %new_mark_begin, align 4, !tbaa !59
   br label %if.end110
 
-if.else109:                                       ; preds = %if.end96
-  store i32 0, ptr %new_mark_begin, align 4, !tbaa !59
-  br label %if.end110
-
-if.end110:                                        ; preds = %if.else109, %if.then106, %if.then102
-  %storemerge = phi i32 [ 0, %if.else109 ], [ %p84.0, %if.then106 ], [ %p84.0, %if.then102 ]
+if.end110:                                        ; preds = %if.end110.sink.split, %if.then102
+  %storemerge = phi i32 [ %p84.0, %if.then102 ], [ %storemerge.ph, %if.end110.sink.split ]
   store i32 %storemerge, ptr %new_mark_end, align 4, !tbaa !59
   %m_cursor_pos111 = getelementptr inbounds i8, ptr %this, i64 396
   store i32 %p84.0, ptr %m_cursor_pos111, align 4, !tbaa !76

@@ -1097,32 +1097,33 @@ define internal noundef range(i32 0, 2) i32 @pcc_mbox_irq(i32 %0, ptr noundef %1
 28:                                               ; preds = %22
   %29 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %20) #10, !srcloc !13
   %30 = zext i8 %29 to i64
-  store i64 %30, ptr %3, align 8
-  br label %42
+  br label %.sink.split
 
 31:                                               ; preds = %22
   %32 = tail call i16 asm sideeffect "movw $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) %20) #10, !srcloc !14
   %33 = zext i16 %32 to i64
-  store i64 %33, ptr %3, align 8
-  br label %42
+  br label %.sink.split
 
 34:                                               ; preds = %22
   %35 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %20) #10, !srcloc !15
   %36 = zext i32 %35 to i64
-  store i64 %36, ptr %3, align 8
-  br label %42
+  br label %.sink.split
 
 37:                                               ; preds = %22
   %38 = tail call i64 asm sideeffect "movq $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %20) #10, !srcloc !16
-  store i64 %38, ptr %3, align 8
-  br label %42
+  br label %.sink.split
 
 39:                                               ; preds = %18
   %40 = call i32 @acpi_read(ptr noundef nonnull %3, ptr noundef nonnull %16) #10
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %42, label %128
 
-42:                                               ; preds = %39, %37, %34, %31, %28, %22
+.sink.split:                                      ; preds = %28, %31, %34, %37
+  %.sink = phi i64 [ %38, %37 ], [ %36, %34 ], [ %33, %31 ], [ %30, %28 ]
+  store i64 %.sink, ptr %3, align 8
+  br label %42
+
+42:                                               ; preds = %.sink.split, %39, %22
   %.pr = load ptr, ptr %15, align 8
   %43 = icmp eq ptr %.pr, null
   br i1 %43, label %.thread, label %44

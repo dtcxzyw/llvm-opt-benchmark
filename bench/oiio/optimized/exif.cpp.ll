@@ -4408,7 +4408,6 @@ sw.bb.i:                                          ; preds = %sw.bb56
   %cond.i.i = select i1 %tobool.i.i, ptr %39, ptr %m_data.i.i
   %40 = load i32, ptr %cond.i.i, align 4
   %conv1.i137 = trunc i32 %40 to i16
-  store i16 %conv1.i137, ptr %i.i, align 2
   br label %sw.epilog.i
 
 sw.bb2.i:                                         ; preds = %sw.bb56
@@ -4420,7 +4419,6 @@ sw.bb2.i:                                         ; preds = %sw.bb56
   %cond.i10.i = select i1 %tobool.i8.i, ptr %42, ptr %m_data.i9.i
   %43 = load i32, ptr %cond.i10.i, align 4
   %conv4.i = trunc i32 %43 to i16
-  store i16 %conv4.i, ptr %i.i, align 2
   br label %sw.epilog.i
 
 sw.bb5.i:                                         ; preds = %sw.bb56
@@ -4431,7 +4429,6 @@ sw.bb5.i:                                         ; preds = %sw.bb56
   %45 = load ptr, ptr %m_data.i13.i, align 8
   %cond.i14.i = select i1 %tobool.i12.i, ptr %45, ptr %m_data.i13.i
   %46 = load i16, ptr %cond.i14.i, align 2
-  store i16 %46, ptr %i.i, align 2
   br label %sw.epilog.i
 
 sw.bb7.i:                                         ; preds = %sw.bb56
@@ -4442,7 +4439,6 @@ sw.bb7.i:                                         ; preds = %sw.bb56
   %48 = load ptr, ptr %m_data.i17.i, align 8
   %cond.i18.i = select i1 %tobool.i16.i, ptr %48, ptr %m_data.i17.i
   %49 = load i16, ptr %cond.i18.i, align 2
-  store i16 %49, ptr %i.i, align 2
   br label %sw.epilog.i
 
 sw.bb9.i:                                         ; preds = %sw.bb56
@@ -4468,10 +4464,11 @@ _ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv
 if.then.i136:                                     ; preds = %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit.i
   %call12.i = call noundef i32 @_ZNK18OpenImageIO_v2_6_010ParamValue7get_intEi(ptr noundef nonnull align 8 dereferenceable(39) %p, i32 noundef 0)
   %conv13.i = trunc i32 %call12.i to i16
-  store i16 %conv13.i, ptr %i.i, align 2
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %if.then.i136, %sw.bb7.i, %sw.bb5.i, %sw.bb2.i, %sw.bb.i
+  %conv13.sink.i = phi i16 [ %conv13.i, %if.then.i136 ], [ %49, %sw.bb7.i ], [ %46, %sw.bb5.i ], [ %conv4.i, %sw.bb2.i ], [ %conv1.i137, %sw.bb.i ]
+  store i16 %conv13.sink.i, ptr %i.i, align 2
   call void @_ZN18OpenImageIO_v2_6_03pvt21append_tiff_dir_entryERSt6vectorI12TIFFDirEntrySaIS2_EERS1_IcSaIcEEi12TIFFDataTypemPKvmmNS_6endianE(ptr noundef nonnull align 8 dereferenceable(24) %dirs, ptr noundef nonnull align 8 dereferenceable(24) %data, i32 noundef %tag, i32 noundef 3, i64 noundef 1, ptr noundef nonnull %i.i, i64 noundef %offset_correction, i64 noundef 0, i32 noundef %endianreq)
   br label %_ZN18OpenImageIO_v2_6_0L29append_tiff_dir_entry_integerItEEbRKNS_10ParamValueERSt6vectorI12TIFFDirEntrySaIS5_EERS4_IcSaIcEEi12TIFFDataTypemNS_6endianE.exit
 
@@ -4501,7 +4498,6 @@ sw.bb.i166:                                       ; preds = %sw.bb60
   %53 = load ptr, ptr %m_data.i.i169, align 8
   %cond.i.i170 = select i1 %tobool.i.i168, ptr %53, ptr %m_data.i.i169
   %54 = load i32, ptr %cond.i.i170, align 4
-  store i32 %54, ptr %i.i138, align 4
   br label %sw.epilog.i153
 
 sw.bb1.i:                                         ; preds = %sw.bb60
@@ -4512,7 +4508,6 @@ sw.bb1.i:                                         ; preds = %sw.bb60
   %56 = load ptr, ptr %m_data.i9.i164, align 8
   %cond.i10.i165 = select i1 %tobool.i8.i163, ptr %56, ptr %m_data.i9.i164
   %57 = load i32, ptr %cond.i10.i165, align 4
-  store i32 %57, ptr %i.i138, align 4
   br label %sw.epilog.i153
 
 sw.bb3.i:                                         ; preds = %sw.bb60
@@ -4524,7 +4519,6 @@ sw.bb3.i:                                         ; preds = %sw.bb60
   %cond.i14.i161 = select i1 %tobool.i12.i159, ptr %59, ptr %m_data.i13.i160
   %60 = load i16, ptr %cond.i14.i161, align 2
   %conv5.i = zext i16 %60 to i32
-  store i32 %conv5.i, ptr %i.i138, align 4
   br label %sw.epilog.i153
 
 sw.bb6.i:                                         ; preds = %sw.bb60
@@ -4536,7 +4530,6 @@ sw.bb6.i:                                         ; preds = %sw.bb60
   %cond.i18.i157 = select i1 %tobool.i16.i155, ptr %62, ptr %m_data.i17.i156
   %63 = load i16, ptr %cond.i18.i157, align 2
   %conv8.i = sext i16 %63 to i32
-  store i32 %conv8.i, ptr %i.i138, align 4
   br label %sw.epilog.i153
 
 sw.bb9.i142:                                      ; preds = %sw.bb60
@@ -4561,10 +4554,11 @@ _ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv
 
 if.then.i151:                                     ; preds = %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit.i146
   %call12.i152 = call noundef i32 @_ZNK18OpenImageIO_v2_6_010ParamValue7get_intEi(ptr noundef nonnull align 8 dereferenceable(39) %p, i32 noundef 0)
-  store i32 %call12.i152, ptr %i.i138, align 4
   br label %sw.epilog.i153
 
 sw.epilog.i153:                                   ; preds = %if.then.i151, %sw.bb6.i, %sw.bb3.i, %sw.bb1.i, %sw.bb.i166
+  %call12.sink.i = phi i32 [ %call12.i152, %if.then.i151 ], [ %conv8.i, %sw.bb6.i ], [ %conv5.i, %sw.bb3.i ], [ %57, %sw.bb1.i ], [ %54, %sw.bb.i166 ]
+  store i32 %call12.sink.i, ptr %i.i138, align 4
   call void @_ZN18OpenImageIO_v2_6_03pvt21append_tiff_dir_entryERSt6vectorI12TIFFDirEntrySaIS2_EERS1_IcSaIcEEi12TIFFDataTypemPKvmmNS_6endianE(ptr noundef nonnull align 8 dereferenceable(24) %dirs, ptr noundef nonnull align 8 dereferenceable(24) %data, i32 noundef %tag, i32 noundef 4, i64 noundef 1, ptr noundef nonnull %i.i138, i64 noundef %offset_correction, i64 noundef 0, i32 noundef %endianreq)
   br label %_ZN18OpenImageIO_v2_6_0L29append_tiff_dir_entry_integerIjEEbRKNS_10ParamValueERSt6vectorI12TIFFDirEntrySaIS5_EERS4_IcSaIcEEi12TIFFDataTypemNS_6endianE.exit
 
@@ -4595,7 +4589,6 @@ sw.bb.i200:                                       ; preds = %sw.bb64
   %cond.i.i204 = select i1 %tobool.i.i202, ptr %67, ptr %m_data.i.i203
   %68 = load i32, ptr %cond.i.i204, align 4
   %conv1.i205 = trunc i32 %68 to i8
-  store i8 %conv1.i205, ptr %i.i171, align 1
   br label %sw.epilog.i182
 
 sw.bb2.i194:                                      ; preds = %sw.bb64
@@ -4607,7 +4600,6 @@ sw.bb2.i194:                                      ; preds = %sw.bb64
   %cond.i10.i198 = select i1 %tobool.i8.i196, ptr %70, ptr %m_data.i9.i197
   %71 = load i32, ptr %cond.i10.i198, align 4
   %conv4.i199 = trunc i32 %71 to i8
-  store i8 %conv4.i199, ptr %i.i171, align 1
   br label %sw.epilog.i182
 
 sw.bb5.i188:                                      ; preds = %sw.bb64
@@ -4619,7 +4611,6 @@ sw.bb5.i188:                                      ; preds = %sw.bb64
   %cond.i14.i192 = select i1 %tobool.i12.i190, ptr %73, ptr %m_data.i13.i191
   %74 = load i16, ptr %cond.i14.i192, align 2
   %conv7.i193 = trunc i16 %74 to i8
-  store i8 %conv7.i193, ptr %i.i171, align 1
   br label %sw.epilog.i182
 
 sw.bb8.i:                                         ; preds = %sw.bb64
@@ -4631,7 +4622,6 @@ sw.bb8.i:                                         ; preds = %sw.bb64
   %cond.i18.i186 = select i1 %tobool.i16.i184, ptr %76, ptr %m_data.i17.i185
   %77 = load i16, ptr %cond.i18.i186, align 2
   %conv10.i187 = trunc i16 %77 to i8
-  store i8 %conv10.i187, ptr %i.i171, align 1
   br label %sw.epilog.i182
 
 sw.bb11.i:                                        ; preds = %sw.bb64
@@ -4657,10 +4647,11 @@ _ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv
 if.then.i181:                                     ; preds = %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit.i177
   %call14.i = call noundef i32 @_ZNK18OpenImageIO_v2_6_010ParamValue7get_intEi(ptr noundef nonnull align 8 dereferenceable(39) %p, i32 noundef 0)
   %conv15.i = trunc i32 %call14.i to i8
-  store i8 %conv15.i, ptr %i.i171, align 1
   br label %sw.epilog.i182
 
 sw.epilog.i182:                                   ; preds = %if.then.i181, %sw.bb8.i, %sw.bb5.i188, %sw.bb2.i194, %sw.bb.i200
+  %conv15.sink.i = phi i8 [ %conv15.i, %if.then.i181 ], [ %conv10.i187, %sw.bb8.i ], [ %conv7.i193, %sw.bb5.i188 ], [ %conv4.i199, %sw.bb2.i194 ], [ %conv1.i205, %sw.bb.i200 ]
+  store i8 %conv15.sink.i, ptr %i.i171, align 1
   call void @_ZN18OpenImageIO_v2_6_03pvt21append_tiff_dir_entryERSt6vectorI12TIFFDirEntrySaIS2_EERS1_IcSaIcEEi12TIFFDataTypemPKvmmNS_6endianE(ptr noundef nonnull align 8 dereferenceable(24) %dirs, ptr noundef nonnull align 8 dereferenceable(24) %data, i32 noundef %tag, i32 noundef 1, i64 noundef 1, ptr noundef nonnull %i.i171, i64 noundef %offset_correction, i64 noundef 0, i32 noundef %endianreq)
   br label %_ZN18OpenImageIO_v2_6_0L29append_tiff_dir_entry_integerIhEEbRKNS_10ParamValueERSt6vectorI12TIFFDirEntrySaIS5_EERS4_IcSaIcEEi12TIFFDataTypemNS_6endianE.exit
 

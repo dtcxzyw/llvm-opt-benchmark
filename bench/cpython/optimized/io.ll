@@ -1240,17 +1240,17 @@ if.else:                                          ; preds = %land.lhs.true, %if.
   ]
 
 if.end50thread-pre-split:                         ; preds = %if.else, %if.else, %if.else, %if.else, %land.lhs.true, %land.lhs.true, %land.lhs.true, %land.lhs.true
-  %add.ptr.pn = phi ptr [ %add.ptr, %land.lhs.true ], [ %add.ptr, %land.lhs.true ], [ %add.ptr, %land.lhs.true ], [ %add.ptr, %land.lhs.true ], [ %fmt, %if.else ], [ %fmt, %if.else ], [ %fmt, %if.else ], [ %fmt, %if.else ]
+  %add.ptr.sink = phi ptr [ %add.ptr, %land.lhs.true ], [ %add.ptr, %land.lhs.true ], [ %add.ptr, %land.lhs.true ], [ %add.ptr, %land.lhs.true ], [ %fmt, %if.else ], [ %fmt, %if.else ], [ %fmt, %if.else ], [ %fmt, %if.else ]
   %.sink = phi i8 [ %6, %land.lhs.true ], [ %6, %land.lhs.true ], [ %6, %land.lhs.true ], [ %6, %land.lhs.true ], [ %7, %if.else ], [ %7, %if.else ], [ %7, %if.else ], [ %7, %if.else ]
-  %storemerge = getelementptr i8, ptr %add.ptr.pn, i64 1
-  store ptr %storemerge, ptr %cp, align 8
+  %incdec.ptr = getelementptr i8, ptr %add.ptr.sink, i64 1
+  store ptr %incdec.ptr, ptr %cp, align 8
   store i8 %.sink, ptr %align, align 1
-  %.pr = load i8, ptr %storemerge, align 1
+  %.pr = load i8, ptr %incdec.ptr, align 1
   br label %if.end50
 
 if.end50:                                         ; preds = %if.end50thread-pre-split, %if.else
   %8 = phi i8 [ %.pr, %if.end50thread-pre-split ], [ %7, %if.else ]
-  %9 = phi ptr [ %storemerge, %if.end50thread-pre-split ], [ %fmt, %if.else ]
+  %9 = phi ptr [ %incdec.ptr, %if.end50thread-pre-split ], [ %fmt, %if.else ]
   %tobool70.not = phi i1 [ false, %if.end50thread-pre-split ], [ true, %if.else ]
   switch i8 %8, label %if.end65 [
     i8 43, label %if.then62

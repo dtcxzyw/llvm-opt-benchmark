@@ -4445,15 +4445,7 @@ _ZSt8_DestroyIN3ue215GraphRepeatInfoEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.
 invoke.cont.i:                                    ; preds = %_ZSt8_DestroyIN3ue215GraphRepeatInfoEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %repeats, align 8
   %tobool.not.i.i.i = icmp eq ptr %.pr.i, null
-  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN3ue215GraphRepeatInfoESaIS1_EED2Ev.exit, label %if.then.i.i.i
-
-if.then.i.i.i:                                    ; preds = %invoke.cont.i
-  call void @_ZdlPv(ptr noundef nonnull %.pr.i) #20
-  br label %_ZNSt6vectorIN3ue215GraphRepeatInfoESaIS1_EED2Ev.exit
-
-_ZNSt6vectorIN3ue215GraphRepeatInfoESaIS1_EED2Ev.exit: ; preds = %if.then.i.i.i, %invoke.cont.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %repeats) #22
-  br label %cleanup97
+  br i1 %tobool.not.i.i.i, label %cleanup97.sink.split, label %cleanup97.sink.split.sink.split
 
 for.body.i.i.i.i169:                              ; preds = %for.inc84, %_ZSt8_DestroyIN3ue215GraphRepeatInfoEEvPT_.exit.i.i.i.i174
   %__first.addr.04.i.i.i.i170 = phi ptr [ %incdec.ptr.i.i.i.i175, %_ZSt8_DestroyIN3ue215GraphRepeatInfoEEvPT_.exit.i.i.i.i174 ], [ %10, %for.inc84 ]
@@ -4478,18 +4470,21 @@ invoke.contthread-pre-split.i177:                 ; preds = %_ZSt8_DestroyIN3ue2
 invoke.cont.i179:                                 ; preds = %invoke.contthread-pre-split.i177, %invoke.cont
   %25 = phi ptr [ %.pr.i178, %invoke.contthread-pre-split.i177 ], [ %10, %invoke.cont ]
   %tobool.not.i.i.i180 = icmp eq ptr %25, null
-  br i1 %tobool.not.i.i.i180, label %_ZNSt6vectorIN3ue215GraphRepeatInfoESaIS1_EED2Ev.exit182, label %if.then.i.i.i181
+  br i1 %tobool.not.i.i.i180, label %cleanup97.sink.split, label %cleanup97.sink.split.sink.split
 
-if.then.i.i.i181:                                 ; preds = %invoke.cont.i179
-  call void @_ZdlPv(ptr noundef nonnull %25) #20
-  br label %_ZNSt6vectorIN3ue215GraphRepeatInfoESaIS1_EED2Ev.exit182
+cleanup97.sink.split.sink.split:                  ; preds = %invoke.cont.i179, %invoke.cont.i
+  %.sink = phi ptr [ %.pr.i, %invoke.cont.i ], [ %25, %invoke.cont.i179 ]
+  %retval.9.ph.ph = phi i1 [ true, %invoke.cont.i ], [ false, %invoke.cont.i179 ]
+  call void @_ZdlPv(ptr noundef nonnull %.sink) #20
+  br label %cleanup97.sink.split
 
-_ZNSt6vectorIN3ue215GraphRepeatInfoESaIS1_EED2Ev.exit182: ; preds = %if.then.i.i.i181, %invoke.cont.i179
+cleanup97.sink.split:                             ; preds = %cleanup97.sink.split.sink.split, %invoke.cont.i179, %invoke.cont.i
+  %retval.9.ph = phi i1 [ true, %invoke.cont.i ], [ false, %invoke.cont.i179 ], [ %retval.9.ph.ph, %cleanup97.sink.split.sink.split ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %repeats) #22
   br label %cleanup97
 
-cleanup97:                                        ; preds = %if.then, %if.then32, %for.body.lr.ph, %_ZNSt6vectorIN3ue215GraphRepeatInfoESaIS1_EED2Ev.exit182, %_ZNSt6vectorIN3ue215GraphRepeatInfoESaIS1_EED2Ev.exit, %for.end49
-  %retval.9 = phi i1 [ true, %_ZNSt6vectorIN3ue215GraphRepeatInfoESaIS1_EED2Ev.exit ], [ false, %_ZNSt6vectorIN3ue215GraphRepeatInfoESaIS1_EED2Ev.exit182 ], [ false, %for.end49 ], [ false, %for.body.lr.ph ], [ true, %if.then32 ], [ true, %if.then ]
+cleanup97:                                        ; preds = %if.then, %if.then32, %cleanup97.sink.split, %for.body.lr.ph, %for.end49
+  %retval.9 = phi i1 [ false, %for.end49 ], [ false, %for.body.lr.ph ], [ %retval.9.ph, %cleanup97.sink.split ], [ true, %if.then32 ], [ true, %if.then ]
   ret i1 %retval.9
 }
 

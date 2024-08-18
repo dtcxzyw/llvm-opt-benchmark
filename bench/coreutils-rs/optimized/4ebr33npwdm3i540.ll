@@ -43,8 +43,6 @@ define hidden void @_ZN3nix3sys4stat4stat17h98b5e8c84361ed59E(ptr noalias nocapt
 10:                                               ; preds = %8
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %11, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store i32 0, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
   br label %14
 
 12:                                               ; preds = %8
@@ -52,14 +50,15 @@ define hidden void @_ZN3nix3sys4stat4stat17h98b5e8c84361ed59E(ptr noalias nocapt
   br label %15
 
 14:                                               ; preds = %15, %10
+  %.sink = phi i32 [ 1, %15 ], [ 0, %10 ]
+  store i32 %.sink, ptr %0, align 8
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
   ret void
 
 15:                                               ; preds = %3, %12
-  %.sink = phi i32 [ %13, %12 ], [ %7, %3 ]
+  %.sink18 = phi i32 [ %13, %12 ], [ %7, %3 ]
   %16 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.sink, ptr %16, align 4
-  store i32 1, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
+  store i32 %.sink18, ptr %16, align 4
   br label %14
 }
 
@@ -80,8 +79,6 @@ define hidden void @_ZN3nix3sys4stat5lstat17h4736c182fba00a7dE(ptr noalias nocap
 10:                                               ; preds = %8
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %11, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store i32 0, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
   br label %14
 
 12:                                               ; preds = %8
@@ -89,14 +86,15 @@ define hidden void @_ZN3nix3sys4stat5lstat17h4736c182fba00a7dE(ptr noalias nocap
   br label %15
 
 14:                                               ; preds = %15, %10
+  %.sink = phi i32 [ 1, %15 ], [ 0, %10 ]
+  store i32 %.sink, ptr %0, align 8
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
   ret void
 
 15:                                               ; preds = %3, %12
-  %.sink = phi i32 [ %13, %12 ], [ %7, %3 ]
+  %.sink18 = phi i32 [ %13, %12 ], [ %7, %3 ]
   %16 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.sink, ptr %16, align 4
-  store i32 1, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
+  store i32 %.sink18, ptr %16, align 4
   br label %14
 }
 
@@ -287,16 +285,12 @@ default.unreachable25.i.i.i.i.i.i:                ; preds = %25
 62:                                               ; preds = %10, %23, %26, %27, %31, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h66e88e832bb95c7cE.exit6.i.i.i.i.i.i", %35, %37, %38, %42, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h66e88e832bb95c7cE.exit14.i.i.i.i.i.i", %46, %48, %52, %56, %"_ZN4core4iter6traits8iterator8Iterator2eq28_$u7b$$u7b$closure$u7d$$u7d$17hbf628b07110295a9E.exit.i.i.i", %6
   %.0.i.i = phi i8 [ 1, %6 ], [ 2, %"_ZN4core4iter6traits8iterator8Iterator2eq28_$u7b$$u7b$closure$u7d$$u7d$17hbf628b07110295a9E.exit.i.i.i" ], [ 2, %56 ], [ 2, %52 ], [ 2, %48 ], [ 2, %46 ], [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h66e88e832bb95c7cE.exit14.i.i.i.i.i.i" ], [ 2, %42 ], [ 2, %38 ], [ 2, %37 ], [ 2, %35 ], [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h66e88e832bb95c7cE.exit6.i.i.i.i.i.i" ], [ 2, %31 ], [ 2, %27 ], [ 2, %26 ], [ 2, %23 ], [ 2, %10 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3), !noalias !7
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
-  br label %63
+  br label %._crit_edge
 
-63:                                               ; preds = %._crit_edge, %62
-  %.0 = phi i8 [ %.0.i.i, %62 ], [ 3, %._crit_edge ]
+._crit_edge:                                      ; preds = %60, %2, %62
+  %.0 = phi i8 [ %.0.i.i, %62 ], [ 3, %2 ], [ 3, %60 ]
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
   ret i8 %.0
-
-._crit_edge:                                      ; preds = %60, %2
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
-  br label %63
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

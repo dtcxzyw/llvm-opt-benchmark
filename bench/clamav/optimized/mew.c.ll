@@ -1087,7 +1087,7 @@ lzma_486248.exit686.us.us:                        ; preds = %550, %544
 
 .lr.ph.i.us.us:                                   ; preds = %lzma_486248.exit674.us.us
   %559 = icmp ugt i32 %.05264.i1097.us.us, 127
-  br i1 %559, label %.loopexit711.us.us, label %.lr.ph1099.us.us
+  br i1 %559, label %.sink.split, label %.lr.ph1099.us.us
 
 .lr.ph1099.us.us:                                 ; preds = %lzma_486248.exit686.us.us, %.lr.ph.i.us.us
   %.05565.i1098.us.us.in = phi i8 [ %.05565.i1098.us.us, %.lr.ph.i.us.us ], [ %509, %lzma_486248.exit686.us.us ]
@@ -1192,16 +1192,16 @@ lzma_486248.exit674.us.us:                        ; preds = %602, %596
   br i1 %616, label %.lr.ph67.preheader.i.us.us.preheader, label %667
 
 .lr.ph67.preheader.i.us.us.preheader:             ; preds = %.preheader.i626.us.us, %lzma_486248.exit686.us.us
-  %.ph1466 = phi i32 [ %.promoted1095.us.us, %lzma_486248.exit686.us.us ], [ %609, %.preheader.i626.us.us ]
-  %.ph1467 = phi i32 [ %.promoted1094.us.us, %lzma_486248.exit686.us.us ], [ %610, %.preheader.i626.us.us ]
-  %.ph1468 = phi ptr [ %.promoted1093.us.us, %lzma_486248.exit686.us.us ], [ %611, %.preheader.i626.us.us ]
+  %.ph1467 = phi i32 [ %.promoted1095.us.us, %lzma_486248.exit686.us.us ], [ %609, %.preheader.i626.us.us ]
+  %.ph1468 = phi i32 [ %.promoted1094.us.us, %lzma_486248.exit686.us.us ], [ %610, %.preheader.i626.us.us ]
+  %.ph1469 = phi ptr [ %.promoted1093.us.us, %lzma_486248.exit686.us.us ], [ %611, %.preheader.i626.us.us ]
   %.15366.i.us.us.ph = phi i32 [ %557, %lzma_486248.exit686.us.us ], [ %614, %.preheader.i626.us.us ]
   br label %.lr.ph67.preheader.i.us.us
 
 .lr.ph67.preheader.i.us.us:                       ; preds = %.lr.ph67.preheader.i.us.us.preheader, %lzma_486248.exit662.us.us
-  %617 = phi i32 [ %661, %lzma_486248.exit662.us.us ], [ %.ph1466, %.lr.ph67.preheader.i.us.us.preheader ]
-  %618 = phi i32 [ %662, %lzma_486248.exit662.us.us ], [ %.ph1467, %.lr.ph67.preheader.i.us.us.preheader ]
-  %619 = phi ptr [ %663, %lzma_486248.exit662.us.us ], [ %.ph1468, %.lr.ph67.preheader.i.us.us.preheader ]
+  %617 = phi i32 [ %661, %lzma_486248.exit662.us.us ], [ %.ph1467, %.lr.ph67.preheader.i.us.us.preheader ]
+  %618 = phi i32 [ %662, %lzma_486248.exit662.us.us ], [ %.ph1468, %.lr.ph67.preheader.i.us.us.preheader ]
+  %619 = phi ptr [ %663, %lzma_486248.exit662.us.us ], [ %.ph1469, %.lr.ph67.preheader.i.us.us.preheader ]
   %.15366.i.us.us = phi i32 [ %665, %lzma_486248.exit662.us.us ], [ %.15366.i.us.us.ph, %.lr.ph67.preheader.i.us.us.preheader ]
   %620 = shl nuw nsw i32 %.15366.i.us.us, 1
   %621 = zext nneg i32 %620 to i64
@@ -1285,10 +1285,16 @@ lzma_486248.exit662.us.us:                        ; preds = %654, %648
   %664 = phi ptr [ %659, %654 ], [ %622, %648 ]
   %665 = or disjoint i32 %.0.i661.us.us, %620
   %666 = icmp ult i32 %.15366.i.us.us, 128
-  br i1 %666, label %.lr.ph67.preheader.i.us.us, label %.loopexit.us.us
+  br i1 %666, label %.lr.ph67.preheader.i.us.us, label %.sink.split
 
-667:                                              ; preds = %.loopexit711.us.us, %.loopexit.us.us, %.preheader.i626.us.us
-  %.153.lcssa.sink.i.us.us = phi i32 [ %614, %.preheader.i626.us.us ], [ %665, %.loopexit.us.us ], [ %614, %.loopexit711.us.us ]
+.sink.split:                                      ; preds = %.lr.ph.i.us.us, %lzma_486248.exit662.us.us
+  %.sink1464 = phi ptr [ %664, %lzma_486248.exit662.us.us ], [ %612, %.lr.ph.i.us.us ]
+  %.153.lcssa.sink.i.us.us.ph = phi i32 [ %665, %lzma_486248.exit662.us.us ], [ %614, %.lr.ph.i.us.us ]
+  store ptr %.sink1464, ptr %9, align 8
+  br label %667
+
+667:                                              ; preds = %.sink.split, %.preheader.i626.us.us
+  %.153.lcssa.sink.i.us.us = phi i32 [ %614, %.preheader.i626.us.us ], [ %.153.lcssa.sink.i.us.us.ph, %.sink.split ]
   %668 = and i32 %.153.lcssa.sink.i.us.us, 255
   br label %.thread.us.us
 
@@ -1445,14 +1451,6 @@ lzma_486248.exit662.us.us:                        ; preds = %654, %648
   store ptr %725, ptr %9, align 8
   br label %.thread.us.us
 
-.loopexit.us.us:                                  ; preds = %lzma_486248.exit662.us.us
-  store ptr %664, ptr %9, align 8
-  br label %667
-
-.loopexit711.us.us:                               ; preds = %.lr.ph.i.us.us
-  store ptr %612, ptr %9, align 8
-  br label %667
-
 .loopexit714.us.us:                               ; preds = %.preheader713.us.us
   store i32 %481, ptr %8, align 4
   br label %737
@@ -1562,12 +1560,12 @@ thread-pre-split.us.us.us.us:                     ; preds = %743
   br i1 %779, label %.split.us.us.us.outer.loopexit, label %.split785.us.split.us.us.us
 
 .split.us.us.us.outer.loopexit:                   ; preds = %774
-  %spec.select532.us.us.us.us.le1586 = select i1 %.not, ptr %.1402.us.us.us.us.ph, ptr %762
+  %spec.select532.us.us.us.us.le1588 = select i1 %.not, ptr %.1402.us.us.us.us.ph, ptr %762
   br label %.split.us.us.us.outer
 
 .split.us.us.us.outer:                            ; preds = %.split.us.us.us.outer.loopexit, %.split.us.us.us.preheader
   %.2422.us.us.us.us.ph = phi ptr [ %16, %.split.us.us.us.preheader ], [ %768, %.split.us.us.us.outer.loopexit ]
-  %.1402.us.us.us.us.ph = phi ptr [ null, %.split.us.us.us.preheader ], [ %spec.select532.us.us.us.us.le1586, %.split.us.us.us.outer.loopexit ]
+  %.1402.us.us.us.us.ph = phi ptr [ null, %.split.us.us.us.preheader ], [ %spec.select532.us.us.us.us.le1588, %.split.us.us.us.outer.loopexit ]
   %.2399.us.us.us.us.ph = phi ptr [ %spec.select, %.split.us.us.us.preheader ], [ %768, %.split.us.us.us.outer.loopexit ]
   br label %.split.us.us.us
 

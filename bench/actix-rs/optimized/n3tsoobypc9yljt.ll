@@ -3117,9 +3117,9 @@ tailrecurse._crit_edge.thread:                    ; preds = %92
   invoke void @"_ZN4core3ptr98drop_in_place$LT$actix_files..chunked..chunked_read_file_callback..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3907c5deca016683E.llvm.8740116509709696285"(ptr noundef nonnull align 8 %10)
           to label %106 unwind label %.body, !noalias !712
 
-100:                                              ; preds = %.noexc11.i, %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17ha7cb28d7d7f9ad7fE.exit.i"
-  %.sroa.538.0.i.ph = phi ptr [ %76, %.noexc11.i ], [ %82, %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17ha7cb28d7d7f9ad7fE.exit.i" ]
-  %.sroa.8.0.i.ph = phi ptr [ @anon.c29a8bfa518d85917f471cda279c2d29.30.llvm.12734530818944442833, %.noexc11.i ], [ @anon.c29a8bfa518d85917f471cda279c2d29.28.llvm.12734530818944442833, %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17ha7cb28d7d7f9ad7fE.exit.i" ]
+100:                                              ; preds = %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17ha7cb28d7d7f9ad7fE.exit.i", %.noexc11.i
+  %.sroa.538.0.i.ph = phi ptr [ %82, %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17ha7cb28d7d7f9ad7fE.exit.i" ], [ %76, %.noexc11.i ]
+  %.sroa.8.0.i.ph = phi ptr [ @anon.c29a8bfa518d85917f471cda279c2d29.28.llvm.12734530818944442833, %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17ha7cb28d7d7f9ad7fE.exit.i" ], [ @anon.c29a8bfa518d85917f471cda279c2d29.30.llvm.12734530818944442833, %.noexc11.i ]
   store i8 1, ptr %12, align 4, !noalias !672
   store i64 1, ptr %0, align 8
   %.sroa.444.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8

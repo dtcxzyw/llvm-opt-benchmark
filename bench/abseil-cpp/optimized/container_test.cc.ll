@@ -7388,17 +7388,17 @@ _ZSt8__searchISt16reverse_iteratorISt14_List_iteratorIiEES0_IN9__gnu_cxx17__norm
 while.cond1.preheader.i.i.i:                      ; preds = %_ZSt8__searchISt16reverse_iteratorISt14_List_iteratorIiEES0_IN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEENS4_5__ops15_Iter_comp_iterIPFbiiEEEET_SH_SH_T0_SI_T1_.exit.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__rresult.i.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
-  br i1 %cmp.i.i3.i.i, label %_ZSt8__searchISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEES0_ISt14_List_iteratorIiEENS1_5__ops15_Iter_comp_iterIPFbiiEEEET_SH_SH_T0_SI_T1_.exit, label %lor.lhs.false.i
+  br i1 %cmp.i.i3.i.i, label %_ZN4absl10c_find_endISt6vectorIiSaIiEENSt7__cxx114listIiS2_EERFbiiEEEDTcl5beginclsr3stdE7declvalIRT_EEEESA_RT0_OT1_.exit, label %lor.lhs.false.i
 
 _ZSt10__find_endISt14_List_iteratorIiEN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS2_5__ops15_Iter_comp_iterIPFbiiEEEET_SE_SE_T0_SF_St26bidirectional_iterator_tagSG_T1_.exit: ; preds = %_ZSt9__find_ifISt16reverse_iteratorISt14_List_iteratorIiEEN9__gnu_cxx5__ops18_Iter_comp_to_iterIPFbiiES0_INS4_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEEET_SH_SH_T0_.exit20.i.i, %if.end19.i.i, %while.body.i.i17.i.i, %if.end30.i.i, %while.body.i.i.i.i, %_ZSt8__searchISt16reverse_iteratorISt14_List_iteratorIiEES0_IN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEENS4_5__ops15_Iter_comp_iterIPFbiiEEEET_SH_SH_T0_SI_T1_.exit.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__rresult.i.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
-  br i1 %cmp.i.i3.i.i, label %_ZSt8__searchISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEES0_ISt14_List_iteratorIiEENS1_5__ops15_Iter_comp_iterIPFbiiEEEET_SH_SH_T0_SI_T1_.exit, label %lor.lhs.false.i
+  br i1 %cmp.i.i3.i.i, label %_ZN4absl10c_find_endISt6vectorIiSaIiEENSt7__cxx114listIiS2_EERFbiiEEEDTcl5beginclsr3stdE7declvalIRT_EEEESA_RT0_OT1_.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %while.cond1.preheader.i.i.i, %_ZSt10__find_endISt14_List_iteratorIiEN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS2_5__ops15_Iter_comp_iterIPFbiiEEEET_SE_SE_T0_SF_St26bidirectional_iterator_tagSG_T1_.exit
   %14 = ptrtoint ptr %2 to i64
   %15 = ptrtoint ptr %sequence_ to i64
-  br i1 %cmp.i.i.i.i, label %_ZSt8__searchISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEES0_ISt14_List_iteratorIiEENS1_5__ops15_Iter_comp_iterIPFbiiEEEET_SH_SH_T0_SI_T1_.exit, label %if.end.i
+  br i1 %cmp.i.i.i.i, label %_ZN4absl10c_find_endISt6vectorIiSaIiEENSt7__cxx114listIiS2_EERFbiiEEEDTcl5beginclsr3stdE7declvalIRT_EEEESA_RT0_OT1_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
   %_M_prev.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
@@ -7422,7 +7422,7 @@ for.cond.preheader.i:                             ; preds = %if.end.i
   %17 = load i64, ptr %ref.tmp.i, align 8, !noalias !162
   %18 = inttoptr i64 %17 to ptr
   %cmp.i.i16.i23 = icmp eq ptr %1, %18
-  br i1 %cmp.i.i16.i23, label %_ZSt8__searchISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEES0_ISt14_List_iteratorIiEENS1_5__ops15_Iter_comp_iterIPFbiiEEEET_SH_SH_T0_SI_T1_.exit.thread, label %if.end19.i
+  br i1 %cmp.i.i16.i23, label %_ZN4absl10c_find_endISt6vectorIiSaIiEENSt7__cxx114listIiS2_EERFbiiEEEDTcl5beginclsr3stdE7declvalIRT_EEEESA_RT0_OT1_.exit, label %if.end19.i
 
 if.then4.i:                                       ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i), !noalias !162
@@ -7437,17 +7437,17 @@ if.then4.i:                                       ; preds = %if.end.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i), !noalias !162
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp1.i.i), !noalias !162
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp2.i.i), !noalias !162
-  br label %_ZSt8__searchISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEES0_ISt14_List_iteratorIiEENS1_5__ops15_Iter_comp_iterIPFbiiEEEET_SH_SH_T0_SI_T1_.exit
+  br label %_ZN4absl10c_find_endISt6vectorIiSaIiEENSt7__cxx114listIiS2_EERFbiiEEEDTcl5beginclsr3stdE7declvalIRT_EEEESA_RT0_OT1_.exit
 
 if.end19.i:                                       ; preds = %for.cond.preheader.i, %while.end.i
   %19 = phi ptr [ %25, %while.end.i ], [ %18, %for.cond.preheader.i ]
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %19, i64 -4
   %cmp.i.i19.i = icmp eq ptr %incdec.ptr.i.i.i, %1
-  br i1 %cmp.i.i19.i, label %_ZSt8__searchISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEES0_ISt14_List_iteratorIiEENS1_5__ops15_Iter_comp_iterIPFbiiEEEET_SH_SH_T0_SI_T1_.exit.thread, label %while.cond.i
+  br i1 %cmp.i.i19.i, label %_ZN4absl10c_find_endISt6vectorIiSaIiEENSt7__cxx114listIiS2_EERFbiiEEEDTcl5beginclsr3stdE7declvalIRT_EEEESA_RT0_OT1_.exit, label %while.cond.i
 
-while.cond.i:                                     ; preds = %if.end19.i, %if.end30.i
-  %__p.sroa.0.0.i = phi ptr [ %21, %if.end30.i ], [ %16, %if.end19.i ]
-  %__current.sroa.0.0.i = phi ptr [ %incdec.ptr.i.i.i.i3, %if.end30.i ], [ %incdec.ptr.i.i.i, %if.end19.i ]
+while.cond.i:                                     ; preds = %if.end19.i, %while.body.i
+  %__p.sroa.0.0.i = phi ptr [ %21, %while.body.i ], [ %16, %if.end19.i ]
+  %__current.sroa.0.0.i = phi ptr [ %incdec.ptr.i.i.i.i3, %while.body.i ], [ %incdec.ptr.i.i.i, %if.end19.i ]
   %incdec.ptr.i.i.i.i3 = getelementptr inbounds i8, ptr %__current.sroa.0.0.i, i64 -4
   %20 = load i32, ptr %incdec.ptr.i.i.i.i3, align 4, !noalias !162
   %_M_prev.i.i.i.i4 = getelementptr inbounds i8, ptr %__p.sroa.0.0.i, i64 8
@@ -7459,11 +7459,9 @@ while.cond.i:                                     ; preds = %if.end19.i, %if.end
 
 while.body.i:                                     ; preds = %while.cond.i
   %cmp.i.i23.i = icmp eq ptr %21, %0
-  br i1 %cmp.i.i23.i, label %_ZSt8__searchISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEES0_ISt14_List_iteratorIiEENS1_5__ops15_Iter_comp_iterIPFbiiEEEET_SH_SH_T0_SI_T1_.exit, label %if.end30.i
-
-if.end30.i:                                       ; preds = %while.body.i
   %cmp.i.i27.i = icmp eq ptr %incdec.ptr.i.i.i.i3, %1
-  br i1 %cmp.i.i27.i, label %_ZSt8__searchISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEES0_ISt14_List_iteratorIiEENS1_5__ops15_Iter_comp_iterIPFbiiEEEET_SH_SH_T0_SI_T1_.exit.thread, label %while.cond.i, !llvm.loop !171
+  %or.cond49 = select i1 %cmp.i.i23.i, i1 true, i1 %cmp.i.i27.i
+  br i1 %or.cond49, label %_ZN4absl10c_find_endISt6vectorIiSaIiEENSt7__cxx114listIiS2_EERFbiiEEEDTcl5beginclsr3stdE7declvalIRT_EEEESA_RT0_OT1_.exit, label %while.cond.i, !llvm.loop !171
 
 while.end.i:                                      ; preds = %while.cond.i
   %23 = ptrtoint ptr %incdec.ptr.i.i.i to i64
@@ -7481,17 +7479,10 @@ while.end.i:                                      ; preds = %while.cond.i
   %24 = load i64, ptr %ref.tmp.i, align 8, !noalias !162
   %25 = inttoptr i64 %24 to ptr
   %cmp.i.i16.i = icmp eq ptr %1, %25
-  br i1 %cmp.i.i16.i, label %_ZSt8__searchISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEES0_ISt14_List_iteratorIiEENS1_5__ops15_Iter_comp_iterIPFbiiEEEET_SH_SH_T0_SI_T1_.exit.thread, label %if.end19.i, !llvm.loop !172
+  br i1 %cmp.i.i16.i, label %_ZN4absl10c_find_endISt6vectorIiSaIiEENSt7__cxx114listIiS2_EERFbiiEEEDTcl5beginclsr3stdE7declvalIRT_EEEESA_RT0_OT1_.exit, label %if.end19.i, !llvm.loop !172
 
-_ZSt8__searchISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEES0_ISt14_List_iteratorIiEENS1_5__ops15_Iter_comp_iterIPFbiiEEEET_SH_SH_T0_SI_T1_.exit.thread: ; preds = %if.end19.i, %while.end.i, %if.end30.i, %for.cond.preheader.i
+_ZN4absl10c_find_endISt6vectorIiSaIiEENSt7__cxx114listIiS2_EERFbiiEEEDTcl5beginclsr3stdE7declvalIRT_EEEESA_RT0_OT1_.exit: ; preds = %while.end.i, %if.end19.i, %while.body.i, %while.cond1.preheader.i.i.i, %if.then4.i, %lor.lhs.false.i, %_ZSt10__find_endISt14_List_iteratorIiEN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS2_5__ops15_Iter_comp_iterIPFbiiEEEET_SE_SE_T0_SF_St26bidirectional_iterator_tagSG_T1_.exit, %for.cond.preheader.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
-  br label %_ZN4absl10c_find_endISt6vectorIiSaIiEENSt7__cxx114listIiS2_EERFbiiEEEDTcl5beginclsr3stdE7declvalIRT_EEEESA_RT0_OT1_.exit
-
-_ZSt8__searchISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEES0_ISt14_List_iteratorIiEENS1_5__ops15_Iter_comp_iterIPFbiiEEEET_SH_SH_T0_SI_T1_.exit: ; preds = %while.body.i, %while.cond1.preheader.i.i.i, %_ZSt10__find_endISt14_List_iteratorIiEN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS2_5__ops15_Iter_comp_iterIPFbiiEEEET_SE_SE_T0_SF_St26bidirectional_iterator_tagSG_T1_.exit, %lor.lhs.false.i, %if.then4.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
-  br label %_ZN4absl10c_find_endISt6vectorIiSaIiEENSt7__cxx114listIiS2_EERFbiiEEEDTcl5beginclsr3stdE7declvalIRT_EEEESA_RT0_OT1_.exit
-
-_ZN4absl10c_find_endISt6vectorIiSaIiEENSt7__cxx114listIiS2_EERFbiiEEEDTcl5beginclsr3stdE7declvalIRT_EEEESA_RT0_OT1_.exit: ; preds = %_ZSt8__searchISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEES0_ISt14_List_iteratorIiEENS1_5__ops15_Iter_comp_iterIPFbiiEEEET_SH_SH_T0_SI_T1_.exit, %_ZSt8__searchISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEES0_ISt14_List_iteratorIiEENS1_5__ops15_Iter_comp_iterIPFbiiEEEET_SH_SH_T0_SI_T1_.exit.thread
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__rresult.i.i.i)
   ret void
 }

@@ -3734,11 +3734,7 @@ invoke.cont571:                                   ; preds = %invoke.cont569
   %174 = load ptr, ptr %arrayidx.i.i1071, align 8, !noalias !134
   %175 = load ptr, ptr %t, align 8
   %cmp.not.i1074 = icmp eq ptr %175, %174
-  br i1 %cmp.not.i1074, label %if.end610, label %if.then.i1075
-
-if.then.i1075:                                    ; preds = %invoke.cont571
-  store ptr %174, ptr %t, align 8
-  br label %if.end610
+  br i1 %cmp.not.i1074, label %if.end610, label %if.end610.sink.split
 
 lpad520:                                          ; preds = %land.rhs524
   %176 = landingpad { ptr, i32 }
@@ -3882,11 +3878,7 @@ invoke.cont603:                                   ; preds = %invoke.cont601
   %191 = load ptr, ptr %arrayidx.i.i1161, align 8, !noalias !152
   %192 = load ptr, ptr %t, align 8
   %cmp.not.i1164 = icmp eq ptr %192, %191
-  br i1 %cmp.not.i1164, label %if.end610, label %if.then.i1165
-
-if.then.i1165:                                    ; preds = %invoke.cont603
-  store ptr %191, ptr %t, align 8
-  br label %if.end610
+  br i1 %cmp.not.i1164, label %if.end610, label %if.end610.sink.split
 
 lpad581:                                          ; preds = %invoke.cont580
   %193 = landingpad { ptr, i32 }
@@ -3908,7 +3900,12 @@ lpad602:                                          ; preds = %invoke.cont601
           cleanup
   br label %ehcleanup2053
 
-if.end610:                                        ; preds = %if.then.i1165, %invoke.cont603, %if.then.i1075, %invoke.cont571, %invoke.cont584
+if.end610.sink.split:                             ; preds = %invoke.cont603, %invoke.cont571
+  %.sink = phi ptr [ %174, %invoke.cont571 ], [ %191, %invoke.cont603 ]
+  store ptr %.sink, ptr %t, align 8
+  br label %if.end610
+
+if.end610:                                        ; preds = %if.end610.sink.split, %invoke.cont603, %invoke.cont571, %invoke.cont584
   %call612 = invoke noundef zeroext i1 @_ZNK4cvc58internal12NodeTemplateILb0EE6isNullEv(ptr noundef nonnull align 8 dereferenceable(8) %c)
           to label %invoke.cont611 unwind label %lpad547
 
@@ -5863,9 +5860,9 @@ _ZNK4cvc58internal12NodeTemplateILb0EEixEi.exit2047: ; preds = %invoke.cont1587
   br label %cond.end1591
 
 cond.end1591:                                     ; preds = %_ZNK4cvc58internal12NodeTemplateILb0EEixEi.exit2047, %_ZNK4cvc58internal12NodeTemplateILb0EEixEi.exit2033
-  %.sink = phi ptr [ %398, %_ZNK4cvc58internal12NodeTemplateILb0EEixEi.exit2047 ], [ %397, %_ZNK4cvc58internal12NodeTemplateILb0EEixEi.exit2033 ]
+  %.sink2448 = phi ptr [ %398, %_ZNK4cvc58internal12NodeTemplateILb0EEixEi.exit2047 ], [ %397, %_ZNK4cvc58internal12NodeTemplateILb0EEixEi.exit2033 ]
   %spec.select.i.i2042.sink = phi i64 [ %spec.select.i.i2042, %_ZNK4cvc58internal12NodeTemplateILb0EEixEi.exit2047 ], [ %spec.select.i.i2028, %_ZNK4cvc58internal12NodeTemplateILb0EEixEi.exit2033 ]
-  %d_children.i.i2043 = getelementptr inbounds i8, ptr %.sink, i64 16
+  %d_children.i.i2043 = getelementptr inbounds i8, ptr %.sink2448, i64 16
   %arrayidx.i.i2045 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i2043, i64 0, i64 %spec.select.i.i2042.sink
   %storemerge2395 = load ptr, ptr %arrayidx.i.i2045, align 8, !noalias !39
   store ptr %storemerge2395, ptr %ref.tmp1576, align 8
@@ -6072,9 +6069,9 @@ _ZNK4cvc58internal12NodeTemplateILb0EEixEi.exit2134: ; preds = %invoke.cont1711
   br label %cond.end1715
 
 cond.end1715:                                     ; preds = %_ZNK4cvc58internal12NodeTemplateILb0EEixEi.exit2134, %_ZNK4cvc58internal12NodeTemplateILb0EEixEi.exit2120
-  %.sink2448 = phi ptr [ %418, %_ZNK4cvc58internal12NodeTemplateILb0EEixEi.exit2134 ], [ %417, %_ZNK4cvc58internal12NodeTemplateILb0EEixEi.exit2120 ]
+  %.sink2449 = phi ptr [ %418, %_ZNK4cvc58internal12NodeTemplateILb0EEixEi.exit2134 ], [ %417, %_ZNK4cvc58internal12NodeTemplateILb0EEixEi.exit2120 ]
   %spec.select.i.i2129.sink = phi i64 [ %spec.select.i.i2129, %_ZNK4cvc58internal12NodeTemplateILb0EEixEi.exit2134 ], [ %spec.select.i.i2115, %_ZNK4cvc58internal12NodeTemplateILb0EEixEi.exit2120 ]
-  %d_children.i.i2130 = getelementptr inbounds i8, ptr %.sink2448, i64 16
+  %d_children.i.i2130 = getelementptr inbounds i8, ptr %.sink2449, i64 16
   %arrayidx.i.i2132 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i2130, i64 0, i64 %spec.select.i.i2129.sink
   %storemerge = load ptr, ptr %arrayidx.i.i2132, align 8, !noalias !39
   store ptr %storemerge, ptr %ref.tmp1700, align 8

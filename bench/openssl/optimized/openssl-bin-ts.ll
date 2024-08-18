@@ -1398,7 +1398,7 @@ if.end30:                                         ; preds = %if.end25
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %digest_len.i)
   %call.i = tail call i32 @EVP_MD_get_size(ptr noundef nonnull %md.addr.0) #7
   %cmp.i = icmp slt i32 %call.i, 0
-  br i1 %cmp.i, label %create_digest.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %if.then72.sink.split, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end30
   %cmp1.not.i = icmp eq ptr %data_bio, null
@@ -1407,7 +1407,7 @@ if.end.i:                                         ; preds = %if.end30
 if.then2.i:                                       ; preds = %if.end.i
   %call3.i = tail call ptr @EVP_MD_CTX_new() #7
   %cmp4.i = icmp eq ptr %call3.i, null
-  br i1 %cmp4.i, label %create_digest.exit.thread, label %if.end6.i
+  br i1 %cmp4.i, label %if.then72.sink.split, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.then2.i
   %conv.i = zext nneg i32 %call.i to i64
@@ -1449,18 +1449,11 @@ if.then31.i:                                      ; preds = %if.else.i
   call void @CRYPTO_free(ptr noundef %call25.i, ptr noundef nonnull @.str.134, i32 noundef 541) #7
   %1 = load ptr, ptr @bio_err, align 8
   %call32.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.154, i32 noundef %call.i) #7
-  br label %create_digest.exit.thread
-
-create_digest.exit.thread:                        ; preds = %if.then31.i, %if.end30, %if.then2.i
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %buffer.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %digest_len.i)
-  br label %if.then72
+  br label %if.then72.sink.split
 
 create_digest.exit.thread27:                      ; preds = %while.body.i, %while.end.i, %if.end6.i
   call void @EVP_MD_CTX_free(ptr noundef nonnull %call3.i) #7
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %buffer.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %digest_len.i)
-  br label %if.then72
+  br label %if.then72.sink.split
 
 create_digest.exit:                               ; preds = %if.end23.i, %if.else.i
   %data.1 = phi ptr [ %call25.i, %if.else.i ], [ %call7.i, %if.end23.i ]
@@ -1517,13 +1510,19 @@ err:                                              ; preds = %if.end54, %land.lhs
   %tobool68.not = icmp eq i32 %call67, 0
   br i1 %tobool68.not, label %if.then72, label %if.end74
 
-if.then72:                                        ; preds = %create_digest.exit.thread27, %create_digest.exit.thread, %if.end5, %if.end25, %if.end34, %if.end38, %land.lhs.true50, %land.lhs.true56, %land.lhs.true62, %land.lhs.true44, %create_digest.exit, %if.end21, %if.end16, %if.end12, %if.end8, %if.end, %land.lhs.true, %err
-  %nonce_asn1.055 = phi ptr [ %nonce_asn1.137, %err ], [ null, %create_digest.exit.thread27 ], [ null, %create_digest.exit.thread ], [ null, %if.end5 ], [ null, %if.end25 ], [ null, %if.end34 ], [ null, %if.end38 ], [ null, %land.lhs.true50 ], [ null, %land.lhs.true56 ], [ %call57, %land.lhs.true62 ], [ null, %land.lhs.true44 ], [ null, %create_digest.exit ], [ null, %if.end21 ], [ null, %if.end16 ], [ null, %if.end12 ], [ null, %if.end8 ], [ null, %if.end ], [ null, %land.lhs.true ]
-  %policy_obj.053 = phi ptr [ %policy_obj.134, %err ], [ null, %create_digest.exit.thread27 ], [ null, %create_digest.exit.thread ], [ null, %if.end5 ], [ null, %if.end25 ], [ null, %if.end34 ], [ null, %if.end38 ], [ %call45, %land.lhs.true50 ], [ %policy_obj.134, %land.lhs.true56 ], [ %policy_obj.134, %land.lhs.true62 ], [ null, %land.lhs.true44 ], [ null, %create_digest.exit ], [ null, %if.end21 ], [ null, %if.end16 ], [ null, %if.end12 ], [ null, %if.end8 ], [ null, %if.end ], [ null, %land.lhs.true ]
-  %algo.051 = phi ptr [ %call13, %err ], [ %call13, %create_digest.exit.thread27 ], [ %call13, %create_digest.exit.thread ], [ null, %if.end5 ], [ %call13, %if.end25 ], [ %call13, %if.end34 ], [ %call13, %if.end38 ], [ %call13, %land.lhs.true50 ], [ %call13, %land.lhs.true56 ], [ %call13, %land.lhs.true62 ], [ %call13, %land.lhs.true44 ], [ %call13, %create_digest.exit ], [ %call13, %if.end21 ], [ %call13, %if.end16 ], [ null, %if.end12 ], [ null, %if.end8 ], [ null, %if.end ], [ null, %land.lhs.true ]
-  %msg_imprint.049 = phi ptr [ %call9, %err ], [ %call9, %create_digest.exit.thread27 ], [ %call9, %create_digest.exit.thread ], [ null, %if.end5 ], [ %call9, %if.end25 ], [ %call9, %if.end34 ], [ %call9, %if.end38 ], [ %call9, %land.lhs.true50 ], [ %call9, %land.lhs.true56 ], [ %call9, %land.lhs.true62 ], [ %call9, %land.lhs.true44 ], [ %call9, %create_digest.exit ], [ %call9, %if.end21 ], [ %call9, %if.end16 ], [ %call9, %if.end12 ], [ null, %if.end8 ], [ null, %if.end ], [ null, %land.lhs.true ]
-  %ts_req.047 = phi ptr [ %call2, %err ], [ %call2, %create_digest.exit.thread27 ], [ %call2, %create_digest.exit.thread ], [ %call2, %if.end5 ], [ %call2, %if.end25 ], [ %call2, %if.end34 ], [ %call2, %if.end38 ], [ %call2, %land.lhs.true50 ], [ %call2, %land.lhs.true56 ], [ %call2, %land.lhs.true62 ], [ %call2, %land.lhs.true44 ], [ %call2, %create_digest.exit ], [ %call2, %if.end21 ], [ %call2, %if.end16 ], [ %call2, %if.end12 ], [ %call2, %if.end8 ], [ null, %if.end ], [ null, %land.lhs.true ]
-  %data.046 = phi ptr [ %data.1, %err ], [ %call7.i, %create_digest.exit.thread27 ], [ null, %create_digest.exit.thread ], [ null, %if.end5 ], [ null, %if.end25 ], [ %data.1, %if.end34 ], [ %data.1, %if.end38 ], [ %data.1, %land.lhs.true50 ], [ %data.1, %land.lhs.true56 ], [ %data.1, %land.lhs.true62 ], [ %data.1, %land.lhs.true44 ], [ %data.1, %create_digest.exit ], [ null, %if.end21 ], [ null, %if.end16 ], [ null, %if.end12 ], [ null, %if.end8 ], [ null, %if.end ], [ null, %land.lhs.true ]
+if.then72.sink.split:                             ; preds = %if.then2.i, %if.end30, %if.then31.i, %create_digest.exit.thread27
+  %data.046.ph = phi ptr [ %call7.i, %create_digest.exit.thread27 ], [ null, %if.then31.i ], [ null, %if.end30 ], [ null, %if.then2.i ]
+  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %buffer.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %digest_len.i)
+  br label %if.then72
+
+if.then72:                                        ; preds = %if.then72.sink.split, %if.end5, %if.end25, %if.end34, %if.end38, %land.lhs.true50, %land.lhs.true56, %land.lhs.true62, %land.lhs.true44, %create_digest.exit, %if.end21, %if.end16, %if.end12, %if.end8, %if.end, %land.lhs.true, %err
+  %nonce_asn1.055 = phi ptr [ %nonce_asn1.137, %err ], [ null, %if.end5 ], [ null, %if.end25 ], [ null, %if.end34 ], [ null, %if.end38 ], [ null, %land.lhs.true50 ], [ null, %land.lhs.true56 ], [ %call57, %land.lhs.true62 ], [ null, %land.lhs.true44 ], [ null, %create_digest.exit ], [ null, %if.end21 ], [ null, %if.end16 ], [ null, %if.end12 ], [ null, %if.end8 ], [ null, %if.end ], [ null, %land.lhs.true ], [ null, %if.then72.sink.split ]
+  %policy_obj.053 = phi ptr [ %policy_obj.134, %err ], [ null, %if.end5 ], [ null, %if.end25 ], [ null, %if.end34 ], [ null, %if.end38 ], [ %call45, %land.lhs.true50 ], [ %policy_obj.134, %land.lhs.true56 ], [ %policy_obj.134, %land.lhs.true62 ], [ null, %land.lhs.true44 ], [ null, %create_digest.exit ], [ null, %if.end21 ], [ null, %if.end16 ], [ null, %if.end12 ], [ null, %if.end8 ], [ null, %if.end ], [ null, %land.lhs.true ], [ null, %if.then72.sink.split ]
+  %algo.051 = phi ptr [ %call13, %err ], [ null, %if.end5 ], [ %call13, %if.end25 ], [ %call13, %if.end34 ], [ %call13, %if.end38 ], [ %call13, %land.lhs.true50 ], [ %call13, %land.lhs.true56 ], [ %call13, %land.lhs.true62 ], [ %call13, %land.lhs.true44 ], [ %call13, %create_digest.exit ], [ %call13, %if.end21 ], [ %call13, %if.end16 ], [ null, %if.end12 ], [ null, %if.end8 ], [ null, %if.end ], [ null, %land.lhs.true ], [ %call13, %if.then72.sink.split ]
+  %msg_imprint.049 = phi ptr [ %call9, %err ], [ null, %if.end5 ], [ %call9, %if.end25 ], [ %call9, %if.end34 ], [ %call9, %if.end38 ], [ %call9, %land.lhs.true50 ], [ %call9, %land.lhs.true56 ], [ %call9, %land.lhs.true62 ], [ %call9, %land.lhs.true44 ], [ %call9, %create_digest.exit ], [ %call9, %if.end21 ], [ %call9, %if.end16 ], [ %call9, %if.end12 ], [ null, %if.end8 ], [ null, %if.end ], [ null, %land.lhs.true ], [ %call9, %if.then72.sink.split ]
+  %ts_req.047 = phi ptr [ %call2, %err ], [ %call2, %if.end5 ], [ %call2, %if.end25 ], [ %call2, %if.end34 ], [ %call2, %if.end38 ], [ %call2, %land.lhs.true50 ], [ %call2, %land.lhs.true56 ], [ %call2, %land.lhs.true62 ], [ %call2, %land.lhs.true44 ], [ %call2, %create_digest.exit ], [ %call2, %if.end21 ], [ %call2, %if.end16 ], [ %call2, %if.end12 ], [ %call2, %if.end8 ], [ null, %if.end ], [ null, %land.lhs.true ], [ %call2, %if.then72.sink.split ]
+  %data.046 = phi ptr [ %data.1, %err ], [ null, %if.end5 ], [ null, %if.end25 ], [ %data.1, %if.end34 ], [ %data.1, %if.end38 ], [ %data.1, %land.lhs.true50 ], [ %data.1, %land.lhs.true56 ], [ %data.1, %land.lhs.true62 ], [ %data.1, %land.lhs.true44 ], [ %data.1, %create_digest.exit ], [ null, %if.end21 ], [ null, %if.end16 ], [ null, %if.end12 ], [ null, %if.end8 ], [ null, %if.end ], [ null, %land.lhs.true ], [ %data.046.ph, %if.then72.sink.split ]
   call void @TS_REQ_free(ptr noundef %ts_req.047) #7
   %2 = load ptr, ptr @bio_err, align 8
   %call73 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2, ptr noundef nonnull @.str.152) #7

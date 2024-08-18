@@ -1399,11 +1399,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %masked_notifier.i = getelementptr inbounds i8, ptr %add.ptr, i64 84
   %call1.i = call i32 @event_notifier_init(ptr noundef nonnull %masked_notifier.i, i32 noundef 0) #19
   %cmp.i = icmp slt i32 %call1.i, 0
-  br i1 %cmp.i, label %vhost_virtqueue_init.exit.thread116, label %if.end.i
-
-vhost_virtqueue_init.exit.thread116:              ; preds = %for.body
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %file.i)
-  br label %if.then25
+  br i1 %cmp.i, label %if.then25.sink.split, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body
   %call3.i = call i32 @event_notifier_get_wfd(ptr noundef nonnull %masked_notifier.i) #19
@@ -1438,8 +1434,7 @@ if.then14.i:                                      ; preds = %if.end10.i
 
 vhost_virtqueue_init.exit.thread120:              ; preds = %if.then14.i
   call void @event_notifier_cleanup(ptr noundef nonnull %masked_notifier.i) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %file.i)
-  br label %if.then25
+  br label %if.then25.sink.split
 
 if.end18.i:                                       ; preds = %if.then14.i
   %call20.i = call i32 @event_notifier_get_fd(ptr noundef nonnull %error_notifier.i) #19
@@ -1473,8 +1468,13 @@ vhost_virtqueue_init.exit:                        ; preds = %do.body.i, %do.body
   %cmp24 = icmp slt i32 %r.0.i85, 0
   br i1 %cmp24, label %if.then25, label %for.inc
 
-if.then25:                                        ; preds = %vhost_virtqueue_init.exit, %vhost_virtqueue_init.exit.thread120, %vhost_virtqueue_init.exit.thread116
-  %retval.0.i119 = phi i32 [ %call1.i, %vhost_virtqueue_init.exit.thread116 ], [ %call15.i, %vhost_virtqueue_init.exit.thread120 ], [ %r.0.i85, %vhost_virtqueue_init.exit ]
+if.then25.sink.split:                             ; preds = %for.body, %vhost_virtqueue_init.exit.thread120
+  %retval.0.i119.ph = phi i32 [ %call15.i, %vhost_virtqueue_init.exit.thread120 ], [ %call1.i, %for.body ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %file.i)
+  br label %if.then25
+
+if.then25:                                        ; preds = %vhost_virtqueue_init.exit, %if.then25.sink.split
+  %retval.0.i119 = phi i32 [ %retval.0.i119.ph, %if.then25.sink.split ], [ %r.0.i85, %vhost_virtqueue_init.exit ]
   %sub26 = sub i32 0, %retval.0.i119
   call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 1481, ptr noundef nonnull @__func__.vhost_dev_init, i32 noundef %sub26, ptr noundef nonnull @.str.12, i32 noundef %i.0151) #19
   br label %fail
@@ -4382,8 +4382,6 @@ if.then.i:                                        ; preds = %if.then
 vhost_log_alloc.exit.thread:                      ; preds = %if.then.i
   call void @error_report_err(ptr noundef nonnull %3) #19
   call void @g_free(ptr noundef nonnull %call.i) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %err.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %fd.i)
   br label %if.then5
 
 vhost_log_alloc.exit.thread11:                    ; preds = %if.then.i
@@ -4394,12 +4392,12 @@ vhost_log_alloc.exit.thread11:                    ; preds = %if.then.i
   store i32 1, ptr %refcnt.i12, align 8
   %fd10.i13 = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 %.pre.i, ptr %fd10.i13, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %err.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %fd.i)
   br label %if.then5
 
 if.then5:                                         ; preds = %vhost_log_alloc.exit.thread11, %vhost_log_alloc.exit.thread
   %retval.0.i10 = phi ptr [ null, %vhost_log_alloc.exit.thread ], [ %call.i, %vhost_log_alloc.exit.thread11 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %err.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %fd.i)
   store ptr %retval.0.i10, ptr @vhost_log_shm, align 8
   br label %if.end7
 

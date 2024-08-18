@@ -880,7 +880,7 @@ define internal fastcc void @_ZN5uu_cp8platform5linux14check_for_data17h8c819a41
   store ptr %13, ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 2, ptr %18, align 8
-  br label %93
+  br label %92
 
 19:                                               ; preds = %43, %22
   %.pn = phi { ptr, i32 } [ %23, %22 ], [ %44, %43 ]
@@ -1021,7 +1021,7 @@ define internal fastcc void @_ZN5uu_cp8platform5linux14check_for_data17h8c819a41
   call void @llvm.experimental.noalias.scope.decl(metadata !265)
   %71 = load i32, ptr %10, align 4, !alias.scope !268, !noundef !14
   %72 = call noundef i32 @close(i32 noundef %71), !noalias !268
-  br label %93
+  br label %92
 
 73:                                               ; preds = %19, %43
   %74 = landingpad { ptr, i32 }
@@ -1053,7 +1053,6 @@ define internal fastcc void @_ZN5uu_cp8platform5linux14check_for_data17h8c819a41
   call void @llvm.experimental.noalias.scope.decl(metadata !281)
   %81 = load i32, ptr %10, align 4, !alias.scope !284, !noundef !14
   %82 = call noundef i32 @close(i32 noundef %81), !noalias !284
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   br label %92
 
 83:                                               ; preds = %78
@@ -1078,12 +1077,9 @@ define internal fastcc void @_ZN5uu_cp8platform5linux14check_for_data17h8c819a41
   store i8 2, ptr %91, align 8
   br label %80
 
-92:                                               ; preds = %93, %80
-  ret void
-
-93:                                               ; preds = %70, %17
+92:                                               ; preds = %17, %70, %80
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  br label %92
+  ret void
 
 "_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h7ff92a6ca6f36b31E.exit": ; preds = %19
   resume { ptr, i32 } %.pn
@@ -1125,13 +1121,13 @@ define internal fastcc void @_ZN5uu_cp8platform5linux22check_sparse_detection17h
   %15 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %10, ptr %15, align 8
   store i8 1, ptr %0, align 8
-  br label %36
+  br label %33
 
 16:                                               ; preds = %13
   %17 = landingpad { ptr, i32 }
           cleanup
   %18 = invoke noundef i32 @close(i32 noundef %12)
-          to label %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h7ff92a6ca6f36b31E.exit" unwind label %37
+          to label %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h7ff92a6ca6f36b31E.exit" unwind label %36
 
 19:                                               ; preds = %13
   %20 = load i64, ptr %5, align 8, !range !237, !noundef !14
@@ -1161,28 +1157,24 @@ define internal fastcc void @_ZN5uu_cp8platform5linux22check_sparse_detection17h
   store i8 0, ptr %25, align 1
   store i8 0, ptr %0, align 8
   %31 = call noundef i32 @close(i32 noundef %12), !noalias !289
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   br label %33
 
 32:                                               ; preds = %22
   store i8 1, ptr %25, align 1
   br label %34
 
-33:                                               ; preds = %36, %30
+33:                                               ; preds = %14, %34, %30
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   ret void
 
 34:                                               ; preds = %32, %26
   %storemerge = phi i8 [ 0, %32 ], [ 1, %26 ]
   store i8 %storemerge, ptr %0, align 8
   %35 = call noundef i32 @close(i32 noundef %12), !noalias !300
-  br label %36
-
-36:                                               ; preds = %34, %14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   br label %33
 
-37:                                               ; preds = %16
-  %38 = landingpad { ptr, i32 }
+36:                                               ; preds = %16
+  %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #19
   unreachable

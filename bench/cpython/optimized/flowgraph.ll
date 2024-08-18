@@ -4771,14 +4771,7 @@ for.end.i.i10:                                    ; preds = %for.body.i.i9, %for
   %38 = load ptr, ptr %u_cellvars.i, align 8
   %call1624.i.i = call i32 @PyDict_Next(ptr noundef %38, ptr noundef nonnull %pos.i.i, ptr noundef nonnull %varname.i.i, ptr noundef nonnull %cellindex.i.i) #8
   %tobool.not25.i.i = icmp eq i32 %call1624.i.i, 0
-  br i1 %tobool.not25.i.i, label %build_cellfixedoffsets.exit.thread54.i, label %while.body.i.i
-
-build_cellfixedoffsets.exit.thread54.i:           ; preds = %for.end.i.i10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %varname.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %cellindex.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pos.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %varindex.i.i)
-  br label %if.end.i12
+  br i1 %tobool.not25.i.i, label %if.end.i12, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %for.end.i.i10, %while.cond.backedge.i.i
   %39 = load ptr, ptr %u_varnames.i, align 8
@@ -4840,7 +4833,7 @@ while.cond.backedge.i.i:                          ; preds = %if.end41.i.i, %if.e
   %46 = load ptr, ptr %u_cellvars.i, align 8
   %call16.i.i = call i32 @PyDict_Next(ptr noundef %46, ptr noundef nonnull %pos.i.i, ptr noundef nonnull %varname.i.i, ptr noundef nonnull %cellindex.i.i) #8
   %tobool.not.i.i11 = icmp eq i32 %call16.i.i, 0
-  br i1 %tobool.not.i.i11, label %build_cellfixedoffsets.exit.i, label %while.body.i.i, !llvm.loop !85
+  br i1 %tobool.not.i.i11, label %if.end.i12, label %while.body.i.i, !llvm.loop !85
 
 error.i.i:                                        ; preds = %land.lhs.true37.i.i, %land.lhs.true.i.i, %while.body.i.i
   call void @PyMem_Free(ptr noundef nonnull %call8.i.i) #8
@@ -4853,14 +4846,11 @@ build_cellfixedoffsets.exit.thread.i:             ; preds = %error.i.i, %if.then
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %varindex.i.i)
   br label %prepare_localsplus.exit.thread
 
-build_cellfixedoffsets.exit.i:                    ; preds = %while.cond.backedge.i.i
+if.end.i12:                                       ; preds = %while.cond.backedge.i.i, %for.end.i.i10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %varname.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %cellindex.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pos.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %varindex.i.i)
-  br label %if.end.i12
-
-if.end.i12:                                       ; preds = %build_cellfixedoffsets.exit.i, %build_cellfixedoffsets.exit.thread54.i
   %47 = load ptr, ptr %g, align 8
   %and.i.i = and i32 %code_flags, 672
   %tobool.not.i16.i = icmp eq i32 %and.i.i, 0

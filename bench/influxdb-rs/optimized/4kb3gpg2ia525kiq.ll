@@ -990,7 +990,7 @@ default.unreachable:                              ; preds = %3
   call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #17
   unreachable
 
-.critedge:                                        ; preds = %93, %.noexc164, %.thread302
+.critedge:                                        ; preds = %.noexc164, %93, %.thread302
   %137 = getelementptr inbounds i8, ptr %19, i64 24
   invoke void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17hb93880d2870dc0cfE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %137)
           to label %.noexc172 unwind label %91

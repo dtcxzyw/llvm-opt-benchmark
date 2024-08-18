@@ -2997,11 +2997,12 @@ _ZNK4Luau12_GLOBAL__N_110TypeCloner4findENS_7VariantIJPKNS_4TypeEPKNS_11TypePack
   br label %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findENS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE.exit
 
 _ZNK4Luau12_GLOBAL__N_110TypeCloner4findENS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE.exit: ; preds = %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findENS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE.exit.sink.split, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_11TypePackVarE.exit.i, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_4TypeE.exit.i
+  %.sink = phi i32 [ 0, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_4TypeE.exit.i ], [ 1, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_11TypePackVarE.exit.i ], [ %53, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findENS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE.exit.sink.split ]
   %.sroa.06.0.i29.i.sink = phi ptr [ %56, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_4TypeE.exit.i ], [ %93, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_11TypePackVarE.exit.i ], [ %130, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findENS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE.exit.sink.split ]
-  store i32 %53, ptr %5, align 8, !alias.scope !13
+  store i32 %.sink, ptr %5, align 8, !alias.scope !13
   store ptr %.sroa.06.0.i29.i.sink, ptr %15, align 8, !alias.scope !13
   store i8 0, ptr %14, align 8
-  %131 = sext i32 %53 to i64
+  %131 = sext i32 %.sink to i64
   %132 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEE9tableDtorE, i64 0, i64 %131
   %133 = load ptr, ptr %132, align 8
   invoke void %133(ptr noundef nonnull %15)

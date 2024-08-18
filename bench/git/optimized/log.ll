@@ -3710,22 +3710,15 @@ if.end847:                                        ; preds = %while.end
 if.then850:                                       ; preds = %if.end847
   %118 = load i32, ptr @config_cover_letter, align 4
   %cmp851 = icmp eq i32 %118, 3
-  br i1 %cmp851, label %if.then853, label %if.else856
-
-if.then853:                                       ; preds = %if.then850
   %cmp854 = icmp sgt i64 %indvars.iv384, 1
-  %conv855 = zext i1 %cmp854 to i32
+  %cmp857 = icmp eq i32 %118, 2
+  %cmp854.sink = select i1 %cmp851, i1 %cmp854, i1 %cmp857
+  %conv855 = zext i1 %cmp854.sink to i32
   store i32 %conv855, ptr %cover_letter, align 4
   br label %if.end860
 
-if.else856:                                       ; preds = %if.then850
-  %cmp857 = icmp eq i32 %118, 2
-  %conv858 = zext i1 %cmp857 to i32
-  store i32 %conv858, ptr %cover_letter, align 4
-  br label %if.end860
-
-if.end860:                                        ; preds = %if.then853, %if.else856, %if.end847
-  %119 = phi i32 [ %conv855, %if.then853 ], [ %conv858, %if.else856 ], [ %117, %if.end847 ]
+if.end860:                                        ; preds = %if.then850, %if.end847
+  %119 = phi i32 [ %117, %if.end847 ], [ %conv855, %if.then850 ]
   %.b88 = load i1, ptr @keep_subject, align 4
   %120 = load i32, ptr @auto_number, align 4
   %tobool863 = icmp eq i32 %120, 0

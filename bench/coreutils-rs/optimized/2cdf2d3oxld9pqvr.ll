@@ -2603,19 +2603,18 @@ common.resume:                                    ; preds = %432, %47, %385, %.b
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false)
   %.sroa.322.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %.sroa.11.0, ptr %.sroa.322.0..sroa_idx, align 8
-  br label %437
+  br label %436
 
 432:                                              ; preds = %.noexc34, %.noexc, %424
   %433 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$uu_csplit..patterns..Pattern$GT$$GT$17he0b7accbf9dde29eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %41) #15
-          to label %common.resume unwind label %438
+          to label %common.resume unwind label %437
 
 .loopexit:                                        ; preds = %429, %395
   %434 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %434, ptr noundef nonnull align 8 dereferenceable(24) %41, i64 24, i1 false)
   store i64 12, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %41)
   br label %436
 
 435:                                              ; preds = %417, %422
@@ -2627,17 +2626,14 @@ common.resume:                                    ; preds = %432, %47, %385, %.b
   %.sroa.228.sroa.2.0..sroa.228.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.032.i.i, ptr %.sroa.228.sroa.2.0..sroa.228.0..sroa_idx.sroa_idx, align 8
   call void @"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$uu_csplit..patterns..Pattern$GT$$GT$17he0b7accbf9dde29eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %41)
-  br label %437
-
-436:                                              ; preds = %437, %.loopexit
-  ret void
-
-437:                                              ; preds = %435, %431
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %41)
   br label %436
 
-438:                                              ; preds = %432
-  %439 = landingpad { ptr, i32 }
+436:                                              ; preds = %431, %435, %.loopexit
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %41)
+  ret void
+
+437:                                              ; preds = %432
+  %438 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #16
   unreachable

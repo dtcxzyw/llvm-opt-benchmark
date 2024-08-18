@@ -3127,11 +3127,7 @@ if.then:                                          ; preds = %lor.lhs.false.i.i.i
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
   %cmp = icmp eq i16 %bf.clear.i, 8
-  br i1 %cmp, label %if.then2, label %if.else
-
-if.then2:                                         ; preds = %if.then
-  store i8 1, ptr %hasBv, align 1
-  br label %cond.end
+  br i1 %cmp, label %cond.end.sink.split, label %if.else
 
 if.else:                                          ; preds = %if.then
   %bf.cast.i = zext nneg i16 %bf.clear.i to i32
@@ -3169,11 +3165,7 @@ for.body:                                         ; preds = %if.else, %for.cond
   %21 = load ptr, ptr %i.sroa.0.0184, align 8, !noalias !42
   store ptr %21, ptr %agg.tmp, align 8, !alias.scope !42
   %call9 = call noundef zeroext i1 @_ZN4cvc58internal4expr11hasBoundVarENS0_12NodeTemplateILb0EEE(ptr noundef nonnull %agg.tmp)
-  br i1 %call9, label %if.then10, label %for.cond
-
-if.then10:                                        ; preds = %for.body
-  store i8 1, ptr %hasBv, align 1
-  br label %cond.end
+  br i1 %call9, label %cond.end.sink.split, label %for.cond
 
 land.lhs.true:                                    ; preds = %for.cond, %if.else
   %22 = load ptr, ptr %n, align 8
@@ -3226,7 +3218,11 @@ lpad20:                                           ; preds = %if.then15
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp17) #18
   resume { ptr, i32 } %28
 
-cond.end:                                         ; preds = %if.then2, %if.then10, %if.then13.i.i, %if.then.i.i, %invoke.cont21, %land.lhs.true
+cond.end.sink.split:                              ; preds = %for.body, %if.then
+  store i8 1, ptr %hasBv, align 1
+  br label %cond.end
+
+cond.end:                                         ; preds = %cond.end.sink.split, %if.then13.i.i, %if.then.i.i, %invoke.cont21, %land.lhs.true
   %call.i5 = call noundef ptr @_ZN4cvc58internal11NodeManager9currentNMEv()
   %29 = load ptr, ptr %n, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i)
@@ -9575,11 +9571,7 @@ terminate.lpad.i:                                 ; preds = %if.then13.i.i
   unreachable
 
 _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %invoke.cont, %if.then.i.i, %if.then13.i.i
-  br i1 %call2, label %if.then3, label %if.else
-
-if.then3:                                         ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit
-  store i8 1, ptr %hasAbs, align 1
-  br label %if.end24
+  br i1 %call2, label %if.end24.sink.split, label %if.else
 
 lpad:                                             ; preds = %if.then
   %23 = landingpad { ptr, i32 }
@@ -9627,11 +9619,7 @@ for.body:                                         ; preds = %if.else, %for.cond
   %27 = load ptr, ptr %i.sroa.0.080, align 8, !noalias !99
   store ptr %27, ptr %agg.tmp, align 8, !alias.scope !99
   %call11 = call noundef zeroext i1 @_ZN4cvc58internal4expr18hasAbstractSubtermENS0_12NodeTemplateILb0EEE(ptr noundef nonnull %agg.tmp)
-  br i1 %call11, label %if.then12, label %for.cond
-
-if.then12:                                        ; preds = %for.body
-  store i8 1, ptr %hasAbs, align 1
-  br label %if.end24
+  br i1 %call11, label %if.end24.sink.split, label %for.cond
 
 land.lhs.true:                                    ; preds = %for.cond, %if.else
   %28 = load ptr, ptr %n, align 8
@@ -9684,7 +9672,11 @@ lpad21:                                           ; preds = %if.then16
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp18) #18
   br label %eh.resume
 
-if.end24:                                         ; preds = %if.then3, %if.then12, %if.then13.i.i13, %if.then.i.i7, %invoke.cont22, %land.lhs.true
+if.end24.sink.split:                              ; preds = %for.body, %_ZN4cvc58internal8TypeNodeD2Ev.exit
+  store i8 1, ptr %hasAbs, align 1
+  br label %if.end24
+
+if.end24:                                         ; preds = %if.end24.sink.split, %if.then13.i.i13, %if.then.i.i7, %invoke.cont22, %land.lhs.true
   %call.i15 = call noundef ptr @_ZN4cvc58internal11NodeManager9currentNMEv()
   %35 = load ptr, ptr %n, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i)

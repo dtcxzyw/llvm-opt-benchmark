@@ -1538,10 +1538,7 @@ if.end.i:                                         ; preds = %_ZN6hermes2vm15Hand
 
 _ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread161: ; preds = %if.end.i
   %retval.sroa.0.0.copyload.i81 = load i64, ptr %retval.0.i.i.i.i.i.i90, align 8
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %gcScope.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp30.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp55.i)
-  br label %sw.epilog
+  br label %if.end33.sink.split
 
 if.end15.i:                                       ; preds = %if.end.i
   %15 = load ptr, ptr %this, align 8
@@ -1697,10 +1694,7 @@ if.else106.i:                                     ; preds = %_ZN6hermes2vm15Hand
 _ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread192: ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit
   %retval.sroa.0.0.copyload.i34 = load i64, ptr %retval.0.i.i.i.i.i.i90, align 8
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope.i) #12
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %gcScope.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp30.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp55.i)
-  br label %sw.epilog
+  br label %if.end33.sink.split
 
 _ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread188: ; preds = %if.then95.i, %if.end62.i, %if.end57.i, %if.end32.i
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope.i) #12
@@ -1717,6 +1711,13 @@ _ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit: ; preds = %i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp55.i)
   %cmp.i4 = icmp eq i32 %retval.i.sroa.0.0, 0
   br i1 %cmp.i4, label %cleanup, label %sw.epilog
+
+if.end33.sink.split:                              ; preds = %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread161, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread192
+  %retval.i.sroa.13153.1167.ph = phi i64 [ %retval.sroa.0.0.copyload.i34, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread192 ], [ %retval.sroa.0.0.copyload.i81, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread161 ]
+  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %gcScope.i)
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp30.i)
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp55.i)
+  br label %sw.epilog
 
 sw.bb38:                                          ; preds = %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %gcScope.i6)
@@ -1923,8 +1924,8 @@ _ZN6hermes2vm9JSONLexer13errorWithCharERKNS0_11TwineChar16EDs.exit.i: ; preds = 
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i2.i)
   br label %cleanup
 
-sw.epilog:                                        ; preds = %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit, %if.else69.i, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser10parseArrayEv.exit.thread176, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread161, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread192, %sw.bb60, %sw.bb54, %sw.bb20, %sw.bb
-  %.sink = phi i64 [ -1548112371908608, %sw.bb60 ], [ -1407374883553280, %sw.bb54 ], [ %retval.sroa.0.0.i, %sw.bb20 ], [ %retval.sroa.0.0.copyload.i2, %sw.bb ], [ %retval.sroa.0.0.copyload.i81, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread161 ], [ undef, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit ], [ %retval.sroa.0.0.copyload.i34, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread192 ], [ %retval.sroa.0.0.copyload.i94, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser10parseArrayEv.exit.thread176 ], [ undef, %if.else69.i ], [ -1407374883553279, %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit ]
+sw.epilog:                                        ; preds = %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit, %if.else69.i, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser10parseArrayEv.exit.thread176, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit, %if.end33.sink.split, %sw.bb60, %sw.bb54, %sw.bb20, %sw.bb
+  %.sink = phi i64 [ -1548112371908608, %sw.bb60 ], [ -1407374883553280, %sw.bb54 ], [ %retval.sroa.0.0.i, %sw.bb20 ], [ %retval.sroa.0.0.copyload.i2, %sw.bb ], [ undef, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit ], [ %retval.i.sroa.13153.1167.ph, %if.end33.sink.split ], [ %retval.sroa.0.0.copyload.i94, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser10parseArrayEv.exit.thread176 ], [ undef, %if.else69.i ], [ -1407374883553279, %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit ]
   store i64 %.sink, ptr %retval.0.i.i.i.i.i.i, align 8
   %call69 = call noundef i32 @_ZN6hermes2vm9JSONLexer7advanceEv(ptr noundef nonnull align 8 dereferenceable(112) %lexer_) #12
   %cmp70 = icmp eq i32 %call69, 0

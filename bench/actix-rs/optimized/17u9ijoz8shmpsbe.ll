@@ -1467,9 +1467,9 @@ common.resume:                                    ; preds = %33, %26
   br label %30
 
 30:                                               ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9bddee7a738565ceE.exit", %8
-  %storemerge = phi ptr [ %19, %8 ], [ %23, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9bddee7a738565ceE.exit" ]
-  %anon.04b20bee47e76f431c3f792101fc2c15.33.sink = phi ptr [ %20, %8 ], [ @anon.04b20bee47e76f431c3f792101fc2c15.33, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9bddee7a738565ceE.exit" ]
-  store ptr %storemerge, ptr %7, align 8
+  %.sink = phi ptr [ %23, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9bddee7a738565ceE.exit" ], [ %19, %8 ]
+  %anon.04b20bee47e76f431c3f792101fc2c15.33.sink = phi ptr [ @anon.04b20bee47e76f431c3f792101fc2c15.33, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9bddee7a738565ceE.exit" ], [ %20, %8 ]
+  store ptr %.sink, ptr %7, align 8
   %31 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %anon.04b20bee47e76f431c3f792101fc2c15.33.sink, ptr %31, align 8
   %32 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17he2d9af34b356b753E"(i64 noundef %3, i1 noundef zeroext false)
@@ -1494,7 +1494,7 @@ common.resume:                                    ; preds = %33, %26
   %.sroa.01.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
   store i64 %3, ptr %.sroa.01.sroa.5.0..sroa_idx, align 8
   %40 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %storemerge, ptr %40, align 8
+  store ptr %.sink, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %anon.04b20bee47e76f431c3f792101fc2c15.33.sink, ptr %41, align 8
   store i64 9, ptr %0, align 8

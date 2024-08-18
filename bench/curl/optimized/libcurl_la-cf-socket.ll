@@ -1590,7 +1590,7 @@ do.end21.i:                                       ; preds = %if.then14.i, %land.
   %18 = load i32, ptr %sock.i, align 8
   %call23.i = tail call i32 @curlx_nonblock(i32 noundef %18, i32 noundef 1) #13
   %19 = load i32, ptr %addr.i, align 8
-  switch i32 %19, label %cf_udp_setup_quic.exit.thread [
+  switch i32 %19, label %do.body24 [
     i32 2, label %sw.bb.i
     i32 10, label %sw.bb27.i
   ]
@@ -1599,23 +1599,16 @@ sw.bb.i:                                          ; preds = %do.end21.i
   store i32 2, ptr %val.i, align 4
   %20 = load i32, ptr %sock.i, align 8
   %call26.i = call i32 @setsockopt(i32 noundef %20, i32 noundef 0, i32 noundef 10, ptr noundef nonnull %val.i, i32 noundef 4) #13
-  br label %cf_udp_setup_quic.exit.thread
+  br label %do.body24
 
 sw.bb27.i:                                        ; preds = %do.end21.i
   store i32 2, ptr %val28.i, align 4
   %21 = load i32, ptr %sock.i, align 8
   %call30.i = call i32 @setsockopt(i32 noundef %21, i32 noundef 41, i32 noundef 23, ptr noundef nonnull %val28.i, i32 noundef 4) #13
-  br label %cf_udp_setup_quic.exit.thread
-
-cf_udp_setup_quic.exit.thread:                    ; preds = %sw.bb27.i, %sw.bb.i, %do.end21.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val28.i)
   br label %do.body24
 
 cf_udp_setup_quic.exit.thread39:                  ; preds = %if.then.i, %if.then.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %buffer.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val28.i)
   br label %do.body24
 
 cf_udp_setup_quic.exit:                           ; preds = %do.body.i.i, %land.lhs.true.i.i, %if.then.i.i
@@ -1626,7 +1619,9 @@ cf_udp_setup_quic.exit:                           ; preds = %do.body.i.i, %land.
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val28.i)
   br label %return
 
-do.body24:                                        ; preds = %cf_udp_setup_quic.exit.thread39, %cf_udp_setup_quic.exit.thread
+do.body24:                                        ; preds = %do.end21.i, %sw.bb.i, %sw.bb27.i, %cf_udp_setup_quic.exit.thread39
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val28.i)
   %tobool25.not = icmp eq ptr %data, null
   br i1 %tobool25.not, label %if.end64, label %land.lhs.true26
 

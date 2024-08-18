@@ -7922,13 +7922,13 @@ while.end.i.i:                                    ; preds = %while.cond.backedge
   %177 = load i64, ptr %call1.i.i, align 8
   %178 = and i64 %177, 2147483648
   %cmp.i52.not.i.i = icmp eq i64 %178, 0
-  br i1 %cmp.i52.not.i.i, label %if.end.i20.i.i, label %type_new_set_names.exit.thread103.i
+  br i1 %cmp.i52.not.i.i, label %if.end.i20.i.i, label %if.end12.i18
 
 if.end.i20.i.i:                                   ; preds = %while.end.i.i
   %dec.i21.i.i = add i64 %177, -1
   store i64 %dec.i21.i.i, ptr %call1.i.i, align 8
   %cmp.i22.i.i = icmp eq i64 %dec.i21.i.i, 0
-  br i1 %cmp.i22.i.i, label %type_new_set_names.exit.i, label %type_new_set_names.exit.thread103.i
+  br i1 %cmp.i22.i.i, label %type_new_set_names.exit.i, label %if.end12.i18
 
 error.i.i:                                        ; preds = %if.then5.i.i, %if.then13.i.i
   %179 = load i64, ptr %call1.i.i, align 8
@@ -7955,20 +7955,14 @@ type_new_set_names.exit.thread.i:                 ; preds = %if.end.i.i75.i, %er
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i.i)
   br label %error.i
 
-type_new_set_names.exit.thread103.i:              ; preds = %if.end.i20.i.i, %while.end.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %key.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i.i)
-  br label %if.end12.i18
-
 type_new_set_names.exit.i:                        ; preds = %if.end.i20.i.i
   call void @_Py_Dealloc(ptr noundef nonnull %call1.i.i) #20
+  br label %if.end12.i18
+
+if.end12.i18:                                     ; preds = %type_new_set_names.exit.i, %if.end.i20.i.i, %while.end.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %key.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i.i)
-  br label %if.end12.i18
-
-if.end12.i18:                                     ; preds = %type_new_set_names.exit.i, %type_new_set_names.exit.thread103.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %args.i.i)
   store ptr %call.i25.i.i, ptr %args.i.i, align 16
   %arrayinit.element.i.i = getelementptr inbounds i8, ptr %args.i.i, i64 8
@@ -24902,7 +24896,7 @@ if.end.i94:                                       ; preds = %lookup_tp_dict.exit
 
 if.then3.i:                                       ; preds = %if.end.i94
   %cmp4.not.i = icmp eq ptr %12, @_Py_NoneStruct
-  br i1 %cmp4.not.i, label %_PyType_GetSlotNames.exit.thread106, label %land.lhs.true.i
+  br i1 %cmp4.not.i, label %if.end16, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then3.i
   %13 = getelementptr i8, ptr %12, i64 8
@@ -24911,7 +24905,7 @@ land.lhs.true.i:                                  ; preds = %if.then3.i
   %call5.val.i = load i64, ptr %14, align 8
   %15 = and i64 %call5.val.i, 33554432
   %tobool.not.i = icmp eq i64 %15, 0
-  br i1 %tobool.not.i, label %if.then7.i, label %_PyType_GetSlotNames.exit
+  br i1 %tobool.not.i, label %if.then7.i, label %if.end16
 
 if.then7.i:                                       ; preds = %land.lhs.true.i
   %16 = load ptr, ptr @PyExc_TypeError, align 8
@@ -24982,7 +24976,7 @@ Py_DECREF.exit36.i:                               ; preds = %Py_DECREF.exit36thr
 
 if.end20.i:                                       ; preds = %Py_DECREF.exit36.i
   %cmp21.not.i = icmp eq ptr %24, @_Py_NoneStruct
-  br i1 %cmp21.not.i, label %_PyType_GetSlotNames.exit.thread106, label %land.lhs.true22.i
+  br i1 %cmp21.not.i, label %if.end16, label %land.lhs.true22.i
 
 land.lhs.true22.i:                                ; preds = %if.end20.i
   %25 = getelementptr i8, ptr %24, i64 8
@@ -24991,7 +24985,7 @@ land.lhs.true22.i:                                ; preds = %if.end20.i
   %call23.val.i = load i64, ptr %26, align 8
   %27 = and i64 %call23.val.i, 33554432
   %tobool25.not.i = icmp eq i64 %27, 0
-  br i1 %tobool25.not.i, label %if.then26.i, label %_PyType_GetSlotNames.exit
+  br i1 %tobool25.not.i, label %if.then26.i, label %if.end16
 
 if.then26.i:                                      ; preds = %land.lhs.true22.i
   %28 = load ptr, ptr @PyExc_TypeError, align 8
@@ -25020,15 +25014,6 @@ _PyType_GetSlotNames.exit.thread:                 ; preds = %lookup_tp_dict.exit
   %cmp.i229.not = icmp eq i64 %33, 0
   br i1 %cmp.i229.not, label %if.end.i222, label %return
 
-_PyType_GetSlotNames.exit.thread106:              ; preds = %if.then3.i, %if.end20.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %slotnames.i)
-  br label %if.end16
-
-_PyType_GetSlotNames.exit:                        ; preds = %land.lhs.true.i, %land.lhs.true22.i
-  %retval.0.i = phi ptr [ %12, %land.lhs.true.i ], [ %24, %land.lhs.true22.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %slotnames.i)
-  br label %if.end16
-
 if.end.i222:                                      ; preds = %_PyType_GetSlotNames.exit.thread
   %dec.i223 = add i64 %32, -1
   store i64 %dec.i223, ptr %state.0, align 8
@@ -25039,8 +25024,9 @@ if.then1.i225:                                    ; preds = %if.end.i222
   call void @_Py_Dealloc(ptr noundef nonnull %state.0) #20
   br label %return
 
-if.end16:                                         ; preds = %_PyType_GetSlotNames.exit, %_PyType_GetSlotNames.exit.thread106
-  %retval.0.i109 = phi ptr [ @_Py_NoneStruct, %_PyType_GetSlotNames.exit.thread106 ], [ %retval.0.i, %_PyType_GetSlotNames.exit ]
+if.end16:                                         ; preds = %land.lhs.true22.i, %land.lhs.true.i, %if.end20.i, %if.then3.i
+  %retval.0.i109 = phi ptr [ @_Py_NoneStruct, %if.then3.i ], [ @_Py_NoneStruct, %if.end20.i ], [ %12, %land.lhs.true.i ], [ %24, %land.lhs.true22.i ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %slotnames.i)
   br i1 %tobool.not, label %if.end43, label %if.then18
 
 if.then18:                                        ; preds = %if.end16
