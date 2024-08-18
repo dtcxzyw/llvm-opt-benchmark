@@ -18956,7 +18956,7 @@ openblas/saxpy_k.c.ll 77869028
 openblas/sdsdot_k.c.ll 63298390
 openblas/sgemm_beta.c.ll 83986705
 openblas/sgemm_direct_performant.c.ll 38843852
-openblas/sgemm_incopy.c.ll 194846845
+openblas/sgemm_incopy.c.ll 195041741
 openblas/sgemm_kernel.c.ll 121041185
 openblas/sgemm_oncopy.c.ll 106152684
 openblas/sgemm_otcopy.c.ll 143365634
@@ -26615,7 +26615,7 @@ php/zend_execute_API.ll 894446865
 php/zend_extensions.ll 193277869
 php/zend_fibers.ll 296459414
 php/zend_file_cache.ll 2319555694
-php/zend_float.ll 35857540
+php/zend_float.ll 35893483
 php/zend_func_info.ll 158815214
 php/zend_gc.ll 1640045693
 php/zend_gdb.ll 54897601
@@ -28713,7 +28713,7 @@ qemu/hw_core_sysbus-fdt.c.ll 161689499
 qemu/hw_core_sysbus.c.ll 122272788
 qemu/hw_display_ati.c.ll 531467851
 qemu/hw_display_ati_dbg.c.ll 33920856
-qemu/hw_display_bochs-display.c.ll 120322863
+qemu/hw_display_bochs-display.c.ll 120443315
 qemu/hw_display_cirrus_vga.c.ll 11675943121
 qemu/hw_display_edid-generate.c.ll 304310456
 qemu/hw_display_edid-region.c.ll 37209588
@@ -28901,7 +28901,7 @@ qemu/hw_virtio_vhost-vdpa.c.ll 925426276
 qemu/hw_virtio_vhost-vsock-common.c.ll 109969047
 qemu/hw_virtio_vhost-vsock.c.ll 88133292
 qemu/hw_virtio_vhost.c.ll 992385940
-qemu/hw_virtio_virtio-balloon.c.ll 393151360
+qemu/hw_virtio_virtio-balloon.c.ll 393544527
 qemu/hw_virtio_virtio-bus.c.ll 123291086
 qemu/hw_virtio_virtio-config-io.c.ll 81576525
 qemu/hw_virtio_virtio-crypto.c.ll 430306863
