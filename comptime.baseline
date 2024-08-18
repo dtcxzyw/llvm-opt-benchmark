@@ -12964,7 +12964,7 @@ linux/callchain.ll 102196531
 linux/callthunks.ll 118676005
 linux/cancel.ll 144329633
 linux/cap_audit.ll 288493406
-linux/capability.ll 113557680
+linux/capability.ll 113671263
 linux/card.ll 123837431
 linux/cbc.ll 70780373
 linux/ccm.ll 226908085
@@ -20678,7 +20678,7 @@ openexr/internal_piz.c.ll 414807297
 openexr/internal_pxr24.c.ll 234806324
 openexr/internal_structs.c.ll 141142427
 openexr/opaque.c.ll 107184166
-openexr/pack.c.ll 224647761
+openexr/pack.c.ll 224872576
 openexr/parse_header.c.ll 930910628
 openexr/part.c.ll 188240418
 openexr/part_attr.c.ll 1464108750
@@ -36364,7 +36364,7 @@ wireshark/tvbuff_lz77.c.ll 100336169
 wireshark/tvbuff_lz77huff.c.ll 244227513
 wireshark/tvbuff_lznt1.c.ll 142693980
 wireshark/tvbuff_rdp.c.ll 308342023
-wireshark/tvbuff_subset.c.ll 78298634
+wireshark/tvbuff_subset.c.ll 78376959
 wireshark/tvbuff_zlib.c.ll 110154856
 wireshark/tvbuff_zstd.c.ll 58197043
 wireshark/uat.c.ll 377337818
