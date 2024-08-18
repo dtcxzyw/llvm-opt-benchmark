@@ -20730,7 +20730,7 @@ openjdk/Continuation.ll 34419716
 openjdk/ContinuationSupport.ll 34369138
 openjdk/DataBufferNative.ll 64067391
 openjdk/DatagramChannelImpl.ll 52735757
-openjdk/DatagramDispatcher.ll 51615510
+openjdk/DatagramDispatcher.ll 51667261
 openjdk/DefaultProxySelector.ll 161724716
 openjdk/Deflater.ll 103615678
 openjdk/DiagnosticCommandImpl.ll 116340794
